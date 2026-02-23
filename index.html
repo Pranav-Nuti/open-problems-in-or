@@ -12,6 +12,9 @@
   </header>
 
   <main>
+    <div class="wip-warning" role="alert">
+      <strong>Work in progress.</strong> This site is under active development. Content may be incomplete, placeholder, or subject to change.
+    </div>
     <ul class="problem-list" id="problem-list">
       <!-- Populated by JavaScript -->
     </ul>
@@ -30,12 +33,12 @@
 
   <script>
     const PROBLEMS_DATA = [
-      { id: 1, name: "Polynomial-Time Algorithm for Stochastic Queueing Networks", author: "J. Michael Harrison", difficulty: "Hard", chanceOpen: "High" },
-      { id: 2, name: "Tight Bounds for Online Bipartite Matching", author: "Vahab Mirrokni, Rad Niazadeh", difficulty: "Medium", chanceOpen: "Medium" },
-      { id: 3, name: "Computational Complexity of Multi-Stage Stochastic Programming", author: "Andy Philpott, Alexander Shapiro", difficulty: "Hard", chanceOpen: "High" },
-      { id: 4, name: "Approximation Algorithms for the Traveling Salesman Problem with Time Windows", author: "David Williamson", difficulty: "Medium", chanceOpen: "Low" },
-      { id: 5, name: "Convex Relaxation Tightness for Mixed-Integer Programming", author: "Sanjeeb Dash, Oktay Günlük", difficulty: "Hard", chanceOpen: "High" },
-      { id: 6, name: "Sample Complexity of Reinforcement Learning in Continuous Action Spaces", author: "John Schulman, Pieter Abbeel", difficulty: "Hard", chanceOpen: "Medium" }
+      { id: 1, name: "Polynomial-Time Algorithm for Stochastic Queueing Networks", author: "J. Michael Harrison" },
+      { id: 2, name: "Tight Bounds for Online Bipartite Matching", author: "Vahab Mirrokni, Rad Niazadeh" },
+      { id: 3, name: "Computational Complexity of Multi-Stage Stochastic Programming", author: "Andy Philpott, Alexander Shapiro" },
+      { id: 4, name: "Approximation Algorithms for the Traveling Salesman Problem with Time Windows", author: "David Williamson" },
+      { id: 5, name: "Convex Relaxation Tightness for Mixed-Integer Programming", author: "Sanjeeb Dash, Oktay Günlük" },
+      { id: 6, name: "Sample Complexity of Reinforcement Learning in Continuous Action Spaces", author: "John Schulman, Pieter Abbeel" }
     ];
     const PROBLEMS_PER_PAGE = 3;
     const totalPages = Math.ceil(PROBLEMS_DATA.length / PROBLEMS_PER_PAGE);
@@ -60,8 +63,6 @@
             <h2 class="problem-card-title">${escapeHtml(p.name)}</h2>
             <div class="problem-card-meta">
               <span>Author: ${escapeHtml(p.author)}</span>
-              <span>Difficulty: ${escapeHtml(p.difficulty)}</span>
-              <span>Chance open: ${escapeHtml(p.chanceOpen)}</span>
             </div>
           </a>
         </li>
