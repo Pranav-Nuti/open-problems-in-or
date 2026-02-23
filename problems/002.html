@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #2: Tight Bounds for Online Bipartite Matching</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #2</div>
+      <h1 class="problem-title">Tight Bounds for Online Bipartite Matching</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">Vahab Mirrokni, Rad Niazadeh</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Medium</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">Medium</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Consider a bipartite graph \( G = (L \cup R, E) \) where:</p>
+      <ul>
+        <li>\( L = \{u_1, u_2, \ldots, u_n\} \) are "offline" vertices (known in advance)</li>
+        <li>\( R \) are "online" vertices that arrive one at a time</li>
+        <li>When vertex \( v \in R \) arrives, we see its incident edges and must irrevocably match \(v\) to at most one neighbor in \(L\)</li>
+      </ul>
+      <p>Let \( \text{ALG}(\sigma) \) denote the size of the matching produced by algorithm ALG on arrival order \( \sigma \), and \( \text{OPT}(\sigma) \) the maximum matching size. The <em>competitive ratio</em> is:
+        \[ \inf_{\sigma} \frac{\mathbb{E}[\text{ALG}(\sigma)]}{\text{OPT}(\sigma)} \]
+      where the expectation is over any randomness in ALG.</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> For the adversarial online bipartite matching problem (vertices on one side arrive in adversarial order), the classic <em>Ranking</em> algorithm achieves a competitive ratio of \( 1 - 1/e \approx 0.632 \). It is known that no online algorithm can achieve better than \( 1 - 1/e \) (Karp, Vazirani, Vazirani; 1990).</p>
+      <p>However, under <em>random-order arrival</em> (ROA), where the arrival order is uniformly random, the best known lower bound is approximately \( 0.696 \) (Manshadi et al., 2012), while the best known upper bound is \( 0.823 \) (Huang et al., 2022).</p>
+      <p><em>What is the exact competitive ratio achievable under random-order arrival? Is there an algorithm that achieves \( 0.7 \) or higher? Can we close the gap between \( 0.696 \) and \( 0.823 \)?</em></p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Karp, Vazirani, Vazirani (1990): An optimal algorithm for online bipartite matching</li>
+        <li>Aggarwal et al. (2011): Improved analysis of Ranking for online matching</li>
+        <li>Manshadi et al. (2012): Online stochastic matching: 0.696-competitive</li>
+        <li>Jaillet, Lu (2014): Online stochastic matching: New results</li>
+        <li>Huang et al. (2022): Tight competitive ratio for online matching with random arrivals</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

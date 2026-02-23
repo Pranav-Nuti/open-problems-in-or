@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #3: Computational Complexity of Multi-Stage Stochastic Programming</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #3</div>
+      <h1 class="problem-title">Computational Complexity of Multi-Stage Stochastic Programming</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">Andy Philpott, Alexander Shapiro</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Hard</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">High</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Consider a \(T\)-stage stochastic linear program:</p>
+      <p>\[
+        \min_{x_1} \; c_1^\top x_1 + \mathbb{E}_{\xi_2}\left[ \min_{x_2} c_2(\xi_2)^\top x_2 + \cdots + \mathbb{E}_{\xi_T|\xi_{2:T-1}}\left[ \min_{x_T} c_T(\xi_T)^\top x_T \right] \right]
+      \]</p>
+      <p>subject to:</p>
+      <p>\[
+        A_1 x_1 = b_1, \quad T_t(\xi_t) x_{t-1} + W_t(\xi_t) x_t = h_t(\xi_t), \quad x_t \geq 0
+      \]</p>
+      <p>where \( \xi_t \) denotes the random data at stage \(t\), and \( x_t \) is the decision at stage \(t\) (possibly depending on \( \xi_2, \ldots, \xi_t \)). The <em>scenario tree</em> has \( S \) scenarios; if \( S \) is finite, the problem becomes a large linear program.</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> Multi-stage stochastic linear programming is known to be PSPACE-hard in the number of stages (Dye et al., 2003). For two-stage stochastic programs, the problem is NP-hard when the distribution is discrete with a polynomial number of scenarios.</p>
+      <p>Key questions that remain open:</p>
+      <ol>
+        <li><em>For a fixed number of stages \(T\), what is the precise complexity of solving multi-stage stochastic LPs when the scenario tree has \(n\) nodes? Is there an algorithm with running time polynomial in \(n\) (and the input size) when \(T\) is fixed?</em></li>
+        <li><em>Under what conditions on the underlying process (e.g., stagewise independence, finitely supported distributions) can we obtain tractable approximations with provable guarantees?</em></li>
+        <li><em>What is the complexity of computing an \(\varepsilon\)-optimal solution when the uncertainty is continuous (e.g., driven by Brownian motion)?</em></li>
+      </ol>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Shapiro, Nemirovski (2005): On complexity of stochastic programming</li>
+        <li>Dye, Stougie, Tomasgard (2003): The stochastic single-node service provision problem</li>
+        <li>Hannah, Powell (2019): Parsimonious temporal aggregation for dynamic programming</li>
+        <li>Lulli, Sen (2004): A branch-and-price algorithm for multi-stage stochastic integer programming</li>
+        <li>Shapiro (2011): Analysis of stochastic dual dynamic programming method</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

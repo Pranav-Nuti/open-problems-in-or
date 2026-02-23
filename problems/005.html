@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #5: Convex Relaxation Tightness for Mixed-Integer Programming</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #5</div>
+      <h1 class="problem-title">Convex Relaxation Tightness for Mixed-Integer Programming</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">Sanjeeb Dash, Oktay Günlük</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Hard</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">High</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Consider a mixed-integer linear program (MIP):</p>
+      <p>\[
+        \min \{ c^\top x : Ax \geq b,\, x_j \in \mathbb{Z} \text{ for } j \in I,\, x \geq 0 \}
+      \]</p>
+      <p>Let \( P = \{ x : Ax \geq b, x \geq 0 \} \) be the linear relaxation, and \( P_I = \text{conv}\{ x \in P : x_j \in \mathbb{Z} \;\forall j \in I \} \) the integer hull. The <em>integrality gap</em> for a given \(c\) is:
+        \[ \frac{\min\{ c^\top x : x \in P_I \}}{\min\{ c^\top x : x \in P \}}
+      \]</p>
+      <p>A <em>cutting plane</em> is a linear inequality \( \alpha^\top x \geq \beta \) valid for \( P_I \) but not for \( P \). The closure \( P' \) after adding all such cuts is the first Chvátal-Gomory closure.</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> For general MIPs, the integrality gap can be arbitrarily large. A fundamental question is: <em>For which classes of MIPs does the linear programming relaxation (possibly augmented with a polynomial number of cutting planes) provide a constant-factor approximation?</em></p>
+      <p>More precisely:</p>
+      <ol>
+        <li><em>Characterize the family of MIPs for which \( P \) (or \( P' \)) approximates \( P_I \) within a constant factor for all objectives \(c\).</em></li>
+        <li><em>For capacitated facility location, set cover, and other classic problems: how many rounds of the Sherali-Adams (or Lasserre) hierarchy are needed to achieve a constant integrality gap? Is a polynomial number of rounds sufficient?</em></li>
+        <li><em>Is there a poly-time algorithm to separate over the split closure for general MIPs?</em></li>
+      </ol>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Chvátal (1973): Edmonds polytopes and a hierarchy of relaxations</li>
+        <li>Nemhauser, Wolsey (1988): Integer and Combinatorial Optimization</li>
+        <li>Cornuéjols, Li (2001): Elementary closures for mixed integer programs</li>
+        <li>Dash, Günlük (2012): On the strength of split cuts</li>
+        <li>Rothvoß (2017): The matching polytope has exponential extension complexity</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

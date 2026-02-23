@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #4: Approximation Algorithms for TSP with Time Windows</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #4</div>
+      <h1 class="problem-title">Approximation Algorithms for the Traveling Salesman Problem with Time Windows</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">David Williamson</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Medium</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">Low</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Let \( G = (V, E) \) be a complete graph with \( |V| = n \) vertices, metric edge costs \( c_{ij} \geq 0 \), and for each vertex \( i \) a time window \( [a_i, b_i] \). A feasible tour visits each vertex exactly once, starting and ending at a depot (vertex 1), and arrives at each vertex \( i \) within its time window. Waiting is allowed.</p>
+      <p>Formally, a tour is a permutation \( \pi \) of \( \{1, \ldots, n\} \) with \( \pi(1) = 1 \). The arrival time at vertex \( \pi(k) \) is:
+        \[ t_k = \max\left\{ t_{k-1} + c_{\pi(k-1),\pi(k)}, \; a_{\pi(k)} \right\} \]
+      with \( t_1 = 0 \). Feasibility requires \( t_k \leq b_{\pi(k)} \) for all \(k\). The objective is to minimize total travel time \( \sum_{k=1}^{n-1} c_{\pi(k),\pi(k+1)} + c_{\pi(n),1} \).</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> The Traveling Salesman Problem with Time Windows (TSPTW) is strongly NP-hard. For the metric TSP (without time windows), the best approximation ratio is \( 1.5 \) (Christofides-Serdyukov). For TSPTW:</p>
+      <ul>
+        <li>No constant-factor approximation is known in the general metric case</li>
+        <li>On the line (1D), a PTAS exists (Tsitsiklis, 1992)</li>
+        <li>For the "nice" case where time windows are "reasonable" relative to travel times, some heuristics perform well empirically</li>
+      </ul>
+      <p><em>Does there exist a constant-factor approximation algorithm for metric TSPTW? What is the best approximation ratio achievable (assuming P ≠ NP)? Is there a \( O(\log n) \)-approximation?</em></p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Savelsbergh, Sol (1995): The general pickup and delivery problem</li>
+        <li>Focacci, Lodi, Milano (2002): A hybrid exact algorithm for the TSPTW</li>
+        <li>Ascheuer et al. (2000): A branch & cut algorithm for the asymmetric TSP with time windows</li>
+        <li>Bökler, Ehrgott (2016): Multiobjective optimization and multi-objective TSP</li>
+        <li>Gendreau et al. (1998): A tabu search heuristic for the vehicle routing problem with time windows</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

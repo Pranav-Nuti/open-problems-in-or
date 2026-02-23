@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #6: Sample Complexity of RL in Continuous Action Spaces</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #6</div>
+      <h1 class="problem-title">Sample Complexity of Reinforcement Learning in Continuous Action Spaces</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">John Schulman, Pieter Abbeel</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Hard</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">Medium</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Consider a Markov Decision Process (MDP) \( \mathcal{M} = (\mathcal{S}, \mathcal{A}, P, r, \gamma) \) where:</p>
+      <ul>
+        <li>\( \mathcal{S} \) is the state space (possibly continuous)</li>
+        <li>\( \mathcal{A} \subseteq \mathbb{R}^d \) is a compact continuous action space</li>
+        <li>\( P(s' | s, a) \) is the transition kernel</li>
+        <li>\( r : \mathcal{S} \times \mathcal{A} \to [0, 1] \) is the reward function</li>
+        <li>\( \gamma \in (0, 1) \) is the discount factor</li>
+      </ul>
+      <p>The value function is \( V^\pi(s) = \mathbb{E}_\pi\left[ \sum_{t=0}^{\infty} \gamma^t r(s_t, a_t) \mid s_0 = s \right] \). The goal is to find a policy \( \pi \) that maximizes \( J(\pi) = \mathbb{E}_{s_0 \sim \rho}[V^\pi(s_0)] \).</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> For finite state and action spaces, sample-efficient PAC bounds for finding an \( \varepsilon \)-optimal policy are known (e.g., \( \tilde{O}(|S||A| / ((1-\gamma)^3 \varepsilon^2)) \) samples). For continuous action spaces, standard discretization leads to a dependence on \( |\mathcal{A}| \) that is exponential in the dimension \(d\).</p>
+      <p>Key open questions:</p>
+      <ol>
+        <li><em>What is the minimax sample complexity for learning an \(\varepsilon\)-optimal policy when \(\mathcal{A} = [0,1]^d\)? Is a polynomial dependence on \(d\) achievable?</em></li>
+        <li><em>Under what structural assumptions (e.g., Lipschitz rewards/transitions, linear MDPs) can we obtain sample complexity bounds that avoid the curse of dimensionality?</em></li>
+        <li><em>For policy gradient methods (e.g., PPO, TRPO) in continuous control: do there exist finite-sample convergence guarantees to a local (or global) optimum?</em></li>
+      </ol>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Kakade (2003): On the sample complexity of reinforcement learning</li>
+        <li>Szepesvári (2010): Algorithms for reinforcement learning</li>
+        <li>Jin et al. (2018): Is Q-learning provably efficient?</li>
+        <li>Agarwal et al. (2020): Optimality and approximation with policy gradient methods</li>
+        <li>Wang et al. (2020): Sample complexity of model-based offline reinforcement learning</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

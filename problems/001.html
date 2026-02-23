@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem #1: Polynomial-Time Algorithm for Stochastic Queueing Networks</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="../index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="../index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id">Problem #1</div>
+      <h1 class="problem-title">Polynomial-Time Algorithm for Stochastic Queueing Networks</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Author</span>
+          <span class="problem-meta-value">J. Michael Harrison</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Difficulty</span>
+          <span class="problem-meta-value">Hard</span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Chance of Being Open</span>
+          <span class="problem-meta-value">High</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Preliminary Notation</h2>
+      <p>Consider an open queueing network with \(K\) service stations. Let:</p>
+      <ul>
+        <li>\( \lambda_i \) denote the external arrival rate to station \(i\)</li>
+        <li>\( \mu_i \) denote the service rate at station \(i\)</li>
+        <li>\( P = (p_{ij}) \) be the routing matrix where \(p_{ij}\) is the probability a job completing at station \(i\) goes next to station \(j\)</li>
+        <li>\( \rho_i = \lambda_i / \mu_i \) be the traffic intensity at station \(i\)</li>
+      </ul>
+      <p>The network is <em>stable</em> if there exists a unique solution \( \lambda = (\lambda_1, \ldots, \lambda_K) \) to the traffic equations:
+        \[ \lambda_i = \alpha_i + \sum_{j=1}^{K} \lambda_j p_{ji} \]
+      where \( \alpha_i \) is the exogenous arrival rate. We require \( \rho_i < 1 \) for all \(i\) for stability.</p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p><strong>Open Problem:</strong> Does there exist a polynomial-time algorithm that, given an open Jackson network or a more general stochastic queueing network (e.g., with general service time distributions), decides whether the network is positive recurrent (stable)?</p>
+      <p>For Jackson networks, stability is characterized by the condition \( \rho_i < 1 \) for all stations, which can be checked in polynomial time. However, for networks with:</p>
+      <ul>
+        <li>General (non-exponential) service time distributions</li>
+        <li>Multiple job classes</li>
+        <li>Blocking or finite buffers</li>
+        <li>State-dependent routing</li>
+      </ul>
+      <p>the stability region and its computational complexity remain poorly understood. In particular: <em>Is the stability problem for generalized stochastic queueing networks in P, NP-hard, or undecidable?</em></p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Related Work</h2>
+      <ul>
+        <li>Jackson (1957, 1963): Product-form equilibrium for open and closed Jackson networks</li>
+        <li>Baskett et al. (1975): BCMP networks with product-form solutions</li>
+        <li>Dai (1995): Stability of multi-class queueing networks via fluid limits</li>
+        <li>Meyn (2008): Stability and stabilization of Markov chains</li>
+        <li>Gamarnik (2010): On deciding stability for a class of queueing networks</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    });
+  </script>
+</body>
+</html>
