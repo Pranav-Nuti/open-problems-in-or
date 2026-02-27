@@ -131,6 +131,22 @@
       document.getElementById("extraction-info").textContent = parts.length ? parts.join(", reasoning: ") : "—";
     }
 
+    function preprocessProblemLatex(latex) {
+      let s = latex
+        .replace(/\\begin\{problem\}(\[[^\]]*\])?\s*/g, "")
+        .replace(/\\end\{problem\}\s*/g, "")
+        .replace(/\\begin\{itemize\}\s*/g, "")
+        .replace(/\\end\{itemize\}\s*/g, "")
+        .replace(/\\item\s+/g, "\n• ")
+        .replace(/\\medskip\s*/g, "\n\n")
+        .replace(/\\noindent\s*/g, "");
+      s = s.replace(/\\textbf\{([^{}]*)\}/g, (_, c) => "__B__" + escapeHtml(c) + "__EB__");
+      s = s.replace(/\\emph\{([^{}]*)\}/g, (_, c) => "__E__" + escapeHtml(c) + "__EE__");
+      s = escapeHtml(s);
+      return s.replace(/__B__/g, "<strong>").replace(/__EB__/g, "</strong>")
+        .replace(/__E__/g, "<em>").replace(/__EE__/g, "</em>");
+    }
+
     function renderProblem(payload) {
       document.title = `${payload.title} | Open Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
@@ -144,12 +160,8 @@
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
       const latexEl = document.getElementById("problem-latex");
       const latex = payload.latex || "";
-      if (latex && typeof katex !== "undefined") {
-        latexEl.innerHTML = "";
-        katex.render(latex, latexEl, { displayMode: true, throwOnError: false });
-      } else {
-        latexEl.textContent = latex;
-      }
+      latexEl.innerHTML = latex ? preprocessProblemLatex(latex) : "";
+      latexEl.classList.add("math-content");
       const contextEl = document.getElementById("problem-context");
       contextEl.innerHTML = escapeHtml(payload.context || "");
       contextEl.classList.add("math-content");
