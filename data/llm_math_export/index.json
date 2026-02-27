@@ -1,0 +1,34 @@
+{
+  "generated_at_utc": "2026-02-27T01:47:33.218768+00:00",
+  "counts": {
+    "verification_files_seen": 1,
+    "closed_skipped": 0,
+    "exported_problems": 1,
+    "open_problems_exported": 1,
+    "with_literature_review": 1,
+    "literature_missing_for_open": 0
+  },
+  "problems": [
+    {
+      "problem_id": "W2996484635_p0",
+      "paper_id": "W2996484635",
+      "source_paper": "W2996484635",
+      "problem_index": 0,
+      "title": "Improve computable bounds for the critical exponent p* linking Lp and L0 solutions in L1-constrained sparse recovery",
+      "subject_classification": "Nonconvex Optimization / Sparse Optimization",
+      "keywords": [
+        "sparse recovery",
+        "Lp minimization",
+        "L0 equivalence",
+        "exactness threshold",
+        "polyhedral constraints",
+        "nonconvex non-Lipschitz"
+      ],
+      "is_open": true,
+      "importance": 6,
+      "difficulty": 7,
+      "has_literature_review": true,
+      "path": "problems/W2996484635_p0.json"
+    }
+  ]
+}

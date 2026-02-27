@@ -1,0 +1,116 @@
+{
+  "problem_id": "W2996484635_p0",
+  "paper_id": "W2996484635",
+  "source_paper": "W2996484635",
+  "problem_index": 0,
+  "title": "Improve computable bounds for the critical exponent p* linking Lp and L0 solutions in L1-constrained sparse recovery",
+  "latex": "\\begin{align}\n&\\textbf{Data: }A\\in\\mathbb{R}^{m\\times n},\\ b\\in\\mathbb{R}^m,\\ \\sigma\\ge 0,\\ \\text{and }p\\in[0,1].\\\\\n&\\textbf{Feasible set: }\\mathcal{F}:=\\{x\\in\\mathbb{R}^n:\\ \\|Ax-b\\|_1\\le \\sigma\\}.\\\\\n&\\textbf{(}P_p\\textbf{):}\\quad \\min_{x\\in\\mathcal{F}} \\|x\\|_p^p:=\\sum_{i=1}^n |x_i|^p,\\qquad p\\in(0,1].\\\\\n&\\textbf{(}P_0\\textbf{):}\\quad \\min_{x\\in\\mathcal{F}} \\|x\\|_0:=|\\{i: x_i\\ne 0\\}|.\\\\\n&\\textbf{Solution sets: }\\mathrm{SOL}(p):=\\operatorname*{argmin}_{x\\in\\mathcal{F}}\\|x\\|_p^p\\ \\ (p\\in(0,1]),\\qquad \\mathrm{SOL}(0):=\\operatorname*{argmin}_{x\\in\\mathcal{F}}\\|x\\|_0.\n\\end{align}\n\\begin{align}\n&\\textbf{Define the critical exponent}\\quad p_{\\mathrm{crit}}:=\\sup\\Big\\{\\bar p\\in(0,1]:\\ \\forall p\\in(0,\\bar p),\\ \\mathrm{SOL}(p)\\subseteq \\mathrm{SOL}(0)\\Big\\}. \n\\end{align}\n\\begin{align}\n&\\textbf{Open problem (improved estimation):}\\ \\text{Develop sharper and practically computable lower bounds }\\underline p(A,b,\\sigma)\\le p_{\\mathrm{crit}},\\\\\n&\\text{ideally (i) substantially less conservative than existing bounds, and (ii) not requiring prior}\\ \n&\\text{knowledge of }s:=\\min\\{\\|x\\|_0: x\\in\\mathcal{F}\\}\\text{ (the optimal }\\ell_0\\text{ value), which is typically unknown/NP-hard}.\\\\\n&\\text{Equivalently, design computable certificates (depending only on }(A,b,\\sigma)\\text{ and efficiently obtainable}\\text{ surrogates) that guarantee}\\\\\n&\\qquad \\mathrm{SOL}(p)\\subseteq \\mathrm{SOL}(0)\\quad\\text{for all }p\\in(0,\\underline p(A,b,\\sigma)).\n\\end{align}",
+  "context": "Explicitly stated after Example 2.1 (end of Section 2): the authors note their bound for p* (Theorem 2.3) may be non-optimal and depends on the unknown optimal \\(\\ell_0\\) value \\(s\\), and conclude: \u201cImproving estimations of \\(p^*\\) and \\(\\tilde p^*\\) will be an interesting research topic in the future.\u201d",
+  "subject_classification": "Nonconvex Optimization / Sparse Optimization",
+  "keywords": [
+    "sparse recovery",
+    "Lp minimization",
+    "L0 equivalence",
+    "exactness threshold",
+    "polyhedral constraints",
+    "nonconvex non-Lipschitz"
+  ],
+  "importance": 6,
+  "difficulty": 7,
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.1470455
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.37382765000000007,
+    "sources": [
+      {
+        "bibtex": "@misc{peng2015npclp,\n  title        = {{$NP/CLP$ Equivalence: A Phenomenon Hidden Among Sparsity Models for Information Processing}},\n  author       = {Jigen Peng and Shigang Yue and Haiyang Li},\n  year         = {2015},\n  eprint       = {1501.02018},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT},\n  doi          = {10.48550/arXiv.1501.02018}\n}",
+        "theorem_or_result": "(As stated in the abstract; full theorem statement not accessible due to PDF rendering restrictions in this session.) For every underdetermined linear system $Ax=b$, there exists a constant $p(A,b)>0$ such that **every** solution of the $\\ell_p$-minimization problem $\\min\\{\\|x\\|_p^p: Ax=b\\}$ is also a solution of the $\\ell_0$-minimization problem $\\min\\{\\|x\\|_0: Ax=b\\}$ whenever $0<p<p(A,b)$.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is directly aligned with the notion of a *critical exponent* below which $\\ell_p$ minimizers coincide with sparsest solutions, albeit in the *equality-constrained* (noise-free) setting rather than the $\\|Ax-b\\|_1\\le\\sigma$ setting. The paper establishes existence of a positive threshold for each instance $(A,b)$, but does not (per the abstract) give a practically computable bound in terms of efficiently computable surrogates. It provides conceptual grounding for why a nontrivial $p_{\\mathrm{crit}}$ can exist even without structural assumptions like RIP."
+      },
+      {
+        "bibtex": "@misc{wang2015when,\n  title        = {When is $P$ such that $\\ell_0$-minimization Equals to $\\ell_p$-minimization},\n  author       = {Changlong Wang and Shigang Yue and Jigen Peng},\n  year         = {2015},\n  eprint       = {1511.07628},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT},\n  doi          = {10.48550/arXiv.1511.07628}\n}",
+        "theorem_or_result": "**Theorem 4** (statement visible, but the explicit closed-form expression for $p^\\*$ is not rendered in the HTML view available here): If $A$ is underdetermined and full rank and $\\ell_0$-minimization has a *unique* solution, then $\\ell_p$-minimization has the same unique solution for any $0<p<p^\\*$, where $p^\\*=p^\\*(A,b)$ is given by an analytic expression depending on the dimension, eigenvalues of $A^\\top A$, and $b$.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This paper explicitly targets an instance-dependent critical exponent $p^\\*(A,b)$ and attempts to make it *computable* from spectral information about $A$ and the data vector $b$, which is close in spirit to your goal of a computable certificate for $\\mathrm{SOL}(p)\\subseteq\\mathrm{SOL}(0)$. Its main limitation relative to your open problem is (i) it is for the equality-constrained model $Ax=b$, and (ii) it assumes uniqueness of the $\\ell_0$ solution (which itself is hard to certify). Still, the proof approach (bounding null-space constants via computable surrogates) is potentially adaptable to the $\\ell_1$-constrained feasible set."
+      },
+      {
+        "bibtex": "@article{wang2017equivalence_l0_lp,\n  title   = {Analysis of the equivalence relationship between $l_0$-minimization and $l_p$-minimization},\n  author  = {Changlong Wang and Jigen Peng},\n  journal = {Journal of Inequalities and Applications},\n  volume  = {2017},\n  number  = {313},\n  year    = {2017},\n  doi     = {10.1186/s13660-017-1590-x}\n}",
+        "theorem_or_result": "**Theorem 1** (quoted on the paper page): Given $A\\in\\mathbb{R}^{m\\times n}$, every $k$-sparse vector can be recovered via $\\ell_p$-minimization ($0\\le p\\le 1$) iff $A$ satisfies the $\\ell_p$-null space property of order $k$: for every $x\\in\\ker(A)\\setminus\\{0\\}$ and every index set $\\Omega$ with $|\\Omega|\\le k$, one has $\\|x_{\\Omega}\\|_p < \\|x_{\\Omega^c}\\|_p$. The paper also defines the null space constant $h(p,A,k)$ via $\\sum_{i\\in\\Omega}|x_i|^p \\le h(p,A,k)\\sum_{i\\notin\\Omega}|x_i|^p$ and notes $h(p,A,k)<1$ is equivalent to the $\\ell_p$-NSP of order $k$.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This provides the standard necessary-and-sufficient characterization (NSP/NSC) that underlies essentially all known equivalence results between $\\ell_p$ and $\\ell_0$ minimization. For your open problem, the challenge is that checking $\\ell_p$-NSP or computing $h(p,A,k)$ is generally intractable, and the statements depend on an a priori sparsity level $k$ (analogous to your unknown optimal support size $s$). Nonetheless, this source is important as it formalizes the kind of certificate one ultimately needs to upper-bound the feasible-set geometry to guarantee $\\mathrm{SOL}(p)\\subseteq\\mathrm{SOL}(0)$."
+      },
+      {
+        "bibtex": "@misc{chen2015nullspaceconstant,\n  title        = {On the Null Space Constant for $\\ell_p$ Minimization},\n  author       = {Laming Chen and Yuantao Gu},\n  year         = {2015},\n  eprint       = {1503.00426},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT}\n}",
+        "theorem_or_result": "(As stated in the abstract; full theorem statements not accessed here.) The paper proves structural properties of the $\\ell_p$ null space constant $h(p,A,k)$: it is strictly increasing in sparsity level $k$, continuous in the exponent $p$, and (for random sensing matrices) strictly increasing in $p$ with probability 1. It discusses how these properties relate the admissible exponent $p$ to the sparsity level $k$ for which recovery is guaranteed.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your $p_{\\mathrm{crit}}$ can be viewed as the largest $p$ for which an appropriate null-space inequality remains strict enough to force $\\ell_p$ minimizers to coincide with sparsest feasible points. This paper\u2019s monotonicity/continuity results justify the existence of a threshold behavior in $p$ (and how it changes with an unknown sparsity parameter), which is useful when turning a bound on $h(p,A,k)$ into a bound on $p_{\\mathrm{crit}}$. It does not, however, provide an efficiently computable approximation of $h(p,A,k)$, which is a key gap highlighted by your open problem."
+      },
+      {
+        "bibtex": "@misc{wen2014stablelp,\n  title        = {Stable Recovery of Sparse Signals via $\\ell_p$-Minimization},\n  author       = {Jinming Wen and Dongfang Li and Fumin Zhu},\n  year         = {2014},\n  eprint       = {1406.4328},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT}\n}",
+        "theorem_or_result": "(From the abstract.) Under the noise model $y=Ax+e$ with $\\|e\\|_2\\le\\epsilon$, every $k$-sparse $x\\in\\mathbb{R}^n$ can be stably recovered via $\\ell_p$-minimization for any $p\\in(0,\\bar p]$, where $\\bar p$ is explicitly lower bounded in terms of $\\delta_{2k}$ (RIC) by\n\\[\n\\bar p=\\begin{cases}\n\\tfrac{50}{31}(1-\\delta_{2k}), & \\delta_{2k}\\in[\\tfrac{\\sqrt{2}}{2}, 0.7183),\\\\\n0.4541, & \\delta_{2k}\\in[0.7183,0.7729),\\\\\n2(1-\\delta_{2k}), & \\delta_{2k}\\in[0.7729,1).\n\\end{cases}\n\\]\nThe paper further improves the range when $n\\le 4k$.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is an example of an explicit *lower bound on admissible $p$* (a computable certificate once one has an estimate of $\\delta_{2k}$) guaranteeing that $\\ell_p$ minimization recovers the same sparse solution as $\\ell_0$ in a noisy setting. Although it is formulated with an $\\ell_2$ noise bound, the proof techniques typically extend to other fidelity norms via robust NSP-type arguments, making it conceptually relevant to an $\\ell_1$ constraint. The main mismatch with your open problem is that the bound depends on the unknown sparsity $k$ (analogous to unknown optimal $s$), and RIP constants are themselves hard to compute exactly."
+      },
+      {
+        "bibtex": "@misc{song2013lq_rip,\n  title        = {Sparse signal recovery by $\\ell_q$ minimization under restricted isometry property},\n  author       = {Chao-Bing Song and Shu-Tao Xia},\n  year         = {2013},\n  eprint       = {1310.2410},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT}\n}",
+        "theorem_or_result": "(From the abstract.) For $0<q<1$, a sufficient RIP condition for exact recovery of all $k$-sparse signals via $\\ell_q$ minimization is\n\\[\n\\delta_{(s^q+1)k} < \\frac{1}{\\sqrt{s^{q-2}+1}}\n\\]\nfor an auxiliary parameter $s>0$. The paper also states the same condition yields stable recovery of approximately $k$-sparse signals in the noisy case.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This provides a family of RIP-based certificates for $\\ell_q$ (nonconvex) minimization, generalizing sharp $\\ell_1$ bounds to the nonconvex setting, and therefore contributes to existing (often conservative) computable sufficient conditions for equivalence. In your framework, such results can be interpreted as guaranteeing that for sufficiently small $p$ (depending on geometric constants of $A$ and sparsity), the $\\ell_p$ minimizer matches the sparsest feasible vector. As with most RIP results, however, (i) it still depends on the sparsity level $k$ and (ii) computing the needed RIC is intractable in general, motivating your open problem\u2019s emphasis on practical surrogates."
+      },
+      {
+        "bibtex": "@misc{saab2008instanceoptimality,\n  title        = {Sparse Recovery by Non-convex Optimization -- Instance Optimality},\n  author       = {Rayan Saab and {\\\"O}zg{\\\"u}r Yilmaz},\n  year         = {2008},\n  eprint       = {0809.0745},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT},\n  doi          = {10.48550/arXiv.0809.0745}\n}",
+        "theorem_or_result": "(As stated in the abstract; exact theorem statements not accessed here.) The paper extends instance optimality and robustness-to-noise guarantees from $\\ell_1$-based decoders to $\\Delta_p$ decoders based on $\\ell_p$ minimization for $0<p<1$, under sufficient conditions that are weaker than analogous conditions for $\\Delta_1$. It also establishes instance optimality in probability for suitable random measurement ensembles.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Instance optimality bounds are a robust analogue of the inclusion $\\mathrm{SOL}(p)\\subseteq\\mathrm{SOL}(0)$: they control how far an $\\ell_p$ minimizer can deviate from the best sparse approximation. While not phrased as a *critical exponent* result, the techniques show how guarantees change with $p$, which is relevant for designing computable certificates. The results are mostly formulated for standard compressed sensing noise models, so further work is needed to specialize them to your $\\ell_1$-constraint feasible set and to eliminate dependence on unknown sparsity."
+      },
+      {
+        "bibtex": "@article{chartrand2008rip_nonconvex,\n  title   = {Restricted isometry properties and nonconvex compressive sensing},\n  author  = {Rick Chartrand and Valentina Staneva},\n  journal = {Inverse Problems},\n  volume  = {24},\n  number  = {3},\n  pages   = {035020},\n  year    = {2008},\n  doi     = {10.1088/0266-5611/24/3/035020}\n}",
+        "theorem_or_result": "(From the paper\u2019s abstract/description.) The paper generalizes restricted isometry-type sufficient conditions for exact recovery from $\\ell_1$ minimization to a $p$-dependent restricted isometry framework for nonconvex $\\ell_p$ minimization ($0<p<1$), and analyzes how many random Gaussian measurements are sufficient for the condition to hold with high probability; the sufficient condition becomes less demanding as $p$ decreases. (Exact constants/inequalities are not accessible in this session.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is one of the foundational sources formalizing $p$-dependent geometric conditions (a precursor of many later RIP/NSP analyses) showing that smaller $p$ can succeed under weaker measurement conditions. Conceptually, it relates to your critical exponent $p_{\\mathrm{crit}}$ by exhibiting an explicit monotone relationship between $p$ and recovery conditions. However, RIP-style constants are difficult to compute exactly for a given $A$, and the results are not tailored to instance-dependent bounds for a given $(A,b,\\sigma)$ with an unknown optimal sparsity level."
+      },
+      {
+        "bibtex": "@article{chartrand2007exactreconstruction,\n  title   = {Exact Reconstruction of Sparse Signals via Nonconvex Minimization},\n  author  = {Rick Chartrand},\n  journal = {IEEE Signal Processing Letters},\n  volume  = {14},\n  number  = {10},\n  pages   = {707--710},\n  year    = {2007},\n  doi     = {10.1109/LSP.2007.898300}\n}",
+        "theorem_or_result": "(Result described at a high level; exact theorem statement not accessed here.) The paper gives sufficient conditions under which minimizing a nonconvex $\\ell_p$ quasi-norm ($0<p<1$) subject to linear constraints exactly reconstructs a sparse signal, and argues (with theory and experiments) that using $p<1$ can enable exact recovery in regimes where $\\ell_1$ fails.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This early result motivates the search for an explicit \u201chow small must $p$ be?\u201d threshold by demonstrating that nonconvex $\\ell_p$ objectives can match $\\ell_0$ recovery under weaker conditions than $\\ell_1$. In the context of your open problem, it is part of the baseline literature that established the existence of $p$-dependent recovery regimes, but it does not provide an instance-wise, efficiently computable lower bound $\\underline p(A,b,\\sigma)$ for the $\\ell_1$-constrained formulation."
+      },
+      {
+        "bibtex": "@misc{shen2010restrictedp,\n  title        = {Restricted $p$-isometry property and its application for nonconvex compressive sensing},\n  author       = {Yi Shen and Song Li},\n  year         = {2010},\n  eprint       = {1007.4396},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.IT}\n}",
+        "theorem_or_result": "(From the abstract.) The paper refines and extends restricted $p$-isometry ideas for $\\ell_p$ recovery ($0<p<1$): it strengthens probability bounds for random Gaussian measurement matrices and proves stability/instance optimality-type guarantees (e.g., $(2,p)$ instance optimality) for $\\Delta_p$ decoders under weaker conditions.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This source supports the general theme that recovery conditions improve as $p\\downarrow 0$, and it provides probabilistic and stability statements that can be interpreted as bounding the behavior of $\\mathrm{SOL}(p)$. While not directly giving a computable $\\underline p(A,b,\\sigma)$ for a fixed deterministic instance and an $\\ell_1$-constraint, it offers tools (restricted $p$-isometry and instance optimality) that could be combined with computable relaxations/upper bounds on matrix constants."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.089033,
+    "verifier_total_cost_usd": 0.1470455,
+    "literature_total_cost_usd": 0.37382765000000007,
+    "total_cost_usd": 0.60990615
+  },
+  "provenance": {
+    "problem_source": "data/problems/W2996484635/paper/problems.json",
+    "verification_source": "data/verifications/W2996484635_p0_verification.json",
+    "literature_source": "data/literature_reviews/W2996484635_p0_literature_review.json"
+  }
+}
