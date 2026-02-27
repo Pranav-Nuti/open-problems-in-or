@@ -32,16 +32,9 @@
   </footer>
 
   <script>
-    const PROBLEMS_DATA = [
-      { id: 1, name: "Polynomial-Time Algorithm for Stochastic Queueing Networks", author: "J. Michael Harrison" },
-      { id: 2, name: "Tight Bounds for Online Bipartite Matching", author: "Vahab Mirrokni, Rad Niazadeh" },
-      { id: 3, name: "Computational Complexity of Multi-Stage Stochastic Programming", author: "Andy Philpott, Alexander Shapiro" },
-      { id: 4, name: "Approximation Algorithms for the Traveling Salesman Problem with Time Windows", author: "David Williamson" },
-      { id: 5, name: "Convex Relaxation Tightness for Mixed-Integer Programming", author: "Sanjeeb Dash, Oktay Günlük" },
-      { id: 6, name: "Sample Complexity of Reinforcement Learning in Continuous Action Spaces", author: "John Schulman, Pieter Abbeel" }
-    ];
-    const PROBLEMS_PER_PAGE = 3;
-    const totalPages = Math.ceil(PROBLEMS_DATA.length / PROBLEMS_PER_PAGE);
+    const PROBLEMS_PER_PAGE = 10;
+    let PROBLEMS_DATA = [];
+    let totalPages = 1;
 
     function getCurrentPage() {
       const params = new URLSearchParams(window.location.search);
@@ -56,13 +49,13 @@
       const pageProblems = PROBLEMS_DATA.slice(start, end);
 
       const listEl = document.getElementById('problem-list');
-      listEl.innerHTML = pageProblems.map(p => `
+      listEl.innerHTML = pageProblems.map((p, idx) => `
         <li class="problem-card">
-          <a href="problems/${String(p.id).padStart(3, '0')}.html" class="problem-card-link">
-            <div class="problem-card-id">Problem #${p.id}</div>
-            <h2 class="problem-card-title">${escapeHtml(p.name)}</h2>
+          <a href="problem.html?id=${encodeURIComponent(p.problem_id)}" class="problem-card-link">
+            <div class="problem-card-id">Problem #${(currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1}</div>
+            <h2 class="problem-card-title">${escapeHtml(p.title)}</h2>
             <div class="problem-card-meta">
-              <span>Author: ${escapeHtml(p.author)}</span>
+              <span>Source paper: ${escapeHtml(p.source_paper || p.paper_id || "")}</span>
             </div>
           </a>
         </li>
@@ -89,11 +82,35 @@
 
     function escapeHtml(text) {
       const div = document.createElement('div');
-      div.textContent = text;
+      div.textContent = String(text ?? "");
       return div.innerHTML;
     }
 
-    renderProblems();
+    async function loadProblems() {
+      const response = await fetch("data/llm_math_export/index.json");
+      if (!response.ok) {
+        throw new Error(`Failed to load export index: ${response.status}`);
+      }
+      const payload = await response.json();
+      if (!payload || !Array.isArray(payload.problems)) {
+        throw new Error("Invalid export index payload.");
+      }
+      PROBLEMS_DATA = payload.problems;
+      totalPages = Math.max(1, Math.ceil(PROBLEMS_DATA.length / PROBLEMS_PER_PAGE));
+    }
+
+    async function boot() {
+      try {
+        await loadProblems();
+        renderProblems();
+      } catch (err) {
+        const listEl = document.getElementById('problem-list');
+        listEl.innerHTML = `<li class="problem-card"><div class="problem-card-title">No synced problems found.</div><div class="problem-card-meta">${escapeHtml(err.message)}</div></li>`;
+        document.getElementById('pagination').innerHTML = "";
+      }
+    }
+
+    boot();
   </script>
 </body>
 </html>

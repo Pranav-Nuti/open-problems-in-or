@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Problem</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="index.html">Open Problems in Operations Research</a></h1>
+  </header>
+
+  <main>
+    <a href="index.html" class="back-link">← Back to all problems</a>
+
+    <div class="problem-header">
+      <div class="problem-id" id="problem-id">Problem</div>
+      <h1 class="problem-title" id="problem-title">Loading...</h1>
+      <div class="problem-meta-grid">
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Source paper</span>
+          <span class="problem-meta-value" id="source-paper"></span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Subject classification</span>
+          <span class="problem-meta-value" id="subject-classification"></span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Importance / Difficulty</span>
+          <span class="problem-meta-value" id="importance-difficulty"></span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Verification status</span>
+          <span class="problem-meta-value" id="verification-status"></span>
+        </div>
+      </div>
+    </div>
+
+    <section class="problem-section">
+      <h2>Problem statement (LaTeX)</h2>
+      <div id="problem-latex"></div>
+    </section>
+
+    <section class="problem-section">
+      <h2>Context</h2>
+      <p id="problem-context"></p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Keywords</h2>
+      <p id="problem-keywords"></p>
+    </section>
+
+    <section class="problem-section">
+      <h2>Literature review</h2>
+      <div id="literature-review"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-maintainers">Maintainers: Eric Fithian, Rad Niazadeh, Pranav Nuti</div>
+      <div>Open Problems in Operations Research</div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script>
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = String(text ?? "");
+      return div.innerHTML;
+    }
+
+    function getProblemId() {
+      const params = new URLSearchParams(window.location.search);
+      const problemId = params.get("id");
+      if (!problemId) {
+        throw new Error("Missing query parameter: id");
+      }
+      return problemId;
+    }
+
+    async function loadProblem(problemId) {
+      const response = await fetch(`data/llm_math_export/problems/${encodeURIComponent(problemId)}.json`);
+      if (!response.ok) {
+        throw new Error(`Failed to load problem ${problemId}: ${response.status}`);
+      }
+      return await response.json();
+    }
+
+    function renderLiterature(payload) {
+      const container = document.getElementById("literature-review");
+      const review = payload.literature_review;
+      if (!review || !Array.isArray(review.sources) || review.sources.length === 0) {
+        container.innerHTML = "<p>No literature review available.</p>";
+        return;
+      }
+      container.innerHTML = review.sources.map((source, idx) => `
+        <div class="problem-card" style="margin-bottom:1rem;">
+          <div class="problem-card-id">Source #${idx + 1} · ${escapeHtml(source.relevance_category)}</div>
+          <p><strong>BibTeX</strong><br><code>${escapeHtml(source.bibtex)}</code></p>
+          <p><strong>Theorem/result</strong><br>${escapeHtml(source.theorem_or_result)}</p>
+          <p><strong>Connection</strong><br>${escapeHtml(source.connection)}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderProblem(payload) {
+      document.title = `${payload.title} | Open Problems in OR`;
+      document.getElementById("problem-id").textContent = payload.problem_id;
+      document.getElementById("problem-title").textContent = payload.title;
+      document.getElementById("source-paper").textContent = payload.source_paper || payload.paper_id || "";
+      document.getElementById("subject-classification").textContent = payload.subject_classification || "";
+      document.getElementById("importance-difficulty").textContent = `${payload.importance} / ${payload.difficulty}`;
+      document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
+      document.getElementById("problem-latex").textContent = payload.latex || "";
+      document.getElementById("problem-context").textContent = payload.context || "";
+      document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
+      renderLiterature(payload);
+    }
+
+    async function boot() {
+      try {
+        const problemId = getProblemId();
+        const payload = await loadProblem(problemId);
+        renderProblem(payload);
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      } catch (err) {
+        document.getElementById("problem-title").textContent = "Unable to load problem";
+        document.getElementById("problem-context").textContent = err.message;
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", boot);
+  </script>
+</body>
+</html>
