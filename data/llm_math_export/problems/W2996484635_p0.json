@@ -2,6 +2,8 @@
   "problem_id": "W2996484635_p0",
   "paper_id": "W2996484635",
   "source_paper": "W2996484635",
+  "source_paper_title": "Sparse Solutions of a Class of Constrained Optimization Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.1194",
   "problem_index": 0,
   "title": "Improve computable bounds for the critical exponent p* linking Lp and L0 solutions in L1-constrained sparse recovery",
   "latex": "\\begin{align}\n&\\textbf{Data: }A\\in\\mathbb{R}^{m\\times n},\\ b\\in\\mathbb{R}^m,\\ \\sigma\\ge 0,\\ \\text{and }p\\in[0,1].\\\\\n&\\textbf{Feasible set: }\\mathcal{F}:=\\{x\\in\\mathbb{R}^n:\\ \\|Ax-b\\|_1\\le \\sigma\\}.\\\\\n&\\textbf{(}P_p\\textbf{):}\\quad \\min_{x\\in\\mathcal{F}} \\|x\\|_p^p:=\\sum_{i=1}^n |x_i|^p,\\qquad p\\in(0,1].\\\\\n&\\textbf{(}P_0\\textbf{):}\\quad \\min_{x\\in\\mathcal{F}} \\|x\\|_0:=|\\{i: x_i\\ne 0\\}|.\\\\\n&\\textbf{Solution sets: }\\mathrm{SOL}(p):=\\operatorname*{argmin}_{x\\in\\mathcal{F}}\\|x\\|_p^p\\ \\ (p\\in(0,1]),\\qquad \\mathrm{SOL}(0):=\\operatorname*{argmin}_{x\\in\\mathcal{F}}\\|x\\|_0.\n\\end{align}\n\\begin{align}\n&\\textbf{Define the critical exponent}\\quad p_{\\mathrm{crit}}:=\\sup\\Big\\{\\bar p\\in(0,1]:\\ \\forall p\\in(0,\\bar p),\\ \\mathrm{SOL}(p)\\subseteq \\mathrm{SOL}(0)\\Big\\}. \n\\end{align}\n\\begin{align}\n&\\textbf{Open problem (improved estimation):}\\ \\text{Develop sharper and practically computable lower bounds }\\underline p(A,b,\\sigma)\\le p_{\\mathrm{crit}},\\\\\n&\\text{ideally (i) substantially less conservative than existing bounds, and (ii) not requiring prior}\\ \n&\\text{knowledge of }s:=\\min\\{\\|x\\|_0: x\\in\\mathcal{F}\\}\\text{ (the optimal }\\ell_0\\text{ value), which is typically unknown/NP-hard}.\\\\\n&\\text{Equivalently, design computable certificates (depending only on }(A,b,\\sigma)\\text{ and efficiently obtainable}\\text{ surrogates) that guarantee}\\\\\n&\\qquad \\mathrm{SOL}(p)\\subseteq \\mathrm{SOL}(0)\\quad\\text{for all }p\\in(0,\\underline p(A,b,\\sigma)).\n\\end{align}",
@@ -16,7 +18,11 @@
     "nonconvex non-Lipschitz"
   ],
   "importance": 6,
+  "importance_scale": 10,
   "difficulty": 7,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "medium",
   "verification": {
     "is_open": true,
     "methods_used": [

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-02-27T01:47:33.218768+00:00",
+  "generated_at_utc": "2026-02-27T01:55:12.287840+00:00",
   "counts": {
     "verification_files_seen": 1,
     "closed_skipped": 0,
@@ -13,6 +13,8 @@
       "problem_id": "W2996484635_p0",
       "paper_id": "W2996484635",
       "source_paper": "W2996484635",
+      "source_paper_title": "Sparse Solutions of a Class of Constrained Optimization Problems",
+      "source_paper_url": "https://doi.org/10.1287/moor.2021.1194",
       "problem_index": 0,
       "title": "Improve computable bounds for the critical exponent p* linking Lp and L0 solutions in L1-constrained sparse recovery",
       "subject_classification": "Nonconvex Optimization / Sparse Optimization",

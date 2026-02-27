@@ -24,6 +24,10 @@
           <span class="problem-meta-value" id="source-paper"></span>
         </div>
         <div class="problem-meta-item">
+          <span class="problem-meta-label">Extracted with</span>
+          <span class="problem-meta-value" id="extraction-info"></span>
+        </div>
+        <div class="problem-meta-item">
           <span class="problem-meta-label">Subject classification</span>
           <span class="problem-meta-value" id="subject-classification"></span>
         </div>
@@ -100,25 +104,55 @@
         return;
       }
       container.innerHTML = review.sources.map((source, idx) => `
-        <div class="problem-card" style="margin-bottom:1rem;">
+        <div class="problem-card math-content" style="margin-bottom:1rem;">
           <div class="problem-card-id">Source #${idx + 1} · ${escapeHtml(source.relevance_category)}</div>
           <p><strong>BibTeX</strong><br><code>${escapeHtml(source.bibtex)}</code></p>
-          <p><strong>Theorem/result</strong><br>${escapeHtml(source.theorem_or_result)}</p>
-          <p><strong>Connection</strong><br>${escapeHtml(source.connection)}</p>
+          <p><strong>Theorem/result</strong><br><span class="math-inline">${escapeHtml(source.theorem_or_result)}</span></p>
+          <p><strong>Connection</strong><br><span class="math-inline">${escapeHtml(source.connection)}</span></p>
         </div>
       `).join("");
+    }
+
+    function renderSourcePaper(payload) {
+      const el = document.getElementById("source-paper");
+      const title = payload.source_paper_title || payload.source_paper || payload.paper_id || "";
+      const url = payload.source_paper_url || "";
+      if (url) {
+        el.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`;
+      } else {
+        el.textContent = title;
+      }
+    }
+
+    function renderExtractionInfo(payload) {
+      const model = payload.extraction_model || "";
+      const effort = payload.extraction_reasoning_effort || "";
+      const parts = [model, effort].filter(Boolean);
+      document.getElementById("extraction-info").textContent = parts.length ? parts.join(", reasoning: ") : "—";
     }
 
     function renderProblem(payload) {
       document.title = `${payload.title} | Open Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
       document.getElementById("problem-title").textContent = payload.title;
-      document.getElementById("source-paper").textContent = payload.source_paper || payload.paper_id || "";
+      renderSourcePaper(payload);
+      renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
-      document.getElementById("importance-difficulty").textContent = `${payload.importance} / ${payload.difficulty}`;
+      const impScale = payload.importance_scale ?? 10;
+      const diffScale = payload.difficulty_scale ?? 10;
+      document.getElementById("importance-difficulty").textContent = `Importance: ${payload.importance}/${impScale}, Difficulty: ${payload.difficulty}/${diffScale}`;
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
-      document.getElementById("problem-latex").textContent = payload.latex || "";
-      document.getElementById("problem-context").textContent = payload.context || "";
+      const latexEl = document.getElementById("problem-latex");
+      const latex = payload.latex || "";
+      if (latex && typeof katex !== "undefined") {
+        latexEl.innerHTML = "";
+        katex.render(latex, latexEl, { displayMode: true, throwOnError: false });
+      } else {
+        latexEl.textContent = latex;
+      }
+      const contextEl = document.getElementById("problem-context");
+      contextEl.innerHTML = escapeHtml(payload.context || "");
+      contextEl.classList.add("math-content");
       document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
       renderLiterature(payload);
     }
@@ -128,19 +162,24 @@
         const problemId = getProblemId();
         const payload = await loadProblem(problemId);
         renderProblem(payload);
-        renderMathInElement(document.body, {
-          delimiters: [
-            {left: "\\[", right: "\\]", display: true},
-            {left: "\\(", right: "\\)", display: false}
-          ]
-        });
+        if (typeof renderMathInElement === "function") {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "\\[", right: "\\]", display: true },
+              { left: "$", right: "$", display: false },
+              { left: "\\(", right: "\\)", display: false }
+            ],
+            throwOnError: false
+          });
+        }
       } catch (err) {
         document.getElementById("problem-title").textContent = "Unable to load problem";
         document.getElementById("problem-context").textContent = err.message;
       }
     }
 
-    window.addEventListener("DOMContentLoaded", boot);
+    window.addEventListener("load", boot);
   </script>
 </body>
 </html>
