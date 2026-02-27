@@ -1,0 +1,137 @@
+{
+  "problem_id": "W2598503174_p0",
+  "paper_id": "W2598503174",
+  "source_paper": "W2598503174",
+  "source_paper_title": "Competitive Equilibrium with Indivisible Goods and Generic Budgets",
+  "source_paper_url": "https://doi.org/10.1287/moor.2020.1062",
+  "problem_index": 0,
+  "title": "Existence of competitive equilibrium with indivisible goods for n>2 agents with almost-equal (generic) budgets",
+  "latex": "\\begin{problem}[CE existence for $n>2$ additive agents with almost-equal budgets]\nLet $M$ be a finite set of $m$ indivisible items and $N=\\{1,\\dots,n\\}$ a set of $n\\ge 3$ agents.\nEach agent $i\\in N$ has an \\emph{additive} valuation $v_i:2^M\\to\\mathbb{R}_{\\ge 0}$ of the form\n\\[\n v_i(S)=\\sum_{j\\in S} v_{ij}\\quad \\text{for all } S\\subseteq M,\n\\]\nwhere $v_{ij}\\ge 0$.\nLet $b=(b_1,\\dots,b_n)$ be a budget vector with $b_i>0$ and $\\sum_{i=1}^n b_i=1$.\n\nAn \\emph{allocation} is a partition $S=(S_1,\\dots,S_n)$ of $M$ (i.e., $S_i\\cap S_k=\\emptyset$ for $i\\neq k$ and $\\bigcup_i S_i=M$).\nGiven item prices $p\\in\\mathbb{R}_{\\ge 0}^M$, the price of a bundle is $p(S)=\\sum_{j\\in S} p_j$.\nAgent $i$ \\emph{demands} a bundle $S_i$ at prices $p$ if\n\\[\n p(S_i)\\le b_i \\quad\\text{and}\\quad \\forall T\\subseteq M\\text{ with } v_i(T)>v_i(S_i):\\; p(T)>b_i,\n\\]\ni.e., $S_i$ is among agent $i$'s most-preferred bundles affordable under budget $b_i$.\nA \\emph{competitive equilibrium (CE)} is a pair $(S,p)$ such that $S$ is an allocation and each agent $i$ demands $S_i$ at prices $p$.\n\nFix a notion of \\emph{almost-equal budgets}, e.g.\n\\[\n\\max_{i\\in N}\\left|b_i-\\frac{1}{n}\\right|\\le \\varepsilon\n\\quad\\text{(equivalently, } \\max_i b_i-\\min_i b_i\\le 2\\varepsilon\\text{)}.\n\\]\n\n\\textbf{Open question.} Does there exist $\\varepsilon>0$ (possibly depending on $n$ and/or $m$) such that for every instance with additive valuations $(v_i)_{i\\in N}$ and every budget vector $b$ that is sufficiently close to equal (in the above sense) but not exactly equal (i.e., for \\emph{generic} such $b$, excluding a measure-zero subset), a competitive equilibrium exists?\n\\end{problem}",
+  "context": "Explicitly stated as \u201cOpen Problem 1\u201d in Section 1.3.1 immediately after Theorem 1.1, and reiterated as the paper\u2019s main open question in the Conclusions (Section 9.1/9.2) about extending generic almost-equal budget existence beyond two agents.",
+  "subject_classification": "Algorithmic Game Theory / Market Equilibrium",
+  "keywords": [
+    "competitive equilibrium",
+    "Fisher market",
+    "indivisible goods",
+    "additive valuations",
+    "generic budgets",
+    "almost-equal budgets",
+    "existence"
+  ],
+  "importance": 8,
+  "importance_scale": 10,
+  "difficulty": 9,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.28261275
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.4561284,
+    "sources": [
+      {
+        "bibtex": "@article{BabaioffNisanTalgamCohen2021GenericBudgets,\n  author  = {Moshe Babaioff and Noam Nisan and Inbal Talgam-Cohen},\n  title   = {Competitive Equilibrium with Indivisible Goods and Generic Budgets},\n  journal = {Mathematics of Operations Research},\n  volume  = {46},\n  number  = {1},\n  pages   = {382--403},\n  year    = {2021},\n  month   = feb,\n  doi     = {10.1287/moor.2020.1062},\n  eprinttype = {arXiv},\n  eprint  = {1703.08150},\n  url     = {https://arxiv.org/abs/1703.08150}\n}",
+        "theorem_or_result": "(Exact theorem statement not accessible in full via the sources above; paraphrase based on the paper\u2019s abstract and bibliographic records.) In the Fisher market model with indivisible goods and **two agents** with **additive valuations**, if the budget vector is made **generic** (e.g., by arbitrarily small perturbations that avoid a finite set of equalities), then a competitive equilibrium exists. In particular, although CEEI can fail at exactly equal budgets, an arbitrarily small perturbation away from equality suffices to guarantee existence for this two-agent additive domain.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is the main paper introducing \u201cgeneric budgets\u201d as a way to restore CE existence with indivisible items in Fisher markets. It directly addresses the phenomenon that equal budgets can be knife-edge and shows a strong positive result in the additive setting, but only for **n=2**. Your open problem asks whether an analogous existence guarantee holds for **n\\ge 3** with budgets close to equal; this paper is the key baseline and motivates the higher-agent generalization."
+      },
+      {
+        "bibtex": "@article{BabaioffNisanTalgamCohen2019BeyondAdditive,\n  author  = {Moshe Babaioff and Noam Nisan and Inbal Talgam-Cohen},\n  title   = {Competitive Equilibrium with Generic Budgets: Beyond Additive},\n  journal = {CoRR},\n  volume  = {abs/1911.09992},\n  year    = {2019},\n  eprinttype = {arXiv},\n  eprint  = {1911.09992},\n  doi     = {10.48550/arXiv.1911.09992},\n  url     = {https://arxiv.org/abs/1911.09992}\n}",
+        "theorem_or_result": "(Exact theorem statements not accessible in full via the sources above; paraphrase based on the abstract.) The paper extends the \u201cgeneric budgets\u201d program beyond additive preferences: it establishes additional **existence results under generic budgets for certain broader preference classes** (including general monotone preferences in small-item regimes and a hierarchy of cardinal preference classes), and it delineates limitations of generic-budget arguments by providing boundaries/counterexamples for broader domains.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "Although your problem focuses on **additive** valuations, this paper is relevant because it develops techniques meant to scale generic-budget existence beyond the additive case. The positive results are still largely \u201csmall-parameter\u201d (e.g., small numbers of items or restricted preference classes), suggesting that extending generic-budget existence to **n>2** additive agents might require new structural ideas. It also helps map where genericity is insufficient, informing how strong one can hope an \\varepsilon-close-to-equal result to be."
+      },
+      {
+        "bibtex": "@article{SegalHalevi2020AlmostAllIncomes,\n  author  = {Erel Segal-Halevi},\n  title   = {Competitive Equilibrium for Almost All Incomes: Existence and Fairness},\n  journal = {Autonomous Agents and Multi-Agent Systems},\n  volume  = {34},\n  number  = {26},\n  pages   = {1--50},\n  year    = {2020},\n  doi     = {10.1007/s10458-020-09444-z},\n  eprinttype = {arXiv},\n  eprint  = {1705.04212},\n  url     = {https://arxiv.org/abs/1705.04212}\n}",
+        "theorem_or_result": "(Exact theorem numbering/wording not accessible here; paraphrase based on the abstract.) The paper proves several \u201calmost all incomes\u201d results for Fisher markets with indivisible goods: (i) **non-existence** (for almost all incomes) in certain settings with monotone increasing preferences (settling open cases left by prior work), and (ii) a **positive existence theorem** that when there are **4 goods and 3 agents with additive preferences**, a competitive equilibrium exists for **almost all** income/budget vectors (i.e., outside a measure-zero set).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is one of the few results that goes beyond two agents and reaches **n=3**, albeit for a small number of items (m=4). It is therefore the closest known evidence toward your conjectured phenomenon for n>2: generic budgets may restore existence even when equal budgets fail. At the same time, its negative results for broader monotone preferences highlight that additivity (or another strong substitute-like property) is doing substantial work."
+      },
+      {
+        "bibtex": "@article{BarmanKrishnamurthy2018PureMarkets,\n  author  = {Siddharth Barman and Sanath Kumar Krishnamurthy},\n  title   = {On the Proximity of Markets with Integral Equilibria},\n  journal = {CoRR},\n  volume  = {abs/1811.08673},\n  year    = {2018},\n  eprinttype = {arXiv},\n  eprint  = {1811.08673},\n  doi     = {10.48550/arXiv.1811.08673},\n  url     = {https://arxiv.org/abs/1811.08673}\n}",
+        "theorem_or_result": "(Exact theorem statement not accessible here; paraphrase based on the abstract.) For Fisher markets with **additive valuations**, although equilibrium allocations can be fractional, one can compute a **nearby** Fisher market (obtained by a bounded perturbation of agents\u2019 budgets) that admits an **integral equilibrium** (each good assigned integrally). The budget perturbation bound is explicit and depends on market prices (as summarized in secondary sources and the abstract).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem asks whether small perturbations of (near-equal) budgets generically ensure existence of an **exact integral CE** in the indivisible Fisher model. Barman\u2013Krishnamurthy provide a different but closely related \u201cbudget perturbation\u201d existence approach: starting from a fractional equilibrium, they show that **some** bounded budget changes make an **integral equilibrium** possible. While their perturbation magnitude is instance-dependent (not a uniform \\varepsilon for all valuations), the result is conceptually aligned with the idea that budget changes can restore integrality/existence."
+      },
+      {
+        "bibtex": "@article{Budish2011ACEei,\n  author  = {Eric Budish},\n  title   = {The Combinatorial Assignment Problem: Approximate Competitive Equilibrium from Equal Incomes},\n  journal = {Journal of Political Economy},\n  volume  = {119},\n  number  = {6},\n  pages   = {1061--1103},\n  year    = {2011},\n  doi     = {10.1086/664613}\n}",
+        "theorem_or_result": "(Precise parameterization varies by statement; paraphrase based on the published abstract and standard description of the main theorem.) For any desired income-inequality tolerance \\(\\beta>0\\), there exists an approximation tolerance \\(\\alpha\\) such that an \\((\\alpha,\\beta)\\)-approximate competitive equilibrium from equal incomes (A-CEEI) exists: budgets are in \\([1,1+\\beta]\\) (i.e., arbitrarily close to equal), and the outcome approximately clears the market and is approximately optimal for each agent given prices.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Budish\u2019s A-CEEI is the foundational \u201calmost-equal budgets\u201d existence result in the **approximate** sense, and it strongly motivates your question about **exact** CE existence under small budget perturbations. It shows that insisting on exact clearance/exact demand optimality can be relaxed while keeping budgets arbitrarily close to equal. Many later works (including generic-budget results) can be viewed as attempting to remove the approximation while retaining near-equality of budgets."
+      },
+      {
+        "bibtex": "@article{BudishGaoOthmanRubinsteinZhang2023PracticalACEei,\n  author  = {Eric Budish and Ruiquan Gao and Abraham Othman and Aviad Rubinstein and Qianfan Zhang},\n  title   = {Practical algorithms and experimentally validated incentives for equilibrium-based fair division (A-CEEI)},\n  journal = {CoRR},\n  volume  = {abs/2305.11406},\n  year    = {2023},\n  eprinttype = {arXiv},\n  eprint  = {2305.11406},\n  doi     = {10.48550/arXiv.2305.11406},\n  url     = {https://arxiv.org/abs/2305.11406}\n}",
+        "theorem_or_result": "(Algorithmic/empirical paper; no single central existence theorem in the abstract.) The paper develops faster practical algorithms and empirical evaluations for implementing A-CEEI-style allocations, discussing incentive properties such as EF-TB and strategyproofness-in-the-large, and reports performance on real-world course-allocation instances.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "While your problem is existential and exact, practical implementations often fall back on A-CEEI because exact CEEI/CE can fail to exist. This paper shows how near-equal-budget equilibrium-like solutions are computed in practice and what incentive/fairness issues arise, which helps clarify why an exact generic-budget existence theorem for **n>2** would be valuable. It also provides context for the \u201calmost equal but not equal\u201d budget perturbation idea used in deployed mechanisms."
+      },
+      {
+        "bibtex": "@article{Aziz2015CEEIHardness,\n  author  = {Haris Aziz},\n  title   = {Competitive equilibrium with equal incomes for allocation of indivisible objects},\n  journal = {Operations Research Letters},\n  volume  = {43},\n  number  = {6},\n  pages   = {622--624},\n  year    = {2015},\n  doi     = {10.1016/j.orl.2015.10.001},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0167637715001327}\n}",
+        "theorem_or_result": "Aziz proves computational hardness results for discrete CEEI-type outcomes: deciding/computing a discrete CEEI allocation is strongly NP-hard, and related stronger notions (e.g., CEEI-FRAC) also have strong NP-hardness results (with some tractable special cases such as 0/1 utilities).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Even if your open question had a positive existential answer (existence for generic near-equal budgets), computation may remain difficult. Aziz\u2019s results show that CEEI/CEEI-like solution concepts can be computationally intractable in worst case, which impacts how one might hope to leverage an existence theorem algorithmically. The hardness results also suggest that any proof of existence for n>2 may need to be non-constructive or rely on sophisticated structure."
+      },
+      {
+        "bibtex": "@article{GulStacchetti1999GrossSubstitutes,\n  author  = {Faruk Gul and Ennio Stacchetti},\n  title   = {Walrasian Equilibrium with Gross Substitutes},\n  journal = {Journal of Economic Theory},\n  volume  = {87},\n  number  = {1},\n  pages   = {95--124},\n  year    = {1999},\n  doi     = {10.1006/jeth.1999.2531},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0022053199925310}\n}",
+        "theorem_or_result": "Gul and Stacchetti prove that if agents\u2019 preferences satisfy the **gross substitutes** condition, then a **Walrasian equilibrium** exists in markets with indivisible goods. They also prove a \u201cmaximal domain\u201d result: gross substitutes is (in an appropriate sense) the largest domain extending unit-demand preferences on which existence is guaranteed.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "Additive valuations are gross substitutes, so this is the central existence theorem for **Walrasian equilibria** in quasilinear/transferable-utility discrete markets. However, your open problem is about the Fisher model with fixed budgets and strong income effects, where existence can fail even for additive valuations at equal budgets. This paper remains highly relevant because it identifies substitute structure as the right lens and motivates attempts (like generic budgets) to recover existence under income effects."
+      },
+      {
+        "bibtex": "@article{MirallesPycia2021Pseudomarkets,\n  author  = {Antonio Miralles and Marek Pycia},\n  title   = {Foundations of pseudomarkets: Walrasian equilibria for discrete resources},\n  journal = {Journal of Economic Theory},\n  volume  = {196},\n  pages   = {105303},\n  year    = {2021},\n  doi     = {10.1016/j.jet.2021.105303},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0022053121001204}\n}",
+        "theorem_or_result": "In a broad discrete assignment model (allowing multi-unit demands and linear constraints), the authors prove welfare-theorem-style results for \u201cpseudomarkets\u201d: (i) a strong First Welfare Theorem, and (ii) a Second Welfare Theorem implying that **every strongly efficient outcome can be decentralized/implemented via pseudomarket prices** (Walrasian-style equilibria adapted to discrete environments).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem seeks conditions guaranteeing existence of competitive equilibria in discrete Fisher markets with budget constraints. Miralles\u2013Pycia provide a complementary perspective: rather than perturbing budgets, they propose a market-like decentralization concept (pseudomarkets) that can implement strongly efficient outcomes in discrete environments. Their techniques and efficiency\u2013price implementation equivalences may offer tools or comparison benchmarks when investigating whether (and when) exact CE exists under budget perturbations for n>2."
+      },
+      {
+        "bibtex": "@article{BikhchandaniMamer1997Indivisibilities,\n  author  = {Sushil Bikhchandani and John W. Mamer},\n  title   = {Competitive Equilibrium in an Exchange Economy with Indivisibilities},\n  journal = {Journal of Economic Theory},\n  volume  = {74},\n  number  = {2},\n  pages   = {385--413},\n  year    = {1997},\n  doi     = {10.1006/jeth.1996.2269},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0022053196922693}\n}",
+        "theorem_or_result": "Bikhchandani and Mamer give a **necessary and sufficient condition** for the existence of market-clearing competitive equilibrium prices in an exchange economy with indivisible goods and (divisible) money: equilibrium exists if and only if the associated linear programming relaxation of the social surplus maximization problem has an **integral optimum** (equivalently, no integrality gap between the integer program and its LP relaxation).",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "Although your model is Fisher (endowments are budgets of artificial money) rather than an exchange economy, this paper is a classic characterization linking CE existence to **integrality** of a relaxation. This is conceptually close to why equilibria can fail with indivisible items: discrete nonconvexities create integrality gaps. Such characterizations often guide both counterexample construction and the identification of structural conditions (e.g., substitute-like properties) under which equilibrium existence might be restored by perturbations."
+      },
+      {
+        "bibtex": "@article{JagadeesanTeytelboym2025EconomicsOfEquilibrium,\n  author  = {Ravi Jagadeesan and Alexander Teytelboym},\n  title   = {The Economics of Equilibrium with Indivisible Goods},\n  journal = {The Review of Economic Studies},\n  year    = {2025},\n  doi     = {10.1093/restud/rdaf106},\n  eprinttype = {arXiv},\n  eprint  = {2412.07946},\n  url     = {https://arxiv.org/abs/2412.07946}\n}",
+        "theorem_or_result": "(Full theorem statements not accessible here; paraphrase from the journal abstract.) The paper develops a theory of competitive equilibrium with indivisible goods based on demand conditions expressed in terms of substitutability/complementarity between **bundles**. It provides sufficient and \u201cessentially necessary\u201d conditions for equilibrium existence that unify settings with substitutes and complements.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem asks whether additive valuations plus near-equal generic budgets are enough for CE existence for n>2. This paper is relevant because it proposes a modern demand-based framework for equilibrium existence in discrete settings, potentially offering the right language (bundle-level substitutability) to characterize exactly when generic budget perturbations should work or fail. Even if it does not directly resolve the Fisher-budget question, it can inform which additional conditions beyond additivity might be required."
+      },
+      {
+        "bibtex": "@article{BaldwinEdhanJagadeesanKlempererTeytelboym2020Duality,\n  author  = {Elizabeth Baldwin and Omer Edhan and Ravi Jagadeesan and Paul Klemperer and Alexander Teytelboym},\n  title   = {The Equilibrium Existence Duality: Equilibrium with Indivisibilities \\& Income Effects},\n  journal = {CoRR},\n  volume  = {abs/2006.16939},\n  year    = {2020},\n  eprinttype = {arXiv},\n  eprint  = {2006.16939},\n  doi     = {10.48550/arXiv.2006.16939},\n  url     = {https://arxiv.org/abs/2006.16939}\n}",
+        "theorem_or_result": "(Exact theorem statements not accessible here; paraphrase from the abstract.) The paper introduces an \u201cEquilibrium Existence Duality\u201d showing that, with indivisible goods, equilibrium existence depends on substitution effects rather than income effects, and it derives existence results with income effects by transporting transferable-utility existence results. In particular, it states that **net substitutability** (a condition weaker than gross substitutability) is sufficient for the existence of competitive equilibrium in their framework, along with classifications/conditions that are necessary and sufficient at the level of substitution patterns.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "The Fisher model in your problem features strong income effects due to hard budgets and indivisibilities. This paper is relevant because it aims to separate income effects from substitution structure and suggests that substitute-like conditions (net substitutes / gross substitutes analogues) are the key drivers of existence. Its duality viewpoint may offer a pathway to proving existence for broader classes or to constructing counterexamples for n>2 even under additivity + generic budgets."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0686105,
+    "verifier_total_cost_usd": 0.28261275,
+    "literature_total_cost_usd": 0.4561284,
+    "total_cost_usd": 0.80735165
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2598503174/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2598503174_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2598503174_p0_literature_review.json"
+  }
+}

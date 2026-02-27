@@ -235,9 +235,17 @@ main {
   margin: 0 0 1rem;
 }
 
-.problem-section .katex-display {
-  margin: 1rem 0;
+#problem-latex {
   overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+#problem-latex .katex-display {
+  margin: 1rem 0;
+  overflow: visible;
+  display: block;
 }
 
 .problem-section ul {

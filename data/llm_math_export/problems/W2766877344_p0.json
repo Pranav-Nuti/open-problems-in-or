@@ -1,0 +1,143 @@
+{
+  "problem_id": "W2766877344_p0",
+  "paper_id": "W2766877344",
+  "source_paper": "W2766877344",
+  "source_paper_title": "Asymptotically Optimal Sequential Design for Rank Aggregation",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.1209",
+  "problem_index": 0,
+  "title": "Asymptotically optimal sequential rank aggregation with heterogeneous judges (random effects)",
+  "latex": "\\begin{problem}[Sequential design for rank aggregation with judge heterogeneity]\nConsider $K\\ge 2$ items with latent utility (score) vector $\\theta=(\\theta_1,\\dots,\\theta_K)\\in\\mathbb{R}^K$ identified up to a location shift (e.g. impose $\\theta_1=0$). Let $\\mathcal{A}=\\{(i,j):1\\le i<j\\le K\\}$ be the set of item pairs.\n\nThere is a (potentially unbounded) population of judges indexed by $u\\in\\mathcal{U}$. Judge $u$ has an unobserved random effect (or parameter) $\\eta_u\\in\\mathbb{R}^d$ capturing heterogeneity, and comparisons made by judge $u$ follow a parametric pairwise-comparison model with probability mass function\n\\[\n\\mathbb{P}(X=1\\mid (i,j),\\theta,\\eta_u)=f^{(u)}_{i,j}(1\\mid \\theta,\\eta_u),\\qquad X\\in\\{0,1\\},\n\\]\nwhere $X=1$ indicates that item $i$ is preferred to item $j$, and $f^{(u)}_{i,j}(\\cdot\\mid\\theta,\\eta_u)$ depends on $(\\theta_i-\\theta_j)$ and on $\\eta_u$ (e.g. a generalized Bradley--Terry--Luce model with judge-specific bias/scale).\n\nAssume a Bayesian model with a prior density $\\rho_\\theta$ on $\\theta$ and a prior (or hierarchical) model for judge effects: for each engaged judge $u$, $\\eta_u\\sim \\rho_\\eta$ i.i.d., independent of $\\theta$. At each time $n=1,2,\\dots$, a decision maker adaptively selects (i) a judge $u_n\\in\\mathcal{U}$ to query and (ii) a pair $a_n=(i_n,j_n)\\in\\mathcal{A}$ to compare, based on the filtration $\\mathcal{F}_n=\\sigma\\big((u_t,a_t,X_t)_{t\\le n-1}\\big)$. Then $X_n$ is observed according to $f^{(u_n)}_{a_n}(\\cdot\\mid\\theta,\\eta_{u_n})$. The decision maker chooses a stopping time $T$ (w.r.t. $\\{\\mathcal{F}_n\\}$) and, upon stopping, outputs a global ranking $R\\in\\mathcal{P}_K$ (the set of permutations of $\\{1,\\dots,K\\}$).\n\nLet $L_K(R,\\theta)$ denote the Kendall's tau distance between the output ranking $R$ and the true ordering induced by $\\theta$ (ties excluded), and let each query incur cost $c>0$, so the total sampling cost is $cT$. The Bayes risk of a sequential policy $\\pi=(\\{(u_n,a_n)\\}_{n\\ge 1},T,R)$ is\n\\[\nV_c(\\pi)=\\mathbb{E}_\\pi\\big[\\,L_K(R,\\theta)+cT\\,\\big],\n\\]\nwhere expectation is over $(\\theta,\\{\\eta_u\\})$ and the adaptive data stream.\n\n\\emph{Open problem:} Design and analyze a sequential policy $\\pi$ for this heterogeneous-judge model that is (i) Bayes-risk optimal or approximately optimal, and in particular (ii) \\emph{asymptotically optimal} as $c\\to 0$ in the sense that\n\\[\n\\lim_{c\\to 0}\\frac{V_c(\\pi)}{\\inf_{\\pi'} V_c(\\pi')}=1,\n\\]\nwhile explicitly accounting for judge heterogeneity via the random effects $\\{\\eta_u\\}$.\n\\end{problem}",
+  "context": "Explicitly stated as a future open direction in the paper\u2019s concluding remarks (Section 5): the authors note that the current models assume homogeneous judges and state that it is of interest to incorporate judge-specific random effects (heterogeneity) and develop corresponding sequential designs.",
+  "subject_classification": "Bayesian Sequential Decision Making / Sequential Experimental Design",
+  "keywords": [
+    "sequential design",
+    "rank aggregation",
+    "pairwise comparisons",
+    "random effects",
+    "heterogeneous judges",
+    "asymptotic optimality"
+  ],
+  "importance": 6,
+  "importance_scale": 10,
+  "difficulty": 8,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.132944
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.36846565,
+    "sources": [
+      {
+        "bibtex": "@article{ChenChenLi2022AsymptoticallyOptimalSeqRankAgg,\n  author  = {Chen, Xi and Chen, Yunxiao and Li, Xiaoou},\n  title   = {Asymptotically Optimal Sequential Design for Rank Aggregation},\n  journal = {Mathematics of Operations Research},\n  volume  = {47},\n  number  = {3},\n  pages   = {2310--2332},\n  year    = {2022},\n  doi     = {10.1287/moor.2021.1209},\n  eprint  = {1710.06056},\n  archivePrefix = {arXiv},\n  primaryClass  = {stat.ME}\n}\n",
+        "theorem_or_result": "Exact theorem numbering/statement is not fully accessible from the pages viewed (publisher PDF not accessed). Paraphrase based on the arXiv abstract and the journal metadata: the paper formulates Bayesian sequential rank aggregation from noisy pairwise comparisons with per-sample cost c and a ranking loss (Kendall-tau type). It proposes explicit sequential policies (sampling rule + stopping rule + terminal ranking rule) and proves first-order asymptotic optimality as c \\to 0, i.e., the Bayes risk of the proposed policy matches the infimum Bayes risk up to a (1+o(1)) factor (equivalently, achieves the optimal leading constant in the |\\log c| sample-size/risk expansion).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is the closest existing result to the posed open problem: it addresses the same sequential design + stopping + final ranking decision problem under a Bayesian risk with a per-query cost and proves asymptotic Bayes-risk optimality as c\\to 0. However, it assumes a homogeneous judge/comparison model (no judge-specific random effects \\eta_u and no adaptive judge selection). A natural approach to the open problem is to extend their analysis by enlarging the action space from \u201cchoose a pair\u201d to \u201cchoose (judge, pair)\u201d and replacing single-model information numbers by hierarchical/marginal (or partially observed) information quantities."
+      },
+      {
+        "bibtex": "@article{NitinawaratAtiaVeeravalli2013ControlledSensing,\n  author  = {Nitinawarat, Sirin and Atia, George K. and Veeravalli, Venugopal V.},\n  title   = {Controlled Sensing for Multihypothesis Testing},\n  journal = {IEEE Transactions on Automatic Control},\n  volume  = {58},\n  number  = {10},\n  pages   = {2451--2464},\n  year    = {2013},\n  doi     = {10.1109/TAC.2013.2261188},\n  eprint  = {1205.0858},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.IT}\n}\n",
+        "theorem_or_result": "Theorem 3 (in the ar5iv HTML rendering): a modified Chernoff test for controlled multihypothesis testing is asymptotically optimal in a strong sense as the risk parameter c \\to 0. In particular, it achieves vanishing decision risks and has expected stopping time under each hypothesis i satisfying an asymptotic upper bound of the form E_i[T] \\le (1+o(1))|\\log c|/D_i, where D_i is an optimal information number obtained by maximizing (over control randomizations) the minimal KL divergence separating hypothesis i from its alternatives. Moreover, any sequence of tests with vanishing maximal risk must satisfy a matching lower bound E_i[T] \\ge (1-o(1))|\\log c|/D_i for each i (equation (20) in the HTML rendering).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem can be viewed as a controlled sequential decision problem: at each step the controller chooses an action and receives an observation from an action-dependent model, then stops and makes a terminal decision. This paper provides a general asymptotic-optimality template (Chernoff-type) for sequential experiment design with action control, including lower bounds and matching achievable procedures. Extending these controlled-sensing arguments to a *hierarchical* observation model (unknown judge random effects) is a plausible route to proving c\\to 0 optimality for (judge, pair) selection."
+      },
+      {
+        "bibtex": "@article{Chernoff1959SequentialDesign,\n  author  = {Chernoff, Herman},\n  title   = {Sequential Design of Experiments},\n  journal = {The Annals of Mathematical Statistics},\n  volume  = {30},\n  number  = {3},\n  pages   = {755--770},\n  year    = {1959},\n  doi     = {10.1214/aoms/1177706205}\n}\n",
+        "theorem_or_result": "Exact statement not accessed in the sources viewed. Canonical result (paraphrase): Chernoff introduces Procedure A for sequential experiment selection among multiple sensing actions in order to discriminate among hypotheses. As the sampling cost c\\to 0 (or equivalently as error probabilities \\to 0), Procedure A is first-order asymptotically optimal: it minimizes (up to 1+o(1)) the expected sample size/cost among sequential tests achieving the same vanishing error/risk constraints, with the leading constant governed by optimal KL information rates.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is the foundational work for asymptotically optimal sequential experimental design with action selection and stopping, the same asymptotic regime (c\\to 0) used in your open problem. Modern controlled-sensing and sequential rank-aggregation optimality proofs typically reduce to variants of Chernoff\u2019s argument with refined change-of-measure and martingale concentration tools. Any solution for heterogeneous judges will likely build on a Chernoff-style decomposition but with partially observed (random-effects) parameters."
+      },
+      {
+        "bibtex": "@article{Bockenholt2001HierarchicalPairedComparisons,\n  author  = {B{\"o}ckenholt, Ulf},\n  title   = {Hierarchical Modeling of Paired Comparison Data},\n  journal = {Psychological Methods},\n  volume  = {6},\n  number  = {1},\n  pages   = {49--66},\n  year    = {2001},\n  doi     = {10.1037/1082-989X.6.1.49}\n}\n",
+        "theorem_or_result": "Result (modeling contribution; no single theorem statement extracted): extends Luce/Bradley--Terry-type paired comparison models to a mixed-effects (hierarchical) framework linking individual-level preferences to group-level (population) parameters. The random-effects formulation induces dependence among comparisons made by the same subject and allows separating population worth parameters from subject-specific deviations; estimation can be carried out using standard multilevel GLMM software for binary outcomes.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "Your problem\u2019s heterogeneous judges correspond precisely to a hierarchical/mixed-effects paired-comparison model: each judge u has latent parameters \\eta_u that shift the comparison probabilities. This paper is an early, influential reference establishing how to parameterize and estimate such heterogeneity in paired-comparison data. For sequential design, it suggests treating \\eta_u as latent state variables updated online and highlights the identifiability/normalization issues that any sequential Bayes-optimal policy must handle."
+      },
+      {
+        "bibtex": "@article{LancasterQuade1983RandomEffectsBradleyTerry,\n  author  = {Lancaster, J. F. and Quade, D.},\n  title   = {Random Effects in Paired-Comparison Experiments Using the {Bradley--Terry} Model},\n  journal = {Biometrics},\n  volume  = {39},\n  number  = {1},\n  pages   = {245--249},\n  year    = {1983},\n  note    = {PMID: 6871353}\n}\n",
+        "theorem_or_result": "Result (modeling contribution; theorem statement not accessed): proposes a random-effects generalization of the Bradley--Terry model by treating preference parameters as random variables over a population of judges, which induces correlation among outcomes provided by the same judge and enables decomposition of variability due to judges vs. treatments/items.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is directly aligned with the \u201cjudge heterogeneity (random effects)\u201d part of the open problem: it formalizes the idea that repeated judgments by the same judge are dependent due to latent judge-specific effects. While it is not sequential, it motivates the hierarchical Bayesian formulation in your statement and indicates what the likelihood structure looks like after integrating over judge effects. Any asymptotically optimal sequential design will need to decide whether to (a) reuse judges to learn their \\eta_u or (b) recruit new judges to average out heterogeneity; this paper provides the baseline model for that tradeoff."
+      },
+      {
+        "bibtex": "@inproceedings{ChenBennettCollinsThompsonHorvitz2013CrowdBT,\n  author    = {Chen, Xi and Bennett, Paul N. and Collins-Thompson, Kevyn and Horvitz, Eric},\n  title     = {Pairwise Ranking Aggregation in a Crowdsourced Setting},\n  booktitle = {Proceedings of the 6th ACM International Conference on Web Search and Data Mining (WSDM '13)},\n  year      = {2013},\n  pages     = {193--202},\n  publisher = {ACM},\n  doi       = {10.1145/2433396.2433420}\n}\n",
+        "theorem_or_result": "Result (model + inference; exact theorem not accessed): introduces Crowd-BT, a probabilistic model that augments Bradley--Terry-type pairwise comparisons with worker-specific reliability parameters, enabling robust inference of a consensus ranking in the presence of spammers/malicious or low-quality judges. The method jointly estimates item scores and annotator reliability and empirically improves ranking quality over standard BT/TrueSkill baselines in crowdsourced datasets.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem requires explicitly modeling heterogeneous judges and using that in sequential design. Crowd-BT is one of the best-known BT-style models that incorporates judge/worker quality parameters and performs joint inference, which is conceptually similar to having latent \\eta_u per judge. Although it does not study sequential Bayes-risk optimality, its latent-variable structure suggests practical posterior updates and decision rules (e.g., query judges/pairs that maximize expected information weighted by inferred judge reliability)."
+      },
+      {
+        "bibtex": "@article{XuTanWuZhou2026JudgeAwareRanking,\n  author  = {Xu, Mingyuan and Tan, Xinzi and Wu, Jiawei and Zhou, Doudou},\n  title   = {A Judge-Aware Ranking Framework for Evaluating Large Language Models without Ground Truth},\n  journal = {arXiv preprint},\n  year    = {2026},\n  eprint  = {2601.21817},\n  archivePrefix = {arXiv}\n}\n",
+        "theorem_or_result": "Exact theorem statements not accessed; paraphrase from the arXiv abstract: proposes an extension of the Bradley--Terry--Luce model with judge-specific discrimination/reliability parameters, proves identifiability (up to natural normalizations), and establishes consistency and asymptotic normality of the maximum-likelihood estimator, enabling confidence intervals for score differences and rank comparisons.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This paper is highly relevant on the *heterogeneous judges* axis: it formalizes judge-specific parameters in a BTL-like model and proves classical large-sample properties (identifiability/consistency/CLT) that are needed to justify asymptotic analysis. While it is not a sequential design paper, its asymptotic normality results can inform approximate dynamic programming or one-step lookahead designs via Fisher-information surrogates. It also highlights the practical importance of differential judge reliability, a key motivation for selecting judges adaptively."
+      },
+      {
+        "bibtex": "@article{AczelTheisWattenhofer2025BBQ,\n  author  = {Aczel, Till and Theis, Lucas and Wattenhofer, Roger},\n  title   = {Efficient Bayesian Inference from Noisy Pairwise Comparisons},\n  journal = {arXiv preprint},\n  year    = {2025},\n  eprint  = {2510.09333},\n  archivePrefix = {arXiv}\n}\n",
+        "theorem_or_result": "Result (algorithmic; exact theorem not accessed): introduces a Bayesian Bradley--Terry variant that explicitly models rater quality and uses an EM-style procedure with guaranteed monotone improvement of the (marginal/complete-data) likelihood, aiming for robust aggregation under heterogeneous and unreliable raters; reports improved calibration/robustness empirically.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Although it does not address sequential design, it provides a concrete latent-variable Bayesian model for heterogeneous raters that can be embedded inside a sequential policy via posterior updates. In your setting, such a model would determine how much value an additional comparison from a given judge provides (as a function of inferred quality), which is essential for judge selection u_n. EM/variational updates can also be used as fast approximate filters in an online decision loop."
+      },
+      {
+        "bibtex": "@article{SimpsonGurevych2020CrowdGPPL,\n  author  = {Simpson, Edwin and Gurevych, Iryna},\n  title   = {Scalable Bayesian Preference Learning for Crowds},\n  journal = {Machine Learning},\n  volume  = {109},\n  pages   = {689--718},\n  year    = {2020},\n  doi     = {10.1007/s10994-019-05867-2}\n}\n",
+        "theorem_or_result": "Result (methodological; no single theorem statement extracted): develops a scalable Bayesian model (crowdGPPL) that jointly predicts individual preferences and a crowd consensus from pairwise labels by combining matrix factorization with Gaussian processes, and derives a stochastic variational inference algorithm with fixed per-iteration memory/time costs (scaling to thousands of users/items/pairs in experiments).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This paper addresses a key challenge in heterogeneous-judge rank aggregation: simultaneously modeling a consensus ranking and systematic user-to-user preference variation/bias, not just i.i.d. noise. For the open problem, it suggests representing \\eta_u through low-dimensional latent factors and maintaining approximate posteriors online, which could make adaptive judge selection tractable. While it lacks a c\\to 0 asymptotic optimality analysis, its probabilistic modeling of heterogeneity is directly reusable."
+      },
+      {
+        "bibtex": "@article{CaronDoucet2012BayesianBradleyTerry,\n  author  = {Caron, Fran{\\c{c}}ois and Doucet, Arnaud},\n  title   = {Efficient Bayesian Inference for Generalized {Bradley--Terry} Models},\n  journal = {Journal of Computational and Graphical Statistics},\n  volume  = {21},\n  number  = {1},\n  pages   = {174--196},\n  year    = {2012},\n  doi     = {10.1080/10618600.2012.638220},\n  eprint  = {1011.1761},\n  archivePrefix = {arXiv},\n  primaryClass  = {stat.ME}\n}\n",
+        "theorem_or_result": "Result (computational/inference; theorem statement not accessed): shows that MM algorithms for generalized Bradley--Terry models can be reinterpreted as EM algorithms with suitable latent variables and uses this data augmentation to derive simple Gibbs samplers for Bayesian inference in a variety of BT extensions (ties, multiple comparisons, etc.).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Asymptotically optimal sequential design typically requires repeated, fast posterior updates (or approximations thereof) to compute which action (judge, pair) is most informative. This paper provides widely used Bayesian computational machinery for BT-like likelihoods via EM/Gibbs with latent-variable augmentation, which can be adapted to hierarchical judge-effects models. It is thus a practical enabler for implementing the filtering component of a sequential policy that explicitly accounts for heterogeneity."
+      },
+      {
+        "bibtex": "@inproceedings{MaystreGrossglauser2017JustSortIt,\n  author    = {Maystre, Lucas and Grossglauser, Matthias},\n  title     = {Just Sort It! {A} Simple and Effective Approach to Active Preference Learning},\n  booktitle = {Proceedings of the 34th International Conference on Machine Learning (ICML)},\n  series    = {Proceedings of Machine Learning Research},\n  volume    = {70},\n  pages     = {2344--2353},\n  year      = {2017},\n  publisher = {PMLR},\n  url       = {https://proceedings.mlr.press/v70/maystre17a.html}\n}\n",
+        "theorem_or_result": "Result (guarantees for an adaptive heuristic; exact theorem statement not accessed): analyzes Quicksort-based adaptive selection of pairwise comparisons under the Bradley--Terry noise model and provides performance guarantees (under parameter/separation assumptions) showing that repeated sorting yields good ranking accuracy with relatively few adaptively chosen comparisons; also demonstrates strong empirical performance.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This is a representative active-learning approach for selecting informative item pairs for ranking under BT noise, aligning with the \u2018pair selection a_n\u2019 component of your problem. While it does not handle heterogeneous judges or optimal stopping/Bayes risk, it provides concrete pair-selection heuristics and analyses that could be nested inside a higher-level sequential design that additionally chooses judges. Its guarantees may inform the *pair* component of a joint (judge, pair) policy."
+      },
+      {
+        "bibtex": "@article{DavidsonSolomon1973BayesianPairedComparison,\n  author  = {Davidson, Roger R. and Solomon, Daniel L.},\n  title   = {A {Bayesian} Approach to Paired Comparison Experimentation},\n  journal = {Biometrika},\n  volume  = {60},\n  number  = {3},\n  pages   = {477--487},\n  year    = {1973},\n  doi     = {10.1093/biomet/60.3.477}\n}\n",
+        "theorem_or_result": "Exact theorem statement not accessed (PDF paywalled in the view). Paraphrase from the article abstract: develops conjugate-prior Bayesian analyses for multibinomial and Bradley--Terry paired-comparison models, gives two Bayesian estimators of BT worth parameters, and shows that under a posterior \u2018balance\u2019 condition the induced rankings from these estimators coincide and are Bayes-optimal for a large class of acceptable ranking loss functions; also provides a way to obtain the Bayes ranking without explicitly evaluating the estimators in some cases.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "Your open problem is explicitly Bayesian and uses a permutation loss (Kendall tau) plus sampling cost. This paper is an early Bayesian treatment of BT paired comparisons that connects posterior structure to optimal ranking decisions under broad loss classes. Although it is not sequential and does not model judge heterogeneity, it provides useful Bayesian decision-theoretic groundwork for the terminal decision rule R and for understanding what ranking is Bayes-optimal given a posterior over \\theta."
+      },
+      {
+        "bibtex": "@article{BugakovaFedorovaGusevDrutsa2019factorBT,\n  author  = {Bugakova, Nadezhda and Fedorova, Valentina and Gusev, Gleb and Drutsa, Alexey},\n  title   = {Aggregation of Pairwise Comparisons with Reduction of Biases},\n  journal = {arXiv preprint},\n  year    = {2019},\n  eprint  = {1906.03711},\n  archivePrefix = {arXiv}\n}\n",
+        "theorem_or_result": "Result (modeling; exact theorem not accessed): proposes factorBT, an extension of Bradley--Terry-style aggregation that explicitly models nuisance \u201cfactors\u201d causing systematic biases in pairwise judgments (e.g., item position effects) and demonstrates empirically that accounting for such biases improves aggregated ranking accuracy on real datasets compared to standard baselines.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "In heterogeneous-judge settings, observed comparisons can be distorted not only by idiosyncratic judge effects but also by task/presentation effects that interact with judges (a form of structured heterogeneity). This work provides a concrete BT-style factorization approach to incorporate such biases into the likelihood, which is compatible with the \\eta_u-augmented model class in your problem statement. Incorporating such bias terms can be important for designing sequential policies that remain asymptotically optimal under realistic, non-exchangeable judge behavior."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0773115,
+    "verifier_total_cost_usd": 0.132944,
+    "literature_total_cost_usd": 0.36846565,
+    "total_cost_usd": 0.57872115
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2766877344/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2766877344_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2766877344_p0_literature_review.json"
+  }
+}

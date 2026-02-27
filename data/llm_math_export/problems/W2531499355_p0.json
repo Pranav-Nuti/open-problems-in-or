@@ -1,0 +1,136 @@
+{
+  "problem_id": "W2531499355_p0",
+  "paper_id": "W2531499355",
+  "source_paper": "W2531499355",
+  "source_paper_title": "Statistics of Robust Optimization: A Generalized Empirical Likelihood Approach",
+  "source_paper_url": "https://doi.org/10.1287/moor.2020.1085",
+  "problem_index": 0,
+  "title": "Adaptive, non-conservative confidence intervals for stochastic optimization without unique optimizers",
+  "latex": "\\begin{problem}[Adaptive inference for stochastic optimization with non-unique minimizers]\nLet $(\\Xi,\\mathcal A,P_0)$ be a probability space, let $X\\subseteq \\mathbb R^d$ be a nonempty closed feasible set, and let $\\ell:X\\times \\Xi\\to\\mathbb R$ be a measurable loss such that $x\\mapsto \\mathbb E_{P_0}[\\ell(x;\\xi)]$ attains its minimum on $X$.\n\nDefine the population optimal value and optimal solution set\n\\[\nT_{\\mathrm{opt}}(P_0):=\\inf_{x\\in X}\\,\\mathbb E_{P_0}[\\ell(x;\\xi)],\n\\qquad\nS^*_0:=\\arg\\min_{x\\in X}\\,\\mathbb E_{P_0}[\\ell(x;\\xi)],\n\\]\nand assume \\emph{non-uniqueness} is allowed, i.e., $|S^*_0|\\ge 2$.\n\nGiven i.i.d. data $\\xi_1,\\dots,\\xi_n\\sim P_0$, let $\\widehat P_n:=\\frac1n\\sum_{i=1}^n \\delta_{\\xi_i}$ be the empirical measure. Fix a convex function $f:\\mathbb R_+\\to\\mathbb R\\cup\\{+\\infty\\}$ with $f(1)=f'(1)=0$ and $f''(1)=2$, and define the $f$-divergence\n\\[\nD_f(P\\|Q):=\\int f\\!\\left(\\frac{\\mathrm dP}{\\mathrm dQ}\\right)\\,\\mathrm dQ,\n\\qquad (P\\ll Q).\n\\]\nFor a radius sequence $\\rho_n>0$, define the (data-dependent) ambiguity set\n\\[\n\\mathcal P_{n}:=\\Big\\{P\\ll \\widehat P_n: D_f(P\\|\\widehat P_n)\\le \\rho_n/n\\Big\\}.\n\\]\n\n\\textbf{Open problem.} Construct a computable, data-dependent confidence interval $[L_n,U_n]$ for the optimal value $T_{\\mathrm{opt}}(P_0)$ that:\n\\begin{itemize}\n\\item (Exact asymptotic coverage) satisfies, for a prescribed $\\alpha\\in(0,1)$,\n\\[\n\\lim_{n\\to\\infty} \\mathbb P\\big( T_{\\mathrm{opt}}(P_0)\\in [L_n,U_n]\\big)=1-\\alpha,\n\\]\n\\item (No uniqueness requirement) remains valid when the optimizer set $S^*_0$ is not a singleton,\n\\item (Adaptivity / non-conservatism) automatically adapts to the geometry/size of $S^*_0$ so that the limiting coverage is not overly conservative (e.g., achieves the target $1-\\alpha$ rather than a larger, conservative limit), and\n\\item (Practical calibration) provides a principled, implementable choice of the interval construction and/or the radius sequence $\\rho_n$ that does not require unknown nuisance quantities tied to the excursions of a non-centered Gaussian process indexed by $S^*_0$.\n\\end{itemize}\nEquivalently, devise an inference procedure for $T_{\\mathrm{opt}}(P_0)$ that is asymptotically exact and practically evaluable in the non-unique minimizer regime where the limiting law depends on a Gaussian process restricted to $S^*_0$.\n\\end{problem}",
+  "context": "Explicitly stated in the Conclusion (Section 8): the authors note that the uniqueness condition in Theorem 3 is stringent and state that it is of interest to develop procedures that are asymptotically adaptive to the size of the solution set $S^*_{P_0}$ without being too conservative, which is challenging because the asymptotic distribution is no longer normal when the optimizer is non-unique.",
+  "subject_classification": "Stochastic Optimization / Statistical Inference",
+  "keywords": [
+    "distributionally robust optimization",
+    "empirical likelihood",
+    "confidence intervals",
+    "non-unique minimizers",
+    "Hadamard differentiability",
+    "Gaussian processes"
+  ],
+  "importance": 8,
+  "importance_scale": 10,
+  "difficulty": 7,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.298053
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.45273375,
+    "sources": [
+      {
+        "bibtex": "@article{DuchiGlynnNamkoong2021,\n  author  = {Duchi, John C. and Glynn, Peter W. and Namkoong, Hongseok},\n  title   = {Statistics of Robust Optimization: A Generalized Empirical Likelihood Approach},\n  journal = {Mathematics of Operations Research},\n  year    = {2021},\n  volume  = {46},\n  number  = {3},\n  pages   = {946--969},\n  doi     = {10.1287/moor.2020.1085},\n  eprint  = {1610.03425},\n  archivePrefix = {arXiv},\n  primaryClass  = {stat.ML}\n}",
+        "theorem_or_result": "(Theorem 2, plus discussion around it.) Let u_n and l_n be the DRO upper/lower endpoints obtained by optimizing the expected loss over an f-divergence ball around the empirical measure with radius parameter \\(\\rho\\) (they take \\(\\rho=\\chi^2_{1,1-\\alpha}\\) in their main CI construction). Under regularity assumptions, they derive limits\n\\[\\lim_{n\\to\\infty} \\mathbb P\\big(T_{\\mathrm{opt}}(P_0)\\le u_n\\big)=\\mathbb P\\Big(\\inf_{x\\in S^*_{P_0}} H_+(x)\\ge 0\\Big),\\qquad \\lim_{n\\to\\infty} \\mathbb P\\big(T_{\\mathrm{opt}}(P_0)\\ge l_n\\big)=\\mathbb P\\Big(\\inf_{x\\in S^*_{P_0}} H_-(x)\\le 0\\Big),\n\\]\nfor certain Gaussian-process-derived random functions \\(H_+,H_-\\) indexed by the population solution set \\(S^*_{P_0}\\). If \\(S^*_{P_0}\\) is a singleton, both one-sided limits equal \\(1-\\tfrac12\\mathbb P(\\chi^2_1\\ge\\rho)\\), yielding an asymptotically exact two-sided \\((1-\\alpha)\\) confidence interval when \\(\\rho=\\chi^2_{1,1-\\alpha}\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is the closest match to the problem statement: it studies confidence intervals for the stochastic optimization optimal value using nonparametric f-divergence DRO balls around the empirical distribution and gives a principled chi-square calibration of the radius. However, their asymptotically exact coverage result requires a unique population minimizer (Hadamard differentiability of \\(T_{\\mathrm{opt}}\\)), and in the non-unique case they characterize the (generally conservative) limiting coverage via an infimum over a Gaussian-process-derived object indexed by \\(S_0^*\\). The open problem essentially asks how to make the non-unique case both exact and practically calibratable without unknown Gaussian-process excursion quantities."
+      },
+      {
+        "bibtex": "@article{LamZhou2017,\n  author  = {Lam, Henry and Zhou, Enlu},\n  title   = {The empirical likelihood approach to quantifying uncertainty in sample average approximation},\n  journal = {Operations Research Letters},\n  year    = {2017},\n  volume  = {45},\n  number  = {4},\n  pages   = {301--307},\n  doi     = {10.1016/j.orl.2017.04.003},\n  eprint  = {1604.02573},\n  archivePrefix = {arXiv},\n  primaryClass  = {stat.ME}\n}",
+        "theorem_or_result": "(Theorem 1 stated in the arXiv version, and the CI construction in Section 2.) They restate an empirical likelihood Wilks-type theorem: for i.i.d. data and moment restrictions \\(\\mathbb E[g(\\xi;z)]=0\\) with covariance matrix of rank \\(r\\), the profile empirical likelihood ratio statistic converges to \\(\\chi^2_r\\). They then build lower/upper bounds for the stochastic program\u2019s optimal value by optimizing over probability weights \\(w\\) on the data subject to an empirical likelihood (Burg-entropy/KL-type) divergence constraint \\(-2\\sum_i \\log(n w_i)\\le \\chi^2_{r,1-\\alpha}\\). (Exact displayed statement of their Theorem 2 on the resulting optimization bounds\u2019 coverage is not fully visible in the HTML rendering we accessed; based on their proof discussion, the resulting interval is shown to have asymptotic coverage at least \\(1-\\alpha\\), with potential conservatism due to relaxation/choice of degrees of freedom.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This paper is an early and influential attempt to build computable CIs for optimal values in SAA using empirical likelihood/DRO-style optimization over weights on the observed support. It explicitly notes that the optimizer need not be unique in its assumptions, aligning with the non-unique minimizer regime of the open problem. However, their calibration involves a rank/df parameter tied to first-order conditions and relaxations that can make intervals conservative; the paper itself highlights that the df choice may be non-optimal and suggests bootstrap/Bartlett-type refinements as future work\u2014precisely the type of adaptivity/non-conservatism issue raised in the open problem."
+      },
+      {
+        "bibtex": "@misc{GuiguesJuditskyNemirovski2016,\n  author       = {Guigues, Vincent and Juditsky, Anatoli and Nemirovski, Arkadi},\n  title        = {Non-asymptotic confidence bounds for the optimal value of a stochastic program},\n  year         = {2016},\n  note         = {Optimization Online preprint},\n  eprint       = {1601.07592},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}",
+        "theorem_or_result": "(Proposition 1 and Corollary 1.) For a convex stochastic program Opt = \\(\\min_{x\\in X} \\mathbb E[F(x,\\xi)]\\) and its SAA optimal value Opt_N, under sub-Gaussian-type exponential moment bounds on both the noise \\(F(x,\\xi)-f(x)\\) and a subgradient discrepancy term \\(L(x,\\xi)\\), they give explicit finite-sample tail inequalities:\n\\[\\mathbb P\\{\\mathrm{Opt}_N > \\mathrm{Opt} + a(\\mu,N)\\} \\le \\exp\\{-\\mu^2/(4\\tau_*)\\},\\]\n\\[\\mathbb P\\{\\mathrm{Opt}_N < \\mathrm{Opt} - b(\\mu,s,\\lambda,N)\\} \\le \\exp\\{-N(s^2-1)\\}+\\exp\\{-\\mu^2/(4\\tau_*)\\}+\\exp\\{-\\lambda^2/(4\\tau_*)\\},\\]\nwith explicit a(\u00b7), b(\u00b7) functions of \\(N\\) and problem constants. Corollary 1 converts these into computable lower/upper confidence bounds Low_SAA and Up_SAA for Opt.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Although it does not use f-divergence ambiguity sets, this work provides a different, fully non-asymptotic route to confidence bounds for the optimal value based on concentration and SAA. It is relevant because non-unique minimizers are naturally allowed in convex programs, and the results bound the optimal value directly without requiring uniqueness or estimating a Gaussian-process excursion functional. The drawback relative to the open problem is that these bounds depend on problem constants (e.g., sub-Gaussian parameters and Lipschitz/subgradient controls) and aim at finite-sample validity rather than asymptotically exact, non-conservative calibration."
+      },
+      {
+        "bibtex": "@article{MakMortonWood1999,\n  author  = {Mak, Wai-Ki and Morton, David P. and Wood, R. Kevin},\n  title   = {Monte Carlo bounding techniques for determining solution quality in stochastic programs},\n  journal = {Operations Research Letters},\n  year    = {1999},\n  volume  = {24},\n  number  = {1--2},\n  pages   = {47--56},\n  doi     = {10.1016/S0167-6377(98)00054-6}\n}",
+        "theorem_or_result": "(Main bounding result, exact theorem statement not accessed in full text.) They show that the expected optimal value of an SAA/approximating problem provides a lower bound on the true stochastic program optimal value, i.e., \\(\\mathbb E[\\mathrm{Opt}_n] \\le \\mathrm{Opt}\\), and that the bound improves monotonically with sample size. They then use a batch-means-type procedure to construct confidence intervals on the optimality gap of a candidate solution via the resulting lower-bound estimator.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is a foundational OR approach to statistical assessment of stochastic program solutions/values via repeated sampling and bounding, and it directly targets confidence intervals for optimality gaps/values. It does not focus on asymptotically exact, adaptive inference under non-unique minimizers, but it motivates why lower/upper bounds for optimal values are central objects. It also illustrates a class of practical, simulation-based calibration methods (batching/replication) that avoid Gaussian-process excursion calculations but may require additional sampling beyond the original dataset."
+      },
+      {
+        "bibtex": "@misc{GangulySutter2023,\n  author       = {Ganguly, Arnab and Sutter, Tobias},\n  title        = {Optimal Learning via Moderate Deviations Theory},\n  year         = {2023},\n  eprint       = {2305.14496},\n  archivePrefix= {arXiv},\n  primaryClass = {math.ST}\n}",
+        "theorem_or_result": "(Main result described in the abstract; exact theorem statements not accessed.) They construct confidence intervals for functionals including stochastic-program optimal values using a moderate deviation principle (MDP) and the induced rate function. The resulting intervals are expressed as solutions to (infinite-dimensional) robust optimization problems and are shown to be \u201cstatistically optimal\u201d in the sense of exponential accuracy / minimality / consistency and an eventual uniformly most accurate (UMA) property.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This work is relevant because it uses optimization-based constructions (robust optimization with a data-driven uncertainty set) to produce confidence intervals for stochastic-program functionals, conceptually close to f-divergence DRO. The MDP perspective can potentially yield sharper-than-CLT calibration and may offer a route to practical, data-dependent tuning without explicit Gaussian-process suprema. However, it is not targeted to the specific f-divergence empirical-likelihood ball construction, nor does it directly address adaptivity to the geometry of a non-unique argmin set \\(S_0^*\\) in the CLT regime."
+      },
+      {
+        "bibtex": "@article{FirpoGalvaoParker2023,\n  author  = {Firpo, Sergio and Galvao, Antonio F. and Parker, Thomas},\n  title   = {Uniform inference for value functions},\n  journal = {Journal of Econometrics},\n  year    = {2023},\n  volume  = {235},\n  number  = {2},\n  pages   = {1680--1699},\n  doi     = {10.1016/j.jeconom.2022.11.009},\n  eprint  = {1911.10215},\n  archivePrefix = {arXiv},\n  primaryClass  = {econ.EM}\n}",
+        "theorem_or_result": "(Core result described in the abstract; exact theorem statements not accessed.) They show that the marginal-optimization map sending an objective function to an \\(L_p\\) functional of its value function is Hadamard directionally differentiable (even though the value-function map itself is not Hadamard differentiable). Using this, they derive consistency and weak convergence of plug-in estimators of KS/CvM-type statistics and develop a feasible resampling scheme that combines bootstrap draws with estimates of the relevant directional derivatives, establishing local (and for some functionals uniform) size control.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Your open problem is precisely about inference for an optimal value functional that becomes non-smooth when the optimizer is not unique; in functional-analytic terms, this is a directionally differentiable (not fully differentiable) marginal-optimization operator. Firpo\u2013Galvao\u2013Parker provide an econometrics blueprint for making such inference feasible: identify a directionally differentiable target functional and pair it with a bootstrap that explicitly estimates the directional derivative to avoid inconsistency/conservatism. Adapting their derivative-estimation/resampling strategy to the f-divergence DRO endpoints could be a plausible route to achieving exact asymptotic coverage without requiring unique minimizers."
+      },
+      {
+        "bibtex": "@article{FangSantos2019,\n  author  = {Fang, Zheng and Santos, Andres},\n  title   = {Inference on Directionally Differentiable Functions},\n  journal = {The Review of Economic Studies},\n  year    = {2019},\n  volume  = {86},\n  number  = {1},\n  pages   = {377--412},\n  doi     = {10.1093/restud/rdy049},\n  eprint  = {1404.3763},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.ST}\n}",
+        "theorem_or_result": "(Main result summarized in the arXiv abstract; exact theorem numbering not accessed.) They show that when \\(\\hat\\theta_n\\) has an asymptotically Gaussian limit and \\(\\phi\\) is only directionally (not fully) differentiable, the \u201cstandard\u201d bootstrap for \\(\\phi(\\hat\\theta_n)\\) is consistent only under stringent conditions; in fact, (under their framework) full differentiability of \\(\\phi\\) is necessary and sufficient for standard bootstrap consistency. They propose an alternative resampling/inference procedure that remains consistent when \\(\\phi\\) is merely directionally differentiable and establish local size control under conditions on the directional derivative \\(\\phi'_{\\theta_0}\\).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Non-unique minimizers make \\(T_{\\mathrm{opt}}\\) non-Hadamard-differentiable, so naive bootstrap or chi-square calibration can fail or become conservative\u2014exactly the phenomenon highlighted by Duchi\u2013Glynn\u2013Namkoong\u2019s non-unique case. Fang\u2013Santos provide the general inference theory and the bootstrap-fix template for directionally differentiable targets, which includes optimization value/argmin maps as canonical examples in the broader literature. Their approach speaks directly to the open problem\u2019s demand for a practically evaluable procedure that avoids unknown Gaussian-process excursion functionals by replacing them with a resampling scheme plus directional-derivative estimation."
+      },
+      {
+        "bibtex": "@article{HongLi2018,\n  author  = {Hong, Han and Li, Jessie},\n  title   = {The numerical delta method},\n  journal = {Journal of Econometrics},\n  year    = {2018},\n  volume  = {206},\n  number  = {2},\n  pages   = {379--394},\n  doi     = {10.1016/j.jeconom.2018.06.007}\n}",
+        "theorem_or_result": "(Main result described in the abstract; exact theorem statements not accessed.) For parameters \\(\\phi(\\theta_0)\\) where \\(\\phi\\) is directionally differentiable (possibly non-differentiable), they propose a delta-method-based inference scheme that replaces \\(\\phi'_{\\theta_0}\\) by an appropriate numerical derivative computed with a sequence of step sizes. They show consistency of the resulting inference, provide uniform validity for certain convex/Lipschitz \\(\\phi\\), and extend results to a second-order delta method.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "A central obstruction in the open problem is that the limiting law depends on an unknown directional derivative / Gaussian process indexed by the (unknown) solution set \\(S_0^*\\). The numerical delta method gives a generic, implementable way to approximate directional derivatives needed for feasible inference, avoiding explicit analytic characterization of \\(\\phi'\\) in complex problems. This suggests a potential practical pathway to calibrating non-unique-minimizer optimal-value inference (including DRO/EL-based endpoints) without directly estimating excursion probabilities of Gaussian processes."
+      },
+      {
+        "bibtex": "@misc{ChenFang2019,\n  author       = {Chen, Qihui and Fang, Zheng},\n  title        = {Inference on Functionals under First Order Degeneracy},\n  year         = {2019},\n  eprint       = {1901.04861},\n  archivePrefix= {arXiv},\n  primaryClass = {math.ST}\n}",
+        "theorem_or_result": "(Main result summarized in the abstract; exact theorem statements not accessed.) They study inference when the first-order derivative of the map \\(\\phi\\) at \\(\\theta_0\\) is zero (first-order degeneracy), so second-order asymptotics govern \\(\\phi(\\hat\\theta_n)\\). They show the standard bootstrap is consistent iff the second-order derivative \\(\\phi''_{\\theta_0}=0\\) (so typically inconsistent in nontrivial cases), and propose extensions of Babu\u2019s correction and a modified bootstrap (for additionally non-differentiable second order structure) that yield local size control under conditions.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "In stochastic optimization, non-unique minimizers can lead to nonregular/degenerate behavior (e.g., when first-order terms cancel or the directional derivative is flat along parts of \\(S_0^*\\)), potentially pushing beyond the simple Hadamard-directional delta method. Chen\u2013Fang provide a complementary toolkit for cases where the first-order (directional) approximation is degenerate and second-order effects determine the limit law, which could arise in \u201clarge\u201d solution-set geometries. Their results help map out when bootstrap-based attempts at adaptivity may fail and what corrections might be required."
+      },
+      {
+        "bibtex": "@misc{LamQian2019,\n  author       = {Lam, Henry and Qian, Huajie},\n  title        = {Optimization-based Quantification of Simulation Input Uncertainty via Empirical Likelihood},\n  year         = {2019},\n  eprint       = {1707.05917},\n  archivePrefix= {arXiv},\n  primaryClass = {stat.ME}\n}",
+        "theorem_or_result": "(Main result described in the abstract; exact theorem statements not accessed.) They develop an empirical-likelihood-like procedure to build confidence intervals for simulation performance measures under nonparametric input uncertainty by solving optimization problems over probability weights subject to averaged divergence constraints. They claim \u201ctight statistical guarantees\u201d via a generalization of empirical likelihood and discuss computational/finite-sample advantages over bootstrap and delta method benchmarks.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Methodologically, this paper is closely aligned with the open problem\u2019s DRO/EL framing: optimize over probability weights (distributions absolutely continuous w.r.t. the empirical measure) within divergence constraints to get confidence bounds. While its focus is simulation input uncertainty rather than the argmin-induced non-smoothness of \\(T_{\\mathrm{opt}}\\), it contains techniques for turning such optimization endpoints into statistically calibrated intervals. Some of these calibration and computational ideas may transfer to the non-unique minimizer regime for stochastic optimization optimal values."
+      },
+      {
+        "bibtex": "@misc{ChanVanParysBennouna2024,\n  author       = {Chan, Gabriel and Van Parys, Bart and Bennouna, Amine},\n  title        = {From Distributional Robustness to Robust Statistics: A Confidence Sets Perspective},\n  year         = {2024},\n  eprint       = {2410.14008},\n  archivePrefix= {arXiv},\n  primaryClass = {stat.ML}\n}",
+        "theorem_or_result": "(Main result summarized in the abstract; exact theorem statements not accessed.) They connect DRO ambiguity sets (based on KL divergence and total variation) to constructing \u201cminimal\u201d confidence sets for the unknown data-generating distribution under data corruption. They claim uniform minimality (smallest confidence set achieving a given coverage/power notion) for certain nonparametric ambiguity sets, and compare sizes with Huber-type optimal parametric confidence sets under parametric restrictions.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "The open problem requires a principled, implementable radius calibration \\(\\rho_n\\) that avoids unknown nuisance quantities and avoids conservatism. This paper reframes DRO ambiguity sets as confidence sets for distributions and analyzes their minimality, offering a conceptual explanation of when DRO conservatism is intrinsic versus an artifact of the nonparametric setup. While it does not address the non-unique minimizer Gaussian-process issue directly, it is relevant to the \u201cpractical calibration\u201d bullet: it suggests which ambiguity sets/radii might be defensible from a confidence-set optimality viewpoint."
+      },
+      {
+        "bibtex": "@misc{BeutnerZaehle2015,\n  author       = {Beutner, Eric and Z\"ahle, Henryk},\n  title        = {Functional delta-method for the bootstrap of quasi-Hadamard differentiable functionals},\n  year         = {2015},\n  eprint       = {1510.06207},\n  archivePrefix= {arXiv},\n  primaryClass = {math.ST}\n}",
+        "theorem_or_result": "(General result described in the abstract; exact theorem statements not accessed.) They extend the functional delta method for bootstrap consistency from Hadamard differentiable functionals to quasi-Hadamard differentiable ones, showing that bootstrap consistency of plug-in estimators follows from bootstrap consistency of the underlying empirical process under an appropriate (possibly non-uniform) sup-norm. They provide examples (e.g., risk measures) illustrating the broader applicability.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "The optimal value functional in stochastic optimization (especially under non-unique minimizers) often fails classical Hadamard differentiability, which breaks standard delta-method/bootstrap pipelines. This paper provides a general framework for salvaging bootstrap consistency under weaker differentiability notions by adjusting the topology/norm of convergence\u2014potentially relevant for treating \\(T_{\\mathrm{opt}}\\) or the DRO endpoints as quasi-Hadamard differentiable functionals. It is therefore a foundational tool source for designing practical resampling-based calibrations that might achieve asymptotic exactness without explicit Gaussian-process excursion estimation."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.10275475,
+    "verifier_total_cost_usd": 0.298053,
+    "literature_total_cost_usd": 0.45273375,
+    "total_cost_usd": 0.8535415
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2531499355/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2531499355_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2531499355_p0_literature_review.json"
+  }
+}

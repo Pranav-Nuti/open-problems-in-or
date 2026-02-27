@@ -1,0 +1,122 @@
+{
+  "problem_id": "W2791950347_p0",
+  "paper_id": "W2791950347",
+  "source_paper": "W2791950347",
+  "source_paper_title": "Satisficing in Time-Sensitive Bandit Learning",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.1229",
+  "problem_index": 0,
+  "title": "Gap-dependent regret analysis of Satisficing Thompson Sampling in the infinite-armed bandit with uniform prior",
+  "latex": "\\begin{align*}\n\\textbf{Model. } &\\text{Let }\\mathcal{A}=\\{1,2,3,\\dots\\}\\text{ be a countably infinite set of arms. For each arm }a\\in\\mathcal{A},\\\\\n&\\theta_a\\stackrel{\\text{iid}}{\\sim}\\mathrm{Unif}[0,1]\\text{ are unknown mean rewards. Conditioned on }\\theta=(\\theta_a)_{a\\in\\mathcal{A}},\\\\\n&\\text{pulling arm }a\\text{ at time }t\\text{ yields reward }R_t\\in\\{0,1\\}\\text{ with }\\mathbb{P}(R_t=1\\mid A_t=a,\\theta)=\\theta_a,\\\\\n&\\text{independently across }t\\text{ given }\\theta. A policy }\\psi\\text{ selects }A_t\\in\\mathcal{A}\\text{ adaptively from the history.}\\\\[2mm]\n\\textbf{Regret. } &\\text{For a horizon }T\\in\\mathbb{N},\\text{ define the (Bayesian) expected cumulative regret}\n\\\\\n&\\qquad \\mathrm{Reg}_T(\\psi):=\\mathbb{E}_\\psi\\Big[\\sum_{t=1}^T (\\theta^*-\\theta_{A_t})\\Big],\\qquad \\theta^*:=\\sup_{a\\in\\mathcal{A}}\\theta_a=1\\ \\text{a.s.} \n\\end{align*}\n\n\\begin{align*}\n\\textbf{Satisficing Thompson Sampling (STS). }&\\text{Fix a tolerance }D\\in(0,1). Define the (random) satisficing arm}\n\\\\\n&\\qquad \\widetilde{A}:=\\min\\{a\\in\\mathcal{A}:\\theta_a\\ge 1-D\\}. \n\\end{align*}\n\n\\begin{align*}\n&\\text{Define }\\psi^{\\mathrm{STS}}_D\\text{ to be the policy that, at each time }t,\\text{ samples an action }A_t\\text{ by posterior probability matching w.r.t. }\\widetilde{A},\\\\\n&\\qquad \\mathbb{P}(A_t=a\\mid H_{t-1})=\\mathbb{P}(\\widetilde{A}=a\\mid H_{t-1})\\quad\\forall a\\in\\mathcal{A}.\n\\end{align*}\n\n\\begin{align*}\n\\textbf{Open problem. }&\\text{Prove a gap-dependent (problem-dependent) regret bound for STS under the uniform prior. In particular, show that there exists a}\\\\\n&\\text{choice of tolerance schedule }D=D(T)\\text{ (e.g. }D(T)=c/\\sqrt{T}\\text{ for a universal constant }c>0\\text{) such that}\\\\\n&\\qquad \\mathrm{Reg}_T\\big(\\psi^{\\mathrm{STS}}_{D(T)}\\big)=O(\\sqrt{T})\\quad\\text{as }T\\to\\infty,\n\\end{align*}\n\n\\noindent and ideally establish the corresponding discounted version: for discount factor \\(\\alpha\\in(0,1)\\), with\n\\[\n\\mathrm{Reg}_\\alpha(\\psi):=\\mathbb{E}_\\psi\\Big[\\sum_{t=0}^\\infty \\alpha^t(\\theta^*-\\theta_{A_t})\\Big],\n\\]\nshow that for an appropriate choice of \\(D=D(\\alpha)\\) (e.g. \\(D(\\alpha)=c\\sqrt{1-\\alpha}\\)),\n\\[\n\\mathrm{Reg}_\\alpha\\big(\\psi^{\\mathrm{STS}}_{D(\\alpha)}\\big)=O\\Big(\\sqrt{\\tfrac{1}{1-\\alpha}}\\Big)\\quad\\text{as }\\alpha\\uparrow 1.\n\\]\n",
+  "context": "Explicitly stated in Section 7.5, titled \u201cOpen Question: Gap Dependent Analysis of STS.\u201d The authors note their general (gap-independent) analysis yields a conservative bound (roughly $\\tilde O(T^{2/3})$ when translated to an effective horizon), but simulations suggest STS achieves the optimal $\\Theta(\\sqrt{T})$ scaling under a uniform prior; they leave proving such a bound as an open question.",
+  "subject_classification": "Stochastic Bandits / Bayesian Sequential Decision Making",
+  "keywords": [
+    "infinite-armed bandits",
+    "Thompson sampling",
+    "satisficing",
+    "gap-dependent regret",
+    "Bayesian regret",
+    "discounted regret"
+  ],
+  "importance": 7,
+  "importance_scale": 10,
+  "difficulty": 7,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.25955475
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.43327375,
+    "sources": [
+      {
+        "bibtex": "@article{RussoVanRoy2020Satisficing,\n  author  = {Daniel Russo and Benjamin Van Roy},\n  title   = {Satisficing in Time-Sensitive Bandit Learning},\n  journal = {arXiv preprint arXiv:1803.02855},\n  year    = {2020},\n  note    = {Originally submitted 2018; last revised 2020-01-07 (v2)},\n  doi     = {10.48550/arXiv.1803.02855}\n}",
+        "theorem_or_result": "The paper introduces Satisficing Thompson Sampling (STS) and proves a general discounted-regret bound for STS using an information-theoretic analysis, then specializes it to the infinite-armed bandit. In the infinite-armed bandit section it states (Theorem 4) an explicit upper bound on expected discounted regret of STS in terms of the tolerance level D, the discount factor \\alpha, and the prior mass of \u201csatisficing\u201d arms \\epsilon := \\mathbb{P}(\\theta_a \\ge 1-D). It also gives (Theorem 5) a lower bound construction showing that the scaling in Theorem 4 is unimprovable in a worst-case sense when only \\epsilon, D, and \\alpha are controlled.\n\nI was able to verify the presence and location of these results (Theorems 4\u20135 and Eq. (8)) and the authors\u2019 explicit \u201cOpen Question: Gap Dependent Analysis of STS\u201d section, but I could not reliably extract the exact displayed formulas/constants for Theorem 4 / Eq. (8) / Theorem 5 from the available HTML rendering (math was not captured by the viewer). Therefore, I am paraphrasing the theorem content at a high level rather than reproducing the exact inequalities.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is the primary reference defining STS in essentially the same infinite-armed i.i.d.-prior model as the open problem and is the origin of the \u201cgap-dependent analysis under the uniform prior\u201d question. It already provides discounted regret guarantees for STS but (in its own Section 7.5) highlights that its bound is conservative for the specific Unif[0,1] prior and does not yield the desired \\tilde O(1/\\sqrt{1-\\alpha}) or O(\\sqrt{T}) scaling under a uniform prior when choosing D optimally. Any solution to the open problem will likely refine or replace the information-ratio / mutual-information upper bounds used in this paper for the uniform-prior instance."
+      },
+      {
+        "bibtex": "@article{RussoTseVanRoy2017TimeSensitiveSTS,\n  author  = {Daniel Russo and David Tse and Benjamin Van Roy},\n  title   = {Time-Sensitive Bandit Learning and Satisficing Thompson Sampling},\n  journal = {arXiv preprint arXiv:1704.09028},\n  year    = {2017},\n  doi     = {10.48550/arXiv.1704.09028}\n}",
+        "theorem_or_result": "Introduces a discounted-regret objective for bandits and proposes STS (probability matching w.r.t. a satisficing action) along with a discounted-regret bound. (This work is largely superseded by Russo and Van Roy, arXiv:1803.02855.)\n\nI verified the paper\u2019s existence, scope, and that it contains discounted-regret guarantees for STS, but I did not access an exact theorem statement from a source that reliably preserved the displayed mathematics, so I am not reproducing the bound verbatim here.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is the earlier STS paper; it provides conceptual and technical precursors to the later Russo\u2013Van Roy treatment. It is relevant because the open problem asks for both undiscounted and discounted bounds, and this paper\u2019s approach and definitions (discounted regret, satisficing benchmark) are directly aligned. However, it does not resolve the requested gap-dependent O(\\sqrt{T}) cumulative-regret analysis for the infinite-armed uniform-prior Bernoulli setting."
+      },
+      {
+        "bibtex": "@article{BerryChenZameHeathShepp1997InfinitelyManyArms,\n  author  = {Donald A. Berry and Robert W. Chen and Alan Zame and David C. Heath and Larry A. Shepp},\n  title   = {Bandit Problems with Infinitely Many Arms},\n  journal = {The Annals of Statistics},\n  year    = {1997},\n  volume  = {25},\n  number  = {5},\n  pages   = {2103--2116},\n  doi     = {10.1214/AOS/1069362389}\n}",
+        "theorem_or_result": "For the infinite-armed Bernoulli bandit with i.i.d. means drawn from the uniform distribution on (0,1), the paper studies minimizing the long-run failure proportion over n pulls. In the uniform case, it establishes lower bounds on the optimal achievable expected failure proportion scaling on the order of 1/\\sqrt{n} and exhibits families of strategies (including run-based strategies) achieving an expected failure proportion upper bound on the order of 1/\\sqrt{n} (reported in the abstract as between \\sqrt{2}/\\sqrt{n} and 2/\\sqrt{n}, with strategies achieving the latter rate).\n\nI can verify this statement at the level of the abstract and metadata; I did not re-derive constants beyond what is stated in the abstract/metadata.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This paper establishes that O(\\sqrt{T}) regret (equivalently O(1/\\sqrt{T}) failure proportion) is information-theoretically attainable in the same infinite-armed Bernoulli + Unif[0,1] prior setting as the open problem, albeit for strategies very different from STS. It therefore supplies (i) the right benchmark scaling, (ii) lower-bound intuition, and (iii) algorithmic ideas (run-based \u201cstay with a winner\u201d behavior) that may inform or be compared against STS. The open problem is to show STS\u2014defined via posterior sampling w.r.t. the first (1\u2212D)-good arm\u2014also achieves the O(\\sqrt{T}) scaling with a suitable tolerance schedule."
+      },
+      {
+        "bibtex": "@inproceedings{BonaldProutiere2013TwoTarget,\n  author    = {Thomas Bonald and Alexandre Prouti{\\`e}re},\n  title     = {Two-Target Algorithms for Infinite-Armed Bandits with Bernoulli Rewards},\n  booktitle = {Advances in Neural Information Processing Systems 26 (NeurIPS 2013)},\n  year      = {2013},\n  pages     = {2184--2192}\n}",
+        "theorem_or_result": "In the infinite-armed Bernoulli bandit with i.i.d. arm means uniformly distributed on [0,1], the paper proposes a \u201ctwo-target\u201d algorithm based on success runs and failure counts. It proves that (for large algorithm parameter m and known horizon n) the algorithm achieves long-term average regret scaling like \\sqrt{2n}, improving over earlier \\Theta(\\sqrt{n}) constants, and claims this scaling is optimal. It further extends the results to broader mean-reward distributions with support containing 1 and to unknown time horizons.\n\nI verified this at the level of the NeurIPS abstract; I did not extract the full formal theorem statement from the PDF in this session.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is one of the strongest algorithmic results establishing the optimal \\Theta(\\sqrt{T}) regret scaling (and optimal constants) for the canonical Unif[0,1] infinite-armed Bernoulli problem. While it does not analyze STS, it provides the key comparison point: STS should ideally match the same scaling in this benign prior setting. Techniques in this paper (careful stopping/exploitation rules based on Bernoulli run statistics) highlight what makes the uniform prior \u201ceasy\u201d and may suggest what gap-dependent properties an STS analysis would need to exploit."
+      },
+      {
+        "bibtex": "@inproceedings{WangAudibertMunos2008InfManyArms,\n  author    = {Yizao Wang and Jean-Yves Audibert and R{\\'e}mi Munos},\n  title     = {Algorithms for Infinitely Many-Armed Bandits},\n  booktitle = {Advances in Neural Information Processing Systems 21 (NeurIPS 2008)},\n  year      = {2008},\n  pages     = {1729--1736}\n}",
+        "theorem_or_result": "The paper considers an infinite-armed bandit where each newly discovered arm has a mean \\mu drawn i.i.d. from a reservoir distribution satisfying \\mathbb{P}(\\mu \\ge \\mu^* - \\varepsilon)=\\Theta(\\varepsilon^{\\beta}) as \\varepsilon\\to 0. It states regret upper bounds (in their \u201cOverview of our results\u201d) showing that when rewards are bounded in [0,1], their algorithms achieve expected regret \\tilde O(n^{\\beta/(1+\\beta)}) in regimes including \\mu^* = 1 (the relevant regime for the uniform prior on [0,1], where \\beta=1), and proves a matching lower bound: for any \\beta>0 and \\mu^*\\le 1, any algorithm must incur expected regret at least C n^{\\beta/(1+\\beta)} for some constant C.\n\nFor the Unif(0,1) reservoir over means (\\beta=1, \\mu^*=1), this implies \\tilde O(\\sqrt{n}) regret is achievable (and essentially unavoidable up to logs/constant factors).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This provides a broad framework (reservoir/near-optimality exponent \\beta) that includes the open problem\u2019s uniform prior as the special case \\beta=1, \\mu^*=1. It shows that O(\\sqrt{T}) regret is attainable in a more general setting using UCB-type control on a finite subset of arms, and it supplies matching minimax lower bounds in terms of \\beta. These results can inform an STS analysis by clarifying what rates are possible from a reservoir perspective and by suggesting reduction-to-finite-subset proof patterns that might be adapted to analyze STS\u2019s implicit exploration schedule."
+      },
+      {
+        "bibtex": "@article{ChanHu2018CBT,\n  author  = {Hock Peng Chan and Shouri Hu},\n  title   = {Infinite Arms Bandit: Optimality via Confidence Bounds},\n  journal = {arXiv preprint arXiv:1805.11793},\n  year    = {2018}\n}",
+        "theorem_or_result": "Proposes a confidence-bound target (CBT) algorithm for infinite-armed bandits and proves it achieves optimal regret (in the sense of matching known lower bounds) for bounded rewards; discusses the Bernoulli-uniform-prior setting of Berry et al. (1997) and optimality results of Bonald and Proutiere (2013).\n\nI verified these claims from the abstract/summary; I did not extract a specific numbered theorem statement with constants.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "While not directly about STS, this paper contributes techniques (confidence bounds and target comparisons) designed specifically for the infinite-armed reservoir model and aims for optimal regret. The open problem seeks an STS-specific proof that leverages the benign Unif[0,1] prior; CBT-style reasoning might inspire how to control the time spent on clearly non-satisficing arms and thus obtain a gap/tolerance-dependent \\sqrt{T} bound. It also helps triangulate what \u201coptimal\u201d means for infinite-armed uniform-prior bandits."
+      },
+      {
+        "bibtex": "@article{KaufmannKordaMunos2012TSOptimal,\n  author  = {Emilie Kaufmann and Nathaniel Korda and R{\\'e}mi Munos},\n  title   = {Thompson Sampling: An Asymptotically Optimal Finite-Time Analysis},\n  journal = {arXiv preprint arXiv:1205.4217},\n  year    = {2012}\n}",
+        "theorem_or_result": "Provides a finite-time analysis of Thompson Sampling for Bernoulli multi-armed bandits and proves asymptotic optimality: the expected cumulative regret matches the Lai\u2013Robbins lower bound asymptotically (i.e., achieves the optimal logarithmic rate with optimal leading constants) for Bernoulli rewards.\n\nI verified the paper and its stated contribution from the arXiv record; I did not extract the exact theorem statement text with constants in this session.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "The open problem asks for a gap-dependent analysis of STS, and Russo\u2013Van Roy explicitly suggest that \u201cfinite time gap-dependent analyses of Thompson sampling\u201d could be leveraged. This paper is a canonical reference for such analyses (for finite K Bernoulli arms) and contains proof techniques (posterior concentration, change-of-measure, and careful control of suboptimal pulls) that may be adaptable to bounding STS\u2019s sampling of arms whose posterior probability of being the first (1\u2212D)-good arm is small. It is not directly about infinite arms or STS, but it is a plausible technical ingredient for proving \\tilde O(\\sqrt{T}) bounds under a benign prior."
+      },
+      {
+        "bibtex": "@article{RussoVanRoy2016InfoTS,\n  author  = {Daniel Russo and Benjamin Van Roy},\n  title   = {An Information-Theoretic Analysis of Thompson Sampling},\n  journal = {Journal of Machine Learning Research},\n  year    = {2016},\n  volume  = {17},\n  number  = {68},\n  pages   = {1--30},\n  note    = {Originally circulated as arXiv:1403.5341}\n}",
+        "theorem_or_result": "Develops the information-ratio framework for analyzing Thompson Sampling. The main bound (in this framework) upper-bounds Bayesian expected regret over horizon T by a term of the form \\sqrt{\\Gamma \\; T \\; H(A^*)}, where \\Gamma is an upper bound on the (problem-dependent) information ratio and H(A^*) is the entropy of the optimal-action distribution under the prior.\n\nI verified bibliographic details and scope from the JMLR entry and arXiv record; I am summarizing the central theorem at a standard-form level rather than quoting it verbatim.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Russo\u2013Van Roy\u2019s STS analysis explicitly builds on (and modifies) this information-theoretic approach, replacing the optimal action A^* with a satisficing benchmark \\widetilde A. Any attempt to prove a gap-dependent \\sqrt{T} bound for STS under the uniform prior will likely need to sharpen the mutual-information and/or information-ratio bounds in this framework, exploiting that most arms are far from the satisficing threshold and can be eliminated quickly. Thus this paper is foundational for the proof methodology surrounding STS."
+      },
+      {
+        "bibtex": "@inproceedings{BubeckLiu2013PriorFreeTS,\n  author    = {S{\\'e}bastien Bubeck and Che-Yu Liu},\n  title     = {Prior-free and prior-dependent regret bounds for Thompson Sampling},\n  booktitle = {Advances in Neural Information Processing Systems 26 (NeurIPS 2013)},\n  year      = {2013},\n  pages     = {638--646},\n  note      = {Also available as arXiv:1304.5758}\n}",
+        "theorem_or_result": "Shows that for the K-armed stochastic bandit, Thompson Sampling achieves an optimal prior-free Bayesian regret upper bound: for any prior distribution, Bayesian regret is at most 14\\sqrt{nK}. It also proves matching lower bounds (there exists a prior such that any algorithm has Bayesian regret at least (1/20)\\sqrt{nK}) and provides additional prior-dependent refinements in special settings.\n\nThese quantitative statements appear in the arXiv abstract/record and are widely cited; I did not extract the full proof-level theorem statement verbatim.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Although the open problem concerns infinite arms, this work is relevant as it exemplifies how Bayesian regret can be bounded both in a worst-case (prior-free) manner and in a prior-dependent manner. The open problem is explicitly prior-dependent (Unif[0,1]) and asks for a \\sqrt{T} scaling, so understanding which parts of a TS/STS proof must depend on the prior (and how) is central. Some of the decomposition and concentration ideas for TS regret may transfer to bounding STS behavior on the subset of sampled arms."
+      },
+      {
+        "bibtex": "@article{RussoVanRoy2013PosteriorSampling,\n  author  = {Daniel Russo and Benjamin Van Roy},\n  title   = {Learning to Optimize via Posterior Sampling},\n  journal = {arXiv preprint arXiv:1301.2609},\n  year    = {2013}\n}",
+        "theorem_or_result": "Establishes general Bayesian regret bounds for posterior sampling (Thompson sampling) and provides a connection between posterior sampling and UCB-type algorithms that allows converting certain UCB analyses into Bayesian regret bounds. Introduces the eluder dimension and derives regret bounds (e.g., for linear models) in terms of this complexity measure.\n\nI verified bibliographic details and scope from the arXiv record; I did not extract an exact numbered theorem statement in this session.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "STS is a posterior-sampling method but with a different target random variable (a satisficing arm rather than the optimal arm). This paper\u2019s perspective\u2014relating posterior sampling to confidence-based reasoning and introducing complexity measures controlling regret\u2014may be useful in developing alternative analyses of STS that avoid worst-case mutual-information bounds and instead argue about how quickly the posterior concentrates on the first (1\u2212D)-good arm under a benign uniform prior. It does not solve the infinite-armed STS question but provides general-purpose tools for regret proofs of posterior-sampling algorithms."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0701995,
+    "verifier_total_cost_usd": 0.25955475,
+    "literature_total_cost_usd": 0.43327375,
+    "total_cost_usd": 0.763028
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2791950347/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2791950347_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2791950347_p0_literature_review.json"
+  }
+}

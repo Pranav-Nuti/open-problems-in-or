@@ -1,0 +1,136 @@
+{
+  "problem_id": "W2788976390_p0",
+  "paper_id": "W2788976390",
+  "source_paper": "W2788976390",
+  "source_paper_title": "Proportional Volume Sampling and Approximation Algorithms for A-Optimal Design",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.1129",
+  "problem_index": 0,
+  "title": "Efficient sampling from proportional volume sampling with a general base measure",
+  "latex": "\\begin{problem}[Proportional volume sampling with a general base measure]\nLet $v_1,\\dots,v_n\\in\\mathbb{R}^d$ and let $V\\in\\mathbb{R}^{d\\times n}$ be the matrix with columns $v_i$. Fix an integer $k$ and let $\\mathcal{U}$ denote either\n\\begin{itemize}\n\\item $\\mathcal{U}_k := \\{S\\subseteq [n]: |S|=k\\}$, or\n\\item $\\mathcal{U}_{\\le k} := \\{S\\subseteq [n]: |S|\\le k\\}$.\n\\end{itemize}\nLet $\\mu$ be a probability distribution on $\\mathcal{U}$, given only via oracle access (e.g., a sampling oracle that returns $S\\sim\\mu$, and/or an evaluation oracle that returns $\\mu(S)$ for queried $S$).\n\nDefine the \\emph{proportional volume sampling} distribution $\\nu$ on $\\mathcal{U}$ by\n\\[\n\\nu(S) \\,=\\, \\frac{\\mu(S)\\,\\det\\!\\bigl(V_S V_S^{\\top}\\bigr)}{Z},\n\\qquad Z := \\sum_{S'\\in\\mathcal{U}} \\mu(S')\\,\\det\\!\\bigl(V_{S'} V_{S'}^{\\top}\\bigr),\n\\]\nwhere $V_S$ is the submatrix of $V$ with columns indexed by $S$ (and with the convention that $\\det(V_S V_S^{\\top})=0$ if $\\operatorname{rank}(V_S)<d$ when $|S|\\ge d$).\n\n\\textbf{Open question:} Under what general conditions on the oracle model for $\\mu$ (and with what additional assumptions, if any) does there exist a randomized algorithm that, in time polynomial in $(n,d,k)$ (and possibly $\\log(1/\\varepsilon)$), outputs an exact sample from $\\nu$ or an $\\varepsilon$-approximate sample in total variation distance?\n\\end{problem}\n",
+  "context": "Explicitly raised in the Introduction under \u201cComputational Issues\u201d: the authors state that \u201cit is not clear whether sampling from proportional volume sampling is possible under general assumptions (for example given a sampling oracle for $\\mu$),\u201d and then proceed to give an efficient sampler only for the special case where $\\mu$ is a hard-core distribution (Lemma 1.9).",
+  "subject_classification": "Randomized Algorithms / Sampling in Combinatorial Optimization",
+  "keywords": [
+    "proportional volume sampling",
+    "determinantal point processes",
+    "oracle sampling model",
+    "hard-core distributions",
+    "randomized rounding",
+    "optimal experimental design"
+  ],
+  "importance": 6,
+  "importance_scale": 10,
+  "difficulty": 8,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.227108
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.56905625,
+    "sources": [
+      {
+        "bibtex": "@inproceedings{LiJegelkaSra2017DualVolumeSampling,\n  author       = {Chengtao Li and Stefanie Jegelka and Suvrit Sra},\n  title        = {Polynomial Time Algorithms for Dual Volume Sampling},\n  booktitle    = {Advances in Neural Information Processing Systems 30 (NeurIPS 2017)},\n  year         = {2017},\n  eprint       = {1703.02674},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  url          = {https://papers.nips.cc/paper_files/paper/2017/hash/18bb68e2b38e4a8ce7cf4f6b2625768c-Abstract.html}\n}\n",
+        "theorem_or_result": "For a full row-rank matrix A\\inR^{n\\times m} and n\\le k\\le m, define dual volume sampling (DVS) on k-subsets S\\subseteq[m] by P(S;A)\\propto det(A_S A_S^\\top). Key stated results include:\n- Lemma 1 (Partition function): \\(\\sum_{|S|=k} \\det(A_S A_S^\\top)=\\binom{m-n}{k-n}\\det(AA^\\top).\\)\n- Theorem 2 (Marginals): gives a polynomial-time computable formula for P(T\\subseteq S;A) for any T, based on SVD/eigenvalue computations (exact statement is in the paper; too long to reproduce fully here).\n- Corollary 3: conditional sampling rule \\(\\Pr(s_t=i\\mid s_1=i_1,\\dots,s_{t-1}=i_{t-1})=\\frac{P(T\\cup\\{i\\}\\subseteq S;A)}{(k-t+1)P(T\\subseteq S;A)}\\), enabling exact sequential sampling of an ordered k-tuple and hence an exact DVS sample; claimed overall runtime O(k m^4).\n- Theorem 10 (Mixing time): for their swap Markov chain, \\(\\tau(\\varepsilon)\\le 2k(m-k)(\\log P(S_0;A)^{-1}+\\log\\varepsilon^{-1})\\) (total variation).",
+        "relevance_category": "SOLVES",
+        "exact_match": false,
+        "connection": "This is an exact polynomial-time sampler for the special case of your target distribution with \\(\\mu\\) uniform over \\(\\mathcal U_k\\) and weight \\(\\det(V_S V_S^\\top)\\) (take A=V). It also proves DVS is Strongly Rayleigh and supplies a rapidly mixing MCMC sampler, giving an \\(\\varepsilon\\)-approximate sampler under determinant-evaluation access. The work clarifies which additional oracles are useful: ability to compute determinants (and for the exact sampler, marginal/conditional probabilities derived from linear algebraic structure)."
+      },
+      {
+        "bibtex": "@article{DerezinskiWarmuth2018ReverseIterative,\n  author  = {Micha{\\l} Derezi{\\'n}ski and Manfred K. Warmuth},\n  title   = {Reverse Iterative Volume Sampling for Linear Regression},\n  journal = {Journal of Machine Learning Research},\n  volume  = {19},\n  number  = {23},\n  pages   = {1--39},\n  year    = {2018},\n  url     = {https://jmlr.org/papers/v19/17-781.html}\n}\n",
+        "theorem_or_result": "Theorem 21 (FastRegVol): For any \\(\\lambda,s\\ge 0\\) and \\(\\delta\\in(0,1)\\), their algorithm FastRegVol samples exactly from \\\"\\(\\lambda\\)-regularized size-s volume sampling\\\" (a distribution on |S|=s subsets with weights proportional to \\(\\det(X_S^\\top X_S+\\lambda I)\\) up to the paper\u2019s normalization), and with probability at least \\(1-\\delta\\) runs in time\n\\[O\\bigl((n+\\log(n/d))\\,\\log(1/\\delta)\\, d^2\\bigr).\\]\n(The paper also provides reverse-iterative exact sampling procedures for unregularized volume sampling as special cases.)",
+        "relevance_category": "SOLVES",
+        "exact_match": false,
+        "connection": "Your \\(\\det(V_SV_S^\\top)\\) term is exactly the (dual) volume sampling determinant used in experimental design/linear regression (up to transpose conventions). This paper gives an explicit polynomial-time exact sampler in the uniform-base-measure case (and for a regularized variant), showing that efficient exact sampling is possible when \\(\\mu\\) is simple and the determinant structure is exploited. It also illustrates a common oracle requirement: fast determinant/Schur-complement updates rather than only black-box access to weights."
+      },
+      {
+        "bibtex": "@misc{DeshpandeRademacher2010EfficientVolumeSampling,\n  author       = {Amit Deshpande and Luis Rademacher},\n  title        = {Efficient volume sampling for row/column subset selection},\n  year         = {2010},\n  eprint       = {1004.4057},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.1004.4057}\n}\n",
+        "theorem_or_result": "From the paper/abstract: they give (i) an exact algorithm for volume sampling k-subsets of rows of an m\\times n matrix with probability proportional to squared volumes (determinants) running in \\(O(k\\,m\\,n^{\\omega}\\log n)\\) arithmetic operations, and (ii) a \\((1+\\varepsilon)\\)-approximate volume sampling algorithm with running time nearly linear in input size for small k (precise bound given in the abstract). (I did not access the full theorem statements; this is paraphrased from the publicly visible abstract/announcement.)",
+        "relevance_category": "SOLVES",
+        "exact_match": false,
+        "connection": "This is a foundational algorithmic result for the special case \\(\\mu\\) uniform on \\(\\mathcal U_k\\), i.e., sampling with probability proportional only to the determinant term. It provides early evidence that determinant-weighted subset distributions admit polynomial-time exact/approximate sampling when the distribution has enough algebraic structure (Cauchy\u2013Binet / characteristic-polynomial identities). In your oracle-based setting, it highlights that polynomial-time sampling may require more than black-box access to \\(\\mu\\): the determinant term must be exploitable via linear algebra rather than treated as an arbitrary set function."
+      },
+      {
+        "bibtex": "@inproceedings{NikolovSinghTantipongpipat2019PVS,\n  author    = {Aleksandar Nikolov and Mohit Singh and Uthaipon Tao Tantipongpipat},\n  title     = {Proportional Volume Sampling and Approximation Algorithms for {A}-Optimal Design},\n  booktitle = {Proceedings of the Thirtieth Annual {ACM-SIAM} Symposium on Discrete Algorithms (SODA)},\n  year      = {2019},\n  pages     = {1369--1386},\n  doi       = {10.1137/1.9781611975482.84},\n  eprint    = {1802.08318},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS}\n}\n",
+        "theorem_or_result": "The paper introduces proportional volume sampling (PVS) for size-k subsets, which (in the finite design setting) samples S with probability proportional to an external weight term (coming from a fractional/convex-relaxation solution) times \\(\\det(\\sum_{i\\in S} v_i v_i^\\top)\\). It proves approximation guarantees for A-optimal design (minimizing \\(\\mathrm{tr}((\\sum_{i\\in S} v_i v_i^\\top)^{-1})\\)) when S is drawn from PVS. (I could not access the exact theorem numbering/statements due to PDF access restrictions in this environment; this summary is based on the arXiv abstract and bibliographic metadata.)",
+        "relevance_category": "SOLVES",
+        "exact_match": false,
+        "connection": "PVS is a prominent special case of your \\(\\nu\\) where \\(\\mu\\) has strong structure (typically a product/external-field distribution derived from a fractional design) rather than being an arbitrary oracle-given measure. The work suggests that when \\(\\mu\\) is not arbitrary but comes from convex relaxations, determinant reweighting can be sampled/used algorithmically with provable guarantees. It also indicates a methodological path for your open question: characterize oracle models (e.g., access to fractional weights, conditional sampling) under which \\(\\mu(S)\\det(V_SV_S^\\top)\\) is tractable."
+      },
+      {
+        "bibtex": "@misc{Tantipongpipat2020RegPVS,\n  author       = {Uthaipon Tao Tantipongpipat},\n  title        = {$\\lambda$-Regularized {A}-Optimal Design and its Approximation by $\\lambda$-Regularized Proportional Volume Sampling},\n  year         = {2020},\n  eprint       = {2006.11182},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.2006.11182}\n}\n",
+        "theorem_or_result": "From the abstract: introduces \\(\\lambda\\)-regularized proportional volume sampling for selecting |S|=k to approximate minimizing \\(\\mathrm{tr}((\\sum_{i\\in S} v_i v_i^\\top + \\lambda I)^{-1})\\). Claims a polynomial-time implementation of the sampling procedure and an approximation guarantee of approximately \\(\\bigl(1+\\tfrac{\\varepsilon}{\\sqrt{1+\\lambda'}}\\bigr)\\) for \\(k=\\Omega(d/\\varepsilon + \\log(1/\\varepsilon)/\\varepsilon^2)\\) (with \\(\\lambda'\\) proportional to \\(\\lambda\\)). (Exact theorem statements not accessed here; paraphrased cautiously from the arXiv abstract.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is additional evidence that determinant-weighted subset sampling remains algorithmically tractable when the base measure is structured (regularized PVS) and not merely uniform. In your formulation, it corresponds to settings where \\(\\mu\\) is induced by a regularized design relaxation and the determinant term is replaced by a regularized determinant, aligning with \\(\\mathcal U_k\\). The paper underscores that extra assumptions on \\(\\mu\\) (e.g., availability of fractional weights rather than only oracle access to \\(\\mu(S)\\)) can enable polynomial-time sampling/approximation."
+      },
+      {
+        "bibtex": "@misc{PoinasBardenet2021PVSGeneralSpaces,\n  author       = {Arnaud Poinas and R{\\'e}mi Bardenet},\n  title        = {On proportional volume sampling for experimental design in general spaces},\n  year         = {2021},\n  eprint       = {2011.04562},\n  archivePrefix= {arXiv},\n  primaryClass = {stat.CO},\n  doi          = {10.48550/arXiv.2011.04562}\n}\n",
+        "theorem_or_result": "From the abstract: extends proportional volume sampling beyond finite design spaces (to Polish spaces using point process machinery), preserves A-optimality approximation guarantees and derives D-optimality guarantees; additionally, it states that PVS can be sampled in polynomial time. (I could not access the exact theorem statement/proof details in this environment; paraphrased from the arXiv abstract.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "While your open problem is discrete, this paper\u2019s main algorithmic takeaway is that PVS-type distributions\u2014i.e., determinant reweighting of a structured base measure\u2014can admit polynomial-time sampling even in more general settings. It supports the idea that the key to efficient sampling is not merely the determinant factor but the interplay between that factor and a tractable base measure \\(\\mu\\). The techniques here (point processes / DPP machinery) may inform discrete-oracle conditions under which \\(\\mu(S)\\det(V_SV_S^\\top)\\) can be sampled efficiently."
+      },
+      {
+        "bibtex": "@inproceedings{AnariOveisGharanRezaei2016SRMCMC,\n  author    = {Nima Anari and Shayan Oveis Gharan and Alireza Rezaei},\n  title     = {Monte Carlo Markov Chain Algorithms for Sampling Strongly Rayleigh Distributions and Determinantal Point Processes},\n  booktitle = {Proceedings of the 29th Annual Conference on Learning Theory (COLT)},\n  series    = {Proceedings of Machine Learning Research},\n  volume    = {49},\n  pages     = {103--115},\n  year      = {2016},\n  url       = {https://proceedings.mlr.press/v49/anari16.html}\n}\n",
+        "theorem_or_result": "Theorem 2 (mixing time): For any strongly Rayleigh k-homogeneous distribution \\(\\mu\\) on 2^{[n]}, for any start state S in supp(\\mu) and \\(\\varepsilon>0\\), the natural lazy swap chain satisfies\n\\[\\tau_S(\\varepsilon) \\le \\frac{1}{C_\\mu}\\,\\log\\Bigl(\\frac{1}{\\varepsilon\\,\\mu(S)}\\Bigr),\\]\nwhere \\(C_\\mu:=\\min_{S,T:P(S,T)>0}\\max(P(S,T),P(T,S))\\ge 1/(2kn)\\) for their chain.\nTheorem 4 (k-DPP sampling): Given an ensemble matrix L for a k-DPP \\(\\mu\\), for any \\(\\varepsilon>0\\) there is an algorithm that generates an \\(\\varepsilon\\)-approximate sample of \\(\\mu\\) in time poly(k)\u00b7O(n log(n/\\varepsilon)).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This provides a general-purpose oracle-based route to approximate sampling: if your target \\(\\nu\\) can be shown to be strongly Rayleigh (or reduced to a strongly Rayleigh distribution on an expanded ground set), then a simple local Markov chain yields an \\(\\varepsilon\\)-TV sampler with polynomial mixing time. Importantly, the theorem makes explicit what the oracle model must support: evaluating \\(\\mu(S)\\) (or at least ratios) for visited states and finding an initial feasible S with non-negligible probability mass. For your open problem, it suggests that a promising \u201cgeneral condition\u201d is a stability/Strong-Rayleigh certificate for the reweighted measure \\(S\\mapsto \\mu(S)\\det(V_SV_S^\\top)\\)."
+      },
+      {
+        "bibtex": "@inproceedings{LiJegelkaSra2016FastMixingSR,\n  author    = {Chengtao Li and Stefanie Jegelka and Suvrit Sra},\n  title     = {Fast Mixing Markov Chains for Strongly Rayleigh Measures, DPPs, and Constrained Sampling},\n  booktitle = {Advances in Neural Information Processing Systems 29 (NeurIPS 2016)},\n  year      = {2016},\n  eprint    = {1608.01008},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.LG},\n  doi       = {10.48550/arXiv.1608.01008}\n}\n",
+        "theorem_or_result": "The paper analyzes MCMC samplers for constrained set distributions, with a main result giving polynomial mixing-time bounds for Markov chains targeting Strongly Rayleigh (SR) measures (including DPPs) under constraints. It also provides a reduction (via homogenization on an augmented ground set) to handle non-homogeneous SR measures. (Exact theorem numbering/statements not retrieved here; summarized from the arXiv abstract and secondary descriptions.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "Your target distribution \\(\\nu\\) is a constrained subset distribution; if it (or a lifted version) is SR, this line of work supplies provably fast MCMC samplers beyond the homogeneous case. The homogenization idea is especially relevant to your \\(\\mathcal U_{\\le k}\\) option, where size is not fixed. In terms of oracle models, these MCMC approaches typically require (i) membership in the support and (ii) ability to compute unnormalized weights (or ratios) for local moves\u2014an explicit set of assumptions you can compare against the \u201csampling/evaluation oracle only\u201d model for \\(\\mu\\)."
+      },
+      {
+        "bibtex": "@misc{AnariLiuOveisGharanVinzantVuong2020LCPIV,\n  author       = {Nima Anari and Kuikui Liu and Shayan Oveis Gharan and Cynthia Vinzant and Thuy Duong Vuong},\n  title        = {Log-Concave Polynomials {IV}: Approximate Exchange, Tight Mixing Times, and Near-Optimal Sampling of Forests},\n  year         = {2020},\n  eprint       = {2004.07220},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.2004.07220}\n}\n",
+        "theorem_or_result": "From the abstract: for a matroid of rank k on n elements, and more generally for distributions associated with log-concave polynomials of homogeneous degree k, the down-up random walk (started from an arbitrary point in the support) mixes in time O(k log k), with no dependence on n. (Exact theorem statement not accessed here; paraphrased from the arXiv abstract.)",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This work suggests a broader class than Strongly Rayleigh for which polynomial-time approximate sampling is possible: measures generated by (completely) log-concave polynomials. For your open problem, it motivates asking whether the reweighted coefficients \\(w(S)=\\mu(S)\\det(V_SV_S^\\top)\\) come from a log-concave polynomial under some assumptions on \\(\\mu\\) and the oracle model. If so, the down-up walk provides an \\(\\varepsilon\\)-TV sampler with a mixing bound essentially polynomial in k and log(1/\\varepsilon), aligning closely with the goal stated in the problem."
+      },
+      {
+        "bibtex": "@misc{AnariLiuVuong2022EntropicIndependence,\n  author       = {Nima Anari and Yang P. Liu and Thuy-Duong Vuong},\n  title        = {Optimal Sublinear Sampling of Spanning Trees and Determinantal Point Processes via Average-Case Entropic Independence},\n  year         = {2022},\n  eprint       = {2204.02570},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.2204.02570}\n}\n",
+        "theorem_or_result": "From the abstract: gives faster approximate sampling algorithms for strongly Rayleigh distributions. In particular, for a k-DPP on [n], it claims an \\(\\widetilde{O}(nk^{\\omega-1})\\) time algorithm to obtain a single approximate sample (improving over prior \\(\\widetilde{O}(\\min\\{nk^2,n^{\\omega}\\})\\)) and \\(\\widetilde{O}(k^{\\omega})\\) time per additional sample after preprocessing \\(\\widetilde{O}(nk^{\\omega-1})\\). It also develops \u201cdomain sparsification\u201d reductions assuming access to approximate marginal overestimates. (Exact theorems not accessed here; paraphrased from the arXiv abstract.)",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "This paper is relevant to the oracle-model aspect of your question: it makes explicit that faster (sublinear-in-n) sampling from SR measures typically requires stronger access than mere evaluation/sampling\u2014namely, approximate marginals or certificates akin to isotropy (\"entropic independence\"). For proportional volume sampling variants where \\(\\nu\\) is (or is close to) strongly Rayleigh, these techniques can potentially reduce dependence on n and speed up repeated sampling. It helps delineate which added oracles/assumptions might be necessary to achieve truly efficient sampling beyond generic MCMC."
+      },
+      {
+        "bibtex": "@book{KuleszaTaskar2012DPP,\n  author    = {Alex Kulesza and Ben Taskar},\n  title     = {Determinantal Point Processes for Machine Learning},\n  series    = {Foundations and Trends in Machine Learning},\n  volume    = {5},\n  number    = {2--3},\n  pages     = {123--286},\n  year      = {2012},\n  publisher = {Now Publishers},\n  doi       = {10.1561/2200000044}\n}\n",
+        "theorem_or_result": "Gives standard exact sampling algorithms for (L-ensemble) DPPs and for fixed-size k-DPPs via eigendecomposition of the kernel (followed by sequential sampling based on orthogonalization). Also covers closure properties, conditioning, and relationships to volume sampling; presents these as algorithms rather than single theorems (book-length treatment).",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "Although your determinant term is not always a DPP (except in certain regimes/representations), DPP methodology is central to much of the sampling literature around determinant-based subset weights. The book clarifies which determinant-weighted measures are exactly samplable in polynomial time given explicit kernels (and thus which oracle models\u2014matrix access vs black-box set-function access\u2014are required). It provides a baseline for understanding when your \\(\\nu\\) reduces to a DPP/k-DPP and can be sampled exactly."
+      },
+      {
+        "bibtex": "@article{BorceaBrandenLiggett2009NegativeDependence,\n  author  = {Julius Borcea and Petter Br{\\\"a}nd{\\'e}n and Thomas M. Liggett},\n  title   = {Negative Dependence and the Geometry of Polynomials},\n  journal = {Journal of the American Mathematical Society},\n  volume  = {22},\n  number  = {2},\n  pages   = {521--567},\n  year    = {2009},\n  doi     = {10.1090/S0894-0347-08-00600-7}\n}\n",
+        "theorem_or_result": "Develops the theory of (real) stable multivariate polynomials and introduces the class of Strongly Rayleigh measures (probability measures whose multiaffine generating polynomials are real stable). Proves that Strongly Rayleigh measures satisfy strong negative dependence properties (including negative association) and are closed under natural operations such as conditioning and application of external fields (variable scalings), and that truncations preserve the Strongly Rayleigh property.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is a core structural reference for identifying when a set distribution admits efficient sampling via the SR/log-concavity toolkit. In your open problem, if the base measure \\(\\mu\\) is given in a form that certifies real stability (or can be transformed via allowed operations), then one can hope \\(\\nu\\) inherits SR-like structure and thus becomes amenable to fast MCMC and concentration tools. It helps formalize what \u201cgeneral conditions on \\(\\mu\\)\u201d might look like beyond simple product measures: stability/negative dependence certificates rather than arbitrary evaluation oracles."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.097538,
+    "verifier_total_cost_usd": 0.227108,
+    "literature_total_cost_usd": 0.56905625,
+    "total_cost_usd": 0.89370225
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2788976390/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2788976390_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2788976390_p0_literature_review.json"
+  }
+}
