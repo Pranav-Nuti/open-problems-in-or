@@ -1,0 +1,115 @@
+{
+  "problem_id": "W2767494022_p0",
+  "paper_id": "W2767494022",
+  "source_paper": "W2767494022",
+  "source_paper_title": "Small-Loss Bounds for Online Learning with Partial Information",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.1204",
+  "problem_index": 0,
+  "title": "High-probability optimal small-loss regret for general (time-varying) undirected feedback graphs",
+  "latex": "\\begin{problem}[Optimal small-loss regret under time-varying feedback graphs]\nConsider adversarial online learning over a finite action set $[d]=\\{1,\\dots,d\\}$ for $T$ rounds. In each round $t$:\n\\begin{itemize}\n  \\item The learner is given an undirected feedback graph $G_t=([d],E_t)$ (known before acting). For $i\\in[d]$, let $N_t(i)=\\{i\\}\\cup\\{j:(i,j)\\in E_t\\}$ be the closed neighborhood.\n  \\item The learner selects a distribution $w_t\\in\\Delta_d$ and draws an action $I_t\\sim w_t$.\n  \\item An adaptive adversary selects a loss vector $\\ell_t\\in[0,1]^d$. The learner incurs loss $\\ell_{t,I_t}$ and observes $\\ell_{t,j}$ for all $j\\in N_t(I_t)$.\n\\end{itemize}\nDefine the (realized) cumulative loss of action $i$ and the best action in hindsight by\n\\[\nL_i := \\sum_{t=1}^T \\ell_{t,i},\\qquad L^* := \\min_{i\\in[d]} L_i.\n\\]\nDefine the learner's (realized) regret as\n\\[\n\\operatorname{Reg}_T := \\sum_{t=1}^T \\ell_{t,I_t} - L^*.\n\\]\nLet $\\alpha(G)$ denote the independence number of an undirected graph $G$, and let\n\\[\n\\alpha := \\max_{t\\in[T]} \\alpha(G_t)\n\\]\nbe the maximum independence number across time.\n\n\\medskip\n\\noindent\\textbf{Open problem.} Design an (efficient) online learning algorithm for the above protocol that, for every $d,T$, every (adaptive) sequence $\\{(G_t,\\ell_t)\\}_{t=1}^T$, and every $\\delta\\in(0,1)$, guarantees with probability at least $1-\\delta$ a \\emph{small-loss} regret bound of the optimal order\n\\[\n\\operatorname{Reg}_T \\le \\widetilde{O}\\Big(\\sqrt{\\alpha\\,L^*}\\Big)\n\\]\n(up to polylogarithmic factors in $d,T,1/\\delta$), for general \\emph{time-varying} undirected feedback graphs. In particular, improve upon bounds that either (i) achieve only $\\widetilde{O}\\big(\\alpha^{1/3}(L^*)^{2/3}\\big)$ for general graphs, or (ii) achieve $\\widetilde{O}\\big(\\sqrt{\\kappa L^*}\\big)$ only for \\emph{fixed} graphs and with dependence on clique-partition number $\\kappa$ rather than $\\alpha$.\n\\end{problem}\n",
+  "context": "Explicitly stated as an open problem at the end of Section 3 (\u201cIt is an interesting open problem if this can be achieved for the general graph-based feedback...\u201d), and reiterated/expanded in Section 6 Conclusions under the bullet \u201cOptimal dependence on $L^*$ for general graphs,\u201d asking for $\\widetilde{O}(\\sqrt{\\alpha L^*})$ or extending the fixed-graph $\\widetilde{O}(\\sqrt{\\kappa L^*})$ result to evolving graphs.",
+  "subject_classification": "Online Learning / Bandits with Partial Monitoring (Feedback Graphs)",
+  "keywords": [
+    "small-loss regret",
+    "feedback graphs",
+    "independence number",
+    "high-probability bounds",
+    "adversarial online learning",
+    "partial information"
+  ],
+  "importance": 8,
+  "importance_scale": 10,
+  "difficulty": 8,
+  "difficulty_scale": 10,
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.10602025000000001
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.41951174999999996,
+    "sources": [
+      {
+        "bibtex": "@misc{lykouris2017smallloss,\n  author       = {Thodoris Lykouris and Karthik Sridharan and Eva Tardos},\n  title        = {Small-loss bounds for online learning with partial information},\n  year         = {2017},\n  note         = {arXiv preprint; last revised 2021},\n  eprint       = {1711.03639},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.1711.03639}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) The paper gives high-probability, data-dependent (\"small-loss\") regret guarantees for adversarial online learning with partial-information feedback sets that include the played action. In the feedback-graph (side-observations) model, they obtain high-probability small-loss regret bounds that are sublinear in \\(\\alpha L^*\\) for general graphs (\\(\\alpha\\) = independence number), and in the special case of fixed feedback graphs with clique-partition number \\(\\kappa\\), they obtain an optimal high-probability bound \\(\\widetilde{O}(\\sqrt{\\kappa L^*})\\) for actual regret.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is the first systematic high-probability small-loss treatment for adversarial learning with feedback graphs, and it is explicitly referenced by later work as leaving open the \\(\\widetilde{O}(\\sqrt{\\alpha L^*})\\) goal under general/time-varying graphs. It provides the fixed-graph \\(\\widetilde{O}(\\sqrt{\\kappa L^*})\\) guarantee mentioned in the problem statement and motivates the desire to replace \\(\\kappa\\) by \\(\\alpha\\) and to handle time variation without losing the optimal first-order rate."
+      },
+      {
+        "bibtex": "@misc{lee2020closerlook,\n  author       = {Chung-Wei Lee and Haipeng Luo and Mengxiao Zhang},\n  title        = {A Closer Look at Small-loss Bounds for Bandits with Graph Feedback},\n  year         = {2020},\n  eprint       = {2002.00315},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2002.00315}\n}",
+        "theorem_or_result": "(Exact theorem numbering not accessible from web snippets; paraphrase based on the paper abstract.) For adversarial bandits with (directed) strongly observable feedback graphs, the authors give a small-loss regret bound \\(\\widetilde{O}(\\sqrt{\\kappa\\,L_*})\\), where \\(\\kappa\\) is the clique partition number and \\(L_*\\) is the best arm\u2019s loss. For the special case of self-aware graphs (every node has a self-loop), they improve the guarantee to \\(\\widetilde{O}(\\min\\{\\sqrt{\\alpha T},\\sqrt{\\kappa L_*}\\})\\), where \\(\\alpha\\) is the independence number.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This work sharpens and extends the fixed-graph small-loss results beyond Lykouris--Sridharan--Tardos, and it clarifies what is currently achievable in terms of \\(L^*\\) under graph feedback. However, the best first-order term depends on \\(\\kappa\\), not \\(\\alpha\\), and the results do not directly yield the desired high-probability \\(\\widetilde{O}(\\sqrt{\\alpha L^*})\\) for general time-varying undirected graphs, matching the gap highlighted in the open problem."
+      },
+      {
+        "bibtex": "@InProceedings{pmlr-v201-luo23a,\n  title     = {Improved High-Probability Regret for Adversarial Bandits with Time-Varying Feedback Graphs},\n  author    = {Luo, Haipeng and Tong, Hanghang and Zhang, Mengxiao and Zhang, Yuheng},\n  booktitle = {Proceedings of The 34th International Conference on Algorithmic Learning Theory},\n  pages     = {1074--1100},\n  year      = {2023},\n  editor    = {Agrawal, Shipra and Orabona, Francesco},\n  volume    = {201},\n  series    = {Proceedings of Machine Learning Research},\n  month     = {20 Feb--23 Feb},\n  publisher = {PMLR},\n  url       = {https://proceedings.mlr.press/v201/luo23a.html}\n}\n",
+        "theorem_or_result": "(Stated at the level of the abstract.) For adversarial bandits with time-varying strongly observable feedback graphs, the paper gives a high-probability regret bound of order \\(\\widetilde{O}\\big((\\sum_{t=1}^T \\alpha_t)^{1/2} + \\max_{t\\in[T]}\\alpha_t\\big)\\), where \\(\\alpha_t\\) is the independence number of \\(G_t\\). The paper also gives the first optimal high-probability bound for weakly observable graphs (with a refined analysis that removes an extra \\(\\sqrt{KT}\\) term appearing in prior work).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "exact_match": null,
+        "connection": "This is one of the closest high-probability results for the time-varying setting in the open problem, but it is a worst-case (\\(T\\)-dependent) regret bound rather than a first-order/small-loss bound in \\(L^*\\). Its estimator design and concentration approach (including pessimistic estimators when self-loops are absent) are likely key ingredients for obtaining \\(\\widetilde{O}(\\sqrt{\\alpha L^*})\\) in the time-varying undirected/self-loop case."
+      },
+      {
+        "bibtex": "@misc{alon2015feedbackgraphs,\n  author       = {Noga Alon and Nicol\\`o Cesa-Bianchi and Ofer Dekel and Tomer Koren},\n  title        = {Online Learning with Feedback Graphs: Beyond Bandits},\n  year         = {2015},\n  eprint       = {1502.07617},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.1502.07617}\n}",
+        "theorem_or_result": "(Theorem statement paraphrased from Theorem 1 and surrounding text in the ar5iv HTML rendering.) The paper classifies feedback graphs into strongly observable, weakly observable, and unobservable. For fixed graphs, strongly observable graphs have minimax regret \\(\\widetilde{\\Theta}(\\sqrt{\\alpha T})\\) where \\(\\alpha\\) is the independence number; weakly observable graphs have minimax regret \\(\\widetilde{\\Theta}(\\delta^{1/3}T^{2/3})\\) where \\(\\delta\\) is an appropriate domination number; unobservable graphs yield linear minimax regret. The paper also discusses how the regret changes when graphs vary with time.",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "This is the foundational characterization tying (time-varying) feedback-graph difficulty to \\(\\alpha\\) (and \\(\\delta\\)). It establishes the correct worst-case dependence on \\(\\alpha\\) for strongly observable graphs, motivating the open problem\u2019s target \\(\\sqrt{\\alpha\\,L^*}\\) first-order analogue under time variation."
+      },
+      {
+        "bibtex": "@misc{eldowa2023minimax,\n  author       = {Khaled Eldowa and Emmanuel Esposito and Tommaso Cesari and Nicol\\`o Cesa-Bianchi},\n  title        = {On the Minimax Regret for Online Learning with Feedback Graphs},\n  year         = {2023},\n  eprint       = {2305.15383},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2305.15383}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) For strongly observable undirected feedback graphs, the authors prove an improved worst-case upper bound \\(O\\big(\\sqrt{\\alpha T(1+\\ln(K/\\alpha))}\\big)\\). The algorithm uses FTRL with a \\(q\\)-Tsallis entropy regularizer (with \\(q\\) tuned as a function of \\(\\alpha\\)), and they describe how to extend the techniques to time-varying graphs without knowing their independence numbers in advance.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Although not a small-loss result, this paper provides refined control of the \u201cvariance term\u201d in feedback-graph learning and a Tsallis-entropy FTRL template that interpolates experts/bandits. These techniques are potentially compatible with first-order analyses and could be combined with small-loss tuning to target \\(\\widetilde{O}(\\sqrt{\\alpha L^*})\\) under time-varying undirected graphs."
+      },
+      {
+        "bibtex": "@misc{lee2020biasnomore,\n  author       = {Chung-Wei Lee and Haipeng Luo and Chen-Yu Wei and Mengxiao Zhang},\n  title        = {Bias no more: high-probability data-dependent regret bounds for adversarial bandits and MDPs},\n  year         = {2020},\n  eprint       = {2006.08040},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2006.08040}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) The paper introduces a framework for obtaining high-probability, data-dependent regret bounds against adaptive adversaries using standard unbiased estimators, an increasing learning-rate schedule, self-concordant barriers, and a strengthened Freedman inequality. It yields, among other results, high-probability data-dependent (small-loss-type) regret bounds for adversarial bandits and the first such bounds for adversarial MDPs.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "The open problem is explicitly about high-probability first-order regret. This paper\u2019s concentration/analysis toolkit for adaptive adversaries (strengthened Freedman + barrier-based OMD/FTRL analysis) is a plausible route to upgrade expected-regret or in-expectation first-order bounds under feedback graphs to high-probability bounds, especially in time-varying settings."
+      },
+      {
+        "bibtex": "@misc{ito2022nearlyoptimal,\n  author       = {Shinji Ito and Taira Tsuchiya and Junya Honda},\n  title        = {Nearly Optimal Best-of-Both-Worlds Algorithms for Online Learning with Feedback Graphs},\n  year         = {2022},\n  eprint       = {2206.00873},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2206.00873}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) The authors propose algorithms for directed feedback graphs that are nearly minimax-optimal in adversarial settings (e.g., \\(\\widetilde{O}(\\sqrt{\\alpha T})\\) on strongly observable graphs and \\(\\widetilde{O}(\\delta^{1/3}T^{2/3})\\) on weakly observable graphs), while simultaneously achieving polylogarithmic regret in stochastic environments (best-of-both-worlds).",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "While not focused on small-loss, the paper develops adaptive, parameter-free learning-rate and FTRL-based techniques tailored to feedback graphs. Such adaptivity is conceptually aligned with first-order goals (dependence on \\(L^*\\) rather than \\(T\\)) and may offer building blocks for a time-varying \\(\\sqrt{\\alpha L^*}\\) high-probability bound."
+      },
+      {
+        "bibtex": "@misc{kocak2023trueshape,\n  author       = {Tom\\'a\\v{s} Koc\\'ak and Alexandra Carpentier},\n  title        = {Online Learning with Feedback Graphs: The True Shape of Regret},\n  year         = {2023},\n  eprint       = {2306.02971},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2306.02971}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) The authors define a new complexity quantity \\(R^*\\) for feedback-graph online learning and prove that the minimax regret is proportional to \\(R^*\\) for any graph and horizon \\(T\\), removing the common restriction that earlier \\(\\sqrt{\\alpha T}\\) claims were only proved for sufficiently large \\(T\\) (e.g., \\(T\\gtrsim \\alpha^3\\)). They provide a minimax-optimal algorithm for all \\(T\\).",
+        "relevance_category": "BACKGROUND",
+        "exact_match": null,
+        "connection": "The open problem targets the optimal *first-order* analogue of the minimax \\(\\sqrt{\\alpha T}\\) rate. This paper refines the worst-case understanding of time-horizon dependence under feedback graphs (especially for small \\(T\\)), which may be important when attempting to prove \\(\\sqrt{\\alpha L^*}\\) bounds uniformly over all regimes of \\(L^*\\) and \\(T\\)."
+      },
+      {
+        "bibtex": "@misc{wen2025adversarialcombinatorial,\n  author       = {Yuxiao Wen},\n  title        = {Adversarial Combinatorial Semi-bandits with Graph Feedback},\n  year         = {2025},\n  eprint       = {2502.18826},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n  doi          = {10.48550/arXiv.2502.18826}\n}",
+        "theorem_or_result": "(Exact theorem statement not directly accessible from web snippets; paraphrase based on the paper abstract.) The paper studies combinatorial semi-bandits augmented with graph feedback and establishes that the optimal regret over horizon \\(T\\) scales as \\(\\widetilde{\\Theta}(S\\sqrt{T}+\\sqrt{\\alpha S T})\\), where \\(S\\) is the decision size and \\(\\alpha\\) is the independence number of the feedback graph. A key ingredient is a randomized realization of a convexified action with negative correlations.",
+        "relevance_category": "RELATED_TOOL",
+        "exact_match": null,
+        "connection": "Although in a combinatorial extension rather than the basic \\(d\\)-armed problem, this work develops techniques to exploit graph structure (via \\(\\alpha\\)) together with sophisticated randomization/variance control. Such variance-control ideas are often the bottleneck in moving from \\(\\sqrt{\\alpha T}\\) worst-case to \\(\\sqrt{\\alpha L^*}\\) first-order bounds, especially under high-probability guarantees."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.09955225,
+    "verifier_total_cost_usd": 0.10602025000000001,
+    "literature_total_cost_usd": 0.41951174999999996,
+    "total_cost_usd": 0.62508425
+  },
+  "provenance": {
+    "problem_source": "data/batch10_high/problems/W2767494022/paper/problems.json",
+    "verification_source": "data/batch10_high/verifications/W2767494022_p0_verification.json",
+    "literature_source": "data/batch10_high/literature_reviews/W2767494022_p0_literature_review.json"
+  }
+}
