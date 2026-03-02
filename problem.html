@@ -128,15 +128,20 @@
       if (!bibtex) {
         return "";
       }
+      const targetField = fieldName.toLowerCase();
       const lines = String(bibtex).split("\n");
-      const targetPrefix = `${fieldName.toLowerCase()} =`;
       for (const rawLine of lines) {
         const line = rawLine.trim();
-        const lower = line.toLowerCase();
-        if (lower.startsWith(targetPrefix)) {
-          const value = line.slice(line.indexOf("=") + 1);
-          return _trimBibtexValue(value);
+        if (!line.includes("=")) {
+          continue;
         }
+        const separatorIndex = line.indexOf("=");
+        const key = line.slice(0, separatorIndex).trim().toLowerCase();
+        if (key !== targetField) {
+          continue;
+        }
+        const value = line.slice(separatorIndex + 1);
+        return _trimBibtexValue(value);
       }
       return "";
     }
@@ -178,6 +183,33 @@
         chunks.push(venuePart);
       }
       return `${chunks.join(". ")}.`;
+    }
+
+    function _parseAuthorListFromBibtex(bibtex) {
+      const authorRaw = _extractBibtexField(bibtex, "author");
+      if (!authorRaw) {
+        return [];
+      }
+      return authorRaw
+        .split(" and ")
+        .map((name) => _cleanBibtexText(name).trim())
+        .filter(Boolean);
+    }
+
+    function _normalizeProblemLatex(latex) {
+      const lines = String(latex || "").split("\n");
+      const normalized = [];
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (line.startsWith("\\begin{problem}")) {
+          continue;
+        }
+        if (line === "\\end{problem}") {
+          continue;
+        }
+        normalized.push(rawLine);
+      }
+      return normalized.join("\n").trim();
     }
 
     function renderLiterature(payload) {
@@ -234,10 +266,17 @@
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
-      document.getElementById("source-paper-authors").textContent = formatAuthorList(payload.source_paper_authors);
+      const reviewSources = payload.literature_review?.sources;
+      const fallbackAuthors = Array.isArray(reviewSources) && reviewSources.length > 0
+        ? _parseAuthorListFromBibtex(reviewSources[0].bibtex || "")
+        : [];
+      const sourceAuthors = Array.isArray(payload.source_paper_authors) && payload.source_paper_authors.length > 0
+        ? payload.source_paper_authors
+        : fallbackAuthors;
+      document.getElementById("source-paper-authors").textContent = formatAuthorList(sourceAuthors);
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
       const latexEl = document.getElementById("problem-latex");
-      const latex = payload.latex || "";
+      const latex = _normalizeProblemLatex(payload.latex || "");
       latexEl.textContent = latex;
       latexEl.classList.add("math-content");
       const contextEl = document.getElementById("problem-context");
