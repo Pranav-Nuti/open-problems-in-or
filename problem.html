@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Problem</title>
+  <title>Problem</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -32,8 +44,8 @@
           <span class="problem-meta-value" id="subject-classification"></span>
         </div>
         <div class="problem-meta-item">
-          <span class="problem-meta-label">Importance / Difficulty</span>
-          <span class="problem-meta-value" id="importance-difficulty"></span>
+          <span class="problem-meta-label">Source paper authors</span>
+          <span class="problem-meta-value" id="source-paper-authors"></span>
         </div>
         <div class="problem-meta-item">
           <span class="problem-meta-label">Verification status</span>
@@ -70,8 +82,6 @@
     </div>
   </footer>
 
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
   <script>
     function escapeHtml(text) {
       const div = document.createElement("div");
@@ -96,6 +106,80 @@
       return await response.json();
     }
 
+    function formatAuthorList(authors) {
+      if (!Array.isArray(authors) || authors.length === 0) {
+        return "—";
+      }
+      return authors.join(", ");
+    }
+
+    function _trimBibtexValue(value) {
+      let trimmed = value.trim();
+      if (trimmed.endsWith(",")) {
+        trimmed = trimmed.slice(0, -1).trim();
+      }
+      if ((trimmed.startsWith("{") && trimmed.endsWith("}")) || (trimmed.startsWith("\"") && trimmed.endsWith("\""))) {
+        trimmed = trimmed.slice(1, -1).trim();
+      }
+      return trimmed;
+    }
+
+    function _extractBibtexField(bibtex, fieldName) {
+      if (!bibtex) {
+        return "";
+      }
+      const lines = String(bibtex).split("\n");
+      const targetPrefix = `${fieldName.toLowerCase()} =`;
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        const lower = line.toLowerCase();
+        if (lower.startsWith(targetPrefix)) {
+          const value = line.slice(line.indexOf("=") + 1);
+          return _trimBibtexValue(value);
+        }
+      }
+      return "";
+    }
+
+    function _cleanBibtexText(value) {
+      return String(value).split("{").join("").split("}").join("");
+    }
+
+    function formatCitationFromBibtex(bibtex) {
+      const authorRaw = _extractBibtexField(bibtex, "author");
+      const titleRaw = _extractBibtexField(bibtex, "title");
+      const venueRaw = _extractBibtexField(bibtex, "journal") || _extractBibtexField(bibtex, "booktitle");
+      const yearRaw = _extractBibtexField(bibtex, "year");
+
+      const authorPart = _cleanBibtexText(authorRaw)
+        .split(" and ")
+        .map((name) => name.trim())
+        .filter(Boolean)
+        .join(", ");
+      const titlePart = _cleanBibtexText(titleRaw);
+      const venuePart = _cleanBibtexText(venueRaw);
+      const yearPart = _cleanBibtexText(yearRaw);
+
+      if (!authorPart && !titlePart && !venuePart && !yearPart) {
+        return "Citation unavailable";
+      }
+
+      const chunks = [];
+      if (authorPart) {
+        chunks.push(authorPart);
+      }
+      if (yearPart) {
+        chunks.push(`(${yearPart})`);
+      }
+      if (titlePart) {
+        chunks.push(titlePart);
+      }
+      if (venuePart) {
+        chunks.push(venuePart);
+      }
+      return `${chunks.join(". ")}.`;
+    }
+
     function renderLiterature(payload) {
       const container = document.getElementById("literature-review");
       const review = payload.literature_review;
@@ -106,11 +190,23 @@
       container.innerHTML = review.sources.map((source, idx) => `
         <div class="problem-card math-content" style="margin-bottom:1rem;">
           <div class="problem-card-id">Source #${idx + 1} · ${escapeHtml(source.relevance_category)}</div>
-          <p><strong>BibTeX</strong><br><code>${escapeHtml(source.bibtex)}</code></p>
-          <p><strong>Theorem/result</strong><br><span class="math-inline">${escapeHtml(source.theorem_or_result)}</span></p>
-          <p><strong>Connection</strong><br><span class="math-inline">${escapeHtml(source.connection)}</span></p>
+          <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
+          <p><strong>BibTeX</strong><br><pre class="bibtex-block">${escapeHtml(source.bibtex || "")}</pre></p>
+          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy raw BibTeX</button>
+          <p><strong>Theorem/result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
+          <p><strong>Connection</strong><br><span>${escapeHtml(source.connection || "")}</span></p>
         </div>
       `).join("");
+      for (const button of container.querySelectorAll(".copy-bibtex-btn")) {
+        button.addEventListener("click", async (event) => {
+          const bibtex = event.currentTarget?.getAttribute("data-bibtex") || "";
+          await navigator.clipboard.writeText(bibtex);
+          event.currentTarget.textContent = "Copied";
+          window.setTimeout(() => {
+            event.currentTarget.textContent = "Copy raw BibTeX";
+          }, 1200);
+        });
+      }
     }
 
     function renderSourcePaper(payload) {
@@ -131,39 +227,21 @@
       document.getElementById("extraction-info").textContent = parts.length ? parts.join(", reasoning: ") : "—";
     }
 
-    function preprocessProblemLatex(latex) {
-      let s = latex
-        .replace(/\\begin\{problem\}(\[[^\]]*\])?\s*/g, "")
-        .replace(/\\end\{problem\}\s*/g, "")
-        .replace(/\\begin\{itemize\}\s*/g, "")
-        .replace(/\\end\{itemize\}\s*/g, "")
-        .replace(/\\item\s+/g, "\n• ")
-        .replace(/\\medskip\s*/g, "\n\n")
-        .replace(/\\noindent\s*/g, "");
-      s = s.replace(/\\textbf\{([^{}]*)\}/g, (_, c) => "__B__" + escapeHtml(c) + "__EB__");
-      s = s.replace(/\\emph\{([^{}]*)\}/g, (_, c) => "__E__" + escapeHtml(c) + "__EE__");
-      s = escapeHtml(s);
-      return s.replace(/__B__/g, "<strong>").replace(/__EB__/g, "</strong>")
-        .replace(/__E__/g, "<em>").replace(/__EE__/g, "</em>");
-    }
-
     function renderProblem(payload) {
-      document.title = `${payload.title} | Open Problems in OR`;
+      document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
       document.getElementById("problem-title").textContent = payload.title;
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
-      const impScale = payload.importance_scale ?? 10;
-      const diffScale = payload.difficulty_scale ?? 10;
-      document.getElementById("importance-difficulty").textContent = `Importance: ${payload.importance}/${impScale}, Difficulty: ${payload.difficulty}/${diffScale}`;
+      document.getElementById("source-paper-authors").textContent = formatAuthorList(payload.source_paper_authors);
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
       const latexEl = document.getElementById("problem-latex");
       const latex = payload.latex || "";
-      latexEl.innerHTML = latex ? preprocessProblemLatex(latex) : "";
+      latexEl.textContent = latex;
       latexEl.classList.add("math-content");
       const contextEl = document.getElementById("problem-context");
-      contextEl.innerHTML = escapeHtml(payload.context || "");
+      contextEl.textContent = payload.context || "";
       contextEl.classList.add("math-content");
       document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
       renderLiterature(payload);
@@ -174,16 +252,8 @@
         const problemId = getProblemId();
         const payload = await loadProblem(problemId);
         renderProblem(payload);
-        if (typeof renderMathInElement === "function") {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: "$$", right: "$$", display: true },
-              { left: "\\[", right: "\\]", display: true },
-              { left: "$", right: "$", display: false },
-              { left: "\\(", right: "\\)", display: false }
-            ],
-            throwOnError: false
-          });
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          await window.MathJax.typesetPromise([document.body]);
         }
       } catch (err) {
         document.getElementById("problem-title").textContent = "Unable to load problem";
