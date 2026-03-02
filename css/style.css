@@ -217,6 +217,21 @@ main {
   font-weight: 500;
 }
 
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.author-chip {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: #f8fafc;
+  font-weight: 500;
+}
+
 .problem-section {
   margin: 2rem 0;
 }
@@ -235,18 +250,8 @@ main {
   margin: 0 0 1rem;
 }
 
-.bibtex-block {
-  margin: 0.5rem 0 0;
-  padding: 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: #f8fafc;
-  white-space: pre-wrap;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.85rem;
-}
-
-.copy-bibtex-btn {
+.copy-bibtex-btn,
+.inline-action-btn {
   margin: 0 0 1rem;
   padding: 0.4rem 0.7rem;
   border: 1px solid var(--color-border);
@@ -257,9 +262,29 @@ main {
   font-size: 0.85rem;
 }
 
-.copy-bibtex-btn:hover {
+.copy-bibtex-btn:hover,
+.inline-action-btn:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+}
+
+.source-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.raw-source-block {
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #f8fafc;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
 }
 
 #problem-latex {
@@ -318,7 +343,7 @@ main {
   margin-bottom: 0.25rem;
 }
 
-/* KaTeX styling adjustments */
+/* Math rendering styling adjustments */
 .katex {
   font-size: 1.1em;
 }
