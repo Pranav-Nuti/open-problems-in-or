@@ -235,6 +235,33 @@ main {
   margin: 0 0 1rem;
 }
 
+.bibtex-block {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #f8fafc;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.copy-bibtex-btn {
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.copy-bibtex-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 #problem-latex {
   overflow-x: auto;
   overflow-y: visible;
