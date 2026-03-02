@@ -10,7 +10,7 @@
       tex: {
         inlineMath: [["$", "$"], ["\\(", "\\)"]],
         displayMath: [["$$", "$$"], ["\\[", "\\]"]],
-        processEnvironments: true
+        processEnvironments: false
       },
       options: {
         skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
@@ -56,6 +56,10 @@
 
     <section class="problem-section">
       <h2>Problem statement (LaTeX)</h2>
+      <div class="source-actions">
+        <button id="toggle-raw-latex-btn" class="inline-action-btn" type="button">View raw LaTeX source</button>
+      </div>
+      <pre id="raw-problem-latex" class="raw-source-block" hidden></pre>
       <div id="problem-latex"></div>
     </section>
 
@@ -110,7 +114,9 @@
       if (!Array.isArray(authors) || authors.length === 0) {
         return "—";
       }
-      return authors.join(", ");
+      return `<span class="author-list">${authors
+        .map((author) => `<span class="author-chip">${escapeHtml(author)}</span>`)
+        .join("")}</span>`;
     }
 
     function _trimBibtexValue(value) {
@@ -196,20 +202,19 @@
         .filter(Boolean);
     }
 
-    function _normalizeProblemLatex(latex) {
-      const lines = String(latex || "").split("\n");
-      const normalized = [];
-      for (const rawLine of lines) {
-        const line = rawLine.trim();
-        if (line.startsWith("\\begin{problem}")) {
-          continue;
-        }
-        if (line === "\\end{problem}") {
-          continue;
-        }
-        normalized.push(rawLine);
-      }
-      return normalized.join("\n").trim();
+    function setupRawLatexControls(rawLatex) {
+      const rawSourceEl = document.getElementById("raw-problem-latex");
+      const toggleButton = document.getElementById("toggle-raw-latex-btn");
+
+      rawSourceEl.textContent = rawLatex || "";
+      rawSourceEl.hidden = true;
+      toggleButton.textContent = "View raw LaTeX source";
+
+      toggleButton.onclick = () => {
+        const willShow = rawSourceEl.hidden;
+        rawSourceEl.hidden = !willShow;
+        toggleButton.textContent = willShow ? "Hide raw LaTeX source" : "View raw LaTeX source";
+      };
     }
 
     function renderLiterature(payload) {
@@ -223,7 +228,6 @@
         <div class="problem-card math-content" style="margin-bottom:1rem;">
           <div class="problem-card-id">Source #${idx + 1} · ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
-          <p><strong>BibTeX</strong><br><pre class="bibtex-block">${escapeHtml(source.bibtex || "")}</pre></p>
           <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy raw BibTeX</button>
           <p><strong>Theorem/result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
           <p><strong>Connection</strong><br><span>${escapeHtml(source.connection || "")}</span></p>
@@ -273,12 +277,13 @@
       const sourceAuthors = Array.isArray(payload.source_paper_authors) && payload.source_paper_authors.length > 0
         ? payload.source_paper_authors
         : fallbackAuthors;
-      document.getElementById("source-paper-authors").textContent = formatAuthorList(sourceAuthors);
+      document.getElementById("source-paper-authors").innerHTML = formatAuthorList(sourceAuthors);
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
       const latexEl = document.getElementById("problem-latex");
-      const latex = _normalizeProblemLatex(payload.latex || "");
-      latexEl.textContent = latex;
+      const rawLatex = payload.latex || "";
+      latexEl.textContent = rawLatex;
       latexEl.classList.add("math-content");
+      setupRawLatexControls(rawLatex);
       const contextEl = document.getElementById("problem-context");
       contextEl.textContent = payload.context || "";
       contextEl.classList.add("math-content");
