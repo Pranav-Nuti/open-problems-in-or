@@ -1,12 +1,11 @@
 {
-  "generated_at_utc": "2026-03-02T18:38:32.970905+00:00",
+  "generated_at_utc": "2026-03-03T21:22:27.968804+00:00",
   "counts": {
-    "verification_files_seen": 2,
-    "closed_skipped": 1,
-    "exported_problems": 1,
-    "open_problems_exported": 1,
-    "with_literature_review": 1,
-    "literature_missing_for_open": 0
+    "exported_problems": 5,
+    "open_problems_exported": 5,
+    "with_literature_review": 5,
+    "newly_added_problems": 4,
+    "duplicates_skipped": 0
   },
   "problems": [
     {
@@ -31,6 +30,95 @@
       "is_open": true,
       "has_literature_review": true,
       "path": "problems/W2598503174_p0.json"
+    },
+    {
+      "problem_id": "2208.09159v1_p0",
+      "paper_id": "2208.09159v1",
+      "source_paper": "2208.09159v1",
+      "source_paper_title": "2208.09159v1",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "problem_index": 0,
+      "title": "Is \\(\\gamma\\approx 0.5024\\) the optimal success probability for the random-order single-sample secretary (two-sided Game of Googol)?",
+      "subject_classification": "Online Algorithms (Optimal Stopping)",
+      "keywords": [
+        "secretary problem",
+        "two-sided Game of Googol",
+        "single-sample model",
+        "optimal stopping",
+        "random order",
+        "distribution-free guarantees",
+        "comparison model"
+      ],
+      "is_open": true,
+      "has_literature_review": true,
+      "path": "problems/2208.09159v1_p0.json"
+    },
+    {
+      "problem_id": "2211.03599v2_p0",
+      "paper_id": "2211.03599v2",
+      "source_paper": "2211.03599v2",
+      "source_paper_title": "2211.03599v2",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "problem_index": 0,
+      "title": "Weighted minimization of expected maximum matching in random bipartite graphs (Conjecture 2)",
+      "subject_classification": "Combinatorial Optimization",
+      "keywords": [
+        "contention resolution schemes",
+        "bipartite matchings",
+        "correlation gap",
+        "random bipartite graphs",
+        "doubly stochastic matrices",
+        "maximum-weight matching"
+      ],
+      "is_open": true,
+      "has_literature_review": true,
+      "path": "problems/2211.03599v2_p0.json"
+    },
+    {
+      "problem_id": "2211.16581v1_p0",
+      "paper_id": "2211.16581v1",
+      "source_paper": "2211.16581v1",
+      "source_paper_title": "2211.16581v1",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "problem_index": 0,
+      "title": "Optimal competitive ratio for K-stage integral bipartite matching with batch arrivals",
+      "subject_classification": "Combinatorial Optimization",
+      "keywords": [
+        "online bipartite matching",
+        "batch arrivals",
+        "multi-stage algorithms",
+        "competitive analysis",
+        "integral matching",
+        "adversarial model"
+      ],
+      "is_open": true,
+      "has_literature_review": true,
+      "path": "problems/2211.16581v1_p0.json"
+    },
+    {
+      "problem_id": "2406.14506v2_p0",
+      "paper_id": "2406.14506v2",
+      "source_paper": "2406.14506v2",
+      "source_paper_title": "2406.14506v2",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "problem_index": 0,
+      "title": "Optimal online contention resolution for matchings under adversarial edge arrivals in the vanishing-probability regime",
+      "subject_classification": "Online Algorithms / Stochastic Matching (Contention Resolution)",
+      "keywords": [
+        "online contention resolution",
+        "stochastic matching",
+        "adversarial edge arrivals",
+        "vanishing probabilities",
+        "fractional matching rounding",
+        "selectability constant"
+      ],
+      "is_open": true,
+      "has_literature_review": true,
+      "path": "problems/2406.14506v2_p0.json"
     }
   ]
 }
