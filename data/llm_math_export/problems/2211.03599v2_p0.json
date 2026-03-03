@@ -1,0 +1,111 @@
+{
+  "problem_id": "2211.03599v2_p0",
+  "paper_id": "2211.03599v2",
+  "source_paper": "2211.03599v2",
+  "source_paper_title": "2211.03599v2",
+  "source_paper_url": "",
+  "source_paper_authors": [],
+  "problem_index": 0,
+  "title": "Weighted minimization of expected maximum matching in random bipartite graphs (Conjecture 2)",
+  "latex": "Given an integer \\(n\\ge 1\\), let \\(K_{n,n}\\) be the complete bipartite graph with left vertices \\([n]=\\{1,\\dots,n\\}\\) and right vertices \\([n]=\\{1,\\dots,n\\}\\), and edge set \\([n]\\times[n]\\). Let \\(A=(a_{ij})_{i,j=1}^n\\) be a doubly stochastic matrix, i.e. \\(a_{ij}\\ge 0\\) and \\(\\sum_{i=1}^n a_{ij}=1\\) for all \\(j\\) and \\(\\sum_{j=1}^n a_{ij}=1\\) for all \\(i\\). Let \\(W=(w_{ij})_{i,j=1}^n\\) be a nonnegative weight matrix satisfying the normalization\n\\[\\sum_{i=1}^n\\sum_{j=1}^n w_{ij}a_{ij}=1.\\]\nDefine a random bipartite graph \\(R(A)\\subseteq K_{n,n}\\) by including each edge \\((i,j)\\) independently with probability \\(a_{ij}\\). For any realization \\(R\\), define the maximum-weight matching value\n\\[\\nu_W(R)=\\max\\Big\\{\\sum_{(i,j)\\in M} w_{ij}:\\ M\\subseteq R\\ \\text{is a matching}\\Big\\}.\\]\nThe problem (conjecture) is to prove that the expected maximum-weight matching \\(\\mathbb{E}[\\nu_W(R(A))]\\), as a function of \\((A,W)\\) under the constraints above, is minimized by the uniform choice \\(a_{ij}=1/n\\) and \\(w_{ij}=1/n\\) for all \\((i,j)\\). Equivalently, for every doubly stochastic \\(A\\) and every \\(W\\ge 0\\) with \\(\\sum_{i,j} w_{ij}a_{ij}=1\\),\n\\[\\mathbb{E}\\big[\\nu_W(R(A))\\big]\\ \\ge\\ \\mathbb{E}\\big[\\nu_{J/n}(R(J/n))\\big],\\]\nwhere \\(J/n\\) denotes the \\(n\\times n\\) matrix with all entries \\(1/n\\), and \\(\\nu_{J/n}(\\cdot)\\) is the maximum matching weight when every edge has weight \\(1/n\\).",
+  "context": "Explicitly stated as Conjecture 2 in Section 1.3 (\u201cParallels with van der Waerden\u2019s conjecture\u201d), motivated as a weighted strengthening that (via LP duality) would imply an optimal \\(\\gamma\\approx 0.544\\)-balanced contention resolution scheme / correlation gap for bipartite matchings.",
+  "subject_classification": "Combinatorial Optimization",
+  "keywords": [
+    "contention resolution schemes",
+    "bipartite matchings",
+    "correlation gap",
+    "random bipartite graphs",
+    "doubly stochastic matrices",
+    "maximum-weight matching"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 1.34542275
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "total_cost_usd": 0.4697525,
+    "sources": [
+      {
+        "bibtex": "@article{LeconteLelargeMassoulie2012BP,\n  author       = {Mathieu Leconte and Marc Lelarge and Laurent Massouli{\\'e}},\n  title        = {Convergence of multivariate belief propagation, with applications to cuckoo hashing and load balancing},\n  year         = {2012},\n  eprint       = {1207.1659},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  doi          = {10.48550/arXiv.1207.1659},\n  note         = {Conference version: SODA 2013, DOI 10.1137/1.9781611973105.3}\n}",
+        "theorem_or_result": "The arXiv abstract states (without giving the full formal statement) that for sequences of large random bipartite graphs admitting a local weak limit that is a tree, the maximum weight of a generalized matching/allocation problem with node and edge capacities satisfies a law of large numbers.\n\n- More precisely, the normalized optimal value converges to a deterministic limit that can be characterized via a belief-propagation (BP) fixed point on the limiting infinite tree.\n- The paper also states convergence of the corresponding multivariate BP algorithm under a monotonicity argument (upshifted likelihood ratio stochastic order).\n\nThe exact theorem hypotheses and the explicit limit formula are not accessible from the abstract alone.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "The conjecture concerns \\,\\(\\mathbb{E}[\\nu_W(R(A))]\\) for independent edge percolation on \\,\\(K_{n,n}\\) with inhomogeneous probabilities. This paper provides a rigorous framework (local weak convergence and BP) for analyzing asymptotic optimal matching values in random bipartite graphs with independently realized edges and general integer capacities, which is structurally close to the present random matching functional. Although it does not address minimization over the edge-probability matrix \\,\\(A\\), it supplies a main technical tool for computing or bounding the baseline value under the uniform model and for studying stability under perturbations of edge probabilities."
+      },
+      {
+        "bibtex": "@article{FriezeMelsted2012CuckooMatchings,\n  author  = {Alan Frieze and P{\\'a}ll Melsted},\n  title   = {Maximum matchings in random bipartite graphs and the space utilization of cuckoo hash tables},\n  journal = {Random Structures \\& Algorithms},\n  year    = {2012},\n  volume  = {41},\n  number  = {3},\n  pages   = {334--364},\n  doi     = {10.1002/rsa.20427},\n  eprint  = {0910.5535},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.CO}\n}",
+        "theorem_or_result": "The arXiv abstract states (without a full theorem statement) the following type of result.\n\n- Consider a random bipartite graph with left side \\,\\(L\\) and right side \\,\\(R\\), where each \\,\\(x\\in L\\) chooses \\,\\(d\\) random neighbors in \\,\\(R\\) (a sparse random bipartite graph with prescribed left degree \\,\\(d\\)).\n- The paper determines the condition (a sharp threshold in the relevant load parameter, in the cuckoo-hashing interpretation) under which the maximum matching size \\,\\(\\mu(G)\\) equals \\,\\(|L|\\) with high probability for \\,\\(d\\ge 4\\).\n- It also gives a precise threshold for when Phase 1 of the Karp--Sipser greedy matching algorithm suffices to compute a maximum matching with high probability.\n\nThe exact threshold formulas and constants are not accessible from the abstract alone.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "The conjecture\u2019s uniform model corresponds to a sparse regime where each vertex has constant expected degree (here, 1) and matchings are sensitive to local tree-like structure. This work gives sharp threshold information for when sparse random bipartite graphs admit matchings saturating one side, and it analyzes maximum matching size in a model with independent randomness at the edge level (conditioned on degree-generation). Such threshold and algorithmic analyses can be used to estimate \\,\\(\\mathbb{E}[\\nu_W(R(J/n))]\\) asymptotically, providing the target quantity appearing on the right-hand side of the conjectured inequality."
+      },
+      {
+        "bibtex": "@misc{KanizoHayKeslassy2011MaxBipartiteMatching,\n  author       = {Yossi Kanizo and David Hay and Isaac Keslassy},\n  title        = {Maximum Bipartite Matching Size And Application to Cuckoo Hashing},\n  year         = {2011},\n  eprint       = {1007.1946},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.1007.1946}\n}",
+        "theorem_or_result": "The arXiv abstract states that the paper analyzes the expected maximum matching size of certain random bipartite graphs arising from multiple-choice hashing models.\n\n- It claims exact expressions for the expected maximum matching size for finite system size.\n- It also claims asymptotic results as the system size grows.\n\nThe exact theorem statements and explicit formulae are not accessible from the abstract alone.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "The conjecture is an extremal statement about the expectation of an optimal matching functional under independent edge realizations with normalized total expected weight and doubly stochastic marginals. This paper is directly concerned with \\,\\(\\mathbb{E}[\\text{maximum matching size}]\\) in random bipartite graphs, including explicit finite-size calculations and asymptotics in sparse regimes. Even though the probability model differs (hashing-induced randomness rather than arbitrary doubly stochastic \\,\\(A\\)), the techniques for computing or bounding expected optimal matching size are directly relevant for estimating the uniform baseline and for exploring candidate extremizers."
+      },
+      {
+        "bibtex": "@misc{MastinJaillet2013GreedyOnlineRandom,\n  author       = {Andrew Mastin and Patrick Jaillet},\n  title        = {Greedy Online Bipartite Matching on Random Graphs},\n  year         = {2013},\n  eprint       = {1307.2536},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}",
+        "theorem_or_result": "The arXiv abstract states the following results for \\,\\(G(n,n,p)\\) (edges present independently with probability \\,\\(p=p(n)\\)).\n\n- The online \\(\\textsc{Oblivious}\\) algorithm achieves an asymptotic performance ratio at least \\,\\(1-1/e\\), where the ratio is the expected matching size produced divided by the expected maximum matching size.\n- The online \\(\\textsc{Greedy}\\) algorithm achieves an asymptotic performance ratio at least \\,\\(0.837\\) for all monotone \\,\\(p(n)\\).\n\nThe paper\u2019s exact characterization of the expected maximum matching size is not stated explicitly in the abstract.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "Although the conjecture is offline (it concerns \\,\\(\\nu_W\\) in a realized random graph), this paper develops differential-equation methods that compare algorithmic matchings to the expected offline optimum in the Erd\\H{o}s--R\\'enyi bipartite model. Such analyses implicitly require quantitative control on \\,\\(\\mathbb{E}[\\text{OPT}]\\) for random bipartite graphs and therefore provide tools for estimating the uniform baseline in the conjecture. The techniques may also suggest concentration and smoothness properties of \\,\\(\\nu_W\\) that could be useful when varying \\,\\(A\\) within the Birkhoff polytope."
+      },
+      {
+        "bibtex": "@article{PerarnauPetridis2013Biregular,\n  author  = {Guillem Perarnau and Giorgis Petridis},\n  title   = {Matchings in Random Biregular Bipartite Graphs},\n  journal = {The Electronic Journal of Combinatorics},\n  year    = {2013},\n  volume  = {20},\n  number  = {1},\n  pages   = {P60}\n}",
+        "theorem_or_result": "The paper proves Erd\\H{o}s--R\\'enyi type threshold results for perfect matchings in induced subgraphs of random biregular bipartite graphs.\n\n- Theorem 2: Fix \\,\\(k\\in\\mathbb{Q}_+\\). Let \\,\\(G\\sim G(k,n,d)\\) be a random biregular bipartite directed graph with left side \\,\\(Y\\) of size \\,\\(n\\) and right side \\,\\(Z\\) of size \\,\\(kn\\), out-degree \\,\\(kd\\) on \\,\\(Y\\) and in-degree \\,\\(d\\) on \\,\\(Z\\). Let \\,\\(A\\subseteq Y\\) and \\,\\(B\\subseteq Z\\) be subsets of size \\,\\(kd\\), and let \\,\\(H:=G[A,B]\\) be the induced subgraph. Then:\n  - If \\,\\(kd^2/n - \\log(kd)\\to -\\infty\\) (or if \\,\\(d\\) is constant), then with high probability \\,\\(H\\) has no perfect matching.\n  - If \\,\\(kd^2/n - \\log(kd)\\to +\\infty\\), then with high probability \\,\\(H\\) has a perfect matching.\n- Theorem 6 (Erd\\H{o}s--R\\'enyi, as quoted): For a random bipartite graph \\,\\(G_0\\sim B(n,p)\\) with \\,\\(p=(\\log n + c)/n\\), the probability that \\,\\(G_0\\) contains a perfect matching is asymptotically \\,\\(\\exp(-2e^{-c})\\).",
+        "relevance_category": "BACKGROUND",
+        "connection": "The conjecture compares expected optimal matching values across inhomogeneous independent edge models. Perfect matchings control an extreme regime of \\,\\(\\nu_W\\) (in particular, whether full cardinality matchings exist), and sharp thresholds illuminate how uniform edge probabilities around \\,\\(1/n\\) place the model near criticality for covering all vertices. These results supply rigorous asymptotics for the presence/absence of perfect matchings in sparse bipartite random graphs, a key structural input when estimating \\,\\(\\mathbb{E}[\\nu_{J/n}(R(J/n))]\\) and when bounding expectations from below via events of large matchings."
+      },
+      {
+        "bibtex": "@misc{AssadiKhannaLi2017StochasticMatching,\n  author       = {Sepehr Assadi and Sanjeev Khanna and Yang Li},\n  title        = {The Stochastic Matching Problem: Beating Half with a Non-Adaptive Algorithm},\n  year         = {2017},\n  eprint       = {1705.02280},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}",
+        "theorem_or_result": "The arXiv abstract states the following guarantee in the stochastic matching model.\n\n- Given a graph \\,\\(G=(V,E)\\) where each edge is realized independently with constant probability \\,\\(p>0\\), there exists a non-adaptive algorithm that selects a subgraph \\,\\(H\\subseteq G\\) of maximum degree \\,\\(O(\\log(1/p)/p)\\) such that\n  - \\(\\mathbb{E}[\\nu(H_p)] / \\mathbb{E}[\\nu(G_p)] \\ge 1/2+\\delta_0\\),\n    where \\,\\(G_p\\) and \\,\\(H_p\\) denote the realized random subgraphs and \\,\\(\\nu(\\cdot)\\) is maximum matching size.\n- Here \\,\\(\\delta_0>0\\) is an absolute constant.\n\nThe abstract does not provide the explicit numerical value of \\,\\(\\delta_0\\).",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "The conjecture concerns \\,\\(\\mathbb{E}[\\nu_W(R(A))]\\) under independent per-edge randomness with prescribed marginal constraints. This paper studies a closely related functional, the expected maximum matching size under independent edge realizations, and develops robust structural/algorithmic lower bounds on this expectation relative to an underlying graph. While the conjecture is an extremal minimization over probability matrices rather than approximation of a fixed instance, the analysis techniques (e.g., bounded-degree sparsification preserving expected matching) can inform lower-bound strategies for \\,\\(\\mathbb{E}[\\nu_W(R(A))]\\) by reducing to controlled sparse substructures."
+      },
+      {
+        "bibtex": "@article{AronsonFriezePittel1998KarpSipser,\n  author  = {Jonathan Aronson and Alan M. Frieze and Boris G. Pittel},\n  title   = {Maximum matchings in sparse random graphs: {Karp--Sipser} revisited},\n  journal = {Random Structures \\& Algorithms},\n  year    = {1998},\n  volume  = {12},\n  number  = {2},\n  pages   = {111--177},\n  doi     = {10.1002/(SICI)1098-2418(199803)12:2<111::AID-RSA1>3.0.CO;2-\\#}\n}",
+        "theorem_or_result": "The paper gives a detailed probabilistic analysis of the Karp--Sipser greedy algorithm and the maximum matching size in the sparse Erd\\H{o}s--R\\'enyi random graph \\,\\(G(n,c/n)\\).\n\n- It strengthens earlier results by providing tight control (via differential equation methods and supermartingales) over the deletion process used in the algorithm.\n- According to the published abstract/extended descriptions, it yields asymptotic information about how many vertices remain unmatched in an optimal matching, as a function of the constant \\,\\(c\\), and improved error estimates for the algorithm.\n\nThe exact closed-form asymptotic formulae and theorem statements are not accessible from the metadata alone.",
+        "relevance_category": "BACKGROUND",
+        "connection": "The conjecture\u2019s uniform model has sparse intensity (edge probability \\,\\(1/n\\)), placing it in the classical sparse random graph regime where Karp--Sipser style differential-equation analyses apply. Although this work is for non-bipartite graphs, it provides core methodology for estimating expected maximum matching size and for understanding the impact of degree-1 vertices and small components on matching deficiency. These techniques can be adapted or compared to bipartite variants, supporting computation of \\,\\(\\mathbb{E}[\\nu_{J/n}(R(J/n))]\\) and suggesting how heterogeneity in \\,\\(A\\) might affect local structures relevant to matchings."
+      },
+      {
+        "bibtex": "@misc{Gurvits2011BetheSchrijver,\n  author       = {Leonid Gurvits},\n  title        = {Unleashing the power of {Schrijver}'s permanental inequality with the help of the {Bethe} Approximation},\n  year         = {2011},\n  eprint       = {1106.2844},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO}\n}",
+        "theorem_or_result": "The paper (as stated in its abstract) uses Schrijver's permanental inequality to derive new lower bounds on the permanent of a doubly stochastic matrix.\n\n- Let \\,\\(A\\in\\Omega_n\\) be doubly stochastic and define \\,\\(\\widetilde{A}_{ij} := A_{ij}(1-A_{ij})\\).\n- Schrijver's inequality (quoted): \\,\\(\\operatorname{per}(\\widetilde{A}) \\ge \\prod_{i,j}(1-A_{ij})\\).\n- New bound proved in the paper: \\,\\(\\operatorname{per}(A) \\ge F(A)\\), where \\,\\(F(A) := \\prod_{i,j}(1-A_{ij})^{1-A_{ij}}\\).\n\nThe abstract additionally reports applications to monomer-dimer (lower matching) conjectures and correlation conjectures.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "For the random graph \\,\\(R(A)\\), the expected number of perfect matchings equals \\,\\(\\operatorname{per}(A)\\), so permanent bounds give computable quantities from the same input \\,\\(A\\) that underlies the edge probabilities. Although \\,\\(\\mathbb{E}[\\nu_W(R(A))]\\) is not directly the permanent, lower bounds on \\,\\(\\operatorname{per}(A)\\) and related monomer-dimer quantities are often used to control matching structure and can yield indirect lower bounds on large-matching events. The Bethe-approximation and inequality framework suggests analytic approaches (entropy-like functionals on \\,\\(A\\)) that may also be relevant to proving that the uniform \\,\\(A\\) extremizes expectations among doubly stochastic matrices."
+      },
+      {
+        "bibtex": "@article{Falikman1981vdW,\n  author  = {D. I. Falikman},\n  title   = {Proof of the van der Waerden conjecture regarding the permanent of a doubly stochastic matrix},\n  journal = {Matematicheskie Zametki},\n  year    = {1981},\n  volume  = {29},\n  number  = {6},\n  pages   = {931--938},\n  doi     = {10.1007/BF01163285},\n  note    = {English translation: Mathematical Notes 29(6):475--479 (1981)}\n}",
+        "theorem_or_result": "Van der Waerden permanent conjecture (proved).\n\n- For every doubly stochastic matrix \\,\\(A\\in\\mathbb{R}_{\\ge 0}^{n\\times n}\\),\n  \\[\\operatorname{per}(A) \\ge \\frac{n!}{n^n}.\\]\n- Equality holds for the uniform matrix \\,\\(J/n\\) (and, more generally, for \\,\\(J/n\\) up to permutation symmetries).\n\nThis provides the exact minimizer of \\,\\(\\operatorname{per}(A)\\) over the Birkhoff polytope.",
+        "relevance_category": "BACKGROUND",
+        "connection": "The conjecture is an extremal statement over the same feasible set of probability matrices \\,\\(A\\in\\Omega_n\\). Since \\,\\(\\operatorname{per}(A)\\) equals the expected number of perfect matchings in \\,\\(R(A)\\), the van der Waerden theorem is a prototypical result asserting that uniform \\,\\(A\\) minimizes a matching-related expectation among doubly stochastic matrices. While \\,\\(\\mathbb{E}[\\nu_W(R(A))]\\) is a different functional (an expected maximum rather than an expected count), van der Waerden-type techniques and the general phenomenon of uniform minimizers provide strong precedent and suggest that entropy/convexity methods may be viable."
+      },
+      {
+        "bibtex": "@article{Egorychev1981vdW,\n  author  = {G. P. Egorychev},\n  title   = {The solution of van der Waerden's problem for permanents},\n  journal = {Akademiya Nauk SSSR. Doklady},\n  year    = {1981},\n  volume  = {258},\n  pages   = {1041--1044},\n  note    = {Also reported as a translated/extended exposition in Advances in Mathematics 42 (1981) 299--305 (as cited in later surveys)}\n}",
+        "theorem_or_result": "Van der Waerden permanent conjecture (proved independently of Falikman).\n\n- For every doubly stochastic matrix \\,\\(A\\),\n  \\[\\operatorname{per}(A) \\ge \\frac{n!}{n^n}.\\]\n- The lower bound is attained by the uniform matrix \\,\\(J/n\\).\n\nThe work is also known for introducing integral-representation techniques (the Egorychev method) used in combinatorial enumeration and permanent bounds.",
+        "relevance_category": "BACKGROUND",
+        "connection": "This source provides an independent proof of the same fundamental extremal permanent inequality, reinforcing the robustness of the phenomenon that uniform doubly stochastic structure minimizes a natural matching functional. The conjecture under review similarly posits that uniform choices minimize an expected matching optimum under normalization constraints. Egorychev\u2019s integral representation and analytic methods are historically important tools in extremal permanent problems, and variants of such analytic techniques may plausibly be adapted to control expectations of optimal matchings under independent edge percolation."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.06269725000000001,
+    "verifier_total_cost_usd": 1.34542275,
+    "literature_total_cost_usd": 0.4697525,
+    "total_cost_usd": 1.8778725
+  },
+  "provenance": {
+    "problem_source": "data/my_papers_pipeline/problems/2211.03599v2/paper/problems.json",
+    "verification_source": "data/my_papers_pipeline/verifications/2211.03599v2_p0_verification.json",
+    "literature_source": "data/my_papers_pipeline/literature_reviews/2211.03599v2_p0_literature_review.json"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "problem_id": "2211.16581v1_p0",
+  "paper_id": "2211.16581v1",
+  "source_paper": "2211.16581v1",
+  "source_paper_title": "2211.16581v1",
+  "source_paper_url": "",
+  "source_paper_authors": [],
+  "problem_index": 0,
+  "title": "Optimal competitive ratio for K-stage integral bipartite matching with batch arrivals",
+  "latex": "Given an integer \\(K\\ge 2\\), consider a bipartite graph \\(G=(U,V,E)\\) where \\(V\\) is the offline vertex set and \\(U\\) is the online vertex set. The online vertices are partitioned into \\(K\\) disjoint batches \\(U_1,\\dots,U_K\\), where batch \\(U_k\\) arrives at stage \\(k\\). When batch \\(U_k\\) arrives, all edges \\(E_k\\subseteq U_k\\times V\\) incident to \\(U_k\\) are revealed. Each offline vertex \\(j\\in V\\) has unit capacity (it can be matched to at most one online vertex over all stages). At each stage \\(k\\), an online algorithm must irrevocably choose an integral matching \\(M_k\\subseteq E_k\\) such that:\n- each \\(i\\in U_k\\) is incident to at most one edge of \\(M_k\\);\n- each \\(j\\in V\\) is incident to at most one edge in \\(\\bigcup_{s\\le k} M_s\\).\nThe algorithm\u2019s final matching is \\(M=\\bigcup_{k=1}^K M_k\\), with value \\(|M|\\) (unweighted case; equivalently all weights are 1).\n\nLet \\(\\mathrm{OPT}(G)\\) be the maximum-cardinality matching in \\(G\\) (computed with full hindsight). The competitive ratio of an algorithm \\(\\mathrm{ALG}\\) is\n\\[\\inf_G \\frac{\\mathbb{E}[|M_{\\mathrm{ALG}}(G)|]}{|\\mathrm{OPT}(G)|},\\]\nwhere the infimum is over all adversarial instances with \\(K\\) stages (and the expectation is over the algorithm\u2019s internal randomness).\n\nproblem: Determine the optimal (supremum achievable) competitive ratio for the \\(K\\)-stage integral bipartite matching problem for each \\(K>2\\), and design an algorithm attaining it. In particular, decide whether the optimal ratio equals\n\\[\\Gamma(K)=1-\\left(1-\\frac{1}{K}\\right)^K,\\]\nwhich is known to be tight for fractional multi-stage matching in this paper.",
+  "context": "Appendix D, \u201cFuture Directions and problems\u201d: the authors explicitly ask to \u201cidentify the optimal multi-stage algorithm and its competitive ratio for the multi-stage integral bipartite matching problem \u2026 Showing whether our competitive ratio can be obtained in the integral matching problem for \\(K>2\\) is still an problem.\u201d",
+  "subject_classification": "Combinatorial Optimization",
+  "keywords": [
+    "online bipartite matching",
+    "batch arrivals",
+    "multi-stage algorithms",
+    "competitive analysis",
+    "integral matching",
+    "adversarial model"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 1.31649035
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "total_cost_usd": 0.40005525,
+    "sources": [
+      {
+        "bibtex": "@misc{FengNiazadeh2022Batching,\n  author       = {Yiding Feng and Rad Niazadeh},\n  title        = {Batching and Optimal Multi-stage Bipartite Allocations},\n  howpublished  = {arXiv preprint arXiv:2211.16581},\n  year         = {2022},\n  doi          = {10.48550/arXiv.2211.16581},\n  url          = {https://arxiv.org/abs/2211.16581}\n}",
+        "theorem_or_result": "The exact theorem statement could not be accessed in full text via web tooling; the following is a cautious paraphrase of the abstract and published summaries.\n\nFor the adversarial K-stage model (online vertices arrive in K batches), the paper gives a fractional (LP-based, regularized convex-programming) algorithm for vertex-weighted bipartite b-matching that achieves competitive ratio \\(\\Gamma(K)=1-(1-1/K)^K\\) against the offline optimum. It also presents a matching upper-bound construction (even for the unweighted case) showing that no online algorithm can achieve competitive ratio strictly greater than \\(\\Gamma(K)\\) in this batched adversarial model.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "This work is the primary source establishing \\(\\Gamma(K)=1-(1-1/K)^K\\) as the optimal competitive ratio for the fractional K-stage matching/allocation variant under adversarial batches. The upper-bound instance implies \\(\\Gamma(K)\\) is also an information-theoretic ceiling for the integral K-stage problem posed here (integral algorithms cannot beat the fractional upper bound). The central remaining gap is whether an integral, irrevocable matching algorithm can attain \\(\\Gamma(K)\\) for each fixed \\(K>2\\), or whether there is an inherent integrality loss in the batched adversarial setting."
+      },
+      {
+        "bibtex": "@InProceedings{feng_et_al:LIPIcs.ITCS.2021.88,\n  author    = {Feng, Yiding and Niazadeh, Rad},\n  title     = {{Batching and Optimal Multi-Stage Bipartite Allocations}},\n  booktitle = {12th Innovations in Theoretical Computer Science Conference (ITCS 2021)},\n  pages     = {88:1--88:1},\n  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},\n  volume    = {185},\n  year      = {2021},\n  editor    = {Lee, James R.},\n  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},\n  address   = {Dagstuhl, Germany},\n  doi       = {10.4230/LIPIcs.ITCS.2021.88},\n  url       = {https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2021.88}\n}",
+        "theorem_or_result": "In the K-stage batched adversarial model for vertex-weighted bipartite b-matching and AdWords, the extended abstract states an optimal \\(\\Gamma(K)=1-(1-1/K)^K\\)-competitive algorithm for the fractional problem.\n\nIt further states a matching upper bound: there exists an unweighted instance in which no online algorithm obtains a competitive ratio better than \\(\\Gamma(K)\\).\n\nIt also states extensions to integral allocations in special \u201clarge budget / small bids\u201d regimes (details not stated in the 1-page abstract).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "This extended abstract provides an openly accessible statement of the \\(\\Gamma(K)\\) guarantee and the matching hardness instance in the batched adversarial model, serving as a concise reference point for the conjectured optimal ratio in the integral setting. The note about integral extensions under large-budget assumptions suggests one plausible route for integral results: show that in regimes where fractional and integral solutions are close (e.g., via large capacities), the \\(\\Gamma(K)\\) structure can survive rounding. However, the unit-capacity integral matching problem in the prompt does not fall under those large-budget regimes, leaving the exact integral \\(K>2\\) optimum unresolved."
+      },
+      {
+        "bibtex": "@techreport{KarpVaziraniVazirani1991OptimalOnlineBipartiteMatching,\n  author      = {Richard M. Karp and Umesh V. Vazirani and Vijay V. Vazirani},\n  title       = {An Optimal Algorithm for On-Line Bipartite Matching},\n  institution = {EECS Department, University of California, Berkeley},\n  number      = {UCB/ERL M91/18},\n  year        = {1991},\n  month       = {Mar},\n  url         = {https://www2.eecs.berkeley.edu/Pubs/TechRpts/1991/ERL-91-18.pdf}\n}",
+        "theorem_or_result": "Theorem 1 (as stated in the report): The performance of algorithm EARLY is \\(n(1-1/e)+o(n)\\).\n\nTheorem 2 (as stated in the report): The performance of any on-line bipartite matching algorithm is at most \\(n(1-1/e)+o(n)\\).\n\nHere performance is the minimum (over instances and adversarial arrival order) of the expected matching size produced by the randomized algorithm.",
+        "relevance_category": "BACKGROUND",
+        "connection": "This report pins down the optimal competitive ratio \\(1-1/e\\) for the classical one-by-one online bipartite matching problem with integral irrevocable decisions (the \\(K\\to\\infty\\) limit of batched arrivals). Since \\(\\Gamma(K)=1-(1-1/K)^K\\to 1-1/e\\) as \\(K\\to\\infty\\), the conjectured \\(\\Gamma(K)\\) curve is consistent with the classical asymptotic barrier. Techniques here (random priorities on offline vertices, upper-triangular hard instances) are a natural starting point for attempting to prove impossibility or optimality for finite \\(K\\) in the integral batched model."
+      },
+      {
+        "bibtex": "@inproceedings{AlbersSchubert2025OnlineBMatching,\n  author    = {Susanne Albers and Sebastian Schubert},\n  title     = {Optimal Algorithms for Online $b$-Matching with Variable Vertex Capacities},\n  booktitle = {Algorithmica},\n  year      = {2025},\n  volume    = {87},\n  pages     = {167--190},\n  doi       = {10.1007/s00453-024-01282-9},\n  url       = {https://link.springer.com/article/10.1007/s00453-024-01282-9}\n}",
+        "theorem_or_result": "The paper proves that the classic Ranking algorithm (random permutation of offline vertices, match each arrival to the highest-ranked available neighbor) achieves competitive ratio \\(1-1/e\\) for maximum-cardinality online bipartite \\(b\\)-matching even when offline capacities \\(b_s\\) are arbitrary and heterogeneous; moreover this ratio is optimal.\n\nThe exact formal theorem numbering could not be accessed in full text via web tooling; this statement is taken from the article abstract and metadata page.",
+        "relevance_category": "BACKGROUND",
+        "connection": "Although this work studies the standard one-by-one arrival model rather than K-stage batching, it clarifies that heterogeneous capacities do not by themselves change the \\(1-1/e\\) integral barrier in the fully adversarial online setting. This is relevant because multi-stage batching can be viewed as relaxing the timing constraint while keeping irrevocability, and the conjectured \\(\\Gamma(K)\\) interpolates between 1 (offline) and \\(1-1/e\\) (fully online). The techniques (configuration LPs and primal-dual analysis for Ranking without capacity-splitting reductions) may be reusable when analyzing capacity consumption across multiple batched stages."
+      },
+      {
+        "bibtex": "@inproceedings{FeldmanSvenssonZenklusen2016OCRS,\n  author    = {Moran Feldman and Ola Svensson and Rico Zenklusen},\n  title     = {Online Contention Resolution Schemes},\n  booktitle = {Proceedings of the Twenty-Seventh Annual ACM-SIAM Symposium on Discrete Algorithms (SODA 2016)},\n  pages     = {1014--1033},\n  year      = {2016},\n  doi       = {10.1137/1.9781611974331.ch72},\n  eprint    = {1508.00142},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS},\n  url       = {https://arxiv.org/abs/1508.00142}\n}",
+        "theorem_or_result": "The exact theorem statements could not be accessed in full text via web tooling; the following is a cautious paraphrase of the abstract.\n\nThe paper introduces online contention resolution schemes (OCRSs), a generic online rounding framework converting fractional solutions to online selection problems into integral feasible solutions while controlling expected loss. It states that OCRSs for different constraint families can be combined to obtain an OCRS for their intersection, enabling broad applicability across constraint systems.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "A central obstacle in proving \\(\\Gamma(K)\\) for integral K-stage matching is the need to round (explicitly or implicitly) a \u201cbalanced\u201d fractional plan into stage-wise integral matchings without violating offline capacities across stages. OCRS provides a general methodology for online rounding under downward-closed constraints and is a natural candidate framework for bridging fractional multi-stage results to integral ones. However, the matching constraint across multiple stages is not a matroid and involves bipartite matching structure, so the direct applicability and achievable balancedness factors need careful adaptation."
+      },
+      {
+        "bibtex": "@misc{EzraFeldmanGravinTang2020BatchedProphetMatching,\n  author       = {Tomer Ezra and Michal Feldman and Nick Gravin and Zhihao Gavin Tang},\n  title        = {Online Stochastic Max-Weight Matching: prophet inequality for vertex and edge arrival models},\n  howpublished  = {arXiv preprint arXiv:2002.09807},\n  year         = {2020},\n  url          = {https://arxiv.org/abs/2002.09807}\n}",
+        "theorem_or_result": "The paper introduces a batched prophet-inequality framework and a reduction to batched online contention resolution schemes (batched-OCRS).\n\nIt states the construction of batched-OCRSs with selectable ratios of 0.337 (edge arrivals) and 0.5 (vertex arrivals), yielding prophet-inequality competitive ratios of the same values for the corresponding matching arrival models. It also states that the 0.5 ratio for vertex arrivals is tight.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "While the prompt concerns adversarial (not stochastic) batched arrivals and measures competitive ratio against worst-case OPT, this paper provides concrete batched rounding machinery for matching constraints (via batched-OCRS). The batched-OCRS perspective is directly relevant to any attempt to transform a multi-stage fractional allocation policy into an integral one while preserving expected cardinality. The tightness at 0.5 in the prophet setting highlights that batching alone does not automatically yield near-1 ratios in integral matching problems once additional uncertainty or commitment constraints are present."
+      },
+      {
+        "bibtex": "@misc{FengNiazadehSaberi2022TwoStageStochasticMatching,\n  author       = {Yiding Feng and Rad Niazadeh and Amin Saberi},\n  title        = {Two-stage Stochastic Matching and Pricing with Applications to Ride Hailing},\n  howpublished  = {arXiv preprint arXiv:2210.11648},\n  year         = {2022},\n  url          = {https://arxiv.org/abs/2210.11648}\n}",
+        "theorem_or_result": "For two-stage stochastic vertex-weighted (and unweighted) matching, the paper states an online algorithm achieving competitive ratio \\(3/4\\) against the offline optimum, and that \\(3/4\\) is optimal for this benchmark.\n\nIt also states an improved guarantee against an \u201coptimal online\u201d benchmark of \\(1-1/e+1/e^2\\approx 0.767\\) for the unweighted case (and a similar constant for the weighted case).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "This paper addresses the special case \\(K=2\\) under an explicit stochastic model for the second-stage arrivals, demonstrating that integral two-stage matching can surpass the classical \\(1-1/e\\) barrier (here up to \\(3/4\\) against offline OPT). Although the adversarial K-stage model in the prompt is different, the two-stage results provide evidence that multi-stage structure can yield strictly better integral guarantees and that \\(\\Gamma(2)=3/4\\) is achievable in at least some two-stage formulations. Its primal-dual and convex-program balancing methods are closely aligned with the techniques used in the fractional batched-adversarial literature."
+      },
+      {
+        "bibtex": "@misc{PollnerSaberiWikum2025OptimalRoundingTwoStage,\n  author       = {Tristan Pollner and Amin Saberi and Anders Wikum},\n  title        = {Optimal Rounding for Two-Stage Bipartite Matching},\n  howpublished  = {arXiv preprint arXiv:2510.20153},\n  year         = {2025},\n  url          = {https://arxiv.org/abs/2510.20153}\n}",
+        "theorem_or_result": "In a two-stage bipartite matching model (first-stage edges revealed adversarially, second-stage edges sampled from a known distribution), the paper states polynomial-time approximation algorithms to the optimal online policy.\n\nIt states approximation ratios of \\(7/8\\) for vertex-weighted graphs and \\(2\\sqrt{2}-2\\approx 0.828\\) for edge-weighted graphs, and that these ratios match known upper bounds on the integrality gap of a natural fractional relaxation.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "This work is relevant as a rounding-focused contribution explicitly studying how to convert fractional two-stage matching solutions into integral ones with provable loss bounds, leveraging negative dependence properties from dependent rounding. Even though the prompt\u2019s model is fully adversarial across all stages and does not assume a known distribution, the structural challenge is similar: early-stage integral commitments affect later feasibility. The integrality-gap-matching perspective suggests that for multi-stage problems, understanding the right fractional relaxation and its gap may be essential to resolving whether \\(\\Gamma(K)\\) is attainable integrally."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0942235,
+    "verifier_total_cost_usd": 1.31649035,
+    "literature_total_cost_usd": 0.40005525,
+    "total_cost_usd": 1.8107691
+  },
+  "provenance": {
+    "problem_source": "data/my_papers_pipeline/problems/2211.16581v1/paper/problems.json",
+    "verification_source": "data/my_papers_pipeline/verifications/2211.16581v1_p0_verification.json",
+    "literature_source": "data/my_papers_pipeline/literature_reviews/2211.16581v1_p0_literature_review.json"
+  }
+}

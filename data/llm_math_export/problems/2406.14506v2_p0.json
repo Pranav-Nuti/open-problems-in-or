@@ -1,0 +1,87 @@
+{
+  "problem_id": "2406.14506v2_p0",
+  "paper_id": "2406.14506v2",
+  "source_paper": "2406.14506v2",
+  "source_paper_title": "2406.14506v2",
+  "source_paper_url": "",
+  "source_paper_authors": [],
+  "problem_index": 0,
+  "title": "Optimal online contention resolution for matchings under adversarial edge arrivals in the vanishing-probability regime",
+  "latex": "Given a finite simple graph \\(G=(V,E)\\) and a vector \\(x\\in[0,1]^E\\) satisfying the fractional matching constraints\n\\[\n\\sum_{e\\in\\delta(v)} x_e \\le 1 \\quad \\forall v\\in V,\n\\]\nconsider the following online stochastic matching (contention resolution) process.\n- Each edge \\(e\\in E\\) is independently active with random state \\(X_e\\sim\\mathrm{Ber}(x_e)\\).\n- The edges are revealed one-by-one in an adversarially chosen order. When an edge \\(e=(u,v)\\) is revealed, its state \\(X_e\\) is revealed. If \\(X_e=1\\), an online algorithm must immediately and irrevocably decide whether to select \\(e\\), subject to feasibility: selected edges must form a matching (no two selected edges share a vertex).\n\nAn online contention resolution scheme (OCRS) \\(\\psi\\) is said to be \\(c\\)-selectable if for every instance \\((G,x)\\) and every edge \\(e\\in E\\),\n\\[\n\\Pr[e\\in\\psi(G,x)] \\ge c\\,x_e,\n\\]\nwhere the probability is over \\((X_e)_{e\\in E}\\) and the internal randomness of \\(\\psi\\).\n\nDefine the vanishing-probability regime as sequences \\((G_n,x^{(n)})\\) with \\(\\max_{e\\in E_n} x^{(n)}_e \\le \\varepsilon_n\\) for some \\(\\varepsilon_n\\to 0\\). An OCRS \\(\\psi\\) achieves guarantee \\(c\\) in the vanishing regime if there exists a function \\(f\\) with \\(\\lim_{\\varepsilon\\to 0} f(\\varepsilon)=0\\) such that for all \\((G,x)\\),\n\\[\n\\Pr[e\\in\\psi(G,x)] \\ge \\bigl(c - f(\\max_{e\\in E} x_e)\\bigr)\\,x_e \\quad \\forall e\\in E.\n\\]\n\nThe problem is to determine the optimal constant\n\\[\n c^\\star := \\sup\\{c\\in[0,1] : \\text{there exists an OCRS achieving guarantee } c \\text{ in the vanishing regime}\\},\n\\]\nand to design an OCRS attaining \\(c^\\star\\) (or prove a matching impossibility bound).",
+  "context": "Explicitly posed in Section 1 (Introduction) as: \u201cWe are therefore interested in the following question: What is the optimal OCRS, RCRS, and FO-CRS in the vanishing regime?\u201d The paper resolves the RCRS value (1/2) in this regime and gives bounds for OCRS (achievability \\(\\approx 0.382\\) and impossibility \\(\\approx 0.390\\)), leaving the exact OCRS optimum open.",
+  "subject_classification": "Online Algorithms / Stochastic Matching (Contention Resolution)",
+  "keywords": [
+    "online contention resolution",
+    "stochastic matching",
+    "adversarial edge arrivals",
+    "vanishing probabilities",
+    "fractional matching rounding",
+    "selectability constant"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "high",
+  "verification": {
+    "is_open": true,
+    "methods_used": [
+      "web_search"
+    ],
+    "source": null,
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.670131
+  },
+  "literature_review": {
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "total_cost_usd": 0.40962565,
+    "sources": [
+      {
+        "bibtex": "@article{MaMacRuryNuti2024OnlineMatchingVanishing,\n  author        = {Will Ma and Calum MacRury and Pranav Nuti},\n  title         = {Online Matching and Contention Resolution for Edge Arrivals with Vanishing Probabilities},\n  year          = {2024},\n  journal       = {arXiv preprint},\n  eprint        = {2406.14506v2},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS},\n  doi           = {10.48550/arXiv.2406.14506},\n  note          = {Appears in ACM EC 2024 (per arXiv record)}\n}",
+        "theorem_or_result": "In the vanishing-probability regime for online matching under adversarial edge arrivals, the paper establishes both algorithmic and impossibility bounds for OCRS selectability.\n- There exists an OCRS that is 0.382-selectable (i.e., for every edge e, \\(\\Pr[e\\ \\text{selected}\\mid e\\ \\text{active}]\\ge 0.382 - o(1)\\) as \\(\\|x\\|_\\infty\\to 0\\)).\n- No OCRS can be more than 0.390-selectable in this regime.\nThe paper also states that under uniformly random edge order, greedy is 1/2-selectable (tight), and under an algorithm-chosen priority/lexicographic order, one can achieve \\(1-\\ln(2-1/e)\\approx 0.510\\) selectability (in the same vanishing regime).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "This work directly targets the same adversarial edge-arrival OCRS model specialized to vanishing edge probabilities, matching the problem\u2019s regime definition via \\(\\|x\\|_\\infty\\to 0\\). The 0.382 lower bound and 0.390 upper bound provide a near-tight bracket for the optimal constant \\(c^\\star\\) sought in the problem statement. The techniques (e.g., \u201cindependence benchmark\u201d analysis and limiting local weak convergence heuristics) are directly informative for both algorithm design and impossibility constructions in the vanishing regime."
+      },
+      {
+        "bibtex": "@inproceedings{EzraFeldmanGravinTang2020OnlineStochasticMatching,\n  author       = {Tomer Ezra and Michal Feldman and Nick Gravin and Zhihao Gavin Tang},\n  title        = {Online Stochastic Max-Weight Matching: Prophet Inequality for Vertex and Edge Arrival Models},\n  booktitle    = {Proceedings of the 21st ACM Conference on Economics and Computation (EC)},\n  year         = {2020},\n  doi          = {10.1145/3391403.3399513},\n  eprint       = {2002.09807},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}",
+        "theorem_or_result": "The paper constructs OCRS-type rounding schemes for online stochastic matching in general (non-bipartite) graphs.\n- For edge arrivals, it gives an OCRS with selectable ratio 0.337.\n- For vertex arrivals (batched arrival model), it gives a batched OCRS with selectable ratio 0.5, and states that this 0.5 is tight (via a reduction to the classical single-item prophet inequality).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "connection": "Although not restricted to the vanishing-probability regime, this work provides the strongest widely-cited constant-factor OCRS guarantee for adversarial edge arrivals in general graphs outside the small-probability asymptotics. It supplies concrete OCRS constructions and analyses that can be compared against the vanishing-regime constants (e.g., 0.382\u20130.390 in later work). The paper\u2019s reduction framework between prophet inequalities and (batched) OCRSs provides a transferable methodology for designing OCRSs under matching constraints."
+      },
+      {
+        "bibtex": "@article{NutiVondrak2025OptimalCRSMatchings,\n  author       = {Pranav Nuti and Jan Vondr{\\'{a}}k},\n  title        = {Towards an Optimal Contention Resolution Scheme for Matchings},\n  journal      = {Mathematical Programming},\n  volume       = {210},\n  number       = {1},\n  pages        = {761--792},\n  year         = {2025},\n  doi          = {10.1007/S10107-024-02178-W},\n  eprint       = {2211.03599},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}",
+        "theorem_or_result": "For offline contention resolution for matchings with independent activation \\(R(x)\\), the paper gives improved balanced contention resolution schemes.\n- It presents a contention resolution scheme for general matchings that is asymptotically optimal as \\(\\|x\\|_\\infty\\to 0\\), achieving balancedness approximately 0.544 in this limit.\n- It also gives a 0.509-balanced contention resolution scheme for bipartite matchings.\nThe optimality claim is asymptotic in the vanishing-probability limit \\(\\|x\\|_\\infty\\to 0\\).",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "The problem of interest is online (adversarial-order) contention resolution, whereas this source studies offline contention resolution; nevertheless, the vanishing-probability regime is common to both, and the offline constant \\(\\approx 0.544\\) serves as an upper benchmark for what online schemes could conceivably approach. The methods illuminate which phenomena are intrinsic to matchings under independent rounding (e.g., local tree-like structure and limit objects), and help separate limitations due to online irrevocability from limitations due to the matching constraint itself. The paper\u2019s explicit separation results between offline and online (random-order) CRS behavior motivate focusing on vanishing-regime constants such as \\(c^\\star\\)."
+      },
+      {
+        "bibtex": "@article{BruggmannZenklusen2019OptimalMonotoneBipartite,\n  author        = {Simon Bruggmann and Rico Zenklusen},\n  title         = {An Optimal Monotone Contention Resolution Scheme for Bipartite Matchings via a Polyhedral Viewpoint},\n  year          = {2019},\n  journal       = {arXiv preprint},\n  eprint        = {1905.08658},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS},\n  note          = {Journal version in Mathematical Programming, doi:10.1007/s10107-020-01570-6}\n}",
+        "theorem_or_result": "The paper develops a polyhedral approach to (offline) contention resolution for matchings, emphasizing monotone schemes.\n- It gives an optimal monotone contention resolution scheme for bipartite matchings (optimal among monotone CR schemes in that setting, in the sense stated in the paper).\n- For general matchings, it provides a monotone \\((b,\\gamma(b))\\)-balanced contention resolution scheme; in particular, at \\(b=1\\) the balancedness is \\(\\gamma(1)=\\tfrac{1-e^{-2}}{2}\\approx 0.4323\\).",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "Even though the problem statement concerns online (adversarial arrival) contention resolution, offline monotone schemes are important ingredients and comparison points in several online rounding frameworks (including those that periodically invoke offline contention resolution on residual instances). The explicit monotone constants for matchings, such as \\(\\tfrac{1-e^{-2}}{2}\\), help calibrate what performance is achievable under additional structural constraints on the rounding rule (e.g., monotonicity), and can inform upper bounds for restricted OCRS classes. The polyhedral \u201cmarginals-first\u201d perspective can also influence online scheme design by identifying the right marginal constraints to preserve under sequential decisions."
+      },
+      {
+        "bibtex": "@inproceedings{LeeSingla2018OptimalOCRS,\n  author       = {Euiwoong Lee and Sahil Singla},\n  title        = {Optimal Online Contention Resolution Schemes via Ex-Ante Prophet Inequalities},\n  booktitle    = {European Symposium on Algorithms (ESA)},\n  year         = {2018},\n  eprint       = {1806.09251},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  doi          = {10.48550/arXiv.1806.09251}\n}",
+        "theorem_or_result": "For matroid feasibility constraints under adversarial arrival order, the paper designs an optimal \\(1/2\\)-selectable OCRS.\nIt also introduces and designs optimal \\((1-1/e)\\)-selectable contention resolution schemes in the random-order arrival model (random-order CRSs) for matroids.",
+        "relevance_category": "RELATED_TOOL",
+        "connection": "Matchings are not matroids, but matroid OCRSs provide both conceptual baselines and transferable techniques (e.g., reductions to ex-ante prophet inequalities, threshold-based acceptance rules, and tight upper-bound reasoning) that often generalize to broader packing systems. In the vanishing-probability regime, the matching problem behaves \u201clocally\u201d like sparse constraints, and matroid-style arguments can sometimes yield candidate benchmarks or barriers. This source is especially relevant for understanding how optimal constants are proved (both algorithmic and impossibility) in closely related OCRS settings."
+      },
+      {
+        "bibtex": "@article{FeldmanSvenssonZenklusen2015OCRS,\n  author        = {Moran Feldman and Ola Svensson and Rico Zenklusen},\n  title         = {Online Contention Resolution Schemes},\n  year          = {2015},\n  journal       = {arXiv preprint},\n  eprint        = {1508.00142},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS},\n  doi           = {10.48550/arXiv.1508.00142},\n  note          = {Conference version SODA 2016; journal version: SIAM J. Comput. 50(2):255--300, 2021, doi:10.1137/18M1226130}\n}",
+        "theorem_or_result": "The paper introduces the formal framework of online contention resolution schemes (OCRSs) for sequential stochastic selection under downward-closed feasibility constraints, and develops general properties such as composability under intersections of constraint families.\nIt provides constant-factor OCRSs for several constraint families studied in online selection and Bayesian mechanisms, and uses them to obtain constant-factor guarantees for related prophet-inequality and stochastic probing-type problems (as detailed in the paper).",
+        "relevance_category": "BACKGROUND",
+        "connection": "This source establishes the OCRS model used in the problem statement, including the per-element selectability guarantee \\(\\Pr[e\\ \\text{selected}]\\ge c x_e\\) under adversarial arrival. The compositional properties and reductions to other online-stochastic optimization problems supply core techniques that later, matching-specific papers refine in the vanishing-probability regime. It also provides baseline constant-factor OCRSs for matchings and related packing systems that serve as starting points for improving \\(c^\\star\\) in specialized regimes such as \\(\\|x\\|_\\infty\\to 0\\)."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.08515500000000001,
+    "verifier_total_cost_usd": 0.670131,
+    "literature_total_cost_usd": 0.40962565,
+    "total_cost_usd": 1.16491165
+  },
+  "provenance": {
+    "problem_source": "data/my_papers_pipeline/problems/2406.14506v2/paper/problems.json",
+    "verification_source": "data/my_papers_pipeline/verifications/2406.14506v2_p0_verification.json",
+    "literature_source": "data/my_papers_pipeline/literature_reviews/2406.14506v2_p0_literature_review.json"
+  }
+}
