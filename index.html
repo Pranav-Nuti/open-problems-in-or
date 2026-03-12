@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Open Problems in Operations Research</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        processEnvironments: false
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -56,6 +69,7 @@
             <h2 class="problem-card-title">${escapeHtml(p.title)}</h2>
             <div class="problem-card-meta">
               <span>Source: ${formatSourcePaper(p)}</span>
+              ${p.pipeline_generated_at_utc ? `<span class="problem-card-generated">Generated: ${formatPipelineGenerated(p.pipeline_generated_at_utc)}</span>` : ""}
             </div>
           </a>
         </li>
@@ -95,6 +109,13 @@
       return title;
     }
 
+    function formatPipelineGenerated(iso) {
+      if (!iso || typeof iso !== "string") return "";
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return escapeHtml(iso);
+      return escapeHtml(d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }));
+    }
+
     async function loadProblems() {
       const response = await fetch("data/llm_math_export/index.json");
       if (!response.ok) {
@@ -112,6 +133,19 @@
       try {
         await loadProblems();
         renderProblems();
+        const listEl = document.getElementById("problem-list");
+        if (listEl) {
+          const typeset = async () => {
+            for (let i = 0; i < 50; i++) {
+              if (window.MathJax?.typesetPromise) {
+                await window.MathJax.typesetPromise([listEl]);
+                return;
+              }
+              await new Promise((r) => setTimeout(r, 100));
+            }
+          };
+          await typeset();
+        }
       } catch (err) {
         const listEl = document.getElementById('problem-list');
         listEl.innerHTML = `<li class="problem-card"><div class="problem-card-title">No synced problems found.</div><div class="problem-card-meta">${escapeHtml(err.message)}</div></li>`;
