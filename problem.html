@@ -51,6 +51,10 @@
           <span class="problem-meta-label">Verification status</span>
           <span class="problem-meta-value" id="verification-status"></span>
         </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Pipeline generated</span>
+          <span class="problem-meta-value" id="pipeline-generated"></span>
+        </div>
       </div>
     </div>
 
@@ -263,6 +267,13 @@
       document.getElementById("extraction-info").textContent = parts.length ? parts.join(", reasoning: ") : "—";
     }
 
+    function formatPipelineGenerated(iso) {
+      if (!iso || typeof iso !== "string") return "—";
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return iso;
+      return d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+    }
+
     function renderProblem(payload) {
       document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
@@ -279,6 +290,7 @@
         : fallbackAuthors;
       document.getElementById("source-paper-authors").innerHTML = formatAuthorList(sourceAuthors);
       document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
+      document.getElementById("pipeline-generated").textContent = formatPipelineGenerated(payload.pipeline_generated_at_utc);
       const latexEl = document.getElementById("problem-latex");
       const rawLatex = payload.latex || "";
       latexEl.textContent = rawLatex;
