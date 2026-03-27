@@ -27,6 +27,13 @@
   <main>
     <a href="index.html" class="back-link">← Back to all problems</a>
 
+    <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
+      <strong>Not verified as open.</strong>
+      <span class="unverified-notice"></span>
+      <span class="unverified-email-wrap"> If this is resolved or misstated, email
+        <span class="unverified-email"></span>.</span>
+    </div>
+
     <div class="problem-header">
       <div class="problem-id" id="problem-id">Problem</div>
       <h1 class="problem-title" id="problem-title">Loading...</h1>
@@ -278,6 +285,25 @@
       document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
       document.getElementById("problem-title").textContent = payload.title;
+      const v = payload.verification || {};
+      const unverified = Boolean(payload.export_mode === "unverified" || v.unverified);
+      const banner = document.getElementById("unverified-banner");
+      if (banner) {
+        banner.hidden = !unverified;
+        if (unverified) {
+          const notice = typeof v.notice === "string" ? v.notice : "";
+          banner.querySelector(".unverified-notice").textContent = notice ? ` ${notice}` : "";
+          const email = typeof v.feedback_email === "string" ? v.feedback_email.trim() : "";
+          const wrap = banner.querySelector(".unverified-email-wrap");
+          const emailEl = banner.querySelector(".unverified-email");
+          if (email && emailEl) {
+            wrap.hidden = false;
+            emailEl.innerHTML = `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`;
+          } else if (wrap) {
+            wrap.hidden = true;
+          }
+        }
+      }
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
@@ -289,7 +315,9 @@
         ? payload.source_paper_authors
         : fallbackAuthors;
       document.getElementById("source-paper-authors").innerHTML = formatAuthorList(sourceAuthors);
-      document.getElementById("verification-status").textContent = payload.verification?.is_open ? "Open" : "Closed";
+      document.getElementById("verification-status").textContent = unverified
+        ? "Not independently verified (extraction only)"
+        : (payload.verification?.is_open ? "Open" : "Closed");
       document.getElementById("pipeline-generated").textContent = formatPipelineGenerated(payload.pipeline_generated_at_utc);
       const latexEl = document.getElementById("problem-latex");
       const rawLatex = payload.latex || "";
