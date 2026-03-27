@@ -50,6 +50,7 @@
     </div>
   </footer>
 
+  <script src="js/site-config.js"></script>
   <script>
     const PROBLEMS_PER_PAGE = 10;
     let PROBLEMS_DATA = [];
@@ -139,7 +140,7 @@
       const banner = document.getElementById("unverified-banner");
       if (banner && show) {
         const notice = typeof disc.notice === "string" ? disc.notice : "";
-        const email = typeof disc.feedback_email === "string" ? disc.feedback_email.trim() : "";
+        const email = String(window.SITE_CONFIG?.unverified_feedback_email ?? "").trim();
         banner.querySelector(".unverified-notice").textContent = notice ? ` ${notice}` : "";
         const wrap = banner.querySelector(".unverified-email-wrap");
         const emailEl = banner.querySelector(".unverified-email");

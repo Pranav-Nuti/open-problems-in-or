@@ -97,6 +97,7 @@
     </div>
   </footer>
 
+  <script src="js/site-config.js"></script>
   <script>
     function escapeHtml(text) {
       const div = document.createElement("div");
@@ -293,7 +294,7 @@
         if (unverified) {
           const notice = typeof v.notice === "string" ? v.notice : "";
           banner.querySelector(".unverified-notice").textContent = notice ? ` ${notice}` : "";
-          const email = typeof v.feedback_email === "string" ? v.feedback_email.trim() : "";
+          const email = String(window.SITE_CONFIG?.unverified_feedback_email ?? "").trim();
           const wrap = banner.querySelector(".unverified-email-wrap");
           const emailEl = banner.querySelector(".unverified-email");
           if (email && emailEl) {
