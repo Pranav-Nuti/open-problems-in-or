@@ -1,0 +1,53 @@
+{
+  "problem_id": "W3205702368_p0",
+  "paper_id": "W3205702368",
+  "source_paper": "W3205702368",
+  "source_paper_title": "Boole\u2019s Probability Bounding Problem, Linear Programming Aggregations, and Nonnegative Quadratic Pseudo-Boolean Functions",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0019",
+  "source_paper_authors": [
+    "Endre Boros",
+    "Joonhee Lee"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-27T15:29:52.626694+00:00",
+  "export_mode": "unverified",
+  "context": "Page 22, Section 6 (Conclusions), Remark 3\n\n\"Based on this we conjecture that these two bounds are in fact identical.\"",
+  "title": "Equality of the IPG and DeCaen lower bounds",
+  "latex": "Given an integer \\(n\\ge 2\\), let \\(A_1,\\dots,A_n\\) be events on a common probability space with given singleton probabilities \\(p_i = \\mathbb{P}(A_i)\\) for \\(i\\in[n]\\) and pairwise intersection probabilities \\(p_{ij}=\\mathbb{P}(A_i\\cap A_j)\\) for all \\(1\\le i<j\\le n\\). Consider Boole\u2019s union-bounding problem for \\(m=2\\): determine the minimum possible value of \\(\\mathbb{P}(\\bigcup_{i=1}^n A_i)\\) over all such event systems consistent with \\((p_i,p_{ij})\\).\n\nDefine the Hailperin LP relaxation optimum \\(\\mathrm{LB}(H)\\) as the minimum value of Hailperin\u2019s linear program (equivalently (3) in the paper).\n\nDefine \\(\\mathrm{LB}(\\mathrm{IPG})\\) as the optimum of the strengthened Pr\\'ekopa\u2013Gao aggregation (15) (the PG model plus the full cone constraints \\(U_1\\)).\n\nDefine the DeCaen lower bound \\(\\mathrm{LB}(\\mathrm{Dec})\\) as the closed-form lower bound on \\(\\mathbb{P}(\\bigcup_{i=1}^n A_i)\\) given by DeCaen (1997), computed from \\((p_i,p_{ij})\\).\n\nProblem: prove or refute that for every \\(n\\) and every feasible input \\((p_i,p_{ij})\\),\n\\[\\mathrm{LB}(\\mathrm{IPG}) = \\mathrm{LB}(\\mathrm{Dec}).\\]\nEquivalently, determine whether the LP lower bound produced by the strengthened Pr\\'ekopa\u2013Gao aggregation always coincides with DeCaen\u2019s bound, or characterize precisely when they differ.",
+  "location_in_paper": "Page 22, Section 6 (Conclusions), Remark 3",
+  "open_problem_quote": "\"Based on this we conjecture that these two bounds are in fact identical.\"",
+  "subject_classification": "Stochastic Programming / Probabilistic Combinatorial Optimization",
+  "keywords": [
+    "Boole's union bound",
+    "Hailperin linear program",
+    "LP aggregation",
+    "DeCaen bound",
+    "Pr\u00e9kopa\u2013Gao model",
+    "probability of a union",
+    "polyhedral cone"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "feedback_email": "",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.03881325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.03881325
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_unverified_pilot_problems/W3205702368/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -28,6 +28,12 @@
     <div class="wip-warning" role="alert" style="background-color: #fef08a; border: 2px solid #f59e0b; color: #92400e; padding: 1rem 1.5rem; border-radius: 8px;">
       Work in Progress
     </div>
+    <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
+      <strong>Unverified entries.</strong>
+      <span class="unverified-notice"></span>
+      <span class="unverified-email-wrap"> If you believe a problem is no longer open or is incorrect, email
+        <span class="unverified-email"></span>.</span>
+    </div>
     <ul class="problem-list" id="problem-list">
       <!-- Populated by JavaScript -->
     </ul>
@@ -127,6 +133,24 @@
       }
       PROBLEMS_DATA = payload.problems;
       totalPages = Math.max(1, Math.ceil(PROBLEMS_DATA.length / PROBLEMS_PER_PAGE));
+
+      const disc = payload.unverified_disclaimer;
+      const show = Boolean(payload.has_unverified_problems) && disc && typeof disc === "object";
+      const banner = document.getElementById("unverified-banner");
+      if (banner && show) {
+        const notice = typeof disc.notice === "string" ? disc.notice : "";
+        const email = typeof disc.feedback_email === "string" ? disc.feedback_email.trim() : "";
+        banner.querySelector(".unverified-notice").textContent = notice ? ` ${notice}` : "";
+        const wrap = banner.querySelector(".unverified-email-wrap");
+        const emailEl = banner.querySelector(".unverified-email");
+        if (email && emailEl) {
+          wrap.hidden = false;
+          emailEl.innerHTML = `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`;
+        } else if (wrap) {
+          wrap.hidden = true;
+        }
+        banner.hidden = false;
+      }
     }
 
     async function boot() {
