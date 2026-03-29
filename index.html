@@ -25,9 +25,7 @@
   </header>
 
   <main>
-    <div class="wip-warning" role="alert" style="background-color: #fef08a; border: 2px solid #f59e0b; color: #92400e; padding: 1rem 1.5rem; border-radius: 8px;">
-      Work in Progress
-    </div>
+    <div class="wip-warning" role="alert">Work in Progress</div>
     <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
       <strong>Unverified entries.</strong>
       <span class="unverified-notice"></span>
@@ -72,11 +70,13 @@
       listEl.innerHTML = pageProblems.map((p, idx) => `
         <li class="problem-card">
           <a href="problem.html?id=${encodeURIComponent(p.problem_id)}" class="problem-card-link">
-            <div class="problem-card-id">Problem #${(currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1}</div>
-            <h2 class="problem-card-title">${escapeHtml(p.title)}</h2>
-            <div class="problem-card-meta">
-              <span>Source: ${formatSourcePaper(p)}</span>
-              ${p.pipeline_generated_at_utc ? `<span class="problem-card-upload-date">Upload date: ${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}
+            <div class="problem-card-id">${String((currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1).padStart(2, "\u2007")}</div>
+            <div class="problem-card-body">
+              <h2 class="problem-card-title">${escapeHtml(p.title)}</h2>
+              <div class="problem-card-meta">
+                <span>${formatSourcePaper(p)}</span>
+                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}
+              </div>
             </div>
           </a>
         </li>

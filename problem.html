@@ -126,9 +126,7 @@
       if (!Array.isArray(authors) || authors.length === 0) {
         return "—";
       }
-      return `<span class="author-list">${authors
-        .map((author) => `<span class="author-chip">${escapeHtml(author)}</span>`)
-        .join("")}</span>`;
+      return authors.map((a) => escapeHtml(a)).join(", ");
     }
 
     function _trimBibtexValue(value) {
@@ -237,11 +235,11 @@
         return;
       }
       container.innerHTML = review.sources.map((source, idx) => `
-        <div class="problem-card math-content" style="margin-bottom:1rem;">
-          <div class="problem-card-id">Source #${idx + 1} · ${escapeHtml(source.relevance_category)}</div>
+        <div class="lit-source-card math-content">
+          <div class="problem-meta-label" style="margin-bottom:0.5rem;">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
-          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy raw BibTeX</button>
-          <p><strong>Theorem/result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
+          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy BibTeX</button>
+          <p><strong>Theorem / result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
           <p><strong>Connection</strong><br><span>${escapeHtml(source.connection || "")}</span></p>
         </div>
       `).join("");
