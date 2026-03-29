@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4410233669_p0",
+  "paper_id": "W4410233669",
+  "source_paper": "W4410233669",
+  "source_paper_title": "Asymptotic Nash Equilibria of Finite-State Ergodic Markovian Mean Field Games",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0478",
+  "source_paper_authors": [
+    "Asaf Cohen",
+    "Ethan Zell"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 14, Remark 4.6 (Section 4.1 Asymptotic Markovian Nash-equilibria)\n\n\"Remark 4.6. This paper does not address the convergence of exact Nash equilibria to mean field equilibria. Our method relies on the Lipschitz continuity of U0, the solution to the master equation. While the structure of the Nash system resembles that of the master equation, connecting the two falls outside the scope of this work. The first author is actively working on this problem, which remains open (see [8]).\"",
+  "title": "Convergence of exact Nash equilibria to mean field equilibria in ergodic Markovian games",
+  "latex": "Consider a finite-state ergodic mean field game with state space \\([d]=\\{1,\\dots,d\\}\\), admissible transition-rate vectors \\(A_{-x}^d=\\{a\\in\\mathbb{R}^d: a_y\\in[\\underline a,\\overline a]\\ \\forall y\\neq x,\\ a_x=-\\sum_{y\\neq x} a_y\\}\\) for fixed \\(0<\\underline a<\\overline a<\\infty\\), running cost \\(f:[d]\\times A_{[d]}^d\\to\\mathbb{R}\\) and mean-field interaction cost \\(F:[d]\\times\\mathcal{P}([d])\\to\\mathbb{R}\\). For each \\(n\\ge 2\\), let players use Markovian (closed-loop) strategies \\(\\alpha=(\\alpha^1,\\dots,\\alpha^n)\\), where \\(\\alpha^i:\\mathbb{R}_+\\times[d]^n\\to A_{-x_i}^d\\) sets player \\(i\\)'s transition rates based on time and the current state vector \\(X_t\\in[d]^n\\). Define player \\(i\\)'s ergodic cost under \\(\\alpha\\) by\n\\[\nJ^{n,i}_0(x,\\alpha)=\\limsup_{T\\to\\infty}\\frac1T\\mathbb{E}\\Big[\\int_0^T \\big(f(X_t^i,\\alpha^i(t,X_t))+F(X_t^i,\\mu_t^{n,-i})\\big)\\,dt\\Big],\n\\]\nwhere \\(\\mu_t^{n,-i}=\\frac{1}{n-1}\\sum_{j\\ne i}\\delta_{X_t^j}\\) is the empirical measure of the other players. Let \\(\\alpha^{(n)}\\) be an exact Markovian Nash equilibrium of the \\(n\\)-player game, i.e. \\(J^{n,i}_0(x,\\alpha^{(n)})\\le J^{n,i}_0(x,[\\alpha^{(n),-i};\\beta^i])\\) for all players \\(i\\) and all admissible Markovian deviations \\(\\beta^i\\).\n\nLet \\((\\bar\\rho,\\bar u,\\bar\\mu)\\) be the (unique, under standard monotonicity/concavity assumptions) stationary solution of the corresponding ergodic mean field game system, and let \\(\\gamma^*(x,\\Delta_x \\bar u)\\) denote the MFG optimal feedback transition rates. The problem is to prove, in the ergodic Markovian (closed-loop) setting, that the exact Nash equilibria \\(\\alpha^{(n)}\\) converge as \\(n\\to\\infty\\) to the mean field equilibrium, e.g. that the induced empirical measures \\(\\mu_t^{(n)}=\\frac1n\\sum_{j=1}^n\\delta_{X_t^j}\\) converge (in a suitable sense, e.g. uniformly on compact time intervals or in the stationary regime) to \\(\\bar\\mu\\) and that the equilibrium values \\(\\rho^{(n)}\\) converge to \\(\\bar\\rho\\), ideally with a quantitative rate.",
+  "location_in_paper": "Page 14, Remark 4.6 (Section 4.1 Asymptotic Markovian Nash-equilibria)",
+  "open_problem_quote": "\"Remark 4.6. This paper does not address the convergence of exact Nash equilibria to mean field equilibria. Our method relies on the Lipschitz continuity of U0, the solution to the master equation. While the structure of the Nash system resembles that of the master equation, connecting the two falls outside the scope of this work. The first author is actively working on this problem, which remains open (see [8]).\"",
+  "subject_classification": "Game Theory / Mean Field Games / Stochastic Control",
+  "keywords": [
+    "ergodic mean field games",
+    "Markovian (closed-loop) Nash equilibrium",
+    "master equation",
+    "mean field limit",
+    "convergence of equilibria",
+    "finite-state Markov chains"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.11087124999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.11087124999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4410233669/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

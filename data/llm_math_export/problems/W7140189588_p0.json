@@ -1,0 +1,51 @@
+{
+  "problem_id": "W7140189588_p0",
+  "paper_id": "W7140189588",
+  "source_paper": "W7140189588",
+  "source_paper_title": "Theoretical Smoothing Frameworks for Nonsmooth Simple Bilevel Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0405",
+  "source_paper_authors": [
+    "Jan Harold Alcantara",
+    "Akiko Takeda"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Concluding Remarks and Future Directions), page 30/32 (PDF parsed text page 30)\n\n\"Another important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable x. A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.\"",
+  "title": "Smoothing and gradient consistency for bilevel problems with x-dependent lower-level feasible set",
+  "latex": "Given closed convex sets \\(X\\subset\\mathbb{R}^n\\) and set-valued lower-level feasible mapping \\(Y: X \\rightrightarrows \\mathbb{R}^m\\) with nonempty closed values, consider the bilevel program\n\\[\n\\min_{(x,y)\\in X\\times\\mathbb{R}^m} f(x,y) \\quad \\text{s.t.}\\quad y\\in \\operatorname*{arg\\,min}_{\\bar y\\in Y(x)} g(x,\\bar y),\n\\]\nwhere \\(f,g\\) are Lipschitz continuous (possibly nonsmooth). Define the lower-level value function\n\\[\nv(x):=\\min_{y\\in Y(x)} g(x,y).\n\\]\nA concrete problem is to construct an explicit family \\(\\{v_\\mu\\}_{\\mu>0}\\) of \\(C^1\\) functions on a neighborhood of a given \\(\\bar x\\in X\\) such that\n- (Smoothing) \\(\\lim_{x\\to \\bar x,\\,\\mu\\downarrow 0} v_\\mu(x)=v(\\bar x)\\) (i.e., \\(\\{v_\\mu\\}\\) is a smoothing family in the sense of Definition 2.5), and\n- (Gradient consistency) \\(\\emptyset\\neq \\limsup_{x\\to \\bar x,\\,\\mu\\downarrow 0}\\nabla v_\\mu(x)\\subseteq \\partial v(\\bar x)\\) (Definition 2.6),\nfor the \\(x\\)-dependent constraint case \\(Y(x)\\), e.g., using quadratic regularization combined with penalization as suggested in Liu et al. (2023), and to determine verifiable conditions on \\(g\\) and \\(Y(\\cdot)\\) under which these two properties hold.",
+  "location_in_paper": "Section 5 (Concluding Remarks and Future Directions), page 30/32 (PDF parsed text page 30)",
+  "open_problem_quote": "\"Another important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable x. A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.\"",
+  "subject_classification": "Bilevel Optimization / Nonsmooth Optimization",
+  "keywords": [
+    "bilevel optimization",
+    "value function",
+    "smoothing approximation",
+    "gradient consistency",
+    "parametric constraints",
+    "quadratic regularization"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.069027,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.069027
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W7140189588/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

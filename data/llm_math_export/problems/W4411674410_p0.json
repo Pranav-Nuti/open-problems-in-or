@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4411674410_p0",
+  "paper_id": "W4411674410",
+  "source_paper": "W4411674410",
+  "source_paper_title": "Monotone Causality in Opportunistically Stochastic Shortest Path Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0362",
+  "source_paper_authors": [
+    "Mallory E. Gaspard",
+    "Alexander Vladimirsky"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 33, Section 6 (Conclusions)\n\n\"Another interesting direction for future work is to find criteria for applicability of label-setting to \\\u201cstochastic shortest path games,\\\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.\"",
+  "title": "Label-setting applicability to stochastic shortest path games (two-player stochastic games on graphs)",
+  "latex": "Given a finite directed graph with state set \\(X = \\{x_1,\\dots,x_n,t\\}\\), where \\(t\\) is an absorbing terminal state, consider a two-player zero-sum stochastic shortest path game. At each nonterminal state \\(x\\in X\\setminus\\{t\\}\\), Player 1 chooses an action \\(a\\in A_1(x)\\) and Player 2 chooses an action \\(b\\in A_2(x)\\). The immediate cost incurred is \\(C(x,a,b) > 0\\), and the next state is drawn according to a known transition kernel \\(p(\\cdot\\mid x,a,b)\\) on \\(X\\) (with \\(p(t\\mid t,a,b)=1\\) and \\(C(t,a,b)=0\\)).\n\nFor a (possibly history-dependent, randomized) pair of policies \\((\\pi_1,\\pi_2)\\), let \\(J(x;\\pi_1,\\pi_2)\\) be the expected total cost accumulated until reaching \\(t\\) when starting at \\(x\\). Define the game value function\n\\[\nU(x) = \\inf_{\\pi_1}\\sup_{\\pi_2} J(x;\\pi_1,\\pi_2), \\qquad x\\in X.\n\\]\nThe corresponding dynamic programming (Shapley) optimality equations are\n\\[\nU(t)=0,\\qquad\nU(x)=\\min_{a\\in A_1(x)}\\max_{b\\in A_2(x)}\\Bigl(C(x,a,b)+\\sum_{y\\in X} p(y\\mid x,a,b)U(y)\\Bigr),\\quad x\\neq t.\n\\]\n\nProblem: Find explicit, a priori verifiable conditions on the local data \\((A_1(x),A_2(x),C(x,\\cdot,\\cdot),p(\\cdot\\mid x,\\cdot,\\cdot))\\) under which a non-iterative label-setting algorithm (Dijkstra/Dial-type) is guaranteed to compute \\(U\\) correctly for such stochastic shortest path games (and, ideally, to do so in near-linear time in \\(|X|\\) under bounded outdegree).",
+  "location_in_paper": "Page 33, Section 6 (Conclusions)",
+  "open_problem_quote": "\"Another interesting direction for future work is to find criteria for applicability of label-setting to \\\u201cstochastic shortest path games,\\\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.\"",
+  "subject_classification": "Stochastic Games / Dynamic Programming / Shortest Path Problems",
+  "keywords": [
+    "stochastic shortest path games",
+    "zero-sum dynamic games",
+    "label-setting algorithms",
+    "Dijkstra-like methods",
+    "monotone causality",
+    "Shapley equations"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.11583075000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.11583075000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4411674410/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

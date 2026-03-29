@@ -1,0 +1,53 @@
+{
+  "problem_id": "W7135205807_p0",
+  "paper_id": "W7135205807",
+  "source_paper": "W7135205807",
+  "source_paper_title": "Denoising Diffusion Probabilistic Models Are Optimally Adaptive to Unknown Low Dimensionality",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0769",
+  "source_paper_authors": [
+    "Zhihan Huang",
+    "Yuting Wei",
+    "Yuxin Chen"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 16, Section 6 (Discussion)\n\n\"To begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g.\\, the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.\"",
+  "title": "Adaptivity of DDPM to Unknown Low Dimensionality Under Non-KL Metrics",
+  "latex": "Given an ambient dimension \\(d\\in\\mathbb{N}\\), let \\(p_{\\mathrm{data}}\\) be a probability distribution on \\(\\mathbb{R}^d\\) with support \\(\\mathcal{X}_{\\mathrm{data}}\\subseteq \\mathbb{R}^d\\) satisfying the intrinsic-dimension condition: there exist universal constants \\(C_0,C_{\\mathrm{cover}}>0\\) and \\(\\varepsilon_0:=k^{-C_0}\\) such that\n\\[\n\\log N_{\\mathrm{cover}}(\\mathcal{X}_{\\mathrm{data}},\\|\\cdot\\|_2,\\varepsilon_0)\\le C_{\\mathrm{cover}}\\,k\\log\\frac{1}{\\varepsilon_0},\n\\]\nwhere \\(N_{\\mathrm{cover}}(\\mathcal{X}_{\\mathrm{data}},\\|\\cdot\\|_2,\\varepsilon_0)\\) is the minimal number of Euclidean balls of radius \\(\\varepsilon_0\\) needed to cover \\(\\mathcal{X}_{\\mathrm{data}}\\). Consider the forward Ornstein--Uhlenbeck diffusion \\((X_t)_{t\\in[0,T]}\\) in \\(\\mathbb{R}^d\\):\n\\[\n\\mathrm{d}X_t=-X_t\\,\\mathrm{d}t+\\sqrt{2}\\,\\mathrm{d}W_t,\\qquad X_0\\sim p_{\\mathrm{data}},\n\\]\nand the standard DDPM sampler \\((Y_{t_n})_{n=0}^{N}\\) defined on a discretization \\(0=t_0<t_1<\\cdots<t_N=T-\\delta\\) with coefficients \\(\\alpha_n=e^{-2(t_{n+1}-t_n)}\\) and perfect score access \\(s_t(x)=\\nabla\\log q_t(x)\\), where \\(q_t\\) is the law of \\(X_t\\). Let \\(p_{\\mathrm{out}}\\) denote the law of the DDPM output \\(Y_{t_N}\\), and let \\(q_{\\delta}\\) denote the law of \\(X_{\\delta}\\) (i.e., the data distribution convolved with Gaussian noise corresponding to time \\(\\delta\\)).\n\nFix a distributional discrepancy metric \\(\\mathcal{D}(\\cdot,\\cdot)\\) that is not KL divergence, e.g. total variation distance \\(\\mathrm{TV}(\\cdot,\\cdot)\\) or Wasserstein distance \\(W_p(\\cdot,\\cdot)\\) for some \\(p\\ge 1\\).\n\nDetermine whether there exist assumptions on \\(p_{\\mathrm{data}}\\) comparable in strength to the intrinsic-dimension and bounded-support assumptions above, and a discretization schedule \\(\\{t_n\\}\\), under which the DDPM sampler achieves an \\(\\varepsilon\\)-accuracy guarantee\n\\[\n\\mathcal{D}(q_{\\delta},p_{\\mathrm{out}})\\le \\varepsilon\n\\]\nwith an iteration complexity bound \\(N\\) scaling nearly linearly in the intrinsic dimension \\(k\\) (up to logarithmic factors) rather than in the ambient dimension \\(d\\).",
+  "location_in_paper": "Page 16, Section 6 (Discussion)",
+  "open_problem_quote": "\"To begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g.\\, the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.\"",
+  "subject_classification": "Stochastic Processes / Sampling and Monte Carlo (Diffusion Models)",
+  "keywords": [
+    "diffusion models",
+    "DDPM",
+    "low intrinsic dimension",
+    "total variation distance",
+    "Wasserstein distance",
+    "convergence rates",
+    "sampling complexity"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.065107,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.065107
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W7135205807/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

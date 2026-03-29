@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4417437095_p0",
+  "paper_id": "W4417437095",
+  "source_paper": "W4417437095",
+  "source_paper_title": "Optimal Budget Aggregation with Star-Shaped Preference Domains",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0723",
+  "source_paper_authors": [
+    "Felix Brandt",
+    "Matthias Greger",
+    "Erel Segal-Halevi",
+    "Warut Suksompong"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Section 8 (Conclusion), page 19\n\nDoes Theorem 3 also hold when weakening group-strategyproofness to strategyproofness? Is continuity required for the characterization of the Nash product rule?",
+  "title": "Characterization of Nash product rule without continuity (and with only strategyproofness) under Leontief utilities",
+  "latex": "Given integers \\(n\\ge 2\\) and \\(m\\ge 2\\), let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{j=1}^m q_j=1\\}\\) be the simplex of budget distributions over alternatives \\(M=[m]\\). A profile is \\(P=(p_1,\\dots,p_n)\\in (\\Delta^m)^n\\), where \\(p_i\\) is agent \\(i\\)'s peak (ideal distribution). Agents have Leontief utilities induced by their peaks: for each agent \\(i\\), let \\(M_i:=\\{j\\in M: p_{i,j}>0\\}\\neq\\emptyset\\) and define\n\\[\n u_i^P(q)=\\min_{j\\in M_i}\\frac{q_j}{p_{i,j}}\\in[0,1].\n\\]\nDefine the Nash product rule \\(\\mathrm{NASH}:(\\Delta^m)^n\\to \\Delta^m\\) by\n\\[\n\\mathrm{NASH}(P)\\in\\arg\\max_{q\\in\\Delta^m}\\prod_{i=1}^n u_i^P(q),\n\\]\nwhich is known to be single-valued.\nA mechanism is any function \\(f:(\\Delta^m)^n\\to\\Delta^m\\).\n- \\(f\\) is strategyproof (SP) if for every agent \\(i\\), every profile \\(P\\), and every misreport \\(p_i'\\in\\Delta^m\\) (letting \\(P'=(p_i',p_{-i})\\)), we have \\(u_i^P(f(P))\\ge u_i^P(f(P'))\\).\n- \\(f\\) satisfies core fair share (CFS) if for every profile \\(P\\), there is no coalition \\(S\\subseteq [n]\\) and distribution \\(q'\\in\\Delta^m\\) such that for all \\(q''\\in\\Delta^m\\) and all \\(i\\in S\\),\n\\[\n u_i^P\\Big(\\tfrac{|S|}{n}q' + \\big(1-\\tfrac{|S|}{n}\\big)q''\\Big) > u_i^P(f(P)).\n\\]\nProblem: Determine whether \\(\\mathrm{NASH}\\) is the unique mechanism \\(f\\) satisfying CFS and SP on the Leontief domain, without assuming continuity and without strengthening SP to group-strategyproofness. Equivalently, is every (possibly discontinuous) strategyproof and core-fair-share mechanism necessarily equal to \\(\\mathrm{NASH}\\) on all profiles \\(P\\in(\\Delta^m)^n\\)?",
+  "location_in_paper": "Section 8 (Conclusion), page 19",
+  "open_problem_quote": "Does Theorem 3 also hold when weakening group-strategyproofness to strategyproofness? Is continuity required for the characterization of the Nash product rule?",
+  "subject_classification": "Mechanism Design / Social Choice (Strategyproof Aggregation)",
+  "keywords": [
+    "budget aggregation",
+    "Leontief utilities",
+    "Nash product rule",
+    "strategyproofness",
+    "core fair share",
+    "axiomatic characterization"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0748335,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0748335
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4417437095/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

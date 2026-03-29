@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4411787576_p0",
+  "paper_id": "W4411787576",
+  "source_paper": "W4411787576",
+  "source_paper_title": "Invariant States of Hydrodynamic Limits of Randomized Load-Balancing Networks",
+  "source_paper_url": "https://doi.org/10.1287/moor.2020.0282",
+  "source_paper_authors": [
+    "Pooja Agarwal",
+    "Kavita Ramanan"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Section 1.1 (Introduction: Background and Motivation)\n\n\"Since the N-server stationary distributions are known to be tight (due to the results in [5]), to provide a rigorous proof of this convergence it would suffice to show that the solution to the hydrodynamic equations converges to the invariant state characterized here for a large class of initial conditions. Whereas this is a non-trivial problem that is relegated to future work, it is encouraging that analogous results have been recently established for a related problem.\"",
+  "title": "Convergence of hydrodynamic solutions to the invariant state (and hence convergence of $N$-server steady states)",
+  "latex": "Consider the supermarket model (SQ\\((d)\\)) with fixed \\(d\\ge 2\\) and arrival rate \\(\\lambda\\in(0,1)\\). Let \\(G\\) be a service-time distribution on \\([0,\\infty)\\) with mean \\(1\\), density \\(g\\), survival function \\(\\bar G(x)=1-G(x)\\), and hazard rate \\(h(x)=g(x)/\\bar G(x)\\) on \\([0,L)\\) where \\(L:=\\sup\\{x\\ge 0:\\bar G(x)>0\\}\\in(0,\\infty]\\). For \\(\\ell\\in\\mathbb N\\), let \\(\\nu_\\ell(t)\\) be a finite measure on \\([0,L)\\) representing the hydrodynamic-limit state, and define \\(s_\\ell(t):=\\langle 1,\\nu_\\ell(t)\\rangle\\). The (deterministic) hydrodynamic equations are: for all \\(\\ell\\in\\mathbb N\\) and \\(t\\ge 0\\),\n\\[\nD_\\ell(t):=\\int_0^t \\langle h,\\nu_\\ell(s)\\rangle\\,ds,\n\\]\n\\[\n\\eta_1(t):=\\lambda\\bigl(1-s_1(t)^d\\bigr)\\,\\delta_0,\\qquad\n\\eta_\\ell(t):=\\lambda P_d\\bigl(s_{\\ell-1}(t),s_\\ell(t)\\bigr)\\,\\bigl(\\nu_{\\ell-1}(t)-\\nu_\\ell(t)\\bigr),\\ \\ell\\ge 2,\n\\]\nwhere \\(P_d(x,y)=(x^d-y^d)/(x-y)\\) for \\(x\\ne y\\) and \\(P_d(x,x)=d x^{d-1}\\). The measures \\(\\nu_\\ell(t)\\) satisfy, for every bounded continuous \\(f\\) and every \\(\\ell\\in\\mathbb N\\),\n\\[\n\\langle f,\\nu_\\ell(t)\\rangle = \\left\\langle f(\\cdot+t)\\frac{\\bar G(\\cdot+t)}{\\bar G(\\cdot)},\\nu_\\ell(0)\\right\\rangle + \\int_{[0,t]} f(t-s)\\bar G(t-s)\\,dD_{\\ell+1}(s)\n+\\int_0^t \\left\\langle f(\\cdot+t-s)\\frac{\\bar G(\\cdot+t-s)}{\\bar G(\\cdot)},\\eta_\\ell(s)\\right\\rangle ds.\n\\]\nLet \\(\\nu^*=(\\nu^*_\\ell)_{\\ell\\in\\mathbb N}\\) be the (physical) invariant state characterized in the paper (in particular satisfying \\(\\lim_{\\ell\\to\\infty}\\langle 1,\\nu^*_\\ell\\rangle=0\\)).\n\nProblem: Identify a broad class of service distributions \\(G\\) and initial conditions \\(\\nu(0)\\) for which the unique solution \\(\\nu(t)\\) to the hydrodynamic equations converges to \\(\\nu^*\\) as \\(t\\to\\infty\\) (e.g. in the product topology on \\(\\mathbb N\\)-indexed measures, or equivalently coordinatewise weak convergence of \\(\\nu_\\ell(t)\\to\\nu^*_\\ell\\) for every \\(\\ell\\)). Establishing this global-attractor property would in turn yield, via tightness of the \\(N\\)-server stationary distributions, that the stationary distributions of the \\(N\\)-server SQ\\((d)\\) models converge to \\(\\nu^*\\) as \\(N\\to\\infty\\).",
+  "location_in_paper": "Page 3, Section 1.1 (Introduction: Background and Motivation)",
+  "open_problem_quote": "\"Since the N-server stationary distributions are known to be tight (due to the results in [5]), to provide a rigorous proof of this convergence it would suffice to show that the solution to the hydrodynamic equations converges to the invariant state characterized here for a large class of initial conditions. Whereas this is a non-trivial problem that is relegated to future work, it is encouraging that analogous results have been recently established for a related problem.\"",
+  "subject_classification": "Stochastic Networks / Queueing Systems",
+  "keywords": [
+    "hydrodynamic limit",
+    "invariant state",
+    "global stability",
+    "steady-state interchange",
+    "randomized load balancing",
+    "measure-valued equations"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.11165875,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.11165875
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4411787576/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

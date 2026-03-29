@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4411801764_p0",
+  "paper_id": "W4411801764",
+  "source_paper": "W4411801764",
+  "source_paper_title": "Dynamic Portfolio Selection for Nonlinear Law-Dependent Preferences",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0345",
+  "source_paper_authors": [
+    "Zongxia Liang",
+    "Jianming Xia",
+    "Fengyi Yuan"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 15, Section 6 (Weighted utility), Remark 6.2(a); also stated in Abstract/Introduction (page 1 and page 3)\n\n\"It is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs.\" (p.3)\n\n\"It is worth noting that (6.4) is a two-dimensional QBSDE, whose two components \\(\\bar Y_1\\) and \\(\\bar Y_2\\) are coupled. Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).\" (Remark 6.2(a), p.15)",
+  "title": "Well-posedness of coupled multi-dimensional quadratic BSDEs arising from weighted-utility equilibrium",
+  "latex": "Consider a filtered probability space \\((\\Omega,\\mathcal F,\\mathbb F,\\mathbb P)\\) supporting a one-dimensional Brownian motion \\(W\\) on \\([0,T]\\). Let \\(\\kappa:[0,T]\\times\\Omega\\to\\mathbb R\\) be a bounded \\(\\mathbb F\\)-predictable process and define \\(\\Theta:=\\int_0^T |\\kappa(s)|^2\\,ds\\). Fix constants \\(\\gamma,\\rho\\) satisfying \\(-1<\\gamma\\le 0\\) and \\(\\gamma\\le \\rho<\\gamma+1\\). Define \\(r_1:=\\gamma\\), \\(r_2:=1-\\rho+\\gamma\\), \\(\\lambda_1:=-\\frac{\\gamma}{1-\\rho}\\), \\(\\lambda_2:=\\frac{1-\\rho+\\gamma}{1-\\rho}\\). Let \\(C_i\\in\\mathbb R^{2\\times 2}\\), \\(c_{j,i}\\in\\mathbb R\\), and \\(b_i\\in\\mathbb R\\) (for \\(i,j\\in\\{1,2\\}\\)) be the constants appearing in the two-dimensional quadratic BSDE system\n\\[\n\\begin{aligned}\n d\\bar Y_i(s) &= -\\tfrac12\\Big( \\bar Z(s)^\\dagger C_i\\bar Z(s) + c_{i,i}\\,\\bar Z_i(s)\\kappa(s) + c_{-i,i}\\,\\bar Z_{-i}(s)\\kappa(s) + b_i|\\kappa(s)|^2\\Big)ds \\\\\n &\\quad + \\bar Z_i(s)\\,dW_s, \\qquad s\\in[0,T],\\ i=1,2,\\\\\n \\bar Y_1(T)&=\\bar Y_2(T)=0,\n\\end{aligned}\n\\]\nwhere \\(\\bar Z(s)=(\\bar Z_1(s),\\bar Z_2(s))^\\dagger\\) and \\(-i\\) denotes the index in \\(\\{1,2\\}\\setminus\\{i\\}\\). The problem is to establish general conditions (beyond special structural cases or smallness assumptions such as \\(\\sup_{\\tau}\\|\\Theta-\\mathbb E_\\tau[\\Theta]\\|_\\infty\\) being small) guaranteeing existence and uniqueness of a solution \\((\\bar Y,\\bar Z)\\) with \\(\\bar Y\\in (L^\\infty(\\mathcal F,\\mathbb R))^2\\) and \\(\\bar Z\\in (\\mathrm{H}_{\\mathrm{BMO}})^2\\) for this coupled two-dimensional quadratic BSDE.",
+  "location_in_paper": "Page 15, Section 6 (Weighted utility), Remark 6.2(a); also stated in Abstract/Introduction (page 1 and page 3)",
+  "open_problem_quote": "\"It is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs.\" (p.3)\n\n\"It is worth noting that (6.4) is a two-dimensional QBSDE, whose two components \\(\\bar Y_1\\) and \\(\\bar Y_2\\) are coupled. Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).\" (Remark 6.2(a), p.15)",
+  "subject_classification": "Stochastic Control / Mathematical Finance",
+  "keywords": [
+    "quadratic BSDE",
+    "multi-dimensional BSDE",
+    "well-posedness",
+    "time-inconsistent control",
+    "equilibrium portfolio",
+    "weighted utility"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.079618,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.079618
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4411801764/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

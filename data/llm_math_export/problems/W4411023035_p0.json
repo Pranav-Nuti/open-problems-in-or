@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4411023035_p0",
+  "paper_id": "W4411023035",
+  "source_paper": "W4411023035",
+  "source_paper_title": "Improved Bounds for Single-Nomination Impartial Selection",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0431",
+  "source_paper_authors": [
+    "Javier Cembrano",
+    "Felix Fischer",
+    "Max Klimm"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 14, Section 5 (Upper Bounds), end of introductory paragraph before Theorem 5.1\n\n\"Like the bounds of Fischer and Klimm they approach 3/4 as n \u2192 \u221e and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.\"",
+  "title": "Existence of an impartial mechanism approaching 3/4-optimality for large n in the single-nomination model",
+  "latex": "Consider the single-nomination impartial selection setting.\n\n- For each integer \\(n\\ge 2\\), let \\(G_n\\) be the set of directed graphs \\(G=(V,E)\\) with \\(V=\\{1,\\dots,n\\}\\), no self-loops, and outdegree exactly \\(1\\) for every vertex (each agent casts exactly one nomination).\n- A (randomized) selection mechanism is a map \\(f\\) that assigns to each \\(G\\in G_n\\) a probability distribution \\(f(G)\\in[0,1]^n\\) over vertices with \\(\\sum_{v\\in V} f_v(G)=1\\).\n- The mechanism is impartial if for every \\(G,G'\\in G_n\\) and every \\(v\\in V\\), whenever \\(G\\) and \\(G'\\) differ only in \\(v\\)'s outgoing edge (equivalently, \\(G\\setminus(\\{v\\}\\times V)=G'\\setminus(\\{v\\}\\times V)\\)), we have \\(f_v(G)=f_v(G')\\).\n- Let \\(\\delta^-(v,G)\\) denote the indegree of \\(v\\) in \\(G\\), and \\(\\Delta(G)=\\max_{u\\in V}\\delta^-(u,G)\\) the maximum indegree.\n- The approximation ratio (optimality guarantee) of \\(f\\) on \\(G_n\\) is\n\\[\n\\alpha(f,n)=\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\frac{\\sum_{v\\in V} f_v(G)\\,\\delta^-(v,G)}{\\Delta(G)}.\n\\]\n\nProblem: Determine whether the supremum of \\(\\alpha(f,n)\\) over all impartial mechanisms \\(f\\) tends to \\(3/4\\) as \\(n\\to\\infty\\). Equivalently, decide whether for every \\(\\varepsilon>0\\) there exists \\(n_0\\) and an impartial mechanism \\(f\\) such that for all \\(n\\ge n_0\\),\n\\[\n\\alpha(f,n)\\ge \\frac{3}{4}-\\varepsilon.\n\\]\n(Or, alternatively, prove that no sequence of impartial mechanisms can achieve \\(\\alpha(f,n)\\to 3/4\\).)",
+  "location_in_paper": "Page 14, Section 5 (Upper Bounds), end of introductory paragraph before Theorem 5.1",
+  "open_problem_quote": "\"Like the bounds of Fischer and Klimm they approach 3/4 as n \u2192 \u221e and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.\"",
+  "subject_classification": "Algorithmic Game Theory / Mechanism Design",
+  "keywords": [
+    "impartial selection",
+    "single-nomination model",
+    "approximation ratio",
+    "randomized mechanisms",
+    "upper bounds",
+    "asymptotic optimality",
+    "3/4-optimality"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09195724999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09195724999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4411023035/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

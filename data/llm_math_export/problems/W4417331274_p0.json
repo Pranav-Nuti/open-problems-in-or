@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4417331274_p0",
+  "paper_id": "W4417331274",
+  "source_paper": "W4417331274",
+  "source_paper_title": "On Time-Consistent Equilibrium Stopping Under Aggregation of Diverse Discount Rates",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0752",
+  "source_paper_authors": [
+    "Shuoqing Deng",
+    "Xiang Yu",
+    "Jiacheng Zhang"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5.1, after Example 2 (around p. 28 in the provided parse)\n\nAs a sharp contrast, in our framework with a general attitude function\n\u03d5(x), it is an appealing problem to find a general characterization of the optimal equilibrium\nif it exists, which will be left for our future research.",
+  "title": "General characterization of the optimal equilibrium under nonlinear aggregation attitude",
+  "latex": "Given a time-inconsistent optimal stopping problem under aggregation of diverse discount rates, let \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge0},\\mathbb P)\\) support a one-dimensional time-homogeneous diffusion \\(X^x=(X^x_t)_{t\\ge0}\\) with \\(X^x_0=x\\in\\mathbb R\\), and let \\(\\rho\\) be an \\([0,\\infty)\\)-valued random variable independent of \\(X^x\\) with distribution function \\(F_\\rho\\). Fix a Borel measurable payoff \\(g:\\mathbb R\\to\\mathbb R\\) and a strictly increasing aggregation attitude function \\(\\phi:\\mathbb R\\to\\mathbb R\\). For any Borel set \\(R\\subseteq\\mathbb R\\), define the hitting time \\(\\tau(x,R):=\\inf\\{t>0: X^x_t\\in R\\}\\) and the aggregated continuation value\n\\[\nJ(x,R):=\\int_0^{\\infty} \\phi\\Big(\\mathbb E\\big[e^{-r\\tau(x,R)}\\,g(X^x_{\\tau(x,R)})\\big]\\Big)\\,dF_\\rho(r).\n\\]\nDefine the policy improvement operator \\(\\Theta\\) by\n\\[\n\\Theta(R):=R\\cup\\{x\\in\\mathbb R: \\phi(g(x))>J(x,R)\\},\n\\]\nand call \\(R\\) a (mild) equilibrium if \\(\\Theta(R)=R\\). Let \\(\\mathcal E\\) be the set of all equilibria. For any \\(R\\in\\mathcal E\\), define its induced equilibrium value\n\\[\nV(x,R):=\\max\\{\\phi(g(x)),\\,J(x,R)\\},\\qquad x\\in\\mathbb R.\n\\]\nAn equilibrium \\(R^\\star\\in\\mathcal E\\) is called an optimal equilibrium if\n\\[\nV(x,R^\\star)\\ge V(x,R)\\quad\\text{for all }x\\in\\mathbb R\\text{ and all }R\\in\\mathcal E.\n\\]\nProblem: Under general choices of \\(\\phi\\) (in particular when \\(\\phi\\) does not satisfy the paper\u2019s sufficient condition C-(iii)) and general diffusion/payoff specifications for which equilibria may not be totally ordered by set inclusion, give conditions under which an optimal equilibrium exists, and if it exists, provide a general characterization (e.g., in terms of \\(\\Theta\\), set operations on \\(\\mathcal E\\), or an analytic characterization such as an extended HJB/free-boundary condition) of such an optimal equilibrium \\(R^\\star\\).",
+  "location_in_paper": "Section 5.1, after Example 2 (around p. 28 in the provided parse)",
+  "open_problem_quote": "As a sharp contrast, in our framework with a general attitude function\n\u03d5(x), it is an appealing problem to find a general characterization of the optimal equilibrium\nif it exists, which will be left for our future research.",
+  "subject_classification": "Stochastic Control / Optimal Stopping (Time-Inconsistent Decisions)",
+  "keywords": [
+    "time-inconsistent optimal stopping",
+    "equilibrium stopping policies",
+    "optimal equilibrium",
+    "nonlinear aggregation preference",
+    "diverse discount rates",
+    "fixed-point characterization",
+    "one-dimensional diffusions"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08097075000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08097075000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4417331274/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

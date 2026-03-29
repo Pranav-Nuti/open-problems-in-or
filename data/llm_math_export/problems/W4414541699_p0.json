@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4414541699_p0",
+  "paper_id": "W4414541699",
+  "source_paper": "W4414541699",
+  "source_paper_title": "Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0770",
+  "source_paper_authors": [
+    "Thorben Tr\u00f6bst",
+    "Vijay V. Vazirani"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 23, Section 4 (Conclusion)\n\nHowever, this leaves several interesting open questions:\n\u0001e Is there a polynomial time algorithm to find \u0003b1-approximately JEF+PO lotteries in two-sided markets,\nfor any constant \u0003b1?",
+  "title": "Polynomial-time computation of an \u0003b1-approximately justified-envy-free and Pareto-optimal lottery in two-sided cardinal-utility matching markets",
+  "latex": "Given a bipartite two-sided cardinal-utility matching market with \n- two sets of agents \\(A\\) and \\(B\\) with \\(|A|=|B|=n\\),\n- utilities \\(u_{ij}\\ge 0\\) for each \\(i\\in A, j\\in B\\) and \\(w_{ji}\\ge 0\\) for each \\(j\\in B, i\\in A\\),\n- and a fractional matching \\(x=(x_{ij})_{i\\in A,j\\in B}\\) satisfying \\(\\sum_{j\\in B} x_{ij}=1\\) for all \\(i\\in A\\), \\(\\sum_{i\\in A} x_{ij}=1\\) for all \\(j\\in B\\), and \\(x_{ij}\\ge 0\\),\n\ndefine expected utilities\n\\[U_i(x)=\\sum_{j\\in B} u_{ij}x_{ij}\\quad \\text{for } i\\in A,\\qquad V_j(x)=\\sum_{i\\in A} w_{ji}x_{ij}\\quad \\text{for } j\\in B.\\]\n\nDefine \\(x\\) to be \\(\\alpha\\)-approximately justified envy-free (\\(\\alpha\\)-JEF) if for all distinct \\(i,i'\\in A\\),\n\\[U_i(x) \\ge \\frac{1}{\\alpha}\\sum_{j\\in B:~w_{ji}\\ge w_{ji'}} u_{ij}x_{i'j},\\]\nand for all distinct \\(j,j'\\in B\\),\n\\[V_j(x) \\ge \\frac{1}{\\alpha}\\sum_{i\\in A:~u_{ij}\\ge u_{ij'}} w_{ji}x_{ij'}.\\]\n\nDefine \\(x\\) to be Pareto-optimal (PO) if there is no other fractional perfect matching \\(y\\) such that\n- \\(U_i(y)\\ge U_i(x)\\) for all \\(i\\in A\\) and \\(V_j(y)\\ge V_j(x)\\) for all \\(j\\in B\\), and\n- at least one of these inequalities is strict.\n\nProblem: Determine whether there exists a constant \\(\\alpha\\ge 1\\) and a polynomial-time algorithm that, given \\((A,B,u,w)\\), computes a fractional perfect matching \\(x\\) that is simultaneously \\(\\alpha\\)-JEF and PO. Equivalently, for each fixed constant \\(\\alpha\\), decide whether there is a polynomial-time algorithm that always outputs an \\(\\alpha\\)-approximately JEF and Pareto-optimal lottery (via Birkhoff\u001evon Neumann decomposition) for two-sided markets.",
+  "location_in_paper": "Page 23, Section 4 (Conclusion)",
+  "open_problem_quote": "However, this leaves several interesting open questions:\n\u0001e Is there a polynomial time algorithm to find \u0003b1-approximately JEF+PO lotteries in two-sided markets,\nfor any constant \u0003b1?",
+  "subject_classification": "Algorithmic Game Theory / Matching Markets / Computational Social Choice",
+  "keywords": [
+    "two-sided matching markets",
+    "justified envy-freeness",
+    "approximation algorithms",
+    "Pareto optimality",
+    "polynomial-time mechanism",
+    "random assignment",
+    "fair division"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.05289025,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.05289025
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4414541699/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

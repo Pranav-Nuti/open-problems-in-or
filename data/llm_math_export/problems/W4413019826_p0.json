@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4413019826_p0",
+  "paper_id": "W4413019826",
+  "source_paper": "W4413019826",
+  "source_paper_title": "Quantifying Distributional Model Risk in Marginal Problems via Optimal Transport",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0557",
+  "source_paper_authors": [
+    "Yanqin Fan",
+    "Hyeonseok Park",
+    "Gaoqian Xu"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 35, Section 8 (Concluding Remarks)\n\n\"Many open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.\"",
+  "title": "Structure of optimizers for Wasserstein distributional model risk in marginal problems",
+  "latex": "Let \\((S_1,d_{S_1})\\) and \\((S_2,d_{S_2})\\) be Polish metric spaces and let \\(V=S_1\\times S_2\\). Fix reference marginals \\(\\mu_1\\in \\mathcal P(S_1)\\) and \\(\\mu_2\\in \\mathcal P(S_2)\\). Let \\(c_1:S_1\\times S_1\\to \\mathbb R_+\\cup\\{\\infty\\}\\) and \\(c_2:S_2\\times S_2\\to \\mathbb R_+\\cup\\{\\infty\\}\\) be measurable cost functions such that \\(c_\\ell(x,y)=0\\) iff \\(x=y\\). For \\(\\nu,\\nu'\\in\\mathcal P(S_\\ell)\\), define the optimal transport cost \\(K_\\ell(\\nu,\\nu'):=\\inf_{\\pi\\in\\Pi(\\nu,\\nu')}\\int c_\\ell\\,d\\pi\\). For a radius \\(\\delta=(\\delta_1,\\delta_2)\\in\\mathbb R_+^2\\), define the uncertainty set\n\\[\\Sigma_D(\\delta):=\\{\\gamma\\in\\mathcal P(V): K_1(\\mu_1,\\gamma_1)\\le \\delta_1,\\; K_2(\\mu_2,\\gamma_2)\\le \\delta_2\\},\\]\nwhere \\(\\gamma_\\ell\\) denotes the \\(S_\\ell\\)-marginal of \\(\\gamma\\). Let \\(g:V\\to\\mathbb R\\) be measurable such that \\(\\int g\\,d\\gamma\\) is well-defined for \\(\\gamma\\in\\Sigma_D(\\delta)\\), and define the Wasserstein distributional model risk in the marginal problem\n\\[I_D(\\delta):=\\sup_{\\gamma\\in\\Sigma_D(\\delta)}\\int_V g\\,d\\gamma.\\]\nSimilarly, in the overlapping-marginals setting let \\(Y_1,Y_2,X\\) be Polish spaces, \\(S=Y_1\\times Y_2\\times X\\), \\(S_1=Y_1\\times X\\), \\(S_2=Y_2\\times X\\), reference measures \\(\\mu_{13}\\in\\mathcal P(S_1)\\), \\(\\mu_{23}\\in\\mathcal P(S_2)\\) with consistent \\(X\\)-marginals, and for \\(\\gamma\\in\\mathcal P(S)\\) let \\(\\gamma_{13},\\gamma_{23}\\) be the corresponding projections. Define\n\\[\\Sigma(\\delta):=\\{\\gamma\\in\\mathcal P(S): K_1(\\mu_{13},\\gamma_{13})\\le\\delta_1,\\; K_2(\\mu_{23},\\gamma_{23})\\le\\delta_2\\},\\qquad I(\\delta):=\\sup_{\\gamma\\in\\Sigma(\\delta)}\\int_S f\\,d\\gamma.\\]\nFormal Problem: characterize the structure of the optimizer(s) \\(\\gamma^*\\) attaining \\(I_D(\\delta)\\) (respectively \\(I(\\delta)\\)) for given data \\((\\mu_1,\\mu_2,c_1,c_2,g,\\delta)\\) (respectively \\((\\mu_{13},\\mu_{23},c_1,c_2,f,\\delta)\\)). In particular, determine conditions under which:\n- an optimizer exists and is unique;\n- the optimizer admits a Monge-type representation (i.e., is induced by measurable transport maps) or a sparse/extremal form;\n- the optimizer's support and dependence structure between marginals can be explicitly described (e.g., via comonotone/countermonotone-type couplings or conditional optimal transport plans);\n- the optimizer satisfies identifiable optimality conditions (e.g., complementary slackness/KKT-type conditions) that yield an explicit parametrization.\n",
+  "location_in_paper": "Page 35, Section 8 (Concluding Remarks)",
+  "open_problem_quote": "\"Many open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.\"",
+  "subject_classification": "Distributionally Robust Optimization / Optimal Transport",
+  "keywords": [
+    "distributional model risk",
+    "Wasserstein balls",
+    "marginal problems",
+    "optimal transport",
+    "optimizer structure",
+    "strong duality"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.13316975,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.13316975
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4413019826/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

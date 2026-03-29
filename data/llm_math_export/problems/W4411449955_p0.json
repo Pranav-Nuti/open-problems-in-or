@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4411449955_p0",
+  "paper_id": "W4411449955",
+  "source_paper": "W4411449955",
+  "source_paper_title": "Equilibrium Transport with Time-Inconsistent Costs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0323",
+  "source_paper_authors": [
+    "Erhan Bayraktar",
+    "Bingyan Han"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 7, Section 2.1.1 (Regularized bicausal OT), Remark 2.1\n\n\"Remark 2.1. This paper focuses on existence and uniqueness of solutions introduced in Definition 2.2. Convergence of numerical algorithms for the transport problem with time-inconsistent costs remains an problem. Notably, even in the static case with quadratic regularization, this problem has only been examined in a recent work by Gonz\\\u00b4alez-Sanz and Nutz (2024).\"",
+  "title": "Convergence of numerical algorithms for time-inconsistent (bi)causal transport",
+  "latex": "Consider a finite time horizon \\(T\\in\\mathbb{N}\\), Polish state spaces \\(\\mathcal{X}_t,\\mathcal{Y}_t\\) for \\(t=1,\\dots,T\\), and path spaces \\(\\mathcal{X}:=\\prod_{t=1}^T \\mathcal{X}_t\\), \\(\\mathcal{Y}:=\\prod_{t=1}^T \\mathcal{Y}_t\\). Let \\(\\mu\\in\\mathcal{P}(\\mathcal{X})\\) and \\(\\nu\\in\\mathcal{P}(\\mathcal{Y})\\) be given marginals, and let \\(\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) denote the set of bicausal couplings between \\(\\mu\\) and \\(\\nu\\).\n\nFix a (possibly time-inconsistent) cost functional \\(J_0:\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) (e.g., the non-separable \\(f\\)-divergence regularized objective in equation (2.1)\u2013(2.3), or a nonlinear/state-dependent objective as in (2.4)\u2013(2.6)). Let \\(\\pi^\\star\\in\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) be an equilibrium transport plan in the sense of Definition 2.2 (a subgame-perfect Nash equilibrium in successive one-step deviations).\n\nDesign and analyze numerical algorithms \\(\\{\\pi^{(n)}\\}_{n\\ge 1}\\subset\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) that are intended to compute \\(\\pi^\\star\\) (or the associated equilibrium kernels), and establish verifiable conditions under which the iterates converge to an equilibrium transport, e.g.\n\\[\n\\pi^{(n)} \\to \\pi^\\star \\quad \\text{in an appropriate topology/metric on }\\Pi_{\\mathrm{bc}}(\\mu,\\nu),\n\\]\npossibly together with convergence of values \\(J_0(\\pi^{(n)})\\to J_0(\\pi^\\star)\\) and/or convergence of the induced equilibrium value functions.\n\nThe problem is to provide such convergence guarantees (rates if possible) for numerical methods for equilibrium transport under time-inconsistent costs (including non-separable \\(f\\)-divergence regularization), extending what is currently known even for static quadratically regularized optimal transport.",
+  "location_in_paper": "Page 7, Section 2.1.1 (Regularized bicausal OT), Remark 2.1",
+  "open_problem_quote": "\"Remark 2.1. This paper focuses on existence and uniqueness of solutions introduced in Definition 2.2. Convergence of numerical algorithms for the transport problem with time-inconsistent costs remains an problem. Notably, even in the static case with quadratic regularization, this problem has only been examined in a recent work by Gonz\\\u00b4alez-Sanz and Nutz (2024).\"",
+  "subject_classification": "Optimal Transport / Computational Optimization",
+  "keywords": [
+    "equilibrium transport",
+    "time inconsistency",
+    "bicausal optimal transport",
+    "algorithm convergence",
+    "regularized optimal transport",
+    "f-divergence"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.134463,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.134463
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4411449955/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

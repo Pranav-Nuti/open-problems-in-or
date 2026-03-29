@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4413848299_p0",
+  "paper_id": "W4413848299",
+  "source_paper": "W4413848299",
+  "source_paper_title": "Tight Running Times for Minimum \u2113<sub><i>q</i></sub>-Norm Load Balancing: Beyond Exponential Dependencies on 1/\u03f5",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0231",
+  "source_paper_authors": [
+    "Lin Chen",
+    "Liangde Tao",
+    "Jos\u00e9 Verschae"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 2, Introduction (end of Contribution Overview paragraph); also reiterated in Page 46, Section H (Conclusion)\n\nIt remains an problem to obtain tight running times when m = \u0398((1/\u03b5)^\u03b8) for \u03b8 \u2208 (1/2, 1].\n\nAnother interesting problem is to show subexponential lower bound or develop FPTAS for P||P_i C_i^q where m = \u0398((1/\u03b5)^\u03b8) for \u03b8 \u2208 (1/2, 1].",
+  "title": "Tight PTAS running times for P||\\sum_i C_i^q when m = \\Theta((1/\\varepsilon)^\\theta), \\theta\\in(1/2,1]",
+  "latex": "Given constants \\(q>1\\) and \\(\\theta\\in(1/2,1]\\), consider the identical-parallel-machine scheduling problem \\(\\mathrm{P}||\\sum_{i=1}^m C_i^q\\): there are \\(n\\) jobs with processing times \\(p_1,\\dots,p_n\\in\\mathbb{R}_{>0}\\) and \\(m\\) identical machines. A schedule is an assignment of each job to exactly one machine, and the load of machine \\(i\\) is \\(C_i=\\sum_{j\\to i} p_j\\). The objective value is \\(\\sum_{i=1}^m C_i^q\\), and \\(\\mathrm{OPT}\\) denotes the minimum objective value over all schedules.\n\nFor a given accuracy parameter \\(\\varepsilon\\in(0,1)\\), a \\((1+\\varepsilon)\\)-approximation algorithm (PTAS) outputs a schedule with objective value at most \\((1+\\varepsilon)\\mathrm{OPT}\\) in time \\(T(n,m,\\varepsilon)\\).\n\nAssume the machine count scales with \\(\\varepsilon\\) as \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for a fixed \\(\\theta\\in(1/2,1]\\). Determine the asymptotically tight dependence of the minimum possible running time \\(T(n,m,\\varepsilon)\\) of a PTAS for \\(\\mathrm{P}||\\sum_{i=1}^m C_i^q\\) as a function of \\(1/\\varepsilon\\) (up to \\(\\mathrm{poly}(n)\\) factors), under standard complexity assumptions (e.g., ETH):\n- either give a PTAS with running time \\(\\mathrm{poly}(n)\\cdot f(1/\\varepsilon,\\theta)\\) and a matching (or near-matching) lower bound \\(\\mathrm{poly}(n)\\cdot g(1/\\varepsilon,\\theta)\\),\n- or otherwise characterize the correct exponent/subexponent behavior in \\(1/\\varepsilon\\) for this regime of \\(m\\).",
+  "location_in_paper": "Page 2, Introduction (end of Contribution Overview paragraph); also reiterated in Page 46, Section H (Conclusion)",
+  "open_problem_quote": "It remains an problem to obtain tight running times when m = \u0398((1/\u03b5)^\u03b8) for \u03b8 \u2208 (1/2, 1].\n\nAnother interesting problem is to show subexponential lower bound or develop FPTAS for P||P_i C_i^q where m = \u0398((1/\u03b5)^\u03b8) for \u03b8 \u2208 (1/2, 1].",
+  "subject_classification": "Approximation Algorithms / Scheduling Theory",
+  "keywords": [
+    "PTAS running time",
+    "identical machine scheduling",
+    "L_q-norm load balancing",
+    "fine-grained complexity",
+    "ETH lower bounds",
+    "machine count regime",
+    "FPTAS"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.12593175,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.12593175
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4413848299/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

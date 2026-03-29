@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4412630514_p0",
+  "paper_id": "W4412630514",
+  "source_paper": "W4412630514",
+  "source_paper_title": "Distorted Optimal Transport",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0591",
+  "source_paper_authors": [
+    "Haiyan Liu",
+    "Bin Wang",
+    "Ruodu Wang",
+    "Sheng Chao Zhuang"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 33, Section 9 (Concluding remarks), second open question paragraph\n\n\"Similarly, strong duality is only established for convex h and affine cost, and we wonder whether it also holds in more general situations.\"",
+  "title": "Strong duality beyond affine costs in distorted optimal transport",
+  "latex": "Determine whether strong duality holds for distorted optimal transport beyond the affine-cost case.\n\nLet \\(\\mu,\\nu\\) be Borel probability measures on \\(\\mathbb{R}\\). Let \\(h:[0,1]\\to[0,1]\\) be a distortion function (increasing with \\(h(0)=0\\), \\(h(1)=1\\)), and let \\(\\mathcal{X}\\) be the set of bounded real-valued random variables on an atomless probability space. Define the distorted expectation \\(\\mathbb{E}_h\\) by\n\\[\n\\mathbb{E}_h[Z]=\\int_0^{\\infty} h(\\mathbb{P}(Z>x))\\,dx+\\int_{-\\infty}^0 \\big(h(\\mathbb{P}(Z>x))-1\\big)\\,dx,\n\\]\nfor bounded \\(Z\\in\\mathcal{X}\\). For a measurable cost \\(c:\\mathbb{R}^2\\to\\mathbb{R}\\), consider the primal distorted optimal transport problem\n\\[\n\\mathrm{P}(c,h;\\mu,\\nu)=\\inf\\{\\mathbb{E}_h[c(X,Y)]:\\ X,Y\\in\\mathcal{X},\\ X\\sim\\mu,\\ Y\\sim\\nu\\}.\n\\]\nDefine the Kantorovich-type constraint set\n\\[\nS_c=\\{(\\varphi,\\psi):\\ \\varphi,\\psi:\\mathbb{R}\\to\\mathbb{R}\\ \\text{measurable and }\\ \\varphi(x)+\\psi(y)\\le c(x,y)\\ \\forall x,y\\in\\mathbb{R}\\}.\n\\]\nLet \\(X_\\mu\\sim\\mu\\) and \\(X_\\nu\\sim\\nu\\) be arbitrary random variables with these laws. The corresponding (nonlinear) dual value is\n\\[\n\\mathrm{D}(c,h;\\mu,\\nu)=\\sup_{(\\varphi,\\psi)\\in S_c}\\ \\big\\{\\mathbb{E}_h[\\varphi(X_\\mu)]+\\mathbb{E}_h[\\psi(X_\\nu)]\\big\\}.\n\\]\nIt is known in the paper that \\(\\mathrm{P}(c,h;\\mu,\\nu)=\\mathrm{D}(c,h;\\mu,\\nu)\\) holds when \\(c\\) is affine, i.e., \\(c(x,y)=\\alpha+\\beta x+\\gamma y\\), but strong duality is not established for more general costs.\n\nProblem: Characterize classes of costs \\(c\\) and distortion functions \\(h\\) (e.g., convex \\(h\\)) for which strong duality holds, i.e.,\n\\[\n\\mathrm{P}(c,h;\\mu,\\nu)=\\mathrm{D}(c,h;\\mu,\\nu)\n\\]\nfor all Borel probability measures \\(\\mu,\\nu\\) on \\(\\mathbb{R}\\), or provide counterexamples showing failure of strong duality beyond the affine-cost case.",
+  "location_in_paper": "Page 33, Section 9 (Concluding remarks), second open question paragraph",
+  "open_problem_quote": "\"Similarly, strong duality is only established for convex h and affine cost, and we wonder whether it also holds in more general situations.\"",
+  "subject_classification": "Optimal Transport / Convex Analysis / Risk Measures",
+  "keywords": [
+    "distorted optimal transport",
+    "strong duality",
+    "Kantorovich duality",
+    "Choquet integral",
+    "distortion risk measures"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06646675,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06646675
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4412630514/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

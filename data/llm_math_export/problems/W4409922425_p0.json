@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4409922425_p0",
+  "paper_id": "W4409922425",
+  "source_paper": "W4409922425",
+  "source_paper_title": "Tightness Without Counterexamples: A New Approach and New Results for Prophet Inequalities",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0221",
+  "source_paper_authors": [
+    "Jiashuo Jiang",
+    "Will Ma",
+    "Jiawei Zhang"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, Introduction, item 2 (New Results)\n\n\"It remains a challenging problem to analytically verify for all k > 1 our numerical observation that lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}, which would resolve the open question of k-unit IID prophet inequality.\"",
+  "title": "Analytically prove that the worst-case IID k-unit prophet ratio is attained as n\u2192\u221e",
+  "latex": "Fix an integer number of slots \\(k>1\\). Consider the IID \\(k\\)-unit prophet inequality with \\(n\\) sequentially arriving agents, where values \\(R_1,\\dots,R_n\\) are i.i.d. nonnegative random variables with a known distribution \\(F\\). Let \\(\\mathrm{DP}_{k,n}(F)\\) be the expected reward of the optimal online policy (optimal dynamic program) that may accept at most \\(k\\) agents, and let \\(\\mathrm{Proph}_{k,n}(F)=\\mathbb{E}\\big[\\sum_{t=1}^k R_{(t)}\\big]\\) be the prophet\u2019s expected reward, where \\(R_{(1)}\\ge \\cdots \\ge R_{(n)}\\) are the order statistics.\n\nDefine the tight competitive ratio for IID \\(k\\)-unit prophet inequality with \\(n\\) agents as\n\\[\n\\gamma_{k,n}:=\\inf_F \\frac{\\mathrm{DP}_{k,n}(F)}{\\mathrm{Proph}_{k,n}(F)}.\n\\]\nAlso define\n\\[\n\\gamma_k^{\\infty}:=\\lim_{n\\to\\infty} \\gamma_{k,n},\\qquad \\gamma_k^{\\min}:=\\inf_{n\\ge k+1}\\gamma_{k,n}.\n\\]\nThe problem is to prove, for every integer \\(k>1\\), that the worst-case ratio over all numbers of agents is attained in the large-\\(n\\) limit, i.e.\n\\[\n\\gamma_k^{\\infty}=\\gamma_k^{\\min},\\quad\\text{equivalently}\\quad \\lim_{n\\to\\infty}\\gamma_{k,n}=\\inf_{n\\ge k+1}\\gamma_{k,n}.\n\\]",
+  "location_in_paper": "Page 6, Introduction, item 2 (New Results)",
+  "open_problem_quote": "\"It remains a challenging problem to analytically verify for all k > 1 our numerical observation that lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}, which would resolve the open question of k-unit IID prophet inequality.\"",
+  "subject_classification": "Online Algorithms / Stochastic Optimization (Prophet Inequalities)",
+  "keywords": [
+    "prophet inequalities",
+    "IID arrivals",
+    "k-unit selection",
+    "competitive ratio",
+    "dynamic programming",
+    "asymptotic analysis"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09909725,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09909725
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4409922425/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
