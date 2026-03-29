@@ -44,7 +44,7 @@
     "total_cost_usd": 0.0931245
   },
   "provenance": {
-    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4410590382/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410590382/problems.json",
     "verification_source": null,
     "literature_source": null
   }

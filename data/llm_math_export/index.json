@@ -1,71 +1,15 @@
 {
-  "generated_at_utc": "2026-03-29T16:59:14.177286+00:00",
+  "generated_at_utc": "2026-03-29T19:37:22.474068+00:00",
   "counts": {
-    "exported_problems": 43,
-    "open_problems_exported": 43,
+    "exported_problems": 41,
+    "open_problems_exported": 41,
     "with_literature_review": 0,
-    "newly_added_problems": 41,
+    "newly_added_problems": 0,
     "duplicates_skipped": 0,
-    "unverified_problems": 43
+    "unverified_problems": 41
   },
   "has_unverified_problems": true,
   "problems": [
-    {
-      "problem_id": "W3205702368_p0",
-      "paper_id": "W3205702368",
-      "source_paper": "W3205702368",
-      "source_paper_title": "Boole\u2019s Probability Bounding Problem, Linear Programming Aggregations, and Nonnegative Quadratic Pseudo-Boolean Functions",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0019",
-      "source_paper_authors": [
-        "Endre Boros",
-        "Joonhee Lee"
-      ],
-      "problem_index": 0,
-      "title": "Equality of the IPG and DeCaen lower bounds",
-      "subject_classification": "Stochastic Programming / Probabilistic Combinatorial Optimization",
-      "keywords": [
-        "Boole's union bound",
-        "Hailperin linear program",
-        "LP aggregation",
-        "DeCaen bound",
-        "Pr\u00e9kopa\u2013Gao model",
-        "probability of a union",
-        "polyhedral cone"
-      ],
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W3205702368_p0.json",
-      "pipeline_generated_at_utc": "2026-03-27T15:29:52.626694+00:00"
-    },
-    {
-      "problem_id": "W4407408247_p0",
-      "paper_id": "W4407408247",
-      "source_paper": "W4407408247",
-      "source_paper_title": "Square-Root Regret Bounds for Continuous-Time Episodic Markov Decision Processes",
-      "source_paper_url": "https://doi.org/10.1287/moor.2022.0283",
-      "source_paper_authors": [
-        "Xuefeng Gao",
-        "Xunyu Zhou"
-      ],
-      "problem_index": 0,
-      "title": "Bernstein-style regret bound for episodic CTMDPs with improved dependence on horizon and state size",
-      "subject_classification": "Stochastic Control / Reinforcement Learning (Regret Analysis)",
-      "keywords": [
-        "continuous-time MDP",
-        "episodic reinforcement learning",
-        "regret bounds",
-        "Bernstein exploration bonus",
-        "value iteration",
-        "minimax optimality",
-        "horizon dependence"
-      ],
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W4407408247_p0.json",
-      "pipeline_generated_at_utc": "2026-03-27T15:29:52.626694+00:00"
-    },
     {
       "problem_id": "W4408928070_p0",
       "paper_id": "W4408928070",
