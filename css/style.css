@@ -134,7 +134,7 @@ main {
   text-decoration: none;
   color: var(--color-text);
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 1rem;
   width: 100%;
 }
@@ -151,6 +151,7 @@ main {
   flex-shrink: 0;
   width: 2rem;
   text-align: right;
+  padding-top: 0.45rem;
 }
 
 .problem-card-body {
