@@ -76,7 +76,7 @@
             <h2 class="problem-card-title">${escapeHtml(p.title)}</h2>
             <div class="problem-card-meta">
               <span>Source: ${formatSourcePaper(p)}</span>
-              ${p.pipeline_generated_at_utc ? `<span class="problem-card-generated">Generated: ${formatPipelineGenerated(p.pipeline_generated_at_utc)}</span>` : ""}
+              ${p.pipeline_generated_at_utc ? `<span class="problem-card-upload-date">Upload date: ${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}
             </div>
           </a>
         </li>
@@ -116,7 +116,7 @@
       return title;
     }
 
-    function formatPipelineGenerated(iso) {
+    function formatUploadDate(iso) {
       if (!iso || typeof iso !== "string") return "";
       const d = new Date(iso);
       if (isNaN(d.getTime())) return escapeHtml(iso);

@@ -59,8 +59,8 @@
           <span class="problem-meta-value" id="verification-status"></span>
         </div>
         <div class="problem-meta-item">
-          <span class="problem-meta-label">Pipeline generated</span>
-          <span class="problem-meta-value" id="pipeline-generated"></span>
+          <span class="problem-meta-label">Upload date</span>
+          <span class="problem-meta-value" id="upload-date"></span>
         </div>
       </div>
     </div>
@@ -275,7 +275,7 @@
       document.getElementById("extraction-info").textContent = parts.length ? parts.join(", reasoning: ") : "—";
     }
 
-    function formatPipelineGenerated(iso) {
+    function formatUploadDate(iso) {
       if (!iso || typeof iso !== "string") return "—";
       const d = new Date(iso);
       if (isNaN(d.getTime())) return iso;
@@ -319,7 +319,7 @@
       document.getElementById("verification-status").textContent = unverified
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
-      document.getElementById("pipeline-generated").textContent = formatPipelineGenerated(payload.pipeline_generated_at_utc);
+      document.getElementById("upload-date").textContent = formatUploadDate(payload.pipeline_generated_at_utc);
       const latexEl = document.getElementById("problem-latex");
       const rawLatex = payload.latex || "";
       latexEl.textContent = rawLatex;
