@@ -1,0 +1,52 @@
+{
+  "problem_id": "W4414449781_p0",
+  "paper_id": "W4414449781",
+  "source_paper": "W4414449781",
+  "source_paper_title": "Nash Equilibria for Dividend Distribution with Competition",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0374",
+  "source_paper_authors": [
+    "Tiziano De Angelis",
+    "Fabien Gensbittel",
+    "St\u00e9phane Villeneuve"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 23, Section 4, Remark 4.9\n\n\"The question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when y > x, especially if we seek an equilibrium valid for all parameter choices and initial states.\"",
+  "title": "Existence of an equilibrium with reversed roles (Player 1 uses a strategy, Player 2 uses a control) in the asymmetric game",
+  "latex": "Consider the 2-player dividend-distribution stochastic game with default described as follows.\n\n- Parameters: drift in duopoly \\(\\mu_0>0\\), drift in monopoly \\(\\hat\\mu>\\mu_0\\), volatility \\(\\sigma>0\\), discount rate \\(r>0\\).\n- Noise: a standard Brownian motion \\((B_t)_{t\\ge 0}\\) on a filtered probability space.\n- Controls: Player 1 chooses a cumulative dividend process \\(L=(L_t)_{t\\ge 0}\\) and Player 2 chooses \\(D=(D_t)_{t\\ge 0}\\), where each is right-continuous, nondecreasing, and adapted, with \\(L_{0-}=D_{0-}=0\\), and dividends cannot exceed available cash:\n\\[\n\\Delta L_t \\le (X_{t-})^+ ,\\qquad \\Delta D_t \\le (Y_{t-})^+ \\quad \\text{for all } t\\ge 0,\n\\]\nwhere \\(X\\) and \\(Y\\) are the controlled cash reserves.\n- Duopoly cash-reserve dynamics (until a default):\n\\[\nX_t = x+\\mu_0 t + \\sigma B_t - L_t,\\qquad Y_t = y+\\mu_0 t + \\sigma B_t - D_t,\n\\]\nwith initial endowments \\(0\\le x<y\\).\n- Default times:\n\\[\n\\gamma_X = \\inf\\{t\\ge 0: X_t\\le 0\\},\\qquad \\gamma_Y = \\inf\\{t\\ge 0: Y_t\\le 0\\}.\n\\]\n- Monopoly continuation value: let \\(\\hat v(\\cdot)\\) be the value function of the single-firm dividend problem with drift \\(\\hat\\mu\\) (i.e., optimal expected discounted dividends until default).\n- Payoffs:\n\\[\nJ_1(L,D)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge \\gamma_Y]} e^{-rt}\\,dL_t + \\mathbf 1_{\\{\\gamma_Y<\\gamma_X\\}} e^{-r\\gamma_Y}\\,\\hat v(X_{\\gamma_Y})\\Big],\n\\]\n\\[\nJ_2(D,L)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge \\gamma_Y]} e^{-rt}\\,dD_t + \\mathbf 1_{\\{\\gamma_X<\\gamma_Y\\}} e^{-r\\gamma_X}\\,\\hat v(Y_{\\gamma_X})\\Big].\n\\]\n\nPlayers are allowed to use feedback strategies in the sense of the paper: Player \\(i\\)'s strategy is a non-anticipative functional of the observed Brownian path and the opponent's cumulative dividend path (and possibly a randomisation variable). A pure control is a special case that depends only on time and the Brownian path.\n\nThe paper constructs a Nash equilibrium for \\(y>x\\) in which the poorer player (Player 1) uses a pure control and the richer player (Player 2) uses a pure feedback strategy.\n\nProblem: Determine whether, for every parameter set \\((\\mu_0,\\hat\\mu,\\sigma,r)\\) and every asymmetric initial condition \\(0\\le x<y\\), there exists a Nash equilibrium \\((\\Psi_1^*,\\Phi_2^*)\\) (pure or randomised) such that Player 1 uses a feedback strategy \\(\\Psi_1^*\\) (allowed to depend on the opponent's past dividends) while Player 2 uses a control \\(\\Phi_2^*\\) (i.e., a strategy independent of the opponent's dividend path), and the profile is a Nash equilibrium among all admissible randomised strategies.",
+  "location_in_paper": "Page 23, Section 4, Remark 4.9",
+  "open_problem_quote": "\"The question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when y > x, especially if we seek an equilibrium valid for all parameter choices and initial states.\"",
+  "subject_classification": "Stochastic Differential Games / Singular Control",
+  "keywords": [
+    "Nash equilibrium",
+    "singular stochastic control",
+    "stochastic games",
+    "dividend problem",
+    "feedback strategies",
+    "asymmetric initial endowment"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.10702300000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.10702300000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4414449781/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

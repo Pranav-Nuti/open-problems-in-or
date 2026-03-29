@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4410590382_p0",
+  "paper_id": "W4410590382",
+  "source_paper": "W4410590382",
+  "source_paper_title": "Efficient and Near-Optimal Online Portfolio Selection",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0175",
+  "source_paper_authors": [
+    "R\u00e9mi J\u00e9z\u00e9quel",
+    "Dmitrii M. Ostrovskii",
+    "Pierre Gaillard"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Section 1 (Introduction)\n\nMeanwhile, no algorithm except Universal Portfolios is known to admit a regret bound matching (5) up to a constant factor. In other words, the following problem stands:\nPropose a computationally feasible and near-optimal online portfolio selection algorithm.",
+  "title": "Fast and regret-optimal online portfolio selection with optimal constants",
+  "latex": "Given an online portfolio selection game with \\(d\\ge 2\\) assets and horizon \\(T\\ge 1\\), in each round \\(t\\in\\{1,\\dots,T\\}\\) the learner chooses \\(w_t\\in\\Delta_d:=\\{w\\in\\mathbb{R}^d_+:\\sum_{i=1}^d w[i]=1\\}\\), then the adversary reveals returns \\(x_t\\in\\mathbb{R}^d_+\\), and the learner suffers logarithmic loss \\(\\ell_t(w):=-\\log(x_t^\\top w)\\). The regret against the best constant rebalanced portfolio (CRP) is\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) := \\sum_{t=1}^T \\ell_t(w_t) - \\min_{w\\in\\Delta_d}\\sum_{t=1}^T \\ell_t(w).\n\\]\nAn algorithm is called regret-optimal if it guarantees for all sequences \\(x_{1:T}\\in(\\mathbb{R}^d_+)^T\\) that\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) \\le C\\,(d-1)\\log(T+1) + c(d)\n\\]\nfor a universal constant \\(C\\) matching the optimal constant factor in the known worst-case lower bound (up to lower-order terms), while being computationally feasible (e.g. polynomial-time per round, ideally near \\(\\tilde O(d^2)\\) or \\(\\tilde O(d^2T)\\) per-round time without MCMC integration).\n\nProblem: Design such a computationally feasible online portfolio selection algorithm achieving the optimal \\(\\Theta(d\\log T)\\) regret with the optimal constant factor (as in Universal Portfolios) and substantially improved per-round runtime compared to existing implementations of Universal Portfolios.",
+  "location_in_paper": "Page 3, Section 1 (Introduction)",
+  "open_problem_quote": "Meanwhile, no algorithm except Universal Portfolios is known to admit a regret bound matching (5) up to a constant factor. In other words, the following problem stands:\nPropose a computationally feasible and near-optimal online portfolio selection algorithm.",
+  "subject_classification": "Online Convex Optimization",
+  "keywords": [
+    "online portfolio selection",
+    "universal portfolios",
+    "logarithmic regret",
+    "computational efficiency",
+    "follow-the-regularized-leader"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0931245,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0931245
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4410590382/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "problem_id": "W4414783466_p0",
+  "paper_id": "W4414783466",
+  "source_paper": "W4414783466",
+  "source_paper_title": "Rates of Convergence in the Central Limit Theorem for Markov Chains, with an Application to TD Learning",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0444",
+  "source_paper_authors": [
+    "R. Srikant"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Conclusions), bullet beginning \u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) \u2026\u201d (page 19 of 24).\n\n\u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) (Fang et al. 2019). It would be interesting to see if the O(log n/\\sqrt n) rate of convergence in Theorem 1 can be improved to O(1/\\sqrt n) under possibly additional conditions than the ones used in this paper.\u201d",
+  "title": "Eliminate the logarithmic factor in the non-asymptotic martingale/Markov-chain CLT rate in Wasserstein distance",
+  "latex": "Given a filtered probability space \\((\\Omega,\\mathcal F,\\{\\mathcal F_k\\}_{k\\ge 0},\\mathbb P)\\) and a \\(d\\)-dimensional martingale difference sequence \\(\\{m_k\\}_{k\\ge 1}\\) with \\(\\mathbb E[m_k\\mid \\mathcal F_{k-1}]=0\\), define \\(S_n:=\\sum_{k=1}^n m_k\\) and \\(W_n:=S_n/\\sqrt n\\). Assume there exists a positive definite matrix \\(\\Sigma_\\infty\\succ 0\\) such that \\(\\Sigma_k:=\\mathbb E[m_k m_k^\\top\\mid \\mathcal F_{k-1}]\\) satisfies \\(\\mathbb E\\,\\Sigma_k\\to \\Sigma_\\infty\\) and suitable moment and mixing/ergodicity conditions ensuring a martingale central limit theorem and, via Poisson\u2019s equation, a Markov-chain CLT for \\(U_n:=\\frac{1}{\\sqrt n}\\sum_{k=1}^n(r(X_{k-1})-\\bar r)\\) with asymptotic covariance \\(\\Sigma_\\infty\\).\n\nLet \\(d_W\\) denote the \\(1\\)-Wasserstein distance on \\(\\mathbb R^d\\):\n\\[\n d_W(X,Y):=\\sup_{h\\in\\mathrm{Lip}_1}\\,\\mathbb E\\,[h(X)-h(Y)],\n\\]\nwhere \\(\\mathrm{Lip}_1\\) is the set of 1-Lipschitz functions.\n\nProblem: Find verifiable conditions (e.g., strengthened conditional moment, conditional variance stabilization, or Markov-chain regularity assumptions) under which the non-asymptotic Wasserstein CLT rate can be improved from \\(O(\\log n/\\sqrt n)\\) to the optimal Berry\u2013Esseen-type rate \\(O(1/\\sqrt n)\\), i.e., establish\n\\[\n d_W\\bigl(W_n,\\Sigma_\\infty^{1/2}Z\\bigr)\\le \\frac{C}{\\sqrt n}\n\\quad\\text{and/or}\\quad\n d_W\\bigl(U_n,\\Sigma_\\infty^{1/2}Z\\bigr)\\le \\frac{C}{\\sqrt n},\n\\]\nfor all \\(n\\ge 1\\) with a constant \\(C\\) independent of \\(n\\), where \\(Z\\sim\\mathcal N(0,I_d)\\).",
+  "location_in_paper": "Section 5 (Conclusions), bullet beginning \u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) \u2026\u201d (page 19 of 24).",
+  "open_problem_quote": "\u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) (Fang et al. 2019). It would be interesting to see if the O(log n/\\sqrt n) rate of convergence in Theorem 1 can be improved to O(1/\\sqrt n) under possibly additional conditions than the ones used in this paper.\u201d",
+  "subject_classification": "Probability / Stochastic Processes (Non-asymptotic limit theorems)",
+  "keywords": [
+    "martingale central limit theorem",
+    "Markov chains",
+    "Stein's method",
+    "Wasserstein distance",
+    "Berry\u2013Esseen bounds",
+    "Poisson equation"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.04924325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.04924325
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4414783466/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

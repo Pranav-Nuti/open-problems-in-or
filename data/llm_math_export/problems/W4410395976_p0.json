@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4410395976_p0",
+  "paper_id": "W4410395976",
+  "source_paper": "W4410395976",
+  "source_paper_title": "Scarf\u2019s Algorithm and Stable Marriages",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0055",
+  "source_paper_authors": [
+    "Yuri Faenza",
+    "Chengyue He",
+    "Jay Sethuraman"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 35, Section 8 (Conclusions and Future Work)\n\n\"Second, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix C. This would require an understanding of the problem that goes beyond stable marriages.\"",
+  "title": "Polynomial-time convergence of Scarf\u2019s algorithm on the bipartite matching polytope for arbitrary ordinal matrices",
+  "latex": "Given a bipartite graph \\(G=(M\\cup W,E)\\) with \\(|M|=|W|=k\\), let \\(n=|M|+|W|=2k\\). Let \\(E_\\ell=\\{(v,v):v\\in M\\cup W\\}\\) be the set of loops and let \\(E_v=E\\setminus E_\\ell\\) be the set of valid edges. Let \\(m=|E|\\) and index edges by \\(\\{1,\\dots,n+m\\}\\) so that the first \\(n\\) indices correspond to loops. Let \\(A\\in\\mathbb{Q}_{\\ge 0}^{n\\times (n+m)}\\) be in standard form \\(A=(I\\mid A')\\), where \\(I\\) corresponds to loop variables and \\(A'\\) is the node\u2013edge incidence matrix of \\(G\\) for valid edges. Let \\(b=\\mathbf{1}\\in\\mathbb{Q}^n\\) and define the (bipartite) matching polytope in standard form\n\\[\nP=\\{x\\in\\mathbb{R}_{\\ge 0}^{n+m}: Ax=b\\}.\n\\]\nAn integer matrix \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\) is an ordinal matrix (as in Scarf\u2019s lemma) if its entries are distinct and for every row \\(i\\in[n]\\), the diagonal entry is smallest, slack columns are intermediate, and the remaining columns are largest, i.e., for all \\(j\\neq i\\) and all slack indices \\(k\\in[n+m]\\setminus[n]\\), one has \\(c_{i,i}<c_{i,k}<c_{i,j}\\). For any set \\(D\\subseteq[n+m]\\) with \\(|D|=n\\), define the utility vector \\(u\\in\\mathbb{Q}^n\\) by \\(u_i=\\min_{j\\in D} c_{i,j}\\). Call \\(D\\) an ordinal basis if for every column \\(h\\notin[n]\\) (i.e., every non-slack column) there exists \\(i\\in[n]\\) such that \\(u_i\\ge c_{i,h}\\). A feasible basis \\(B\\) of \\(A\\) is a set of \\(n\\) columns such that \\(A_B\\) is nonsingular and the basic solution \\(x\\) to \\(A_B x_B=b\\), \\(x_{\\bar B}=0\\), satisfies \\(x\\ge 0\\).\n\nScarf\u2019s algorithm maintains a pair \\((B,D)\\) where \\(B\\) is a feasible basis of \\(A\\) and \\(D\\) is an ordinal basis of \\(C\\) with \\(|B\\cap D|\\ge n-1\\), and iterates by a cardinal pivot (swap one column between \\(B\\) and \\(D\\)) followed by the uniquely determined ordinal pivot (swap one column to restore \\(D\\) as an ordinal basis), until it reaches \\(B=D\\).\n\nProblem: Prove or disprove that for every bipartite graph \\(G\\) and every ordinal matrix \\(C\\) (not necessarily consistent with any preference system), Scarf\u2019s algorithm terminates in a number of iterations bounded by a polynomial in \\(n\\) (and the encoding size of \\((A,b,C)\\)), i.e., that there exists a polynomial \\(p\\) such that the algorithm halts after at most \\(p(n,\\mathrm{size}(A,b,C))\\) pivots for all such inputs. Equivalently, determine whether polynomial-time convergence holds uniformly over all ordinal matrices \\(C\\) on the bipartite matching polytope.",
+  "location_in_paper": "Page 35, Section 8 (Conclusions and Future Work)",
+  "open_problem_quote": "\"Second, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix C. This would require an understanding of the problem that goes beyond stable marriages.\"",
+  "subject_classification": "Combinatorial Optimization",
+  "keywords": [
+    "Scarf's algorithm",
+    "pivoting methods",
+    "stable matching polytopes",
+    "bipartite matching polytope",
+    "polynomial-time convergence"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08895425,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08895425
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4410395976/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

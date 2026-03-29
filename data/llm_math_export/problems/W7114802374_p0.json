@@ -1,0 +1,51 @@
+{
+  "problem_id": "W7114802374_p0",
+  "paper_id": "W7114802374",
+  "source_paper": "W7114802374",
+  "source_paper_title": "Efficient Approximation Schemes for Stochastic Probing and Selection-Stopping Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0242",
+  "source_paper_authors": [
+    "Danny Segev",
+    "Sahil Singla"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 34, Section 7 (Future Directions)\n\n\"An immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \u03f5 > 0, can we obtain a (1 + \u03f5)-approximation in poly(n, 1/\u03f5) time? We note that an FPTAS is impossible for our Multi-Dimensional Santa Claus problem, since even with 3 machines, it already captures the strongly NP-hard 3-Partition problem [GJ02]. Hence, we cannot hope to convert Theorem 1.5 into an FPTAS and a different approach would be needed to obtain an FPTAS (if possible) for the stochastic problems studied in this paper.\"",
+  "title": "Existence of FPTAS for stochastic probing and selection-stopping problems studied (e.g., Free-Order Prophets, ProbeMax, Pandora\u2019s Box with Commitment)",
+  "latex": "Given a family of stochastic combinatorial optimization problems \\(\\mathcal{P}\\) including Free-Order Prophets, non-adaptive ProbeMax, adaptive ProbeMax, and Pandora\u2019s Box with Commitment, each instance consisting of \\(n\\) independent nonnegative random variables \\(X_1,\\dots,X_n\\) (and in the Pandora variant additionally costs \\(c_1,\\dots,c_n\\ge 0\\)), define \\(\\mathrm{OPT}(I)\\) as the optimal expected objective value for instance \\(I\\) under the problem\u2019s admissible (adaptive or non-adaptive) policies.\n\nThe problem is to determine whether there exists a fully polynomial-time approximation scheme (FPTAS) for one or more of these problems: namely, for every \\(\\varepsilon\\in(0,1)\\), does there exist an algorithm \\(\\mathcal{A}_\\varepsilon\\) running in time \\(\\mathrm{poly}(n,1/\\varepsilon)\\) that outputs a feasible policy/solution \\(S\\) such that\n\\[\n\\mathbb{E}[\\mathrm{obj}(S)] \\ge (1-\\varepsilon)\\,\\mathrm{OPT}(I)\n\\]\nfor maximization objectives (and analogously \\((1+\\varepsilon)\\)-approximation where the paper uses that convention), for all instances \\(I\\) of the chosen problem(s).\n\nIn particular, resolve whether any of these problems admit an FPTAS despite the fact that the paper\u2019s Multi-Dimensional Santa Claus subroutine cannot admit an FPTAS (even for \\(m=3\\)) due to strong NP-hardness via 3-Partition, implying that new techniques would be required.",
+  "location_in_paper": "Page 34, Section 7 (Future Directions)",
+  "open_problem_quote": "\"An immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \u03f5 > 0, can we obtain a (1 + \u03f5)-approximation in poly(n, 1/\u03f5) time? We note that an FPTAS is impossible for our Multi-Dimensional Santa Claus problem, since even with 3 machines, it already captures the strongly NP-hard 3-Partition problem [GJ02]. Hence, we cannot hope to convert Theorem 1.5 into an FPTAS and a different approach would be needed to obtain an FPTAS (if possible) for the stochastic problems studied in this paper.\"",
+  "subject_classification": "Stochastic Combinatorial Optimization",
+  "keywords": [
+    "FPTAS",
+    "EPTAS",
+    "stochastic probing",
+    "prophet problems",
+    "ProbeMax",
+    "Pandora\u2019s box"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.069965,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.069965
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W7114802374/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

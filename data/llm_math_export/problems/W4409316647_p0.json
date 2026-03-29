@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4409316647_p0",
+  "paper_id": "W4409316647",
+  "source_paper": "W4409316647",
+  "source_paper_title": "Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0317",
+  "source_paper_authors": [
+    "Ritesh Goenka",
+    "Eashan Gupta",
+    "Sushil Khyalia",
+    "Shivaram Kalyanakrishnan"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d\n\n\u201cIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with k \u2265 3 actions. \u2026 A concrete first step in pursuit of a \u2018Hamiltonian\u2019 lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.\u201d",
+  "title": "Hamiltonian policy-iteration path for multi-action MDPs (k \u2265 3)",
+  "latex": "Given a discounted finite Markov decision process (MDP) \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\ge 2\\), \\(|A|=k\\ge 3\\), transition probabilities \\(T(s,a,s')\\in[0,1]\\) satisfying \\(\\sum_{s'\\in S}T(s,a,s')=1\\), rewards \\(R(s,a)\\in\\mathbb{R}\\), and discount factor \\(\\gamma\\in[0,1)\\), let \\(\\Pi=A^S\\) be the set of deterministic stationary policies.\n\nFor a policy \\(\\pi\\in\\Pi\\), let \\(V^\\pi:S\\to\\mathbb{R}\\) be its discounted value function, i.e. the unique solution to the Bellman equations\n\\[V^\\pi(s)=R(s,\\pi(s))+\\gamma\\sum_{s'\\in S}T(s,\\pi(s),s')V^\\pi(s')\\quad \\forall s\\in S.\\]\nDefine the gain of switching state \\(s\\) from \\(\\pi(s)\\) to action \\(a\\in A\\) by\n\\[\\rho_\\pi(s,a)=Q^\\pi(s,a)-V^\\pi(s),\\]\nwhere \\(Q^\\pi(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^\\pi(s')\\). A one-step policy-improvement move from \\(\\pi\\) to \\(\\pi'\\) is allowed if there exists a nonempty set \\(S_{\\mathrm{switch}}\\subseteq S\\) and actions \\(a_s\\in A\\) for \\(s\\in S_{\\mathrm{switch}}\\) such that \\(\\rho_\\pi(s,a_s)>0\\) for all \\(s\\in S_{\\mathrm{switch}}\\), and\n\\[\\pi'(s)=\\begin{cases}a_s,& s\\in S_{\\mathrm{switch}},\\\\ \\pi(s),& s\\notin S_{\\mathrm{switch}}.\\end{cases}\\]\nThis defines the policy-improvement directed acyclic graph (PI-DAG) whose vertices are \\(\\Pi\\) and whose edges are all such improvement moves.\n\nProblem: Determine whether for every \\(k\\ge 3\\) there exists an MDP \\(M\\) (for some \\(n\\ge 2\\), possibly depending on \\(k\\)) whose PI-DAG contains a directed Hamiltonian path, i.e. a directed path that visits every policy in \\(\\Pi\\) exactly once. Equivalently, does there exist an MDP with \\(|A|=k\\ge 3\\) and a policy-iteration switching rule such that policy iteration visits all \\(k^n\\) deterministic stationary policies before terminating at an optimal policy?",
+  "location_in_paper": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d",
+  "open_problem_quote": "\u201cIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with k \u2265 3 actions. \u2026 A concrete first step in pursuit of a \u2018Hamiltonian\u2019 lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.\u201d",
+  "subject_classification": "Stochastic Dynamic Programming / Computational Complexity of MDP Algorithms",
+  "keywords": [
+    "Markov decision processes",
+    "policy iteration",
+    "Hamiltonian path",
+    "PI-DAG",
+    "lower bounds",
+    "multi-action MDPs"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.099211,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.099211
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4409316647/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

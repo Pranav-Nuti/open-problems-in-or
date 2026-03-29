@@ -1,0 +1,52 @@
+{
+  "problem_id": "W7126221168_p0",
+  "paper_id": "W7126221168",
+  "source_paper": "W7126221168",
+  "source_paper_title": "Generalized Ellipsoids",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0643",
+  "source_paper_authors": [
+    "Amir Ali Ahmadi",
+    "Abraar Chaudhry",
+    "Cemil Dibek"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Future Research Directions), first bullet; page 31.\n\n\"We showed that every symmetric convex body can be approximated arbitrarily well by a GE. Our approximation factor relies on results on polytopic approximation of convex bodies. A related question is: how well can one approximate an n-dimensional symmetric convex body with a finite intersection of m (co-centered) ellipsoids, with m growing potentially with n? Since we have shown that a GE-d, with d = 2m\u22123, can exactly represent an intersection of m co-centered ellipsoids (see Corollary 5.6 and Theorem 5.1), progress on this question can potentially improve our approximation factor in Theorem 5.7.\"",
+  "title": "Approximating symmetric convex bodies by intersections of a limited number of co-centered ellipsoids",
+  "latex": "Let \\(n\\ge 2\\) and let \\(C\\subset \\mathbb{R}^n\\) be a symmetric convex body, i.e., a compact convex set with nonempty interior and satisfying \\(x\\in C\\Rightarrow -x\\in C\\). For a positive integer \\(m\\), consider families of \\(m\\) co-centered ellipsoids \\(E_i=\\{x\\in\\mathbb{R}^n\\mid x^TQ_i x\\le 1\\}\\), where \\(Q_i\\in \\mathbb{S}^n_{++}\\) and all ellipsoids are centered at the origin. Define their intersection \\(E=\\bigcap_{i=1}^m E_i\\).\n\nDetermine, as a function of \\(n\\) and \\(m\\), the smallest approximation factor \\(\\alpha=\\alpha(n,m)\\ge 1\\) such that for every symmetric convex body \\(C\\subset\\mathbb{R}^n\\) there exist \\(m\\) co-centered ellipsoids with intersection \\(E\\) satisfying\n\\[\nE\\subseteq C\\subseteq \\alpha\\,E.\n\\]\nEquivalently, characterize the best achievable worst-case multiplicative approximation of arbitrary symmetric convex bodies by finite intersections of \\(m\\) co-centered ellipsoids, allowing \\(m\\) to grow with \\(n\\).",
+  "location_in_paper": "Section 7 (Future Research Directions), first bullet; page 31.",
+  "open_problem_quote": "\"We showed that every symmetric convex body can be approximated arbitrarily well by a GE. Our approximation factor relies on results on polytopic approximation of convex bodies. A related question is: how well can one approximate an n-dimensional symmetric convex body with a finite intersection of m (co-centered) ellipsoids, with m growing potentially with n? Since we have shown that a GE-d, with d = 2m\u22123, can exactly represent an intersection of m co-centered ellipsoids (see Corollary 5.6 and Theorem 5.1), progress on this question can potentially improve our approximation factor in Theorem 5.7.\"",
+  "subject_classification": "Convex Geometry / Convex Optimization",
+  "keywords": [
+    "symmetric convex bodies",
+    "ellipsoidal approximation",
+    "intersection of ellipsoids",
+    "Banach-Mazur distance",
+    "convex body approximation",
+    "generalized ellipsoids"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0968695,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0968695
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W7126221168/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

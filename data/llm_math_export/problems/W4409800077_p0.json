@@ -1,0 +1,51 @@
+{
+  "problem_id": "W4409800077_p0",
+  "paper_id": "W4409800077",
+  "source_paper": "W4409800077",
+  "source_paper_title": "Riemannian Anderson Mixing Methods for Minimizing <i>C</i><sup>2</sup> Functions on Riemannian Manifolds",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0284",
+  "source_paper_authors": [
+    "Zanyu Li",
+    "Chenglong Bao"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 10, Section 4 (Regularied RAM and Global Convergence Analysis); also reiterated Page 14, Section 5.1 (Details Concerning Numerical Implementations)\n\n\"The global convergence of Anderson mixing remains an problem, even in the Euclidean setting.\"",
+  "title": "Global convergence of (unregularized) Anderson mixing / Riemannian Anderson Mixing",
+  "latex": "Given a complete Riemannian manifold \\((\\mathcal M,\\langle\\cdot,\\cdot\\rangle)\\) and a \\(C^1\\) vector field \\(F\\in \\mathcal X(\\mathcal M)\\), define the fixed-point mapping \\(g:\\mathcal M\\to\\mathcal M\\) by \\(g(x)=\\mathrm{Exp}_x(-F(x))\\). Let \\(R: T\\mathcal M\\to \\mathcal M\\) be a retraction with associated vector transport \\(\\mathcal T\\). For a memory parameter \\(m\\in\\mathbb N\\), define the Riemannian Anderson Mixing (RAM) iterates \\(\\{x_k\\}\\subset \\mathcal M\\) by Algorithm 1 of the paper:\n\\[\n\\begin{aligned}\n&r_k=-F(x_k)\\in T_{x_k}\\mathcal M,\\qquad m_k=\\min\\{m,k\\},\\\\\n&\\Gamma_k\\in\\arg\\min_{\\Gamma\\in\\mathbb R^{m_k}}\\ \\|r_k-R_k\\Gamma\\|,\\\\\n&\\Delta x_k^{(k)}=-X_k\\Gamma_k+\\beta_k\\,(r_k-R_k\\Gamma_k)\\in T_{x_k}\\mathcal M,\\\\\n&x_{k+1}=R_{x_k}(\\Delta x_k^{(k)}),\n\\end{aligned}\n\\]\nwhere \\(X_k\\) and \\(R_k\\) are formed from transported differences of past iterates and residuals (as in Algorithm 1) so that their columns lie in \\(T_{x_k}\\mathcal M\\), and \\(\\beta_k>0\\) is a stepsize.\n\nProblem: Determine verifiable conditions on \\(F\\), \\(R\\), \\(\\mathcal T\\), \\(m\\), and the parameter sequence \\(\\{\\beta_k\\}\\) under which the RAM iterates \\(\\{x_k\\}\\) are globally convergent, e.g. either \\(\\|F(x_k)\\|\\to 0\\) or \\(x_k\\to x^*\\) with \\(F(x^*)=0\\), from an arbitrary initialization \\(x_0\\in\\mathcal M\\), without introducing additional safeguarding steps (such as regularization or line-search).",
+  "location_in_paper": "Page 10, Section 4 (Regularied RAM and Global Convergence Analysis); also reiterated Page 14, Section 5.1 (Details Concerning Numerical Implementations)",
+  "open_problem_quote": "\"The global convergence of Anderson mixing remains an problem, even in the Euclidean setting.\"",
+  "subject_classification": "Nonlinear Optimization / Riemannian Optimization",
+  "keywords": [
+    "Anderson acceleration",
+    "global convergence",
+    "Riemannian optimization",
+    "fixed-point iterations",
+    "safeguarding",
+    "nonlinear solvers"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08302175,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08302175
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4409800077/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

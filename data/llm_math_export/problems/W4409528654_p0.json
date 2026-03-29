@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4409528654_p0",
+  "paper_id": "W4409528654",
+  "source_paper": "W4409528654",
+  "source_paper_title": "Splitting Guarantees for Prophet Inequalities via Nonlinear Systems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0413",
+  "source_paper_authors": [
+    "Johannes Brustle",
+    "Sebastian Perez-Salazar",
+    "V\u00edctor Verdugo"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 29, Section 6 (Final Remarks)\n\nWe leave the tightness of our approximation result in Theorem 2 through our nonlinear system (1)-(3) as an open question, i.e., whether infn\u22651 \u03b3n,k = \\sum_{\\ell=1}^k \u03b8^\\star_\\ell.",
+  "title": "Is the asymptotic worst-case approximation ratio equal to the sum of the nonlinear-system constants?",
+  "latex": "Let \\(k\\in\\mathbb{Z}_{\\ge 1}\\). Consider the i.i.d. \\((k,n)\\)-selection prophet inequality (\\((k,n)\\)-SPI): we observe a sequence \\(X_1,\\dots,X_n\\) of i.i.d. nonnegative random variables with a known continuous distribution \\(F\\) on \\(\\mathbb{R}_+\\). An online policy must, upon seeing \\(X_t\\), irrevocably accept or reject it, and may accept at most \\(k\\) values; its reward is the expected sum of accepted values. Let \\(X_{(1)}\\le \\cdots\\le X_{(n)}\\) denote the order statistics. The offline benchmark is \\(\\mathrm{OPT}_{n,k}(F)=\\sum_{j=n-k+1}^n \\mathbb{E}[X_{(j)}]\\). Define the optimal worst-case approximation ratio\n\\[\n\\gamma_{n,k}=\\inf\\left\\{\\frac{\\mathbb{E}[\\text{online reward under an optimal policy for }(n,k,F)]}{\\mathrm{OPT}_{n,k}(F)}: F\\text{ continuous on }\\mathbb{R}_+\\right\\}.\n\\]\nThe paper defines a nonlinear system of \\(k\\) coupled differential equations (parameterized by constants \\(\\theta_1,\\dots,\\theta_k\\)) with boundary conditions, and lets \\(\\theta_1^\\star,\\dots,\\theta_k^\\star\\) denote the parameter values for which the system admits a solution.\n\nProblem: determine whether the asymptotic worst-case approximation ratio equals the sum of these constants, i.e. decide whether\n\\[\n\\inf_{n\\ge 1}\\gamma_{n,k}=\\sum_{\\ell=1}^k \\theta_\\ell^\\star.\n\\]\n(Equivalently, decide whether the lower bound obtained from the nonlinear system is tight.)",
+  "location_in_paper": "Page 29, Section 6 (Final Remarks)",
+  "open_problem_quote": "We leave the tightness of our approximation result in Theorem 2 through our nonlinear system (1)-(3) as an open question, i.e., whether infn\u22651 \u03b3n,k = \\sum_{\\ell=1}^k \u03b8^\\star_\\ell.",
+  "subject_classification": "Online Algorithms / Optimal Stopping (Prophet Inequalities)",
+  "keywords": [
+    "prophet inequalities",
+    "k-selection",
+    "asymptotic approximation ratio",
+    "nonlinear differential equations",
+    "infinite-dimensional linear programming",
+    "duality",
+    "tight bounds"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08330525,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08330525
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4409528654/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "problem_id": "W4415178980_p0",
+  "paper_id": "W4415178980",
+  "source_paper": "W4415178980",
+  "source_paper_title": "New Combinatorial Insights for Monotone Apportionment",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0817",
+  "source_paper_authors": [
+    "Javier Cembrano",
+    "Jos\u00e9 Correa",
+    "Ulrike Schmidt-Kraepelin",
+    "Alexandros Tsigonias-Dimitriadis",
+    "V\u00edctor Verdugo"
+  ],
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "export_mode": "unverified",
+  "context": "Page 23, Section 6 (Discussion)\n\n\"Whether a similar result holds without violating the house size is open.\"",
+  "title": "Population-monotone, quota-compliant, ex-ante proportional randomized apportionment without violating house size",
+  "latex": "Given an apportionment instance \\((p,H)\\) with \\(n\\) states, where \\(p=(p_1,\\dots,p_n)\\in \\mathbb{N}^n\\) and \\(H\\in\\mathbb{N}\\), let \\(P=\\sum_{i=1}^n p_i\\) and define each state's quota \\(q_i=\\frac{p_i}{P}H\\). A (possibly randomized) apportionment method outputs an integer vector \\(X\\in\\mathbb{N}_0^n\\) with \\(\\sum_{i=1}^n X_i=H\\).\n\nFind (or determine nonexistence of) a randomized apportionment method \\(\\mathcal{F}\\) such that for every instance \\((p,H)\\):\n\n- (Fixed house size) \\(\\sum_{i=1}^n X_i=H\\) holds almost surely for \\(X\\sim \\mathcal{F}(p,H)\\).\n- (Quota compliance) For all \\(i\\in[n]\\), \\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) holds almost surely.\n- (Population monotonicity) For all instances \\((p,H)\\), \\((p',H')\\), all states \\(i,j\\in[n]\\), if \\(\\frac{p'_i}{p'_j}\\ge \\frac{p_i}{p_j}\\), then it is not the case that both \\(X_i>X'_i\\) and \\(X_j<X'_j\\) occur with positive probability, where \\(X\\sim \\mathcal{F}(p,H)\\) and \\(X'\\sim \\mathcal{F}(p',H')\\) (equivalently, the method satisfies population monotonicity almost surely in the sense of the paper's definition).\n- (Ex-ante proportionality) For all \\(i\\in[n]\\), \\(\\mathbb{E}[X_i]=q_i\\).\n\nIn other words: does there exist a randomized apportionment method that simultaneously satisfies population monotonicity, quota compliance, and ex-ante proportionality while meeting the house size exactly ex post for every instance?",
+  "location_in_paper": "Page 23, Section 6 (Discussion)",
+  "open_problem_quote": "\"Whether a similar result holds without violating the house size is open.\"",
+  "subject_classification": "Social Choice / Combinatorial Optimization",
+  "keywords": [
+    "apportionment",
+    "randomized methods",
+    "population monotonicity",
+    "quota compliance",
+    "ex-ante proportionality",
+    "fixed house size"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.11161325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.11161325
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_problems/W4415178980/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
