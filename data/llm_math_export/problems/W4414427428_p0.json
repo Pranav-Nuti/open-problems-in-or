@@ -1,0 +1,55 @@
+{
+  "problem_id": "W4414427428_p0",
+  "paper_id": "W4414427428",
+  "source_paper": "W4414427428",
+  "source_paper_title": "Deterministic and Stochastic Frank\u2013Wolfe Recursion on Probability Spaces",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0584",
+  "source_paper_authors": [
+    "Yu Di",
+    "Shane G. Henderson",
+    "Raghu Pasupathy"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 2.2 (\"Why not simply \\\"grid and optimize\\\"?\"), page 6\n\nThe proposed recursion is not without challenge, however, as it entails solving a global optimization problem during each iterate update. The question of precisely characterizing and comparing the complexity of an a priori finite-dimensionalizing approach such as gridding versus the proposed direct approach is indeed interesting, although we do not undertake this question.",
+  "title": "Complexity comparison of gridding versus direct Frank--Wolfe optimization over probability measures",
+  "latex": "Given a compact set \\(\\mathcal X\\subset\\mathbb R^d\\) and a functional \\(J:\\mathcal P(\\mathcal X)\\to\\mathbb R\\) on the set \\(\\mathcal P(\\mathcal X)\\) of Borel probability measures on \\(\\mathcal X\\), consider the optimization problem\n\\[\n\\inf_{\\mu\\in\\mathcal P(\\mathcal X)} J(\\mu).\n\\]\nAssume \\(J\\) is accessible either through a deterministic oracle returning \\(J(\\mu)\\) and (when it exists) an influence function \\(h_\\mu:\\mathcal X\\to\\mathbb R\\), or through a Monte Carlo oracle returning unbiased estimates of these quantities.\n\nFor \\(\\Delta>0\\), let \\(\\mathcal L(\\Delta)\\subset\\mathcal X\\) be a finite grid of mesh (resolution) \\(\\Delta\\), and let\n\\[\n\\mathcal P(\\mathcal L(\\Delta)):=\\{\\mu\\in\\mathcal P(\\mathcal X):\\operatorname{supp}(\\mu)\\subseteq\\mathcal L(\\Delta)\\}\n\\]\nbe the subset of measures supported on the grid. Let \\(\\mu^*(\\Delta)\\in\\arg\\min_{\\mu\\in\\mathcal P(\\mathcal L(\\Delta))} J(\\mu)\\) be an optimal gridded solution.\n\nAlso consider a direct (infinite-dimensional) Frank--Wolfe-type method on \\(\\mathcal P(\\mathcal X)\\) that, starting from \\(\\mu_0\\in\\mathcal P(\\mathcal X)\\), produces iterates \\((\\mu_k)_{k\\ge 0}\\) by\n\\[\n\\mu_{k+1}=(1-\\eta_k)\\mu_k+\\eta_k\\,\\delta_{x_k},\\qquad x_k\\in\\arg\\min_{x\\in\\mathcal X} h_{\\mu_k}(x),\n\\]\nwhere \\((\\eta_k)_{k\\ge 0}\\subset(0,1] \\) is a stepsize sequence and \\(\\delta_x\\) denotes the Dirac measure at \\(x\\in\\mathcal X\\).\n\nProblem: Provide a precise, quantitative comparison (as \\(\\Delta\\downarrow 0\\) and as the target accuracy \\(\\varepsilon\\downarrow 0\\)) between the computational complexity of (i) solving the gridded problem \\(\\min_{\\mu\\in\\mathcal P(\\mathcal L(\\Delta))} J(\\mu)\\) and (ii) running a direct Frank--Wolfe method on \\(\\mathcal P(\\mathcal X)\\), in terms of\n- the resulting objective suboptimality gaps \\(J(\\mu^*(\\Delta)) - \\inf_{\\mu\\in\\mathcal P(\\mathcal X)}J(\\mu)\\) and \\(J(\\mu_k)-\\inf_{\\mu\\in\\mathcal P(\\mathcal X)}J(\\mu)\\),\n- the dependence on dimension \\(d\\), smoothness/regularity parameters of \\(J\\), and oracle/noise model assumptions,\n- and the total computational cost (e.g., number of oracle evaluations and/or global subproblem solves) required to obtain an \\(\\varepsilon\\)-optimal solution.",
+  "location_in_paper": "Section 2.2 (\"Why not simply \\\"grid and optimize\\\"?\"), page 6",
+  "open_problem_quote": "The proposed recursion is not without challenge, however, as it entails solving a global optimization problem during each iterate update. The question of precisely characterizing and comparing the complexity of an a priori finite-dimensionalizing approach such as gridding versus the proposed direct approach is indeed interesting, although we do not undertake this question.",
+  "area": "other",
+  "subject_classification": "Stochastic Optimization; Optimization over Measures",
+  "keywords": [
+    "Frank--Wolfe",
+    "optimization over measures",
+    "gridding discretization",
+    "computational complexity",
+    "influence function",
+    "particle methods"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09177874999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09177874999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414427428/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

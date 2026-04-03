@@ -1,0 +1,55 @@
+{
+  "problem_id": "W4414427837_p0",
+  "paper_id": "W4414427837",
+  "source_paper": "W4414427837",
+  "source_paper_title": "Popular Maximum-Utility Matchings with Matroid Constraints",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0633",
+  "source_paper_authors": [
+    "Gergely Cs\u00e1ji",
+    "Tam\u00e1s Kir\u00e1ly",
+    "Kenjiro Takazawa",
+    "Yu Yokoi"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, Section 1.2 (Hardness results discussion leading to Theorem 4); reiterated Page 22, Section 5.1 (One-sided Preferences Model)\n\nFor the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
+  "title": "Deterministic polynomial-time solvability of the Exact Matching problem in bipartite graphs",
+  "latex": "Given a bipartite graph \\(G=(A\\cup B,E)\\) with \\(|A|=|B|\\), suppose each edge \\(e\\in E\\) is colored either red or blue. For an integer \\(k\\in\\{0,1,\\dots,|A|\\}\\), define the decision problem:\n\\[\n\\text{\\bf Exact-Matching}(G,k):\\ \\text{Does there exist a perfect matching }M\\subseteq E\\text{ such that }|\\{e\\in M: e\\text{ is red}\\}|=k?\n\\]\nThe problem is to design a deterministic algorithm that, for every input \\((G,k)\\), decides \\(\\text{Exact-Matching}(G,k)\\) in time polynomial in \\(|A|+|B|+|E|\\).",
+  "location_in_paper": "Page 6, Section 1.2 (Hardness results discussion leading to Theorem 4); reiterated Page 22, Section 5.1 (One-sided Preferences Model)",
+  "open_problem_quote": "For the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
+  "area": "other",
+  "subject_classification": "Computational Complexity in Combinatorial Optimization",
+  "keywords": [
+    "exact matching",
+    "bipartite perfect matching",
+    "deterministic polynomial-time algorithm",
+    "edge-colored graphs",
+    "complexity theory"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0777805,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0777805
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414427837/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

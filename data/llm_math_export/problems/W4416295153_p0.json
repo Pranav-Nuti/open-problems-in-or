@@ -8,25 +8,28 @@
     "Rui Chen",
     "Haoran Zhu"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 5 (Concluding Remarks), page 16 (PDF page 16/17)\n\nIt is still open whether it can be done in time f(K)\u00b7 poly(n) where f is some computable function independent of n, i.e., whether the knapsack facet recognition problem is fixed-parameter tractable.",
+  "context": "Section 5 (Concluding Remarks), page 16 (PDF page 16 / 17)\n\nIt is still open whether it can be done in time \\(f(K)\\cdot \\mathrm{poly}(n)\\) where \\(f\\) is some computable function independent of \\(n\\), i.e., whether the knapsack facet recognition problem is fixed-parameter tractable.",
   "title": "Fixed-parameter tractability of knapsack facet recognition parameterized by the number of distinct coefficients",
-  "latex": "Let \\(n\\in\\mathbb{N}\\). Given \\(a\\in\\mathbb{N}^n\\) and \\(b\\in\\mathbb{N}\\), define the (0\u20131) knapsack set \\(Q:=\\{x\\in\\{0,1\\}^n: a^\\top x\\le b\\}\\) and its knapsack polytope \\(P:=\\mathrm{conv}(Q)\\subseteq\\mathbb{R}^n\\). Given an integer inequality \\(\\alpha^\\top x\\le \\beta\\) with \\((\\alpha,\\beta)\\in\\mathbb{Z}^{n+1}\\), let \\(K:=|\\alpha|_+ := |\\{\\alpha_i: \\alpha_i>0,\\ i\\in[n]\\}|\\) be the number of distinct positive coefficients in \\(\\alpha\\). Define the decision problem \\(\\mathrm{KNAPSACK\\_FACETS}\\): decide whether \\(\\alpha^\\top x\\le \\beta\\) defines a facet of \\(P\\) (i.e., it is valid for \\(P\\), and the face \\(F:=\\{x\\in P: \\alpha^\\top x=\\beta\\}\\) has dimension \\(\\dim(P)-1\\)).\n\nProblem: Determine whether there exists a computable function \\(f:\\mathbb{N}\\to\\mathbb{N}\\) and a polynomial \\(p\\) such that \\(\\mathrm{KNAPSACK\\_FACETS}\\) can be solved for all inputs in time \\(f(K)\\cdot p(n,\\langle a,b,\\alpha,\\beta\\rangle)\\), i.e., whether \\(\\mathrm{KNAPSACK\\_FACETS}\\) is fixed-parameter tractable when parameterized by \\(K=|\\alpha|_+\\).",
-  "location_in_paper": "Section 5 (Concluding Remarks), page 16 (PDF page 16/17)",
-  "open_problem_quote": "It is still open whether it can be done in time f(K)\u00b7 poly(n) where f is some computable function independent of n, i.e., whether the knapsack facet recognition problem is fixed-parameter tractable.",
-  "subject_classification": "Parameterized Complexity / Combinatorial Optimization",
+  "latex": "Given integers \\(n\\in\\mathbb{N}\\), \\(a\\in\\mathbb{N}^n\\), \\(b\\in\\mathbb{N}\\) with \\(\\max_{i\\in[n]} a_i\\le b\\), define the \\((0,1)\\) knapsack set\n\\[\nQ(a,b):=\\{x\\in\\{0,1\\}^n: a^\\top x\\le b\\}\n\\]\nand its knapsack polytope \\(P(a,b):=\\mathrm{conv}(Q(a,b))\\subseteq\\mathbb{R}^n\\).\nLet \\(\\alpha\\in\\mathbb{Z}_+^n\\) and \\(\\beta\\in\\mathbb{Z}_+\\), and define \\(K:=\\lvert\\{\\alpha_i: \\alpha_i>0,\\ i\\in[n]\\}\\rvert\\), i.e., the number of distinct positive values among the coefficients of \\(\\alpha\\).\nConsider the decision problem:\n- Input: \\((a,b,\\alpha,\\beta)\\) as above.\n- Question: Does the inequality \\(\\alpha^\\top x\\le \\beta\\) define a facet of \\(P(a,b)\\)?\n\nProblem: Determine whether there exists a computable function \\(f:\\mathbb{N}\\to\\mathbb{N}\\), independent of \\(n\\), and an algorithm that solves the above decision problem in time \\(f(K)\\cdot \\mathrm{poly}(n,\\lVert a,b,\\alpha,\\beta\\rVert)\\), where \\(\\lVert\\cdot\\rVert\\) denotes the input encoding length. Equivalently, is knapsack facet recognition fixed-parameter tractable (FPT) when parameterized by \\(K\\), the number of distinct positive coefficients in \\(\\alpha\\)?",
+  "location_in_paper": "Section 5 (Concluding Remarks), page 16 (PDF page 16 / 17)",
+  "open_problem_quote": "It is still open whether it can be done in time \\(f(K)\\cdot \\mathrm{poly}(n)\\) where \\(f\\) is some computable function independent of \\(n\\), i.e., whether the knapsack facet recognition problem is fixed-parameter tractable.",
+  "area": "other",
+  "subject_classification": "Combinatorial Optimization / Parameterized Complexity",
   "keywords": [
     "knapsack polytope",
     "facet recognition",
     "fixed-parameter tractability",
     "parameterized complexity",
     "distinct coefficients",
-    "Dp-completeness"
+    "integer programming"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.03967775,
+    "extractor_total_cost_usd": 0.040845000000000006,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.03967775
+    "total_cost_usd": 0.040845000000000006
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4416295153/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416295153/problems.json",
     "verification_source": null,
     "literature_source": null
   }

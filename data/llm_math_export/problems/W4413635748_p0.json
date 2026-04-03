@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4413635748_p0",
+  "paper_id": "W4413635748",
+  "source_paper": "W4413635748",
+  "source_paper_title": "On the Uniform Convergence of Subdifferentials in Stochastic Optimization and Learning",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0533",
+  "source_paper_authors": [
+    "Feng Ruan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Discussion), page 24\u201325\n\nCan Theorem 5 be extended to other weakly-convex models, such as max-of-smooth functions [56, 57]? Extending this theorem could provide tools for solving other weakly-convex optimization problems.",
+  "title": "Extend uniform subdifferential convergence rates (Theorem 5) to stochastic max-of-smooth weakly convex objectives",
+  "latex": "Given a probability space \\((\\Xi,\\mathcal{G},\\mathbb{P})\\) and i.i.d. samples \\(\\xi_1,\\dots,\\xi_m\\sim \\mathbb{P}\\), let \\(O\\subseteq\\mathbb{R}^d\\) be a nonempty open set and \\(X\\subseteq\\mathbb{R}^d\\) be a nonempty closed convex set. For each \\(\\xi\\in\\Xi\\), let \\(\\ell(\\cdot,\\xi):\\mathbb{R}^d\\to\\mathbb{R}\\) be a function of the form\n\\[\n\\ell(x,\\xi)=\\max_{j\\in\\{1,\\dots,J\\}} \\ell_j(x,\\xi),\n\\]\nwhere \\(J\\in\\mathbb{N}\\) is fixed and, for each \\(j\\), the map \\(x\\mapsto \\ell_j(x,\\xi)\\) is \\(C^1\\) on \\(O\\).\nDefine the population and empirical objectives\n\\[\n\\phi(x)=\\mathbb{E}[\\ell(x,\\xi)],\\qquad \\phi_S(x)=\\frac{1}{m}\\sum_{i=1}^m \\ell(x,\\xi_i),\n\\]\nand for a closed convex regularizer \\(R:\\mathbb{R}^d\\to\\mathbb{R}\\) define\n\\[\n\\varphi(x)=\\phi(x)+R(x)+\\iota_X(x),\\qquad \\varphi_S(x)=\\phi_S(x)+R(x)+\\iota_X(x),\n\\]\nwhere \\(\\iota_X\\) is the indicator of \\(X\\).\nAssume that for every \\(\\xi\\in\\Xi\\), \\(\\ell(\\cdot,\\xi)\\) is locally weakly convex on \\(O\\) and \\(\\phi(x)<\\infty\\) for all \\(x\\in O\\). The problem is to establish nonasymptotic high-probability bounds (with explicit dependence on \\(d\\), \\(m\\), and a suitable complexity parameter of the class \\(\\{x\\mapsto \\ell(x,\\xi):x\\in O\\}\\)) of the form\n\\[\n\\mathbb{P}^*\\Big(\\sup_{x\\in X\\cap O} H(\\partial\\varphi(x),\\partial\\varphi_S(x)) \\le \\varepsilon(m,\\delta,d,\\text{complexity})\\Big)\\ge 1-\\delta,\n\\]\nwhere \\(H\\) denotes the Hausdorff distance between compact convex subsets of \\(\\mathbb{R}^d\\), \\(\\partial\\) denotes the Fr\\'echet subdifferential, \\(\\mathbb{P}^*\\) is outer probability (to address measurability of suprema), and \\(\\varepsilon\\) should ideally match the \\(m^{-1/2}\\)-type rate (up to logarithmic factors) achieved in Theorem 5 for convex-composite objectives.",
+  "location_in_paper": "Section 7 (Discussion), page 24\u201325",
+  "open_problem_quote": "Can Theorem 5 be extended to other weakly-convex models, such as max-of-smooth functions [56, 57]? Extending this theorem could provide tools for solving other weakly-convex optimization problems.",
+  "area": "other",
+  "subject_classification": "Stochastic Optimization",
+  "keywords": [
+    "weakly convex optimization",
+    "subdifferential convergence",
+    "max-of-smooth functions",
+    "uniform convergence",
+    "Hausdorff distance",
+    "sample average approximation"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08469650000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08469650000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413635748/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

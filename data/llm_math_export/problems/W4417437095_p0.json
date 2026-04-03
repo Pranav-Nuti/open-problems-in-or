@@ -10,25 +10,28 @@
     "Erel Segal-Halevi",
     "Warut Suksompong"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 8 (Conclusion), page 19\n\nDoes Theorem 3 also hold when weakening group-strategyproofness to strategyproofness? Is continuity required for the characterization of the Nash product rule?",
-  "title": "Characterization of Nash product rule without continuity (and with only strategyproofness) under Leontief utilities",
-  "latex": "Given integers \\(n\\ge 2\\) and \\(m\\ge 2\\), let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{j=1}^m q_j=1\\}\\) be the simplex of budget distributions over alternatives \\(M=[m]\\). A profile is \\(P=(p_1,\\dots,p_n)\\in (\\Delta^m)^n\\), where \\(p_i\\) is agent \\(i\\)'s peak (ideal distribution). Agents have Leontief utilities induced by their peaks: for each agent \\(i\\), let \\(M_i:=\\{j\\in M: p_{i,j}>0\\}\\neq\\emptyset\\) and define\n\\[\n u_i^P(q)=\\min_{j\\in M_i}\\frac{q_j}{p_{i,j}}\\in[0,1].\n\\]\nDefine the Nash product rule \\(\\mathrm{NASH}:(\\Delta^m)^n\\to \\Delta^m\\) by\n\\[\n\\mathrm{NASH}(P)\\in\\arg\\max_{q\\in\\Delta^m}\\prod_{i=1}^n u_i^P(q),\n\\]\nwhich is known to be single-valued.\nA mechanism is any function \\(f:(\\Delta^m)^n\\to\\Delta^m\\).\n- \\(f\\) is strategyproof (SP) if for every agent \\(i\\), every profile \\(P\\), and every misreport \\(p_i'\\in\\Delta^m\\) (letting \\(P'=(p_i',p_{-i})\\)), we have \\(u_i^P(f(P))\\ge u_i^P(f(P'))\\).\n- \\(f\\) satisfies core fair share (CFS) if for every profile \\(P\\), there is no coalition \\(S\\subseteq [n]\\) and distribution \\(q'\\in\\Delta^m\\) such that for all \\(q''\\in\\Delta^m\\) and all \\(i\\in S\\),\n\\[\n u_i^P\\Big(\\tfrac{|S|}{n}q' + \\big(1-\\tfrac{|S|}{n}\\big)q''\\Big) > u_i^P(f(P)).\n\\]\nProblem: Determine whether \\(\\mathrm{NASH}\\) is the unique mechanism \\(f\\) satisfying CFS and SP on the Leontief domain, without assuming continuity and without strengthening SP to group-strategyproofness. Equivalently, is every (possibly discontinuous) strategyproof and core-fair-share mechanism necessarily equal to \\(\\mathrm{NASH}\\) on all profiles \\(P\\in(\\Delta^m)^n\\)?",
-  "location_in_paper": "Section 8 (Conclusion), page 19",
-  "open_problem_quote": "Does Theorem 3 also hold when weakening group-strategyproofness to strategyproofness? Is continuity required for the characterization of the Nash product rule?",
-  "subject_classification": "Mechanism Design / Social Choice (Strategyproof Aggregation)",
+  "context": "Section 5.2 (\\(\\ell_\\infty\\) preferences), page 15 (PDF page 15 / 44 in the provided parsed text)\n\nWe conjecture that the incompatibility of efficiency, strategyproofness, and weak fairness conditions holds for \\(\\ell_p\\) disutilities for any \\(1 \\le p \\le \\infty\\), when \\(m \\ge 3\\) and \\(n \\ge 3\\).",
+  "title": "Impossibility of efficiency, strategyproofness, and proportionality for \\(\\ell_p\\) disutilities with \\(m\\ge 3\\) and \\(n\\ge 3\\)",
+  "latex": "Given integers \\(n\\ge 3\\) and \\(m\\ge 3\\), let \\(N=\\{1,\\dots,n\\}\\) be a set of agents and \\(M=\\{1,\\dots,m\\}\\) a set of alternatives. Let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}: \\sum_{j\\in M} q_j = 1\\}\\) be the \\(m\\)-simplex of feasible budget distributions.\n\nEach agent \\(i\\in N\\) has a peak (ideal distribution) \\(p_i\\in\\Delta^m\\). For a fixed \\(p\\in[1,\\infty]\\), define the \\(\\ell_p\\) disutility of agent \\(i\\) for an outcome \\(q\\in\\Delta^m\\) by\n\\[\n d_i(q) := \\|p_i-q\\|_p,\n\\]\nwhere for \\(p\\in[1,\\infty)\\), \\(\\|x\\|_p := \\left(\\sum_{j\\in M} |x_j|^p\\right)^{1/p}\\), and for \\(p=\\infty\\), \\(\\|x\\|_\\infty := \\max_{j\\in M} |x_j|\\). Agent \\(i\\)'s preference ranks outcomes by smaller disutility.\n\nA (tops-only) budget aggregation mechanism is a function \\(f:(\\Delta^m)^n\\to \\Delta^m\\) that maps every profile \\(P=(p_1,\\dots,p_n)\\) to an outcome \\(q=f(P)\\).\n\nDefine:\n- Strategyproofness: for every profile \\(P\\), every agent \\(i\\in N\\), and every misreport \\(p_i'\\in\\Delta^m\\), letting \\(P'=(p_i',p_{-i})\\), it holds that \\(\\|p_i-f(P)\\|_p \\le \\|p_i-f(P')\\|_p\\).\n- Pareto efficiency: for every profile \\(P\\), there is no \\(q'\\in\\Delta^m\\) such that \\(\\|p_i-q'\\|_p \\le \\|p_i-f(P)\\|_p\\) for all \\(i\\in N\\) and \\(\\|p_{i^*}-q'\\|_p < \\|p_{i^*}-f(P)\\|_p\\) for some \\(i^*\\in N\\).\n- Proportionality: for every single-minded profile \\(P\\) (i.e., every \\(p_{i,j}\\in\\{0,1\\}\\)), the outcome satisfies \\(f(P)_j = \\frac{1}{n}\\sum_{i\\in N} p_{i,j}\\) for all \\(j\\in M\\).\n\nproblem (conjecture): Prove or disprove that for every \\(p\\in[1,\\infty]\\), there exists no mechanism \\(f\\) that simultaneously satisfies Pareto efficiency, strategyproofness (w.r.t. \\(\\ell_p\\) disutilities), and proportionality whenever \\(m\\ge 3\\) and \\(n\\ge 3\\).",
+  "location_in_paper": "Section 5.2 (\\(\\ell_\\infty\\) preferences), page 15 (PDF page 15 / 44 in the provided parsed text)",
+  "open_problem_quote": "We conjecture that the incompatibility of efficiency, strategyproofness, and weak fairness conditions holds for \\(\\ell_p\\) disutilities for any \\(1 \\le p \\le \\infty\\), when \\(m \\ge 3\\) and \\(n \\ge 3\\).",
+  "area": "algorithmic mechanism design",
+  "subject_classification": "Social Choice Theory / Mechanism Design",
   "keywords": [
     "budget aggregation",
-    "Leontief utilities",
-    "Nash product rule",
     "strategyproofness",
-    "core fair share",
-    "axiomatic characterization"
+    "Pareto efficiency",
+    "proportionality",
+    "\\(\\ell_p\\) norms",
+    "impossibility theorems"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -40,13 +43,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.0748335,
+    "extractor_total_cost_usd": 0.07993125,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0748335
+    "total_cost_usd": 0.07993125
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4417437095/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417437095/problems.json",
     "verification_source": null,
     "literature_source": null
   }

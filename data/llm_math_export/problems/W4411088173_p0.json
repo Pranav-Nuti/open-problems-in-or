@@ -1,0 +1,54 @@
+{
+  "problem_id": "W4411088173_p0",
+  "paper_id": "W4411088173",
+  "source_paper": "W4411088173",
+  "source_paper_title": "Higher-Order Expansion and Bartlett Correctability of Distributionally Robust Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0191",
+  "source_paper_authors": [
+    "Shengyi He",
+    "Henry Lam"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 8 (\"Generalization to Multidimensional Settings\"), page 16; also mentioned as a limitation/future work in the Introduction, page 3.\n\nOn the other hand, a current limitation of the DRO formulation (1) is that it is single-dimensional, whereas EL can generate multi-dimensional confidence regions. We leave the investigation of auxiliary information incorporation and multi-dimensional generalization to the future, but provide some hints to the latter extension in Section 8.",
+  "title": "Higher-order Bartlett-type correction for multidimensional divergence-based DRO confidence regions",
+  "latex": "Given i.i.d. data \\(X_1,\\dots,X_n\\) drawn from an unknown distribution \\(P_0\\) on a measurable space \\((\\mathcal{X},\\mathcal{F})\\), let \\(\\hat P_n:=\\frac1n\\sum_{i=1}^n\\delta_{X_i}\\) be the empirical distribution. Fix a convex function \\(\\varphi:(0,\\infty)\\to\\mathbb{R}\\) with \\(\\varphi(1)=\\varphi'(1)=0\\) and define the \\(\\varphi\\)-divergence\n\\[\nD_{\\varphi}(P\\|Q):=\\int \\varphi\\!\\left(\\frac{\\mathrm{d}P}{\\mathrm{d}Q}\\right)\\,\\mathrm{d}Q,\n\\]\nfor probability measures \\(P\\) absolutely continuous with respect to \\(Q\\). Let \\(\\psi\\) be a (nonparametric) von Mises differentiable functional mapping distributions on \\((\\mathcal{X},\\mathcal{F})\\) into \\(\\mathbb{R}^d\\) for some \\(d\\ge 2\\).\n\nFor a radius \\(\\eta>0\\), define the divergence-based DRO image set (a candidate confidence region)\n\\[\nA_{n,\\eta}:=\\{\\psi(P):\\; P\\ \\text{is a probability measure on }(\\mathcal{X},\\mathcal{F}),\\ D_{\\varphi}(P\\|\\hat P_n)\\le \\eta\\}\\subseteq\\mathbb{R}^d.\n\\]\n\nThe problem is to design an explicit data-dependent calibration \\(\\eta=\\eta(n,\\alpha,\\hat P_n)\\) (e.g., a Bartlett-type correction to the usual \\(\\eta\\asymp n^{-1}\\) choice) and to prove, under verifiable regularity conditions on \\(\\varphi\\) and \\(\\psi\\), the higher-order coverage guarantee\n\\[\n\\mathbb{P}_{P_0}\\big(\\psi(P_0)\\in A_{n,\\eta(n,\\alpha,\\hat P_n)}\\big)=1-\\alpha+O(n^{-3/2})\\quad\\text{as }n\\to\\infty.\n\\]\nEquivalently, characterize (and compute/estimate) the correction terms needed so that the multidimensional region \\(A_{n,\\eta}\\) attains \\(O(n^{-3/2})\\) coverage error, extending the paper\u2019s one-dimensional Bartlett-type correction for \\(\\psi(P_0)\\in\\mathbb{R}\\).",
+  "location_in_paper": "Section 8 (\"Generalization to Multidimensional Settings\"), page 16; also mentioned as a limitation/future work in the Introduction, page 3.",
+  "open_problem_quote": "On the other hand, a current limitation of the DRO formulation (1) is that it is single-dimensional, whereas EL can generate multi-dimensional confidence regions. We leave the investigation of auxiliary information incorporation and multi-dimensional generalization to the future, but provide some hints to the latter extension in Section 8.",
+  "area": "other",
+  "subject_classification": "Nonparametric Inference / Distributionally Robust Optimization",
+  "keywords": [
+    "distributionally robust optimization",
+    "phi-divergence",
+    "multidimensional confidence regions",
+    "Bartlett correction",
+    "von Mises functional",
+    "higher-order asymptotics"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.118349,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.118349
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411088173/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

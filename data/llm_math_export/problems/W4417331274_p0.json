@@ -9,26 +9,28 @@
     "Xiang Yu",
     "Jiacheng Zhang"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 5.1, after Example 2 (around p. 28 in the provided parse)\n\nAs a sharp contrast, in our framework with a general attitude function\n\u03d5(x), it is an appealing problem to find a general characterization of the optimal equilibrium\nif it exists, which will be left for our future research.",
-  "title": "General characterization of the optimal equilibrium under nonlinear aggregation attitude",
-  "latex": "Given a time-inconsistent optimal stopping problem under aggregation of diverse discount rates, let \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge0},\\mathbb P)\\) support a one-dimensional time-homogeneous diffusion \\(X^x=(X^x_t)_{t\\ge0}\\) with \\(X^x_0=x\\in\\mathbb R\\), and let \\(\\rho\\) be an \\([0,\\infty)\\)-valued random variable independent of \\(X^x\\) with distribution function \\(F_\\rho\\). Fix a Borel measurable payoff \\(g:\\mathbb R\\to\\mathbb R\\) and a strictly increasing aggregation attitude function \\(\\phi:\\mathbb R\\to\\mathbb R\\). For any Borel set \\(R\\subseteq\\mathbb R\\), define the hitting time \\(\\tau(x,R):=\\inf\\{t>0: X^x_t\\in R\\}\\) and the aggregated continuation value\n\\[\nJ(x,R):=\\int_0^{\\infty} \\phi\\Big(\\mathbb E\\big[e^{-r\\tau(x,R)}\\,g(X^x_{\\tau(x,R)})\\big]\\Big)\\,dF_\\rho(r).\n\\]\nDefine the policy improvement operator \\(\\Theta\\) by\n\\[\n\\Theta(R):=R\\cup\\{x\\in\\mathbb R: \\phi(g(x))>J(x,R)\\},\n\\]\nand call \\(R\\) a (mild) equilibrium if \\(\\Theta(R)=R\\). Let \\(\\mathcal E\\) be the set of all equilibria. For any \\(R\\in\\mathcal E\\), define its induced equilibrium value\n\\[\nV(x,R):=\\max\\{\\phi(g(x)),\\,J(x,R)\\},\\qquad x\\in\\mathbb R.\n\\]\nAn equilibrium \\(R^\\star\\in\\mathcal E\\) is called an optimal equilibrium if\n\\[\nV(x,R^\\star)\\ge V(x,R)\\quad\\text{for all }x\\in\\mathbb R\\text{ and all }R\\in\\mathcal E.\n\\]\nProblem: Under general choices of \\(\\phi\\) (in particular when \\(\\phi\\) does not satisfy the paper\u2019s sufficient condition C-(iii)) and general diffusion/payoff specifications for which equilibria may not be totally ordered by set inclusion, give conditions under which an optimal equilibrium exists, and if it exists, provide a general characterization (e.g., in terms of \\(\\Theta\\), set operations on \\(\\mathcal E\\), or an analytic characterization such as an extended HJB/free-boundary condition) of such an optimal equilibrium \\(R^\\star\\).",
-  "location_in_paper": "Section 5.1, after Example 2 (around p. 28 in the provided parse)",
-  "open_problem_quote": "As a sharp contrast, in our framework with a general attitude function\n\u03d5(x), it is an appealing problem to find a general characterization of the optimal equilibrium\nif it exists, which will be left for our future research.",
-  "subject_classification": "Stochastic Control / Optimal Stopping (Time-Inconsistent Decisions)",
+  "context": "Section 5.1 (Geometric Brownian motion), near Example 2 / Remark 5.3, around page 28 (PDF pp. 27\u201328 of the parsed text)\n\nAs a sharp contrast, in our framework with a general attitude function \\(\\varphi(x)\\), it is an appealing problem to find a general characterization of the optimal equilibrium if it exists, which will be left for our future research.",
+  "title": "General characterization of the optimal equilibrium in time-inconsistent stopping with nonlinear aggregation over heterogeneous discount rates",
+  "latex": "Given a filtered probability space \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge 0},\\mathbb P)\\) supporting a one-dimensional time-homogeneous diffusion \\(X^x=(X^x_t)_{t\\ge 0}\\) with initial state \\(X^x_0=x\\in\\mathbb R\\), let \\(\\mathcal T\\) be the set of all \\((\\mathcal F_t)\\)-stopping times. Let \\(g:\\mathbb R\\to\\mathbb R\\) be a (measurable) payoff function and let \\(\\rho\\) be an \\([0,\\infty)\\)-valued random variable, independent of \\(X^x\\), with distribution function \\(F_\\rho\\). Let \\(\\varphi:\\mathbb R\\to\\mathbb R\\) be a strictly increasing (not necessarily linear) aggregation/attitude function.\n\nFor any Borel set \\(R\\subseteq\\mathbb R\\), define the hitting time\n\\[\n\\tau(x,R):=\\inf\\{t>0: X^x_t\\in R\\}\n\\]\n(with the convention \\(\\inf\\emptyset=\\infty\\)), and define the aggregated continuation value\n\\[\nJ(x,R):=\\int_{0}^{\\infty} \\varphi\\Big(\\mathbb E\\big[e^{-r\\tau(x,R)}\\,g\\big(X^x_{\\tau(x,R)}\\big)\\big]\\Big)\\,dF_\\rho(r).\n\\]\nDefine the induced value of stopping now versus continuing under \\(R\\) as\n\\[\nV(x,R):=\\max\\{\\varphi(g(x)),\\,J(x,R)\\}.\n\\]\nLet \\(\\Theta\\) be the policy-improvement operator on Borel sets defined by\n\\[\n\\Theta(R):=\\{x\\in R: \\varphi(g(x))\\ge J(x,R)\\}\\cup R,\n\\]\nand call \\(R\\) a (mild) equilibrium if \\(\\Theta(R)=R\\). Let \\(\\mathcal E\\) denote the set of all equilibria.\n\nProblem: Provide general conditions on \\(X^x\\), \\(g\\), \\(F_\\rho\\), and \\(\\varphi\\) (allowing \\(\\varphi\\) to violate the sufficient condition \\(x\\mapsto \\varphi'(x)\\,x\\) increasing) under which an optimal equilibrium exists, and if it exists, characterize an optimal equilibrium \\(R^\\star\\in\\mathcal E\\) satisfying\n\\[\nV(x,R^\\star)\\ge V(x,R)\\quad\\text{for all }x\\in\\mathbb R\\text{ and all }R\\in\\mathcal E.\n\\]\nIn particular, determine whether \\(R^\\star\\) can be expressed through an explicit set operation on \\(\\mathcal E\\) (e.g., an intersection/union or other canonical selection), or via a tractable analytic characterization (e.g., a barrier-type characterization) in the general nonlinear aggregation setting.",
+  "location_in_paper": "Section 5.1 (Geometric Brownian motion), near Example 2 / Remark 5.3, around page 28 (PDF pp. 27\u201328 of the parsed text)",
+  "open_problem_quote": "As a sharp contrast, in our framework with a general attitude function \\(\\varphi(x)\\), it is an appealing problem to find a general characterization of the optimal equilibrium if it exists, which will be left for our future research.",
+  "area": "other",
+  "subject_classification": "Stochastic Control and Optimal Stopping",
   "keywords": [
-    "time-inconsistent optimal stopping",
-    "equilibrium stopping policies",
+    "time-inconsistent stopping",
     "optimal equilibrium",
-    "nonlinear aggregation preference",
-    "diverse discount rates",
-    "fixed-point characterization",
-    "one-dimensional diffusions"
+    "mild equilibrium",
+    "heterogeneous discount rates",
+    "smooth ambiguity aggregation",
+    "diffusion processes"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -40,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.08097075000000001,
+    "extractor_total_cost_usd": 0.08478400000000001,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08097075000000001
+    "total_cost_usd": 0.08478400000000001
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4417331274/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417331274/problems.json",
     "verification_source": null,
     "literature_source": null
   }

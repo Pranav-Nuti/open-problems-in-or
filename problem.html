@@ -25,7 +25,7 @@
   </header>
 
   <main>
-    <a href="index.html" class="back-link">← Back to all problems</a>
+    <a href="index.html" class="back-link" id="back-link">← Back to all problems</a>
 
     <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
       <strong>Not verified as open.</strong>
@@ -39,6 +39,10 @@
       <h1 class="problem-title" id="problem-title">Loading...</h1>
       <div class="problem-meta-grid">
         <div class="problem-meta-item">
+          <span class="problem-meta-label">Problem number</span>
+          <span class="problem-meta-value" id="problem-number">—</span>
+        </div>
+        <div class="problem-meta-item">
           <span class="problem-meta-label">Source paper</span>
           <span class="problem-meta-value" id="source-paper"></span>
         </div>
@@ -49,6 +53,10 @@
         <div class="problem-meta-item">
           <span class="problem-meta-label">Subject classification</span>
           <span class="problem-meta-value" id="subject-classification"></span>
+        </div>
+        <div class="problem-meta-item">
+          <span class="problem-meta-label">Area</span>
+          <span class="problem-meta-value" id="problem-area"></span>
         </div>
         <div class="problem-meta-item">
           <span class="problem-meta-label">Source paper authors</span>
@@ -66,12 +74,17 @@
     </div>
 
     <section class="problem-section">
-      <h2>Problem statement (LaTeX)</h2>
+      <h2>Background</h2>
+      <div id="problem-background" class="math-content"></div>
+    </section>
+
+    <section class="problem-section">
+      <h2>Problem definition</h2>
       <div class="source-actions">
         <button id="toggle-raw-latex-btn" class="inline-action-btn" type="button">View raw LaTeX source</button>
       </div>
       <pre id="raw-problem-latex" class="raw-source-block" hidden></pre>
-      <div id="problem-latex"></div>
+      <div id="problem-definition" class="problem-definition-box math-content"></div>
     </section>
 
     <section class="problem-section">
@@ -105,6 +118,35 @@
       return div.innerHTML;
     }
 
+    function formatTitleWithMath(title) {
+      const raw = String(title ?? "");
+      if (raw.includes("\\(") || raw.includes("\\[") || raw.includes("$")) {
+        return escapeHtml(raw);
+      }
+      const words = raw.split(" ");
+      return words.map((word) => {
+        if (!word) {
+          return "";
+        }
+        let core = word;
+        let prefix = "";
+        let suffix = "";
+        while (core && "([{".includes(core[0])) {
+          prefix += core[0];
+          core = core.slice(1);
+        }
+        while (core && ".,;:!?)]}".includes(core[core.length - 1])) {
+          suffix = core[core.length - 1] + suffix;
+          core = core.slice(0, -1);
+        }
+        const hasMathToken = core.includes("\\") || core.includes("_") || core.includes("^");
+        if (!hasMathToken || !core) {
+          return escapeHtml(word);
+        }
+        return `${escapeHtml(prefix)}\\(${escapeHtml(core)}\\)${escapeHtml(suffix)}`;
+      }).join(" ");
+    }
+
     function getProblemId() {
       const params = new URLSearchParams(window.location.search);
       const problemId = params.get("id");
@@ -114,12 +156,73 @@
       return problemId;
     }
 
+    function getRequestedPage() {
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get("page");
+      if (!raw) {
+        return null;
+      }
+      const parsed = Number.parseInt(raw, 10);
+      if (!Number.isFinite(parsed) || parsed < 1) {
+        return null;
+      }
+      return parsed;
+    }
+
+    function getRequestedProblemNumber() {
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get("n");
+      if (!raw) {
+        return null;
+      }
+      const parsed = Number.parseInt(raw, 10);
+      if (!Number.isFinite(parsed) || parsed < 1) {
+        return null;
+      }
+      return parsed;
+    }
+
     async function loadProblem(problemId) {
       const response = await fetch(`data/llm_math_export/problems/${encodeURIComponent(problemId)}.json`);
       if (!response.ok) {
         throw new Error(`Failed to load problem ${problemId}: ${response.status}`);
       }
       return await response.json();
+    }
+
+    async function loadIndex() {
+      const response = await fetch("data/llm_math_export/index.json");
+      if (!response.ok) {
+        throw new Error(`Failed to load export index: ${response.status}`);
+      }
+      const payload = await response.json();
+      if (!payload || !Array.isArray(payload.problems)) {
+        throw new Error("Invalid export index payload.");
+      }
+      return payload.problems;
+    }
+
+    function findProblemNumberFromIndex(indexRows, problemId) {
+      for (let i = 0; i < indexRows.length; i += 1) {
+        const row = indexRows[i];
+        if (row && row.problem_id === problemId) {
+          return i + 1;
+        }
+      }
+      return null;
+    }
+
+    function computeListPage(problemNumber, pageSize) {
+      if (!problemNumber) {
+        return 1;
+      }
+      return Math.max(1, Math.floor((problemNumber - 1) / pageSize) + 1);
+    }
+
+    function configureBackLink(pageNumber) {
+      const backLink = document.getElementById("back-link");
+      backLink.href = `index.html?page=${pageNumber}`;
+      backLink.textContent = `← Back to problems list (page ${pageNumber})`;
     }
 
     function formatAuthorList(authors) {
@@ -259,10 +362,20 @@
       const el = document.getElementById("source-paper");
       const title = payload.source_paper_title || payload.source_paper || payload.paper_id || "";
       const url = payload.source_paper_url || "";
+      const journal = payload.source_paper_journal || "";
+      const publicationYear = payload.source_paper_publication_year;
+      const details = [];
+      if (journal) {
+        details.push(journal);
+      }
+      if (publicationYear) {
+        details.push(String(publicationYear));
+      }
+      const detailSuffix = details.length > 0 ? ` (${escapeHtml(details.join(", "))})` : "";
       if (url) {
-        el.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`;
+        el.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>${detailSuffix}`;
       } else {
-        el.textContent = title;
+        el.textContent = `${title}${details.length > 0 ? ` (${details.join(", ")})` : ""}`;
       }
     }
 
@@ -280,10 +393,27 @@
       return d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
     }
 
-    function renderProblem(payload) {
+    function splitBackgroundAndDefinition(rawLatex) {
+      const text = String(rawLatex || "").trim();
+      const marker = "\n\nproblem:";
+      const markerIndex = text.toLowerCase().indexOf(marker);
+      if (markerIndex < 0) {
+        return {
+          background: "",
+          definition: text,
+        };
+      }
+      return {
+        background: text.slice(0, markerIndex).trim(),
+        definition: text.slice(markerIndex + 2).trim(),
+      };
+    }
+
+    function renderProblem(payload, problemNumber) {
       document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
-      document.getElementById("problem-title").textContent = payload.title;
+      document.getElementById("problem-title").innerHTML = formatTitleWithMath(payload.title);
+      document.getElementById("problem-number").textContent = problemNumber ? `#${problemNumber}` : "—";
       const v = payload.verification || {};
       const unverified = Boolean(payload.export_mode === "unverified" || v.unverified);
       const banner = document.getElementById("unverified-banner");
@@ -306,6 +436,7 @@
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
+      document.getElementById("problem-area").textContent = payload.area || "other";
       const reviewSources = payload.literature_review?.sources;
       const fallbackAuthors = Array.isArray(reviewSources) && reviewSources.length > 0
         ? _parseAuthorListFromBibtex(reviewSources[0].bibtex || "")
@@ -318,10 +449,12 @@
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
       document.getElementById("upload-date").textContent = formatUploadDate(payload.pipeline_generated_at_utc);
-      const latexEl = document.getElementById("problem-latex");
       const rawLatex = payload.latex || "";
-      latexEl.textContent = rawLatex;
-      latexEl.classList.add("math-content");
+      const split = splitBackgroundAndDefinition(rawLatex);
+      const backgroundEl = document.getElementById("problem-background");
+      backgroundEl.textContent = split.background || "No separate background section found; see problem definition below.";
+      const definitionEl = document.getElementById("problem-definition");
+      definitionEl.textContent = split.definition;
       setupRawLatexControls(rawLatex);
       const contextEl = document.getElementById("problem-context");
       contextEl.textContent = payload.context || "";
@@ -333,8 +466,14 @@
     async function boot() {
       try {
         const problemId = getProblemId();
-        const payload = await loadProblem(problemId);
-        renderProblem(payload);
+        const [payload, indexRows] = await Promise.all([loadProblem(problemId), loadIndex()]);
+        const requestedNumber = getRequestedProblemNumber();
+        const indexedNumber = findProblemNumberFromIndex(indexRows, problemId);
+        const problemNumber = requestedNumber || indexedNumber;
+        const requestedPage = getRequestedPage();
+        const pageNumber = requestedPage || computeListPage(problemNumber, 10);
+        configureBackLink(pageNumber);
+        renderProblem(payload, problemNumber);
         if (window.MathJax && window.MathJax.typesetPromise) {
           await window.MathJax.typesetPromise([document.body]);
         }

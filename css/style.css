@@ -324,6 +324,13 @@ main {
   margin: 0 0 1rem;
 }
 
+.problem-definition-box {
+  border: 1px solid var(--color-rule-heavy);
+  background: #f7f3ee;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--color-accent);
+}
+
 /* Buttons */
 .copy-bibtex-btn,
 .inline-action-btn {

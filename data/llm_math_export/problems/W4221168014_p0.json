@@ -1,0 +1,54 @@
+{
+  "problem_id": "W4221168014_p0",
+  "paper_id": "W4221168014",
+  "source_paper": "W4221168014",
+  "source_paper_title": "Zero-Sum Mean-Field Dynkin Games: Characterization and Convergence",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0080",
+  "source_paper_authors": [
+    "Boualem Djehiche",
+    "Roxana Dumitrescu"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Page 27, Remark 4.1 (end of Section 4, Propagation of chaos)\n\nThe question of convergence of \\(S\\)-saddle points of the particle system to those of the limit process is more elaborate and will be addressed in a forthcoming paper.",
+  "title": "Convergence of S-saddle points from interacting Dynkin games to the mean-field limit",
+  "latex": "Let \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\in[0,T]},\\mathbb P)\\) carry independent copies \\((B^i,N^i)_{i\\ge1}\\) of a Brownian motion and a compensated Poisson random measure, and fix \\(T>0\\). For each \\(n\\in\\mathbb N\\), consider the weakly interacting zero-sum Dynkin game of the paper with value process \\(V^{i,n}=(V^{i,n}_t)_{t\\in[0,T]}\\) for player \\(i\\in\\{1,\\dots,n\\}\\), where the payoff of player \\(i\\) depends on \\(V^{i,n}\\) and on the empirical measure \\(L_n[V^n_t]=\\frac1n\\sum_{j=1}^n\\delta_{V^{j,n}_t}\\). Assume the paper\u2019s standing hypotheses ensuring existence of a value and S-saddle points for each particle system (e.g. Assumptions 2.1 and 3.1 and the saddle-point conditions of Theorem 3.2), and assume propagation of chaos holds so that \\(V^{i,n}\\Rightarrow V^i\\) as \\(n\\to\\infty\\), where \\(V^i\\) are i.i.d. copies of the mean-field game value process \\(V\\).\n\nFor a fixed stopping time \\(S\\in\\mathcal T_0\\), define the particle-system S-saddle points by\n\\[\n\\tau^{\\star,i,n}_S := \\inf\\{t\\in[S,T]:\\ V^{i,n}_t = h_1(t, V^{i,n}_t, L_n[V^n_t])\\},\\qquad\n\\sigma^{\\star,i,n}_S := \\inf\\{t\\in[S,T]:\\ V^{i,n}_t = h_2(t, V^{i,n}_t, L_n[V^n_t])\\},\n\\]\nwhere \\(h_1\\) and \\(h_2\\) are the lower/upper obstacle functions.\nDefine the mean-field S-saddle points analogously by\n\\[\n\\tau^{\\star,i}_S := \\inf\\{t\\in[S,T]:\\ V^{i}_t = h_1(t, V^{i}_t, \\mathcal L(V^{i}_t))\\},\\qquad\n\\sigma^{\\star,i}_S := \\inf\\{t\\in[S,T]:\\ V^{i}_t = h_2(t, V^{i}_t, \\mathcal L(V^{i}_t))\\},\n\\]\nwhere \\(\\mathcal L(V^{i}_t)\\) denotes the law of \\(V^{i}_t\\).\n\nProblem: establish a rigorous convergence result for these saddle-point stopping times as \\(n\\to\\infty\\). Concretely, find verifiable sufficient conditions under which, for each fixed \\(i\\) and \\(S\\),\n\\[\n(\\tau^{\\star,i,n}_S,\\sigma^{\\star,i,n}_S) \\Rightarrow (\\tau^{\\star,i}_S,\\sigma^{\\star,i}_S) \\quad \\text{as } n\\to\\infty,\n\\]\nin an appropriate mode of convergence for stopping times (e.g. convergence in probability, stable convergence, or convergence in law on \\([0,T]^2\\)), and/or prove convergence of the induced saddle-point payoffs:\n\\[\n\\mathbb E\\big[ R^{i,n}_S(\\tau^{\\star,i,n}_S,\\sigma^{\\star,i,n}_S, V^n) \\big] \\to \\mathbb E\\big[ R_S(\\tau^{\\star,i}_S,\\sigma^{\\star,i}_S, V) \\big].\n\\]\nHere \\(R^{i,n}_S\\) is the particle payoff functional and \\(R_S\\) is its mean-field limit, both as defined in the paper.",
+  "location_in_paper": "Page 27, Remark 4.1 (end of Section 4, Propagation of chaos)",
+  "open_problem_quote": "The question of convergence of \\(S\\)-saddle points of the particle system to those of the limit process is more elaborate and will be addressed in a forthcoming paper.",
+  "area": "other",
+  "subject_classification": "Stochastic Control and Differential Games",
+  "keywords": [
+    "Dynkin games",
+    "mean-field games",
+    "saddle point",
+    "optimal stopping",
+    "propagation of chaos",
+    "reflected BSDE"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08178099999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08178099999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4221168014/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

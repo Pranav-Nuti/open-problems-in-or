@@ -9,25 +9,28 @@
     "Sen Na",
     "Mihai Anitescu"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 7, Remark 5 (Section 2.2); also reiterated Page 13, Section 4 \"Conclusions and Future Work\" (third bullet)\n\n\"Nevertheless, the dynamic regret analysis regarding the distributional robustness property remains an open question. While this topic is beyond the scope of this paper, it presents an intriguing direction for future research.\"",
-  "title": "Dynamic regret analysis of distributionally robust SMPC under inexact disturbance distribution",
-  "latex": "Given a discrete-time stochastic linear system with additive and multiplicative uncertainties\n\\[\nx_t = A(\\xi_t)x_{t-1} + B(\\xi_t)u_{t-1} + d(\\xi_t), \\qquad t=0,1,\\dots,T,\n\\]\nwith stage cost\n\\[\n\\ell(x_t,u_t;\\xi_t)=\\frac12\\begin{bmatrix}x_t\\\\u_t\\end{bmatrix}^\\top\\begin{bmatrix}Q(\\xi_t)&0\\\\0&R(\\xi_t)\\end{bmatrix}\\begin{bmatrix}x_t\\\\u_t\\end{bmatrix}-\\begin{bmatrix}q(\\xi_t)\\\\r(\\xi_t)\\end{bmatrix}^\\top\\begin{bmatrix}x_t\\\\u_t\\end{bmatrix},\n\\]\nlet \\(\\mathbb P\\) denote the (unknown) true distribution of the stochastic process \\(\\xi_{0:T}\\), and let \\(\\widehat{\\mathbb P}\\) be a nominal distribution available to the controller. Fix a Wasserstein radius \\(\\varepsilon>0\\) and define the ambiguity set\n\\[\n\\mathcal P := \\{\\mathbb Q : \\mathsf W(\\mathbb Q,\\widehat{\\mathbb P})\\le \\varepsilon\\},\n\\]\nwhere \\(\\mathsf W\\) is a Wasserstein distance on distributions over \\(\\xi_{0:T}\\).\n\nDefine the optimal expected performance under the true distribution as\n\\[\nJ^{\\star}_{\\mathbb P}(\\xi_0;w_{-1}) := \\min_{\\{u_t(\\cdot)\\}_{t=0}^T} \\; \\mathbb E_{\\mathbb P}\\Big[\\sum_{t=0}^T \\ell(x_t(\\xi_{0:t}),u_t(\\xi_{0:t});\\xi_t)\\,\\Big|\\,\\xi_0\\Big]\n\\]\nsubject to the nonanticipative dynamics above (with given \\(w_{-1}=(x_{-1},u_{-1})\\)).\n\nLet \\(\\pi^{\\mathrm{DR}}_W\\) be a distributionally robust stochastic model predictive control policy with prediction horizon \\(W\\), computed at each time \\(\\tau\\) by solving a truncated multistage problem that minimizes the worst-case conditional expected cost over \\(\\mathcal P\\) (conditioned on the observed history \\(\\xi_{0:\\tau}\\)), and applying only the first control.\n\nThe problem is to establish a nonasymptotic dynamic regret bound of the form\n\\[\n\\mathrm{Regret}_{\\mathbb P}(W) := J^{(W)}_{\\mathbb P}(\\xi_0;w_{-1}) - J^{\\star}_{\\mathbb P}(\\xi_0;w_{-1}) \\le \\text{(explicit function of }\\varepsilon, W, T, \\|w_{-1}\\|,\\text{ and problem constants)},\n\\]\nuniformly for all \\(\\mathbb P\\in\\mathcal P\\), ideally showing exponential decay in \\(W\\) (e.g., \\(\\mathrm{Regret}_{\\mathbb P}(W)\\le C\\,\\rho^W\\) up to polynomial factors), under verifiable stabilizability/detectability-type assumptions and boundedness/positive-definiteness of \\(Q(\\xi_t),R(\\xi_t)\\).",
-  "location_in_paper": "Page 7, Remark 5 (Section 2.2); also reiterated Page 13, Section 4 \"Conclusions and Future Work\" (third bullet)",
-  "open_problem_quote": "\"Nevertheless, the dynamic regret analysis regarding the distributional robustness property remains an open question. While this topic is beyond the scope of this paper, it presents an intriguing direction for future research.\"",
+  "context": "Section 2.2, Remark 5 (page 7); reiterated in Section 4, Conclusions and Future Work (page 13)\n\nNevertheless, the dynamic regret analysis regarding the distributional robustness property remains an open question.\n\nAnalyzing dynamic regret under inexact knowledge of the distribution presents an intriguing avenue for future research.",
+  "title": "Dynamic-regret guarantees for SMPC under distributional uncertainty (unknown disturbance distribution)",
+  "latex": "Given integers \\(T\\ge 1\\) and \\(W\\ge 0\\), consider the discrete-time stochastic control system\n\\[\n x_t = A(\\xi_t)x_{t-1}+B(\\xi_t)u_{t-1}+d(\\xi_t),\\qquad t=0,1,\\dots,T,\n\\]\nwith state \\(x_t\\in\\mathbb{R}^{n_x}\\), control \\(u_t\\in\\mathbb{R}^{n_u}\\), and random variable \\(\\xi_t\\in\\Xi\\). The stage cost is\n\\[\n\\ell(x_t,u_t;\\xi_t)=\\tfrac12\\big(x_t^\\top Q(\\xi_t)x_t + u_t^\\top R(\\xi_t)u_t\\big) - q(\\xi_t)^\\top x_t - r(\\xi_t)^\\top u_t.\n\\]\nA (nonanticipative) policy \\(\\pi\\) is a sequence of measurable maps \\(u_t=\\pi_t(\\xi_{0:t})\\). For a probability distribution \\(\\mathbb{P}\\) on \\(\\xi_{0:T}\\), define the expected finite-horizon performance\n\\[\nJ^{\\pi}(\\mathbb{P};\\xi_0,w_{-1}) := \\mathbb{E}_{\\xi\\sim\\mathbb{P}}\\Big[\\sum_{t=0}^T \\ell(x_t,u_t;\\xi_t)\\,\\Big|\\,\\xi_0\\Big],\n\\]\nwhere \\(w_{-1}:=(x_{-1},u_{-1})\\) is given and \\(x_0=f(w_{-1};\\xi_0)\\). Let \\(J^{\\star}(\\mathbb{P};\\xi_0,w_{-1}) := \\inf_{\\pi} J^{\\pi}(\\mathbb{P};\\xi_0,w_{-1})\\) be the optimal value under \\(\\mathbb{P}\\).\n\nFix a nominal distribution \\(\\mathbb{P}_0\\) for \\(\\xi_{0:T}\\) and a radius \\(\\varepsilon>0\\). Let \\(\\mathcal{P}(\\varepsilon)\\) be an ambiguity set of distributions around \\(\\mathbb{P}_0\\), e.g., a Wasserstein ball\n\\[\n\\mathcal{P}(\\varepsilon):=\\{\\mathbb{P}:\\mathsf{W}(\\mathbb{P},\\mathbb{P}_0)\\le \\varepsilon\\},\n\\]\nwhere \\(\\mathsf{W}(\\cdot,\\cdot)\\) is a chosen Wasserstein distance on \\(\\Xi^{T+1}\\).\n\nDefine the stochastic model predictive control (SMPC) policy \\(\\pi^{\\mathrm{smpc}}_W\\) of prediction horizon \\(W\\) as the receding-horizon policy that, at each time \\(\\tau\\), solves the \\(W\\)-step conditional stochastic control problem using the nominal conditional distribution induced by \\(\\mathbb{P}_0\\), and applies only the first control action.\n\nProblem: Establish nonasymptotic bounds on the dynamic regret of \\(\\pi^{\\mathrm{smpc}}_W\\) under distributional mismatch, namely derive explicit functions \\(g\\) such that for all \\(\\mathbb{P}\\in\\mathcal{P}(\\varepsilon)\\),\n\\[\nJ^{\\pi^{\\mathrm{smpc}}_W}(\\mathbb{P};\\xi_0,w_{-1})-J^{\\star}(\\mathbb{P};\\xi_0,w_{-1}) \\le g(\\varepsilon,W,T,\\|w_{-1}\\|),\n\\]\nunder verifiable structural assumptions (e.g., stabilizability/detectability-type conditions and boundedness/positive definiteness of \\(Q(\\xi_t),R(\\xi_t)\\)). In particular, determine whether one can obtain exponential decay in \\(W\\) (e.g., \\(\\propto \\rho^W\\) for some \\(\\rho\\in(0,1)\\)) with an additional dependence on \\(\\varepsilon\\), and characterize the best achievable dependence of \\(g\\) on \\(\\varepsilon\\) and \\(T\\).",
+  "location_in_paper": "Section 2.2, Remark 5 (page 7); reiterated in Section 4, Conclusions and Future Work (page 13)",
+  "open_problem_quote": "Nevertheless, the dynamic regret analysis regarding the distributional robustness property remains an open question.\n\nAnalyzing dynamic regret under inexact knowledge of the distribution presents an intriguing avenue for future research.",
+  "area": "other",
   "subject_classification": "Stochastic Optimal Control / Distributionally Robust Optimization",
   "keywords": [
     "stochastic model predictive control",
     "dynamic regret",
     "distributional robustness",
-    "Wasserstein ambiguity",
+    "Wasserstein ambiguity set",
     "multistage stochastic programming",
-    "linear-quadratic control"
+    "stabilizability and detectability"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.096789,
+    "extractor_total_cost_usd": 0.10303475000000001,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.096789
+    "total_cost_usd": 0.10303475000000001
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W7125931785/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7125931785/problems.json",
     "verification_source": null,
     "literature_source": null
   }

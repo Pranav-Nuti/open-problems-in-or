@@ -10,25 +10,28 @@
     "Sushil Khyalia",
     "Shivaram Kalyanakrishnan"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d\n\n\u201cIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with k \u2265 3 actions. \u2026 A concrete first step in pursuit of a \u2018Hamiltonian\u2019 lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.\u201d",
-  "title": "Hamiltonian policy-iteration path for multi-action MDPs (k \u2265 3)",
-  "latex": "Given a discounted finite Markov decision process (MDP) \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\ge 2\\), \\(|A|=k\\ge 3\\), transition probabilities \\(T(s,a,s')\\in[0,1]\\) satisfying \\(\\sum_{s'\\in S}T(s,a,s')=1\\), rewards \\(R(s,a)\\in\\mathbb{R}\\), and discount factor \\(\\gamma\\in[0,1)\\), let \\(\\Pi=A^S\\) be the set of deterministic stationary policies.\n\nFor a policy \\(\\pi\\in\\Pi\\), let \\(V^\\pi:S\\to\\mathbb{R}\\) be its discounted value function, i.e. the unique solution to the Bellman equations\n\\[V^\\pi(s)=R(s,\\pi(s))+\\gamma\\sum_{s'\\in S}T(s,\\pi(s),s')V^\\pi(s')\\quad \\forall s\\in S.\\]\nDefine the gain of switching state \\(s\\) from \\(\\pi(s)\\) to action \\(a\\in A\\) by\n\\[\\rho_\\pi(s,a)=Q^\\pi(s,a)-V^\\pi(s),\\]\nwhere \\(Q^\\pi(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^\\pi(s')\\). A one-step policy-improvement move from \\(\\pi\\) to \\(\\pi'\\) is allowed if there exists a nonempty set \\(S_{\\mathrm{switch}}\\subseteq S\\) and actions \\(a_s\\in A\\) for \\(s\\in S_{\\mathrm{switch}}\\) such that \\(\\rho_\\pi(s,a_s)>0\\) for all \\(s\\in S_{\\mathrm{switch}}\\), and\n\\[\\pi'(s)=\\begin{cases}a_s,& s\\in S_{\\mathrm{switch}},\\\\ \\pi(s),& s\\notin S_{\\mathrm{switch}}.\\end{cases}\\]\nThis defines the policy-improvement directed acyclic graph (PI-DAG) whose vertices are \\(\\Pi\\) and whose edges are all such improvement moves.\n\nProblem: Determine whether for every \\(k\\ge 3\\) there exists an MDP \\(M\\) (for some \\(n\\ge 2\\), possibly depending on \\(k\\)) whose PI-DAG contains a directed Hamiltonian path, i.e. a directed path that visits every policy in \\(\\Pi\\) exactly once. Equivalently, does there exist an MDP with \\(|A|=k\\ge 3\\) and a policy-iteration switching rule such that policy iteration visits all \\(k^n\\) deterministic stationary policies before terminating at an optimal policy?",
-  "location_in_paper": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d",
-  "open_problem_quote": "\u201cIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with k \u2265 3 actions. \u2026 A concrete first step in pursuit of a \u2018Hamiltonian\u2019 lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.\u201d",
-  "subject_classification": "Stochastic Dynamic Programming / Computational Complexity of MDP Algorithms",
+  "context": "Section 6 (Summary and outlook), page 31\n\nIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions. A concrete first step in pursuit of a \u201cHamiltonian\u201d lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.",
+  "title": "Hamiltonian policy-improvement path for some MDP with \\(k\\ge 3\\) actions",
+  "latex": "Given integers \\(n\\ge 3\\) and \\(k\\ge 3\\), let \\(M=(S,A,T,R,\\gamma)\\) be a finite discounted Markov decision process (MDP), where \\(S\\) is a finite set of states with \\(|S|=n\\), \\(A\\) is a finite set of actions with \\(|A|=k\\), \\(T:S\\times A\\times S\\to[0,1]\\) is a transition function satisfying \\(\\sum_{s'\\in S}T(s,a,s')=1\\) for all \\((s,a)\\in S\\times A\\), \\(R:S\\times A\\to\\mathbb{R}\\) is a reward function, and \\(\\gamma\\in[0,1)\\) is a discount factor.\n\nA (deterministic, stationary) policy is a function \\(\\pi:S\\to A\\). Let \\(\\Pi\\) denote the set of all policies; then \\(|\\Pi|=k^n\\). For a policy \\(\\pi\\in\\Pi\\), define its value function \\(V^{\\pi}:S\\to\\mathbb{R}\\) by\n\\[\nV^{\\pi}(s)=\\mathbb{E}\\Big[\\sum_{t=0}^{\\infty}\\gamma^t R(s_t,\\pi(s_t))\\,\\Big|\\,s_0=s,\\ s_{t+1}\\sim T(s_t,\\pi(s_t),\\cdot)\\Big].\n\\]\nFor \\(s\\in S\\) and \\(a\\in A\\), define the action-value \\(Q^{\\pi}(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^{\\pi}(s')\\) and the gain \\(\\rho^{\\pi}(s,a)=Q^{\\pi}(s,a)-V^{\\pi}(s)\\).\n\nSay that \\(\\pi'\\in\\Pi\\) is obtainable from \\(\\pi\\in\\Pi\\) by one policy-improvement step if for every \\(s\\in S\\), either \\(\\pi'(s)=\\pi(s)\\) or \\(\\rho^{\\pi}(s,\\pi'(s))>0\\), and there exists at least one \\(s\\) with \\(\\pi'(s)\\ne\\pi(s)\\). Define the policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) as the digraph with vertex set \\(\\Pi\\) and an arc \\(\\pi\\to\\pi'\\) whenever \\(\\pi'\\) is obtainable from \\(\\pi\\) by one policy-improvement step.\n\nThe problem is to determine whether there exists any discounted MDP \\(M\\) with \\(|S|=n\\) and \\(|A|=k\\) (for some \\(n\\ge 3\\), \\(k\\ge 3\\)) whose PI-DAG contains a Hamiltonian directed path, i.e., a directed path that visits all \\(k^n\\) policies exactly once. In particular, decide whether there exists a \\(3\\)-state, \\(3\\)-action discounted MDP \\(M\\) whose PI-DAG contains a directed path visiting all \\(3^3=27\\) policies.",
+  "location_in_paper": "Section 6 (Summary and outlook), page 31",
+  "open_problem_quote": "It remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions. A concrete first step in pursuit of a \u201cHamiltonian\u201d lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.",
+  "area": "other",
+  "subject_classification": "Markov Decision Processes; Discrete Optimization / Graph Algorithms",
   "keywords": [
-    "Markov decision processes",
     "policy iteration",
+    "Markov decision processes",
+    "policy-improvement graph",
     "Hamiltonian path",
-    "PI-DAG",
     "lower bounds",
-    "multi-action MDPs"
+    "computational complexity"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -40,13 +43,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.099211,
+    "extractor_total_cost_usd": 0.10190425,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.099211
+    "total_cost_usd": 0.10190425
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4409316647/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4409316647/problems.json",
     "verification_source": null,
     "literature_source": null
   }

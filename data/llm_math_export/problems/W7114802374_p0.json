@@ -8,25 +8,28 @@
     "Danny Segev",
     "Sahil Singla"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 34, Section 7 (Future Directions)\n\n\"An immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \u03f5 > 0, can we obtain a (1 + \u03f5)-approximation in poly(n, 1/\u03f5) time? We note that an FPTAS is impossible for our Multi-Dimensional Santa Claus problem, since even with 3 machines, it already captures the strongly NP-hard 3-Partition problem [GJ02]. Hence, we cannot hope to convert Theorem 1.5 into an FPTAS and a different approach would be needed to obtain an FPTAS (if possible) for the stochastic problems studied in this paper.\"",
-  "title": "Existence of FPTAS for stochastic probing and selection-stopping problems studied (e.g., Free-Order Prophets, ProbeMax, Pandora\u2019s Box with Commitment)",
-  "latex": "Given a family of stochastic combinatorial optimization problems \\(\\mathcal{P}\\) including Free-Order Prophets, non-adaptive ProbeMax, adaptive ProbeMax, and Pandora\u2019s Box with Commitment, each instance consisting of \\(n\\) independent nonnegative random variables \\(X_1,\\dots,X_n\\) (and in the Pandora variant additionally costs \\(c_1,\\dots,c_n\\ge 0\\)), define \\(\\mathrm{OPT}(I)\\) as the optimal expected objective value for instance \\(I\\) under the problem\u2019s admissible (adaptive or non-adaptive) policies.\n\nThe problem is to determine whether there exists a fully polynomial-time approximation scheme (FPTAS) for one or more of these problems: namely, for every \\(\\varepsilon\\in(0,1)\\), does there exist an algorithm \\(\\mathcal{A}_\\varepsilon\\) running in time \\(\\mathrm{poly}(n,1/\\varepsilon)\\) that outputs a feasible policy/solution \\(S\\) such that\n\\[\n\\mathbb{E}[\\mathrm{obj}(S)] \\ge (1-\\varepsilon)\\,\\mathrm{OPT}(I)\n\\]\nfor maximization objectives (and analogously \\((1+\\varepsilon)\\)-approximation where the paper uses that convention), for all instances \\(I\\) of the chosen problem(s).\n\nIn particular, resolve whether any of these problems admit an FPTAS despite the fact that the paper\u2019s Multi-Dimensional Santa Claus subroutine cannot admit an FPTAS (even for \\(m=3\\)) due to strong NP-hardness via 3-Partition, implying that new techniques would be required.",
-  "location_in_paper": "Page 34, Section 7 (Future Directions)",
-  "open_problem_quote": "\"An immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \u03f5 > 0, can we obtain a (1 + \u03f5)-approximation in poly(n, 1/\u03f5) time? We note that an FPTAS is impossible for our Multi-Dimensional Santa Claus problem, since even with 3 machines, it already captures the strongly NP-hard 3-Partition problem [GJ02]. Hence, we cannot hope to convert Theorem 1.5 into an FPTAS and a different approach would be needed to obtain an FPTAS (if possible) for the stochastic problems studied in this paper.\"",
+  "context": "Section 7 (Future Directions), page 34\n\nAn immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \\(\\epsilon > 0\\), can we obtain a \\((1 + \\epsilon)\\)-approximation in \\(\\mathrm{poly}(n, 1/\\epsilon)\\) time?",
+  "title": "Existence of an FPTAS for Free-Order Prophets, ProbeMax, and related stochastic optimization problems",
+  "latex": "Given an input size parameter \\(n\\in\\mathbb{Z}_{\\ge 1}\\), consider any one of the following stochastic optimization problems studied in the paper: (i) Free-Order Prophets, (ii) non-adaptive ProbeMax, (iii) adaptive ProbeMax, or (iv) Pandora\u2019s Box with Commitment.\n\nIn each problem instance, there are \\(n\\) independent nonnegative random variables \\(X_1,\\dots,X_n\\) with explicitly given distributions (in whatever standard input model is assumed for that problem, e.g., discrete support with rational probabilities, and with the ability to compute the expectations required by the objective). Let \\(\\mathrm{OPT}\\) denote the optimal expected objective value for the corresponding problem instance.\n\nThe problem is to determine whether there exists a fully polynomial-time approximation scheme (FPTAS) for any (or all) of these problems. Formally, does there exist an algorithm \\(\\mathcal{A}\\) such that for every accuracy parameter \\(\\varepsilon\\in(0,1)\\), and every instance \\(I\\) of the problem with input length \\(|I|\\), the algorithm runs in time \\(\\mathrm{poly}(|I|,1/\\varepsilon)\\) and outputs a feasible solution with expected objective value at least \\((1-\\varepsilon)\\,\\mathrm{OPT}\\) (for maximization problems)?\n\nEquivalently: decide whether the problems admit approximation algorithms whose running time is polynomial both in the instance size and in \\(1/\\varepsilon\\), rather than merely \\(t(\\varepsilon)\\cdot \\mathrm{poly}(|I|)\\) for some potentially superpolynomial \\(t(\\varepsilon)\\) (as in an EPTAS).",
+  "location_in_paper": "Section 7 (Future Directions), page 34",
+  "open_problem_quote": "An immediate open question for future research is whether one or more of these problems admit fully polynomial time approximation schemes (FPTAS). That is, for any constant \\(\\epsilon > 0\\), can we obtain a \\((1 + \\epsilon)\\)-approximation in \\(\\mathrm{poly}(n, 1/\\epsilon)\\) time?",
+  "area": "approximation algorithms",
   "subject_classification": "Stochastic Combinatorial Optimization",
   "keywords": [
     "FPTAS",
     "EPTAS",
+    "stochastic optimization",
+    "optimal stopping",
     "stochastic probing",
-    "prophet problems",
-    "ProbeMax",
-    "Pandora\u2019s box"
+    "approximation schemes"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.069965,
+    "extractor_total_cost_usd": 0.07060025,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.069965
+    "total_cost_usd": 0.07060025
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W7114802374/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7114802374/problems.json",
     "verification_source": null,
     "literature_source": null
   }

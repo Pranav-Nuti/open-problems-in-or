@@ -8,25 +8,28 @@
     "Alan Luner",
     "Benjamin Grimmer"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 5.1, page 23 (PDF page 23/37)\n\n\"Numerically, we find much of our results on the benefits of extrapolation on the worst-case final objective gap carry over to the worst-case final gradient norm. However, the exact dual certificates v, \u03bb, Z underlying our proof do not constitute proofs for the setting of gradient norms. We expect dual certificates proving a benefit from small extrapolations exist but have not identified their structure and hence leave proving such parallel results open.\"",
-  "title": "Prove worst-case gradient-norm benefits of simple extrapolation for gradient descent",
-  "latex": "Let \\(f:\\mathbb{R}^m\\to\\mathbb{R}\\) be convex and \\(L\\)-smooth (i.e., \\(\\nabla f\\) is \\(L\\)-Lipschitz). Let \\(x_\\star\\in\\arg\\min f\\) exist and let \\(x_0\\in\\mathbb{R}^m\\) satisfy \\(\\|x_0-x_\\star\\|\\le D\\). Fix an integer \\(N\\ge 1\\) and a constant stepsize \\(h\\in(0,1]\\). Define the gradient descent iterates\n\\[\n x_{k+1}=x_k-\\frac{h}{L}\\nabla f(x_k),\\qquad k=0,1,\\dots,N-1,\n\\]\nand for an extrapolation factor \\(c\\ge 1\\) define the extrapolated output\n\\[\n x_\\sigma := x_0 + c(x_N-x_0).\n\\]\nThe problem is to provide a rigorous worst-case analysis (tight up to constants, and ideally exact) for the gradient norm at the extrapolated point, namely to characterize the critical extrapolation range and worst-case value of\n\\[\n\\sup_{f\\ \\text{convex }L\\text{-smooth}}\\ \\sup_{\\|x_0-x_\\star\\|\\le D}\\ \\|\\nabla f(x_\\sigma)\\|,\n\\]\nand in particular to prove (or refute) the existence of a nontrivial interval \\([1,c_{\\mathrm{crit}}]\\) with \\(c_{\\mathrm{crit}}>1\\) such that for all \\(c\\in[1,c_{\\mathrm{crit}}]\\) one has the tight bound\n\\[\n\\|\\nabla f(x_\\sigma)\\|\\le \\frac{LD}{Nhc+1},\n\\]\nwith equality for some worst-case instance, and to determine the scaling of \\(c_{\\mathrm{crit}}\\) (e.g., \\(c_{\\mathrm{crit}}=1+\\Theta(1/N)\\) as conjectured) and the associated worst-case functions/dual certificates in the performance-estimation-problem framework.",
-  "location_in_paper": "Section 5.1, page 23 (PDF page 23/37)",
-  "open_problem_quote": "\"Numerically, we find much of our results on the benefits of extrapolation on the worst-case final objective gap carry over to the worst-case final gradient norm. However, the exact dual certificates v, \u03bb, Z underlying our proof do not constitute proofs for the setting of gradient norms. We expect dual certificates proving a benefit from small extrapolations exist but have not identified their structure and hence leave proving such parallel results open.\"",
-  "subject_classification": "Continuous Optimization",
+  "context": "Section 5.1 (Numerical Extensions), page 24, Conjecture 5.1\n\nWe expect dual certificates proving a benefit from small extrapolations exist but have not identified their structure and hence leave proving such parallel results open.\n\nConjecture 5.1. Consider a gradient descent algorithm of fixed length \\(N\\), constant stepsize \\(h \\in (0, 1]\\), and with \\(\\|x_0 - x_\\star\\| = D\\). The critical value \\(c_{\\mathrm{crit,grad}} = 1 + \\Theta(1/N)\\), ensuring for any \\(c \\in [1, c_{\\mathrm{crit,grad}}]\\), simple extrapolation by factor \\(c\\) has a tight worst-case bound of \\(\\|\\nabla f(x_\\sigma)\\| \\le \\frac{LD}{Nhc+1}\\).",
+  "title": "Tight worst-case gradient-norm guarantee for simple extrapolation in gradient descent",
+  "latex": "Given integers \\(N\\ge 1\\) and dimension \\(m\\ge 1\\), constants \\(L>0\\), \\(D>0\\), and a stepsize \\(h\\in(0,1]\\), consider the class \\(\\mathcal F_{L,D}\\) of all pairs \\((f,x_0)\\) such that:\n- \\(f:\\mathbb R^m\\to\\mathbb R\\) is convex and differentiable and has \\(L\\)-Lipschitz gradient, i.e., \\(\\|\\nabla f(x)-\\nabla f(y)\\|\\le L\\|x-y\\|\\) for all \\(x,y\\in\\mathbb R^m\\);\n- \\(f\\) attains its minimum at some \\(x_\\star\\in\\mathbb R^m\\);\n- \\(\\|x_0-x_\\star\\|\\le D\\).\n\nRun \\(N\\) iterations of (fixed-stepsize) gradient descent\n\\[\n x_{k+1}=x_k-\\frac{h}{L}\\nabla f(x_k),\\qquad k=0,1,\\dots,N-1.\n\\]\nFor an extrapolation factor \\(c\\ge 1\\), form the post-processed output\n\\[\n x_\\sigma = x_0 + c\\,(x_N-x_0).\n\\]\nDefine the worst-case gradient-norm performance of this extrapolated output by\n\\[\n\\mathcal G(N,h,c;L,D):=\\sup_{(f,x_0)\\in\\mathcal F_{L,D}} \\|\\nabla f(x_\\sigma)\\|.\n\\]\n\nDetermine the asymptotic size (as a function of \\(N\\)) of the largest \\(c\\ge 1\\) (call it \\(c_{\\mathrm{crit,grad}}\\)) such that the tight worst-case guarantee\n\\[\n\\mathcal G(N,h,c;L,D)=\\frac{LD}{Nhc+1}\n\\]\nholds for all \\(c\\in[1,c_{\\mathrm{crit,grad}}]\\). In particular, decide whether \\(c_{\\mathrm{crit,grad}}=1+\\Theta(1/N)\\) and prove (or refute) the tight bound \\(\\|\\nabla f(x_\\sigma)\\|\\le \\frac{LD}{Nhc+1}\\) for all \\(c\\le c_{\\mathrm{crit,grad}}\\).",
+  "location_in_paper": "Section 5.1 (Numerical Extensions), page 24, Conjecture 5.1",
+  "open_problem_quote": "We expect dual certificates proving a benefit from small extrapolations exist but have not identified their structure and hence leave proving such parallel results open.\n\nConjecture 5.1. Consider a gradient descent algorithm of fixed length \\(N\\), constant stepsize \\(h \\in (0, 1]\\), and with \\(\\|x_0 - x_\\star\\| = D\\). The critical value \\(c_{\\mathrm{crit,grad}} = 1 + \\Theta(1/N)\\), ensuring for any \\(c \\in [1, c_{\\mathrm{crit,grad}}]\\), simple extrapolation by factor \\(c\\) has a tight worst-case bound of \\(\\|\\nabla f(x_\\sigma)\\| \\le \\frac{LD}{Nhc+1}\\).",
+  "area": "other",
+  "subject_classification": "Continuous Optimization (Smooth Convex Optimization)",
   "keywords": [
     "gradient descent",
-    "worst-case analysis",
     "performance estimation problem (PEP)",
     "extrapolation",
+    "worst-case analysis",
     "gradient norm",
-    "dual certificates"
+    "L-smooth convex minimization"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.09886275,
+    "extractor_total_cost_usd": 0.10472,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09886275
+    "total_cost_usd": 0.10472
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4413077228/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413077228/problems.json",
     "verification_source": null,
     "literature_source": null
   }

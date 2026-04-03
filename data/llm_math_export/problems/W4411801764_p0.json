@@ -9,25 +9,28 @@
     "Jianming Xia",
     "Fengyi Yuan"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 15, Section 6 (Weighted utility), Remark 6.2(a); also stated in Abstract/Introduction (page 1 and page 3)\n\n\"It is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs.\" (p.3)\n\n\"It is worth noting that (6.4) is a two-dimensional QBSDE, whose two components \\(\\bar Y_1\\) and \\(\\bar Y_2\\) are coupled. Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).\" (Remark 6.2(a), p.15)",
-  "title": "Well-posedness of coupled multi-dimensional quadratic BSDEs arising from weighted-utility equilibrium",
-  "latex": "Consider a filtered probability space \\((\\Omega,\\mathcal F,\\mathbb F,\\mathbb P)\\) supporting a one-dimensional Brownian motion \\(W\\) on \\([0,T]\\). Let \\(\\kappa:[0,T]\\times\\Omega\\to\\mathbb R\\) be a bounded \\(\\mathbb F\\)-predictable process and define \\(\\Theta:=\\int_0^T |\\kappa(s)|^2\\,ds\\). Fix constants \\(\\gamma,\\rho\\) satisfying \\(-1<\\gamma\\le 0\\) and \\(\\gamma\\le \\rho<\\gamma+1\\). Define \\(r_1:=\\gamma\\), \\(r_2:=1-\\rho+\\gamma\\), \\(\\lambda_1:=-\\frac{\\gamma}{1-\\rho}\\), \\(\\lambda_2:=\\frac{1-\\rho+\\gamma}{1-\\rho}\\). Let \\(C_i\\in\\mathbb R^{2\\times 2}\\), \\(c_{j,i}\\in\\mathbb R\\), and \\(b_i\\in\\mathbb R\\) (for \\(i,j\\in\\{1,2\\}\\)) be the constants appearing in the two-dimensional quadratic BSDE system\n\\[\n\\begin{aligned}\n d\\bar Y_i(s) &= -\\tfrac12\\Big( \\bar Z(s)^\\dagger C_i\\bar Z(s) + c_{i,i}\\,\\bar Z_i(s)\\kappa(s) + c_{-i,i}\\,\\bar Z_{-i}(s)\\kappa(s) + b_i|\\kappa(s)|^2\\Big)ds \\\\\n &\\quad + \\bar Z_i(s)\\,dW_s, \\qquad s\\in[0,T],\\ i=1,2,\\\\\n \\bar Y_1(T)&=\\bar Y_2(T)=0,\n\\end{aligned}\n\\]\nwhere \\(\\bar Z(s)=(\\bar Z_1(s),\\bar Z_2(s))^\\dagger\\) and \\(-i\\) denotes the index in \\(\\{1,2\\}\\setminus\\{i\\}\\). The problem is to establish general conditions (beyond special structural cases or smallness assumptions such as \\(\\sup_{\\tau}\\|\\Theta-\\mathbb E_\\tau[\\Theta]\\|_\\infty\\) being small) guaranteeing existence and uniqueness of a solution \\((\\bar Y,\\bar Z)\\) with \\(\\bar Y\\in (L^\\infty(\\mathcal F,\\mathbb R))^2\\) and \\(\\bar Z\\in (\\mathrm{H}_{\\mathrm{BMO}})^2\\) for this coupled two-dimensional quadratic BSDE.",
-  "location_in_paper": "Page 15, Section 6 (Weighted utility), Remark 6.2(a); also stated in Abstract/Introduction (page 1 and page 3)",
-  "open_problem_quote": "\"It is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs.\" (p.3)\n\n\"It is worth noting that (6.4) is a two-dimensional QBSDE, whose two components \\(\\bar Y_1\\) and \\(\\bar Y_2\\) are coupled. Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).\" (Remark 6.2(a), p.15)",
-  "subject_classification": "Stochastic Control / Mathematical Finance",
+  "context": "Section 6 (Weighted utility), Remark 6.2(a), pp. 15\u201316 (in the provided 36-page text)\n\nIt is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs. ... Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).",
+  "title": "General well-posedness of coupled multi-dimensional quadratic BSDEs arising from equilibrium conditions",
+  "latex": "Given a filtered probability space \\((\\Omega,\\mathcal F,\\{\\mathcal F_t\\}_{0\\le t\\le T},\\mathbb P)\\) supporting a one-dimensional Brownian motion \\(W\\) and a finite horizon \\(T>0\\), fix an essentially bounded progressively measurable process \\(\\kappa:[0,T]\\times\\Omega\\to\\mathbb R\\). Let \\(d\\in\\{2,3,\\dots\\}\\) and consider an unknown pair \\((Y,Z)\\) where \\(Y=(Y^1,\\dots,Y^d)\\) is an \\(\\mathbb R^d\\)-valued adapted continuous process and \\(Z=(Z^1,\\dots,Z^d)\\) is an \\(\\mathbb R^d\\)-valued progressively measurable process with \\(\\int_0^T \\|Z_t\\|^2\\,dt<\\infty\\) a.s. For given constants (or bounded measurable coefficients) \\(C_i\\in\\mathbb R^{d\\times d}\\), \\(c_{k,i}\\in\\mathbb R\\), \\(b_i\\in\\mathbb R\\) (for \\(i,k\\in\\{1,\\dots,d\\}\\)), define a coupled quadratic generator \\(f_i:[0,T]\\times\\Omega\\times\\mathbb R^d\\to\\mathbb R\\) by\n\\[\n f_i(t,\\omega,z)= z^{\\dagger} C_i z + \\sum_{k=1}^d c_{k,i}\\, z^k\\,\\kappa(t,\\omega) + b_i\\,|\\kappa(t,\\omega)|^2,\n\\]\nwhere \\(z\\in\\mathbb R^d\\) and \\((\\cdot)^{\\dagger}\\) denotes transpose. The problem is to give verifiable, general conditions on \\((C_i,c_{k,i},b_i)\\), on \\(\\kappa\\), and on the terminal condition \\(\\xi\\in L^\\infty(\\mathcal F_T;\\mathbb R^d)\\), that guarantee existence and uniqueness of an adapted solution \\((Y,Z)\\) to the multi-dimensional quadratic BSDE\n\\[\n Y_t^i = \\xi^i + \\int_t^T f_i(s,\\omega,Z_s)\\,ds - \\int_t^T Z_s^i\\,dW_s,\\qquad t\\in[0,T],\\ i\\in\\{1,\\dots,d\\},\n\\]\nfor which \\(Y\\in L^\\infty(\\Omega\\times[0,T];\\mathbb R^d)\\) and \\(Z\\) belongs to a natural integrability class such as \\(\\mathrm{BMO}\\) (bounded mean oscillation), i.e. \\(\\sup_{\\tau}\\|\\mathbb E_\\tau[\\int_\\tau^T \\|Z_s\\|^2ds]\\|_\\infty<\\infty\\), where the supremum is over all stopping times \\(\\tau\\le T\\).",
+  "location_in_paper": "Section 6 (Weighted utility), Remark 6.2(a), pp. 15\u201316 (in the provided 36-page text)",
+  "open_problem_quote": "It is acknowledged that there is no general well-posedness result for multi-dimensional QBSDEs. ... Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).",
+  "area": "other",
+  "subject_classification": "Stochastic Control / Backward Stochastic Differential Equations",
   "keywords": [
     "quadratic BSDE",
     "multi-dimensional BSDE",
     "well-posedness",
+    "BMO martingales",
     "time-inconsistent control",
-    "equilibrium portfolio",
-    "weighted utility"
+    "portfolio selection"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.079618,
+    "extractor_total_cost_usd": 0.08246175,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.079618
+    "total_cost_usd": 0.08246175
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4411801764/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411801764/problems.json",
     "verification_source": null,
     "literature_source": null
   }

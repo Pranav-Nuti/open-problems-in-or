@@ -9,25 +9,27 @@
     "Alexander Grosz",
     "Themistoklis Melissourgos"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 33, Section 6 (Conclusion and problems)\n\n\"In this paper, we show that the problem of computing (pure, exact) equilibria in congestion games admits a smoothed polynomial running time algorithm for special classes of general and network congestion games (see Theorem 4.2 and Theorem 4.8, respectively). However, outside of these restricted instances of the problem, the complexity remains unresolved.\"",
-  "title": "Smoothed complexity of computing exact pure Nash equilibria in unrestricted congestion games",
-  "latex": "Given a finite congestion game with player set \\(N=[n]\\), resource set \\(R\\), and strategy sets \\(\\Sigma_i\\subseteq 2^R\\) for each player \\(i\\in N\\), let a strategy profile be \\(\\sigma=(\\sigma_1,\\dots,\\sigma_n)\\in\\Sigma:=\\prod_{i\\in N}\\Sigma_i\\). For each resource \\(r\\in R\\), the load under \\(\\sigma\\) is \\(\\ell_r(\\sigma):=|\\{i\\in N: r\\in \\sigma_i\\}|\\). Each resource has a latency function \\(\\kappa_r:[n]\\to\\mathbb{R}_{\\ge 0}\\), and player \\(i\\)'s cost under \\(\\sigma\\) is \\(C_i(\\sigma):=\\sum_{r\\in \\sigma_i}\\kappa_r(\\ell_r(\\sigma))\\). A profile \\(\\sigma^*\\) is a (pure, exact) Nash equilibrium (PNE) if for all \\(i\\in N\\) and all \\(\\sigma'_i\\in\\Sigma_i\\), \\[C_i(\\sigma^*)\\le C_i(\\sigma'_i,\\sigma^*_{-i}).\\]\n\nConsider the following smoothed-input model: the numerical parameters defining the latencies are independently perturbed by continuous distributions with densities bounded by \\(\\phi\\).\n- General latencies: for each \\(r\\in R\\) and \\(\\ell\\in[n]\\), \\(\\kappa_r(\\ell)\\) is drawn independently from a distribution on \\([0,1]\\) with density at most \\(\\phi\\).\n- Polynomial latencies of maximum degree \\(d\\): for each \\(r\\in R\\) and coefficient index \\(j\\in\\{0,1,\\dots,d_r\\}\\) with \\(d_r\\le d\\), the coefficient \\(\\alpha_{r,j}\\) in \\(\\kappa_r(\\ell)=\\sum_{j=0}^{d_r}\\alpha_{r,j}\\ell^j\\) is drawn independently from a distribution on \\([0,1]\\) with density at most \\(\\phi\\).\n- Step-function latencies with breakpoints \\(B_r\\subseteq[n]\\): for each \\(r\\in R\\) and \\(j\\in B_r\\), the jump size \\(\\alpha_{r,j}\\) in \\(\\kappa_r(\\ell)=\\sum_{j\\in B_r\\cap[\\ell]}\\alpha_{r,j}\\) is drawn independently from a distribution on \\([0,1]\\) with density at most \\(\\phi\\).\n\nProblem: Determine whether there exists an algorithm that, for every such smoothed congestion game instance (without additional restrictions such as \\(B\\)-restrained deviations or \\((A,B)\\)-compactness), computes an exact PNE in expected time polynomial in the input size and \\(\\phi\\). Equivalently, resolve the smoothed computational complexity (polynomial/quasipolynomial/superpolynomial) of finding an exact PNE in general (unrestricted) congestion games under these smoothed models.",
-  "location_in_paper": "Page 33, Section 6 (Conclusion and problems)",
-  "open_problem_quote": "\"In this paper, we show that the problem of computing (pure, exact) equilibria in congestion games admits a smoothed polynomial running time algorithm for special classes of general and network congestion games (see Theorem 4.2 and Theorem 4.8, respectively). However, outside of these restricted instances of the problem, the complexity remains unresolved.\"",
-  "subject_classification": "Algorithmic Game Theory / Smoothed Analysis",
+  "context": "Section 6 (Conclusion and problems), page 33\n\nIn this paper, we show that the problem of computing (pure, exact) equilibria in congestion games admits a smoothed polynomial running time algorithm for special classes of general and network congestion games (see Theorem 4.2 and Theorem 4.8, respectively). However, outside of these restricted instances of the problem, the complexity remains unresolved.",
+  "title": "Smoothed polynomial-time computation of exact pure Nash equilibria in general congestion games",
+  "latex": "Given integers \\(n\\ge 1\\) and a finite resource set \\(R\\) with \\(|R|=m\\), a (general) congestion game consists of:\n- players \\(N=[n]\\);\n- for each player \\(i\\in N\\), a nonempty strategy set \\(\\Sigma_i\\subseteq 2^R\\);\n- for each resource \\(r\\in R\\) and load \\(\\ell\\in[n]\\), a latency \\(\\kappa_r(\\ell)\\in[0,1]\\).\n\nFor a strategy profile \\(\\sigma=(\\sigma_1,\\dots,\\sigma_n)\\in \\Sigma:=\\Sigma_1\\times\\cdots\\times\\Sigma_n\\), define the load on resource \\(r\\) by\n\\[\\ell_r(\\sigma):=|\\{i\\in N: r\\in \\sigma_i\\}|\\, ,\\]\nand the cost to player \\(i\\) by\n\\[C_i(\\sigma):=\\sum_{r\\in \\sigma_i}\\kappa_r(\\ell_r(\\sigma)).\\]\nA profile \\(\\sigma^*\\in\\Sigma\\) is a pure Nash equilibrium (PNE) if for all \\(i\\in N\\) and all \\(\\sigma_i'\\in\\Sigma_i\\),\n\\[C_i(\\sigma^*)\\le C_i(\\sigma_i',\\sigma^*_{-i}).\\]\n\nSmoothed model: for each pair \\((r,\\ell)\\in R\\times[n]\\), the latency value \\(\\kappa_r(\\ell)\\) is drawn independently from a continuous distribution on \\([0,1]\\) with density at most \\(\\phi\\ge 1/2\\) (the distributions may be adversarially chosen subject to this density bound).\n\nProblem: Determine whether there exists an algorithm that, for every such smoothed instance (with strategies given explicitly), computes an exact PNE in expected time polynomial in \\(n\\), \\(m\\), the encoding size of \\((\\Sigma_i)_{i\\in N}\\), and \\(\\phi\\). Equivalently, decide whether standard better-response dynamics (for an arbitrary pivoting rule and arbitrary initial profile) converges to a PNE in an expected number of iterations bounded by a polynomial in these parameters for unrestricted congestion games (i.e., without imposing the paper's restraint/compactness conditions).",
+  "location_in_paper": "Section 6 (Conclusion and problems), page 33",
+  "open_problem_quote": "In this paper, we show that the problem of computing (pure, exact) equilibria in congestion games admits a smoothed polynomial running time algorithm for special classes of general and network congestion games (see Theorem 4.2 and Theorem 4.8, respectively). However, outside of these restricted instances of the problem, the complexity remains unresolved.",
+  "area": "other",
+  "subject_classification": "Algorithmic Game Theory",
   "keywords": [
+    "smoothed analysis",
     "congestion games",
     "pure Nash equilibrium",
-    "smoothed analysis",
     "PLS",
-    "better-response dynamics",
-    "computational complexity"
+    "better-response dynamics"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.12643925,
+    "extractor_total_cost_usd": 0.1272005,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.12643925
+    "total_cost_usd": 0.1272005
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4414408152/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414408152/problems.json",
     "verification_source": null,
     "literature_source": null
   }

@@ -1,0 +1,55 @@
+{
+  "problem_id": "W4412106736_p0",
+  "paper_id": "W4412106736",
+  "source_paper": "W4412106736",
+  "source_paper_title": "Many-Server Asymptotics for Join-the-Shortest-Queue in the Super-Halfin-Whitt Scaling Window",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0133",
+  "source_paper_authors": [
+    "Zhisheng Zhao",
+    "Sayan Banerjee",
+    "Debankur Mukherjee"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 2, Remark 2.9 (page 11 in the provided parsed text; PDF page 10/73\u201311/73 boundary)\n\nIt will be an interesting future direction to identify the precise scaling of the system load where this transition of behavior occurs.",
+  "title": "Identify the critical load-scaling threshold where JSQ matches the centralized \\(M/M/N\\) steady-state limit",
+  "latex": "Consider, for each integer \\(N\\ge 1\\), a system of \\(N\\) identical single-server queues with unit-mean exponential service times and a single dispatcher. Jobs arrive according to a Poisson process of rate \\(\\lambda(N)\\) and are routed according to the Join-the-Shortest-Queue (JSQ) policy (ties broken arbitrarily). Let \\(S^{(N)}(\\infty)\\) denote the total number of jobs in steady state (i.e., under the stationary distribution of the Markov process of queue occupancies), and let \\(I^{(N)}(\\infty)\\) denote the number of idle servers in steady state.\n\nAssume a heavy-traffic sequence with per-server load\n\\[\n\\lambda_N := \\frac{\\lambda(N)}{N} = 1 - \\frac{\\beta}{N^{\\alpha}},\\qquad \\beta>0,\\ \\alpha>0,\n\\]\nso that \\(\\lambda(N)=N-\\beta N^{1-\\alpha}\\). Define the centered-and-scaled steady-state total-job count\n\\[\nX^{(N)}_{\\alpha} := \\frac{S^{(N)}(\\infty)-N}{N^{\\alpha}}.\n\\]\nAlso consider the corresponding centralized \\(M/M/N\\) queue with the same arrival rate \\(\\lambda(N)\\) and service rate \\(1\\) at each server, and let \\(\\widetilde S^{(N)}(\\infty)\\) denote its steady-state total number of jobs; define\n\\[\n\\widetilde X^{(N)}_{\\alpha} := \\frac{\\widetilde S^{(N)}(\\infty)-N}{N^{\\alpha}}.\n\\]\nIt is known that in certain regimes (e.g., sufficiently large \\(\\alpha\\)) the JSQ and centralized systems have the same limiting distribution after appropriate scaling, while in other regimes they do not.\n\nProblem: Determine the sharp threshold \\(\\alpha_c\\in(0,\\infty)\\) (and, if needed, the correct refined scaling when \\(\\alpha=\\alpha_c\\)) such that:\n- if \\(\\alpha>\\alpha_c\\), then \\(X^{(N)}_{\\alpha}\\) and \\(\\widetilde X^{(N)}_{\\alpha}\\) converge in distribution to the same non-degenerate limit as \\(N\\to\\infty\\);\n- if \\(\\alpha<\\alpha_c\\), then the weak limits of \\(X^{(N)}_{\\alpha}\\) and \\(\\widetilde X^{(N)}_{\\alpha}\\) are different (or one of them fails to have the same scaling limit);\nand characterize the limiting law(s) in the threshold case \\(\\alpha=\\alpha_c\\).",
+  "location_in_paper": "Section 2, Remark 2.9 (page 11 in the provided parsed text; PDF page 10/73\u201311/73 boundary)",
+  "open_problem_quote": "It will be an interesting future direction to identify the precise scaling of the system load where this transition of behavior occurs.",
+  "area": "other",
+  "subject_classification": "Queueing Theory / Stochastic Processes",
+  "keywords": [
+    "Join-the-Shortest-Queue (JSQ)",
+    "many-server heavy traffic",
+    "scaling threshold",
+    "M/M/N comparison",
+    "steady-state limit",
+    "diffusion approximation"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.21831775,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.21831775
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412106736/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -9,26 +9,28 @@
     "Qihang Lin",
     "Yangyang Xu"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 25, Section 4 (Conclusion and Open Questions)\n\n\"First, for Algorithm Class 1 on solving Problem Class 1, can the lower bound \\(O(\\kappa([A\\u00af ;A])L_f\\Delta F_0\\,\\u01eb^{-2})\\) be achieved, i.e., is it tight?\"",
-  "title": "Tightness of the lower complexity bound for Algorithm Class 1",
-  "latex": "Let \\(d,n,\\bar n\\in\\mathbb{N}\\). Consider the affinely constrained composite optimization problem\n\\[\n\\min_{x\\in\\mathbb{R}^d}\\ F_0(x):=f_0(x)+g(x)\\quad\\text{s.t.}\\quad Ax+b=0,\n\\]\nwhere:\n- \\(A\\in\\mathbb{R}^{n\\times d\\}\\), \\(b\\in\\mathbb{R}^n\\).\n- \\(f_0:\\mathbb{R}^d\\to\\mathbb{R}\\) is differentiable and \\(L_f\\)-smooth, i.e., \\(\\|\\nabla f_0(x)-\\nabla f_0(x')\\|\\le L_f\\|x-x'\\|\\) for all \\(x,x'\\).\n- \\(g(x)=\\bar g(\\bar A x+\\bar b)\\) for some \\(\\bar A\\in\\mathbb{R}^{\\bar n\\times d\\}\\), \\(\\bar b\\in\\mathbb{R}^{\\bar n}\\), and a proper lower semicontinuous convex function \\(\\bar g:\\mathbb{R}^{\\bar n}\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) with \\(\\mathrm{relint}(\\mathrm{dom}(\\bar g))\\ne\\emptyset\\) and \\(\\mathrm{dom}(\\bar g)\\) not a singleton.\nDefine the stacked matrix \\([\\bar A;A]\\in\\mathbb{R}^{(\\bar n+n)\\times d}\\) and its (positive-eigenvalue) condition number\n\\[\n\\kappa([\\bar A;A]) := \\sqrt{\\frac{\\lambda_{\\max}([\\bar A;A][\\bar A;A]^\\top)}{\\lambda^+_{\\min}([\\bar A;A][\\bar A;A]^\\top)}}.\n\\]\nFor \\(\\varepsilon>0\\), call \\(x\\in\\mathbb{R}^d\\) an \\(\\varepsilon\\)-stationary point if there exists \\(\\gamma\\in\\mathbb{R}^n\\) such that\n\\[\n\\max\\Big\\{\\mathrm{dist}\\big(0,\\nabla f_0(x)+A^\\top\\gamma+\\partial g(x)\\big),\\ \\|Ax+b\\|\\Big\\}\\le \\varepsilon.\n\\]\nLet \\(\\Delta F_0 := F_0(x^{(0)})-\\inf_x F_0(x)\\) for a given initialization \\(x^{(0)}\\).\nAn algorithm belongs to Algorithm Class 1 if it generates iterates \\(\\{x^{(t)}\\}_{t\\ge1}\\) using only calls to the oracle\n\\(\\mathrm{ORACLE1}(x,z,\\eta)=(\\nabla f_0(x),Ax,A^\\top z,\\mathrm{prox}_{\\eta g}(x))\\) and linear-span updates as defined in the paper.\n\nProblem: Determine whether there exists a first-order method in Algorithm Class 1 and a constant \\(C>0\\) (possibly up to logarithmic factors) such that, for every instance in the above problem class and every \\(\\varepsilon\\in(0,1)\\), it outputs an \\(\\varepsilon\\)-stationary point using at most\n\\[\nC\\,\\kappa([\\bar A;A])\\,L_f\\,\\Delta F_0\\,\\varepsilon^{-2}\n\\]\noracle calls to \\(\\mathrm{ORACLE1}\\) (or \\(\\tilde O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) allowing polylogarithmic factors). Equivalently, is the lower bound \\(\\Omega(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) proved for Algorithm Class 1 tight?",
-  "location_in_paper": "Page 25, Section 4 (Conclusion and Open Questions)",
-  "open_problem_quote": "\"First, for Algorithm Class 1 on solving Problem Class 1, can the lower bound \\(O(\\kappa([A\\u00af ;A])L_f\\Delta F_0\\,\\u01eb^{-2})\\) be achieved, i.e., is it tight?\"",
-  "subject_classification": "Continuous Optimization (First-Order Complexity)",
+  "context": "Section 4 (Conclusion and Open Questions), page 25\n\nFirst, for Algorithm Class 1 on solving Problem Class 1, can the lower bound \\(O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) be achieved, i.e., is it tight?",
+  "title": "Tightness of the \\(\\Omega(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) oracle-complexity lower bound for Algorithm Class 1",
+  "latex": "Given integers \\(d,n,\\bar n\\ge 1\\), let \\(A\\in\\mathbb{R}^{n\\times d}\\) and \\(\\bar A\\in\\mathbb{R}^{\\bar n\\times d}\\) be matrices, and let \\(b\\in\\mathbb{R}^n\\), \\(\\bar b\\in\\mathbb{R}^{\\bar n}\\). Let \\(f_0:\\mathbb{R}^d\\to\\mathbb{R}\\) be differentiable with \\(L_f\\)-Lipschitz gradient, i.e., \\(\\|\\nabla f_0(x)-\\nabla f_0(x')\\|\\le L_f\\|x-x'\\|\\) for all \\(x,x'\\in\\mathbb{R}^d\\). Let \\(\\bar g:\\mathbb{R}^{\\bar n}\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) be a proper lower semicontinuous convex function such that \\(\\mathrm{relint}(\\mathrm{dom}(\\bar g))\\neq\\emptyset\\) and \\(\\mathrm{dom}(\\bar g)\\) is not a singleton, and define \\(g(x):=\\bar g(\\bar A x+\\bar b)\\) for \\(x\\in\\mathbb{R}^d\\). Consider the affinely constrained composite problem\n\\[\n\\min_{x\\in\\mathbb{R}^d}\\;F_0(x):=f_0(x)+g(x)\\quad\\text{s.t.}\\quad Ax+b=0.\n\\]\nFor a tolerance \\(\\varepsilon>0\\), call \\(x_\\varepsilon\\in\\mathbb{R}^d\\) an \\(\\varepsilon\\)-stationary point if there exists \\(\\gamma\\in\\mathbb{R}^n\\) such that\n\\[\n\\max\\Big\\{\\mathrm{dist}\\big(0,\\nabla f_0(x_\\varepsilon)+A^\\top\\gamma+\\partial g(x_\\varepsilon)\\big),\\;\\|Ax_\\varepsilon+b\\|\\Big\\}\\le\\varepsilon,\n\\]\nwhere \\(\\partial g(x_\\varepsilon)\\) is the convex subdifferential and \\(\\mathrm{dist}(0,S):=\\inf\\{\\|s\\|:s\\in S\\}\\). Define the initial optimality gap \\(\\Delta F_0:=F_0(x^{(0)})-\\inf_{x\\in\\mathbb{R}^d}F_0(x)\\), where \\(x^{(0)}\\) is the algorithm initialization.\n\nAn Algorithm Class 1 method is any iterative method that, at each iteration \\(t\\ge 1\\), may query an oracle that returns \\(\\nabla f_0(x)\\), \\(Ax\\), \\(A^\\top z\\) (for a chosen \\(z\\in\\mathbb{R}^n\\)), and \\(\\mathrm{prox}_{\\eta g}(x)\\) (for a chosen \\(\\eta>0\\)), and then produces iterates according to the linear-span restriction stated in the paper\u2019s Algorithm Class 1 definition.\n\nProblem: Determine whether there exists an Algorithm Class 1 method and a universal constant \\(C>0\\) such that for every problem instance above and every \\(\\varepsilon\\in(0,1)\\), the method outputs an \\(\\varepsilon\\)-stationary point using at most\n\\[\nC\\,\\kappa([\\bar A;A])\\,L_f\\,\\Delta F_0\\,\\varepsilon^{-2}\n\\]\noracle calls (up to at most polylogarithmic factors in \\(\\varepsilon^{-1}\\)), where \\([\\bar A;A]\\in\\mathbb{R}^{(\\bar n+n)\\times d}\\) denotes the row-stacked matrix and\n\\[\n\\kappa([\\bar A;A]) := \\sqrt{\\frac{\\lambda_{\\max}([\\bar A;A][\\bar A;A]^\\top)}{\\lambda^+_{\\min}([\\bar A;A][\\bar A;A]^\\top)}}\n\\]\nwith \\(\\lambda_{\\max}(\\cdot)\\) the largest eigenvalue and \\(\\lambda^+_{\\min}(\\cdot)\\) the smallest positive eigenvalue. Equivalently, decide whether the paper\u2019s lower bound \\(\\Omega(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) for Algorithm Class 1 is (nearly) tight.",
+  "location_in_paper": "Section 4 (Conclusion and Open Questions), page 25",
+  "open_problem_quote": "First, for Algorithm Class 1 on solving Problem Class 1, can the lower bound \\(O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) be achieved, i.e., is it tight?",
+  "area": "other",
+  "subject_classification": "Continuous Optimization; Computational Complexity (first-order/oracle complexity)",
   "keywords": [
     "oracle complexity",
     "first-order methods",
-    "composite nonconvex optimization",
-    "affine equality constraints",
+    "nonconvex composite optimization",
+    "affine constraints",
     "lower complexity bounds",
-    "tightness",
-    "proximal oracle"
+    "proximal mapping"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -40,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.08334025,
+    "extractor_total_cost_usd": 0.0878535,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08334025
+    "total_cost_usd": 0.0878535
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4411234993/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411234993/problems.json",
     "verification_source": null,
     "literature_source": null
   }

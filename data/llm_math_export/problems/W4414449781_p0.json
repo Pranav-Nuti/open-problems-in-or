@@ -9,25 +9,28 @@
     "Fabien Gensbittel",
     "St\u00e9phane Villeneuve"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 23, Section 4, Remark 4.9\n\n\"The question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when y > x, especially if we seek an equilibrium valid for all parameter choices and initial states.\"",
-  "title": "Existence of an equilibrium with reversed roles (Player 1 uses a strategy, Player 2 uses a control) in the asymmetric game",
-  "latex": "Consider the 2-player dividend-distribution stochastic game with default described as follows.\n\n- Parameters: drift in duopoly \\(\\mu_0>0\\), drift in monopoly \\(\\hat\\mu>\\mu_0\\), volatility \\(\\sigma>0\\), discount rate \\(r>0\\).\n- Noise: a standard Brownian motion \\((B_t)_{t\\ge 0}\\) on a filtered probability space.\n- Controls: Player 1 chooses a cumulative dividend process \\(L=(L_t)_{t\\ge 0}\\) and Player 2 chooses \\(D=(D_t)_{t\\ge 0}\\), where each is right-continuous, nondecreasing, and adapted, with \\(L_{0-}=D_{0-}=0\\), and dividends cannot exceed available cash:\n\\[\n\\Delta L_t \\le (X_{t-})^+ ,\\qquad \\Delta D_t \\le (Y_{t-})^+ \\quad \\text{for all } t\\ge 0,\n\\]\nwhere \\(X\\) and \\(Y\\) are the controlled cash reserves.\n- Duopoly cash-reserve dynamics (until a default):\n\\[\nX_t = x+\\mu_0 t + \\sigma B_t - L_t,\\qquad Y_t = y+\\mu_0 t + \\sigma B_t - D_t,\n\\]\nwith initial endowments \\(0\\le x<y\\).\n- Default times:\n\\[\n\\gamma_X = \\inf\\{t\\ge 0: X_t\\le 0\\},\\qquad \\gamma_Y = \\inf\\{t\\ge 0: Y_t\\le 0\\}.\n\\]\n- Monopoly continuation value: let \\(\\hat v(\\cdot)\\) be the value function of the single-firm dividend problem with drift \\(\\hat\\mu\\) (i.e., optimal expected discounted dividends until default).\n- Payoffs:\n\\[\nJ_1(L,D)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge \\gamma_Y]} e^{-rt}\\,dL_t + \\mathbf 1_{\\{\\gamma_Y<\\gamma_X\\}} e^{-r\\gamma_Y}\\,\\hat v(X_{\\gamma_Y})\\Big],\n\\]\n\\[\nJ_2(D,L)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge \\gamma_Y]} e^{-rt}\\,dD_t + \\mathbf 1_{\\{\\gamma_X<\\gamma_Y\\}} e^{-r\\gamma_X}\\,\\hat v(Y_{\\gamma_X})\\Big].\n\\]\n\nPlayers are allowed to use feedback strategies in the sense of the paper: Player \\(i\\)'s strategy is a non-anticipative functional of the observed Brownian path and the opponent's cumulative dividend path (and possibly a randomisation variable). A pure control is a special case that depends only on time and the Brownian path.\n\nThe paper constructs a Nash equilibrium for \\(y>x\\) in which the poorer player (Player 1) uses a pure control and the richer player (Player 2) uses a pure feedback strategy.\n\nProblem: Determine whether, for every parameter set \\((\\mu_0,\\hat\\mu,\\sigma,r)\\) and every asymmetric initial condition \\(0\\le x<y\\), there exists a Nash equilibrium \\((\\Psi_1^*,\\Phi_2^*)\\) (pure or randomised) such that Player 1 uses a feedback strategy \\(\\Psi_1^*\\) (allowed to depend on the opponent's past dividends) while Player 2 uses a control \\(\\Phi_2^*\\) (i.e., a strategy independent of the opponent's dividend path), and the profile is a Nash equilibrium among all admissible randomised strategies.",
-  "location_in_paper": "Page 23, Section 4, Remark 4.9",
-  "open_problem_quote": "\"The question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when y > x, especially if we seek an equilibrium valid for all parameter choices and initial states.\"",
-  "subject_classification": "Stochastic Differential Games / Singular Control",
+  "context": "Section 4 (Asymmetric initial endowment), Remark 4.9, page 23 (PDF page numbering in the provided text)\n\nThe question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when \\(y>x\\), especially if we seek an equilibrium valid for all parameter choices and initial states. We leave the question open for future research.",
+  "title": "Existence of a Nash equilibrium with the rich firm using a (possibly randomised) feedback strategy and the poor firm using a control in the asymmetric-endowment dividend game",
+  "latex": "Consider the following two-player continuous-time stochastic game.\n\n- Fix parameters \\(\\mu_0>0\\), \\(\\hat\\mu>\\mu_0\\), \\(\\sigma>0\\), and \\(r>0\\).\n- Let \\((B_t)_{t\\ge 0}\\) be a standard one-dimensional Brownian motion on a filtered probability space \\(((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge0}),\\mathbb P)\\).\n- Let initial cash reserves satisfy \\(0\\le x<y\\). \n- Player 1 (the poorer firm) chooses a dividend cumulative process \\(L=(L_t)_{t\\ge0}\\) and Player 2 (the richer firm) chooses \\(D=(D_t)_{t\\ge0}\\). An admissible control is any right-continuous, nondecreasing, \\((\\mathcal F_t)\\)-adapted process with \\(L_{0-}=0\\) (resp. \\(D_{0-}=0\\)) and jump constraint\n\\[\n\\Delta L_t \\le (X_{t-})_+ ,\\qquad \\Delta D_t \\le (Y_{t-})_+ ,\\qquad \\forall t\\ge 0,\n\\]\nwhere \\((u)_+:=\\max\\{u,0\\}\\), and the controlled cash reserves are\n\\[\nX_t = x + \\mu_0 t + \\sigma B_t - L_t,\\qquad Y_t = y + \\mu_0 t + \\sigma B_t - D_t.\n\\]\n- Default times are \\(\\gamma_X:=\\inf\\{t\\ge0: X_t\\le 0\\}\\) and \\(\\gamma_Y:=\\inf\\{t\\ge0: Y_t\\le 0\\}\\).\n- If one firm defaults first, the surviving firm becomes a monopolist and receives continuation value \\(\\hat v(\\cdot)\\), the value function of the single-firm dividend problem with drift \\(\\hat\\mu\\):\n\\[\n\\hat v(z):=\\sup_{\\xi}\\,\\mathbb E\\Big[\\int_{[0,\\gamma_C]} e^{-rt}\\, d\\xi_t\\Big],\\quad C_t=z+\\hat\\mu t+\\sigma B_t-\\xi_t,\\quad \\gamma_C:=\\inf\\{t\\ge0: C_t\\le 0\\},\n\\]\nwith the supremum over admissible dividend controls \\(\\xi\\).\n- Given \\((L,D)\\), the payoffs are\n\\[\nJ_1^{x,y}(L,D)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge\\gamma_Y]} e^{-rt}\\, dL_t + \\mathbf 1_{\\{\\gamma_Y<\\gamma_X\\}}e^{-r\\gamma_Y}\\hat v(X_{\\gamma_Y})\\Big],\n\\]\n\\[\nJ_2^{x,y}(D,L)=\\mathbb E\\Big[\\int_{[0,\\gamma_X\\wedge\\gamma_Y]} e^{-rt}\\, dD_t + \\mathbf 1_{\\{\\gamma_X<\\gamma_Y\\}}e^{-r\\gamma_X}\\hat v(Y_{\\gamma_X})\\Big].\n\\]\n\nA (pure) feedback strategy for Player \\(i\\in\\{1,2\\}\\) is a non-anticipative map that assigns a dividend path to the player as a functional of the observed Brownian path and the opponent\u2019s past dividend path; a randomised strategy additionally depends on an auxiliary independent randomisation variable \\(u\\in[0,1]\\), as in Definition 3.1 of the paper. A pure control is a strategy that depends only on the Brownian path.\n\nProblem: Determine whether, for every choice of parameters \\((\\mu_0,\\hat\\mu,\\sigma,r)\\) and every \\((x,y)\\) with \\(0\\le x<y\\), there exists a Nash equilibrium \\((\\Xi_1^*,\\Xi_2^*)\\) (in the sense of Definition 3.6 of the paper, allowing randomised strategies) such that:\n\n- Player 1 (the poorer firm) uses an admissible control (i.e., \\(\\Xi_1^*\\) is a pure control, depending only on \\((B_t)\\)), and\n- Player 2 (the richer firm) uses a feedback strategy (pure or randomised) that may depend on Player 1\u2019s observed dividend path (i.e., \\(\\Xi_2^*\\) is a strategy in the sense of Definition 3.1, not necessarily reducible to a control).\n\nEquivalently, decide whether there exists an equilibrium of the asymmetric-endowment game with roles reversed relative to Theorem 4.1, namely an equilibrium of \u201cstrategy vs. control\u201d type where the richer firm plays a (possibly randomised) feedback strategy and the poorer firm plays a control, valid uniformly over all parameter choices and initial states \\(0\\le x<y\\).",
+  "location_in_paper": "Section 4 (Asymmetric initial endowment), Remark 4.9, page 23 (PDF page numbering in the provided text)",
+  "open_problem_quote": "The question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when \\(y>x\\), especially if we seek an equilibrium valid for all parameter choices and initial states. We leave the question open for future research.",
+  "area": "other",
+  "subject_classification": "Stochastic Control and Differential Games",
   "keywords": [
+    "singular control game",
     "Nash equilibrium",
-    "singular stochastic control",
-    "stochastic games",
-    "dividend problem",
     "feedback strategies",
+    "dividend distribution",
+    "stochastic differential game",
     "asymmetric initial endowment"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.10702300000000001,
+    "extractor_total_cost_usd": 0.11356625000000001,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10702300000000001
+    "total_cost_usd": 0.11356625000000001
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4414449781/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414449781/problems.json",
     "verification_source": null,
     "literature_source": null
   }

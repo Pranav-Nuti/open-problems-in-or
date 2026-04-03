@@ -9,26 +9,28 @@
     "Yuting Wei",
     "Yuxin Chen"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 16, Section 6 (Discussion)\n\n\"To begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g.\\, the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.\"",
-  "title": "Adaptivity of DDPM to Unknown Low Dimensionality Under Non-KL Metrics",
-  "latex": "Given an ambient dimension \\(d\\in\\mathbb{N}\\), let \\(p_{\\mathrm{data}}\\) be a probability distribution on \\(\\mathbb{R}^d\\) with support \\(\\mathcal{X}_{\\mathrm{data}}\\subseteq \\mathbb{R}^d\\) satisfying the intrinsic-dimension condition: there exist universal constants \\(C_0,C_{\\mathrm{cover}}>0\\) and \\(\\varepsilon_0:=k^{-C_0}\\) such that\n\\[\n\\log N_{\\mathrm{cover}}(\\mathcal{X}_{\\mathrm{data}},\\|\\cdot\\|_2,\\varepsilon_0)\\le C_{\\mathrm{cover}}\\,k\\log\\frac{1}{\\varepsilon_0},\n\\]\nwhere \\(N_{\\mathrm{cover}}(\\mathcal{X}_{\\mathrm{data}},\\|\\cdot\\|_2,\\varepsilon_0)\\) is the minimal number of Euclidean balls of radius \\(\\varepsilon_0\\) needed to cover \\(\\mathcal{X}_{\\mathrm{data}}\\). Consider the forward Ornstein--Uhlenbeck diffusion \\((X_t)_{t\\in[0,T]}\\) in \\(\\mathbb{R}^d\\):\n\\[\n\\mathrm{d}X_t=-X_t\\,\\mathrm{d}t+\\sqrt{2}\\,\\mathrm{d}W_t,\\qquad X_0\\sim p_{\\mathrm{data}},\n\\]\nand the standard DDPM sampler \\((Y_{t_n})_{n=0}^{N}\\) defined on a discretization \\(0=t_0<t_1<\\cdots<t_N=T-\\delta\\) with coefficients \\(\\alpha_n=e^{-2(t_{n+1}-t_n)}\\) and perfect score access \\(s_t(x)=\\nabla\\log q_t(x)\\), where \\(q_t\\) is the law of \\(X_t\\). Let \\(p_{\\mathrm{out}}\\) denote the law of the DDPM output \\(Y_{t_N}\\), and let \\(q_{\\delta}\\) denote the law of \\(X_{\\delta}\\) (i.e., the data distribution convolved with Gaussian noise corresponding to time \\(\\delta\\)).\n\nFix a distributional discrepancy metric \\(\\mathcal{D}(\\cdot,\\cdot)\\) that is not KL divergence, e.g. total variation distance \\(\\mathrm{TV}(\\cdot,\\cdot)\\) or Wasserstein distance \\(W_p(\\cdot,\\cdot)\\) for some \\(p\\ge 1\\).\n\nDetermine whether there exist assumptions on \\(p_{\\mathrm{data}}\\) comparable in strength to the intrinsic-dimension and bounded-support assumptions above, and a discretization schedule \\(\\{t_n\\}\\), under which the DDPM sampler achieves an \\(\\varepsilon\\)-accuracy guarantee\n\\[\n\\mathcal{D}(q_{\\delta},p_{\\mathrm{out}})\\le \\varepsilon\n\\]\nwith an iteration complexity bound \\(N\\) scaling nearly linearly in the intrinsic dimension \\(k\\) (up to logarithmic factors) rather than in the ambient dimension \\(d\\).",
+  "context": "Page 16, Section 6 (Discussion)\n\nTo begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g., the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.",
+  "title": "Iteration complexity of DDPM adaptive to intrinsic dimension under total variation or Wasserstein discrepancy",
+  "latex": "Given integers \\(d\\ge 1\\) and \\(k\\ge 1\\), let \\(p_{\\mathrm{data}}\\) be a probability distribution on \\(\\mathbb{R}^d\\) with support \\(\\mathcal{X}_{\\mathrm{data}}\\subset \\mathbb{R}^d\\) satisfying the metric-entropy intrinsic-dimension condition: there exist universal constants \\(C_{\\mathrm{cover}}>0\\) and \\(C_0>0\\) such that for \\(\\varepsilon_0:=k^{-C_0}\\),\n\\[\n\\log N_{\\mathrm{cover}}(\\mathcal{X}_{\\mathrm{data}},\\|\\cdot\\|_2,\\varepsilon_0)\\le C_{\\mathrm{cover}}\\,k\\log(1/\\varepsilon_0).\n\\]\nConsider the Ornstein--Uhlenbeck forward diffusion \\((X_t)_{t\\in[0,T]}\\) defined by\n\\[\nX_t\\stackrel{d}{=}\\sqrt{1-\\sigma_t^2}\\,X_0+\\sigma_t W,\\quad \\sigma_t:=\\sqrt{1-e^{-2t}},\\quad X_0\\sim p_{\\mathrm{data}},\\; W\\sim\\mathcal{N}(0,I_d),\n\\]\nwith \\(X_0\\) independent of \\(W\\). Let \\(q_t\\) denote the law of \\(X_t\\).\n\nFix \\(\\delta\\in(0,1)\\), an accuracy level \\(\\varepsilon\\in(0,1)\\), and suppose the true score functions \\(s_t(x):=\\nabla \\log q_t(x)\\) are available. Let \\(p_{\\mathrm{out}}\\) be the output distribution of the discrete-time DDPM sampler with some time grid \\(0=t_0<t_1<\\cdots<t_N=T\\) and the standard DDPM update rule (as in Ho et al. (2020), equivalently equation (2) in the paper) using the true scores.\n\nProblem: Determine whether there exist universal constants \\(c,C>0\\) and a choice of time horizon \\(T\\) and discretization schedule such that for every such \\(p_{\\mathrm{data}}\\) and every \\(\\varepsilon\\in(0,1)\\), one can guarantee with\n\\[\nN \\le C\\,\\frac{k\\,\\mathrm{polylog}(k/\\varepsilon)}{\\varepsilon^2}\n\\]\nthat the DDPM output satisfies an intrinsic-dimension-adaptive convergence bound under a metric \\(\\mathsf{D}\\) stronger than KL, for example:\n- total variation: \\(\\mathsf{D}(q_\\delta,p_{\\mathrm{out}})=\\|q_\\delta-p_{\\mathrm{out}}\\|_{\\mathrm{TV}}\\le \\varepsilon\\), or\n- Wasserstein: \\(\\mathsf{D}(q_\\delta,p_{\\mathrm{out}})=W_2(q_\\delta,p_{\\mathrm{out}})\\le \\varepsilon\\).\n\nIf such a bound is impossible in this generality, characterize the weakest additional assumptions (e.g., smoothness of the noisy score, curvature/regularity of \\(\\mathcal{X}_{\\mathrm{data}}\\), log-concavity, etc.) under which an \\(N\\) scaling nearly linear in \\(k\\) can be achieved for \\(\\|\\cdot\\|_{\\mathrm{TV}}\\) or \\(W_2\\).",
   "location_in_paper": "Page 16, Section 6 (Discussion)",
-  "open_problem_quote": "\"To begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g.\\, the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.\"",
-  "subject_classification": "Stochastic Processes / Sampling and Monte Carlo (Diffusion Models)",
+  "open_problem_quote": "To begin with, it remains unclear how the DDPM sampler adapts to unknown low dimensionality when other metrics (e.g., the total-variation distance or the Wasserstein distance) are used to measure distributional discrepancy.",
+  "area": "other",
+  "subject_classification": "Stochastic Processes and Generative Modeling (Diffusion Models)",
   "keywords": [
     "diffusion models",
     "DDPM",
-    "low intrinsic dimension",
+    "intrinsic dimension",
     "total variation distance",
     "Wasserstein distance",
-    "convergence rates",
-    "sampling complexity"
+    "convergence rate"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -40,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.065107,
+    "extractor_total_cost_usd": 0.06687625,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.065107
+    "total_cost_usd": 0.06687625
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W7135205807/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7135205807/problems.json",
     "verification_source": null,
     "literature_source": null
   }

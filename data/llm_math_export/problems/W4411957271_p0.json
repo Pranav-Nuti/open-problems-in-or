@@ -7,26 +7,28 @@
   "source_paper_authors": [
     "Takayuki Okuno"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 4 (Concluding remarks and future work), page 19 (PDF page 19/36)\n\nThere exist two directions for future works. The first one is concerned with limiting behavior of the tangential direction \\dot{x}(\\mu) in the x-space as \\mu \\to 0. We have the following conjecture: lim_{\\mu\\to 0} \\dot{x}(\\mu) = \\xi^*, where \\xi^* was defined in Proposition 5.",
-  "title": "Conjectured limit of the central-path tangential direction in NSDP",
-  "latex": "Consider the nonlinear semidefinite program (NSDP)\n\\[\n\\min_{x\\in\\mathbb{R}^n} f(x)\\quad\\text{subject to}\\quad G(x)\\in \\mathrm{S}^m_+,\\; h(x)=0,\n\\]\nwhere \\(f:\\mathbb{R}^n\\to\\mathbb{R}\\), \\(G:\\mathbb{R}^n\\to\\mathrm{S}^m\\), and \\(h:\\mathbb{R}^n\\to\\mathbb{R}^s\\) are twice continuously differentiable, \\(\\mathrm{S}^m\\) is the space of real symmetric \\(m\\times m\\) matrices, and \\(\\mathrm{S}^m_+\\) is the cone of positive semidefinite matrices.\n\nLet \\(x^*\\) be a KKT point and assume:\n- strict complementarity holds at \\((x^*,Y^a)\\), i.e., \\(G(x^*)+Y^a\\in\\mathrm{S}^m_{++}\\) for some Lagrange multiplier matrix \\(Y^a\\succeq 0\\) with \\(G(x^*)\\bullet Y^a=0\\),\n- the enhanced second-order sufficient condition holds at \\(x^*\\), and\n- the Mangasarian--Fromovitz constraint qualification holds at \\(x^*\\).\n\nFor each \\(\\mu>0\\), let \\(w(\\mu)=(x(\\mu),Y(\\mu),z(\\mu))\\in\\mathbb{R}^n\\times \\mathrm{S}^m\\times\\mathbb{R}^s\\) be the unique smooth primal-dual central path of barrier KKT (BKKT) points satisfying\n\\[\n\\nabla f(x(\\mu)) - JG(x(\\mu))^*Y(\\mu) + \\nabla h(x(\\mu))z(\\mu)=0,\\quad h(x(\\mu))=0,\n\\]\n\\[\nG(x(\\mu))Y(\\mu)=\\mu I,\\quad G(x(\\mu))\\in\\mathrm{S}^m_{++},\\; Y(\\mu)\\in\\mathrm{S}^m_{++},\n\\]\nand \\(\\lim_{\\mu\\downarrow 0} w(\\mu) = (x^*,Y^a,z^a)\\), where \\((Y^a,z^a)\\) is the analytic center of the multiplier set \\(\\Lambda(x^*)\\).\n\nDefine \\(\\xi^*\\in\\mathbb{R}^n\\) to be the unique \\(\\Delta x\\)-component of any solution \\((\\Delta x,\\Delta Y)\\) to the linear system (with \\(G^*:=G(x^*)\\))\n\\[\nU_{x^*}^\\top\\bigl(\\nabla^2_{xx}L(x^*,Y^a,z^a)\\,\\Delta x - JG(x^*)^*\\Delta Y\\bigr)=0,\n\\]\n\\[\nL_{G^*}(\\Delta Y) + L_{Y^a}(\\Delta G(x^*;\\Delta x)) = 2I,\n\\]\n\\[\n\\nabla h(x^*)^\\top\\Delta x = 0,\n\\]\nwhere \\(L_X(W)=XW+WX\\), \\(\\Delta G(x^*;d)=\\sum_{i=1}^n d_i\\,\\partial G(x^*)/\\partial x_i\\), and \\(U_{x^*}\\) has columns forming an orthonormal basis of\n\\[\nU^*:=\\{d\\in\\mathbb{R}^n\\mid \\Delta G_{EE}(x^*;d)=0,\\;\\nabla h(x^*)^\\top d=0\\},\n\\]\nwith \\(\\Delta G_{EE}(x^*;d)=E^{*\\top}\\Delta G(x^*;d)E^*\\) defined via an eigen-decomposition of \\(G(x^*)\\) as in the paper.\n\nproblem (conjecture): Prove (or disprove) that the tangential direction of the primal component of the central path converges to \\(\\xi^*\\), i.e.,\n\\[\n\\lim_{\\mu\\downarrow 0} \\dot x(\\mu) = \\xi^*,\n\\]\nwhere \\(\\dot x(\\mu)=\\frac{d}{d\\mu}x(\\mu)\\) denotes the derivative of the central-path primal variable with respect to the barrier parameter \\(\\mu\\).",
-  "location_in_paper": "Section 4 (Concluding remarks and future work), page 19 (PDF page 19/36)",
-  "open_problem_quote": "There exist two directions for future works. The first one is concerned with limiting behavior of the tangential direction \\dot{x}(\\mu) in the x-space as \\mu \\to 0. We have the following conjecture: lim_{\\mu\\to 0} \\dot{x}(\\mu) = \\xi^*, where \\xi^* was defined in Proposition 5.",
-  "subject_classification": "Nonlinear Semidefinite Programming / Interior-Point Methods",
+  "context": "Section 4 (Concluding remarks and future work), page 19\n\nThere exist two directions for future works. The first one is concerned with limiting behavior of the tangential direction \\(\\dot x(\\mu)\\) in the \\(x\\)-space as \\(\\mu \\to 0\\). We have the following conjecture: \\(\\lim_{\\mu\\to 0}\\dot x(\\mu) = \\xi^*\\), where \\(\\xi^*\\) was defined in Proposition 5.",
+  "title": "Conjectured limit of the central path tangent \\,\\(\\dot x(\\mu)\\) as \\,\\(\\mu\\to 0\\) in nonlinear semidefinite programming",
+  "latex": "Given integers \\(n,m,s\\ge 1\\), twice continuously differentiable functions \\(f:\\mathbb{R}^n\\to\\mathbb{R}\\), \\(G:\\mathbb{R}^n\\to\\mathbb{S}^m\\) (the space of real \\(m\\times m\\) symmetric matrices), and \\(h:\\mathbb{R}^n\\to\\mathbb{R}^s\\), consider the nonlinear semidefinite program\n\\[\n\\min_{x\\in\\mathbb{R}^n}\\ f(x) \\quad \\text{subject to}\\quad G(x)\\in\\mathbb{S}^m_{+},\\; h(x)=0.\n\\]\nLet \\(x^*\\in\\mathbb{R}^n\\) be a KKT point, and let \\((Y^a,z^a)\\in\\mathbb{S}^m_{+}\\times\\mathbb{R}^s\\) denote the analytic-center Lagrange multiplier pair associated with \\(x^*\\) (i.e., the unique minimizer of \\(-\\log\\det Y_{EE}\\) over the Lagrange multiplier set \\(\\Lambda(x^*)\\), with \\(Y_{EE}\\) defined via an orthogonal basis that diagonalizes \\(G(x^*)\\) and separates its nullspace).\nAssume the hypotheses under which the paper proves existence of a unique smooth primal-dual central path (in particular: Mangasarian--Fromovitz constraint qualification at \\(x^*\\), strict complementarity at some multiplier matrix, and the enhanced second-order sufficient condition at \\(x^*\\)). Then there exist \\(\\bar\\mu>0\\) and a smooth mapping \\(w(\\mu)=(x(\\mu),Y(\\mu),z(\\mu))\\in\\mathbb{R}^n\\times\\mathbb{S}^m_{++}\\times\\mathbb{R}^s\\) for \\(\\mu\\in(0,\\bar\\mu)\\) such that \\(w(\\mu)\\) satisfies the barrier KKT (BKKT) system\n\\[\n\\nabla f(x(\\mu)) - JG(x(\\mu))^*Y(\\mu) + \\nabla h(x(\\mu))z(\\mu)=0,\\quad h(x(\\mu))=0,\\quad G(x(\\mu))Y(\\mu)=\\mu I,\n\\]\nwith \\(G(x(\\mu))\\in\\mathbb{S}^m_{++}\\) and \\(Y(\\mu)\\in\\mathbb{S}^m_{++}\\), and \\(\\lim_{\\mu\\downarrow 0} w(\\mu)=(x^*,Y^a,z^a)\\).\nDefine \\(\\xi^*\\in\\mathbb{R}^n\\) as the unique \\(\\Delta x\\)-component of any solution \\((\\Delta x,\\Delta Y)\\in\\mathbb{R}^n\\times\\mathbb{S}^m\\) to the linear system\n\\[\nU_{x^*}^\\top\\bigl(\\nabla_{xx}^2 L(x^*,Y^a,z^a)\\,\\Delta x - JG(x^*)^*\\Delta Y\\bigr)=0,\n\\]\n\\[\nG(x^*)\\Delta Y + \\Delta Y\\,G(x^*) + Y^a\\,\\Delta G(x^*;\\Delta x) + \\Delta G(x^*;\\Delta x)\\,Y^a = 2I,\n\\]\n\\[\n\\nabla h(x^*)^\\top \\Delta x = 0.\n\\]\nHere \\(L(x,Y,z)= f(x) - G(x)\\bullet Y + h(x)^\\top z\\), \\(JG(x)^*\\) is the adjoint Jacobian operator defined by \\(JG(x)^*Y = (G_1(x)\\bullet Y,\\dots,G_n(x)\\bullet Y)^\\top\\), \\(\\Delta G(x;d)=\\sum_{i=1}^n d_i G_i(x)\\), and \\(U_{x^*}\\in\\mathbb{R}^{n\\times p}\\) has columns forming an orthonormal basis of \\(\\{d\\in\\mathbb{R}^n: \\Delta G_{EE}(x^*;d)=0,\\ \\nabla h(x^*)^\\top d=0\\}\\) (with \\(\\Delta G_{EE}\\) denoting the \\((EE)\\)-block under the eigenbasis split of \\(G(x^*)\\)).\n\nproblem (conjecture): Prove or disprove that the tangent of the central path satisfies\n\\[\n\\lim_{\\mu\\downarrow 0} \\dot x(\\mu) = \\xi^*,\n\\]\nwhere \\(\\dot x(\\mu)=\\frac{d}{d\\mu}x(\\mu)\\) and \\(\\xi^*\\) is defined above.",
+  "location_in_paper": "Section 4 (Concluding remarks and future work), page 19",
+  "open_problem_quote": "There exist two directions for future works. The first one is concerned with limiting behavior of the tangential direction \\(\\dot x(\\mu)\\) in the \\(x\\)-space as \\(\\mu \\to 0\\). We have the following conjecture: \\(\\lim_{\\mu\\to 0}\\dot x(\\mu) = \\xi^*\\), where \\(\\xi^*\\) was defined in Proposition 5.",
+  "area": "other",
+  "subject_classification": "Nonlinear Semidefinite Programming",
   "keywords": [
-    "nonlinear semidefinite programming",
     "central path",
     "primal-dual interior-point methods",
-    "tangential direction",
+    "nonlinear semidefinite optimization",
     "analytic center",
-    "strict complementarity",
-    "asymptotic analysis"
+    "barrier KKT system",
+    "path derivatives"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +40,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.10515574999999999,
+    "extractor_total_cost_usd": 0.10845099999999999,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10515574999999999
+    "total_cost_usd": 0.10845099999999999
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4411957271/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411957271/problems.json",
     "verification_source": null,
     "literature_source": null
   }

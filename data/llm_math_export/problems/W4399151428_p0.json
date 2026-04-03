@@ -1,0 +1,55 @@
+{
+  "problem_id": "W4399151428_p0",
+  "paper_id": "W4399151428",
+  "source_paper": "W4399151428",
+  "source_paper_title": "On the Sequential Convergence of Lloyd\u2019s Algorithms",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0550",
+  "source_paper_authors": [
+    "L\u00e9o Portales",
+    "Elsa Cazelles",
+    "Edouard Pauwels"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Section 1 (Introduction), paragraph ending with \u201cremains open.\u201d\n\nBeyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
+  "title": "Sequential convergence of Lloyd\u2019s algorithm for semi-discrete Wasserstein quantization without definability/analyticity assumptions",
+  "latex": "Given integers \\(d\\ge 1\\) and \\(N\\ge 2\\), let \\(\\mu\\) be a Borel probability measure on \\(\\mathbb{R}^d\\) that is absolutely continuous with respect to Lebesgue measure and has compact support. Let \\(f\\) denote a density of \\(\\mu\\) (defined Lebesgue-a.e.).\n\nOptimal quantization (free weights): define the functional \\(G_N:(\\mathbb{R}^d)^N\\to\\mathbb{R}\\) by\n\\[\nG_N(Y)=\\frac12\\int_{\\mathbb{R}^d}\\min_{i\\in\\{1,\\dots,N\\}}\\|x-y_i\\|^2\\,d\\mu(x),\n\\]\nwhere \\(Y=(y_1,\\dots,y_N)\\in(\\mathbb{R}^d)^N\\) and \\(\\|\\cdot\\|\\) is the Euclidean norm. For \\(Y\\) with pairwise distinct points, define the Voronoi cells\n\\[\nV_i(Y)=\\{x\\in\\mathbb{R}^d:\\ \\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\text{for all } j\\ne i\\},\n\\]\nand define the Lloyd (Voronoi barycentric) update \\(T_N(Y)\\in(\\mathbb{R}^d)^N\\) by\n\\[\nT_N(Y)=\\Big(\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))}\\Big)_{i=1}^N.\n\\]\nStarting from \\(Y_0\\in(\\mathrm{Supp}\\,\\mu)^N\\) with pairwise distinct points, define the Lloyd iterates \\(Y_{n+1}=T_N(Y_n)\\) for \\(n\\ge 0\\).\n\nUniform quantization (uniform weights): define \\(F_N:(\\mathbb{R}^d)^N\\to\\mathbb{R}\\) by\n\\[\nF_N(Y)=\\frac12 W_2^2\\Big(\\mu,\\frac1N\\sum_{i=1}^N \\delta_{y_i}\\Big),\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for cost \\(\\|x-y\\|^2\\). For \\(Y\\) with pairwise distinct points, let \\(B_N(Y)\\in(\\mathbb{R}^d)^N\\) denote the corresponding Laguerre-barycentric Lloyd update (defined via optimal Laguerre/power cells of equal \\(\\mu\\)-mass \\(1/N\\)), and define the Lloyd iterates \\(Y_{n+1}=B_N(Y_n)\\).\n\nProblem: under minimal regularity assumptions on \\(\\mu\\) (e.g., only absolute continuity and compact support, without assuming that the density \\(f\\) is analytic or globally subanalytic/definable), prove or disprove that the Lloyd iterates \\((Y_n)_{n\\ge 0}\\) for optimal quantization and/or uniform quantization are sequentially convergent, i.e., that \\(Y_n\\) converges to a single limit point \\(Y_\\star\\in(\\mathbb{R}^d)^N\\), rather than merely having accumulation points.",
+  "location_in_paper": "Page 3, Section 1 (Introduction), paragraph ending with \u201cremains open.\u201d",
+  "open_problem_quote": "Beyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
+  "area": "other",
+  "subject_classification": "Optimal Transport and Nonconvex Optimization",
+  "keywords": [
+    "Lloyd's algorithm",
+    "quantization",
+    "semi-discrete optimal transport",
+    "sequential convergence",
+    "Wasserstein distance",
+    "Kurdyka-\u0141ojasiewicz inequality"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.060508,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.060508
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4399151428/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
