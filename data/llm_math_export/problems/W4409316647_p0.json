@@ -13,22 +13,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 6 (Summary and outlook), page 31\n\nIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions. A concrete first step in pursuit of a \u201cHamiltonian\u201d lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.",
-  "title": "Hamiltonian policy-improvement path for some MDP with \\(k\\ge 3\\) actions",
-  "latex": "Given integers \\(n\\ge 3\\) and \\(k\\ge 3\\), let \\(M=(S,A,T,R,\\gamma)\\) be a finite discounted Markov decision process (MDP), where \\(S\\) is a finite set of states with \\(|S|=n\\), \\(A\\) is a finite set of actions with \\(|A|=k\\), \\(T:S\\times A\\times S\\to[0,1]\\) is a transition function satisfying \\(\\sum_{s'\\in S}T(s,a,s')=1\\) for all \\((s,a)\\in S\\times A\\), \\(R:S\\times A\\to\\mathbb{R}\\) is a reward function, and \\(\\gamma\\in[0,1)\\) is a discount factor.\n\nA (deterministic, stationary) policy is a function \\(\\pi:S\\to A\\). Let \\(\\Pi\\) denote the set of all policies; then \\(|\\Pi|=k^n\\). For a policy \\(\\pi\\in\\Pi\\), define its value function \\(V^{\\pi}:S\\to\\mathbb{R}\\) by\n\\[\nV^{\\pi}(s)=\\mathbb{E}\\Big[\\sum_{t=0}^{\\infty}\\gamma^t R(s_t,\\pi(s_t))\\,\\Big|\\,s_0=s,\\ s_{t+1}\\sim T(s_t,\\pi(s_t),\\cdot)\\Big].\n\\]\nFor \\(s\\in S\\) and \\(a\\in A\\), define the action-value \\(Q^{\\pi}(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^{\\pi}(s')\\) and the gain \\(\\rho^{\\pi}(s,a)=Q^{\\pi}(s,a)-V^{\\pi}(s)\\).\n\nSay that \\(\\pi'\\in\\Pi\\) is obtainable from \\(\\pi\\in\\Pi\\) by one policy-improvement step if for every \\(s\\in S\\), either \\(\\pi'(s)=\\pi(s)\\) or \\(\\rho^{\\pi}(s,\\pi'(s))>0\\), and there exists at least one \\(s\\) with \\(\\pi'(s)\\ne\\pi(s)\\). Define the policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) as the digraph with vertex set \\(\\Pi\\) and an arc \\(\\pi\\to\\pi'\\) whenever \\(\\pi'\\) is obtainable from \\(\\pi\\) by one policy-improvement step.\n\nThe problem is to determine whether there exists any discounted MDP \\(M\\) with \\(|S|=n\\) and \\(|A|=k\\) (for some \\(n\\ge 3\\), \\(k\\ge 3\\)) whose PI-DAG contains a Hamiltonian directed path, i.e., a directed path that visits all \\(k^n\\) policies exactly once. In particular, decide whether there exists a \\(3\\)-state, \\(3\\)-action discounted MDP \\(M\\) whose PI-DAG contains a directed path visiting all \\(3^3=27\\) policies.",
-  "location_in_paper": "Section 6 (Summary and outlook), page 31",
+  "context": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d\n\nIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions. A concrete first step in pursuit of a \u201cHamiltonian\u201d lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.",
+  "title": "Existence of an MDP with \\(k\\ge 3\\) actions whose policy-improvement DAG contains a Hamiltonian path",
+  "background_latex": "- An MDP is a tuple \\(M=(S,A,T,R,\\gamma)\\) where \\(S\\) is a finite set of states with \\(|S|=n\\), \\(A\\) is a finite set of actions with \\(|A|=k\\), \\(T:S\\times A\\times S\\to[0,1]\\) is a transition kernel, \\(R:S\\times A\\to\\mathbb{R}\\) is a reward function, and \\(\\gamma\\in[0,1)\\) is a discount factor.\n- A (deterministic Markov) policy is a mapping \\(\\pi:S\\to A\\). The set of all policies is \\(\\Pi\\), with \\(|\\Pi|=k^n\\).\n- For a policy \\(\\pi\\), its value function \\(V^{\\pi}:S\\to\\mathbb{R}\\) is the expected discounted return starting from each state when following \\(\\pi\\).\n- For policies \\(\\pi,\\pi'\\in\\Pi\\), write \\(\\pi\\prec\\pi'\\) if \\(V^{\\pi}(s)\\le V^{\\pi'}(s)\\) for all \\(s\\in S\\) and \\(V^{\\pi}(s)<V^{\\pi'}(s)\\) for at least one \\(s\\in S\\).\n- A one-step policy-improvement move from \\(\\pi\\) to \\(\\pi'\\) is any update that changes \\(\\pi\\) at one or more states to actions with strictly positive gain (so that \\(\\pi\\prec\\pi'\\) holds).\n- The policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) is the digraph \\(D=(\\Pi,E)\\) with an arc \\((\\pi,\\pi')\\in E\\) whenever \\(\\pi'\\) can be obtained from \\(\\pi\\) by a single policy-improvement step.\n- A Hamiltonian path in \\(D\\) is a directed path that visits every vertex of \\(D\\) exactly once, i.e., it has length \\(|\\Pi|-1=k^n-1\\).",
+  "problem_definition_latex": "Problem: Determine whether there exists an MDP \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\ge 2\\) and \\(|A|=k\\ge 3\\) such that the PI-DAG \\(D=(\\Pi,E)\\) of \\(M\\) contains a directed Hamiltonian path (equivalently, there exists an ordering \\(\\pi_1,\\pi_2,\\dots,\\pi_{k^n}\\) of all policies \\(\\Pi\\) with \\((\\pi_i,\\pi_{i+1})\\in E\\) for every \\(1\\le i<k^n\\)).\nProblem (concrete first step highlighted by the authors): Construct such an example for \\(n=3\\) and \\(k=3\\), i.e., an MDP with \\(|S|=3\\) and \\(|A|=3\\) whose PI-DAG has a Hamiltonian path that visits all \\(3^3=27\\) policies.",
+  "latex": "- An MDP is a tuple \\(M=(S,A,T,R,\\gamma)\\) where \\(S\\) is a finite set of states with \\(|S|=n\\), \\(A\\) is a finite set of actions with \\(|A|=k\\), \\(T:S\\times A\\times S\\to[0,1]\\) is a transition kernel, \\(R:S\\times A\\to\\mathbb{R}\\) is a reward function, and \\(\\gamma\\in[0,1)\\) is a discount factor.\n- A (deterministic Markov) policy is a mapping \\(\\pi:S\\to A\\). The set of all policies is \\(\\Pi\\), with \\(|\\Pi|=k^n\\).\n- For a policy \\(\\pi\\), its value function \\(V^{\\pi}:S\\to\\mathbb{R}\\) is the expected discounted return starting from each state when following \\(\\pi\\).\n- For policies \\(\\pi,\\pi'\\in\\Pi\\), write \\(\\pi\\prec\\pi'\\) if \\(V^{\\pi}(s)\\le V^{\\pi'}(s)\\) for all \\(s\\in S\\) and \\(V^{\\pi}(s)<V^{\\pi'}(s)\\) for at least one \\(s\\in S\\).\n- A one-step policy-improvement move from \\(\\pi\\) to \\(\\pi'\\) is any update that changes \\(\\pi\\) at one or more states to actions with strictly positive gain (so that \\(\\pi\\prec\\pi'\\) holds).\n- The policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) is the digraph \\(D=(\\Pi,E)\\) with an arc \\((\\pi,\\pi')\\in E\\) whenever \\(\\pi'\\) can be obtained from \\(\\pi\\) by a single policy-improvement step.\n- A Hamiltonian path in \\(D\\) is a directed path that visits every vertex of \\(D\\) exactly once, i.e., it has length \\(|\\Pi|-1=k^n-1\\).\n\nProblem:\nProblem: Determine whether there exists an MDP \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\ge 2\\) and \\(|A|=k\\ge 3\\) such that the PI-DAG \\(D=(\\Pi,E)\\) of \\(M\\) contains a directed Hamiltonian path (equivalently, there exists an ordering \\(\\pi_1,\\pi_2,\\dots,\\pi_{k^n}\\) of all policies \\(\\Pi\\) with \\((\\pi_i,\\pi_{i+1})\\in E\\) for every \\(1\\le i<k^n\\)).\nProblem (concrete first step highlighted by the authors): Construct such an example for \\(n=3\\) and \\(k=3\\), i.e., an MDP with \\(|S|=3\\) and \\(|A|=3\\) whose PI-DAG has a Hamiltonian path that visits all \\(3^3=27\\) policies.",
+  "location_in_paper": "Page 31, Section 6 (Summary and outlook), first bullet under \u201cOur results give rise to several questions for further investigation.\u201d",
   "open_problem_quote": "It remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions. A concrete first step in pursuit of a \u201cHamiltonian\u201d lower bound could be to attempt constructing a 3-state, 3-action MDP in which all 27 policies can be visited by PI.",
   "area": "other",
-  "subject_classification": "Markov Decision Processes; Discrete Optimization / Graph Algorithms",
+  "subject_classification": "Markov Decision Processes; Dynamic Programming; Computational Complexity",
   "keywords": [
     "policy iteration",
     "Markov decision processes",
-    "policy-improvement graph",
     "Hamiltonian path",
-    "lower bounds",
-    "computational complexity"
+    "policy-improvement DAG",
+    "worst-case complexity",
+    "multi-action MDPs"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -43,10 +45,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.10190425,
+    "extractor_total_cost_usd": 0.10313449999999999,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10190425
+    "total_cost_usd": 0.10313449999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4409316647/problems.json",

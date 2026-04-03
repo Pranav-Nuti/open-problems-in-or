@@ -12,22 +12,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Page 3, Section 1 (Introduction), paragraph ending with \u201cremains open.\u201d\n\nBeyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
-  "title": "Sequential convergence of Lloyd\u2019s algorithm for semi-discrete Wasserstein quantization without definability/analyticity assumptions",
-  "latex": "Given integers \\(d\\ge 1\\) and \\(N\\ge 2\\), let \\(\\mu\\) be a Borel probability measure on \\(\\mathbb{R}^d\\) that is absolutely continuous with respect to Lebesgue measure and has compact support. Let \\(f\\) denote a density of \\(\\mu\\) (defined Lebesgue-a.e.).\n\nOptimal quantization (free weights): define the functional \\(G_N:(\\mathbb{R}^d)^N\\to\\mathbb{R}\\) by\n\\[\nG_N(Y)=\\frac12\\int_{\\mathbb{R}^d}\\min_{i\\in\\{1,\\dots,N\\}}\\|x-y_i\\|^2\\,d\\mu(x),\n\\]\nwhere \\(Y=(y_1,\\dots,y_N)\\in(\\mathbb{R}^d)^N\\) and \\(\\|\\cdot\\|\\) is the Euclidean norm. For \\(Y\\) with pairwise distinct points, define the Voronoi cells\n\\[\nV_i(Y)=\\{x\\in\\mathbb{R}^d:\\ \\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\text{for all } j\\ne i\\},\n\\]\nand define the Lloyd (Voronoi barycentric) update \\(T_N(Y)\\in(\\mathbb{R}^d)^N\\) by\n\\[\nT_N(Y)=\\Big(\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))}\\Big)_{i=1}^N.\n\\]\nStarting from \\(Y_0\\in(\\mathrm{Supp}\\,\\mu)^N\\) with pairwise distinct points, define the Lloyd iterates \\(Y_{n+1}=T_N(Y_n)\\) for \\(n\\ge 0\\).\n\nUniform quantization (uniform weights): define \\(F_N:(\\mathbb{R}^d)^N\\to\\mathbb{R}\\) by\n\\[\nF_N(Y)=\\frac12 W_2^2\\Big(\\mu,\\frac1N\\sum_{i=1}^N \\delta_{y_i}\\Big),\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for cost \\(\\|x-y\\|^2\\). For \\(Y\\) with pairwise distinct points, let \\(B_N(Y)\\in(\\mathbb{R}^d)^N\\) denote the corresponding Laguerre-barycentric Lloyd update (defined via optimal Laguerre/power cells of equal \\(\\mu\\)-mass \\(1/N\\)), and define the Lloyd iterates \\(Y_{n+1}=B_N(Y_n)\\).\n\nProblem: under minimal regularity assumptions on \\(\\mu\\) (e.g., only absolute continuity and compact support, without assuming that the density \\(f\\) is analytic or globally subanalytic/definable), prove or disprove that the Lloyd iterates \\((Y_n)_{n\\ge 0}\\) for optimal quantization and/or uniform quantization are sequentially convergent, i.e., that \\(Y_n\\) converges to a single limit point \\(Y_\\star\\in(\\mathbb{R}^d)^N\\), rather than merely having accumulation points.",
-  "location_in_paper": "Page 3, Section 1 (Introduction), paragraph ending with \u201cremains open.\u201d",
+  "context": "Page 3, Section 1 (Introduction), paragraph discussing prior work on accumulation points and sequential convergence\n\nBeyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
+  "title": "Sequential convergence of Lloyd\u2019s method for semi-discrete quantization without definability/analyticity assumptions",
+  "background_latex": "- Let \\(d\\in\\mathbb{N}^*\\) and \\(N\\in\\mathbb{N}^*\\).\n- Let \\(\\mu\\) be a probability measure on \\(\\mathbb{R}^d\\) that is absolutely continuous with respect to Lebesgue measure, with compact support \\(\\mathrm{Supp}\\,\\mu\\subset \\mathbb{R}^d\\), and with density \\(f\\).\n- For a point cloud \\(Y=(y_1,\\dots,y_N)\\in(\\mathbb{R}^d)^N\\), define the generalized diagonal \\(D_N:=\\{Y\\in(\\mathbb{R}^d)^N:\\exists i\\neq j,\\ y_i=y_j\\}\\).\n- Define the optimal quantization functional\n\\[\nG_N(Y):=\\frac12\\int_{\\mathbb{R}^d}\\min_{i\\in\\{1,\\dots,N\\}}\\|x-y_i\\|^2\\,f(x)\\,dx,\n\\]\nand its Lloyd (Voronoi-barycentric) fixed-point iteration \\(Y_{n+1}=T_N(Y_n)\\) (well-defined for \\(Y_n\\notin D_N\\)), where \\(T_N(Y)\\) has components\n\\[\n(T_N(Y))_i:=\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))},\\qquad i=1,\\dots,N,\n\\]\nwith Voronoi cells \\(V_i(Y):=\\{x\\in\\mathbb{R}^d:\\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\forall j\\neq i\\}\\).\n- Define the uniform quantization functional\n\\[\nF_N(Y):=\\frac12\\,W_2^2\\Bigl(\\mu,\\frac1N\\sum_{i=1}^N\\delta_{y_i}\\Bigr),\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for the squared Euclidean cost.\n- Consider the corresponding Lloyd-type iteration for uniform quantization \\(Y_{n+1}=B_N(Y_n)\\) defined via Laguerre (power) cells (so that each cell has \\(\\mu\\)-mass \\(1/N\\)) and barycentric updates (well-defined for \\(Y_n\\notin D_N\\)).",
+  "problem_definition_latex": "Problem: Prove (or disprove, by counterexample) that for general absolutely continuous compactly supported target measures \\(\\mu\\) (with no additional rigidity assumptions such as analyticity or global subanalyticity/definability of the density \\(f\\)), the sequences \\((Y_n)_{n\\ge 0}\\) generated by Lloyd\u2019s fixed-point iterations for\n- optimal quantization: \\(Y_{n+1}=T_N(Y_n)\\) applied to \\(G_N\\), and/or\n- uniform quantization: \\(Y_{n+1}=B_N(Y_n)\\) applied to \\(F_N\\),\nare sequentially convergent, i.e. converge to a single accumulation point (equivalently, do not exhibit cycling/chaotic behavior), and that any such limit point is a critical point of the corresponding functional \\(G_N\\) or \\(F_N\\).",
+  "latex": "- Let \\(d\\in\\mathbb{N}^*\\) and \\(N\\in\\mathbb{N}^*\\).\n- Let \\(\\mu\\) be a probability measure on \\(\\mathbb{R}^d\\) that is absolutely continuous with respect to Lebesgue measure, with compact support \\(\\mathrm{Supp}\\,\\mu\\subset \\mathbb{R}^d\\), and with density \\(f\\).\n- For a point cloud \\(Y=(y_1,\\dots,y_N)\\in(\\mathbb{R}^d)^N\\), define the generalized diagonal \\(D_N:=\\{Y\\in(\\mathbb{R}^d)^N:\\exists i\\neq j,\\ y_i=y_j\\}\\).\n- Define the optimal quantization functional\n\\[\nG_N(Y):=\\frac12\\int_{\\mathbb{R}^d}\\min_{i\\in\\{1,\\dots,N\\}}\\|x-y_i\\|^2\\,f(x)\\,dx,\n\\]\nand its Lloyd (Voronoi-barycentric) fixed-point iteration \\(Y_{n+1}=T_N(Y_n)\\) (well-defined for \\(Y_n\\notin D_N\\)), where \\(T_N(Y)\\) has components\n\\[\n(T_N(Y))_i:=\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))},\\qquad i=1,\\dots,N,\n\\]\nwith Voronoi cells \\(V_i(Y):=\\{x\\in\\mathbb{R}^d:\\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\forall j\\neq i\\}\\).\n- Define the uniform quantization functional\n\\[\nF_N(Y):=\\frac12\\,W_2^2\\Bigl(\\mu,\\frac1N\\sum_{i=1}^N\\delta_{y_i}\\Bigr),\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for the squared Euclidean cost.\n- Consider the corresponding Lloyd-type iteration for uniform quantization \\(Y_{n+1}=B_N(Y_n)\\) defined via Laguerre (power) cells (so that each cell has \\(\\mu\\)-mass \\(1/N\\)) and barycentric updates (well-defined for \\(Y_n\\notin D_N\\)).\n\nProblem:\nProblem: Prove (or disprove, by counterexample) that for general absolutely continuous compactly supported target measures \\(\\mu\\) (with no additional rigidity assumptions such as analyticity or global subanalyticity/definability of the density \\(f\\)), the sequences \\((Y_n)_{n\\ge 0}\\) generated by Lloyd\u2019s fixed-point iterations for\n- optimal quantization: \\(Y_{n+1}=T_N(Y_n)\\) applied to \\(G_N\\), and/or\n- uniform quantization: \\(Y_{n+1}=B_N(Y_n)\\) applied to \\(F_N\\),\nare sequentially convergent, i.e. converge to a single accumulation point (equivalently, do not exhibit cycling/chaotic behavior), and that any such limit point is a critical point of the corresponding functional \\(G_N\\) or \\(F_N\\).",
+  "location_in_paper": "Page 3, Section 1 (Introduction), paragraph discussing prior work on accumulation points and sequential convergence",
   "open_problem_quote": "Beyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
   "area": "other",
-  "subject_classification": "Optimal Transport and Nonconvex Optimization",
+  "subject_classification": "Nonconvex Optimization / Optimal Transport",
   "keywords": [
     "Lloyd's algorithm",
+    "sequential convergence",
     "quantization",
     "semi-discrete optimal transport",
-    "sequential convergence",
-    "Wasserstein distance",
-    "Kurdyka-\u0141ojasiewicz inequality"
+    "Kurdyka-\u0141ojasiewicz inequality",
+    "Voronoi and Laguerre cells"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.060508,
+    "extractor_total_cost_usd": 0.06066025,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.060508
+    "total_cost_usd": 0.06066025
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4399151428/problems.json",

@@ -425,72 +425,16 @@
       return d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
     }
 
-    function _isLikelyProblemSentence(paragraph) {
-      const value = String(paragraph || "").trim().toLowerCase();
-      return value.startsWith("problem:")
-        || value.startsWith("open problem:")
-        || value.startsWith("prove ")
-        || value.startsWith("prove that")
-        || value.startsWith("show ")
-        || value.startsWith("show that")
-        || value.startsWith("design ")
-        || value.startsWith("determine ")
-        || value.startsWith("is it true");
-    }
-
-    function splitBackgroundAndDefinition(rawLatex) {
-      const text = String(rawLatex || "").trim();
-      if (!text) {
-        return {
-          background: "",
-          definition: "",
-          usedHeuristicSplit: false,
-          hasExplicitSplitMarker: false,
-        };
+    function buildCombinedProblemLatex(backgroundLatex, definitionLatex) {
+      const background = String(backgroundLatex || "").trim();
+      const definition = String(definitionLatex || "").trim();
+      if (!background) {
+        throw new Error("Missing required field: background_latex");
       }
-
-      const lower = text.toLowerCase();
-      const markers = ["\n\nproblem:", "\nproblem:", "\n\nopen problem:", "\nopen problem:"];
-      let markerIndex = -1;
-      for (const marker of markers) {
-        const idx = lower.indexOf(marker);
-        if (idx >= 0 && (markerIndex < 0 || idx < markerIndex)) {
-          markerIndex = idx;
-        }
+      if (!definition) {
+        throw new Error("Missing required field: problem_definition_latex");
       }
-
-      if (markerIndex >= 0) {
-        const definitionStart = text.indexOf("\n", markerIndex) + 1;
-        return {
-          background: text.slice(0, markerIndex).trim(),
-          definition: text.slice(definitionStart).trim(),
-          usedHeuristicSplit: false,
-          hasExplicitSplitMarker: true,
-        };
-      }
-
-      const paragraphs = text
-        .split("\n\n")
-        .map((chunk) => chunk.trim())
-        .filter(Boolean);
-
-      if (paragraphs.length >= 2 && _isLikelyProblemSentence(paragraphs[paragraphs.length - 1])) {
-        const definition = paragraphs[paragraphs.length - 1];
-        const background = paragraphs.slice(0, -1).join("\n\n").trim();
-        return {
-          background,
-          definition,
-          usedHeuristicSplit: true,
-          hasExplicitSplitMarker: false,
-        };
-      }
-
-      return {
-        background: "",
-        definition: text,
-        usedHeuristicSplit: false,
-        hasExplicitSplitMarker: false,
-      };
+      return `${background}\n\nProblem:\n${definition}`;
     }
 
     function renderProblem(payload, problemNumber) {
@@ -533,21 +477,24 @@
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
       document.getElementById("upload-date").textContent = formatUploadDate(payload.pipeline_generated_at_utc);
-      const rawLatex = payload.latex || "";
-      const split = splitBackgroundAndDefinition(rawLatex);
+      const backgroundLatex = String(payload.background_latex || "").trim();
+      const definitionLatex = String(payload.problem_definition_latex || "").trim();
+      if (!backgroundLatex) {
+        throw new Error("Problem payload is missing non-empty background_latex.");
+      }
+      if (!definitionLatex) {
+        throw new Error("Problem payload is missing non-empty problem_definition_latex.");
+      }
+      const rawLatex = buildCombinedProblemLatex(backgroundLatex, definitionLatex);
+      const split = {
+        background: backgroundLatex,
+        definition: definitionLatex,
+      };
       const backgroundNoteEl = document.getElementById("background-note");
       const backgroundEl = document.getElementById("problem-background");
-      if (split.background) {
-        backgroundEl.textContent = split.background;
-        backgroundNoteEl.hidden = split.hasExplicitSplitMarker;
-        backgroundNoteEl.textContent = split.usedHeuristicSplit
-          ? "Background and problem definition were split heuristically because no explicit \"Problem:\" marker was found."
-          : "";
-      } else {
-        backgroundEl.textContent = "No separate background section was extracted for this entry.";
-        backgroundNoteEl.hidden = false;
-        backgroundNoteEl.textContent = "This extracted problem appears as a single formal block. The full statement is shown in Problem definition.";
-      }
+      backgroundEl.textContent = split.background;
+      backgroundNoteEl.hidden = true;
+      backgroundNoteEl.textContent = "";
       const definitionEl = document.getElementById("problem-definition");
       definitionEl.textContent = split.definition;
       setupRawLatexControls(rawLatex, split);

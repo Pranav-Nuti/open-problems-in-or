@@ -13,20 +13,23 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Page 6, Section 1.2 (Hardness results discussion leading to Theorem 4); reiterated Page 22, Section 5.1 (One-sided Preferences Model)\n\nFor the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
-  "title": "Deterministic polynomial-time solvability of the Exact Matching problem in bipartite graphs",
-  "latex": "Given a bipartite graph \\(G=(A\\cup B,E)\\) with \\(|A|=|B|\\), suppose each edge \\(e\\in E\\) is colored either red or blue. For an integer \\(k\\in\\{0,1,\\dots,|A|\\}\\), define the decision problem:\n\\[\n\\text{\\bf Exact-Matching}(G,k):\\ \\text{Does there exist a perfect matching }M\\subseteq E\\text{ such that }|\\{e\\in M: e\\text{ is red}\\}|=k?\n\\]\nThe problem is to design a deterministic algorithm that, for every input \\((G,k)\\), decides \\(\\text{Exact-Matching}(G,k)\\) in time polynomial in \\(|A|+|B|+|E|\\).",
-  "location_in_paper": "Page 6, Section 1.2 (Hardness results discussion leading to Theorem 4); reiterated Page 22, Section 5.1 (One-sided Preferences Model)",
+  "context": "Page 6, Section 1.2 (Hardness results paragraph immediately before Theorem 4)\n\nFor the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
+  "title": "Deterministic polynomial-time solvability of the Exact Matching problem",
+  "background_latex": "- Let \\(G=(A,B;E)\\) be a bipartite graph with \\(|A|=|B|\\).\n- Each edge \\(e\\in E\\) is colored either red or blue.\n- For an edge set \\(M\\subseteq E\\), let \\(|M\\cap E_{\\mathrm{red}}|\\) denote the number of red edges in \\(M\\), where \\(E_{\\mathrm{red}}\\subseteq E\\) is the set of red edges.\n- A perfect matching is a matching \\(M\\subseteq E\\) that covers every vertex in \\(A\\cup B\\).",
+  "problem_definition_latex": "Problem: Design a deterministic polynomial-time algorithm that, given \\((G,k)\\) as above and an integer \\(k\\), decides whether \\(G\\) admits a perfect matching \\(M\\) with exactly \\(|M\\cap E_{\\mathrm{red}}|=k\\) (equivalently, exactly \\(k\\) red edges), and outputs such an \\(M\\) if it exists.",
+  "latex": "- Let \\(G=(A,B;E)\\) be a bipartite graph with \\(|A|=|B|\\).\n- Each edge \\(e\\in E\\) is colored either red or blue.\n- For an edge set \\(M\\subseteq E\\), let \\(|M\\cap E_{\\mathrm{red}}|\\) denote the number of red edges in \\(M\\), where \\(E_{\\mathrm{red}}\\subseteq E\\) is the set of red edges.\n- A perfect matching is a matching \\(M\\subseteq E\\) that covers every vertex in \\(A\\cup B\\).\n\nProblem:\nProblem: Design a deterministic polynomial-time algorithm that, given \\((G,k)\\) as above and an integer \\(k\\), decides whether \\(G\\) admits a perfect matching \\(M\\) with exactly \\(|M\\cap E_{\\mathrm{red}}|=k\\) (equivalently, exactly \\(k\\) red edges), and outputs such an \\(M\\) if it exists.",
+  "location_in_paper": "Page 6, Section 1.2 (Hardness results paragraph immediately before Theorem 4)",
   "open_problem_quote": "For the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
   "area": "other",
   "subject_classification": "Computational Complexity in Combinatorial Optimization",
   "keywords": [
     "exact matching",
-    "bipartite perfect matching",
+    "perfect matching",
+    "bipartite graphs",
     "deterministic polynomial-time algorithm",
-    "edge-colored graphs",
+    "edge-colored matchings",
     "complexity theory"
   ],
   "extraction_model": "gpt-5.2",
@@ -42,10 +45,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.0777805,
+    "extractor_total_cost_usd": 0.07947275,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0777805
+    "total_cost_usd": 0.07947275
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414427837/problems.json",

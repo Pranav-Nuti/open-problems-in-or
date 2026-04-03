@@ -13,22 +13,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 5.2 (\\(\\ell_\\infty\\) preferences), page 15 (PDF page 15 / 44 in the provided parsed text)\n\nWe conjecture that the incompatibility of efficiency, strategyproofness, and weak fairness conditions holds for \\(\\ell_p\\) disutilities for any \\(1 \\le p \\le \\infty\\), when \\(m \\ge 3\\) and \\(n \\ge 3\\).",
-  "title": "Impossibility of efficiency, strategyproofness, and proportionality for \\(\\ell_p\\) disutilities with \\(m\\ge 3\\) and \\(n\\ge 3\\)",
-  "latex": "Given integers \\(n\\ge 3\\) and \\(m\\ge 3\\), let \\(N=\\{1,\\dots,n\\}\\) be a set of agents and \\(M=\\{1,\\dots,m\\}\\) a set of alternatives. Let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}: \\sum_{j\\in M} q_j = 1\\}\\) be the \\(m\\)-simplex of feasible budget distributions.\n\nEach agent \\(i\\in N\\) has a peak (ideal distribution) \\(p_i\\in\\Delta^m\\). For a fixed \\(p\\in[1,\\infty]\\), define the \\(\\ell_p\\) disutility of agent \\(i\\) for an outcome \\(q\\in\\Delta^m\\) by\n\\[\n d_i(q) := \\|p_i-q\\|_p,\n\\]\nwhere for \\(p\\in[1,\\infty)\\), \\(\\|x\\|_p := \\left(\\sum_{j\\in M} |x_j|^p\\right)^{1/p}\\), and for \\(p=\\infty\\), \\(\\|x\\|_\\infty := \\max_{j\\in M} |x_j|\\). Agent \\(i\\)'s preference ranks outcomes by smaller disutility.\n\nA (tops-only) budget aggregation mechanism is a function \\(f:(\\Delta^m)^n\\to \\Delta^m\\) that maps every profile \\(P=(p_1,\\dots,p_n)\\) to an outcome \\(q=f(P)\\).\n\nDefine:\n- Strategyproofness: for every profile \\(P\\), every agent \\(i\\in N\\), and every misreport \\(p_i'\\in\\Delta^m\\), letting \\(P'=(p_i',p_{-i})\\), it holds that \\(\\|p_i-f(P)\\|_p \\le \\|p_i-f(P')\\|_p\\).\n- Pareto efficiency: for every profile \\(P\\), there is no \\(q'\\in\\Delta^m\\) such that \\(\\|p_i-q'\\|_p \\le \\|p_i-f(P)\\|_p\\) for all \\(i\\in N\\) and \\(\\|p_{i^*}-q'\\|_p < \\|p_{i^*}-f(P)\\|_p\\) for some \\(i^*\\in N\\).\n- Proportionality: for every single-minded profile \\(P\\) (i.e., every \\(p_{i,j}\\in\\{0,1\\}\\)), the outcome satisfies \\(f(P)_j = \\frac{1}{n}\\sum_{i\\in N} p_{i,j}\\) for all \\(j\\in M\\).\n\nproblem (conjecture): Prove or disprove that for every \\(p\\in[1,\\infty]\\), there exists no mechanism \\(f\\) that simultaneously satisfies Pareto efficiency, strategyproofness (w.r.t. \\(\\ell_p\\) disutilities), and proportionality whenever \\(m\\ge 3\\) and \\(n\\ge 3\\).",
-  "location_in_paper": "Section 5.2 (\\(\\ell_\\infty\\) preferences), page 15 (PDF page 15 / 44 in the provided parsed text)",
+  "context": "Page 15, Section 5.2 (\\(\\ell_\\infty\\) preferences), after Theorem 2 (and before Section 6).\n\nWe conjecture that the incompatibility of efficiency, strategyproofness, and weak fairness conditions holds for \\(\\ell_p\\) disutilities for any \\(1 \\le p \\le \\infty\\), when \\(m \\ge 3\\) and \\(n \\ge 3\\).",
+  "title": "Incompatibility of efficiency, strategyproofness, and proportionality for \\(\\ell_p\\) preferences when \\(m\\ge 3\\) and \\(n\\ge 3\\)",
+  "background_latex": "- Let \\(N=[n]=\\{1,\\dots,n\\}\\) be a set of agents and \\(M=[m]=\\{1,\\dots,m\\}\\) a set of alternatives.\n- Let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{j\\in M} q_j=1\\}\\) be the simplex of distributions over \\(M\\).\n- Each agent \\(i\\in N\\) reports a peak (ideal distribution) \\(p_i\\in\\Delta^m\\).\n- Fix \\(p\\in[1,\\infty]\\). Define the \\(\\ell_p\\) distance on \\(\\mathbb{R}^m\\) by \\(\\|x\\|_p=(\\sum_{j\\in M}|x_j|^p)^{1/p}\\) for \\(p<\\infty\\), and \\(\\|x\\|_\\infty=\\max_{j\\in M}|x_j|\\).\n- Under \\(\\ell_p\\) preferences, agent \\(i\\)'s utility for outcome \\(q\\in\\Delta^m\\) is \\(u_i(q):=-\\|p_i-q\\|_p\\).\n- A (tops-only) mechanism is a function \\(f:(\\Delta^m)^n\\to\\Delta^m\\) mapping a peak profile \\(P=(p_1,\\dots,p_n)\\) to an outcome \\(f(P)\\in\\Delta^m\\).\n- Efficiency (Pareto efficiency): an outcome \\(q\\in\\Delta^m\\) for profile \\(P\\) is efficient if there is no \\(q'\\in\\Delta^m\\) with \\(u_i(q')\\ge u_i(q)\\) for all \\(i\\in N\\) and \\(u_{i^*}(q')>u_{i^*}(q)\\) for some \\(i^*\\in N\\).\n- Strategyproofness: \\(f\\) is strategyproof if for every profile \\(P\\), every agent \\(i\\), and every misreport \\(p_i'\\in\\Delta^m\\), letting \\(P'=(p_i',p_{-i})\\), one has \\(u_i(f(P))\\ge u_i(f(P'))\\).\n- A profile \\(P\\) is single-minded if \\(p_{i,j}\\in\\{0,1\\}\\) for all \\(i\\in N\\), \\(j\\in M\\).\n- Proportionality: \\(f\\) is proportional if for every single-minded profile \\(P\\), for every \\(j\\in M\\), \\(f(P)_j=\\frac{1}{n}\\sum_{i\\in N} p_{i,j}\\).",
+  "problem_definition_latex": "Problem: Prove or disprove the following conjecture. For every \\(p\\in[1,\\infty]\\), whenever \\(m\\ge 3\\) and \\(n\\ge 3\\), there does not exist a mechanism \\(f:(\\Delta^m)^n\\to\\Delta^m\\) that simultaneously satisfies:\n- efficiency (Pareto efficiency) with respect to \\(\\ell_p\\) utilities \\(u_i(q)=-\\|p_i-q\\|_p\\),\n- strategyproofness with respect to these utilities, and\n- proportionality (agreement with the coordinate-wise average on every single-minded profile).",
+  "latex": "- Let \\(N=[n]=\\{1,\\dots,n\\}\\) be a set of agents and \\(M=[m]=\\{1,\\dots,m\\}\\) a set of alternatives.\n- Let \\(\\Delta^m:=\\{q\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{j\\in M} q_j=1\\}\\) be the simplex of distributions over \\(M\\).\n- Each agent \\(i\\in N\\) reports a peak (ideal distribution) \\(p_i\\in\\Delta^m\\).\n- Fix \\(p\\in[1,\\infty]\\). Define the \\(\\ell_p\\) distance on \\(\\mathbb{R}^m\\) by \\(\\|x\\|_p=(\\sum_{j\\in M}|x_j|^p)^{1/p}\\) for \\(p<\\infty\\), and \\(\\|x\\|_\\infty=\\max_{j\\in M}|x_j|\\).\n- Under \\(\\ell_p\\) preferences, agent \\(i\\)'s utility for outcome \\(q\\in\\Delta^m\\) is \\(u_i(q):=-\\|p_i-q\\|_p\\).\n- A (tops-only) mechanism is a function \\(f:(\\Delta^m)^n\\to\\Delta^m\\) mapping a peak profile \\(P=(p_1,\\dots,p_n)\\) to an outcome \\(f(P)\\in\\Delta^m\\).\n- Efficiency (Pareto efficiency): an outcome \\(q\\in\\Delta^m\\) for profile \\(P\\) is efficient if there is no \\(q'\\in\\Delta^m\\) with \\(u_i(q')\\ge u_i(q)\\) for all \\(i\\in N\\) and \\(u_{i^*}(q')>u_{i^*}(q)\\) for some \\(i^*\\in N\\).\n- Strategyproofness: \\(f\\) is strategyproof if for every profile \\(P\\), every agent \\(i\\), and every misreport \\(p_i'\\in\\Delta^m\\), letting \\(P'=(p_i',p_{-i})\\), one has \\(u_i(f(P))\\ge u_i(f(P'))\\).\n- A profile \\(P\\) is single-minded if \\(p_{i,j}\\in\\{0,1\\}\\) for all \\(i\\in N\\), \\(j\\in M\\).\n- Proportionality: \\(f\\) is proportional if for every single-minded profile \\(P\\), for every \\(j\\in M\\), \\(f(P)_j=\\frac{1}{n}\\sum_{i\\in N} p_{i,j}\\).\n\nProblem:\nProblem: Prove or disprove the following conjecture. For every \\(p\\in[1,\\infty]\\), whenever \\(m\\ge 3\\) and \\(n\\ge 3\\), there does not exist a mechanism \\(f:(\\Delta^m)^n\\to\\Delta^m\\) that simultaneously satisfies:\n- efficiency (Pareto efficiency) with respect to \\(\\ell_p\\) utilities \\(u_i(q)=-\\|p_i-q\\|_p\\),\n- strategyproofness with respect to these utilities, and\n- proportionality (agreement with the coordinate-wise average on every single-minded profile).",
+  "location_in_paper": "Page 15, Section 5.2 (\\(\\ell_\\infty\\) preferences), after Theorem 2 (and before Section 6).",
   "open_problem_quote": "We conjecture that the incompatibility of efficiency, strategyproofness, and weak fairness conditions holds for \\(\\ell_p\\) disutilities for any \\(1 \\le p \\le \\infty\\), when \\(m \\ge 3\\) and \\(n \\ge 3\\).",
   "area": "algorithmic mechanism design",
-  "subject_classification": "Social Choice Theory / Mechanism Design",
+  "subject_classification": "Social Choice Theory",
   "keywords": [
     "budget aggregation",
     "strategyproofness",
     "Pareto efficiency",
     "proportionality",
-    "\\(\\ell_p\\) norms",
-    "impossibility theorems"
+    "\\(\\ell_p\\) preferences",
+    "impossibility results"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -43,10 +45,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.07993125,
+    "extractor_total_cost_usd": 0.08113700000000001,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07993125
+    "total_cost_usd": 0.08113700000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417437095/problems.json",

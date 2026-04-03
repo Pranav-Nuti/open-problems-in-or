@@ -12,22 +12,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Page 14, Section 5 (Upper Bounds), last paragraph before Theorem 5.1; see also Page 3, Section 1.1 (Our Contribution), last sentence\n\nLike the bounds of Fischer and Klimm they approach 3/4 as n goes to infinity, and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
-  "title": "Existence of an impartial selection mechanism achieving approximation ratio approaching \\(3/4\\) in the single-nomination model",
-  "latex": "Given an integer \\(n\\ge 2\\), let \\(G_n\\) be the set of directed graphs \\(G=(V,E)\\) with vertex set \\(V=\\{1,2,\\dots,n\\}\\), no self-loops, and outdegree exactly \\(1\\) at every vertex, i.e., for every \\(v\\in V\\) there exists exactly one \\(u\\in V\\setminus\\{v\\}\\) with \\((v,u)\\in E\\). For \\(v\\in V\\), let \\(\\delta^-(v,G)=|\\{u\\in V:(u,v)\\in E\\}|\\) be the indegree of \\(v\\), and let \\(\\Delta(G)=\\max_{v\\in V}\\delta^-(v,G)\\) be the maximum indegree.\n\nA (randomized) selection mechanism is a family \\(f=\\{f^{(n)}\\}_{n\\ge 2}\\) where each \\(f^{(n)}\\) maps every \\(G\\in G_n\\) to a probability distribution \\(f^{(n)}(G)\\in[0,1]^n\\) over \\(V\\) satisfying \\(\\sum_{v\\in V} f^{(n)}_v(G)=1\\). The mechanism is impartial if for every \\(n\\ge 2\\), every \\(G=(V,E)\\in G_n\\), every \\(v\\in V\\), and every alternative edge set \\(E'\\) with \\(E\\setminus(\\{v\\}\\times V)=E'\\setminus(\\{v\\}\\times V)\\), it holds that \\(f^{(n)}_v(V,E)=f^{(n)}_v(V,E')\\); i.e., the selection probability of \\(v\\) does not depend on \\(v\\)'s outgoing edge.\n\nFor \\(\\alpha\\in[0,1]\\), we say \\(f\\) is \\(\\alpha\\)-optimal on \\(G_n\\) if for every \\(G\\in G_n\\) with \\(\\Delta(G)>0\\),\n\\[\n\\mathbb{E}_{v\\sim f^{(n)}(G)}\\big[\\delta^-(v,G)\\big] \\ge \\alpha\\,\\Delta(G).\n\\]\n\nProblem: Determine whether the asymptotically optimal approximation ratio equals \\(3/4\\). Concretely, is the following statement true?\n\nFor every \\(\\varepsilon>0\\) there exists an integer \\(N\\) and an impartial selection mechanism \\(f=\\{f^{(n)}\\}_{n\\ge 2}\\) such that for all \\(n\\ge N\\), the mechanism \\(f^{(n)}\\) is \\((3/4-\\varepsilon)\\)-optimal on \\(G_n\\), i.e., for every \\(G\\in G_n\\) with \\(\\Delta(G)>0\\),\n\\[\n\\mathbb{E}_{v\\sim f^{(n)}(G)}\\big[\\delta^-(v,G)\\big] \\ge (3/4-\\varepsilon)\\,\\Delta(G).\n\\]\nEquivalently, does there exist a sequence of impartial mechanisms whose worst-case optimality factors \\(\\alpha_n\\) satisfy \\(\\liminf_{n\\to\\infty}\\alpha_n \\ge 3/4\\)?",
-  "location_in_paper": "Page 14, Section 5 (Upper Bounds), last paragraph before Theorem 5.1; see also Page 3, Section 1.1 (Our Contribution), last sentence",
-  "open_problem_quote": "Like the bounds of Fischer and Klimm they approach 3/4 as n goes to infinity, and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
+  "context": "Section 5 (Upper Bounds), end of the section introduction on page 14 (PDF p. 14 / 32), immediately after Corollary 5.2 is previewed\n\nLike the bounds of Fischer and Klimm they approach 3/4 as n \\(\\to\\) \\(\\infty\\) and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
+  "title": "Existence of an impartial selection mechanism with asymptotic performance guarantee arbitrarily close to \\(3/4\\) in the single-nomination model",
+  "background_latex": "- For \\(n\\in\\mathbb{N}\\), let \\(G_n\\) be the set of directed graphs \\(G=(V,E)\\) with \\(V=\\{1,\\dots,n\\}\\), no self-loops, and exactly one outgoing edge per vertex.\n- For \\(v\\in V\\), let \\(\\delta^-(v,G)=|\\{u\\in V:(u,v)\\in E\\}|\\) be the indegree of \\(v\\). Let \\(\\Delta(G)=\\max_{v\\in V}\\delta^-(v,G)\\).\n- A (randomized) selection mechanism is a map \\(f:G_n\\to[0,1]^n\\) with \\(\\sum_{v\\in V} f_v(G)=1\\) for all \\(G\\in G_n\\); it selects vertex \\(v\\) with probability \\(f_v(G)\\).\n- The mechanism \\(f\\) is impartial if for any \\(G=(V,E),G'=(V,E')\\in G_n\\) and any \\(v\\in V\\), whenever \\(E\\setminus(\\{v\\}\\times V)=E'\\setminus(\\{v\\}\\times V)\\) (i.e., only \\(v\\)'s outgoing edge may differ), we have \\(f_v(G)=f_v(G')\\).\n- For \\(\\alpha\\le 1\\), the mechanism \\(f\\) is \\(\\alpha\\)-optimal on \\(G_n\\) if\n\\[\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ge \\alpha.\\]\n- Let \\(\\alpha_n^*\\) denote the supremum of \\(\\alpha\\) such that there exists an impartial \\(\\alpha\\)-optimal mechanism on \\(G_n\\).",
+  "problem_definition_latex": "Problem: Determine whether for every \\(\\varepsilon>0\\) there exists \\(N\\in\\mathbb{N}\\) such that for all \\(n\\ge N\\) there is an impartial selection mechanism \\(f\\) on \\(G_n\\) that is \\((3/4-\\varepsilon)\\)-optimal, i.e.,\n\\[\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ge \\frac{3}{4}-\\varepsilon.\\]\nEquivalently, decide whether \\(\\liminf_{n\\to\\infty}\\alpha_n^* = 3/4\\) holds.",
+  "latex": "- For \\(n\\in\\mathbb{N}\\), let \\(G_n\\) be the set of directed graphs \\(G=(V,E)\\) with \\(V=\\{1,\\dots,n\\}\\), no self-loops, and exactly one outgoing edge per vertex.\n- For \\(v\\in V\\), let \\(\\delta^-(v,G)=|\\{u\\in V:(u,v)\\in E\\}|\\) be the indegree of \\(v\\). Let \\(\\Delta(G)=\\max_{v\\in V}\\delta^-(v,G)\\).\n- A (randomized) selection mechanism is a map \\(f:G_n\\to[0,1]^n\\) with \\(\\sum_{v\\in V} f_v(G)=1\\) for all \\(G\\in G_n\\); it selects vertex \\(v\\) with probability \\(f_v(G)\\).\n- The mechanism \\(f\\) is impartial if for any \\(G=(V,E),G'=(V,E')\\in G_n\\) and any \\(v\\in V\\), whenever \\(E\\setminus(\\{v\\}\\times V)=E'\\setminus(\\{v\\}\\times V)\\) (i.e., only \\(v\\)'s outgoing edge may differ), we have \\(f_v(G)=f_v(G')\\).\n- For \\(\\alpha\\le 1\\), the mechanism \\(f\\) is \\(\\alpha\\)-optimal on \\(G_n\\) if\n\\[\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ge \\alpha.\\]\n- Let \\(\\alpha_n^*\\) denote the supremum of \\(\\alpha\\) such that there exists an impartial \\(\\alpha\\)-optimal mechanism on \\(G_n\\).\n\nProblem:\nProblem: Determine whether for every \\(\\varepsilon>0\\) there exists \\(N\\in\\mathbb{N}\\) such that for all \\(n\\ge N\\) there is an impartial selection mechanism \\(f\\) on \\(G_n\\) that is \\((3/4-\\varepsilon)\\)-optimal, i.e.,\n\\[\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ge \\frac{3}{4}-\\varepsilon.\\]\nEquivalently, decide whether \\(\\liminf_{n\\to\\infty}\\alpha_n^* = 3/4\\) holds.",
+  "location_in_paper": "Section 5 (Upper Bounds), end of the section introduction on page 14 (PDF p. 14 / 32), immediately after Corollary 5.2 is previewed",
+  "open_problem_quote": "Like the bounds of Fischer and Klimm they approach 3/4 as n \\(\\to\\) \\(\\infty\\) and thus do not rule out the existence of an impartial mechanism that is close to 3/4-optimal when n is large. Whether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
   "area": "algorithmic mechanism design",
-  "subject_classification": "Social Choice Theory / Algorithmic Game Theory",
+  "subject_classification": "Algorithmic Game Theory / Social Choice Theory",
   "keywords": [
     "impartial selection",
     "randomized mechanisms",
     "approximation ratio",
     "single-nomination model",
     "directed graphs",
-    "asymptotic optimality"
+    "upper bounds"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.0980385,
+    "extractor_total_cost_usd": 0.09541875,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0980385
+    "total_cost_usd": 0.09541875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411023035/problems.json",

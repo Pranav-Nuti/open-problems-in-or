@@ -11,23 +11,25 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 5 (Concluding Remarks and Future Directions), page 30 (PDF pagination: 30/32)\n\nAnother important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable \\(x\\). A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.",
-  "title": "Gradient-consistent smoothing of the lower-level value function when the lower-level feasible set depends on the upper-level variable",
-  "latex": "Given integers \\(n,m\\ge 1\\), let \\(X\\subseteq \\mathbb{R}^n\\) be closed and convex. For each \\(x\\in X\\), let the lower-level feasible set be\n\\[\nY(x):=\\{y\\in \\mathbb{R}^m: c(x,y)\\le 0\\},\n\\]\nwhere \\(c:X\\times \\mathbb{R}^m\\to \\mathbb{R}^p\\) is a given (not necessarily smooth) constraint mapping and the inequality is interpreted componentwise. Let \\(g:X\\times \\mathbb{R}^m\\to \\mathbb{R}\\) be Lipschitz continuous (possibly nonsmooth). Define the lower-level value function\n\\[\nv(x):=\\inf_{y\\in Y(x)} g(x,y)\\in \\mathbb{R}\\cup\\{+\\infty\\}.\n\\]\nA family \\(\\{v_\\mu: \\mu>0\\}\\) is called a smoothing family for \\(v\\) over an open set \\(O\\supseteq X\\) if each \\(v_\\mu\\) is continuously differentiable on \\(O\\) and\n\\[\n\\lim_{x\\to \\bar x,\\,\\mu\\downarrow 0} v_\\mu(x)=v(\\bar x)\\quad\\text{for all }\\bar x\\in O.\n\\]\nIt is gradient-consistent at \\(\\bar x\\in O\\) if\n\\[\n\\varnothing\\ne \\limsup_{x\\to \\bar x,\\,\\mu\\downarrow 0} \\nabla v_\\mu(x)\\ \\subseteq\\ \\partial v(\\bar x),\n\\]\nwhere \\(\\partial v(\\bar x)\\) denotes the Clarke subdifferential of \\(v\\) at \\(\\bar x\\).\n\nProblem: identify verifiable assumptions on \\(g\\), \\(c\\), and (possibly) on a concrete construction of \\(v_\\mu\\) based on quadratic regularization and/or penalization of the constraints defining \\(Y(x)\\), such that \\(\\{v_\\mu\\}\\) is a smoothing family for \\(v\\) (in the above sense) and satisfies gradient consistency at every \\(\\bar x\\in O\\) for which \\(v(\\bar x)\\) is finite.",
-  "location_in_paper": "Section 5 (Concluding Remarks and Future Directions), page 30 (PDF pagination: 30/32)",
-  "open_problem_quote": "Another important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable \\(x\\). A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.",
+  "context": "Section 5 (Concluding Remarks and Future Directions), page 30 (PDF page 29 of 32 in the provided parsed text pagination)\n\nAnother important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable x. A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.",
+  "title": "Verify smoothing-family and gradient-consistency of quadratic-regularization-plus-penalization for value functions with \\,\\(x\\)-dependent lower-level feasible sets",
+  "background_latex": "Let \\(X\\subseteq\\mathbb{R}^n\\) be a closed convex set. For each \\(x\\in X\\), let \\(Y(x)\\subseteq\\mathbb{R}^m\\) be a nonempty closed set (a lower-level feasible set that depends on \\(x\\)). Let \\(g: \\mathbb{R}^n\\times\\mathbb{R}^m\\to\\mathbb{R}\\) be a (possibly nonsmooth) function that is finite on the relevant domain, and define the associated value function\n\\[\n v(x):=\\min_{y\\in Y(x)} g(x,y),\\qquad x\\in X.\n\\]\nFix an open set \\(O_X\\subseteq\\mathbb{R}^n\\) with \\(X\\subseteq O_X\\). Let \\(\\partial v(x)\\) denote the Clarke subdifferential of \\(v\\) at \\(x\\) (when \\(v\\) is locally Lipschitz).\n\nFor \\(\\mu>0\\), let \\(v_\\mu:O_X\\to\\mathbb{R}\\) be a continuously differentiable approximation of \\(v\\) constructed by a scheme that combines quadratic regularization in \\(y\\) with a penalty term that enforces \\(y\\in Y(x)\\) (as proposed in Liu et al. (2023) for \\(x\\)-dependent lower-level constraints). Denote its gradient by \\(\\nabla v_\\mu(x)\\).",
+  "problem_definition_latex": "Problem: Prove (or disprove) that the quadratic-regularization-plus-penalization approximation \\(\\{v_\\mu\\}_{\\mu>0}\\) for the \\(x\\)-dependent-set value function \\(v(x)=\\min_{y\\in Y(x)} g(x,y)\\) is\n- a smoothing family of \\(v\\) in the sense that for every \\(\\bar x\\in O_X\\), \\(\\lim_{x\\to \\bar x,\\,\\mu\\downarrow 0} v_\\mu(x)=v(\\bar x)\\), and\n- gradient consistent in the sense that for every \\(\\bar x\\in O_X\\),\n\\[\n\\emptyset\\neq \\limsup_{x\\to\\bar x,\\,\\mu\\downarrow 0} \\nabla v_\\mu(x)\\subseteq \\partial v(\\bar x).\n\\]\n(Here \\(\\limsup_{x\\to\\bar x,\\,\\mu\\downarrow 0} \\nabla v_\\mu(x)\\) is the set of all accumulation points of gradients \\(\\nabla v_{\\mu_k}(x_k)\\) along sequences \\(x_k\\to\\bar x\\), \\(\\mu_k\\downarrow 0\\).)",
+  "latex": "Let \\(X\\subseteq\\mathbb{R}^n\\) be a closed convex set. For each \\(x\\in X\\), let \\(Y(x)\\subseteq\\mathbb{R}^m\\) be a nonempty closed set (a lower-level feasible set that depends on \\(x\\)). Let \\(g: \\mathbb{R}^n\\times\\mathbb{R}^m\\to\\mathbb{R}\\) be a (possibly nonsmooth) function that is finite on the relevant domain, and define the associated value function\n\\[\n v(x):=\\min_{y\\in Y(x)} g(x,y),\\qquad x\\in X.\n\\]\nFix an open set \\(O_X\\subseteq\\mathbb{R}^n\\) with \\(X\\subseteq O_X\\). Let \\(\\partial v(x)\\) denote the Clarke subdifferential of \\(v\\) at \\(x\\) (when \\(v\\) is locally Lipschitz).\n\nFor \\(\\mu>0\\), let \\(v_\\mu:O_X\\to\\mathbb{R}\\) be a continuously differentiable approximation of \\(v\\) constructed by a scheme that combines quadratic regularization in \\(y\\) with a penalty term that enforces \\(y\\in Y(x)\\) (as proposed in Liu et al. (2023) for \\(x\\)-dependent lower-level constraints). Denote its gradient by \\(\\nabla v_\\mu(x)\\).\n\nProblem:\nProblem: Prove (or disprove) that the quadratic-regularization-plus-penalization approximation \\(\\{v_\\mu\\}_{\\mu>0}\\) for the \\(x\\)-dependent-set value function \\(v(x)=\\min_{y\\in Y(x)} g(x,y)\\) is\n- a smoothing family of \\(v\\) in the sense that for every \\(\\bar x\\in O_X\\), \\(\\lim_{x\\to \\bar x,\\,\\mu\\downarrow 0} v_\\mu(x)=v(\\bar x)\\), and\n- gradient consistent in the sense that for every \\(\\bar x\\in O_X\\),\n\\[\n\\emptyset\\neq \\limsup_{x\\to\\bar x,\\,\\mu\\downarrow 0} \\nabla v_\\mu(x)\\subseteq \\partial v(\\bar x).\n\\]\n(Here \\(\\limsup_{x\\to\\bar x,\\,\\mu\\downarrow 0} \\nabla v_\\mu(x)\\) is the set of all accumulation points of gradients \\(\\nabla v_{\\mu_k}(x_k)\\) along sequences \\(x_k\\to\\bar x\\), \\(\\mu_k\\downarrow 0\\).)",
+  "location_in_paper": "Section 5 (Concluding Remarks and Future Directions), page 30 (PDF page 29 of 32 in the provided parsed text pagination)",
+  "open_problem_quote": "Another important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable x. A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.",
   "area": "other",
   "subject_classification": "Bilevel Optimization / Variational Analysis",
   "keywords": [
     "bilevel optimization",
     "value function",
-    "x-dependent constraints",
-    "smoothing approximation",
+    "smoothing methods",
     "gradient consistency",
     "quadratic regularization",
-    "penalization"
+    "penalization",
+    "parametric constraints"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.07198625,
+    "extractor_total_cost_usd": 0.0754845,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07198625
+    "total_cost_usd": 0.0754845
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7140189588/problems.json",

@@ -14,15 +14,17 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
   "context": "Section 6 (Discussion), page 23\n\nWhether a similar result holds without violating the house size is open.",
-  "title": "Existence of a quota-compliant, population-monotone, ex-ante proportional randomized apportionment method with fixed house size",
-  "latex": "Given integers \\(n\\ge 2\\), a population vector \\(p=(p_1,\\dots,p_n)\\in \\mathbb{N}^n\\), and a house size \\(H\\in \\mathbb{N}\\), let \\(P=\\sum_{i=1}^n p_i\\) and define the quota of state \\(i\\) as \\(q_i=\\frac{p_i}{P}H\\). An apportionment outcome is a (possibly randomized) vector \\(X=(X_1,\\dots,X_n)\\in \\mathbb{N}_0^n\\) such that \\(\\sum_{i=1}^n X_i=H\\) almost surely.\n\nThe problem is to determine whether there exists a randomized apportionment method \\(\\mathcal{M}\\) that, for every \\((p,H)\\), outputs such a random vector \\(X=\\mathcal{M}(p,H)\\) satisfying all of the following properties:\n\n- (Ex-post quota compliance) For every state \\(i\\in[n]\\), \\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) almost surely.\n- (Population monotonicity) For any two instances \\((p,H)\\) and \\((p',H')\\), for any states \\(i,j\\in[n]\\), if \\(\\frac{p'_i}{p'_j}\\ge \\frac{p_i}{p_j}\\), then it does not occur with positive probability that simultaneously \\(\\mathcal{M}_i(p,H) > \\mathcal{M}_i(p',H')\\) and \\(\\mathcal{M}_j(p,H) < \\mathcal{M}_j(p',H')\\). Equivalently, population monotonicity holds almost surely over the method\u2019s internal randomness.\n- (Ex-ante proportionality) For every state \\(i\\in[n]\\), \\(\\mathbb{E}[X_i]=q_i\\).\n\nIn particular, \\(\\mathcal{M}\\) must satisfy the fixed-house-size constraint \\(\\sum_i X_i=H\\) with probability \\(1\\), i.e., it may not \u201cviolate the house size\u201d ex post.",
+  "title": "Randomized apportionment with fixed house size satisfying population monotonicity, quota, and ex-ante proportionality",
+  "background_latex": "- An apportionment instance consists of a population vector \\(p=(p_1,\\dots,p_n)\\in \\mathbb{N}^n\\) and a house size \\(H\\in\\mathbb{N}\\). Let \\(P=\\sum_{i=1}^n p_i\\) be the total population.\n- An apportionment outcome is a (possibly randomized) vector \\(X=(X_1,\\dots,X_n)\\in \\mathbb{N}_0^n\\).\n- The quota of state \\(i\\) is \\(q_i=\\frac{p_i}{P}H\\).\n- Fixed house size means \\(\\sum_{i=1}^n X_i = H\\) holds almost surely.\n- Quota compliance means \\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) almost surely for every \\(i\\).\n- Ex-ante proportionality means \\(\\mathbb{E}[X_i]=q_i\\) for every \\(i\\).\n- Population monotonicity (as defined in the paper) means that for any two instances \\((p,H)\\) and \\((p',H')\\) and any pair of states \\(i,j\\), if \\(p'_i/p'_j\\ge p_i/p_j\\), then it does not happen that state \\(i\\) strictly decreases and state \\(j\\) strictly increases in the realized apportionment (formally, for realized outputs \\(X\\) at \\((p,H)\\) and \\(X'\\) at \\((p',H')\\), one must have either \\(X_i\\le X'_i\\) or \\(X_j\\ge X'_j\\), or (if ratios are equal) that \\(X'\\) is also feasible for \\((p,H)\\)).",
+  "problem_definition_latex": "Problem: Determine whether there exists a randomized apportionment method that, for every instance \\((p,H)\\), outputs \\(X\\in\\mathbb{N}_0^n\\) with \\(\\sum_{i=1}^n X_i=H\\) almost surely, is quota-compliant (\\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) almost surely for all \\(i\\)), is ex-ante proportional (\\(\\mathbb{E}[X_i]=q_i\\) for all \\(i\\)), and is population-monotone (in the sense defined above).",
+  "latex": "- An apportionment instance consists of a population vector \\(p=(p_1,\\dots,p_n)\\in \\mathbb{N}^n\\) and a house size \\(H\\in\\mathbb{N}\\). Let \\(P=\\sum_{i=1}^n p_i\\) be the total population.\n- An apportionment outcome is a (possibly randomized) vector \\(X=(X_1,\\dots,X_n)\\in \\mathbb{N}_0^n\\).\n- The quota of state \\(i\\) is \\(q_i=\\frac{p_i}{P}H\\).\n- Fixed house size means \\(\\sum_{i=1}^n X_i = H\\) holds almost surely.\n- Quota compliance means \\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) almost surely for every \\(i\\).\n- Ex-ante proportionality means \\(\\mathbb{E}[X_i]=q_i\\) for every \\(i\\).\n- Population monotonicity (as defined in the paper) means that for any two instances \\((p,H)\\) and \\((p',H')\\) and any pair of states \\(i,j\\), if \\(p'_i/p'_j\\ge p_i/p_j\\), then it does not happen that state \\(i\\) strictly decreases and state \\(j\\) strictly increases in the realized apportionment (formally, for realized outputs \\(X\\) at \\((p,H)\\) and \\(X'\\) at \\((p',H')\\), one must have either \\(X_i\\le X'_i\\) or \\(X_j\\ge X'_j\\), or (if ratios are equal) that \\(X'\\) is also feasible for \\((p,H)\\)).\n\nProblem:\nProblem: Determine whether there exists a randomized apportionment method that, for every instance \\((p,H)\\), outputs \\(X\\in\\mathbb{N}_0^n\\) with \\(\\sum_{i=1}^n X_i=H\\) almost surely, is quota-compliant (\\(X_i\\in\\{\\lfloor q_i\\rfloor,\\lceil q_i\\rceil\\}\\) almost surely for all \\(i\\)), is ex-ante proportional (\\(\\mathbb{E}[X_i]=q_i\\) for all \\(i\\)), and is population-monotone (in the sense defined above).",
   "location_in_paper": "Section 6 (Discussion), page 23",
   "open_problem_quote": "Whether a similar result holds without violating the house size is open.",
   "area": "other",
-  "subject_classification": "Social Choice / Discrete Optimization (Apportionment Theory)",
+  "subject_classification": "Social Choice Theory / Discrete Optimization",
   "keywords": [
     "apportionment",
     "randomized methods",
@@ -44,10 +46,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.1155665,
+    "extractor_total_cost_usd": 0.11536874999999999,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1155665
+    "total_cost_usd": 0.11536874999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4415178980/problems.json",
