@@ -73,6 +73,7 @@
             <div class="problem-card-id">${String((currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1).padStart(2, "\u2007")}</div>
             <div class="problem-card-body">
               <h2 class="problem-card-title math-content">${formatTitleWithMath(p.title)}</h2>
+              ${formatAreaBadge(p)}
               <div class="problem-card-meta">
                 <span>${formatSourcePaper(p)}</span>
                 ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}
@@ -151,6 +152,14 @@
         return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${title}</a>${suffix}`;
       }
       return `${title}${suffix}`;
+    }
+
+    function formatAreaBadge(p) {
+      const area = String(p?.area || "").trim();
+      if (!area || area.toLowerCase() === "other") {
+        return "";
+      }
+      return `<div class="problem-card-area"><span class="area-pill">${escapeHtml(area)}</span></div>`;
     }
 
     function formatUploadDate(iso) {
