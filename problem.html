@@ -37,50 +37,62 @@
     <div class="problem-header">
       <div class="problem-id" id="problem-id">Problem</div>
       <h1 class="problem-title" id="problem-title">Loading...</h1>
-      <div class="problem-meta-grid">
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Problem number</span>
-          <span class="problem-meta-value" id="problem-number">—</span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Source paper</span>
-          <span class="problem-meta-value" id="source-paper"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Extracted with</span>
-          <span class="problem-meta-value" id="extraction-info"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Subject classification</span>
-          <span class="problem-meta-value" id="subject-classification"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Area</span>
-          <span class="problem-meta-value" id="problem-area"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Source paper authors</span>
-          <span class="problem-meta-value" id="source-paper-authors"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Verification status</span>
-          <span class="problem-meta-value" id="verification-status"></span>
-        </div>
-        <div class="problem-meta-item">
-          <span class="problem-meta-label">Upload date</span>
-          <span class="problem-meta-value" id="upload-date"></span>
-        </div>
+      <div class="problem-meta-layout">
+        <section class="problem-meta-group">
+          <h2 class="problem-meta-group-title">Problem metadata</h2>
+          <div class="problem-meta-grid">
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Problem number</span>
+              <span class="problem-meta-value" id="problem-number">—</span>
+            </div>
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Area</span>
+              <span class="problem-meta-value" id="problem-area"></span>
+            </div>
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Subject classification</span>
+              <span class="problem-meta-value" id="subject-classification"></span>
+            </div>
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Verification status</span>
+              <span class="problem-meta-value" id="verification-status"></span>
+            </div>
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Extracted with</span>
+              <span class="problem-meta-value" id="extraction-info"></span>
+            </div>
+            <div class="problem-meta-item">
+              <span class="problem-meta-label">Upload date</span>
+              <span class="problem-meta-value" id="upload-date"></span>
+            </div>
+          </div>
+        </section>
+        <section class="problem-meta-group">
+          <h2 class="problem-meta-group-title">Source paper</h2>
+          <div class="problem-meta-grid">
+            <div class="problem-meta-item problem-meta-item-wide">
+              <span class="problem-meta-label">Source paper</span>
+              <span class="problem-meta-value" id="source-paper"></span>
+            </div>
+            <div class="problem-meta-item problem-meta-item-wide">
+              <span class="problem-meta-label">Source paper authors</span>
+              <span class="problem-meta-value" id="source-paper-authors"></span>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
     <section class="problem-section">
       <h2>Background</h2>
+      <p id="background-note" class="section-note" hidden></p>
       <div id="problem-background" class="math-content"></div>
     </section>
 
     <section class="problem-section">
       <h2>Problem definition</h2>
       <div class="source-actions">
+        <button id="copy-problem-latex-btn" class="inline-action-btn" type="button">Copy background + problem LaTeX</button>
         <button id="toggle-raw-latex-btn" class="inline-action-btn" type="button">View raw LaTeX source</button>
       </div>
       <pre id="raw-problem-latex" class="raw-source-block" hidden></pre>
@@ -315,9 +327,10 @@
         .filter(Boolean);
     }
 
-    function setupRawLatexControls(rawLatex) {
+    function setupRawLatexControls(rawLatex, split) {
       const rawSourceEl = document.getElementById("raw-problem-latex");
       const toggleButton = document.getElementById("toggle-raw-latex-btn");
+      const copyButton = document.getElementById("copy-problem-latex-btn");
 
       rawSourceEl.textContent = rawLatex || "";
       rawSourceEl.hidden = true;
@@ -327,6 +340,25 @@
         const willShow = rawSourceEl.hidden;
         rawSourceEl.hidden = !willShow;
         toggleButton.textContent = willShow ? "Hide raw LaTeX source" : "View raw LaTeX source";
+      };
+
+      copyButton.textContent = "Copy background + problem LaTeX";
+      copyButton.onclick = async () => {
+        const chunks = [];
+        if (split.background) {
+          chunks.push("Background:");
+          chunks.push(split.background);
+        }
+        if (split.definition) {
+          chunks.push("Problem definition:");
+          chunks.push(split.definition);
+        }
+        const output = chunks.join("\n\n").trim();
+        await navigator.clipboard.writeText(output || rawLatex || "");
+        copyButton.textContent = "Copied";
+        window.setTimeout(() => {
+          copyButton.textContent = "Copy background + problem LaTeX";
+        }, 1200);
       };
     }
 
@@ -393,19 +425,71 @@
       return d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
     }
 
+    function _isLikelyProblemSentence(paragraph) {
+      const value = String(paragraph || "").trim().toLowerCase();
+      return value.startsWith("problem:")
+        || value.startsWith("open problem:")
+        || value.startsWith("prove ")
+        || value.startsWith("prove that")
+        || value.startsWith("show ")
+        || value.startsWith("show that")
+        || value.startsWith("design ")
+        || value.startsWith("determine ")
+        || value.startsWith("is it true");
+    }
+
     function splitBackgroundAndDefinition(rawLatex) {
       const text = String(rawLatex || "").trim();
-      const marker = "\n\nproblem:";
-      const markerIndex = text.toLowerCase().indexOf(marker);
-      if (markerIndex < 0) {
+      if (!text) {
         return {
           background: "",
-          definition: text,
+          definition: "",
+          usedHeuristicSplit: false,
+          hasExplicitSplitMarker: false,
         };
       }
+
+      const lower = text.toLowerCase();
+      const markers = ["\n\nproblem:", "\nproblem:", "\n\nopen problem:", "\nopen problem:"];
+      let markerIndex = -1;
+      for (const marker of markers) {
+        const idx = lower.indexOf(marker);
+        if (idx >= 0 && (markerIndex < 0 || idx < markerIndex)) {
+          markerIndex = idx;
+        }
+      }
+
+      if (markerIndex >= 0) {
+        const definitionStart = text.indexOf("\n", markerIndex) + 1;
+        return {
+          background: text.slice(0, markerIndex).trim(),
+          definition: text.slice(definitionStart).trim(),
+          usedHeuristicSplit: false,
+          hasExplicitSplitMarker: true,
+        };
+      }
+
+      const paragraphs = text
+        .split("\n\n")
+        .map((chunk) => chunk.trim())
+        .filter(Boolean);
+
+      if (paragraphs.length >= 2 && _isLikelyProblemSentence(paragraphs[paragraphs.length - 1])) {
+        const definition = paragraphs[paragraphs.length - 1];
+        const background = paragraphs.slice(0, -1).join("\n\n").trim();
+        return {
+          background,
+          definition,
+          usedHeuristicSplit: true,
+          hasExplicitSplitMarker: false,
+        };
+      }
+
       return {
-        background: text.slice(0, markerIndex).trim(),
-        definition: text.slice(markerIndex + 2).trim(),
+        background: "",
+        definition: text,
+        usedHeuristicSplit: false,
+        hasExplicitSplitMarker: false,
       };
     }
 
@@ -451,11 +535,22 @@
       document.getElementById("upload-date").textContent = formatUploadDate(payload.pipeline_generated_at_utc);
       const rawLatex = payload.latex || "";
       const split = splitBackgroundAndDefinition(rawLatex);
+      const backgroundNoteEl = document.getElementById("background-note");
       const backgroundEl = document.getElementById("problem-background");
-      backgroundEl.textContent = split.background || "No separate background section found; see problem definition below.";
+      if (split.background) {
+        backgroundEl.textContent = split.background;
+        backgroundNoteEl.hidden = split.hasExplicitSplitMarker;
+        backgroundNoteEl.textContent = split.usedHeuristicSplit
+          ? "Background and problem definition were split heuristically because no explicit \"Problem:\" marker was found."
+          : "";
+      } else {
+        backgroundEl.textContent = "No separate background section was extracted for this entry.";
+        backgroundNoteEl.hidden = false;
+        backgroundNoteEl.textContent = "This extracted problem appears as a single formal block. The full statement is shown in Problem definition.";
+      }
       const definitionEl = document.getElementById("problem-definition");
       definitionEl.textContent = split.definition;
-      setupRawLatexControls(rawLatex);
+      setupRawLatexControls(rawLatex, split);
       const contextEl = document.getElementById("problem-context");
       contextEl.textContent = payload.context || "";
       contextEl.classList.add("math-content");

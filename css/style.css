@@ -168,6 +168,24 @@ main {
   transition: color 0.15s;
 }
 
+.problem-card-area {
+  margin: 0 0 0.45rem;
+}
+
+.area-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e7d7d7;
+  background: #fff4f6;
+  color: #881337;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .problem-card-meta {
   font-size: 0.82rem;
   color: var(--color-text-muted);
@@ -267,6 +285,29 @@ main {
   font-size: 0.88rem;
 }
 
+.problem-meta-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.problem-meta-group {
+  border: 1px solid var(--color-rule);
+  background: #f7f3ee;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.problem-meta-group-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin: 0 0 0.65rem;
+}
+
+.problem-meta-group .problem-meta-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+}
+
 .problem-meta-item {
   display: flex;
   flex-direction: column;
@@ -285,6 +326,10 @@ main {
 .problem-meta-value {
   font-weight: 500;
   color: var(--color-text-secondary);
+}
+
+.problem-meta-item-wide {
+  grid-column: span 2;
 }
 
 .author-list {
@@ -322,6 +367,14 @@ main {
 
 .problem-section p {
   margin: 0 0 1rem;
+}
+
+.section-note {
+  margin: 0 0 0.8rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  border-left: 2px solid var(--color-rule-heavy);
+  padding-left: 0.6rem;
 }
 
 .problem-definition-box {
@@ -441,5 +494,14 @@ main {
   }
   .problem-meta-grid {
     grid-template-columns: 1fr;
+  }
+  .problem-meta-layout {
+    grid-template-columns: 1fr;
+  }
+  .problem-meta-group .problem-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .problem-meta-item-wide {
+    grid-column: span 1;
   }
 }
