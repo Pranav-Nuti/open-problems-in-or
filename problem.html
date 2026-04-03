@@ -35,51 +35,38 @@
     </div>
 
     <div class="problem-header">
-      <div class="problem-id" id="problem-id">Problem</div>
+      <div class="problem-topline">
+        <span class="problem-number-badge" id="problem-number">#—</span>
+        <span class="problem-id" id="problem-id">Problem</span>
+      </div>
       <h1 class="problem-title" id="problem-title">Loading...</h1>
-      <div class="problem-meta-layout">
-        <section class="problem-meta-group">
-          <h2 class="problem-meta-group-title">Problem metadata</h2>
-          <div class="problem-meta-grid">
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Problem number</span>
-              <span class="problem-meta-value" id="problem-number">—</span>
-            </div>
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Area</span>
-              <span class="problem-meta-value" id="problem-area"></span>
-            </div>
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Subject classification</span>
-              <span class="problem-meta-value" id="subject-classification"></span>
-            </div>
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Verification status</span>
-              <span class="problem-meta-value" id="verification-status"></span>
-            </div>
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Extracted with</span>
-              <span class="problem-meta-value" id="extraction-info"></span>
-            </div>
-            <div class="problem-meta-item">
-              <span class="problem-meta-label">Upload date</span>
-              <span class="problem-meta-value" id="upload-date"></span>
-            </div>
-          </div>
-        </section>
-        <section class="problem-meta-group">
-          <h2 class="problem-meta-group-title">Source paper</h2>
-          <div class="problem-meta-grid">
-            <div class="problem-meta-item problem-meta-item-wide">
-              <span class="problem-meta-label">Source paper</span>
-              <span class="problem-meta-value" id="source-paper"></span>
-            </div>
-            <div class="problem-meta-item problem-meta-item-wide">
-              <span class="problem-meta-label">Source paper authors</span>
-              <span class="problem-meta-value" id="source-paper-authors"></span>
-            </div>
-          </div>
-        </section>
+
+      <div class="problem-source-block">
+        <div class="problem-source-paper" id="source-paper"></div>
+        <div class="problem-source-authors" id="source-paper-authors"></div>
+      </div>
+
+      <div class="problem-detail-grid">
+        <div class="problem-detail-item">
+          <span class="problem-detail-label">Area</span>
+          <span class="problem-detail-value" id="problem-area"></span>
+        </div>
+        <div class="problem-detail-item">
+          <span class="problem-detail-label">Classification</span>
+          <span class="problem-detail-value" id="subject-classification"></span>
+        </div>
+        <div class="problem-detail-item">
+          <span class="problem-detail-label">Status</span>
+          <span class="problem-detail-value" id="verification-status"></span>
+        </div>
+        <div class="problem-detail-item">
+          <span class="problem-detail-label">Model</span>
+          <span class="problem-detail-value" id="extraction-info"></span>
+        </div>
+        <div class="problem-detail-item">
+          <span class="problem-detail-label">Uploaded</span>
+          <span class="problem-detail-value" id="upload-date"></span>
+        </div>
       </div>
     </div>
 
@@ -237,13 +224,6 @@
       backLink.textContent = `← Back to problems list (page ${pageNumber})`;
     }
 
-    function formatAuthorList(authors) {
-      if (!Array.isArray(authors) || authors.length === 0) {
-        return "—";
-      }
-      return authors.map((a) => escapeHtml(a)).join(", ");
-    }
-
     function _trimBibtexValue(value) {
       let trimmed = value.trim();
       if (trimmed.endsWith(",")) {
@@ -371,7 +351,7 @@
       }
       container.innerHTML = review.sources.map((source, idx) => `
         <div class="lit-source-card math-content">
-          <div class="problem-meta-label" style="margin-bottom:0.5rem;">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
+          <div class="lit-source-heading">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
           <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy BibTeX</button>
           <p><strong>Theorem / result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
@@ -392,6 +372,7 @@
 
     function renderSourcePaper(payload) {
       const el = document.getElementById("source-paper");
+      const authorsEl = document.getElementById("source-paper-authors");
       const title = payload.source_paper_title || payload.source_paper || payload.paper_id || "";
       const url = payload.source_paper_url || "";
       const journal = payload.source_paper_journal || "";
@@ -409,6 +390,15 @@
       } else {
         el.textContent = `${title}${details.length > 0 ? ` (${details.join(", ")})` : ""}`;
       }
+
+      const reviewSources = payload.literature_review?.sources;
+      const fallbackAuthors = Array.isArray(reviewSources) && reviewSources.length > 0
+        ? _parseAuthorListFromBibtex(reviewSources[0].bibtex || "")
+        : [];
+      const sourceAuthors = Array.isArray(payload.source_paper_authors) && payload.source_paper_authors.length > 0
+        ? payload.source_paper_authors
+        : fallbackAuthors;
+      authorsEl.textContent = sourceAuthors.length > 0 ? sourceAuthors.join(", ") : "";
     }
 
     function renderExtractionInfo(payload) {
@@ -425,6 +415,11 @@
       return d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
     }
 
+    function stripProblemPrefix(text) {
+      // Remove leading "Problem:" (case-insensitive) left over from earlier extractions.
+      return text.replace(/^problem\s*:\s*/i, "");
+    }
+
     function buildCombinedProblemLatex(backgroundLatex, definitionLatex) {
       const background = String(backgroundLatex || "").trim();
       const definition = String(definitionLatex || "").trim();
@@ -434,14 +429,14 @@
       if (!definition) {
         throw new Error("Missing required field: problem_definition_latex");
       }
-      return `${background}\n\nProblem:\n${definition}`;
+      return `${background}\n\n${definition}`;
     }
 
     function renderProblem(payload, problemNumber) {
       document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
       document.getElementById("problem-title").innerHTML = formatTitleWithMath(payload.title);
-      document.getElementById("problem-number").textContent = problemNumber ? `#${problemNumber}` : "—";
+      document.getElementById("problem-number").textContent = problemNumber ? `#${problemNumber}` : "";
       const v = payload.verification || {};
       const unverified = Boolean(payload.export_mode === "unverified" || v.unverified);
       const banner = document.getElementById("unverified-banner");
@@ -465,20 +460,12 @@
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
       document.getElementById("problem-area").textContent = payload.area || "other";
-      const reviewSources = payload.literature_review?.sources;
-      const fallbackAuthors = Array.isArray(reviewSources) && reviewSources.length > 0
-        ? _parseAuthorListFromBibtex(reviewSources[0].bibtex || "")
-        : [];
-      const sourceAuthors = Array.isArray(payload.source_paper_authors) && payload.source_paper_authors.length > 0
-        ? payload.source_paper_authors
-        : fallbackAuthors;
-      document.getElementById("source-paper-authors").innerHTML = formatAuthorList(sourceAuthors);
       document.getElementById("verification-status").textContent = unverified
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
       document.getElementById("upload-date").textContent = formatUploadDate(payload.pipeline_generated_at_utc);
       const backgroundLatex = String(payload.background_latex || "").trim();
-      const definitionLatex = String(payload.problem_definition_latex || "").trim();
+      const definitionLatex = stripProblemPrefix(String(payload.problem_definition_latex || "").trim());
       if (!backgroundLatex) {
         throw new Error("Problem payload is missing non-empty background_latex.");
       }

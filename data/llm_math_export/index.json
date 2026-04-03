@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-04-03T19:07:02.775871+00:00",
+  "generated_at_utc": "2026-04-03T19:34:29.177943+00:00",
   "export_mode": "unverified",
   "has_unverified_problems": true,
   "unverified_disclaimer": {
@@ -41,7 +41,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4221168014_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4399151428_p0",
@@ -72,7 +72,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4399151428_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4400141324_p0",
@@ -101,7 +101,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4400141324_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4408928070_p0",
@@ -131,7 +131,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4408928070_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4409316647_p0",
@@ -163,7 +163,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409316647_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4409528654_p0",
@@ -194,7 +194,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409528654_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4409800077_p0",
@@ -224,7 +224,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409800077_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4409922425_p0",
@@ -254,7 +254,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409922425_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4410155359_p0",
@@ -285,7 +285,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410155359_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4410233669_p0",
@@ -315,7 +315,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410233669_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4410395976_p0",
@@ -346,7 +346,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410395976_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411023035_p0",
@@ -377,7 +377,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411023035_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411088173_p0",
@@ -407,7 +407,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411088173_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411234993_p0",
@@ -438,7 +438,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411234993_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411235477_p0",
@@ -467,7 +467,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411235477_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411449955_p0",
@@ -497,7 +497,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411449955_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411674410_p0",
@@ -527,7 +527,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411674410_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411787576_p0",
@@ -557,7 +557,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411787576_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411801764_p0",
@@ -588,7 +588,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411801764_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411879499_p0",
@@ -619,7 +619,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411879499_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411957271_p0",
@@ -648,7 +648,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411957271_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4411959281_p0",
@@ -679,7 +679,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411959281_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4412106736_p0",
@@ -710,7 +710,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412106736_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4412557041_p0",
@@ -741,7 +741,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412557041_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4412612512_p0",
@@ -771,7 +771,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412612512_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4412630514_p0",
@@ -803,7 +803,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412630514_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4413019826_p0",
@@ -833,7 +833,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413019826_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4413077228_p0",
@@ -863,7 +863,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413077228_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4413635748_p0",
@@ -892,7 +892,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413635748_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4413848299_p0",
@@ -923,7 +923,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413848299_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414408152_p0",
@@ -954,7 +954,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414408152_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414427837_p0",
@@ -986,7 +986,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414427837_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414449781_p0",
@@ -1017,7 +1017,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414449781_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414541699_p0",
@@ -1047,7 +1047,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414541699_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414593867_p0",
@@ -1080,7 +1080,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414593867_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414783466_p0",
@@ -1109,7 +1109,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414783466_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4414783647_p0",
@@ -1140,7 +1140,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414783647_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4415178980_p0",
@@ -1173,7 +1173,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4415178980_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4416295153_p0",
@@ -1202,7 +1202,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4416295153_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4416665164_p0",
@@ -1232,7 +1232,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4416665164_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4416739421_p0",
@@ -1262,7 +1262,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4416739421_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4417166251_p0",
@@ -1293,7 +1293,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417166251_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4417331274_p0",
@@ -1324,7 +1324,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417331274_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W4417437095_p0",
@@ -1356,7 +1356,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417437095_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7114802374_p0",
@@ -1385,7 +1385,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7114802374_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7118180028_p0",
@@ -1418,7 +1418,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7118180028_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7119488906_p0",
@@ -1448,7 +1448,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7119488906_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7125931785_p0",
@@ -1479,7 +1479,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7125931785_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7126221168_p0",
@@ -1510,7 +1510,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7126221168_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7129091806_p0",
@@ -1542,21 +1542,17 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7129091806_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7135205807_p0",
       "paper_id": "W7135205807",
       "source_paper": "W7135205807",
-      "source_paper_title": "Denoising Diffusion Probabilistic Models Are Optimally Adaptive to Unknown Low Dimensionality",
-      "source_paper_url": "https://doi.org/10.1287/moor.2024.0769",
-      "source_paper_authors": [
-        "Zhihan Huang",
-        "Yuting Wei",
-        "Yuxin Chen"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2026,
+      "source_paper_title": "W7135205807",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "source_paper_journal": "",
+      "source_paper_publication_year": null,
       "problem_index": 0,
       "title": "Convergence and low-dimensional adaptivity of DDPM under non-KL metrics (e.g., total variation or Wasserstein)",
       "area": "other",
@@ -1573,19 +1569,17 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7135205807_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7137846733_p0",
       "paper_id": "W7137846733",
       "source_paper": "W7137846733",
-      "source_paper_title": "Nonregular McKean\u2013Vlasov Equations and Calibration Problem in Local Stochastic Volatility Models",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0326",
-      "source_paper_authors": [
-        "Mao Fabrice Djete"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2026,
+      "source_paper_title": "W7137846733",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "source_paper_journal": "",
+      "source_paper_publication_year": null,
       "problem_index": 0,
       "title": "Uniqueness for non-regular McKean--Vlasov SDE (2.2) under Assumption 2.1",
       "area": "other",
@@ -1602,20 +1596,17 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7137846733_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     },
     {
       "problem_id": "W7140189588_p0",
       "paper_id": "W7140189588",
       "source_paper": "W7140189588",
-      "source_paper_title": "Theoretical Smoothing Frameworks for Nonsmooth Simple Bilevel Problems",
-      "source_paper_url": "https://doi.org/10.1287/moor.2024.0405",
-      "source_paper_authors": [
-        "Jan Harold Alcantara",
-        "Akiko Takeda"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2026,
+      "source_paper_title": "W7140189588",
+      "source_paper_url": "",
+      "source_paper_authors": [],
+      "source_paper_journal": "",
+      "source_paper_publication_year": null,
       "problem_index": 0,
       "title": "Verify smoothing-family and gradient-consistency of quadratic-regularization-plus-penalization for value functions with \\,\\(x\\)-dependent lower-level feasible sets",
       "area": "other",
@@ -1633,7 +1624,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7140189588_p0.json",
-      "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00"
+      "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00"
     }
   ]
 }
