@@ -10,26 +10,29 @@
     "Tran T. A. Nghia",
     "Defeng Sun"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 3, discussion immediately after Theorem 3.8 (around p. 15 in the provided text)\n\n\"By fixing the parameter b = \\bar b, our condition (45) is also sufficient for the Lipschitz stability of solution mappings S_{\\cdot,\\bar b,\\bar\\mu}, S_{\\cdot,\\bar b,\\cdot}, and S_{\\bar A,\\bar b,\\cdot} around the corresponding points due to the implication [(i)\\u2192(ii)] in Theorem 3.8. Whether it is necessary is an open question.\"",
-  "title": "Necessity of condition (45) for Lipschitz stability when fixing the data vector $b$",
-  "latex": "Let \\(X,Y\\) be Euclidean spaces, \\(\\bar A\\in \\mathrm{L}(X,Y)\\), \\(\\bar b\\in Y\\), and \\(\\bar\\mu>0\\). Let \\(g:X\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) be closed, proper, convex, and assume its Fenchel conjugate \\(g^*\\) is \\(C^2\\)-cone reducible at \\(\\bar z\\) defined below.\n\nConsider the regularized least-squares problem\n\\[\n\\min_{x\\in X}\\ \\frac{1}{2\\bar\\mu}\\|\\bar A x- b\\|^2+g(x),\n\\]\nwith parameter \\(b\\in Y\\) (and with \\(\\bar A,\\bar\\mu\\) fixed). Define the solution mapping\n\\[\nS_{\\bar A,\\bar\\mu}(b):=\\operatorname*{argmin}_{x\\in X}\\Big\\{\\frac{1}{2\\bar\\mu}\\|\\bar A x- b\\|^2+g(x)\\Big\\}.\n\\]\nLet \\(\\bar x\\in S_{\\bar A,\\bar\\mu}(\\bar b)\\) and set\n\\[\n\\bar z:=\\frac{1}{\\bar\\mu}\\,\\bar A^*(\\bar b-\\bar A\\bar x).\n\\]\nRecall that for a closed convex set \\(C\\subseteq X\\), \\(\\mathrm{par}\\,C\\) denotes its parallel subspace, and for a convex function \\(g^*\\) we write \\(\\partial g^*(\\bar z)\\) for its subdifferential at \\(\\bar z\\).\n\nProblem: Assume that \\(S_{\\bar A,\\bar\\mu}\\) is single-valued and locally Lipschitz around \\(\\bar b\\) (i.e., there exist a neighborhood \\(U\\) of \\(\\bar b\\) and \\(L>0\\) such that \\(S_{\\bar A,\\bar\\mu}(b)\\) is a singleton for all \\(b\\in U\\) and \\(\\|S_{\\bar A,\\bar\\mu}(b_1)-S_{\\bar A,\\bar\\mu}(b_2)\\|\\le L\\|b_1-b_2\\|\\) for all \\(b_1,b_2\\in U\\)). Must it follow that\n\\[\n\\ker \\bar A\\ \\cap\\ \\mathrm{par}\\,\\partial g^*(\\bar z)=\\{0\\}? \n\\]\nEquivalently, is condition \\(\\ker \\bar A\\cap \\mathrm{par}\\,\\partial g^*(\\bar z)=\\{0\\}\\) necessary (and not only sufficient) for Lipschitz stability of the solution mapping with respect to perturbations in \\(b\\) alone, when \\(\\bar A\\) and \\(\\bar\\mu\\) are fixed and \\(g^*\\) is \\(C^2\\)-cone reducible at \\(\\bar z\\)?",
-  "location_in_paper": "Section 3, discussion immediately after Theorem 3.8 (around p. 15 in the provided text)",
-  "open_problem_quote": "\"By fixing the parameter b = \\bar b, our condition (45) is also sufficient for the Lipschitz stability of solution mappings S_{\\cdot,\\bar b,\\bar\\mu}, S_{\\cdot,\\bar b,\\cdot}, and S_{\\bar A,\\bar b,\\cdot} around the corresponding points due to the implication [(i)\\u2192(ii)] in Theorem 3.8. Whether it is necessary is an open question.\"",
-  "subject_classification": "Variational Analysis / Stability (Sensitivity) Analysis in Convex Optimization",
+  "context": "Section 5 (Conclusion), page 20 (PDF pages 19\u201320 in the provided parse)\n\nOne of the open questions we plan to investigate in the future is the computation of the Lipschitz modulus of the solution mapping when Lipschitz stability occurs. In theory, this Lipschitz modulus may be obtained by calculating the coderivative of the solution mapping (30); see, e.g., [20, Theorem 4.10] and [27, Theorem 9.39]. However, this approach requires some involved computations of second-order structures of the regularizer \\(g\\), which can be particularly challenging when \\(g\\) does not have a polyhedral structure.",
+  "title": "Compute the local Lipschitz modulus of the regularized least-squares solution mapping without using second-order information of the regularizer",
+  "latex": "Let \\(X\\) and \\(Y\\) be finite-dimensional Euclidean spaces, let \\(\\mathcal L(X,Y)\\) denote the space of linear maps \\(A:X\\to Y\\), and let \\(g:X\\to\\mathbb R\\cup\\{+\\infty\\}\\) be closed, proper, and convex. For parameters \\((A,b,\\mu)\\in \\mathcal L(X,Y)\\times Y\\times \\mathbb R_{++}\\), define the (possibly set-valued) solution mapping\n\\[\nS(A,b,\\mu):=\\operatorname*{argmin}_{x\\in X}\\left\\{\\frac{1}{2\\mu}\\|Ax-b\\|^2+g(x)\\right\\}.\n\\]\nFix \\((\\bar A,\\bar b,\\bar\\mu)\\in \\mathcal L(X,Y)\\times Y\\times \\mathbb R_{++}\\) and suppose \\(S\\) is single-valued and locally Lipschitz continuous at \\((\\bar A,\\bar b,\\bar\\mu)\\), with \\(\\bar x:=S(\\bar A,\\bar b,\\bar\\mu)\\). Define the local Lipschitz modulus of \\(S\\) at \\((\\bar A,\\bar b,\\bar\\mu)\\) by\n\\[\n\\operatorname{lip} S(\\bar A,\\bar b,\\bar\\mu)\n:=\\inf\\Big\\{L\\ge 0:\\exists\\ \\delta>0\\ \\text{s.t.}\\ \\|S(p)-S(q)\\|\\le L\\|p-q\\|\\ \\forall p,q\\in B_\\delta(\\bar A,\\bar b,\\bar\\mu)\\Big\\},\n\\]\nwhere \\(p=(A,b,\\mu)\\), \\(q=(A',b',\\mu')\\), \\(\\|p-q\\|\\) is any fixed norm on \\(\\mathcal L(X,Y)\\times Y\\times \\mathbb R\\), and \\(B_\\delta(\\bar A,\\bar b,\\bar\\mu)\\) denotes the closed ball of radius \\(\\delta\\) centered at \\((\\bar A,\\bar b,\\bar\\mu)\\) under that norm.\n\nProblem: Derive an explicit computable formula or tight computable bounds for \\(\\operatorname{lip} S(\\bar A,\\bar b,\\bar\\mu)\\) that avoids computing second-order variational objects of \\(g\\) (e.g., coderivatives/second-order subdifferentials of \\(\\partial g\\)), and instead uses only first-order information about \\(g\\) (e.g., \\(\\partial g\\), \\(\\partial g^*\\), and their associated parallel subspaces) together with the data \\((\\bar A,\\bar b,\\bar\\mu,\\bar x)\\).",
+  "location_in_paper": "Section 5 (Conclusion), page 20 (PDF pages 19\u201320 in the provided parse)",
+  "open_problem_quote": "One of the open questions we plan to investigate in the future is the computation of the Lipschitz modulus of the solution mapping when Lipschitz stability occurs. In theory, this Lipschitz modulus may be obtained by calculating the coderivative of the solution mapping (30); see, e.g., [20, Theorem 4.10] and [27, Theorem 9.39]. However, this approach requires some involved computations of second-order structures of the regularizer \\(g\\), which can be particularly challenging when \\(g\\) does not have a polyhedral structure.",
+  "area": "other",
+  "subject_classification": "Variational Analysis / Sensitivity Analysis in Convex Optimization",
   "keywords": [
-    "Lipschitz stability",
+    "Lipschitz modulus",
     "solution mapping",
     "regularized least squares",
-    "C^2-cone reducibility",
+    "sensitivity analysis",
     "Fenchel conjugate",
-    "partial nondegeneracy",
-    "sensitivity analysis"
+    "coderivative",
+    "nonsmooth convex regularization"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -41,13 +44,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.0565915,
+    "extractor_total_cost_usd": 0.05745075,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0565915
+    "total_cost_usd": 0.05745075
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W7118180028/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7118180028/problems.json",
     "verification_source": null,
     "literature_source": null
   }

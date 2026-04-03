@@ -1,0 +1,56 @@
+{
+  "problem_id": "W4414593867_p0",
+  "paper_id": "W4414593867",
+  "source_paper": "W4414593867",
+  "source_paper_title": "On the Completeness of Several Fortification-Interdiction Games in the Polynomial Hierarchy",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0559",
+  "source_paper_authors": [
+    "Alberto Boggio Tomasaz",
+    "Margarida Carvalho",
+    "Roberto Cordone",
+    "Pierre Hosteins"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Conclusion), page 19\n\nAlternatively, if one of the lowest level sets of weights and profits becomes unitary (so that the lowest level KP becomes polynomial), what is the complexity of the problem when at least one set of higher level costs is instead arbitrary? Such clarifications may help to understand the articulation of the different levels which defines the intrinsic complexity of higher level problems in the polynomial hierarchy.",
+  "title": "Complexity of multi-level fortification\u2013interdiction knapsack when the lower-level knapsack is polynomial but higher-level costs are arbitrary",
+  "latex": "Given a finite set of items \\(I\\), let each item \\(i\\in I\\) have a profit \\(p_i\\in\\mathbb{Z}_{>0}\\) and a weight \\(w_i\\in\\mathbb{Z}_{>0}\\). Fix an integer \\(m\\ge 1\\) and budgets \\(B_2,\\dots,B_{m+1}\\in\\mathbb{Z}_{>0}\\). Consider an \\((m+1)\\)-level sequential game that alternates fortification and interdiction decisions on the item set \\(I\\) for \\(m\\) rounds, followed by a final follower knapsack choice.\n\n- At levels \\(\\ell=2,\\dots,m+1\\), player \\(\\ell\\) selects a set \\(I_\\ell\\subseteq I\\) with \\(|I_\\ell|\\le B_\\ell\\) if costs are unitary; more generally, each item \\(i\\) has a nonnegative integer cost \\(c_{\\ell i}\\) at level \\(\\ell\\), and the level-\\(\\ell\\) constraint is \\(\\sum_{i\\in I_\\ell} c_{\\ell i}\\le B_\\ell\\).\n- Fortification levels (defender) mark items as immune to all later interdictions; interdiction levels (attacker) remove items unless they have been fortified earlier.\n- Let \\(A\\subseteq\\{2,\\dots,m+1\\}\\) denote the interdiction levels (attacker moves) and \\(F\\subseteq\\{2,\\dots,m+1\\}\\) the fortification levels (defender moves), with \\(A\\cup F=\\{2,\\dots,m+1\\}\\) and \\(A\\cap F=\\varnothing\\), and decisions alternate by level index.\n- Let \\(R\\subseteq I\\) be the set of items remaining available to the follower after applying the fortification/immunity and interdiction/removal rules induced by \\((I_2,\\dots,I_{m+1})\\).\n- At level 1, the follower selects \\(I_1\\subseteq R\\) to maximize \\(\\sum_{i\\in I_1} p_i\\) subject to \\(\\sum_{i\\in I_1} w_i\\le W\\), for a given capacity \\(W\\in\\mathbb{Z}_{>0}\\).\n\nFor a given profit target \\(\\bar K\\in\\mathbb{Z}_{>0}\\), define the decision problem (with the quantifier pattern determined by whether the top level is fortification or interdiction, as in the paper\u2019s UMIK definition) of whether the defender can guarantee the follower achieves at least \\(\\bar K\\) (or, in the complementary variant, can force the follower below \\(\\bar K\\)) under optimal play.\n\nAssume now that the lower-level knapsack becomes polynomial-time solvable because one of the two parameter sets is unitary, e.g. \\(w_i=1\\) for all \\(i\\in I\\) (unit weights) or \\(p_i=1\\) for all \\(i\\in I\\) (unit profits).\n\nProblem: Determine the computational complexity (polynomial-time solvable, NP-hard, or complete for some level \\(\\Sigma_k^p\\) or \\(\\Pi_k^p\\) of the polynomial hierarchy) of the above multi-level fortification\u2013interdiction knapsack decision problem in the regime where the lower-level knapsack is polynomial (e.g. unit weights or unit profits) but at least one higher-level cost vector \\((c_{\\ell i})_{i\\in I}\\) (for some \\(\\ell\\ge 2\\)) is arbitrary (non-unitary).",
+  "location_in_paper": "Section 6 (Conclusion), page 19",
+  "open_problem_quote": "Alternatively, if one of the lowest level sets of weights and profits becomes unitary (so that the lowest level KP becomes polynomial), what is the complexity of the problem when at least one set of higher level costs is instead arbitrary? Such clarifications may help to understand the articulation of the different levels which defines the intrinsic complexity of higher level problems in the polynomial hierarchy.",
+  "area": "other",
+  "subject_classification": "Computational Complexity (Polynomial Hierarchy)",
+  "keywords": [
+    "multilevel optimization",
+    "knapsack interdiction",
+    "fortification",
+    "unit weights or unit profits",
+    "non-unit costs",
+    "polynomial hierarchy"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09962575,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09962575
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414593867/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

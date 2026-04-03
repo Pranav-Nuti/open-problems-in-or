@@ -8,26 +8,29 @@
     "Jianhao Ma",
     "Salar Fattahi"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 12, Section 2.3 (Asymmetric matrix completion), discussion after Theorem 6\n\n\u201cWe note that this result does not refute the possibility of existing highly rank-imbalanced solutions\u2014in particular, those with \\(\\operatorname{rank}(W_1^\\star)+\\operatorname{rank}(W_2^\\star)\\ge k\\)\u2014as local optima. Although our result does not refute this possibility, we conjecture that highly rank-imbalanced solutions are unlikely to emerge as local optima. We leave a rigorous proof of this conjecture for future work.\u201d",
-  "title": "Prove that highly rank-imbalanced true solutions are not local optima in asymmetric matrix completion with \u21131-loss",
-  "latex": "Given integers \\(d_1,d_2\\ge 1\\), true rank \\(r\\le \\min\\{d_1,d_2\\}\\), and search rank \\(k>r\\), let the ground-truth matrix be \\(X^\\star\\in\\mathbb{R}^{d_1\\times d_2}\\) with \\(\\mathrm{rank}(X^\\star)=r\\). Let \\(\\Omega\\subseteq[d_1]\\times[d_2]\\) be a (possibly full) set of observed indices and define the (possibly noisy) observation matrix \\(Y\\in\\mathbb{R}^{d_1\\times d_2}\\) by\n\\[\nY[\\alpha,\\beta]=X^\\star[\\alpha,\\beta]+E[\\alpha,\\beta]\\quad\\text{for }(\\alpha,\\beta)\\in\\Omega,\n\\]\nwhere \\(E\\) is a noise matrix supported on \\(\\Omega\\). Consider the Burer--Monteiro factorization variables \\(W_1\\in\\mathbb{R}^{d_1\\times k}\\), \\(W_2\\in\\mathbb{R}^{k\\times d_2}\\) and the nonsmooth \\(\\ell_1\\) matrix-completion loss\n\\[\nf_{\\ell_1}^c(W_1,W_2):=\\frac{1}{|\\Omega|}\\sum_{(\\alpha,\\beta)\\in\\Omega} \\big|Y[\\alpha,\\beta]-(W_1W_2)[\\alpha,\\beta]\\big|.\n\\]\nDefine the set of true solutions\n\\[\n\\mathcal{W}:=\\{(W_1,W_2): W_1W_2=X^\\star\\}.\n\\]\nCall a true solution \\((W_1^\\star,W_2^\\star)\\in\\mathcal{W}\\) highly rank-imbalanced if \\(\\mathrm{rank}(W_1^\\star)+\\mathrm{rank}(W_2^\\star)\\ge k\\).\n\nProblem: Under the matrix completion model for \\(\\Omega\\) and a generic noise model with a constant fraction of corrupted observations, prove (or disprove) that, with high probability, no highly rank-imbalanced true solution \\((W_1^\\star,W_2^\\star)\\in\\mathcal{W}\\) is a local minimizer of \\(f_{\\ell_1}^c\\). Equivalently, establish conditions under which for every highly rank-imbalanced \\((W_1^\\star,W_2^\\star)\\in\\mathcal{W}\\) there exists \\(\\Delta W=(\\Delta W_1,\\Delta W_2)\\) with \\(\\|\\Delta W\\|_F=1\\) and some \\(\\bar\\gamma>0\\) such that\n\\[\nf_{\\ell_1}^c(W_1^\\star+\\gamma\\Delta W_1,\\, W_2^\\star+\\gamma\\Delta W_2) < f_{\\ell_1}^c(W_1^\\star,W_2^\\star)\\quad\\text{for all }\\gamma\\in(0,\\bar\\gamma].\n\\]",
-  "location_in_paper": "Page 12, Section 2.3 (Asymmetric matrix completion), discussion after Theorem 6",
-  "open_problem_quote": "\u201cWe note that this result does not refute the possibility of existing highly rank-imbalanced solutions\u2014in particular, those with \\(\\operatorname{rank}(W_1^\\star)+\\operatorname{rank}(W_2^\\star)\\ge k\\)\u2014as local optima. Although our result does not refute this possibility, we conjecture that highly rank-imbalanced solutions are unlikely to emerge as local optima. We leave a rigorous proof of this conjecture for future work.\u201d",
-  "subject_classification": "Nonconvex Optimization / Robust Low-Rank Matrix Recovery",
+  "context": "Page 12, Section 2.3 (Asymmetric matrix completion), discussion immediately after Theorem 6\n\nWe note that this result does not refute the possibility of existing highly rank-imbalanced solutions\u2014in particular, those with \\(\\mathrm{rank}(W_1^{\\star})+\\mathrm{rank}(W_2^{\\star})\\ge k\\)\u2014as local optima. Although our result does not refute this possibility, we conjecture that highly rank-imbalanced solutions are unlikely to emerge as local optima. We leave a rigorous proof of this conjecture for future work.",
+  "title": "Nonexistence of local minima among highly rank-imbalanced true solutions in noisy asymmetric matrix completion with \\(\\ell_1\\) loss",
+  "latex": "Let integers \\(d_1,d_2\\ge 1\\), a target rank \\(r\\le \\min\\{d_1,d_2\\}\\), and a search rank \\(k>2r\\) be given. Let \\(X^{\\star}\\in\\mathbb{R}^{d_1\\times d_2}\\) be any rank-\\(r\\) matrix. Consider a measurement set \\(\\Omega\\subseteq[d_1]\\times[d_2]\\) (possibly \\(\\Omega=[d_1]\\times[d_2]\\)) and an observed matrix \\(Y\\in\\mathbb{R}^{d_1\\times d_2}\\) such that\n\\[\nY[\\alpha,\\beta]=X^{\\star}[\\alpha,\\beta]+E[\\alpha,\\beta]\\quad\\text{for all }(\\alpha,\\beta)\\in\\Omega,\n\\]\nwhere \\(E\\in\\mathbb{R}^{d_1\\times d_2}\\) is a noise matrix supported on \\(\\Omega\\) and at least a constant fraction of observed entries are corrupted by nontrivial noise (e.g., there exist constants \\(t_0>0\\) and \\(p_0\\in(0,1]\\) such that for each \\((\\alpha,\\beta)\\in\\Omega\\), independently, \\(|E[\\alpha,\\beta]|\\ge t_0\\) with probability at least \\(p_0\\)). Define the nonsmooth Burer--Monteiro objective (asymmetric matrix completion with \\(\\ell_1\\)-loss)\n\\[\n f(W_1,W_2)=\\frac{1}{|\\Omega|}\\sum_{(\\alpha,\\beta)\\in\\Omega}\\bigl|Y[\\alpha,\\beta]-(W_1W_2)[\\alpha,\\beta]\\bigr|,\n\\]\nwhere the decision variables are \\(W_1\\in\\mathbb{R}^{d_1\\times k}\\) and \\(W_2\\in\\mathbb{R}^{k\\times d_2}\\). Let the set of true solutions be\n\\[\n\\mathcal{W}=\\{(W_1,W_2): W_1W_2=X^{\\star}\\}.\n\\]\nCall a true solution \\((W_1,W_2)\\in\\mathcal{W}\\) highly rank-imbalanced if \\(\\mathrm{rank}(W_1)+\\mathrm{rank}(W_2)\\ge k\\). (Equivalently, it is not in \\(\\mathcal{W}(k-1):=\\{(W_1,W_2)\\in\\mathcal{W}:\\mathrm{rank}(W_1)+\\mathrm{rank}(W_2)\\le k-1\\}\\).)\n\nProblem: Prove (or disprove) that, under the above noisy asymmetric matrix completion model (including the fully observed case \\(\\Omega=[d_1]\\times[d_2]\\)), no highly rank-imbalanced true solution is a local minimizer of \\(f\\). Formally, establish conditions on \\((d_1,d_2,r,k,\\Omega,E)\\) under which\n\\[\n\\forall (W_1,W_2)\\in\\mathcal{W}\\text{ with }\\mathrm{rank}(W_1)+\\mathrm{rank}(W_2)\\ge k,\\quad (W_1,W_2)\\notin \\operatorname{LocMin}(f),\n\\]\nwhere \\(\\operatorname{LocMin}(f)\\) denotes the set of local minimizers of \\(f\\) over \\(\\mathbb{R}^{d_1\\times k}\\times\\mathbb{R}^{k\\times d_2}\\).",
+  "location_in_paper": "Page 12, Section 2.3 (Asymmetric matrix completion), discussion immediately after Theorem 6",
+  "open_problem_quote": "We note that this result does not refute the possibility of existing highly rank-imbalanced solutions\u2014in particular, those with \\(\\mathrm{rank}(W_1^{\\star})+\\mathrm{rank}(W_2^{\\star})\\ge k\\)\u2014as local optima. Although our result does not refute this possibility, we conjecture that highly rank-imbalanced solutions are unlikely to emerge as local optima. We leave a rigorous proof of this conjecture for future work.",
+  "area": "other",
+  "subject_classification": "Nonconvex Optimization",
   "keywords": [
-    "matrix completion",
+    "robust matrix completion",
+    "low-rank matrix recovery",
     "Burer\u2013Monteiro factorization",
-    "\u21131 loss",
-    "robust recovery",
-    "local minima",
-    "over-parameterization",
-    "rank imbalance"
+    "nonsmooth optimization",
+    "\\(\\ell_1\\) loss",
+    "strict saddle points",
+    "local minima"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.10202325,
+    "extractor_total_cost_usd": 0.106239,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10202325
+    "total_cost_usd": 0.106239
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4412612512/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412612512/problems.json",
     "verification_source": null,
     "literature_source": null
   }

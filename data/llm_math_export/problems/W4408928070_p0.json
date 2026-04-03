@@ -8,25 +8,27 @@
     "Lei Yang",
     "Kim-Chuan Toh"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 9, Section 3 (discussion following Algorithm 1; paragraph comparing (AbSC) vs (ReSC))\n\n\u201cIn our current convergence analysis, we also require \\(\\|\\Delta_k\\| = 0\\) for (ReSC) to eliminate the error term \\(|\\langle\\Delta_k, \\tilde x_{k+1} - x\\rangle|\\) in (3.7), enabling the derivation of (3.14) in the subsequent analysis for Theorem 3.2. Although this requirement can be satisfied in many cases (see two examples in the following subsection), it may limit the applicability of (ReSC). Note that Bello-Cruz et al. [18] recently incorporated a full relative-type error rule in the FISTA, which can accommodate a nonzero error \\(\\Delta_k\\). Thus, it would be interesting to explore whether the requirement \\(\\|\\Delta_k\\| = 0\\) can be removed in our methods, which we will leave for future research.\u201d",
-  "title": "Removing the zero-dual-error requirement in the partial relative stopping criterion for iBPGM",
-  "latex": "Consider the convex composite optimization problem\n\\[\n\\min_{x\\in Q}\\;F(x):=P(x)+f(x),\n\\]\nwhere \\(Q\\subseteq E\\) is a closed convex set in a finite-dimensional Euclidean space \\(E\\), \\(P:E\\to(-\\infty,+\\infty]\\) is proper closed convex, and \\(f:E\\to(-\\infty,+\\infty]\\) is proper closed convex and differentiable on \\(\\mathrm{int}\\,Q\\). Let \\(\\phi:E\\to(-\\infty,+\\infty]\\) be an essentially smooth, strictly convex kernel with \\(\\mathrm{dom}\\,\\phi=Q\\), and define the Bregman distance\n\\[\nD_\\phi(u,v):=\\phi(u)-\\phi(v)-\\langle \\nabla\\phi(v),u-v\\rangle.\n\\]\nAssume \\(f\\) is \\(L\\)-smooth relative to \\(\\phi\\) (possibly restricted to a closed convex set \\(X\\supseteq \\mathrm{dom}\\,P\\cap \\mathrm{dom}\\,\\phi\\)) in the sense that for all \\(x\\in X\\cap \\mathrm{int}\\,Q\\) and \\(y\\in X\\cap Q\\),\n\\[\n f(y)\\le f(x)+\\langle \\nabla f(x),y-x\\rangle + L D_\\phi(y,x).\n\\]\nAt iteration \\(k\\), define the Bregman proximal-gradient subproblem\n\\[\n\\min_{x\\in Q}\\; P(x)+\\langle \\nabla f(x^k),x-x^k\\rangle + \\lambda D_\\phi(x,x^k),\n\\]\nwith parameter \\(\\lambda>L\\). An inexact two-point approximate solution consists of \\(x^{k+1}\\in X\\cap \\mathrm{int}\\,Q\\), \\(\\tilde x^{k+1}\\in \\mathrm{dom}\\,P\\cap Q\\), and error pair \\((\\Delta_k,\\delta_k)\\) satisfying\n\\[\n\\Delta_k\\in \\partial_{\\delta_k}P(\\tilde x^{k+1})+\\nabla f(x^k)+\\lambda\\big(\\nabla\\phi(x^{k+1})-\\nabla\\phi(x^k)\\big).\n\\]\nThe paper\u2019s partial relative stopping criterion (ReSC) requires \\(\\|\\Delta_k\\|=0\\) and\n\\[\n\\lambda^{-1}\\delta_k + D_\\phi(\\tilde x^{k+1},x^{k+1})\\le \\sigma\\, D_\\phi(\\tilde x^{k+1},x^k)\n\\quad\\text{for some }\\sigma\\in\\big[0,1-\\tfrac{L}{\\lambda}\\big).\n\\]\nProblem: establish convergence (e.g., \\(F(\\tilde x^k)\\to \\inf_Q F\\) and an \\(O(1/k)\\) rate under suitable summable/relative error conditions) for an iBPGM-type method under a relative-type stopping criterion that allows \\(\\Delta_k\\ne 0\\), i.e., remove the restriction \\(\\|\\Delta_k\\|=0\\) while keeping the criterion practically verifiable and ensuring convergence guarantees.",
-  "location_in_paper": "Page 9, Section 3 (discussion following Algorithm 1; paragraph comparing (AbSC) vs (ReSC))",
-  "open_problem_quote": "\u201cIn our current convergence analysis, we also require \\(\\|\\Delta_k\\| = 0\\) for (ReSC) to eliminate the error term \\(|\\langle\\Delta_k, \\tilde x_{k+1} - x\\rangle|\\) in (3.7), enabling the derivation of (3.14) in the subsequent analysis for Theorem 3.2. Although this requirement can be satisfied in many cases (see two examples in the following subsection), it may limit the applicability of (ReSC). Note that Bello-Cruz et al. [18] recently incorporated a full relative-type error rule in the FISTA, which can accommodate a nonzero error \\(\\Delta_k\\). Thus, it would be interesting to explore whether the requirement \\(\\|\\Delta_k\\| = 0\\) can be removed in our methods, which we will leave for future research.\u201d",
-  "subject_classification": "Convex Optimization / First-Order Methods",
+  "context": "Section 3 (discussion after Algorithm 1), page 9\n\nAlthough this requirement can be satisfied in many cases (see two examples in the following subsection), it may limit the applicability of (ReSC). Note that Bello-Cruz et al. [18] recently incorporated a full relative-type error rule in the FISTA, which can accommodate a nonzero error \\(\\Delta_k\\). Thus, it would be interesting to explore whether the requirement \\(\\|\\Delta_k\\| = 0\\) can be removed in our methods, which we will leave for future research.",
+  "title": "Allow nonzero optimality-residual error \\(\\Delta_k\\) under the relative stopping criterion in inexact Bregman proximal gradient methods",
+  "latex": "Given a real finite-dimensional Euclidean space \\(E\\) with inner product \\(\\langle\\cdot,\\cdot\\rangle\\), a closed convex set \\(Q\\subseteq E\\) with nonempty interior, and proper closed convex functions \\(P,f:E\\to(-\\infty,+\\infty]\\) such that \\(f\\) is differentiable on \\(\\mathrm{int}\\,Q\\), consider the convex composite minimization problem\n\\[\n\\min_{x\\in Q}\\; F(x):=P(x)+f(x).\n\\]\nLet \\(\\phi:E\\to(-\\infty,+\\infty]\\) be an essentially smooth, strictly convex kernel with \\(\\mathrm{dom}\\,\\phi=Q\\), and define the Bregman distance\n\\[\nD_\\phi(u,v):=\\phi(u)-\\phi(v)-\\langle\\nabla\\phi(v),u-v\\rangle,\n\\]\nfor \\(u\\in \\mathrm{dom}\\,\\phi\\) and \\(v\\in \\mathrm{int}\\,\\mathrm{dom}\\,\\phi\\). Fix parameters \\(\\lambda>L\\) and \\(\\sigma\\in[0,1)\\), where \\(L\\ge 0\\) is such that \\(f\\) is \\(L\\)-smooth relative to \\(\\phi\\) (possibly restricted to a closed convex set \\(X\\supseteq \\mathrm{dom}\\,P\\cap\\mathrm{dom}\\,\\phi\\)).\n\nAt iteration \\(k\\ge 0\\), define the Bregman proximal-gradient subproblem\n\\[\n\\min_{x\\in Q}\\; P(x)+\\langle\\nabla f(x_k),x-x_k\\rangle+\\lambda D_\\phi(x,x_k).\n\\]\nAn inexact method produces \\(x_{k+1}\\in X\\cap \\mathrm{int}\\,\\mathrm{dom}\\,\\phi\\), \\(\\tilde x_{k+1}\\in \\mathrm{dom}\\,P\\cap\\mathrm{dom}\\,\\phi\\), and error terms \\(\\Delta_k\\in E\\), \\(\\delta_k\\ge 0\\) satisfying the perturbed optimality condition\n\\[\n\\Delta_k\\in \\partial_{\\delta_k}P(\\tilde x_{k+1})+\\nabla f(x_k)+\\lambda\\bigl(\\nabla\\phi(x_{k+1})-\\nabla\\phi(x_k)\\bigr),\n\\]\nwhere \\(\\partial_{\\delta}P(y):=\\{g\\in E: P(z)\\ge P(y)+\\langle g,z-y\\rangle-\\delta\\ \\forall z\\in E\\}\\).\n\nThe paper\u2019s relative stopping criterion (ReSC) requires \\(\\|\\Delta_k\\|=0\\) and\n\\[\n\\lambda^{-1}\\delta_k + D_\\phi(\\tilde x_{k+1},x_{k+1}) \\le \\sigma\\, D_\\phi(\\tilde x_{k+1},x_k).\n\\]\nThe problem is to design and analyze a relative-type stopping criterion that allows \\(\\|\\Delta_k\\|\\) to be nonzero while still guaranteeing convergence (e.g., \\(F(\\tilde x_k)\\to \\inf_{x\\in Q}F(x)\\)) and, ideally, an \\(O(1/k)\\) function-value convergence rate (at least for averaged iterates or last iterates), under verifiable assumptions and explicit conditions relating \\(\\Delta_k\\), \\(\\delta_k\\), and the Bregman distances.",
+  "location_in_paper": "Section 3 (discussion after Algorithm 1), page 9",
+  "open_problem_quote": "Although this requirement can be satisfied in many cases (see two examples in the following subsection), it may limit the applicability of (ReSC). Note that Bello-Cruz et al. [18] recently incorporated a full relative-type error rule in the FISTA, which can accommodate a nonzero error \\(\\Delta_k\\). Thus, it would be interesting to explore whether the requirement \\(\\|\\Delta_k\\| = 0\\) can be removed in our methods, which we will leave for future research.",
+  "area": "other",
+  "subject_classification": "Convex Optimization",
   "keywords": [
     "Bregman proximal gradient",
-    "inexact methods",
+    "inexact first-order methods",
     "relative stopping criterion",
     "relative smoothness",
-    "convergence analysis",
-    "error rules"
+    "convergence rate"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +40,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.09733499999999999,
+    "extractor_total_cost_usd": 0.026550650000000002,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09733499999999999
+    "total_cost_usd": 0.026550650000000002
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4408928070/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4408928070/problems.json",
     "verification_source": null,
     "literature_source": null
   }

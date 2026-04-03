@@ -1,0 +1,53 @@
+{
+  "problem_id": "W4411235477_p0",
+  "paper_id": "W4411235477",
+  "source_paper": "W4411235477",
+  "source_paper_title": "Improved Approximation Guarantees for Joint Replenishment in Continuous Time",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0635",
+  "source_paper_authors": [
+    "Danny Segev"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Concluding Remarks), paragraph titled \u201cThe fixed-base setting: Approximation scheme?\u201d (page 33).\n\nToward further progress, one fundamental question is whether the algorithmic ideas behind \\(\\Psi\\)-pairwise alignment can be leveraged to deal with the fixed-based restriction. Among other technical issues, it is still unclear how one should go about efficiently defining the approximate representatives \\(\\tilde R = \\{\\tilde R_\\ell\\}_{\\ell\\in A^*}\\), as in step 5 of Section 2.4, while limiting their values to integer multiples of the prespecified base \\(\\Delta\\).",
+  "title": "Does the fixed-base continuous-time joint replenishment problem admit a \\\\(1+\\varepsilon\\\\)-approximation scheme (e.g., via \\\\(\\Psi\\\\)-pairwise alignment)?",
+  "latex": "Given an integer \\(n\\ge 1\\) and a fixed time unit (base) \\(\\Delta>0\\), consider \\(n\\) commodities indexed by \\([n]=\\{1,\\dots,n\\}\\). Commodity \\(i\\) has ordering cost \\(K_i>0\\) and holding parameter \\(H_i>0\\). There is also a joint ordering cost \\(K_0>0\\) incurred whenever an order is placed, regardless of which commodities are included.\n\nA fixed-base replenishment policy is a vector \\(T=(T_1,\\dots,T_n)\\) such that each \\(T_i\\) is an integer multiple of \\(\\Delta\\), i.e., \\(T_i = m_i\\Delta\\) for some integer \\(m_i\\in\\{1,2,3,\\dots\\}\\). Under policy \\(T\\), commodity \\(i\\) is ordered periodically every \\(T_i\\) time units (at times \\(0,T_i,2T_i,\\dots\\)). Joint orders occur at the union of these times across commodities.\n\nFor any horizon length \\(L>0\\), define\n\\[\nM_{T_i,L}=\\{kT_i: k\\in\\mathbb{Z}_{\\ge 0},\\ kT_i\\le L\\},\\qquad N(T,L)=\\left|\\bigcup_{i=1}^n M_{T_i,L}\\right|.\n\\]\nDefine the long-run average joint ordering cost\n\\[\nJ(T)=K_0\\cdot \\lim_{L\\to\\infty}\\frac{N(T,L)}{L},\n\\]\nand the long-run average marginal EOQ cost\n\\[\nC_i(T_i)=\\frac{K_i}{T_i}+H_iT_i.\n\\]\nThe total long-run average cost is\n\\[\nF(T)=J(T)+\\sum_{i=1}^n C_i(T_i).\n\\]\nLet \\(\\mathrm{OPT}(\\Delta) = \\min\\{F(T): T_i\\in\\Delta\\cdot\\mathbb{Z}_{\\ge 1}\\ \\forall i\\}\\).\n\nProblem: Determine whether there exists, for every \\(\\varepsilon>0\\), a polynomial-time algorithm (in \\(n\\) and the input encoding length, for fixed \\(\\varepsilon\\)) that computes a fixed-base policy \\(\\hat T\\) with\n\\[\nF(\\hat T) \\le (1+\\varepsilon)\\,\\mathrm{OPT}(\\Delta).\n\\]\nIn particular, can the \\(\\Psi\\)-pairwise alignment framework (or another method achieving a \\(1+\\varepsilon\\) guarantee in the variable-base model) be adapted to respect the integrality restriction \\(T_i\\in\\Delta\\cdot\\mathbb{Z}_{\\ge 1}\\) and thereby yield such an approximation scheme for the fixed-base model?",
+  "location_in_paper": "Section 7 (Concluding Remarks), paragraph titled \u201cThe fixed-base setting: Approximation scheme?\u201d (page 33).",
+  "open_problem_quote": "Toward further progress, one fundamental question is whether the algorithmic ideas behind \\(\\Psi\\)-pairwise alignment can be leveraged to deal with the fixed-based restriction. Among other technical issues, it is still unclear how one should go about efficiently defining the approximate representatives \\(\\tilde R = \\{\\tilde R_\\ell\\}_{\\ell\\in A^*}\\), as in step 5 of Section 2.4, while limiting their values to integer multiples of the prespecified base \\(\\Delta\\).",
+  "area": "approximation algorithms",
+  "subject_classification": "Inventory Theory and Combinatorial Optimization",
+  "keywords": [
+    "joint replenishment problem",
+    "fixed-base model",
+    "approximation scheme",
+    "EPTAS/PTAS",
+    "pairwise alignment",
+    "integer-multiple constraints"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09079174999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09079174999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411235477/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

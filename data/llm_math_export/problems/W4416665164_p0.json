@@ -8,25 +8,28 @@
     "Chien-Chung Huang",
     "Fran\u00e7ois Sellier"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 6, end of Introduction (paragraph beginning \u201cAlthough the above procedure can be costly in running time\u2026\u201d)\n\n\"Moreover, in our algorithms, as we frequently update the ground set on which we compute the decomposition by adding or removing one element, there may be room to improve our time complexity: we leave as an open question whether updating a density-based decomposition when performing these kinds of operations can be done more efficiently, without re-computing the whole decomposition each time.\"",
-  "title": "Efficiently update the density-based decomposition under single-element insertions/deletions",
-  "latex": "Given a matroid \\(M=(V,\\mathcal I)\\) accessed via an independence (or rank) oracle, and a maintained subset \\(V'\\subseteq V\\). Let \\(M|_{V'}\\) denote the restriction of \\(M\\) to \\(V'\\). Define the density of a nonempty set \\(U\\subseteq V'\\) as \\(\\rho(U)=\\frac{|U|}{\\mathrm{rank}_{M|_{V'}}(U)}\\) (with \\(\\rho(\\emptyset)=0\\)). Define the density-based decomposition of \\(V'\\) to be the sequence \\(U_1,\\dots,U_k\\) constructed greedily as follows, where \\(k=\\mathrm{rank}_M(V)\\):\n- Let \\(M_1 := M|_{V'}\\). Choose \\(U_1\\subseteq V'\\) maximizing \\(\\rho_{M_1}(U)\\), breaking ties by maximum \\(|U|\\).\n- For \\(j\\ge 2\\), let \\(M_j := (M|_{V'})/(U_1\\cup\\cdots\\cup U_{j-1})\\). Choose \\(U_j\\subseteq V'\\setminus (U_1\\cup\\cdots\\cup U_{j-1})\\) maximizing \\(\\rho_{M_j}(U)\\), breaking ties by maximum \\(|U|\\).\n(Allowing some trailing \\(U_j=\\emptyset\\).)\n\nProblem: Design an algorithm/data structure that maintains the density-based decomposition \\(U_1,\\dots,U_k\\) (or equivalently the associated element densities induced by it) under updates to \\(V'\\) consisting of inserting or deleting a single element \\(e\\in V\\), i.e., replacing \\(V'\\leftarrow V'\\cup\\{e\\}\\) or \\(V'\\leftarrow V'\\setminus\\{e\\}\\). The goal is to support each update in time asymptotically faster than recomputing the entire decomposition from scratch (which can be done in polynomial time via repeated densest-set computations/submodular minimization), while using polynomial space and preserving correctness of the maintained decomposition.",
-  "location_in_paper": "Page 6, end of Introduction (paragraph beginning \u201cAlthough the above procedure can be costly in running time\u2026\u201d)",
-  "open_problem_quote": "\"Moreover, in our algorithms, as we frequently update the ground set on which we compute the decomposition by adding or removing one element, there may be room to improve our time complexity: we leave as an open question whether updating a density-based decomposition when performing these kinds of operations can be done more efficiently, without re-computing the whole decomposition each time.\"",
-  "subject_classification": "Combinatorial Optimization (Matroids); Dynamic/Online Algorithms",
+  "context": "Page 6, Section 1 (Introduction), paragraph beginning \u201cMoreover, in our algorithms, as we frequently update the ground set \u2026\u201d in the discussion of density-based decomposition and principal partitions\n\nMoreover, in our algorithms, as we frequently update the ground set on which we compute the decomposition by adding or removing one element, there may be room to improve our time complexity: we leave as an open question whether updating a density-based decomposition when performing these kinds of operations can be done more efficiently, without re-computing the whole decomposition each time.",
+  "title": "Efficient dynamic update of the density-based decomposition of a matroid under single-element insertions/deletions",
+  "latex": "Given a matroid \\(M=(V,\\mathcal{I})\\) with rank function \\(\\mathrm{rank}_M:2^V\\to\\mathbb{Z}_{\\ge 0}\\), and a subset \\(V'\\subseteq V\\), let \\(M|_{V'}\\) denote the restriction of \\(M\\) to \\(V'\\). Define the density of a nonempty set \\(U\\subseteq V'\\) as \\(\\rho(U)=\\frac{|U|}{\\mathrm{rank}_{M|_{V'}}(U)}\\) (and \\(\\rho(\\emptyset)=0\\)). The density-based decomposition of \\(V'\\) is the sequence \\(U_1,\\dots,U_k\\) (where \\(k=\\mathrm{rank}_M(V)\\)) obtained by the greedy rule: \\(U_1\\) is the (unique) maximum-cardinality subset of \\(V'\\) maximizing \\(\\rho\\) in \\(M|_{V'}\\); for \\(j\\ge 2\\), \\(U_j\\) is the maximum-cardinality subset maximizing density in the contracted matroid \\((M|_{V'})/(U_1\\cup\\cdots\\cup U_{j-1})\\), and the process continues until \\(V'=U_1\\cup\\cdots\\cup U_k\\) (allowing empty sets).\n\nAssume oracle access to \\(M\\) (e.g., an independence or rank oracle). Design and analyze an algorithm/data structure that maintains the density-based decomposition \\(U_1,\\dots,U_k\\) of the current subset \\(V'\\subseteq V\\) under an online sequence of updates of the form:\n- insertion: \\(V'\\leftarrow V'\\cup\\{e\\}\\) for some \\(e\\in V\\setminus V'\\),\n- deletion: \\(V'\\leftarrow V'\\setminus\\{e\\}\\) for some \\(e\\in V'\\),\nso that after each update the maintained decomposition is exactly the density-based decomposition of the new \\(V'\\).\n\nThe goal is to achieve an update time asymptotically smaller than recomputing the entire decomposition from scratch after each update (e.g., sublinear in \\(|V|\\) or in the time of a full recomputation), while using polynomial (or near-linear) space and a number of oracle queries per update that is similarly improved over full recomputation.",
+  "location_in_paper": "Page 6, Section 1 (Introduction), paragraph beginning \u201cMoreover, in our algorithms, as we frequently update the ground set \u2026\u201d in the discussion of density-based decomposition and principal partitions",
+  "open_problem_quote": "Moreover, in our algorithms, as we frequently update the ground set on which we compute the decomposition by adding or removing one element, there may be room to improve our time complexity: we leave as an open question whether updating a density-based decomposition when performing these kinds of operations can be done more efficiently, without re-computing the whole decomposition each time.",
+  "area": "other",
+  "subject_classification": "Combinatorial Optimization (Matroid Theory and Data Structures)",
   "keywords": [
     "matroid intersection",
-    "density-based decomposition",
-    "principal sequence",
+    "matroid density",
+    "principal partition",
     "dynamic algorithms",
-    "incremental/decremental updates",
-    "submodular minimization"
+    "submodular minimization",
+    "data structures"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.065562,
+    "extractor_total_cost_usd": 0.06777925,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.065562
+    "total_cost_usd": 0.06777925
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4416665164/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416665164/problems.json",
     "verification_source": null,
     "literature_source": null
   }

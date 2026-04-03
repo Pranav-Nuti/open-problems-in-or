@@ -1,0 +1,56 @@
+{
+  "problem_id": "W4414783647_p0",
+  "paper_id": "W4414783647",
+  "source_paper": "W4414783647",
+  "source_paper_title": "A Single-Loop Algorithm for Decentralized Bilevel Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0488",
+  "source_paper_authors": [
+    "Youran Dong",
+    "Shiqian Ma",
+    "Junfeng Yang",
+    "Chao Yin"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Page 4, Section 1 (Introduction, paragraph after the list of heterogeneity assumptions)\n\nExtending the algorithms in this paper to stochastic DBO is definitely another very important task, and we leave it to a future work.",
+  "title": "Design a provably convergent single-loop algorithm for stochastic decentralized bilevel optimization without heterogeneity assumptions",
+  "latex": "Given an integer \\(n\\ge 1\\), let \\(F_i:\\mathbb{R}^p\\times\\mathbb{R}^q\\to\\mathbb{R}\\) and \\(f_i:\\mathbb{R}^p\\times\\mathbb{R}^q\\to\\mathbb{R}\\) be (possibly stochastic) loss functions associated with agent \\(i\\in\\{1,\\dots,n\\}\\). Let \\(\\xi_i\\) denote a random variable local to agent \\(i\\), and define population objectives\n\\[\nF(x,y)=\\frac{1}{n}\\sum_{i=1}^n \\mathbb{E}_{\\xi_i}\\big[ F_i(x,y;\\xi_i)\\big],\\qquad\nf(x,y)=\\frac{1}{n}\\sum_{i=1}^n \\mathbb{E}_{\\xi_i}\\big[ f_i(x,y;\\xi_i)\\big].\n\\]\nAssume that for every \\(x\\in\\mathbb{R}^p\\), the function \\(y\\mapsto f(x,y)\\) is \\(\\sigma\\)-strongly convex for some \\(\\sigma>0\\), so the lower-level optimizer\n\\[\ny^*(x)=\\arg\\min_{y\\in\\mathbb{R}^q} f(x,y)\n\\]\nis well-defined and unique. Consider the decentralized bilevel optimization problem\n\\[\n\\min_{x\\in\\mathbb{R}^p}\\ \\Phi(x):=F\\big(x,y^*(x)\\big).\n\\]\nAgents communicate over a fixed connected network encoded by a symmetric doubly stochastic mixing matrix \\(W\\in\\mathbb{R}^{n\\times n}\\) with spectral gap \\(1-\\rho>0\\), where \\(\\rho:=\\max\\{|\\lambda_2(W)|,|\\lambda_n(W)|\\}<1\\).\n\nProblem: Design a decentralized, fully single-loop, first-order stochastic algorithm that (i) uses only stochastic gradient and Hessian-vector/Jacobian-vector products computed from minibatches of \\(\\xi_i\\) at each agent and \\(\\Theta(1)\\) communication rounds per iteration; (ii) does not assume any gradient or data heterogeneity bounds across agents (i.e., no uniform bound on \\(\\|\\nabla f_i-\\nabla f\\|\\) or similar); and (iii) achieves a nonasymptotic convergence guarantee to stationarity, for example a bound of the form\n\\[\n\\min_{0\\le k\\le K-1} \\mathbb{E}\\big[\\|\\nabla \\Phi(\\bar x_k)\\|^2\\big] \\le \\frac{C}{K}\n\\]\nfor some constant \\(C\\) independent of \\(K\\), where \\(\\bar x_k:=\\frac{1}{n}\\sum_{i=1}^n x_i^k\\) is the network average iterate.",
+  "location_in_paper": "Page 4, Section 1 (Introduction, paragraph after the list of heterogeneity assumptions)",
+  "open_problem_quote": "Extending the algorithms in this paper to stochastic DBO is definitely another very important task, and we leave it to a future work.",
+  "area": "other",
+  "subject_classification": "Stochastic Optimization / Distributed Optimization",
+  "keywords": [
+    "decentralized bilevel optimization",
+    "stochastic gradients",
+    "single-loop algorithms",
+    "gradient tracking",
+    "hypergradient estimation",
+    "communication efficiency"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0808185,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0808185
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414783647/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

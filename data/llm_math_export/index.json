@@ -1,15 +1,139 @@
 {
-  "generated_at_utc": "2026-03-29T19:37:22.474068+00:00",
-  "counts": {
-    "exported_problems": 41,
-    "open_problems_exported": 41,
-    "with_literature_review": 0,
-    "newly_added_problems": 0,
-    "duplicates_skipped": 0,
-    "unverified_problems": 41
-  },
+  "generated_at_utc": "2026-04-02T17:50:46.422570+00:00",
+  "export_mode": "unverified",
   "has_unverified_problems": true,
+  "unverified_disclaimer": {
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers."
+  },
+  "counts": {
+    "problem_sources_seen": 85,
+    "exported_problems": 54,
+    "open_problems_exported": 54,
+    "with_literature_review": 0,
+    "literature_missing_for_open": 0
+  },
   "problems": [
+    {
+      "problem_id": "W3178491113_p0",
+      "paper_id": "W3178491113",
+      "source_paper": "W3178491113",
+      "source_paper_title": "The Information Projection in Moment Inequality Models: Existence, Dual Representation, and Approximation",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0568",
+      "source_paper_authors": [
+        "Rami V. Tabri"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Convergence guarantees for Sample Average Approximation within the dual discretization scheme for infinite-dimensional I-projections",
+      "area": "other",
+      "subject_classification": "Stochastic Programming",
+      "keywords": [
+        "sample average approximation",
+        "stochastic convex optimization",
+        "relative entropy minimization",
+        "infinite-dimensional optimization",
+        "convergence rates"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W3178491113_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W3208746577_p0",
+      "paper_id": "W3208746577",
+      "source_paper": "W3208746577",
+      "source_paper_title": "Cash-Subadditive Risk Measures Without Quasi-Convexity",
+      "source_paper_url": "https://doi.org/10.1287/moor.2022.0312",
+      "source_paper_authors": [
+        "Xia Han",
+        "Qiuqi Wang",
+        "Ruodu Wang",
+        "Jianming Xia"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Lower-envelope representation of law-invariant cash-subadditive risk measures by law-invariant cash-subadditive risk measures with additional structure",
+      "area": "other",
+      "subject_classification": "Risk Measures / Mathematical Finance",
+      "keywords": [
+        "cash subadditivity",
+        "law invariance",
+        "lower envelope representation",
+        "quasi-convexity",
+        "comonotonicity",
+        "stochastic dominance"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W3208746577_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4221168014_p0",
+      "paper_id": "W4221168014",
+      "source_paper": "W4221168014",
+      "source_paper_title": "Zero-Sum Mean-Field Dynkin Games: Characterization and Convergence",
+      "source_paper_url": "https://doi.org/10.1287/moor.2022.0080",
+      "source_paper_authors": [
+        "Boualem Djehiche",
+        "Roxana Dumitrescu"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Convergence of S-saddle points from interacting Dynkin games to the mean-field limit",
+      "area": "other",
+      "subject_classification": "Stochastic Control and Differential Games",
+      "keywords": [
+        "Dynkin games",
+        "mean-field games",
+        "saddle point",
+        "optimal stopping",
+        "propagation of chaos",
+        "reflected BSDE"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4221168014_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4399151428_p0",
+      "paper_id": "W4399151428",
+      "source_paper": "W4399151428",
+      "source_paper_title": "On the Sequential Convergence of Lloyd\u2019s Algorithms",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0550",
+      "source_paper_authors": [
+        "L\u00e9o Portales",
+        "Elsa Cazelles",
+        "Edouard Pauwels"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Sequential convergence of Lloyd\u2019s algorithm for semi-discrete Wasserstein quantization without definability/analyticity assumptions",
+      "area": "other",
+      "subject_classification": "Optimal Transport and Nonconvex Optimization",
+      "keywords": [
+        "Lloyd's algorithm",
+        "quantization",
+        "semi-discrete optimal transport",
+        "sequential convergence",
+        "Wasserstein distance",
+        "Kurdyka-\u0141ojasiewicz inequality"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4399151428_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
     {
       "problem_id": "W4408928070_p0",
       "paper_id": "W4408928070",
@@ -20,22 +144,24 @@
         "Lei Yang",
         "Kim-Chuan Toh"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Removing the zero-dual-error requirement in the partial relative stopping criterion for iBPGM",
-      "subject_classification": "Convex Optimization / First-Order Methods",
+      "title": "Allow nonzero optimality-residual error \\(\\Delta_k\\) under the relative stopping criterion in inexact Bregman proximal gradient methods",
+      "area": "other",
+      "subject_classification": "Convex Optimization",
       "keywords": [
         "Bregman proximal gradient",
-        "inexact methods",
+        "inexact first-order methods",
         "relative stopping criterion",
         "relative smoothness",
-        "convergence analysis",
-        "error rules"
+        "convergence rate"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4408928070_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4409316647_p0",
@@ -49,22 +175,25 @@
         "Sushil Khyalia",
         "Shivaram Kalyanakrishnan"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Hamiltonian policy-iteration path for multi-action MDPs (k \u2265 3)",
-      "subject_classification": "Stochastic Dynamic Programming / Computational Complexity of MDP Algorithms",
+      "title": "Hamiltonian policy-improvement path for some MDP with \\(k\\ge 3\\) actions",
+      "area": "other",
+      "subject_classification": "Markov Decision Processes; Discrete Optimization / Graph Algorithms",
       "keywords": [
-        "Markov decision processes",
         "policy iteration",
+        "Markov decision processes",
+        "policy-improvement graph",
         "Hamiltonian path",
-        "PI-DAG",
         "lower bounds",
-        "multi-action MDPs"
+        "computational complexity"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409316647_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4409528654_p0",
@@ -77,23 +206,25 @@
         "Sebastian Perez-Salazar",
         "V\u00edctor Verdugo"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Is the asymptotic worst-case approximation ratio equal to the sum of the nonlinear-system constants?",
-      "subject_classification": "Online Algorithms / Optimal Stopping (Prophet Inequalities)",
+      "title": "Tightness of the nonlinear-system lower bound: is \\(\\inf_{n\\ge 1}\\gamma_{n,k}=\\sum_{\\ell=1}^k\\theta^\\star_\\ell\\)?",
+      "area": "prophet inequalities",
+      "subject_classification": "Stochastic Optimization / Optimal Stopping",
       "keywords": [
         "prophet inequalities",
+        "optimal stopping",
         "k-selection",
-        "asymptotic approximation ratio",
+        "approximation ratio",
         "nonlinear differential equations",
-        "infinite-dimensional linear programming",
-        "duality",
-        "tight bounds"
+        "worst-case analysis"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409528654_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4409800077_p0",
@@ -105,22 +236,26 @@
         "Zanyu Li",
         "Chenglong Bao"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Global convergence of (unregularized) Anderson mixing / Riemannian Anderson Mixing",
-      "subject_classification": "Nonlinear Optimization / Riemannian Optimization",
+      "title": "Global convergence guarantees for Anderson mixing in Euclidean space",
+      "area": "other",
+      "subject_classification": "Numerical Optimization / Nonlinear Equations (Fixed-Point Iterations)",
       "keywords": [
+        "Anderson mixing",
         "Anderson acceleration",
         "global convergence",
-        "Riemannian optimization",
-        "fixed-point iterations",
-        "safeguarding",
-        "nonlinear solvers"
+        "fixed-point iteration",
+        "nonlinear operator",
+        "least squares",
+        "damping/stepsize"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409800077_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4409922425_p0",
@@ -133,22 +268,25 @@
         "Will Ma",
         "Jiawei Zhang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Analytically prove that the worst-case IID k-unit prophet ratio is attained as n\u2192\u221e",
-      "subject_classification": "Online Algorithms / Stochastic Optimization (Prophet Inequalities)",
+      "title": "Prove that for each fixed number of slots \\(k>1\\), the worst-case IID \\(k\\)-unit prophet-inequality ratio equals its large-\\(n\\) limit",
+      "area": "prophet inequalities",
+      "subject_classification": "Stochastic Optimization / Online Algorithms",
       "keywords": [
         "prophet inequalities",
         "IID arrivals",
-        "k-unit selection",
+        "multi-unit selection",
         "competitive ratio",
-        "dynamic programming",
-        "asymptotic analysis"
+        "asymptotic analysis",
+        "dynamic programming"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4409922425_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4410155359_p0",
@@ -161,22 +299,26 @@
         "Igor Klep",
         "Jiawang Nie"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Preordering/Krivine\u2013Stengle-type Positivstellensatz and algebraic compactness certificates for universally quantified sets",
+      "title": "Preordering (Schm\"udgen-type) Positivstellensatz for universally quantified sets without archimedeanness",
+      "area": "other",
       "subject_classification": "Real Algebraic Geometry / Polynomial Optimization",
       "keywords": [
         "Positivstellensatz",
         "preordering",
-        "Krivine\u2013Stengle",
         "universal quantifiers",
-        "non-archimedean",
-        "semi-infinite constraints"
+        "quadratic modules",
+        "semi-infinite constraints",
+        "Carleman condition",
+        "non-archimedean case"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410155359_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4410233669_p0",
@@ -188,22 +330,25 @@
         "Asaf Cohen",
         "Ethan Zell"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Convergence of exact Nash equilibria to mean field equilibria in ergodic Markovian games",
-      "subject_classification": "Game Theory / Mean Field Games / Stochastic Control",
+      "title": "Convergence of exact Markovian Nash equilibria in finite-state ergodic games to the mean field equilibrium as the number of players grows",
+      "area": "other",
+      "subject_classification": "Stochastic Control and Differential Games (Mean Field Games)",
       "keywords": [
         "ergodic mean field games",
-        "Markovian (closed-loop) Nash equilibrium",
+        "Markovian Nash equilibrium",
         "master equation",
-        "mean field limit",
-        "convergence of equilibria",
-        "finite-state Markov chains"
+        "convergence problem",
+        "finite-state jump processes",
+        "propagation of chaos"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410233669_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4410395976_p0",
@@ -216,48 +361,92 @@
         "Chengyue He",
         "Jay Sethuraman"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
       "title": "Polynomial-time convergence of Scarf\u2019s algorithm on the bipartite matching polytope for arbitrary ordinal matrices",
+      "area": "other",
       "subject_classification": "Combinatorial Optimization",
       "keywords": [
         "Scarf's algorithm",
-        "pivoting methods",
-        "stable matching polytopes",
-        "bipartite matching polytope",
+        "pivoting algorithms",
+        "stable matchings",
+        "matching polytope",
+        "ordinal matrices",
         "polynomial-time convergence"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4410395976_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
-      "problem_id": "W4410590382_p0",
-      "paper_id": "W4410590382",
-      "source_paper": "W4410590382",
-      "source_paper_title": "Efficient and Near-Optimal Online Portfolio Selection",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0175",
+      "problem_id": "W4410484165_p0",
+      "paper_id": "W4410484165",
+      "source_paper": "W4410484165",
+      "source_paper_title": "A Homogeneous Second-Order Descent Method for Nonconvex Optimization",
+      "source_paper_url": "https://doi.org/10.1287/moor.2023.0132",
       "source_paper_authors": [
-        "R\u00e9mi J\u00e9z\u00e9quel",
-        "Dmitrii M. Ostrovskii",
-        "Pierre Gaillard"
+        "Chuwen Zhang",
+        "He Chang",
+        "Yuntian Jiang",
+        "Chenyu Xue",
+        "Bo Jiang",
+        "Dongdong Ge",
+        "Yinyu Ye"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Fast and regret-optimal online portfolio selection with optimal constants",
-      "subject_classification": "Online Convex Optimization",
+      "title": "Single-loop second-order method with \\,\\(O(\\epsilon^{-3/2})\\) complexity that unifies Newton and regularized/negative-curvature steps",
+      "area": "other",
+      "subject_classification": "Nonconvex Optimization",
       "keywords": [
-        "online portfolio selection",
-        "universal portfolios",
-        "logarithmic regret",
-        "computational efficiency",
-        "follow-the-regularized-leader"
+        "second-order methods",
+        "nonconvex optimization",
+        "Newton-CG",
+        "negative curvature",
+        "iteration complexity",
+        "single-loop algorithms"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
-      "path": "problems/W4410590382_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "path": "problems/W4410484165_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4410840754_p0",
+      "paper_id": "W4410840754",
+      "source_paper": "W4410840754",
+      "source_paper_title": "Load Balancing in Parallel Queues and Rank-Based Diffusions",
+      "source_paper_url": "https://doi.org/10.1287/moor.2023.0050",
+      "source_paper_authors": [
+        "Sayan Banerjee",
+        "Amarjit Budhiraja",
+        "Benjamin Estevez"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Critical-case asymptotics of MJSQ when the marginal-bias parameter satisfies \\(b=aK\\)",
+      "area": "other",
+      "subject_classification": "Queueing Theory / Stochastic Networks (Heavy-Traffic Limits)",
+      "keywords": [
+        "MJSQ",
+        "critical load",
+        "heavy traffic",
+        "parallel queues",
+        "rank-based diffusion",
+        "stationary distribution",
+        "Atlas model"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4410840754_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411023035_p0",
@@ -270,23 +459,55 @@
         "Felix Fischer",
         "Max Klimm"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Existence of an impartial mechanism approaching 3/4-optimality for large n in the single-nomination model",
-      "subject_classification": "Algorithmic Game Theory / Mechanism Design",
+      "title": "Existence of an impartial selection mechanism achieving approximation ratio approaching \\(3/4\\) in the single-nomination model",
+      "area": "algorithmic mechanism design",
+      "subject_classification": "Social Choice Theory / Algorithmic Game Theory",
       "keywords": [
         "impartial selection",
-        "single-nomination model",
-        "approximation ratio",
         "randomized mechanisms",
-        "upper bounds",
-        "asymptotic optimality",
-        "3/4-optimality"
+        "approximation ratio",
+        "single-nomination model",
+        "directed graphs",
+        "asymptotic optimality"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411023035_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4411088173_p0",
+      "paper_id": "W4411088173",
+      "source_paper": "W4411088173",
+      "source_paper_title": "Higher-Order Expansion and Bartlett Correctability of Distributionally Robust Optimization",
+      "source_paper_url": "https://doi.org/10.1287/moor.2023.0191",
+      "source_paper_authors": [
+        "Shengyi He",
+        "Henry Lam"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Higher-order Bartlett-type correction for multidimensional divergence-based DRO confidence regions",
+      "area": "other",
+      "subject_classification": "Nonparametric Inference / Distributionally Robust Optimization",
+      "keywords": [
+        "distributionally robust optimization",
+        "phi-divergence",
+        "multidimensional confidence regions",
+        "Bartlett correction",
+        "von Mises functional",
+        "higher-order asymptotics"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4411088173_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411234993_p0",
@@ -299,23 +520,54 @@
         "Qihang Lin",
         "Yangyang Xu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Tightness of the lower complexity bound for Algorithm Class 1",
-      "subject_classification": "Continuous Optimization (First-Order Complexity)",
+      "title": "Tightness of the \\(\\Omega(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) oracle-complexity lower bound for Algorithm Class 1",
+      "area": "other",
+      "subject_classification": "Continuous Optimization; Computational Complexity (first-order/oracle complexity)",
       "keywords": [
         "oracle complexity",
         "first-order methods",
-        "composite nonconvex optimization",
-        "affine equality constraints",
+        "nonconvex composite optimization",
+        "affine constraints",
         "lower complexity bounds",
-        "tightness",
-        "proximal oracle"
+        "proximal mapping"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411234993_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4411235477_p0",
+      "paper_id": "W4411235477",
+      "source_paper": "W4411235477",
+      "source_paper_title": "Improved Approximation Guarantees for Joint Replenishment in Continuous Time",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0635",
+      "source_paper_authors": [
+        "Danny Segev"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Does the fixed-base continuous-time joint replenishment problem admit a \\\\(1+\\varepsilon\\\\)-approximation scheme (e.g., via \\\\(\\Psi\\\\)-pairwise alignment)?",
+      "area": "approximation algorithms",
+      "subject_classification": "Inventory Theory and Combinatorial Optimization",
+      "keywords": [
+        "joint replenishment problem",
+        "fixed-base model",
+        "approximation scheme",
+        "EPTAS/PTAS",
+        "pairwise alignment",
+        "integer-multiple constraints"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4411235477_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411449955_p0",
@@ -327,22 +579,25 @@
         "Erhan Bayraktar",
         "Bingyan Han"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Convergence of numerical algorithms for time-inconsistent (bi)causal transport",
-      "subject_classification": "Optimal Transport / Computational Optimization",
+      "title": "Strong duality for multi-period equilibrium transport with state-dependent costs",
+      "area": "other",
+      "subject_classification": "Optimal Transport; Dynamic Optimization",
       "keywords": [
         "equilibrium transport",
         "time inconsistency",
+        "Kantorovich duality",
+        "strong duality",
         "bicausal optimal transport",
-        "algorithm convergence",
-        "regularized optimal transport",
-        "f-divergence"
+        "state-dependent costs"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411449955_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411674410_p0",
@@ -354,22 +609,25 @@
         "Mallory E. Gaspard",
         "Alexander Vladimirsky"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Label-setting applicability to stochastic shortest path games (two-player stochastic games on graphs)",
-      "subject_classification": "Stochastic Games / Dynamic Programming / Shortest Path Problems",
+      "title": "Label-setting (Dijkstra/Dial-type) solvability criteria for stochastic shortest path games",
+      "area": "other",
+      "subject_classification": "Stochastic Games / Dynamic Programming",
       "keywords": [
         "stochastic shortest path games",
-        "zero-sum dynamic games",
+        "Shapley equations",
         "label-setting algorithms",
-        "Dijkstra-like methods",
+        "Dijkstra-type methods",
         "monotone causality",
-        "Shapley equations"
+        "zero-sum dynamic games"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411674410_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411787576_p0",
@@ -381,22 +639,25 @@
         "Pooja Agarwal",
         "Kavita Ramanan"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Convergence of hydrodynamic solutions to the invariant state (and hence convergence of $N$-server steady states)",
-      "subject_classification": "Stochastic Networks / Queueing Systems",
+      "title": "Global convergence of the hydrodynamic equations to the physical invariant state (and hence interchange of limits for SQ\\(d\\) networks)",
+      "area": "other",
+      "subject_classification": "Applied Probability / Queueing Theory (Stochastic Networks, Mean-Field Limits)",
       "keywords": [
         "hydrodynamic limit",
         "invariant state",
         "global stability",
-        "steady-state interchange",
         "randomized load balancing",
-        "measure-valued equations"
+        "many-server queues",
+        "steady-state convergence"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411787576_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411801764_p0",
@@ -409,22 +670,25 @@
         "Jianming Xia",
         "Fengyi Yuan"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Well-posedness of coupled multi-dimensional quadratic BSDEs arising from weighted-utility equilibrium",
-      "subject_classification": "Stochastic Control / Mathematical Finance",
+      "title": "General well-posedness of coupled multi-dimensional quadratic BSDEs arising from equilibrium conditions",
+      "area": "other",
+      "subject_classification": "Stochastic Control / Backward Stochastic Differential Equations",
       "keywords": [
         "quadratic BSDE",
         "multi-dimensional BSDE",
         "well-posedness",
+        "BMO martingales",
         "time-inconsistent control",
-        "equilibrium portfolio",
-        "weighted utility"
+        "portfolio selection"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411801764_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411879499_p0",
@@ -436,9 +700,12 @@
         "Zheng Hua",
         "Zheng Qu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Degree bounds under the regular sequence condition (without Assumption 1)",
-      "subject_classification": "Polynomial Optimization / Semidefinite Programming (SOS)",
+      "title": "Effective degree bounds for exactness of Lasserre\u2019s hierarchy under the regular-sequence condition without Assumption 1",
+      "area": "other",
+      "subject_classification": "Polynomial Optimization / Real Algebraic Geometry",
       "keywords": [
         "Lasserre hierarchy",
         "sum of squares",
@@ -451,7 +718,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411879499_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411957271_p0",
@@ -462,23 +729,25 @@
       "source_paper_authors": [
         "Takayuki Okuno"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Conjectured limit of the central-path tangential direction in NSDP",
-      "subject_classification": "Nonlinear Semidefinite Programming / Interior-Point Methods",
+      "title": "Conjectured limit of the central path tangent \\,\\(\\dot x(\\mu)\\) as \\,\\(\\mu\\to 0\\) in nonlinear semidefinite programming",
+      "area": "other",
+      "subject_classification": "Nonlinear Semidefinite Programming",
       "keywords": [
-        "nonlinear semidefinite programming",
         "central path",
         "primal-dual interior-point methods",
-        "tangential direction",
+        "nonlinear semidefinite optimization",
         "analytic center",
-        "strict complementarity",
-        "asymptotic analysis"
+        "barrier KKT system",
+        "path derivatives"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411957271_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4411959281_p0",
@@ -491,22 +760,56 @@
         "Yu\u2010Hong Dai",
         "Liwei Zhang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
       "title": "Necessity of the I-property for isolated calmness of the KKT solution mapping in Nash equilibrium problems",
-      "subject_classification": "Variational Analysis / Equilibrium Problems",
+      "area": "other",
+      "subject_classification": "Variational Analysis and Equilibrium Problems",
       "keywords": [
         "Nash equilibrium problems",
         "KKT solution mapping",
         "isolated calmness",
         "stability analysis",
         "I-property",
-        "variational analysis"
+        "constraint qualifications"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4411959281_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4412106736_p0",
+      "paper_id": "W4412106736",
+      "source_paper": "W4412106736",
+      "source_paper_title": "Many-Server Asymptotics for Join-the-Shortest-Queue in the Super-Halfin-Whitt Scaling Window",
+      "source_paper_url": "https://doi.org/10.1287/moor.2021.0133",
+      "source_paper_authors": [
+        "Zhisheng Zhao",
+        "Sayan Banerjee",
+        "Debankur Mukherjee"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Identify the critical load-scaling threshold where JSQ matches the centralized \\(M/M/N\\) steady-state limit",
+      "area": "other",
+      "subject_classification": "Queueing Theory / Stochastic Processes",
+      "keywords": [
+        "Join-the-Shortest-Queue (JSQ)",
+        "many-server heavy traffic",
+        "scaling threshold",
+        "M/M/N comparison",
+        "steady-state limit",
+        "diffusion approximation"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4412106736_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4412557041_p0",
@@ -519,21 +822,25 @@
         "Defeng Sun",
         "Wangyongquan Zhang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Implementable semismooth* Newton methods beyond locally Lipschitz reformulations",
+      "title": "Implementable semismooth\\(*\\) Newton method for generalized equations not reducible to locally Lipschitz equations",
+      "area": "other",
       "subject_classification": "Variational Analysis / Nonsmooth Optimization",
       "keywords": [
         "generalized equations",
         "semismooth* Newton method",
         "implementability",
-        "locally Lipschitz localization",
-        "nonsmooth Newton methods"
+        "local superlinear convergence",
+        "locally Lipschitz reformulation",
+        "nonsmooth analysis"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412557041_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4412612512_p0",
@@ -545,23 +852,26 @@
         "Jianhao Ma",
         "Salar Fattahi"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Prove that highly rank-imbalanced true solutions are not local optima in asymmetric matrix completion with \u21131-loss",
-      "subject_classification": "Nonconvex Optimization / Robust Low-Rank Matrix Recovery",
+      "title": "Nonexistence of local minima among highly rank-imbalanced true solutions in noisy asymmetric matrix completion with \\(\\ell_1\\) loss",
+      "area": "other",
+      "subject_classification": "Nonconvex Optimization",
       "keywords": [
-        "matrix completion",
+        "robust matrix completion",
+        "low-rank matrix recovery",
         "Burer\u2013Monteiro factorization",
-        "\u21131 loss",
-        "robust recovery",
-        "local minima",
-        "over-parameterization",
-        "rank imbalance"
+        "nonsmooth optimization",
+        "\\(\\ell_1\\) loss",
+        "strict saddle points",
+        "local minima"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412612512_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4412630514_p0",
@@ -575,21 +885,25 @@
         "Ruodu Wang",
         "Sheng Chao Zhuang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Strong duality beyond affine costs in distorted optimal transport",
-      "subject_classification": "Optimal Transport / Convex Analysis / Risk Measures",
+      "title": "Strong duality (Kantorovich-type) for distorted optimal transport beyond affine costs",
+      "area": "other",
+      "subject_classification": "Optimal Transport / Convex Analysis (Duality Theory)",
       "keywords": [
         "distorted optimal transport",
-        "strong duality",
         "Kantorovich duality",
+        "strong duality",
         "Choquet integral",
-        "distortion risk measures"
+        "distorted expectation",
+        "nonlinear expectation"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4412630514_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4413019826_p0",
@@ -602,22 +916,25 @@
         "Hyeonseok Park",
         "Gaoqian Xu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Structure of optimizers for Wasserstein distributional model risk in marginal problems",
-      "subject_classification": "Distributionally Robust Optimization / Optimal Transport",
+      "title": "Characterize the structure of optimizer(s) for Wasserstein distributional model risk in marginal problems",
+      "area": "other",
+      "subject_classification": "Optimization under Uncertainty / Optimal Transport",
       "keywords": [
-        "distributional model risk",
-        "Wasserstein balls",
+        "distributionally robust optimization",
+        "Wasserstein ambiguity set",
         "marginal problems",
         "optimal transport",
-        "optimizer structure",
-        "strong duality"
+        "extremal couplings",
+        "optimizer structure"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413019826_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4413077228_p0",
@@ -629,22 +946,54 @@
         "Alan Luner",
         "Benjamin Grimmer"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Prove worst-case gradient-norm benefits of simple extrapolation for gradient descent",
-      "subject_classification": "Continuous Optimization",
+      "title": "Tight worst-case gradient-norm guarantee for simple extrapolation in gradient descent",
+      "area": "other",
+      "subject_classification": "Continuous Optimization (Smooth Convex Optimization)",
       "keywords": [
         "gradient descent",
-        "worst-case analysis",
         "performance estimation problem (PEP)",
         "extrapolation",
+        "worst-case analysis",
         "gradient norm",
-        "dual certificates"
+        "L-smooth convex minimization"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413077228_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4413635748_p0",
+      "paper_id": "W4413635748",
+      "source_paper": "W4413635748",
+      "source_paper_title": "On the Uniform Convergence of Subdifferentials in Stochastic Optimization and Learning",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0533",
+      "source_paper_authors": [
+        "Feng Ruan"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Extend uniform subdifferential convergence rates (Theorem 5) to stochastic max-of-smooth weakly convex objectives",
+      "area": "other",
+      "subject_classification": "Stochastic Optimization",
+      "keywords": [
+        "weakly convex optimization",
+        "subdifferential convergence",
+        "max-of-smooth functions",
+        "uniform convergence",
+        "Hausdorff distance",
+        "sample average approximation"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4413635748_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4413848299_p0",
@@ -657,23 +1006,25 @@
         "Liangde Tao",
         "Jos\u00e9 Verschae"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Tight PTAS running times for P||\\sum_i C_i^q when m = \\Theta((1/\\varepsilon)^\\theta), \\theta\\in(1/2,1]",
-      "subject_classification": "Approximation Algorithms / Scheduling Theory",
+      "title": "Tight dependence on \\(\\varepsilon\\) for PTAS/FPTAS of \\(P\\|\\|\\sum_i C_i^q\\) when \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) with \\(\\theta\\in(1/2,1]\\)",
+      "area": "approximation algorithms",
+      "subject_classification": "Scheduling Theory; Approximation Algorithms (Fine-Grained Complexity)",
       "keywords": [
-        "PTAS running time",
         "identical machine scheduling",
-        "L_q-norm load balancing",
+        "PTAS running time",
         "fine-grained complexity",
-        "ETH lower bounds",
-        "machine count regime",
-        "FPTAS"
+        "exponential time hypothesis",
+        "load balancing",
+        "q-norm objective"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4413848299_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4414408152_p0",
@@ -686,22 +1037,86 @@
         "Alexander Grosz",
         "Themistoklis Melissourgos"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Smoothed complexity of computing exact pure Nash equilibria in unrestricted congestion games",
-      "subject_classification": "Algorithmic Game Theory / Smoothed Analysis",
+      "title": "Smoothed polynomial-time computation of exact pure Nash equilibria in general congestion games",
+      "area": "other",
+      "subject_classification": "Algorithmic Game Theory",
       "keywords": [
+        "smoothed analysis",
         "congestion games",
         "pure Nash equilibrium",
-        "smoothed analysis",
         "PLS",
-        "better-response dynamics",
-        "computational complexity"
+        "better-response dynamics"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414408152_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4414427428_p0",
+      "paper_id": "W4414427428",
+      "source_paper": "W4414427428",
+      "source_paper_title": "Deterministic and Stochastic Frank\u2013Wolfe Recursion on Probability Spaces",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0584",
+      "source_paper_authors": [
+        "Yu Di",
+        "Shane G. Henderson",
+        "Raghu Pasupathy"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Complexity comparison of gridding versus direct Frank--Wolfe optimization over probability measures",
+      "area": "other",
+      "subject_classification": "Stochastic Optimization; Optimization over Measures",
+      "keywords": [
+        "Frank--Wolfe",
+        "optimization over measures",
+        "gridding discretization",
+        "computational complexity",
+        "influence function",
+        "particle methods"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4414427428_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4414427837_p0",
+      "paper_id": "W4414427837",
+      "source_paper": "W4414427837",
+      "source_paper_title": "Popular Maximum-Utility Matchings with Matroid Constraints",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0633",
+      "source_paper_authors": [
+        "Gergely Cs\u00e1ji",
+        "Tam\u00e1s Kir\u00e1ly",
+        "Kenjiro Takazawa",
+        "Yu Yokoi"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Deterministic polynomial-time solvability of the Exact Matching problem in bipartite graphs",
+      "area": "other",
+      "subject_classification": "Computational Complexity in Combinatorial Optimization",
+      "keywords": [
+        "exact matching",
+        "bipartite perfect matching",
+        "deterministic polynomial-time algorithm",
+        "edge-colored graphs",
+        "complexity theory"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4414427837_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4414449781_p0",
@@ -714,22 +1129,25 @@
         "Fabien Gensbittel",
         "St\u00e9phane Villeneuve"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Existence of an equilibrium with reversed roles (Player 1 uses a strategy, Player 2 uses a control) in the asymmetric game",
-      "subject_classification": "Stochastic Differential Games / Singular Control",
+      "title": "Existence of a Nash equilibrium with the rich firm using a (possibly randomised) feedback strategy and the poor firm using a control in the asymmetric-endowment dividend game",
+      "area": "other",
+      "subject_classification": "Stochastic Control and Differential Games",
       "keywords": [
+        "singular control game",
         "Nash equilibrium",
-        "singular stochastic control",
-        "stochastic games",
-        "dividend problem",
         "feedback strategies",
+        "dividend distribution",
+        "stochastic differential game",
         "asymmetric initial endowment"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414449781_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4414541699_p0",
@@ -741,23 +1159,57 @@
         "Thorben Tr\u00f6bst",
         "Vijay V. Vazirani"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Polynomial-time computation of an \u0003b1-approximately justified-envy-free and Pareto-optimal lottery in two-sided cardinal-utility matching markets",
-      "subject_classification": "Algorithmic Game Theory / Matching Markets / Computational Social Choice",
+      "title": "Polynomial-time computation of an \\(\\alpha\\)-envy-free and Pareto-optimal lottery with \\(\\alpha<2\\) in one-sided cardinal-utility matching",
+      "area": "algorithmic mechanism design",
+      "subject_classification": "Computational Social Choice / Fair Division (Matching Markets)",
       "keywords": [
-        "two-sided matching markets",
-        "justified envy-freeness",
-        "approximation algorithms",
+        "one-sided matching markets",
+        "cardinal utilities",
+        "approximate envy-freeness",
         "Pareto optimality",
-        "polynomial-time mechanism",
-        "random assignment",
-        "fair division"
+        "polynomial-time algorithms",
+        "Nash bargaining"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414541699_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4414593867_p0",
+      "paper_id": "W4414593867",
+      "source_paper": "W4414593867",
+      "source_paper_title": "On the Completeness of Several Fortification-Interdiction Games in the Polynomial Hierarchy",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0559",
+      "source_paper_authors": [
+        "Alberto Boggio Tomasaz",
+        "Margarida Carvalho",
+        "Roberto Cordone",
+        "Pierre Hosteins"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Complexity of multi-level fortification\u2013interdiction knapsack when the lower-level knapsack is polynomial but higher-level costs are arbitrary",
+      "area": "other",
+      "subject_classification": "Computational Complexity (Polynomial Hierarchy)",
+      "keywords": [
+        "multilevel optimization",
+        "knapsack interdiction",
+        "fortification",
+        "unit weights or unit profits",
+        "non-unit costs",
+        "polynomial hierarchy"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4414593867_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4414783466_p0",
@@ -768,22 +1220,56 @@
       "source_paper_authors": [
         "R. Srikant"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Eliminate the logarithmic factor in the non-asymptotic martingale/Markov-chain CLT rate in Wasserstein distance",
-      "subject_classification": "Probability / Stochastic Processes (Non-asymptotic limit theorems)",
+      "title": "Eliminate the \\,\\(\\log n\\)\\, factor in the Wasserstein-rate martingale CLT bound",
+      "area": "other",
+      "subject_classification": "Probability Theory (Limit Theorems)",
       "keywords": [
         "martingale central limit theorem",
-        "Markov chains",
         "Stein's method",
         "Wasserstein distance",
-        "Berry\u2013Esseen bounds",
-        "Poisson equation"
+        "rate of convergence",
+        "log-factor removal"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4414783466_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
+    },
+    {
+      "problem_id": "W4414783647_p0",
+      "paper_id": "W4414783647",
+      "source_paper": "W4414783647",
+      "source_paper_title": "A Single-Loop Algorithm for Decentralized Bilevel Optimization",
+      "source_paper_url": "https://doi.org/10.1287/moor.2024.0488",
+      "source_paper_authors": [
+        "Youran Dong",
+        "Shiqian Ma",
+        "Junfeng Yang",
+        "Chao Yin"
+      ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
+      "problem_index": 0,
+      "title": "Design a provably convergent single-loop algorithm for stochastic decentralized bilevel optimization without heterogeneity assumptions",
+      "area": "other",
+      "subject_classification": "Stochastic Optimization / Distributed Optimization",
+      "keywords": [
+        "decentralized bilevel optimization",
+        "stochastic gradients",
+        "single-loop algorithms",
+        "gradient tracking",
+        "hypergradient estimation",
+        "communication efficiency"
+      ],
+      "is_open": true,
+      "has_literature_review": false,
+      "unverified": true,
+      "path": "problems/W4414783647_p0.json",
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4415178980_p0",
@@ -798,9 +1284,12 @@
         "Alexandros Tsigonias-Dimitriadis",
         "V\u00edctor Verdugo"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Population-monotone, quota-compliant, ex-ante proportional randomized apportionment without violating house size",
-      "subject_classification": "Social Choice / Combinatorial Optimization",
+      "title": "Existence of a quota-compliant, population-monotone, ex-ante proportional randomized apportionment method with fixed house size",
+      "area": "other",
+      "subject_classification": "Social Choice / Discrete Optimization (Apportionment Theory)",
       "keywords": [
         "apportionment",
         "randomized methods",
@@ -813,7 +1302,7 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4415178980_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4416295153_p0",
@@ -825,22 +1314,25 @@
         "Rui Chen",
         "Haoran Zhu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
       "title": "Fixed-parameter tractability of knapsack facet recognition parameterized by the number of distinct coefficients",
-      "subject_classification": "Parameterized Complexity / Combinatorial Optimization",
+      "area": "other",
+      "subject_classification": "Combinatorial Optimization / Parameterized Complexity",
       "keywords": [
         "knapsack polytope",
         "facet recognition",
         "fixed-parameter tractability",
         "parameterized complexity",
         "distinct coefficients",
-        "Dp-completeness"
+        "integer programming"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4416295153_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4416665164_p0",
@@ -852,22 +1344,25 @@
         "Chien-Chung Huang",
         "Fran\u00e7ois Sellier"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Efficiently update the density-based decomposition under single-element insertions/deletions",
-      "subject_classification": "Combinatorial Optimization (Matroids); Dynamic/Online Algorithms",
+      "title": "Efficient dynamic update of the density-based decomposition of a matroid under single-element insertions/deletions",
+      "area": "other",
+      "subject_classification": "Combinatorial Optimization (Matroid Theory and Data Structures)",
       "keywords": [
         "matroid intersection",
-        "density-based decomposition",
-        "principal sequence",
+        "matroid density",
+        "principal partition",
         "dynamic algorithms",
-        "incremental/decremental updates",
-        "submodular minimization"
+        "submodular minimization",
+        "data structures"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4416665164_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4417166251_p0",
@@ -880,22 +1375,25 @@
         "Tianyang Nie",
         "Zhen Wu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Solvability of the asymmetric indefinite Riccati equation for the mean-field consistency condition",
-      "subject_classification": "Stochastic Control / Mean-Field Games",
+      "title": "Solvability of the asymmetric indefinite Riccati equation for partially observed mean-field games",
+      "area": "other",
+      "subject_classification": "Stochastic Control and Differential Games",
       "keywords": [
-        "asymmetric Riccati equation",
+        "mean-field games",
+        "partial observation",
         "indefinite LQ control",
-        "partially observed mean-field game",
-        "common noise",
-        "consistency condition",
-        "feedback representation"
+        "Riccati equations",
+        "forward-backward SDE",
+        "asymmetric Riccati"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417166251_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4417331274_p0",
@@ -908,23 +1406,25 @@
         "Xiang Yu",
         "Jiacheng Zhang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "General characterization of the optimal equilibrium under nonlinear aggregation attitude",
-      "subject_classification": "Stochastic Control / Optimal Stopping (Time-Inconsistent Decisions)",
+      "title": "General characterization of the optimal equilibrium in time-inconsistent stopping with nonlinear aggregation over heterogeneous discount rates",
+      "area": "other",
+      "subject_classification": "Stochastic Control and Optimal Stopping",
       "keywords": [
-        "time-inconsistent optimal stopping",
-        "equilibrium stopping policies",
+        "time-inconsistent stopping",
         "optimal equilibrium",
-        "nonlinear aggregation preference",
-        "diverse discount rates",
-        "fixed-point characterization",
-        "one-dimensional diffusions"
+        "mild equilibrium",
+        "heterogeneous discount rates",
+        "smooth ambiguity aggregation",
+        "diffusion processes"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417331274_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W4417437095_p0",
@@ -938,22 +1438,25 @@
         "Erel Segal-Halevi",
         "Warut Suksompong"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Characterization of Nash product rule without continuity (and with only strategyproofness) under Leontief utilities",
-      "subject_classification": "Mechanism Design / Social Choice (Strategyproof Aggregation)",
+      "title": "Impossibility of efficiency, strategyproofness, and proportionality for \\(\\ell_p\\) disutilities with \\(m\\ge 3\\) and \\(n\\ge 3\\)",
+      "area": "algorithmic mechanism design",
+      "subject_classification": "Social Choice Theory / Mechanism Design",
       "keywords": [
         "budget aggregation",
-        "Leontief utilities",
-        "Nash product rule",
         "strategyproofness",
-        "core fair share",
-        "axiomatic characterization"
+        "Pareto efficiency",
+        "proportionality",
+        "\\(\\ell_p\\) norms",
+        "impossibility theorems"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4417437095_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7114802374_p0",
@@ -965,22 +1468,25 @@
         "Danny Segev",
         "Sahil Singla"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2025,
       "problem_index": 0,
-      "title": "Existence of FPTAS for stochastic probing and selection-stopping problems studied (e.g., Free-Order Prophets, ProbeMax, Pandora\u2019s Box with Commitment)",
+      "title": "Existence of an FPTAS for Free-Order Prophets, ProbeMax, and related stochastic optimization problems",
+      "area": "approximation algorithms",
       "subject_classification": "Stochastic Combinatorial Optimization",
       "keywords": [
         "FPTAS",
         "EPTAS",
+        "stochastic optimization",
+        "optimal stopping",
         "stochastic probing",
-        "prophet problems",
-        "ProbeMax",
-        "Pandora\u2019s box"
+        "approximation schemes"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7114802374_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7118180028_p0",
@@ -994,23 +1500,26 @@
         "Tran T. A. Nghia",
         "Defeng Sun"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Necessity of condition (45) for Lipschitz stability when fixing the data vector $b$",
-      "subject_classification": "Variational Analysis / Stability (Sensitivity) Analysis in Convex Optimization",
+      "title": "Compute the local Lipschitz modulus of the regularized least-squares solution mapping without using second-order information of the regularizer",
+      "area": "other",
+      "subject_classification": "Variational Analysis / Sensitivity Analysis in Convex Optimization",
       "keywords": [
-        "Lipschitz stability",
+        "Lipschitz modulus",
         "solution mapping",
         "regularized least squares",
-        "C^2-cone reducibility",
+        "sensitivity analysis",
         "Fenchel conjugate",
-        "partial nondegeneracy",
-        "sensitivity analysis"
+        "coderivative",
+        "nonsmooth convex regularization"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7118180028_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7119488906_p0",
@@ -1022,22 +1531,25 @@
         "Julio Daniel Backhoff-Veraguas",
         "Xin Zhang"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Scaling limit of dynamic risk-measure duality with Wasserstein-type one-step penalty",
-      "subject_classification": "Stochastic Control / Dynamic Risk Measures / Martingale Optimal Transport",
+      "title": "Scaling limit of dynamic risk-measure duality with one-step penalty \\(\\pm W_1(\\cdot,P)^p\\) on path space",
+      "area": "other",
+      "subject_classification": "Stochastic Control / Risk Measures",
       "keywords": [
-        "scaling limit",
-        "dynamic risk measures",
+        "continuous-time scaling limit",
+        "dynamic convex risk measures",
         "Wasserstein penalty",
-        "martingale measures",
-        "convex duality",
-        "time discretization"
+        "martingales",
+        "time discretization",
+        "\u0393-convergence"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7119488906_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7125931785_p0",
@@ -1050,22 +1562,25 @@
         "Sen Na",
         "Mihai Anitescu"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Dynamic regret analysis of distributionally robust SMPC under inexact disturbance distribution",
+      "title": "Dynamic-regret guarantees for SMPC under distributional uncertainty (unknown disturbance distribution)",
+      "area": "other",
       "subject_classification": "Stochastic Optimal Control / Distributionally Robust Optimization",
       "keywords": [
         "stochastic model predictive control",
         "dynamic regret",
         "distributional robustness",
-        "Wasserstein ambiguity",
+        "Wasserstein ambiguity set",
         "multistage stochastic programming",
-        "linear-quadratic control"
+        "stabilizability and detectability"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7125931785_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7126221168_p0",
@@ -1078,22 +1593,25 @@
         "Abraar Chaudhry",
         "Cemil Dibek"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Approximating symmetric convex bodies by intersections of a limited number of co-centered ellipsoids",
-      "subject_classification": "Convex Geometry / Convex Optimization",
+      "title": "Best approximation of a symmetric convex body by an intersection of co-centered ellipsoids",
+      "area": "approximation algorithms",
+      "subject_classification": "Convex Geometry / Approximation Theory",
       "keywords": [
-        "symmetric convex bodies",
-        "ellipsoidal approximation",
-        "intersection of ellipsoids",
-        "Banach-Mazur distance",
         "convex body approximation",
+        "intersection of ellipsoids",
+        "co-centered ellipsoids",
+        "Banach\u2013Mazur distance",
+        "polytopic approximation",
         "generalized ellipsoids"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7126221168_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7135205807_p0",
@@ -1106,23 +1624,25 @@
         "Yuting Wei",
         "Yuxin Chen"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Adaptivity of DDPM to Unknown Low Dimensionality Under Non-KL Metrics",
-      "subject_classification": "Stochastic Processes / Sampling and Monte Carlo (Diffusion Models)",
+      "title": "Iteration complexity of DDPM adaptive to intrinsic dimension under total variation or Wasserstein discrepancy",
+      "area": "other",
+      "subject_classification": "Stochastic Processes and Generative Modeling (Diffusion Models)",
       "keywords": [
         "diffusion models",
         "DDPM",
-        "low intrinsic dimension",
+        "intrinsic dimension",
         "total variation distance",
         "Wasserstein distance",
-        "convergence rates",
-        "sampling complexity"
+        "convergence rate"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7135205807_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     },
     {
       "problem_id": "W7140189588_p0",
@@ -1134,26 +1654,26 @@
         "Jan Harold Alcantara",
         "Akiko Takeda"
       ],
+      "source_paper_journal": "Mathematics of Operations Research",
+      "source_paper_publication_year": 2026,
       "problem_index": 0,
-      "title": "Smoothing and gradient consistency for bilevel problems with x-dependent lower-level feasible set",
-      "subject_classification": "Bilevel Optimization / Nonsmooth Optimization",
+      "title": "Gradient-consistent smoothing of the lower-level value function when the lower-level feasible set depends on the upper-level variable",
+      "area": "other",
+      "subject_classification": "Bilevel Optimization / Variational Analysis",
       "keywords": [
         "bilevel optimization",
         "value function",
+        "x-dependent constraints",
         "smoothing approximation",
         "gradient consistency",
-        "parametric constraints",
-        "quadratic regularization"
+        "quadratic regularization",
+        "penalization"
       ],
       "is_open": true,
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W7140189588_p0.json",
-      "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00"
+      "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00"
     }
-  ],
-  "unverified_disclaimer": {
-    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers."
-  },
-  "last_appended_export_mode": "unverified"
+  ]
 }

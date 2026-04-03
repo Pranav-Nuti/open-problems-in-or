@@ -8,25 +8,28 @@
     "Erhan Bayraktar",
     "Bingyan Han"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 7, Section 2.1.1 (Regularized bicausal OT), Remark 2.1\n\n\"Remark 2.1. This paper focuses on existence and uniqueness of solutions introduced in Definition 2.2. Convergence of numerical algorithms for the transport problem with time-inconsistent costs remains an problem. Notably, even in the static case with quadratic regularization, this problem has only been examined in a recent work by Gonz\\\u00b4alez-Sanz and Nutz (2024).\"",
-  "title": "Convergence of numerical algorithms for time-inconsistent (bi)causal transport",
-  "latex": "Consider a finite time horizon \\(T\\in\\mathbb{N}\\), Polish state spaces \\(\\mathcal{X}_t,\\mathcal{Y}_t\\) for \\(t=1,\\dots,T\\), and path spaces \\(\\mathcal{X}:=\\prod_{t=1}^T \\mathcal{X}_t\\), \\(\\mathcal{Y}:=\\prod_{t=1}^T \\mathcal{Y}_t\\). Let \\(\\mu\\in\\mathcal{P}(\\mathcal{X})\\) and \\(\\nu\\in\\mathcal{P}(\\mathcal{Y})\\) be given marginals, and let \\(\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) denote the set of bicausal couplings between \\(\\mu\\) and \\(\\nu\\).\n\nFix a (possibly time-inconsistent) cost functional \\(J_0:\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) (e.g., the non-separable \\(f\\)-divergence regularized objective in equation (2.1)\u2013(2.3), or a nonlinear/state-dependent objective as in (2.4)\u2013(2.6)). Let \\(\\pi^\\star\\in\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) be an equilibrium transport plan in the sense of Definition 2.2 (a subgame-perfect Nash equilibrium in successive one-step deviations).\n\nDesign and analyze numerical algorithms \\(\\{\\pi^{(n)}\\}_{n\\ge 1}\\subset\\Pi_{\\mathrm{bc}}(\\mu,\\nu)\\) that are intended to compute \\(\\pi^\\star\\) (or the associated equilibrium kernels), and establish verifiable conditions under which the iterates converge to an equilibrium transport, e.g.\n\\[\n\\pi^{(n)} \\to \\pi^\\star \\quad \\text{in an appropriate topology/metric on }\\Pi_{\\mathrm{bc}}(\\mu,\\nu),\n\\]\npossibly together with convergence of values \\(J_0(\\pi^{(n)})\\to J_0(\\pi^\\star)\\) and/or convergence of the induced equilibrium value functions.\n\nThe problem is to provide such convergence guarantees (rates if possible) for numerical methods for equilibrium transport under time-inconsistent costs (including non-separable \\(f\\)-divergence regularization), extending what is currently known even for static quadratically regularized optimal transport.",
-  "location_in_paper": "Page 7, Section 2.1.1 (Regularized bicausal OT), Remark 2.1",
-  "open_problem_quote": "\"Remark 2.1. This paper focuses on existence and uniqueness of solutions introduced in Definition 2.2. Convergence of numerical algorithms for the transport problem with time-inconsistent costs remains an problem. Notably, even in the static case with quadratic regularization, this problem has only been examined in a recent work by Gonz\\\u00b4alez-Sanz and Nutz (2024).\"",
-  "subject_classification": "Optimal Transport / Computational Optimization",
+  "context": "Section 8.1 (Formulation), page 28\n\nTo understand the state-dependent effect from the first term of (8.2), we examine the (local) dual problem of (8.2), even though strong duality for the full problem over t = 1, . . . , T \u22121 remains an open question.",
+  "title": "Strong duality for multi-period equilibrium transport with state-dependent costs",
+  "latex": "Given an integer horizon \\(T\\ge 2\\), let \\(N\\) and \\(M\\) be finite sets (firm types and worker types). For each \\(t\\in\\{1,\\dots,T\\}\\), let \\(n_t\\in N\\) and \\(m_t\\in M\\). Let \\(\\mu\\) be a probability measure on \\(N^T\\) and \\(\\nu\\) a probability measure on \\(M^T\\). Assume \\(\\mu\\) and \\(\\nu\\) are Markov and time-homogeneous: there exist transition kernels \\(\\mu(\\cdot\\mid n)\\in\\mathcal P(N)\\) and \\(\\nu(\\cdot\\mid m)\\in\\mathcal P(M)\\) such that for all \\(t\\in\\{1,\\dots,T-1\\}\\),\n\\[\n\\mu(n_{t+1}\\mid n_1,\\dots,n_t)=\\mu(n_{t+1}\\mid n_t),\\qquad \\nu(m_{t+1}\\mid m_1,\\dots,m_t)=\\nu(m_{t+1}\\mid m_t).\n\\]\nFix parameters \\(\\alpha\\in\\mathbb R\\), \\(\\tau>0\\), and \\(\\beta\\in(0,1]\\). Let \\(S:N\\to(0,\\infty)\\) and \\(Q:M\\to\\mathbb R\\) be given functions and define the one-period cost \\(c:N\\times M\\to\\mathbb R\\) by \\(c(n,m)=-C_1 S(n)^a Q(m)\\) for given constants \\(C_1>0\\) and \\(a>0\\). Define the state-dependent one-step term\n\\[\n\\ell((n,m),(n',m')):=-\\alpha\\exp\\Big(-\\frac{(n'-n)^2+(m'-m)^2}{\\tau}\\Big).\n\\]\nFor each \\(t\\in\\{0,1,\\dots,T-1\\}\\) and state \\((n_t,m_t)\\in N\\times M\\), define the equilibrium value function \\(V_t:N\\times M\\to\\mathbb R\\) by backward recursion with terminal condition \\(V_T\\equiv 0\\) and, for \\(t=T-1,\\dots,0\\),\n\\[\nV_t(n_t,m_t)=\\inf_{\\gamma\\in\\Pi(\\mu(\\cdot\\mid n_t),\\nu(\\cdot\\mid m_t))}\\n\\sum_{(n_{t+1},m_{t+1})\\in N\\times M}\\Big(\\ell((n_t,m_t),(n_{t+1},m_{t+1})) + \\beta c(n_{t+1},m_{t+1}) + \\beta V_{t+1}(n_{t+1},m_{t+1})\\Big)\\,\\gamma(n_{t+1},m_{t+1}),\n\\]\nwhere \\(\\Pi(\\mu(\\cdot\\mid n_t),\\nu(\\cdot\\mid m_t))\\) denotes the set of all couplings of the marginals \\(\\mu(\\cdot\\mid n_t)\\) and \\(\\nu(\\cdot\\mid m_t)\\).\n\nThe one-step minimization problems above admit a standard Kantorovich dual formulation for each fixed \\(t\\) and \\((n_t,m_t)\\). The problem is to formulate an appropriate global (multi-step) dual problem for the full equilibrium transport over \\(t=0,1,\\dots,T-1\\) (allowing the dual variables to depend on time and state, e.g. via wage/potential functions), and to prove strong duality, i.e. that the equilibrium value \\(V_0(n_0,m_0)\\) equals the value of this global dual problem and that dual maximizers exist under natural assumptions.",
+  "location_in_paper": "Section 8.1 (Formulation), page 28",
+  "open_problem_quote": "To understand the state-dependent effect from the first term of (8.2), we examine the (local) dual problem of (8.2), even though strong duality for the full problem over t = 1, . . . , T \u22121 remains an open question.",
+  "area": "other",
+  "subject_classification": "Optimal Transport; Dynamic Optimization",
   "keywords": [
     "equilibrium transport",
     "time inconsistency",
+    "Kantorovich duality",
+    "strong duality",
     "bicausal optimal transport",
-    "algorithm convergence",
-    "regularized optimal transport",
-    "f-divergence"
+    "state-dependent costs"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.134463,
+    "extractor_total_cost_usd": 0.14785225,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.134463
+    "total_cost_usd": 0.14785225
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4411449955/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411449955/problems.json",
     "verification_source": null,
     "literature_source": null
   }

@@ -9,24 +9,28 @@
     "Defeng Sun",
     "Wangyongquan Zhang"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 20, Section 6 (Conclusions)\n\n\"Accordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.\"",
-  "title": "Implementable semismooth* Newton methods beyond locally Lipschitz reformulations",
-  "latex": "Let \\(X,Y\\) be finite-dimensional real Hilbert spaces. Let \\(\\Phi: X \\rightrightarrows Y\\) be a set-valued mapping with closed graph, and consider the generalized equation (GE)\n\\[0 \\in \\Phi(x).\\]\nA semismooth* Newton method (in the sense of semismoothness* of \\(\\Phi\\) at a solution \\((\\bar x,0)\\in \\mathrm{gph}\\,\\Phi\\)) typically requires, at each iterate \\(x\\), an \u201capproximation step\u201d that produces a tractable linear(ized) subproblem whose solution defines a Newton direction and yields local superlinear convergence under appropriate regularity.\n\nProblem: characterize and construct classes of generalized equations \\(0\\in\\Phi(x)\\) for which there exists an implementable semismooth* Newton method (i.e., with computationally tractable per-iteration subproblems such as linear systems) even when the GE cannot be reformulated locally as a single-valued locally Lipschitz continuous equation \\(H(x)=0\\).\n\nEquivalently, determine conditions on \\(\\Phi\\) and an associated implementable approximation mechanism (e.g., producing \\(V\\in \\mathcal L(X,Y)\\) and residual \\(r\\in Y\\) so that solving \\(V\\Delta x=-r\\) defines a Newton step) that guarantee local (superlinear) convergence to \\(\\bar x\\) without relying on any local Lipschitz single-valued localization of \\(\\Phi\\).",
+  "context": "Page 20, Section 6 (Conclusions)\n\nAccordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.",
+  "title": "Implementable semismooth\\(*\\) Newton method for generalized equations not reducible to locally Lipschitz equations",
+  "latex": "Given integers \\(n,m\\ge 1\\), let \\(\\Phi: \\mathbb{R}^n \\rightrightarrows \\mathbb{R}^m\\) be a set-valued mapping with closed graph \\(\\mathrm{gph}\\,\\Phi:=\\{(x,y)\\in\\mathbb{R}^n\\times\\mathbb{R}^m\\mid y\\in\\Phi(x)\\}\\). Consider the generalized equation\n\\[\n0\\in \\Phi(x).\n\\]\nAssume \\(\\bar x\\in\\mathbb{R}^n\\) is a solution, i.e., \\(0\\in\\Phi(\\bar x)\\). Assume further that there does not exist any neighborhood \\(U\\) of \\(\\bar x\\) and any single-valued mapping \\(H:U\\to\\mathbb{R}^m\\) that is locally Lipschitz continuous on \\(U\\) and satisfies\n\\[\n\\{x\\in U\\mid 0\\in\\Phi(x)\\}=\\{x\\in U\\mid H(x)=0\\}.\n\\]\nProblem: develop an implementable semismooth\\(*\\) Newton-type algorithm for solving \\(0\\in\\Phi(x)\\) locally around \\(\\bar x\\) (in particular, with tractable per-iteration subproblems such as linear systems) together with verifiable assumptions ensuring its local (superlinear) convergence, despite the absence of a reformulation to a locally Lipschitz continuous equation.",
   "location_in_paper": "Page 20, Section 6 (Conclusions)",
-  "open_problem_quote": "\"Accordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.\"",
+  "open_problem_quote": "Accordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.",
+  "area": "other",
   "subject_classification": "Variational Analysis / Nonsmooth Optimization",
   "keywords": [
     "generalized equations",
     "semismooth* Newton method",
     "implementability",
-    "locally Lipschitz localization",
-    "nonsmooth Newton methods"
+    "local superlinear convergence",
+    "locally Lipschitz reformulation",
+    "nonsmooth analysis"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.07551425,
+    "extractor_total_cost_usd": 0.08072750000000001,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07551425
+    "total_cost_usd": 0.08072750000000001
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4412557041/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412557041/problems.json",
     "verification_source": null,
     "literature_source": null
   }

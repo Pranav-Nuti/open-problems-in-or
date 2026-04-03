@@ -7,25 +7,27 @@
   "source_paper_authors": [
     "R. Srikant"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Section 5 (Conclusions), bullet beginning \u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) \u2026\u201d (page 19 of 24).\n\n\u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) (Fang et al. 2019). It would be interesting to see if the O(log n/\\sqrt n) rate of convergence in Theorem 1 can be improved to O(1/\\sqrt n) under possibly additional conditions than the ones used in this paper.\u201d",
-  "title": "Eliminate the logarithmic factor in the non-asymptotic martingale/Markov-chain CLT rate in Wasserstein distance",
-  "latex": "Given a filtered probability space \\((\\Omega,\\mathcal F,\\{\\mathcal F_k\\}_{k\\ge 0},\\mathbb P)\\) and a \\(d\\)-dimensional martingale difference sequence \\(\\{m_k\\}_{k\\ge 1}\\) with \\(\\mathbb E[m_k\\mid \\mathcal F_{k-1}]=0\\), define \\(S_n:=\\sum_{k=1}^n m_k\\) and \\(W_n:=S_n/\\sqrt n\\). Assume there exists a positive definite matrix \\(\\Sigma_\\infty\\succ 0\\) such that \\(\\Sigma_k:=\\mathbb E[m_k m_k^\\top\\mid \\mathcal F_{k-1}]\\) satisfies \\(\\mathbb E\\,\\Sigma_k\\to \\Sigma_\\infty\\) and suitable moment and mixing/ergodicity conditions ensuring a martingale central limit theorem and, via Poisson\u2019s equation, a Markov-chain CLT for \\(U_n:=\\frac{1}{\\sqrt n}\\sum_{k=1}^n(r(X_{k-1})-\\bar r)\\) with asymptotic covariance \\(\\Sigma_\\infty\\).\n\nLet \\(d_W\\) denote the \\(1\\)-Wasserstein distance on \\(\\mathbb R^d\\):\n\\[\n d_W(X,Y):=\\sup_{h\\in\\mathrm{Lip}_1}\\,\\mathbb E\\,[h(X)-h(Y)],\n\\]\nwhere \\(\\mathrm{Lip}_1\\) is the set of 1-Lipschitz functions.\n\nProblem: Find verifiable conditions (e.g., strengthened conditional moment, conditional variance stabilization, or Markov-chain regularity assumptions) under which the non-asymptotic Wasserstein CLT rate can be improved from \\(O(\\log n/\\sqrt n)\\) to the optimal Berry\u2013Esseen-type rate \\(O(1/\\sqrt n)\\), i.e., establish\n\\[\n d_W\\bigl(W_n,\\Sigma_\\infty^{1/2}Z\\bigr)\\le \\frac{C}{\\sqrt n}\n\\quad\\text{and/or}\\quad\n d_W\\bigl(U_n,\\Sigma_\\infty^{1/2}Z\\bigr)\\le \\frac{C}{\\sqrt n},\n\\]\nfor all \\(n\\ge 1\\) with a constant \\(C\\) independent of \\(n\\), where \\(Z\\sim\\mathcal N(0,I_d)\\).",
-  "location_in_paper": "Section 5 (Conclusions), bullet beginning \u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) \u2026\u201d (page 19 of 24).",
-  "open_problem_quote": "\u201cUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt n) (Fang et al. 2019). It would be interesting to see if the O(log n/\\sqrt n) rate of convergence in Theorem 1 can be improved to O(1/\\sqrt n) under possibly additional conditions than the ones used in this paper.\u201d",
-  "subject_classification": "Probability / Stochastic Processes (Non-asymptotic limit theorems)",
+  "context": "Section 5 (Conclusions), page 19\n\nUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is \\(O(1/\\sqrt n)\\) (Fang et al. 2019). It would be interesting to see if the \\(O(\\log n/\\sqrt n)\\) rate of convergence in Theorem 1 can be improved to \\(O(1/\\sqrt n)\\) under possibly additional conditions than the ones used in this paper.",
+  "title": "Eliminate the \\,\\(\\log n\\)\\, factor in the Wasserstein-rate martingale CLT bound",
+  "latex": "Given an integer dimension \\(d\\ge 1\\), let \\(\\{\\mathcal F_k\\}_{k\\ge 0}\\) be a filtration and let \\(\\{m_k\\}_{k\\ge 1}\\subset \\mathbb R^d\\) be a martingale difference sequence, i.e., \\(m_k\\) is \\(\\mathcal F_k\\)-measurable and \\(\\mathbb E[m_k\\mid \\mathcal F_{k-1}]=0\\) for all \\(k\\ge 1\\). Define the normalized partial sum\n\\[\nW_n := \\frac{1}{\\sqrt n}\\sum_{k=1}^n m_k,\\qquad n\\ge 1.\n\\]\nAssume there exists a symmetric positive definite matrix \\(\\Sigma_\\infty\\in\\mathbb R^{d\\times d}\\) such that \\(\\mathbb E[m_k m_k^\\top\\mid \\mathcal F_{k-1}]\\) has a well-defined limit in a suitable sense with asymptotic covariance \\(\\Sigma_\\infty\\), and assume sufficient moment and regularity conditions so that a quantitative multivariate martingale central limit theorem in \\(1\\)-Wasserstein distance holds.\n\nProblem: Find verifiable additional conditions (beyond those used to prove the \\(O(\\log n/\\sqrt n)\\) bound) under which one can prove the optimal rate\n\\[\nd_W\\bigl(W_n,\\, \\Sigma_\\infty^{1/2} Z\\bigr) \\le \\frac{C}{\\sqrt n}\\quad\\text{for all }n\\ge 1,\n\\]\nwhere \\(Z\\sim \\mathcal N(0,I_d)\\), \\(d_W\\) denotes the \\(1\\)-Wasserstein distance on \\(\\mathbb R^d\\), and \\(C<\\infty\\) is a constant independent of \\(n\\) (but may depend on \\(d\\) and the distributional parameters of \\(\\{m_k\\}\\)).",
+  "location_in_paper": "Section 5 (Conclusions), page 19",
+  "open_problem_quote": "Under some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is \\(O(1/\\sqrt n)\\) (Fang et al. 2019). It would be interesting to see if the \\(O(\\log n/\\sqrt n)\\) rate of convergence in Theorem 1 can be improved to \\(O(1/\\sqrt n)\\) under possibly additional conditions than the ones used in this paper.",
+  "area": "other",
+  "subject_classification": "Probability Theory (Limit Theorems)",
   "keywords": [
     "martingale central limit theorem",
-    "Markov chains",
     "Stein's method",
     "Wasserstein distance",
-    "Berry\u2013Esseen bounds",
-    "Poisson equation"
+    "rate of convergence",
+    "log-factor removal"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -37,13 +39,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.04924325,
+    "extractor_total_cost_usd": 0.0490665,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.04924325
+    "total_cost_usd": 0.0490665
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4414783466/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414783466/problems.json",
     "verification_source": null,
     "literature_source": null
   }

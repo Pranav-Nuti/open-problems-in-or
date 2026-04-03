@@ -9,25 +9,28 @@
     "Hyeonseok Park",
     "Gaoqian Xu"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 35, Section 8 (Concluding Remarks)\n\n\"Many open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.\"",
-  "title": "Structure of optimizers for Wasserstein distributional model risk in marginal problems",
-  "latex": "Let \\((S_1,d_{S_1})\\) and \\((S_2,d_{S_2})\\) be Polish metric spaces and let \\(V=S_1\\times S_2\\). Fix reference marginals \\(\\mu_1\\in \\mathcal P(S_1)\\) and \\(\\mu_2\\in \\mathcal P(S_2)\\). Let \\(c_1:S_1\\times S_1\\to \\mathbb R_+\\cup\\{\\infty\\}\\) and \\(c_2:S_2\\times S_2\\to \\mathbb R_+\\cup\\{\\infty\\}\\) be measurable cost functions such that \\(c_\\ell(x,y)=0\\) iff \\(x=y\\). For \\(\\nu,\\nu'\\in\\mathcal P(S_\\ell)\\), define the optimal transport cost \\(K_\\ell(\\nu,\\nu'):=\\inf_{\\pi\\in\\Pi(\\nu,\\nu')}\\int c_\\ell\\,d\\pi\\). For a radius \\(\\delta=(\\delta_1,\\delta_2)\\in\\mathbb R_+^2\\), define the uncertainty set\n\\[\\Sigma_D(\\delta):=\\{\\gamma\\in\\mathcal P(V): K_1(\\mu_1,\\gamma_1)\\le \\delta_1,\\; K_2(\\mu_2,\\gamma_2)\\le \\delta_2\\},\\]\nwhere \\(\\gamma_\\ell\\) denotes the \\(S_\\ell\\)-marginal of \\(\\gamma\\). Let \\(g:V\\to\\mathbb R\\) be measurable such that \\(\\int g\\,d\\gamma\\) is well-defined for \\(\\gamma\\in\\Sigma_D(\\delta)\\), and define the Wasserstein distributional model risk in the marginal problem\n\\[I_D(\\delta):=\\sup_{\\gamma\\in\\Sigma_D(\\delta)}\\int_V g\\,d\\gamma.\\]\nSimilarly, in the overlapping-marginals setting let \\(Y_1,Y_2,X\\) be Polish spaces, \\(S=Y_1\\times Y_2\\times X\\), \\(S_1=Y_1\\times X\\), \\(S_2=Y_2\\times X\\), reference measures \\(\\mu_{13}\\in\\mathcal P(S_1)\\), \\(\\mu_{23}\\in\\mathcal P(S_2)\\) with consistent \\(X\\)-marginals, and for \\(\\gamma\\in\\mathcal P(S)\\) let \\(\\gamma_{13},\\gamma_{23}\\) be the corresponding projections. Define\n\\[\\Sigma(\\delta):=\\{\\gamma\\in\\mathcal P(S): K_1(\\mu_{13},\\gamma_{13})\\le\\delta_1,\\; K_2(\\mu_{23},\\gamma_{23})\\le\\delta_2\\},\\qquad I(\\delta):=\\sup_{\\gamma\\in\\Sigma(\\delta)}\\int_S f\\,d\\gamma.\\]\nFormal Problem: characterize the structure of the optimizer(s) \\(\\gamma^*\\) attaining \\(I_D(\\delta)\\) (respectively \\(I(\\delta)\\)) for given data \\((\\mu_1,\\mu_2,c_1,c_2,g,\\delta)\\) (respectively \\((\\mu_{13},\\mu_{23},c_1,c_2,f,\\delta)\\)). In particular, determine conditions under which:\n- an optimizer exists and is unique;\n- the optimizer admits a Monge-type representation (i.e., is induced by measurable transport maps) or a sparse/extremal form;\n- the optimizer's support and dependence structure between marginals can be explicitly described (e.g., via comonotone/countermonotone-type couplings or conditional optimal transport plans);\n- the optimizer satisfies identifiable optimality conditions (e.g., complementary slackness/KKT-type conditions) that yield an explicit parametrization.\n",
-  "location_in_paper": "Page 35, Section 8 (Concluding Remarks)",
-  "open_problem_quote": "\"Many open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.\"",
-  "subject_classification": "Distributionally Robust Optimization / Optimal Transport",
+  "context": "Section 8 (Concluding Remarks), page 35\n\nMany open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.",
+  "title": "Characterize the structure of optimizer(s) for Wasserstein distributional model risk in marginal problems",
+  "latex": "Given Polish metric spaces \\((S_1,d_{S_1})\\) and \\((S_2,d_{S_2})\\), let \\(V:=S_1\\times S_2\\). Fix reference marginal probability measures \\(\\mu_1\\in\\mathcal P(S_1)\\) and \\(\\mu_2\\in\\mathcal P(S_2)\\). Fix measurable cost functions \\(c_1:S_1\\times S_1\\to\\mathbb R_+\\cup\\{\\infty\\}\\) and \\(c_2:S_2\\times S_2\\to\\mathbb R_+\\cup\\{\\infty\\}\\) such that \\(c_\\ell(s,s')=0\\) iff \\(s=s'\\) for \\(\\ell\\in\\{1,2\\}\\). For \\(\\delta=(\\delta_1,\\delta_2)\\in\\mathbb R_+^2\\), define the uncertainty set\n\\[\n\\Sigma_D(\\delta):=\\Big\\{\\gamma\\in\\mathcal P(V): K_{c_1}(\\mu_1,\\gamma_1)\\le \\delta_1,\\; K_{c_2}(\\mu_2,\\gamma_2)\\le \\delta_2\\Big\\},\n\\]\nwhere \\(\\gamma_\\ell\\) is the \\(S_\\ell\\)-marginal of \\(\\gamma\\) and \\(K_{c_\\ell}(\\alpha,\\beta):=\\inf_{\\pi\\in\\Pi(\\alpha,\\beta)}\\int c_\\ell\\,d\\pi\\) is the optimal transport cost with cost \\(c_\\ell\\). Let \\(g:V\\to\\mathbb R\\) be a given measurable objective such that the supremum below is finite and attained.\n\nThe Wasserstein distributional model risk in the non-overlapping marginal problem is\n\\[\nI_D(\\delta):=\\sup_{\\gamma\\in\\Sigma_D(\\delta)} \\int_V g\\,d\\gamma.\n\\]\n\nProblem: provide a characterization of the set of optimizers\n\\[\n\\operatorname*{Argmax}_{\\gamma\\in\\Sigma_D(\\delta)} \\int_V g\\,d\\gamma,\n\\]\nfor general \\((S_1,S_2,\\mu_1,\\mu_2,c_1,c_2,g,\\delta)\\); in particular, determine verifiable conditions under which an optimizer exists that has a specific structural form (for example, Monge-type/graph-induced couplings, extremal/finite-support couplings in the discrete case, or optimizers induced by deterministic transport maps), and describe how this structure depends on \\(g\\), \\(c_1,c_2\\), and \\(\\delta\\).\n\nAnalogously, for overlapping marginals: let \\(Y_1,Y_2,X\\) be Polish spaces, \\(S:=Y_1\\times Y_2\\times X\\), \\(S_1:=Y_1\\times X\\), \\(S_2:=Y_2\\times X\\), and reference measures \\(\\mu_{13}\\in\\mathcal P(S_1)\\), \\(\\mu_{23}\\in\\mathcal P(S_2)\\). For \\(\\delta\\in\\mathbb R_+^2\\), define\n\\[\n\\Sigma(\\delta):=\\Big\\{\\gamma\\in\\mathcal P(S): K_{c_1}(\\mu_{13},\\gamma_{13})\\le \\delta_1,\\; K_{c_2}(\\mu_{23},\\gamma_{23})\\le \\delta_2\\Big\\},\n\\]\nwhere \\(\\gamma_{13}\\) and \\(\\gamma_{23}\\) are the \\((Y_1,X)\\)- and \\((Y_2,X)\\)-marginals of \\(\\gamma\\). For a measurable \\(f:S\\to\\mathbb R\\) such that the supremum below is finite and attained, define\n\\[\nI(\\delta):=\\sup_{\\gamma\\in\\Sigma(\\delta)} \\int_S f\\,d\\gamma.\n\\]\nCharacterize the optimizer set \\(\\operatorname*{Argmax}_{\\gamma\\in\\Sigma(\\delta)}\\int_S f\\,d\\gamma\\) and its structural properties.",
+  "location_in_paper": "Section 8 (Concluding Remarks), page 35",
+  "open_problem_quote": "Many open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.",
+  "area": "other",
+  "subject_classification": "Optimization under Uncertainty / Optimal Transport",
   "keywords": [
-    "distributional model risk",
-    "Wasserstein balls",
+    "distributionally robust optimization",
+    "Wasserstein ambiguity set",
     "marginal problems",
     "optimal transport",
-    "optimizer structure",
-    "strong duality"
+    "extremal couplings",
+    "optimizer structure"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.13316975,
+    "extractor_total_cost_usd": 0.136339,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.13316975
+    "total_cost_usd": 0.136339
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4413019826/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413019826/problems.json",
     "verification_source": null,
     "literature_source": null
   }

@@ -9,25 +9,28 @@
     "Tianyang Nie",
     "Zhen Wu"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 14, Section 4.3, Remark 4.13(ii)\n\n\"Noticing that Riccati equation (35) is an asymmetric indefinite equation with complex structure, its solvability is still an problem.\"",
-  "title": "Solvability of the asymmetric indefinite Riccati equation for the mean-field consistency condition",
-  "latex": "Given a finite horizon \\([0,T]\\) and dimensions \\(n,m\\in\\mathbb{N}\\), let \\(A(\\cdot),\\bar A(\\cdot),D(\\cdot),\\bar D(\\cdot)\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times n})\\), \\(B(\\cdot),\\bar B(\\cdot),F(\\cdot),\\bar F(\\cdot)\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times m})\\), and \\(Q(\\cdot)\\in L^{\\infty}([0,T];\\mathbb{S}^n)\\), \\(R(\\cdot)\\in L^{\\infty}([0,T];\\mathbb{S}^m)\\), \\(S(\\cdot)\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times m})\\) be deterministic matrix-valued coefficients (not assumed positive semidefinite), and let \\(\\alpha_1,\\alpha_2,\\alpha_3,\\beta_1,\\beta_2\\in\\mathbb{R}\\) be constants. For a matrix-valued function \\(\\Sigma:[0,T]\\to\\mathbb{R}^{n\\times n}\\), define\n\\[\nR_e(t)= (1-\\beta_1)R(t) + F(t)^\\top \\Sigma(t)\\bigl(F(t)+\\bar F(t)\\bigr),\n\\]\n\\[\n\\Sigma_e(t)= \\Sigma(t)\\bigl(B(t)+\\bar B(t)\\bigr) + D(t)^\\top\\Sigma(t)\\bigl(F(t)+\\bar F(t)\\bigr) + (1-\\beta_2)S(t),\n\\]\n\\[\n\\bar\\Sigma(t)= \\Sigma(t)\\bar B(t) + (D(t)+\\bar D(t))^\\top\\Sigma(t)F(t) + (1-\\alpha_2)S(t).\n\\]\nConsider the (generally non-symmetric and indefinite) matrix Riccati differential equation\n\\[\n\\dot\\Sigma(t) + \\Sigma(t)\\bigl(A(t)+\\bar A(t)\\bigr) + A(t)^\\top\\Sigma(t) + D(t)^\\top\\Sigma(t)\\bigl(D(t)+\\bar D(t)\\bigr)\n- \\Sigma_e(t)\\,R_e(t)^{-1}\\,\\bar\\Sigma(t)^\\top + (1-\\alpha_1)Q(t) = 0,\n\\]\nwith terminal condition\n\\[\n\\Sigma(T) = (1-\\alpha_3)L_T,\n\\]\nwhere \\(L_T\\in\\mathbb{S}^n\\) is given.\n\nThe problem is to give verifiable conditions on the coefficients under which there exists a (necessarily unique, if it exists) solution \\(\\Sigma\\in C([0,T];\\mathbb{R}^{n\\times n})\\) such that \\(R_e(t)\\) is invertible for all \\(t\\in[0,T]\\) (e.g., \\(R_e(t)+R_e(t)^\\top\\gg 0\\) or another suitable coercivity condition), i.e., to characterize well-posedness/solvability of this asymmetric indefinite Riccati equation (and thereby the mean-field consistency condition feedback law) in the general setting.",
-  "location_in_paper": "Page 14, Section 4.3, Remark 4.13(ii)",
-  "open_problem_quote": "\"Noticing that Riccati equation (35) is an asymmetric indefinite equation with complex structure, its solvability is still an problem.\"",
-  "subject_classification": "Stochastic Control / Mean-Field Games",
+  "context": "Section 4.3, Remark 4.13(ii), page 14\n\nNoticing that Riccati equation (35) is an asymmetric indefinite equation with complex structure, its solvability is still an problem.",
+  "title": "Solvability of the asymmetric indefinite Riccati equation for partially observed mean-field games",
+  "latex": "Given a time horizon \\(T>0\\). Let \\(n,m\\in\\mathbb{N}\\). Let \\(A,\\bar A,D,\\bar D\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times n})\\), \\(B\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times m})\\), \\(F,\\bar F\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times m})\\), \\(Q\\in L^{\\infty}([0,T];\\mathbb{S}^n)\\), \\(R\\in L^{\\infty}([0,T];\\mathbb{S}^m)\\), \\(S\\in L^{\\infty}([0,T];\\mathbb{R}^{n\\times m})\\), and let \\(L_T\\in\\mathbb{S}^n\\) and constants \\(\\alpha_1,\\alpha_2,\\alpha_3,\\beta_1,\\beta_2\\in\\mathbb{R}\\) be given. For an unknown matrix-valued function \\(\\Sigma:[0,T]\\to\\mathbb{R}^{n\\times n}\\), define for each \\(t\\in[0,T]\\)\n\\[\nR^e_t = (1-\\beta_1)R_t + F_t^{\\top}\\Sigma_t(F_t+\\bar F_t),\n\\]\n\\[\n\\Sigma^e_t = \\Sigma_t(B_t+\\bar B_t) + D_t^{\\top}\\Sigma_t(F_t+\\bar F_t) + (1-\\beta_2)S_t,\n\\]\n\\[\n\\bar\\Sigma_t = \\Sigma_t\\bar B_t + (D_t+\\bar D_t)^{\\top}\\Sigma_t F_t + (1-\\alpha_2)S_t.\n\\]\nConsider the terminal-value matrix Riccati differential equation\n\\[\n\\dot\\Sigma_t + \\Sigma_t(A_t+\\bar A_t) + A_t^{\\top}\\Sigma_t + D_t^{\\top}\\Sigma_t(D_t+\\bar D_t)\n- \\Sigma^e_t (R^e_t)^{-1} \\bar\\Sigma_t^{\\top} + (1-\\alpha_1)Q_t = 0,\\qquad t\\in[0,T],\n\\]\nwith terminal condition\n\\[\n\\Sigma_T = (1-\\alpha_3)L_T.\n\\]\nThe problem is to give verifiable necessary and/or sufficient conditions on the coefficient data \\((A,\\bar A,D,\\bar D,B,F,\\bar F,Q,R,S,L_T,\\alpha_1,\\alpha_2,\\alpha_3,\\beta_1,\\beta_2)\\) under which there exists a (preferably unique) solution \\(\\Sigma\\in C([0,T];\\mathbb{R}^{n\\times n})\\) such that \\(R^e_t\\) is invertible for all \\(t\\in[0,T]\\) (e.g., \\(R^e_t+(R^e_t)^{\\top}\\gg 0\\) for all \\(t\\)), and to characterize the solution when it exists.",
+  "location_in_paper": "Section 4.3, Remark 4.13(ii), page 14",
+  "open_problem_quote": "Noticing that Riccati equation (35) is an asymmetric indefinite equation with complex structure, its solvability is still an problem.",
+  "area": "other",
+  "subject_classification": "Stochastic Control and Differential Games",
   "keywords": [
-    "asymmetric Riccati equation",
+    "mean-field games",
+    "partial observation",
     "indefinite LQ control",
-    "partially observed mean-field game",
-    "common noise",
-    "consistency condition",
-    "feedback representation"
+    "Riccati equations",
+    "forward-backward SDE",
+    "asymmetric Riccati"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +42,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.07875,
+    "extractor_total_cost_usd": 0.07956724999999999,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07875
+    "total_cost_usd": 0.07956724999999999
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4417166251/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417166251/problems.json",
     "verification_source": null,
     "literature_source": null
   }

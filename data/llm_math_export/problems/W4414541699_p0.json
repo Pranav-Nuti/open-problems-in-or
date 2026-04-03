@@ -8,26 +8,28 @@
     "Thorben Tr\u00f6bst",
     "Vijay V. Vazirani"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 23, Section 4 (Conclusion)\n\nHowever, this leaves several interesting open questions:\n\u0001e Is there a polynomial time algorithm to find \u0003b1-approximately JEF+PO lotteries in two-sided markets,\nfor any constant \u0003b1?",
-  "title": "Polynomial-time computation of an \u0003b1-approximately justified-envy-free and Pareto-optimal lottery in two-sided cardinal-utility matching markets",
-  "latex": "Given a bipartite two-sided cardinal-utility matching market with \n- two sets of agents \\(A\\) and \\(B\\) with \\(|A|=|B|=n\\),\n- utilities \\(u_{ij}\\ge 0\\) for each \\(i\\in A, j\\in B\\) and \\(w_{ji}\\ge 0\\) for each \\(j\\in B, i\\in A\\),\n- and a fractional matching \\(x=(x_{ij})_{i\\in A,j\\in B}\\) satisfying \\(\\sum_{j\\in B} x_{ij}=1\\) for all \\(i\\in A\\), \\(\\sum_{i\\in A} x_{ij}=1\\) for all \\(j\\in B\\), and \\(x_{ij}\\ge 0\\),\n\ndefine expected utilities\n\\[U_i(x)=\\sum_{j\\in B} u_{ij}x_{ij}\\quad \\text{for } i\\in A,\\qquad V_j(x)=\\sum_{i\\in A} w_{ji}x_{ij}\\quad \\text{for } j\\in B.\\]\n\nDefine \\(x\\) to be \\(\\alpha\\)-approximately justified envy-free (\\(\\alpha\\)-JEF) if for all distinct \\(i,i'\\in A\\),\n\\[U_i(x) \\ge \\frac{1}{\\alpha}\\sum_{j\\in B:~w_{ji}\\ge w_{ji'}} u_{ij}x_{i'j},\\]\nand for all distinct \\(j,j'\\in B\\),\n\\[V_j(x) \\ge \\frac{1}{\\alpha}\\sum_{i\\in A:~u_{ij}\\ge u_{ij'}} w_{ji}x_{ij'}.\\]\n\nDefine \\(x\\) to be Pareto-optimal (PO) if there is no other fractional perfect matching \\(y\\) such that\n- \\(U_i(y)\\ge U_i(x)\\) for all \\(i\\in A\\) and \\(V_j(y)\\ge V_j(x)\\) for all \\(j\\in B\\), and\n- at least one of these inequalities is strict.\n\nProblem: Determine whether there exists a constant \\(\\alpha\\ge 1\\) and a polynomial-time algorithm that, given \\((A,B,u,w)\\), computes a fractional perfect matching \\(x\\) that is simultaneously \\(\\alpha\\)-JEF and PO. Equivalently, for each fixed constant \\(\\alpha\\), decide whether there is a polynomial-time algorithm that always outputs an \\(\\alpha\\)-approximately JEF and Pareto-optimal lottery (via Birkhoff\u001evon Neumann decomposition) for two-sided markets.",
-  "location_in_paper": "Page 23, Section 4 (Conclusion)",
-  "open_problem_quote": "However, this leaves several interesting open questions:\n\u0001e Is there a polynomial time algorithm to find \u0003b1-approximately JEF+PO lotteries in two-sided markets,\nfor any constant \u0003b1?",
-  "subject_classification": "Algorithmic Game Theory / Matching Markets / Computational Social Choice",
+  "context": "Section 4 (Conclusion), page 23\n\nIs Nash bargaining the best we can do for one-sided markets or is there a way to compute an \\(\\alpha\\)-envy-free and Pareto-optimal lottery for \\(\\alpha < 2\\) in polynomial time?",
+  "title": "Polynomial-time computation of an \\(\\alpha\\)-envy-free and Pareto-optimal lottery with \\(\\alpha<2\\) in one-sided cardinal-utility matching",
+  "latex": "Given an integer \\(n\\ge 1\\), let \\(A=\\{1,\\dots,n\\}\\) be a set of agents and \\(G=\\{1,\\dots,n\\}\\) a set of goods. Each agent \\(i\\in A\\) has a nonnegative rational utility \\(u_{ij}\\in\\mathbb{Q}_{\\ge 0}\\) for each good \\(j\\in G\\). An allocation is a matrix \\(x=(x_{ij})_{i\\in A,j\\in G}\\in\\mathbb{R}_{\\ge 0}^{n\\times n}\\) satisfying the fractional perfect matching constraints\n\\[\n\\sum_{j\\in G} x_{ij}=1\\ \\ \\forall i\\in A,\\qquad \\sum_{i\\in A} x_{ij}=1\\ \\ \\forall j\\in G.\n\\]\nAgent \\(i\\)'s expected utility under \\(x\\) is \\(U_i(x)=\\sum_{j\\in G} u_{ij}x_{ij}\\).\n\nFor a constant \\(\\alpha\\ge 1\\), call \\(x\\) \\(\\alpha\\)-approximately envy-free (\\(\\alpha\\)-EF) if for all agents \\(i,i'\\in A\\),\n\\[\nU_i(x)\\ge \\frac{1}{\\alpha}U_i(x_{i'})\\quad\\text{where }U_i(x_{i'})=\\sum_{j\\in G}u_{ij}x_{i'j}.\n\\]\nCall \\(x\\) Pareto-optimal (PO) if there is no other feasible allocation \\(y\\) such that \\(U_i(y)\\ge U_i(x)\\) for all \\(i\\in A\\) and \\(U_{i^*}(y)>U_{i^*}(x)\\) for some agent \\(i^*\\in A\\).\n\nProblem: Determine whether there exists a constant \\(\\alpha<2\\) and a polynomial-time algorithm that, given any input utilities \\((u_{ij})\\), computes a feasible allocation \\(x\\) that is simultaneously \\(\\alpha\\)-EF and PO.",
+  "location_in_paper": "Section 4 (Conclusion), page 23",
+  "open_problem_quote": "Is Nash bargaining the best we can do for one-sided markets or is there a way to compute an \\(\\alpha\\)-envy-free and Pareto-optimal lottery for \\(\\alpha < 2\\) in polynomial time?",
+  "area": "algorithmic mechanism design",
+  "subject_classification": "Computational Social Choice / Fair Division (Matching Markets)",
   "keywords": [
-    "two-sided matching markets",
-    "justified envy-freeness",
-    "approximation algorithms",
+    "one-sided matching markets",
+    "cardinal utilities",
+    "approximate envy-freeness",
     "Pareto optimality",
-    "polynomial-time mechanism",
-    "random assignment",
-    "fair division"
+    "polynomial-time algorithms",
+    "Nash bargaining"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -39,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.05289025,
+    "extractor_total_cost_usd": 0.052738,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.05289025
+    "total_cost_usd": 0.052738
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4414541699/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414541699/problems.json",
     "verification_source": null,
     "literature_source": null
   }

@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4410484165_p0",
+  "paper_id": "W4410484165",
+  "source_paper": "W4410484165",
+  "source_paper_title": "A Homogeneous Second-Order Descent Method for Nonconvex Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0132",
+  "source_paper_authors": [
+    "Chuwen Zhang",
+    "He Chang",
+    "Yuntian Jiang",
+    "Chenyu Xue",
+    "Bo Jiang",
+    "Dongdong Ge",
+    "Yinyu Ye"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1.2 (Related works), page 4\n\nTherefore, in the worst case, this method must solve an eigenvalue problem and a Newton step at one iteration. It is unclear if one can unify these procedures as a whole.",
+  "title": "Single-loop second-order method with \\,\\(O(\\epsilon^{-3/2})\\) complexity that unifies Newton and regularized/negative-curvature steps",
+  "latex": "Given a twice continuously differentiable function \\(f:\\mathbb{R}^n\\to\\mathbb{R}\\) with \\(f_{\\inf}:=\\inf_{x\\in\\mathbb{R}^n} f(x)>-\\infty\\), assume \\(\\nabla f\\) is \\(L\\)-Lipschitz and \\(\\nabla^2 f\\) is \\(M\\)-Lipschitz (i.e., \\(\\|\\nabla f(x)-\\nabla f(y)\\|\\le L\\|x-y\\|\\) and \\(\\|\\nabla^2 f(x)-\\nabla^2 f(y)\\|\\le M\\|x-y\\|\\) for all \\(x,y\\in\\mathbb{R}^n\\)). For a target accuracy \\(\\epsilon>0\\), an \\(\\epsilon\\)-approximate second-order stationary point (SOSP) is a point \\(x\\in\\mathbb{R}^n\\) satisfying\n\\[\n\\|\\nabla f(x)\\|\\le \\epsilon\\quad\\text{and}\\quad \\lambda_{\\min}(\\nabla^2 f(x))\\ge -\\sqrt{\\epsilon}.\n\\]\nThe problem is to design and analyze a single-loop (non-alternating) second-order algorithm that, for every such \\(f\\) and \\(\\epsilon>0\\), produces an \\(\\epsilon\\)-approximate SOSP in \\(O(\\epsilon^{-3/2})\\) iterations (up to logarithmic factors), while avoiding the need to branch/alternate between qualitatively different step computation subroutines based on certifying curvature conditions such as \\(\\lambda_{\\min}(\\nabla^2 f(x_k))\\gtrless \\pm \\sqrt{\\epsilon}\\). In particular, the method should specify one unified step computation rule per iteration (possibly randomized/inexact) and come with a worst-case complexity proof matching the \\(O(\\epsilon^{-3/2})\\) rate.",
+  "location_in_paper": "Section 1.2 (Related works), page 4",
+  "open_problem_quote": "Therefore, in the worst case, this method must solve an eigenvalue problem and a Newton step at one iteration. It is unclear if one can unify these procedures as a whole.",
+  "area": "other",
+  "subject_classification": "Nonconvex Optimization",
+  "keywords": [
+    "second-order methods",
+    "nonconvex optimization",
+    "Newton-CG",
+    "negative curvature",
+    "iteration complexity",
+    "single-loop algorithms"
+  ],
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": "low",
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "This entry was generated from the paper text only. It has not been independently verified as still open. If you believe the question is solved or incorrectly stated, please contact the maintainers.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.14380975,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.14380975
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410484165/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

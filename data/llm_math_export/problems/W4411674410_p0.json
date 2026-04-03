@@ -8,25 +8,28 @@
     "Mallory E. Gaspard",
     "Alexander Vladimirsky"
   ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-03-29T16:58:56.497493+00:00",
+  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
   "export_mode": "unverified",
-  "context": "Page 33, Section 6 (Conclusions)\n\n\"Another interesting direction for future work is to find criteria for applicability of label-setting to \\\u201cstochastic shortest path games,\\\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.\"",
-  "title": "Label-setting applicability to stochastic shortest path games (two-player stochastic games on graphs)",
-  "latex": "Given a finite directed graph with state set \\(X = \\{x_1,\\dots,x_n,t\\}\\), where \\(t\\) is an absorbing terminal state, consider a two-player zero-sum stochastic shortest path game. At each nonterminal state \\(x\\in X\\setminus\\{t\\}\\), Player 1 chooses an action \\(a\\in A_1(x)\\) and Player 2 chooses an action \\(b\\in A_2(x)\\). The immediate cost incurred is \\(C(x,a,b) > 0\\), and the next state is drawn according to a known transition kernel \\(p(\\cdot\\mid x,a,b)\\) on \\(X\\) (with \\(p(t\\mid t,a,b)=1\\) and \\(C(t,a,b)=0\\)).\n\nFor a (possibly history-dependent, randomized) pair of policies \\((\\pi_1,\\pi_2)\\), let \\(J(x;\\pi_1,\\pi_2)\\) be the expected total cost accumulated until reaching \\(t\\) when starting at \\(x\\). Define the game value function\n\\[\nU(x) = \\inf_{\\pi_1}\\sup_{\\pi_2} J(x;\\pi_1,\\pi_2), \\qquad x\\in X.\n\\]\nThe corresponding dynamic programming (Shapley) optimality equations are\n\\[\nU(t)=0,\\qquad\nU(x)=\\min_{a\\in A_1(x)}\\max_{b\\in A_2(x)}\\Bigl(C(x,a,b)+\\sum_{y\\in X} p(y\\mid x,a,b)U(y)\\Bigr),\\quad x\\neq t.\n\\]\n\nProblem: Find explicit, a priori verifiable conditions on the local data \\((A_1(x),A_2(x),C(x,\\cdot,\\cdot),p(\\cdot\\mid x,\\cdot,\\cdot))\\) under which a non-iterative label-setting algorithm (Dijkstra/Dial-type) is guaranteed to compute \\(U\\) correctly for such stochastic shortest path games (and, ideally, to do so in near-linear time in \\(|X|\\) under bounded outdegree).",
-  "location_in_paper": "Page 33, Section 6 (Conclusions)",
-  "open_problem_quote": "\"Another interesting direction for future work is to find criteria for applicability of label-setting to \\\u201cstochastic shortest path games,\\\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.\"",
-  "subject_classification": "Stochastic Games / Dynamic Programming / Shortest Path Problems",
+  "context": "Section 6 (Conclusions), page 33 (PDF page 33/35 in the provided parsed text)\n\nAnother interesting direction for future work is to find criteria for applicability of label-setting to \u201cstochastic shortest path games,\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.",
+  "title": "Label-setting (Dijkstra/Dial-type) solvability criteria for stochastic shortest path games",
+  "latex": "Given a finite set of states (nodes) \\(X=\\{1,\\dots,n\\}\\cup\\{t\\}\\), where \\(t\\) is an absorbing terminal state, consider a two-player zero-sum stochastic shortest path game defined as follows.\n\n- At each nonterminal state \\(i\\in\\{1,\\dots,n\\}\\), player 1 (the minimizer) chooses an action \\(a\\in A_i\\) and player 2 (the maximizer) chooses an action \\(b\\in B_i\\), where \\(A_i\\) and \\(B_i\\) are nonempty compact action sets.\n- The stage cost is \\(C_i(a,b)\\in(0,\\infty)\\), and the next state \\(j\\in X\\) is drawn according to transition probabilities \\(p_{ij}(a,b)\\), where \\(p_{ij}(a,b)\\ge 0\\) and \\(\\sum_{j\\in X} p_{ij}(a,b)=1\\).\n- The terminal state satisfies \\(p_{tt}(a,b)=1\\) and \\(C_t(a,b)=0\\) for all actions.\n\nA (stationary) strategy pair \\((\\mu,\\nu)\\) consists of measurable maps \\(\\mu(i)\\in A_i\\) and \\(\\nu(i)\\in B_i\\) for all \\(i\\in\\{1,\\dots,n\\}\\). For a starting state \\(i\\), let \\(J(i;\\mu,\\nu)\\) denote the expected total cost accumulated until absorption in \\(t\\) when both players use \\((\\mu,\\nu)\\).\n\nDefine the value function \\(U:X\\to\\mathbb{R}_{\\ge 0}\\) by\n\\[\nU(t)=0,\\qquad U(i)=\\inf_{\\mu}\\,\\sup_{\\nu}\\, J(i;\\mu,\\nu),\\quad i\\in\\{1,\\dots,n\\}.\n\\]\nEquivalently, under standard assumptions ensuring existence of the value, \\(U\\) satisfies the dynamic programming (Shapley) equations\n\\[\nU(i)=\\min_{a\\in A_i}\\max_{b\\in B_i}\\Bigl(C_i(a,b)+\\sum_{j\\in X} p_{ij}(a,b)\\,U(j)\\Bigr),\\quad i=1,\\dots,n,\\qquad U(t)=0.\n\\]\n\nProblem: Find verifiable (a priori, local) sufficient conditions on the game data \\(\\{A_i,B_i,C_i,p_{ij}\\}\\) that guarantee the applicability and correctness of non-iterative label-setting algorithms (in the spirit of Dijkstra\u2019s or Dial\u2019s methods) to compute \\(U\\) on \\(X\\). In particular, identify conditions ensuring an appropriate monotone causality property (i.e., that under optimal stationary strategies, every state \\(i\\) depends only on successor states \\(j\\) with strictly smaller values \\(U(j)<U(i)\\), possibly with a uniform gap \\(U(j)\\le U(i)-\\delta\\) for some \\(\\delta>0\\)) so that a single-pass label-setting computation is valid.",
+  "location_in_paper": "Section 6 (Conclusions), page 33 (PDF page 33/35 in the provided parsed text)",
+  "open_problem_quote": "Another interesting direction for future work is to find criteria for applicability of label-setting to \u201cstochastic shortest path games,\u201d in which the probability distribution over the successor nodes at each stage depends on the actions chosen by two antagonistic players [46]. We note that some results on the applicability of Dijkstra\u2019s method to deterministic games on graphs have been developed in the last ten years [7, 11], but the case of general stochastic games on graphs remains open.",
+  "area": "other",
+  "subject_classification": "Stochastic Games / Dynamic Programming",
   "keywords": [
     "stochastic shortest path games",
-    "zero-sum dynamic games",
+    "Shapley equations",
     "label-setting algorithms",
-    "Dijkstra-like methods",
+    "Dijkstra-type methods",
     "monotone causality",
-    "Shapley equations"
+    "zero-sum dynamic games"
   ],
   "extraction_model": "gpt-5.2",
-  "extraction_reasoning_effort": null,
+  "extraction_reasoning_effort": "low",
   "verification": {
     "is_open": true,
     "unverified": true,
@@ -38,13 +41,13 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.11583075000000001,
+    "extractor_total_cost_usd": 0.124054,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11583075000000001
+    "total_cost_usd": 0.124054
   },
   "provenance": {
-    "problem_source": "data/mor_past_year_problems/W4411674410/problems.json",
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411674410/problems.json",
     "verification_source": null,
     "literature_source": null
   }
