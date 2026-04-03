@@ -12,22 +12,23 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 1.2 (New Results), item 2, page 6\n\nIt remains a challenging problem to analytically verify for all k > 1 our numerical observation that lim_{n\\to\\infty} \\(\\gamma_{k,n}\\) = inf_{n\\ge 1} \\(\\gamma_{k,n}\\), which would resolve the open question of k-unit IID prophet inequality.",
-  "title": "Prove that for each fixed number of slots \\(k>1\\), the worst-case IID \\(k\\)-unit prophet-inequality ratio equals its large-\\(n\\) limit",
-  "latex": "Given integers \\(k\\ge 2\\) and \\(n\\ge 1\\), consider the IID \\(k\\)-unit prophet inequality problem with \\(n\\) sequentially arriving agents. Let \\(R_1,\\dots,R_n\\) be i.i.d. nonnegative random variables with known distribution \\(F\\). An online policy \\(\\pi\\) observes \\(R_i\\) upon arrival of agent \\(i\\) and must irrevocably decide whether to accept it, subject to accepting at most \\(k\\) agents in total. Let\n\\[\n\\mathrm{ALG}_\\pi(F;n,k):=\\mathbb{E}\\Big[\\sum_{i\\in A_\\pi} R_i\\Big]\n\\]\nbe the expected reward of \\(\\pi\\), where \\(A_\\pi\\subseteq\\{1,\\dots,n\\}\\) is the random set of accepted indices with \\(|A_\\pi|\\le k\\). Let the prophet benchmark be\n\\[\n\\mathrm{PROPH}(F;n,k):=\\mathbb{E}\\Big[\\sum_{t=1}^k R_{(t)}\\Big],\n\\]\nwhere \\(R_{(1)}\\ge \\cdots \\ge R_{(n)}\\) are the order statistics of \\(R_1,\\dots,R_n\\).\n\nDefine the optimal online value\n\\[\n\\mathrm{DP}(F;n,k):=\\sup_{\\pi}\\ \\mathrm{ALG}_\\pi(F;n,k),\n\\]\nwhere the supremum is over all (possibly randomized) online policies \\(\\pi\\) that are measurable with respect to the observed history.\n\nDefine the worst-case competitive ratio for fixed \\((n,k)\\) in the IID setting by\n\\[\n\\gamma_{k,n}:=\\inf_{F}\\ \\frac{\\mathrm{DP}(F;n,k)}{\\mathrm{PROPH}(F;n,k)},\n\\]\nwhere the infimum is over all distributions \\(F\\) on \\([0,\\infty)\\) with finite \\(\\mathrm{PROPH}(F;n,k)\\) and \\(\\mathrm{PROPH}(F;n,k)>0\\).\n\nProblem: Prove that for every fixed integer \\(k\\ge 2\\),\n\\[\n\\lim_{n\\to\\infty} \\gamma_{k,n} \\,=\\, \\inf_{n\\ge 1} \\gamma_{k,n}.\n\\]\nEquivalently, show that the worst-case IID \\(k\\)-unit prophet-inequality ratio over all finite horizons \\(n\\) is attained (in the limit) as \\(n\\to\\infty\\).",
-  "location_in_paper": "Section 1.2 (New Results), item 2, page 6",
-  "open_problem_quote": "It remains a challenging problem to analytically verify for all k > 1 our numerical observation that lim_{n\\to\\infty} \\(\\gamma_{k,n}\\) = inf_{n\\ge 1} \\(\\gamma_{k,n}\\), which would resolve the open question of k-unit IID prophet inequality.",
+  "context": "Page 6, Section 1.2 (New Results), item 2\n\nIt remains a challenging problem to analytically verify for all \\(k > 1\\) our numerical observation that \\(\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}\\), which would resolve the open question of \\(k\\)-unit IID prophet inequality.",
+  "title": "Prove that the worst-case IID \\\\(k\\\\)-unit prophet-inequality ratio occurs as \\\\(n\\\\to\\\\infty\\\\) for all \\\\(k>1\\\\)",
+  "background_latex": "Consider the IID multi-unit prophet inequality problem with \\(k\\in\\mathbb{Z}_{\\ge 1}\\) selection slots and \\(n\\in\\mathbb{Z}_{\\ge 1}\\) sequentially arriving agents. Each agent \\(i\\in\\{1,\\dots,n\\}\\) has a nonnegative random value \\(R_i\\), and in the IID setting \\(R_1,\\dots,R_n\\) are independent and identically distributed.\n\nLet \\(\\mathrm{DP}(I)\\) denote the expected value of an optimal online policy (equivalently, the optimal dynamic program) for instance \\(I\\), and let \\(\\mathrm{Proph}(I)\\) denote the expected value obtained by a prophet who observes all realizations in advance and selects up to \\(k\\) agents with maximum total value.\n\nLet \\(\\mathcal{I}^{\\mathrm{IID}}_{k,n}\\) be the class of all such IID instances with parameters \\((k,n)\\). Define the tight competitive ratio\n\\[\\gamma_{k,n} := \\inf_{I\\in \\mathcal{I}^{\\mathrm{IID}}_{k,n}} \\frac{\\mathrm{DP}(I)}{\\mathrm{Proph}(I)}.\\]\nDefine also\n\\[\\underline{\\gamma}_k := \\inf_{n\\ge 1} \\gamma_{k,n}, \\qquad \\overline{\\gamma}_k := \\lim_{n\\to\\infty} \\gamma_{k,n}\\]\nwhenever the limit exists (e.g., as a \\(\\liminf\\) if needed).",
+  "problem_definition_latex": "Problem: Prove (or disprove) that for every integer \\(k>1\\), the worst-case IID \\(k\\)-unit prophet-inequality ratio is attained in the limit of infinitely many agents, i.e.\n\\[\\overline{\\gamma}_k = \\underline{\\gamma}_k,\\]\nequivalently,\n\\[\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}.\\]",
+  "latex": "Consider the IID multi-unit prophet inequality problem with \\(k\\in\\mathbb{Z}_{\\ge 1}\\) selection slots and \\(n\\in\\mathbb{Z}_{\\ge 1}\\) sequentially arriving agents. Each agent \\(i\\in\\{1,\\dots,n\\}\\) has a nonnegative random value \\(R_i\\), and in the IID setting \\(R_1,\\dots,R_n\\) are independent and identically distributed.\n\nLet \\(\\mathrm{DP}(I)\\) denote the expected value of an optimal online policy (equivalently, the optimal dynamic program) for instance \\(I\\), and let \\(\\mathrm{Proph}(I)\\) denote the expected value obtained by a prophet who observes all realizations in advance and selects up to \\(k\\) agents with maximum total value.\n\nLet \\(\\mathcal{I}^{\\mathrm{IID}}_{k,n}\\) be the class of all such IID instances with parameters \\((k,n)\\). Define the tight competitive ratio\n\\[\\gamma_{k,n} := \\inf_{I\\in \\mathcal{I}^{\\mathrm{IID}}_{k,n}} \\frac{\\mathrm{DP}(I)}{\\mathrm{Proph}(I)}.\\]\nDefine also\n\\[\\underline{\\gamma}_k := \\inf_{n\\ge 1} \\gamma_{k,n}, \\qquad \\overline{\\gamma}_k := \\lim_{n\\to\\infty} \\gamma_{k,n}\\]\nwhenever the limit exists (e.g., as a \\(\\liminf\\) if needed).\n\nProblem:\nProblem: Prove (or disprove) that for every integer \\(k>1\\), the worst-case IID \\(k\\)-unit prophet-inequality ratio is attained in the limit of infinitely many agents, i.e.\n\\[\\overline{\\gamma}_k = \\underline{\\gamma}_k,\\]\nequivalently,\n\\[\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}.\\]",
+  "location_in_paper": "Page 6, Section 1.2 (New Results), item 2",
+  "open_problem_quote": "It remains a challenging problem to analytically verify for all \\(k > 1\\) our numerical observation that \\(\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}\\), which would resolve the open question of \\(k\\)-unit IID prophet inequality.",
   "area": "prophet inequalities",
-  "subject_classification": "Stochastic Optimization / Online Algorithms",
+  "subject_classification": "Stochastic Optimization",
   "keywords": [
     "prophet inequalities",
     "IID arrivals",
     "multi-unit selection",
-    "competitive ratio",
-    "asymptotic analysis",
-    "dynamic programming"
+    "tight competitive ratio",
+    "asymptotic analysis"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +43,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.1035965,
+    "extractor_total_cost_usd": 0.10496675,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1035965
+    "total_cost_usd": 0.10496675
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4409922425/problems.json",

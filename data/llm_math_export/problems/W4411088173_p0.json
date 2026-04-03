@@ -11,22 +11,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 8 (\"Generalization to Multidimensional Settings\"), page 16; also mentioned as a limitation/future work in the Introduction, page 3.\n\nOn the other hand, a current limitation of the DRO formulation (1) is that it is single-dimensional, whereas EL can generate multi-dimensional confidence regions. We leave the investigation of auxiliary information incorporation and multi-dimensional generalization to the future, but provide some hints to the latter extension in Section 8.",
-  "title": "Higher-order Bartlett-type correction for multidimensional divergence-based DRO confidence regions",
-  "latex": "Given i.i.d. data \\(X_1,\\dots,X_n\\) drawn from an unknown distribution \\(P_0\\) on a measurable space \\((\\mathcal{X},\\mathcal{F})\\), let \\(\\hat P_n:=\\frac1n\\sum_{i=1}^n\\delta_{X_i}\\) be the empirical distribution. Fix a convex function \\(\\varphi:(0,\\infty)\\to\\mathbb{R}\\) with \\(\\varphi(1)=\\varphi'(1)=0\\) and define the \\(\\varphi\\)-divergence\n\\[\nD_{\\varphi}(P\\|Q):=\\int \\varphi\\!\\left(\\frac{\\mathrm{d}P}{\\mathrm{d}Q}\\right)\\,\\mathrm{d}Q,\n\\]\nfor probability measures \\(P\\) absolutely continuous with respect to \\(Q\\). Let \\(\\psi\\) be a (nonparametric) von Mises differentiable functional mapping distributions on \\((\\mathcal{X},\\mathcal{F})\\) into \\(\\mathbb{R}^d\\) for some \\(d\\ge 2\\).\n\nFor a radius \\(\\eta>0\\), define the divergence-based DRO image set (a candidate confidence region)\n\\[\nA_{n,\\eta}:=\\{\\psi(P):\\; P\\ \\text{is a probability measure on }(\\mathcal{X},\\mathcal{F}),\\ D_{\\varphi}(P\\|\\hat P_n)\\le \\eta\\}\\subseteq\\mathbb{R}^d.\n\\]\n\nThe problem is to design an explicit data-dependent calibration \\(\\eta=\\eta(n,\\alpha,\\hat P_n)\\) (e.g., a Bartlett-type correction to the usual \\(\\eta\\asymp n^{-1}\\) choice) and to prove, under verifiable regularity conditions on \\(\\varphi\\) and \\(\\psi\\), the higher-order coverage guarantee\n\\[\n\\mathbb{P}_{P_0}\\big(\\psi(P_0)\\in A_{n,\\eta(n,\\alpha,\\hat P_n)}\\big)=1-\\alpha+O(n^{-3/2})\\quad\\text{as }n\\to\\infty.\n\\]\nEquivalently, characterize (and compute/estimate) the correction terms needed so that the multidimensional region \\(A_{n,\\eta}\\) attains \\(O(n^{-3/2})\\) coverage error, extending the paper\u2019s one-dimensional Bartlett-type correction for \\(\\psi(P_0)\\in\\mathbb{R}\\).",
-  "location_in_paper": "Section 8 (\"Generalization to Multidimensional Settings\"), page 16; also mentioned as a limitation/future work in the Introduction, page 3.",
-  "open_problem_quote": "On the other hand, a current limitation of the DRO formulation (1) is that it is single-dimensional, whereas EL can generate multi-dimensional confidence regions. We leave the investigation of auxiliary information incorporation and multi-dimensional generalization to the future, but provide some hints to the latter extension in Section 8.",
+  "context": "Section 8 \"Generalization to Multidimensional Settings\", page 16 (PDF page 16/51).\n\nWe discuss a potential way to generalize our results to the multidimensional case, leaving the full investigation to future work. The goal is to construct a confidence region for a multidimensional von Mises functional.",
+  "title": "Higher-order Bartlett-corrected DRO confidence regions for multidimensional von Mises functionals",
+  "background_latex": "- Let \\(X_1,\\dots,X_n\\) be i.i.d. samples from an unknown distribution \\(P_0\\) on a measurable space.\n- Let \\(\\hat P:=\\frac{1}{n}\\sum_{i=1}^n \\delta_{X_i}\\) be the empirical distribution.\n- Let \\(\\psi\\) be a (von Mises differentiable) statistical functional with values in \\(\\mathbb R^d\\), i.e., \\(\\psi(P)\\in\\mathbb R^d\\) for a distribution \\(P\\).\n- Let \\(\\phi:\\mathbb R_+\\to\\mathbb R\\) be a convex divergence generator and define the \\(\\phi\\)-divergence \\(D_\\phi(P\\|Q):=\\int \\phi\\!\\left(\\frac{dP}{dQ}\\right)\\,dQ\\) when \\(P\\ll Q\\).\n- For a radius \\(\\eta>0\\), define the divergence ball around \\(\\hat P\\) by \\(\\mathcal U_\\eta:=\\{P: D_\\phi(P\\|\\hat P)\\le \\eta\\}\\).\n- Define the DRO-induced confidence region (image of the ball under \\(\\psi\\)) by\n\\[A_\\eta := \\{\\psi(P): P\\in \\mathcal U_\\eta\\} \\subseteq \\mathbb R^d.\\]\n- Let \\(\\alpha\\in(0,1)\\) be the desired miscoverage level, and let \\(n\\to\\infty\\) denote the sample size asymptotic regime.",
+  "problem_definition_latex": "Problem: Determine a data-dependent (or asymptotically explicit) choice of radius \\(\\eta=\\eta(n,\\alpha)\\) such that the DRO confidence region \\(A_\\eta\\) achieves higher-order coverage accuracy\n\\[\\mathbb P\\big(\\psi(P_0)\\in A_{\\eta(n,\\alpha)}\\big) \\,=\\, 1-\\alpha + O(n^{-3/2}),\\]\nfor multidimensional functionals \\(\\psi(P)\\in\\mathbb R^d\\), and provide a rigorous asymptotic theory (e.g., a higher-order expansion and the needed Edgeworth-type validity conditions) supporting this guarantee.",
+  "latex": "- Let \\(X_1,\\dots,X_n\\) be i.i.d. samples from an unknown distribution \\(P_0\\) on a measurable space.\n- Let \\(\\hat P:=\\frac{1}{n}\\sum_{i=1}^n \\delta_{X_i}\\) be the empirical distribution.\n- Let \\(\\psi\\) be a (von Mises differentiable) statistical functional with values in \\(\\mathbb R^d\\), i.e., \\(\\psi(P)\\in\\mathbb R^d\\) for a distribution \\(P\\).\n- Let \\(\\phi:\\mathbb R_+\\to\\mathbb R\\) be a convex divergence generator and define the \\(\\phi\\)-divergence \\(D_\\phi(P\\|Q):=\\int \\phi\\!\\left(\\frac{dP}{dQ}\\right)\\,dQ\\) when \\(P\\ll Q\\).\n- For a radius \\(\\eta>0\\), define the divergence ball around \\(\\hat P\\) by \\(\\mathcal U_\\eta:=\\{P: D_\\phi(P\\|\\hat P)\\le \\eta\\}\\).\n- Define the DRO-induced confidence region (image of the ball under \\(\\psi\\)) by\n\\[A_\\eta := \\{\\psi(P): P\\in \\mathcal U_\\eta\\} \\subseteq \\mathbb R^d.\\]\n- Let \\(\\alpha\\in(0,1)\\) be the desired miscoverage level, and let \\(n\\to\\infty\\) denote the sample size asymptotic regime.\n\nProblem:\nProblem: Determine a data-dependent (or asymptotically explicit) choice of radius \\(\\eta=\\eta(n,\\alpha)\\) such that the DRO confidence region \\(A_\\eta\\) achieves higher-order coverage accuracy\n\\[\\mathbb P\\big(\\psi(P_0)\\in A_{\\eta(n,\\alpha)}\\big) \\,=\\, 1-\\alpha + O(n^{-3/2}),\\]\nfor multidimensional functionals \\(\\psi(P)\\in\\mathbb R^d\\), and provide a rigorous asymptotic theory (e.g., a higher-order expansion and the needed Edgeworth-type validity conditions) supporting this guarantee.",
+  "location_in_paper": "Section 8 \"Generalization to Multidimensional Settings\", page 16 (PDF page 16/51).",
+  "open_problem_quote": "We discuss a potential way to generalize our results to the multidimensional case, leaving the full investigation to future work. The goal is to construct a confidence region for a multidimensional von Mises functional.",
   "area": "other",
-  "subject_classification": "Nonparametric Inference / Distributionally Robust Optimization",
+  "subject_classification": "Stochastic Optimization / Nonparametric Inference",
   "keywords": [
     "distributionally robust optimization",
-    "phi-divergence",
-    "multidimensional confidence regions",
     "Bartlett correction",
+    "higher-order asymptotics",
+    "multidimensional confidence regions",
     "von Mises functional",
-    "higher-order asymptotics"
+    "phi-divergence"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -41,10 +43,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.118349,
+    "extractor_total_cost_usd": 0.11799725,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.118349
+    "total_cost_usd": 0.11799725
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411088173/problems.json",

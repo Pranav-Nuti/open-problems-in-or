@@ -12,22 +12,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Section 8 (Conclusions and Future Work), page 35\n\nSecond, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix \\(C\\). This would require an understanding of the problem that goes beyond stable marriages.",
-  "title": "Polynomial-time convergence of Scarf\u2019s algorithm on the bipartite matching polytope for arbitrary ordinal matrices",
-  "latex": "Let \\(k\\in\\mathbb{N}\\) and let \\(G=(M\\cup W,E)\\) be the complete bipartite graph with \\(|M|=|W|=k\\). Let \\(n:=|M\\cup W|=2k\\) and let \\(m:=|E|=k^2\\). Index the edges as \\(E=\\{e_{n+1},\\dots,e_{n+m}\\}\\) and introduce one loop variable \\(e_i=(v_i,v_i)\\) for each vertex \\(v_i\\in M\\cup W\\), for \\(i\\in[n]\\). Let \\(A\\in\\{0,1\\}^{n\\times(n+m)}\\) be the node\u2013edge incidence matrix augmented with loop columns so that for each vertex \\(v_i\\) and each column corresponding to an edge \\(e\\), \\(A_{i,e}=1\\) iff \\(v_i\\) is incident to \\(e\\) (including loops), and let \\(b:=\\mathbf{1}\\in\\mathbb{R}^n\\). Define the (bipartite) matching polytope in standard form\n\\[\nP:=\\{x\\in\\mathbb{R}^{n+m}_{\\ge 0}: Ax=b\\}.\n\\]\nAn integer matrix \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\) is an ordinal matrix if all its entries are distinct and for every row index \\(i\\in[n]\\), every loop column \\(i\\), every other loop column \\(j\\in[n]\\setminus\\{i\\}\\), and every non-loop column \\(k\\in\\{n+1,\\dots,n+m\\}\\), one has \\(c_{i,i} < c_{i,k} < c_{i,j}\\).\n\nConsider Scarf\u2019s pivoting algorithm applied to input \\((A,b,C)\\), i.e., the algorithm that maintains a feasible basis \\(B\\) of \\(Ax=b\\) and an ordinal basis \\(D\\) of \\(C\\) with \\(|B\\cap D|\\ge n-1\\), performs alternating cardinal and ordinal pivots as in Scarf\u2019s algorithm, and terminates when \\(B=D\\).\n\nProblem: Determine whether, for every \\(k\\in\\mathbb{N}\\) and every ordinal matrix \\(C\\) as above, Scarf\u2019s algorithm on input \\((A,b,C)\\) converges to a dominating basis in a number of pivots bounded by a polynomial in \\(n\\) (equivalently, polynomial in \\(k\\)), i.e., whether there exists a polynomial \\(p(\\cdot)\\) such that the algorithm terminates within at most \\(p(n)\\) iterations for all such inputs.",
+  "context": "Section 8 (Conclusions and Future Work), page 35\n\nSecond, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix C. This would require an understanding of the problem that goes beyond stable marriages.",
+  "title": "Polynomial-time convergence of Scarf\u2019s algorithm on the bipartite matching polytope for any ordinal matrix \\(C\\)",
+  "background_latex": "Let \\(G=(M\\cup W,E)\\) be a bipartite graph with \\(|M|=|W|=k\\). Let \\(n:=|M|+|W|=2k\\) and let \\(E\\) index \\(m:=|E|\\) edge-variables \\(x\\in\\mathbb{R}^m_{\\ge 0}\\). Let \\(A'\\in\\{0,1\\}^{n\\times m}\\) be the node-edge incidence matrix of \\(G\\), and define the standard-form matrix \\(A=(I\\mid A')\\in\\mathbb{Q}^{n\\times (n+m)}_{\\ge 0}\\), where \\(I\\) is the \\(n\\times n\\) identity matrix (corresponding to \\(n\\) slack/loop variables) and \\(b:=\\mathbf{1}\\in\\mathbb{Q}^n_{>0}\\). The associated down-monotone polytope is \\(P:=\\{x\\in\\mathbb{R}^{n+m}_{\\ge 0}: Ax=b\\}\\), which corresponds to the (bipartite) matching polytope in this formulation.\n\nLet \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\) be an ordinal matrix, meaning that all entries are distinct and for each row \\(i\\in[n]\\) and all \\(j\\ne i\\) and all slack/loop columns \\(k\\in[n+m]\\setminus[n]\\), the inequalities \\(c_{i,i}<c_{i,k}<c_{i,j}\\) hold. Scarf\u2019s algorithm is a pivoting procedure that, given \\((A,b,C)\\) and starting from an initial feasible basis, iteratively performs:\n- a cardinal pivot that updates a feasible basis \\(B\\) for \\(Ax=b\\), and\n- an ordinal pivot that updates an ordinal basis \\(D\\) for \\(C\\),\nmaintaining \\(|B\\cap D|\\ge n-1\\), and halting when \\(B=D\\), yielding a dominating basis (and hence a dominating vertex of \\(P\\)).\n\nFor a pivoting execution, let \\(T\\) be the number of iterations (cardinal+ordinal pivot pairs) until termination.",
+  "problem_definition_latex": "Problem: Show that for every bipartite graph \\(G=(M\\cup W,E)\\) with \\(|M|=|W|\\), for \\(A=(I\\mid A')\\) and \\(b=\\mathbf{1}\\) as defined above, and for every ordinal matrix \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\), Scarf\u2019s algorithm (with its uniquely defined ordinal pivots and some well-specified rule for resolving degeneracy in cardinal pivots, if needed) always terminates after \\(T\\le \\mathrm{poly}(n,m)\\) iterations.",
+  "latex": "Let \\(G=(M\\cup W,E)\\) be a bipartite graph with \\(|M|=|W|=k\\). Let \\(n:=|M|+|W|=2k\\) and let \\(E\\) index \\(m:=|E|\\) edge-variables \\(x\\in\\mathbb{R}^m_{\\ge 0}\\). Let \\(A'\\in\\{0,1\\}^{n\\times m}\\) be the node-edge incidence matrix of \\(G\\), and define the standard-form matrix \\(A=(I\\mid A')\\in\\mathbb{Q}^{n\\times (n+m)}_{\\ge 0}\\), where \\(I\\) is the \\(n\\times n\\) identity matrix (corresponding to \\(n\\) slack/loop variables) and \\(b:=\\mathbf{1}\\in\\mathbb{Q}^n_{>0}\\). The associated down-monotone polytope is \\(P:=\\{x\\in\\mathbb{R}^{n+m}_{\\ge 0}: Ax=b\\}\\), which corresponds to the (bipartite) matching polytope in this formulation.\n\nLet \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\) be an ordinal matrix, meaning that all entries are distinct and for each row \\(i\\in[n]\\) and all \\(j\\ne i\\) and all slack/loop columns \\(k\\in[n+m]\\setminus[n]\\), the inequalities \\(c_{i,i}<c_{i,k}<c_{i,j}\\) hold. Scarf\u2019s algorithm is a pivoting procedure that, given \\((A,b,C)\\) and starting from an initial feasible basis, iteratively performs:\n- a cardinal pivot that updates a feasible basis \\(B\\) for \\(Ax=b\\), and\n- an ordinal pivot that updates an ordinal basis \\(D\\) for \\(C\\),\nmaintaining \\(|B\\cap D|\\ge n-1\\), and halting when \\(B=D\\), yielding a dominating basis (and hence a dominating vertex of \\(P\\)).\n\nFor a pivoting execution, let \\(T\\) be the number of iterations (cardinal+ordinal pivot pairs) until termination.\n\nProblem:\nProblem: Show that for every bipartite graph \\(G=(M\\cup W,E)\\) with \\(|M|=|W|\\), for \\(A=(I\\mid A')\\) and \\(b=\\mathbf{1}\\) as defined above, and for every ordinal matrix \\(C\\in\\mathbb{Z}^{n\\times(n+m)}\\), Scarf\u2019s algorithm (with its uniquely defined ordinal pivots and some well-specified rule for resolving degeneracy in cardinal pivots, if needed) always terminates after \\(T\\le \\mathrm{poly}(n,m)\\) iterations.",
   "location_in_paper": "Section 8 (Conclusions and Future Work), page 35",
-  "open_problem_quote": "Second, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix \\(C\\). This would require an understanding of the problem that goes beyond stable marriages.",
+  "open_problem_quote": "Second, it would be interesting to understand whether Scarf\u2019s algorithm converges in polynomial time on the bipartite matching polytope for any ordinal matrix C. This would require an understanding of the problem that goes beyond stable marriages.",
   "area": "other",
   "subject_classification": "Combinatorial Optimization",
   "keywords": [
     "Scarf's algorithm",
     "pivoting algorithms",
-    "stable matchings",
-    "matching polytope",
+    "bipartite matching polytope",
+    "polynomial-time convergence",
     "ordinal matrices",
-    "polynomial-time convergence"
+    "degeneracy"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.0877975,
+    "extractor_total_cost_usd": 0.09074975,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0877975
+    "total_cost_usd": 0.09074975
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410395976/problems.json",

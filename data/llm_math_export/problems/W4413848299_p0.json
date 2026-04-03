@@ -12,22 +12,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Page 2, Introduction (Contribution Overview); also reiterated on page 46, Section H (Conclusion)\n\nIt remains an problem to obtain tight running times when m = \\(\\Theta((1/\\varepsilon)^\\theta)\\) for \\(\\theta \\in (1/2, 1]\\).",
-  "title": "Tight dependence on \\(\\varepsilon\\) for PTAS/FPTAS of \\(P\\|\\|\\sum_i C_i^q\\) when \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) with \\(\\theta\\in(1/2,1]\\)",
-  "latex": "Given a constant \\(q>1\\), consider the identical-machines scheduling problem \\(P\\|\\|\\sum_{i=1}^m C_i^q\\):\n- The input consists of an integer \\(m\\ge 1\\) (number of identical machines) and \\(n\\ge 1\\) jobs with processing times \\(p_1,\\dots,p_n\\in\\mathbb{R}_{>0}\\).\n- A schedule is an assignment of each job to one machine. For a schedule, let \\(C_i=\\sum_{j\\text{ assigned to machine }i} p_j\\) be the load of machine \\(i\\).\n- The objective value of the schedule is \\(\\sum_{i=1}^m C_i^q\\). Let \\(\\mathrm{OPT}(I)\\) be the minimum objective value over all schedules for an instance \\(I\\).\n\nFix any \\(\\theta\\in(1/2,1]\\). For each \\(\\varepsilon\\in(0,1)\\), restrict attention to instances \\(I\\) for which the number of machines satisfies \\(m=\\Theta\\big((1/\\varepsilon)^\\theta\\big)\\) (i.e., there exist absolute constants \\(0<c_1\\le c_2\\) independent of \\(\\varepsilon\\) such that \\(c_1(1/\\varepsilon)^\\theta\\le m\\le c_2(1/\\varepsilon)^\\theta\\)).\n\nDetermine the optimal (tight) asymptotic running time dependence on \\(\\varepsilon\\) that is achievable by a \\((1+\\varepsilon)\\)-approximation algorithm for \\(P\\|\\|\\sum_i C_i^q\\) on this restricted family of instances.\n\nConcretely, the open task is to establish matching upper and lower bounds (e.g., under ETH for lower bounds) for the smallest function \\(T(\\varepsilon)\\) such that there exists an algorithm which, for every such instance \\(I\\), returns a schedule of cost at most \\((1+\\varepsilon)\\mathrm{OPT}(I)\\) in time \\(T(\\varepsilon)\\cdot (n+m)^{O(1)}\\). In particular, decide whether an FPTAS (i.e., \\(T(\\varepsilon)=\\mathrm{poly}(1/\\varepsilon)\\)) exists in this regime or whether a subexponential/exponential dependence on \\(1/\\varepsilon\\) is necessary, and if so, what the tight exponent is as a function of \\(\\theta\\).",
-  "location_in_paper": "Page 2, Introduction (Contribution Overview); also reiterated on page 46, Section H (Conclusion)",
+  "context": "Section 1 (Introduction), page 2; reiterated in Section H (Conclusion), page 46\n\nIt remains an problem to obtain tight running times when m = \\(\\Theta((1/\\varepsilon)^\\theta)\\) for \\(\\theta \\in (1/2, 1]\\).",
+  "title": "Tight PTAS complexity for minimizing \\(\\sum_{i=1}^m C_i^q\\) when \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) with \\(\\theta\\in(1/2,1]\\)",
+  "background_latex": "We consider scheduling \\(n\\) jobs on \\(m\\) identical parallel machines. Job \\(j\\) has processing time \\(p_j>0\\). A schedule assigns each job to a machine. For a schedule, let \\(C_i=\\sum_{j\\to i} p_j\\) be the total load on machine \\(i\\in\\{1,\\dots,m\\}\\). Fix a constant \\(q>1\\). The objective is to minimize \\(\\sum_{i=1}^m C_i^q\\). A polynomial-time approximation scheme (PTAS) is a family of algorithms that, for any \\(\\varepsilon\\in(0,1)\\), returns a \\((1+\\varepsilon)\\)-approximate schedule. We measure the running time as a function of \\(n\\), \\(m\\), and \\(\\varepsilon\\), and we focus on the regime where the number of machines scales with \\(\\varepsilon\\) as \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for some fixed \\(\\theta\\in(1/2,1]\\).",
+  "problem_definition_latex": "Problem: Determine the tight (up to \\(\\tilde O(\\cdot)\\) factors and lower-order terms) optimal running time dependence on \\(\\varepsilon\\) of a PTAS for \\(P\\|\\|\\sum_{i=1}^m C_i^q\\) in the regime \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for fixed \\(\\theta\\in(1/2,1]\\); specifically, either\n- design a PTAS with provably optimal (as a function of \\(\\varepsilon\\)) running time in this regime, or\n- prove a matching lower bound (e.g., under ETH) ruling out any asymptotically faster PTAS in this regime.",
+  "latex": "We consider scheduling \\(n\\) jobs on \\(m\\) identical parallel machines. Job \\(j\\) has processing time \\(p_j>0\\). A schedule assigns each job to a machine. For a schedule, let \\(C_i=\\sum_{j\\to i} p_j\\) be the total load on machine \\(i\\in\\{1,\\dots,m\\}\\). Fix a constant \\(q>1\\). The objective is to minimize \\(\\sum_{i=1}^m C_i^q\\). A polynomial-time approximation scheme (PTAS) is a family of algorithms that, for any \\(\\varepsilon\\in(0,1)\\), returns a \\((1+\\varepsilon)\\)-approximate schedule. We measure the running time as a function of \\(n\\), \\(m\\), and \\(\\varepsilon\\), and we focus on the regime where the number of machines scales with \\(\\varepsilon\\) as \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for some fixed \\(\\theta\\in(1/2,1]\\).\n\nProblem:\nProblem: Determine the tight (up to \\(\\tilde O(\\cdot)\\) factors and lower-order terms) optimal running time dependence on \\(\\varepsilon\\) of a PTAS for \\(P\\|\\|\\sum_{i=1}^m C_i^q\\) in the regime \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for fixed \\(\\theta\\in(1/2,1]\\); specifically, either\n- design a PTAS with provably optimal (as a function of \\(\\varepsilon\\)) running time in this regime, or\n- prove a matching lower bound (e.g., under ETH) ruling out any asymptotically faster PTAS in this regime.",
+  "location_in_paper": "Section 1 (Introduction), page 2; reiterated in Section H (Conclusion), page 46",
   "open_problem_quote": "It remains an problem to obtain tight running times when m = \\(\\Theta((1/\\varepsilon)^\\theta)\\) for \\(\\theta \\in (1/2, 1]\\).",
   "area": "approximation algorithms",
-  "subject_classification": "Scheduling Theory; Approximation Algorithms (Fine-Grained Complexity)",
+  "subject_classification": "Scheduling and Approximation Algorithms",
   "keywords": [
     "identical machine scheduling",
     "PTAS running time",
     "fine-grained complexity",
-    "exponential time hypothesis",
-    "load balancing",
-    "q-norm objective"
+    "ETH lower bounds",
+    "\\(\\ell_q\\)-norm load balancing",
+    "parameter dependence on \\(m\\) and \\(\\varepsilon\\)"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.132153,
+    "extractor_total_cost_usd": 0.12648125,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.132153
+    "total_cost_usd": 0.12648125
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413848299/problems.json",

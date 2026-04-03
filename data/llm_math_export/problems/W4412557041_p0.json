@@ -12,22 +12,24 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-02T17:50:46.161651+00:00",
+  "pipeline_generated_at_utc": "2026-04-03T19:07:02.493135+00:00",
   "export_mode": "unverified",
-  "context": "Page 20, Section 6 (Conclusions)\n\nAccordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.",
-  "title": "Implementable semismooth\\(*\\) Newton method for generalized equations not reducible to locally Lipschitz equations",
-  "latex": "Given integers \\(n,m\\ge 1\\), let \\(\\Phi: \\mathbb{R}^n \\rightrightarrows \\mathbb{R}^m\\) be a set-valued mapping with closed graph \\(\\mathrm{gph}\\,\\Phi:=\\{(x,y)\\in\\mathbb{R}^n\\times\\mathbb{R}^m\\mid y\\in\\Phi(x)\\}\\). Consider the generalized equation\n\\[\n0\\in \\Phi(x).\n\\]\nAssume \\(\\bar x\\in\\mathbb{R}^n\\) is a solution, i.e., \\(0\\in\\Phi(\\bar x)\\). Assume further that there does not exist any neighborhood \\(U\\) of \\(\\bar x\\) and any single-valued mapping \\(H:U\\to\\mathbb{R}^m\\) that is locally Lipschitz continuous on \\(U\\) and satisfies\n\\[\n\\{x\\in U\\mid 0\\in\\Phi(x)\\}=\\{x\\in U\\mid H(x)=0\\}.\n\\]\nProblem: develop an implementable semismooth\\(*\\) Newton-type algorithm for solving \\(0\\in\\Phi(x)\\) locally around \\(\\bar x\\) (in particular, with tractable per-iteration subproblems such as linear systems) together with verifiable assumptions ensuring its local (superlinear) convergence, despite the absence of a reformulation to a locally Lipschitz continuous equation.",
-  "location_in_paper": "Page 20, Section 6 (Conclusions)",
+  "context": "Section 6 (Conclusions), page 20\n\nAccordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.",
+  "title": "Implementable semismooth\\(^*\\) Newton method for generalized equations not reducible to locally Lipschitz equations",
+  "background_latex": "Let \\(X,Y\\) be finite-dimensional real Hilbert spaces. A generalized equation (GE) is the inclusion\n\\[0\\in \\Phi(x),\\]\nwhere \\(\\Phi: X\\rightrightarrows Y\\) is a set-valued mapping with closed graph. A (local) reformulation of the GE as a nonsmooth equation means finding a single-valued mapping \\(H:U\\to Y\\) on a neighborhood \\(U\\subseteq X\\) such that:\n- \\(H\\) is locally Lipschitz continuous on \\(U\\).\n- The solution sets coincide locally: \\(x\\in U\\) satisfies \\(0\\in\\Phi(x)\\) if and only if \\(H(x)=0\\).\nAn implementable semismooth\\(^*\\) Newton method refers to a semismooth\\(^*\\)-type Newton scheme for solving \\(0\\in\\Phi(x)\\) whose per-iteration subproblem is computationally tractable (e.g., reduces to solving linear systems or otherwise explicitly computable steps), as in existing implementations for special GEs that admit locally Lipschitz equation localizations.",
+  "problem_definition_latex": "Problem: Design an implementable semismooth\\(^*\\) Newton method for solving a generalized equation \\(0\\in \\Phi(x)\\) in the case where there does not exist any local reformulation around a solution \\(\\bar x\\) into a locally Lipschitz continuous equation \\(H(x)=0\\) (on a neighborhood of \\(\\bar x\\)) that is locally equivalent to the GE.",
+  "latex": "Let \\(X,Y\\) be finite-dimensional real Hilbert spaces. A generalized equation (GE) is the inclusion\n\\[0\\in \\Phi(x),\\]\nwhere \\(\\Phi: X\\rightrightarrows Y\\) is a set-valued mapping with closed graph. A (local) reformulation of the GE as a nonsmooth equation means finding a single-valued mapping \\(H:U\\to Y\\) on a neighborhood \\(U\\subseteq X\\) such that:\n- \\(H\\) is locally Lipschitz continuous on \\(U\\).\n- The solution sets coincide locally: \\(x\\in U\\) satisfies \\(0\\in\\Phi(x)\\) if and only if \\(H(x)=0\\).\nAn implementable semismooth\\(^*\\) Newton method refers to a semismooth\\(^*\\)-type Newton scheme for solving \\(0\\in\\Phi(x)\\) whose per-iteration subproblem is computationally tractable (e.g., reduces to solving linear systems or otherwise explicitly computable steps), as in existing implementations for special GEs that admit locally Lipschitz equation localizations.\n\nProblem:\nProblem: Design an implementable semismooth\\(^*\\) Newton method for solving a generalized equation \\(0\\in \\Phi(x)\\) in the case where there does not exist any local reformulation around a solution \\(\\bar x\\) into a locally Lipschitz continuous equation \\(H(x)=0\\) (on a neighborhood of \\(\\bar x\\)) that is locally equivalent to the GE.",
+  "location_in_paper": "Section 6 (Conclusions), page 20",
   "open_problem_quote": "Accordingly, a natural question is whether an implementable semismooth* Newton method is achievable for solving a GE that cannot be reformulated to locally Lipschitz continuous equations.",
   "area": "other",
   "subject_classification": "Variational Analysis / Nonsmooth Optimization",
   "keywords": [
     "generalized equations",
     "semismooth* Newton method",
-    "implementability",
-    "local superlinear convergence",
-    "locally Lipschitz reformulation",
-    "nonsmooth analysis"
+    "G-semismooth Newton method",
+    "localization",
+    "locally Lipschitz equations",
+    "implementable algorithms"
   ],
   "extraction_model": "gpt-5.2",
   "extraction_reasoning_effort": "low",
@@ -42,10 +44,10 @@
   },
   "literature_review": null,
   "costs": {
-    "extractor_total_cost_usd": 0.08072750000000001,
+    "extractor_total_cost_usd": 0.07814974999999999,
     "verifier_total_cost_usd": 0.0,
     "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08072750000000001
+    "total_cost_usd": 0.07814974999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412557041/problems.json",
