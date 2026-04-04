@@ -13,7 +13,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 9 (Concluding remarks), page 33.\n\nSecond, we established weak duality in Theorem 2 only in case \\(\\mathcal E\\) is super-linear. The case of a general non-linear expectation is difficult to analyze, and we only have a simple bound (20) for \\(\\mathcal E=\\mathcal E^h\\). Similarly, strong duality is only established for convex \\(h\\) and affine cost, and we wonder whether it also holds in more general situations.",
   "title": "Strong duality for distorted optimal transport beyond affine costs",

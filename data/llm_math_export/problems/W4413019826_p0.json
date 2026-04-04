@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 8 (Concluding Remarks), page 35.\n\nMany open questions remain including the structure of optimizers of W-DMR for both non-overlapping and overlapping marginals, efficient numerical algorithms, and estimation and inference in each motivating example.",
   "title": "Characterize the structure of optimizers for Wasserstein distributional model risk in marginal problems",

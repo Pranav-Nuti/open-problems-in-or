@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 4 (Propagation of chaos), Remark 4.1, page 27 (PDF page numbering may differ; appears immediately after Corollary 4.1).\n\nThe question of convergence of S-saddle points of the particle system to those of the limit process is more elaborate and will be addressed in a forthcoming paper.",
   "title": "Convergence of \\,S\\,-saddle points from interacting Dynkin games to the mean-field Dynkin game limit",

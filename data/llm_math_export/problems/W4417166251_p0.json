@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 4.3 (Feedback representation), Remark 4.13(ii), page 14.\n\nNoticing that Riccati equation (35) is an asymmetric indefinite equation with complex structure, its solvability is still an problem.",
   "title": "Solvability of the asymmetric indefinite Riccati equation \\((35)\\) arising in partially observed indefinite LQ mean-field games",

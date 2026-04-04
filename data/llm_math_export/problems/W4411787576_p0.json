@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 1.1 (Introduction), page 3; also reiterated as a conjecture in Section 4.3, page 11\n\nSince the N-server stationary distributions are known to be tight (due to the results in [5]), to provide a rigorous proof of this convergence it would suffice to show that the solution to the hydrodynamic equations converges to the invariant state characterized here for a large class of initial conditions. Whereas this is a non-trivial problem that is relegated to future work, it is encouraging that analogous results have been recently established for a related problem.",
   "title": "Global convergence of the hydrodynamic equations to the physical invariant state (and interchange of limits with stationarity)",

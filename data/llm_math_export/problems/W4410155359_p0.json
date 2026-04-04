@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 26, Section 7 (Conclusions and Discussions)\n\nOur work leads to many intriguing questions to explore in the future. For instance, without assuming archimedeanness, is there a preordering version of Theorem 3.4? Equivalently, does there exist a clean algebraic reformulation of the compactness (or emptiness) of the set \\(K\\) given with a universal quantifier as in (1.1)? Is there an analog of the Krivine-Stengle Positivstellensatz for such sets \\(K\\)?",
   "title": "Non-archimedean preordering (Krivine--Stengle type) Positivstellensatz for universally quantified sets",

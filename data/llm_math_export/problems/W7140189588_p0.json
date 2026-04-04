@@ -8,7 +8,7 @@
   "source_paper_journal": "",
   "source_paper_publication_year": null,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 5 (Concluding Remarks and Future Directions), page 30 (PDF page 29 of 32 in the provided parsed text pagination)\n\nAnother important direction is to extend our smoothing frameworks to settings where the lower-level constraint set is not fixed but instead depends on the upper-level variable x. A preliminary approach based on quadratic regularization combined with penalization has been proposed in [Liu et al., 2023]; however, it remains an open question whether the resulting approximation qualifies as a smoothing family in the sense of Definition 2.5 and whether it satisfies gradient consistency.",
   "title": "Verify smoothing-family and gradient-consistency of quadratic-regularization-plus-penalization for value functions with \\,\\(x\\)-dependent lower-level feasible sets",

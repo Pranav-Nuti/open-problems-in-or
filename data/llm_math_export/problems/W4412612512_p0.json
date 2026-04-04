@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 2.3 (Asymmetric matrix completion), discussion immediately after Theorem 6, page 12.\n\nWe note that this result does not refute the possibility of existing highly rank-imbalanced solutions\u2014in particular, those with \\(\\mathrm{rank}(W_1^\\star)+\\mathrm{rank}(W_2^\\star)\\ge k\\)\u2014as local optima. Although our result does not refute this possibility, we conjecture that highly rank-imbalanced solutions are unlikely to emerge as local optima. We leave a rigorous proof of this conjecture for future work.",
   "title": "Prove highly rank-imbalanced true solutions are not local optima in noisy asymmetric matrix completion with \\(\\ell_1\\)-loss",

@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Remark 5 in Section 2.2 (page 7) and reiterated in Section 4 \u201cConclusions and Future Work\u201d (page 13).\n\nNevertheless, the dynamic regret analysis regarding the distributional robustness property remains an open question. While this topic is beyond the scope of this paper, it presents an intriguing direction for future research.",
   "title": "Dynamic regret bounds for SMPC under distributional mismatch (e.g., Wasserstein ambiguity)",

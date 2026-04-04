@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 4.1, Remark 4.6 (page 14).\n\nThis paper does not address the convergence of exact Nash equilibria to mean field equilibria. Our method relies on the Lipschitz continuity of \\(U_0\\), the solution to the master equation. While the structure of the Nash system resembles that of the master equation, connecting the two falls outside the scope of this work. The first author is actively working on this problem, which remains open (see [8]).",
   "title": "Convergence of exact Markovian Nash equilibria to the mean field equilibrium in finite-state ergodic mean field games",

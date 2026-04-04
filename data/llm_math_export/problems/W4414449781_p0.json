@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 4, Remark 4.9, page 23 (arXiv:2312.07703v3)\n\nThe question as to whether an equilibrium exists in which Player 1 uses a strategy and Player 2 uses a control (both either pure or randomised) is open when \\(y>x\\), especially if we seek an equilibrium valid for all parameter choices and initial states. We leave the question open for future research.",
   "title": "Existence of a Nash equilibrium with Player 1 using a strategy and Player 2 using a control in the asymmetric-endowment game",

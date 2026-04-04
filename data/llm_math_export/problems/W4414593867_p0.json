@@ -13,7 +13,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 6 (Conclusion), page 19\n\nAlternatively, if one of the lowest level sets of weights and profits becomes unitary (so that the lowest level KP becomes polynomial), what is the complexity of the problem when at least one set of higher level costs is instead arbitrary? Such clarifications may help to understand the articulation of the different levels which defines the intrinsic complexity of higher level problems in the polynomial hierarchy.",
   "title": "Complexity of multi-level interdiction knapsack when the lower-level knapsack is polynomial but higher-level costs are arbitrary",
