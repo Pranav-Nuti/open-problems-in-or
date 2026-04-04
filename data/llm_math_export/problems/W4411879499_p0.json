@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 8 (Conclusion and perspectives), page 21 (PDF page 21/29)\n\nHowever, Assumption 1 is stronger than the regular sequence property of \\(\\{\\bar g_1,\\dots,\\bar g_n\\}\\), see Section C. Indeed, \\(\\{\\bar g_1,\\dots,\\bar g_n\\}\\) is still a regular sequence if \\(\\{g^\\infty_1,\\dots,g^\\infty_n\\}\\) has finitely many complex common zero locus. However, the H-basis property may fail if we only assume that \\(\\{\\bar g_1,\\dots,\\bar g_n\\}\\) is a regular sequence. It would be interesting to investigate the degree bound under the regular sequence condition only.",
   "title": "Effective degree bounds for exactness of Lasserre relaxations under the regular sequence condition (without Assumption 1)",

@@ -10,7 +10,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 5 (Conclusions), page 19\n\nUnder some conditions, the rate of convergence in the central limit theorem for i.i.d. random vectors is O(1/\\sqrt{n}) (Fang et al. 2019). It would be interesting to see if the O(\\log n/\\sqrt{n}) rate of convergence in Theorem 1 can be improved to O(1/\\sqrt{n}) under possibly additional conditions than the ones used in this paper. The Edgeworth expansion for scalar functions of Markov chains in (Kontoyiannis and Meyn 2003) suggests that the log n could possibly be eliminated for Markov chains as well.",
   "title": "Eliminate the \\(\\log n\\) factor in the Wasserstein rate for the martingale CLT (improve to \\(O(1/\\sqrt{n})\\))",

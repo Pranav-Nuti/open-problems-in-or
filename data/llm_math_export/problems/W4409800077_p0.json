@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 10, Section 4 (Regularied RAM and Global Convergence Analysis); also reiterated on page 14, Section 5.1 (Details Concerning Numerical Implementations)\n\nThe global convergence of Anderson mixing remains an problem, even in the Euclidean setting.",
   "title": "Global convergence of (unregularized) Anderson mixing for nonlinear fixed-point iterations",

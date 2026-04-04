@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 6 (Weighted utility), Remark 6.2(a), page 15 (arXiv v2 pagination)\n\nIt is worth noting that (6.4) is a two-dimensional QBSDE, whose two components \\(\\bar Y_1\\) and \\(\\bar Y_2\\) are coupled. Two-dimensional QBSDEs are technically much more challenging than the one-dimensional ones, and unless other assumptions are imposed, the well-posedness remains open; see the bibliographical notes in Subsection 7.4 of Zhang (2017).",
   "title": "Well-posedness of coupled multi-dimensional quadratic BSDEs arising in equilibrium portfolio selection with weighted utility",

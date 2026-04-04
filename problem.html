@@ -118,7 +118,8 @@
     }
 
     function formatTitleWithMath(title) {
-      const raw = String(title ?? "");
+      // Collapse double-escaped math delimiters (\\( → \() left by some LLM outputs.
+      const raw = String(title ?? "").replace(/\\\\([()])/g, "\\$1");
       if (raw.includes("\\(") || raw.includes("\\[") || raw.includes("$")) {
         return escapeHtml(raw);
       }

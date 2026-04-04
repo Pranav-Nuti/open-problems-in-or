@@ -11,7 +11,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 3.2.1, Conjecture 3.3 (page 12 in the provided parse)\n\nNumerical results suggest that the converses of Theorem 3.1 and Theorem 3.2 are true, i.e., (C1)/(C2) hold if and only if averaging is not beneficial. We state this formally in the following conjecture.\n\nConjecture 3.3. Consider gradient descent with stepsizes \\(h=(h_0,\\dots,h_{N-1})>0\\). For any \\(L,D>0\\), if the worst-case final iterate objective gap is not characterized by (C1), then there exists nondegenerate \\(\\sigma\\) such that\n\\[\\max_{(x_0,f)\\in\\mathcal{F}_{L,D}} f\\Bigl(\\sum_{j=0}^N \\sigma_j x_j\\Bigr)-\\inf f < \\frac{LD^2}{4\\sum_{i=0}^{N-1}h_i+2}.\\]\nSimilarly, if the worst-case final iterate gradient norm is not characterized by (C2), then there exists nondegenerate \\(\\sigma\\) such that\n\\[\\max_{(x_0,f)\\in\\mathcal{F}_{L,D}} \\bigl\\|\\nabla f\\bigl(\\sum_{j=0}^N \\sigma_j x_j\\bigr)\\bigr\\| < \\frac{LD}{\\sum_{i=0}^{N-1}h_i+1}.\\]",
   "title": "Characterize when iterate averaging improves gradient descent worst-case performance",

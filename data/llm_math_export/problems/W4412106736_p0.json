@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 10, Section 2 (Remark 2.9)\n\nInterestingly, indeed, if the load is much heavier, that is, \\(\\lambda_N = 1 - O(N^{-\\alpha})\\) with \\(\\alpha > 2\\), then the result in [23] implies that the appropriately scaled total number of tasks under the JSQ policy has the same limiting distribution as the centralized system. It will be an interesting future direction to identify the precise scaling of the system load where this transition of behavior occurs.",
   "title": "Identify the load-scaling threshold where JSQ steady-state matches centralized \\(M/M/N\\) in heavy traffic",

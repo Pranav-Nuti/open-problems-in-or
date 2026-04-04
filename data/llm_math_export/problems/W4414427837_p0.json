@@ -13,7 +13,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 6, Section 1.2 (Hardness results paragraph immediately before Theorem 4)\n\nFor the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
   "title": "Deterministic polynomial-time solvability of the Exact Matching problem",

@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 5.1 (Geometric Brownian motion), Remark 5.3, page 28 (PDF page 28/38 in the provided parsed text)\n\nAs a sharp contrast, in our framework with a general attitude function \\(\\varphi(x)\\), it is an appealing problem to find a general characterization of the optimal equilibrium if it exists, which will be left for our future research.",
   "title": "General characterization of the optimal equilibrium in time-inconsistent stopping under nonlinear aggregation of diverse discount rates",

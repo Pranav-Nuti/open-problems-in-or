@@ -10,7 +10,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Section 7 (Discussion), page 24 (PDF page 24/42 in the provided parsed text)\n\nThere are many interesting future directions to extend the scope of the current work. Notable examples include:\n\u2022 Can Theorem 5 be extended to other weakly-convex models, such as max-of-smooth functions [56, 57]? Extending this theorem could provide tools for solving other weakly-convex optimization problems.",
   "title": "Extend uniform subdifferential convergence rates (Theorem 5) to max-of-smooth weakly convex objectives",

@@ -13,7 +13,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2026,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 15, Section 3 (discussion immediately after Theorem 3.8)\n\nBy fixing the parameter \\(b=\\bar b\\), our condition (45) is also sufficient for the Lipschitz stability of the solution mappings considered after Theorem 3.8. Whether it is necessary is an open question.",
   "title": "Necessity of the condition \\(\\ker \\bar A \\cap \\mathrm{par}\\,\\partial g^*(\\bar z)=\\{0\\}\\) for Lipschitz stability when the data \\(b\\) is fixed",

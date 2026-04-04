@@ -12,7 +12,7 @@
   "source_paper_journal": "Mathematics of Operations Research",
   "source_paper_publication_year": 2025,
   "problem_index": 0,
-  "pipeline_generated_at_utc": "2026-04-03T19:34:29.038749+00:00",
+  "pipeline_generated_at_utc": "2026-04-04T05:06:32.826623+00:00",
   "export_mode": "unverified",
   "context": "Page 3, Section 1 (Introduction), paragraph discussing prior work on accumulation points and sequential convergence\n\nBeyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
   "title": "Sequential convergence of Lloyd\u2019s method for semi-discrete quantization without definability/analyticity assumptions",
