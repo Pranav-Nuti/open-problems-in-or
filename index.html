@@ -155,11 +155,11 @@
     }
 
     function formatAreaBadge(p) {
-      const area = String(p?.area || "").trim();
-      if (!area || area.toLowerCase() === "other") {
+      const subject = String(p?.subject_classification || "").trim();
+      if (!subject || subject.toLowerCase() === "other") {
         return "";
       }
-      return `<span class="area-pill">${escapeHtml(area)}</span>`;
+      return `<span class="area-pill">${escapeHtml(subject)}</span>`;
     }
 
     function formatUploadDate(iso) {
