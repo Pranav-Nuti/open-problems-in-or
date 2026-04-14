@@ -239,6 +239,16 @@
       return `problem.html?${params.toString()}`;
     }
 
+    function seqBtnHtml(tag, href, directionText, titleText) {
+      const content = `
+        <span class="problem-seq-btn-direction">${escapeHtml(directionText)}</span>
+        <span class="problem-seq-btn-label">${escapeHtml(titleText)}</span>`;
+      if (tag === "a") {
+        return `<a class="problem-seq-btn" href="${escapeHtml(href)}">${content}</a>`;
+      }
+      return `<span class="problem-seq-btn disabled" aria-disabled="true">${content}</span>`;
+    }
+
     function configureProblemSequenceNav(indexRows, problemId) {
       const nav = document.getElementById("problem-sequence-nav");
       const prevWrap = document.getElementById("problem-prev-wrap");
@@ -256,20 +266,18 @@
 
       if (idx > 0) {
         const prevRow = indexRows[idx - 1];
-        const prevId = prevRow.problem_id;
-        const href = problemDetailHref(prevId, idx);
-        prevWrap.innerHTML = `<a class="problem-seq-btn" href="${escapeHtml(href)}">← Previous problem</a>`;
+        const href = problemDetailHref(prevRow.problem_id, idx);
+        prevWrap.innerHTML = seqBtnHtml("a", href, "← Previous", prevRow.title || prevRow.problem_id);
       } else {
-        prevWrap.innerHTML = `<span class="problem-seq-btn disabled" aria-disabled="true">← Previous problem</span>`;
+        prevWrap.innerHTML = seqBtnHtml("span", "", "← Previous", "No previous problem");
       }
 
       if (idx < total - 1) {
         const nextRow = indexRows[idx + 1];
-        const nextId = nextRow.problem_id;
-        const href = problemDetailHref(nextId, idx + 2);
-        nextWrap.innerHTML = `<a class="problem-seq-btn" href="${escapeHtml(href)}">Next problem →</a>`;
+        const href = problemDetailHref(nextRow.problem_id, idx + 2);
+        nextWrap.innerHTML = seqBtnHtml("a", href, "Next →", nextRow.title || nextRow.problem_id);
       } else {
-        nextWrap.innerHTML = `<span class="problem-seq-btn disabled" aria-disabled="true">Next problem →</span>`;
+        nextWrap.innerHTML = seqBtnHtml("span", "", "Next →", "No next problem");
       }
     }
 
