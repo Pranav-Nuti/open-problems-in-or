@@ -1,0 +1,61 @@
+{
+  "problem_id": "W7143448186_p0",
+  "paper_id": "W7143448186",
+  "source_paper": "W7143448186",
+  "source_paper_title": "On the Equivalence of Zero-Sum Games and Conic Programs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2025.0926",
+  "source_paper_authors": [
+    "Nikos Dimou"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
+  "source_paper_bibtex": "@article{Dimou_2026, title={On the Equivalence of Zero-Sum Games and Conic Programs}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2025.0926}, DOI={10.1287/moor.2025.0926}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Dimou, Nikos}, year={2026}, month=mar }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-14T14:28:34.247559+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Future directions), page 34 (PDF page labeled 34/37)\n\nFor semidefinite programming in particular, the decision of feasibility in polynomial time is a fundamental problem (Pataki and Touzov [35]).",
+  "title": "Deciding semidefinite program feasibility in polynomial time via conic-game constructions",
+  "background_latex": "A (primal) semidefinite program (SDP) is a conic linear program over the cone of positive semidefinite matrices.\nLet \\(\\mathbb{S}^m\\) denote the real vector space of \\(m\\times m\\) symmetric matrices, with Frobenius inner product \\(\\langle U,V\\rangle := \\mathrm{tr}(UV)\\). Let \\(\\mathbb{S}^m_+\\) be the closed convex cone of positive semidefinite matrices.\n\nGiven matrices \\(A_1,\\dots,A_n\\in \\mathbb{S}^m\\), a cost matrix \\(C\\in \\mathbb{S}^m\\), and a right-hand side vector \\(b\\in \\mathbb{R}^n\\), the standard primal-dual SDP pair is\n\\[\n\\text{(P-SDP)}\\quad \\inf_{X\\in \\mathbb{S}^m} \\ \\langle C,X\\rangle \\ \\text{s.t.}\\ \\langle A_i,X\\rangle \\ge b_i\\ (i=1,\\dots,n),\\ \\ X\\succeq 0,\n\\]\n\\[\n\\text{(D-SDP)}\\quad \\sup_{y\\in \\mathbb{R}^n} \\ b^\\top y \\ \\text{s.t.}\\ C-\\sum_{i=1}^n y_i A_i \\succeq 0,\\ \\ y\\ge 0.\n\\]\nFeasibility of \\(\\text{(P-SDP)}\\) means there exists \\(X\\succeq 0\\) with \\(\\langle A_i,X\\rangle\\ge b_i\\) for all \\(i\\). Feasibility of \\(\\text{(D-SDP)}\\) means there exists \\(y\\ge 0\\) with \\(C-\\sum_i y_i A_i\\succeq 0\\).\n\nA point \\(X\\) is strictly feasible for \\(\\text{(P-SDP)}\\) if \\(X\\succ 0\\) and \\(\\langle A_i,X\\rangle>b_i\\) for all \\(i\\). Analogously, \\(y\\) is strictly feasible for \\(\\text{(D-SDP)}\\) if \\(y>0\\) and \\(C-\\sum_i y_i A_i\\succ 0\\). Existence of strictly feasible solutions (a Slater-type condition) is a common sufficient condition for strong duality and good algorithmic behavior.\n\nThe paper establishes a game-theoretic reformulation of strict feasibility for general conic programs and, specializing to SDPs, notes a connection to a known open question: whether feasibility of semidefinite programs can be decided in polynomial time.\n\nThe reformulation uses a two-player zero-sum game whose strategy sets are bases of cones and whose payoff is bilinear \\(u(X,y)=\\langle y, A(X)\\rangle\\); for SDPs one may take player I's strategies in a base of \\(\\mathbb{S}^m_+\\) (e.g., \\(\\{X\\succeq 0:\\mathrm{tr}(X)=1\\}\\)) and player II's strategies in a base of \\(\\mathbb{R}^n_+\\) (e.g., the simplex \\(\\{y\\ge 0: \\mathbf{1}^\\top y=1\\}\\)). The paper states that determining strict feasibility for an SDP pair in polynomial time is equivalent (via its almost-equivalence theorem) to being able to construct, in polynomial time, an associated semidefinite game with certain properties (nonzero value, or zero value plus a null-set condition).",
+  "problem_definition_latex": "Design a polynomial-time algorithm that, given SDP data \\((A_1,\\dots,A_n,C,b)\\), decides feasibility of semidefinite programming.\n\nConcretely: given \\(A_1,\\dots,A_n,C\\in \\mathbb{S}^m\\) and \\(b\\in \\mathbb{R}^n\\), determine in time polynomial in the input size whether \\(\\text{(P-SDP)}\\) has a feasible solution \\(X\\succeq 0\\) satisfying \\(\\langle A_i,X\\rangle\\ge b_i\\) for all \\(i\\) (equivalently, whether the primal-dual SDP pair is feasible).\n\nEquivalently (as highlighted by the paper): determine strict feasibility for the SDP pair in polynomial time; by the paper's almost-equivalence framework, this is equivalent to being able to construct in polynomial time an associated semidefinite zero-sum game (via polynomial-time construction of appropriate bases of \\(\\mathbb{S}^m_+\\) and \\(\\mathbb{R}^n_+\\)) whose game value is nonzero, or whose game value is zero while a specified null-set condition holds.",
+  "latex": "A (primal) semidefinite program (SDP) is a conic linear program over the cone of positive semidefinite matrices.\nLet \\(\\mathbb{S}^m\\) denote the real vector space of \\(m\\times m\\) symmetric matrices, with Frobenius inner product \\(\\langle U,V\\rangle := \\mathrm{tr}(UV)\\). Let \\(\\mathbb{S}^m_+\\) be the closed convex cone of positive semidefinite matrices.\n\nGiven matrices \\(A_1,\\dots,A_n\\in \\mathbb{S}^m\\), a cost matrix \\(C\\in \\mathbb{S}^m\\), and a right-hand side vector \\(b\\in \\mathbb{R}^n\\), the standard primal-dual SDP pair is\n\\[\n\\text{(P-SDP)}\\quad \\inf_{X\\in \\mathbb{S}^m} \\ \\langle C,X\\rangle \\ \\text{s.t.}\\ \\langle A_i,X\\rangle \\ge b_i\\ (i=1,\\dots,n),\\ \\ X\\succeq 0,\n\\]\n\\[\n\\text{(D-SDP)}\\quad \\sup_{y\\in \\mathbb{R}^n} \\ b^\\top y \\ \\text{s.t.}\\ C-\\sum_{i=1}^n y_i A_i \\succeq 0,\\ \\ y\\ge 0.\n\\]\nFeasibility of \\(\\text{(P-SDP)}\\) means there exists \\(X\\succeq 0\\) with \\(\\langle A_i,X\\rangle\\ge b_i\\) for all \\(i\\). Feasibility of \\(\\text{(D-SDP)}\\) means there exists \\(y\\ge 0\\) with \\(C-\\sum_i y_i A_i\\succeq 0\\).\n\nA point \\(X\\) is strictly feasible for \\(\\text{(P-SDP)}\\) if \\(X\\succ 0\\) and \\(\\langle A_i,X\\rangle>b_i\\) for all \\(i\\). Analogously, \\(y\\) is strictly feasible for \\(\\text{(D-SDP)}\\) if \\(y>0\\) and \\(C-\\sum_i y_i A_i\\succ 0\\). Existence of strictly feasible solutions (a Slater-type condition) is a common sufficient condition for strong duality and good algorithmic behavior.\n\nThe paper establishes a game-theoretic reformulation of strict feasibility for general conic programs and, specializing to SDPs, notes a connection to a known open question: whether feasibility of semidefinite programs can be decided in polynomial time.\n\nThe reformulation uses a two-player zero-sum game whose strategy sets are bases of cones and whose payoff is bilinear \\(u(X,y)=\\langle y, A(X)\\rangle\\); for SDPs one may take player I's strategies in a base of \\(\\mathbb{S}^m_+\\) (e.g., \\(\\{X\\succeq 0:\\mathrm{tr}(X)=1\\}\\)) and player II's strategies in a base of \\(\\mathbb{R}^n_+\\) (e.g., the simplex \\(\\{y\\ge 0: \\mathbf{1}^\\top y=1\\}\\)). The paper states that determining strict feasibility for an SDP pair in polynomial time is equivalent (via its almost-equivalence theorem) to being able to construct, in polynomial time, an associated semidefinite game with certain properties (nonzero value, or zero value plus a null-set condition).\n\nDesign a polynomial-time algorithm that, given SDP data \\((A_1,\\dots,A_n,C,b)\\), decides feasibility of semidefinite programming.\n\nConcretely: given \\(A_1,\\dots,A_n,C\\in \\mathbb{S}^m\\) and \\(b\\in \\mathbb{R}^n\\), determine in time polynomial in the input size whether \\(\\text{(P-SDP)}\\) has a feasible solution \\(X\\succeq 0\\) satisfying \\(\\langle A_i,X\\rangle\\ge b_i\\) for all \\(i\\) (equivalently, whether the primal-dual SDP pair is feasible).\n\nEquivalently (as highlighted by the paper): determine strict feasibility for the SDP pair in polynomial time; by the paper's almost-equivalence framework, this is equivalent to being able to construct in polynomial time an associated semidefinite zero-sum game (via polynomial-time construction of appropriate bases of \\(\\mathbb{S}^m_+\\) and \\(\\mathbb{R}^n_+\\)) whose game value is nonzero, or whose game value is zero while a specified null-set condition holds.",
+  "location_in_paper": "Section 7 (Future directions), page 34 (PDF page labeled 34/37)",
+  "open_problem_quote": "For semidefinite programming in particular, the decision of feasibility in polynomial time is a fundamental problem (Pataki and Touzov [35]).",
+  "evaluation_area_label": "none",
+  "evaluation_area_in_scope": false,
+  "subject_classification": "conic optimization and semidefinite programming complexity",
+  "keywords": [
+    "semidefinite programming",
+    "feasibility complexity",
+    "polynomial-time algorithms",
+    "strict feasibility (Slater condition)",
+    "conic duality",
+    "zero-sum games"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is about existence of a polynomial-time decision procedure in the worst-case (a complexity-theoretic problem), not about a conjectured inequality likely to fail on finite instances. Searching for counterexamples is not a well-defined approach here.",
+  "alphaevolve_suitability": "low",
+  "alphaevolve_suitability_rationale": "There is no clear automatic fitness function for candidate algorithms that certifies polynomial-time correctness on all inputs. While one can test heuristics on random SDPs, that does not provide reliable progress toward a provably polynomial-time feasibility algorithm.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0881538,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0881538
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_20250414_20260414_problems/W7143448186/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

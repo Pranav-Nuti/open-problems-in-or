@@ -30,8 +30,8 @@
     <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
       <strong>Not verified as open.</strong>
       <span class="unverified-notice"></span>
-      <span class="unverified-email-wrap"> If this is resolved or misstated, email
-        <span class="unverified-email"></span>.</span>
+      <span class="unverified-email-wrap"> Contact
+        <span class="unverified-email"></span> if this is resolved or misstated.</span>
     </div>
 
     <div class="problem-header">
@@ -77,7 +77,7 @@
     </section>
 
     <section class="problem-section">
-      <h2>Problem definition</h2>
+      <h2>Problem</h2>
       <div class="source-actions">
         <button id="copy-problem-latex-btn" class="inline-action-btn" type="button">Copy background + problem LaTeX</button>
         <button id="toggle-raw-latex-btn" class="inline-action-btn" type="button">View raw LaTeX source</button>
@@ -87,7 +87,7 @@
     </section>
 
     <section class="problem-section">
-      <h2>Context</h2>
+      <h2>Source quote of open problem</h2>
       <p id="problem-context"></p>
     </section>
 
@@ -331,7 +331,7 @@
           chunks.push(split.background);
         }
         if (split.definition) {
-          chunks.push("Problem definition:");
+          chunks.push("Problem:");
           chunks.push(split.definition);
         }
         const output = chunks.join("\n\n").trim();

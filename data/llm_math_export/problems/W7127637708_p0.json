@@ -1,0 +1,63 @@
+{
+  "problem_id": "W7127637708_p0",
+  "paper_id": "W7127637708",
+  "source_paper": "W7127637708",
+  "source_paper_title": "Time-Consistent Portfolio Selection for Rank-Dependent Utilities in a Constrained Market",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0720",
+  "source_paper_authors": [
+    "Jiaqin Wei",
+    "Jianming Xia",
+    "Qian Zhao"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
+  "source_paper_bibtex": "@article{Wei_2026, title={Time-Consistent Portfolio Selection for Rank-Dependent Utilities in a Constrained Market}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0720}, DOI={10.1287/moor.2024.0720}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Wei, Jiaqin and Xia, Jianming and Zhao, Qian}, year={2026}, month=feb }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-14T14:28:34.247559+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Concluding Remarks), page 29 (PDF numbering as shown in the provided text).\n\nFinally, it should be noted that investigating non-deterministic equilibrium strategies for portfolio selection under RDU is very challenging. We even do not know whether there is a non-deterministic equilibrium strategy.",
+  "title": "Existence of non-deterministic strict equilibrium portfolio strategies under rank-dependent utility",
+  "background_latex": "Consider a finite-horizon continuous-time market on a filtered probability space \\((\\Omega,\\mathcal F,\\{\\mathcal F_t\\}_{t\\in[0,T]},\\mathbb P)\\) supporting a standard \\(d\\)-dimensional Brownian motion \\(W\\). There are \\(n\\le d\\) risky assets and one risk-free asset. With constant coefficients \\(r\\in\\mathbb R\\), excess return vector \\(\\mu\\in\\mathbb R^n\\), and volatility matrix \\(\\sigma\\in\\mathbb R^{n\\times d}\\) satisfying \\(\\sigma\\sigma^\\top\\) positive definite, the wealth process under a (self-financing) portfolio-proportion strategy \\(\\pi=(\\pi_t)_{t\\in[0,T]}\\) evolves as\n\\[\n\\frac{dX_t}{X_t} = \\bigl(r + \\pi_t^\\top\\mu\\bigr)\\,dt + \\pi_t^\\top\\sigma\\,dW_t,\\qquad X_t=x>0.\n\\]\nA strategy \\(\\pi\\) is an \\(\\mathbb R^n\\)-valued progressively measurable process satisfying the usual square-integrability condition \\(\\int_0^T \\|\\pi_t^\\top\\sigma\\|^2dt<\\infty\\) a.s. (and the corresponding integrability needed for the preference functional below).\n\nPreferences are given by rank-dependent utility (RDU) over terminal wealth \\(X_T\\). Let \\(U:(0,\\infty)\\to\\mathbb R\\) be CRRA utility,\n\\[\nU(x)=\\begin{cases}\\frac{1}{\\gamma}x^\\gamma,&\\gamma\\ne 0,\\\\ \\log x,&\\gamma=0,\\end{cases}\n\\]\nand let \\(w:[0,1]\\to[0,1]\\) (or time-dependent \\(w(t,\\cdot)\\)) be a strictly increasing, continuously differentiable probability-weighting function with \\(w(0)=0\\), \\(w(1)=1\\) and mild growth control on \\(w'\\) ensuring finiteness of the RDU functional.\n\nFor a random variable \\(X\\), let \\(Q_X:(0,1)\\to\\mathbb R\\) denote its quantile function. At time \\(t\\), the agent evaluates terminal wealth by the conditional RDU functional\n\\[\nJ(t,x;\\pi)=\\mathbb E_t^{w}[U(X_T^{\\pi})] := \\int_0^1 U\\bigl(Q^{t}_{X_T^{\\pi}}(p)\\bigr)\\,dw(p)\n\\]\n(with \\(dw(p)\\) replaced by \\(w(t,dp)\\) in the time-dependent case), where \\(Q^{t}_{X_T^{\\pi}}\\) is the conditional quantile of \\(X_T^{\\pi}\\) given \\(\\mathcal F_t\\).\n\nTime inconsistency is handled via a game-theoretic equilibrium notion. Given a candidate strategy \\(\\pi\\), a deviation at time \\(t\\) over a short interval \\([t,t+\\varepsilon)\\) is represented by \\(\\pi^{t,\\varepsilon,\\kappa}\\) defined by \\(\\pi^{t,\\varepsilon,\\kappa}_s=\\pi_s+\\kappa\\) for \\(s\\in[t,t+\\varepsilon)\\) and \\(\\pi^{t,\\varepsilon,\\kappa}_s=\\pi_s\\) otherwise, where \\(\\kappa\\) is any bounded \\(\\mathcal F_t\\)-measurable \\(\\mathbb R^n\\)-valued random vector.\n\nA strict equilibrium strategy (SES) is an admissible strategy \\(\\pi\\) such that for every \\(t\\in[0,T)\\) and every such \\(\\kappa\\ne 0\\),\n\\[\n\\lim_{\\varepsilon\\downarrow 0}\\ \\operatorname{ess\\,sup}_{\\varepsilon'\\in(0,\\varepsilon)}\\ \\frac{J(t,x;\\pi^{t,\\varepsilon',\\kappa})-J(t,x;\\pi)}{\\varepsilon'}<0\\quad\\text{a.s. for all }x>0.\n\\]\nIn the paper, deterministic SES (DSES) are those SES with deterministic right-continuous \\(\\pi_t\\), and they are characterized via (possibly singular) ODEs. The question below concerns existence of SES beyond the deterministic class.",
+  "problem_definition_latex": "Determine whether there exists an admissible \\(\\mathbb R^n\\)-valued progressively measurable strategy \\(\\pi\\) that is a strict equilibrium strategy (SES) for the continuous-time portfolio problem with rank-dependent utility as defined above, and that is not (a.s.) equal to any deterministic function of time (i.e., \\(\\pi\\) is genuinely non-deterministic). Equivalently, characterize existence (and, if possible, construction) of non-deterministic SES in this RDU portfolio-selection setting (in particular in incomplete markets \\(n<d\\), but also in general).",
+  "latex": "Consider a finite-horizon continuous-time market on a filtered probability space \\((\\Omega,\\mathcal F,\\{\\mathcal F_t\\}_{t\\in[0,T]},\\mathbb P)\\) supporting a standard \\(d\\)-dimensional Brownian motion \\(W\\). There are \\(n\\le d\\) risky assets and one risk-free asset. With constant coefficients \\(r\\in\\mathbb R\\), excess return vector \\(\\mu\\in\\mathbb R^n\\), and volatility matrix \\(\\sigma\\in\\mathbb R^{n\\times d}\\) satisfying \\(\\sigma\\sigma^\\top\\) positive definite, the wealth process under a (self-financing) portfolio-proportion strategy \\(\\pi=(\\pi_t)_{t\\in[0,T]}\\) evolves as\n\\[\n\\frac{dX_t}{X_t} = \\bigl(r + \\pi_t^\\top\\mu\\bigr)\\,dt + \\pi_t^\\top\\sigma\\,dW_t,\\qquad X_t=x>0.\n\\]\nA strategy \\(\\pi\\) is an \\(\\mathbb R^n\\)-valued progressively measurable process satisfying the usual square-integrability condition \\(\\int_0^T \\|\\pi_t^\\top\\sigma\\|^2dt<\\infty\\) a.s. (and the corresponding integrability needed for the preference functional below).\n\nPreferences are given by rank-dependent utility (RDU) over terminal wealth \\(X_T\\). Let \\(U:(0,\\infty)\\to\\mathbb R\\) be CRRA utility,\n\\[\nU(x)=\\begin{cases}\\frac{1}{\\gamma}x^\\gamma,&\\gamma\\ne 0,\\\\ \\log x,&\\gamma=0,\\end{cases}\n\\]\nand let \\(w:[0,1]\\to[0,1]\\) (or time-dependent \\(w(t,\\cdot)\\)) be a strictly increasing, continuously differentiable probability-weighting function with \\(w(0)=0\\), \\(w(1)=1\\) and mild growth control on \\(w'\\) ensuring finiteness of the RDU functional.\n\nFor a random variable \\(X\\), let \\(Q_X:(0,1)\\to\\mathbb R\\) denote its quantile function. At time \\(t\\), the agent evaluates terminal wealth by the conditional RDU functional\n\\[\nJ(t,x;\\pi)=\\mathbb E_t^{w}[U(X_T^{\\pi})] := \\int_0^1 U\\bigl(Q^{t}_{X_T^{\\pi}}(p)\\bigr)\\,dw(p)\n\\]\n(with \\(dw(p)\\) replaced by \\(w(t,dp)\\) in the time-dependent case), where \\(Q^{t}_{X_T^{\\pi}}\\) is the conditional quantile of \\(X_T^{\\pi}\\) given \\(\\mathcal F_t\\).\n\nTime inconsistency is handled via a game-theoretic equilibrium notion. Given a candidate strategy \\(\\pi\\), a deviation at time \\(t\\) over a short interval \\([t,t+\\varepsilon)\\) is represented by \\(\\pi^{t,\\varepsilon,\\kappa}\\) defined by \\(\\pi^{t,\\varepsilon,\\kappa}_s=\\pi_s+\\kappa\\) for \\(s\\in[t,t+\\varepsilon)\\) and \\(\\pi^{t,\\varepsilon,\\kappa}_s=\\pi_s\\) otherwise, where \\(\\kappa\\) is any bounded \\(\\mathcal F_t\\)-measurable \\(\\mathbb R^n\\)-valued random vector.\n\nA strict equilibrium strategy (SES) is an admissible strategy \\(\\pi\\) such that for every \\(t\\in[0,T)\\) and every such \\(\\kappa\\ne 0\\),\n\\[\n\\lim_{\\varepsilon\\downarrow 0}\\ \\operatorname{ess\\,sup}_{\\varepsilon'\\in(0,\\varepsilon)}\\ \\frac{J(t,x;\\pi^{t,\\varepsilon',\\kappa})-J(t,x;\\pi)}{\\varepsilon'}<0\\quad\\text{a.s. for all }x>0.\n\\]\nIn the paper, deterministic SES (DSES) are those SES with deterministic right-continuous \\(\\pi_t\\), and they are characterized via (possibly singular) ODEs. The question below concerns existence of SES beyond the deterministic class.\n\nDetermine whether there exists an admissible \\(\\mathbb R^n\\)-valued progressively measurable strategy \\(\\pi\\) that is a strict equilibrium strategy (SES) for the continuous-time portfolio problem with rank-dependent utility as defined above, and that is not (a.s.) equal to any deterministic function of time (i.e., \\(\\pi\\) is genuinely non-deterministic). Equivalently, characterize existence (and, if possible, construction) of non-deterministic SES in this RDU portfolio-selection setting (in particular in incomplete markets \\(n<d\\), but also in general).",
+  "location_in_paper": "Section 5 (Concluding Remarks), page 29 (PDF numbering as shown in the provided text).",
+  "open_problem_quote": "Finally, it should be noted that investigating non-deterministic equilibrium strategies for portfolio selection under RDU is very challenging. We even do not know whether there is a non-deterministic equilibrium strategy.",
+  "evaluation_area_label": "none",
+  "evaluation_area_in_scope": false,
+  "subject_classification": "Time-inconsistent stochastic control in mathematical finance",
+  "keywords": [
+    "rank-dependent utility",
+    "time inconsistency",
+    "equilibrium strategy",
+    "portfolio selection",
+    "incomplete markets",
+    "stochastic control"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The object is an equilibrium existence question over an infinite-dimensional space of progressively measurable controls, not a finite combinatorial structure. Disproving existence would require constructing a general obstruction rather than finding a small numerical instance.",
+  "alphaevolve_suitability": "low",
+  "alphaevolve_suitability_rationale": "There is no clear computable fitness function for candidate stochastic strategies because verifying the strict equilibrium condition involves an essential supremum over all bounded local deviations and a small-time limit, which is analytically delicate and not directly checkable by simulation at scale.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08201130000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08201130000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_20250414_20260414_problems/W7127637708/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

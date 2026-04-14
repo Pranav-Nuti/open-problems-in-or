@@ -482,6 +482,12 @@ main {
 }
 
 /* MathJax */
+.math-content {
+  overflow-x: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 .katex {
   font-size: 1.05em;
 }
