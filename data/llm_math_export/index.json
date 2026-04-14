@@ -57,7 +57,7 @@
       "source_paper_authors": [
         "Johannes Brustle",
         "Sebastian Perez-Salazar",
-        "V\u00edctor Verdugo"
+        "Víctor Verdugo"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
@@ -126,11 +126,11 @@
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0581",
       "source_paper_authors": [
         "Anna Bogomolnaia",
-        "Herv\u00e9 Moulin"
+        "Hervé Moulin"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Bogomolnaia_2025, title={Fair Congested Assignment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0581}, DOI={10.1287/moor.2024.0581}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bogomolnaia, Anna and Moulin, Herv\u00e9}, year={2025}, month=may }",
+      "source_paper_bibtex": "@article{Bogomolnaia_2025, title={Fair Congested Assignment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0581}, DOI={10.1287/moor.2024.0581}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bogomolnaia, Anna and Moulin, Hervé}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Define competitive fair random assignments with lower congestion bounds on posts",
       "evaluation_area_label": "algorithmic mechanism design",
@@ -156,7 +156,7 @@
       "problem_id": "W4410155359_p0",
       "paper_id": "W4410155359",
       "source_paper": "W4410155359",
-      "source_paper_title": "Positivstellens\u00e4tze and Moment Problems with Universal Quantifiers",
+      "source_paper_title": "Positivstellensätze and Moment Problems with Universal Quantifiers",
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0402",
       "source_paper_authors": [
         "Xiaomeng Hu",
@@ -165,7 +165,7 @@
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Hu_2025, title={Positivstellens\u00e4tze and Moment Problems with Universal Quantifiers}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0402}, DOI={10.1287/moor.2024.0402}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hu, Xiaomeng and Klep, Igor and Nie, Jiawang}, year={2025}, month=may }",
+      "source_paper_bibtex": "@article{Hu_2025, title={Positivstellensätze and Moment Problems with Universal Quantifiers}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0402}, DOI={10.1287/moor.2024.0402}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hu, Xiaomeng and Klep, Igor and Nie, Jiawang}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Finite semidefinite characterization for truncated moment measures with universal quantifiers",
       "evaluation_area_label": "none",
@@ -259,7 +259,7 @@
       "problem_id": "W4410395976_p0",
       "paper_id": "W4410395976",
       "source_paper": "W4410395976",
-      "source_paper_title": "Scarf\u2019s Algorithm and Stable Marriages",
+      "source_paper_title": "Scarf’s Algorithm and Stable Marriages",
       "source_paper_url": "https://doi.org/10.1287/moor.2023.0055",
       "source_paper_authors": [
         "Yuri Faenza",
@@ -268,9 +268,9 @@
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Faenza_2025, title={Scarf\u2019s Algorithm and Stable Marriages}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0055}, DOI={10.1287/moor.2023.0055}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Faenza, Yuri and He, Chengyue and Sethuraman, Jay}, year={2025}, month=may }",
+      "source_paper_bibtex": "@article{Faenza_2025, title={Scarf’s Algorithm and Stable Marriages}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0055}, DOI={10.1287/moor.2023.0055}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Faenza, Yuri and He, Chengyue and Sethuraman, Jay}, year={2025}, month=may }",
       "problem_index": 0,
-      "title": "Polynomial-time convergence of Scarf\u2019s algorithm for any ordinal matrix setting",
+      "title": "Polynomial-time convergence of Scarf’s algorithm for any ordinal matrix setting",
       "evaluation_area_label": "none",
       "evaluation_area_in_scope": false,
       "subject_classification": "Computational complexity and pivoting algorithms in combinatorial optimization",
@@ -537,7 +537,7 @@
       "problem_id": "W4411879499_p0",
       "paper_id": "W4411879499",
       "source_paper": "W4411879499",
-      "source_paper_title": "Exactness and Effective Degree Bound of Lasserre\u2019s Relaxation for Polynomial Optimization over Finite Variety",
+      "source_paper_title": "Exactness and Effective Degree Bound of Lasserre’s Relaxation for Polynomial Optimization over Finite Variety",
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0483",
       "source_paper_authors": [
         "Zheng Hua",
@@ -545,7 +545,7 @@
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Hua_2025, title={Exactness and Effective Degree Bound of Lasserre\u2019s Relaxation for Polynomial Optimization over Finite Variety}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0483}, DOI={10.1287/moor.2024.0483}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hua, Zheng and Qu, Zheng}, year={2025}, month=jul }",
+      "source_paper_bibtex": "@article{Hua_2025, title={Exactness and Effective Degree Bound of Lasserre’s Relaxation for Polynomial Optimization over Finite Variety}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0483}, DOI={10.1287/moor.2024.0483}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hua, Zheng and Qu, Zheng}, year={2025}, month=jul }",
       "problem_index": 0,
       "title": "Derive effective degree bounds for Lasserre relaxations under regular-sequence constraints",
       "evaluation_area_label": "approximation algorithms",
@@ -608,7 +608,7 @@
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0609",
       "source_paper_authors": [
         "Ruoyu Diao",
-        "Yu\u2010Hong Dai",
+        "Yu‐Hong Dai",
         "Liwei Zhang"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
@@ -813,16 +813,16 @@
       "problem_id": "W4413848299_p0",
       "paper_id": "W4413848299",
       "source_paper": "W4413848299",
-      "source_paper_title": "Tight Running Times for Minimum \u2113<sub><i>q</i></sub>-Norm Load Balancing: Beyond Exponential Dependencies on 1/\u03f5",
+      "source_paper_title": "Tight Running Times for Minimum ℓ<sub><i>q</i></sub>-Norm Load Balancing: Beyond Exponential Dependencies on 1/ϵ",
       "source_paper_url": "https://doi.org/10.1287/moor.2023.0231",
       "source_paper_authors": [
         "Lin Chen",
         "Liangde Tao",
-        "Jos\u00e9 Verschae"
+        "José Verschae"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Chen_2025, title={Tight Running Times for Minimum \u2113q-Norm Load Balancing: Beyond Exponential Dependencies on 1/\u03f5}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0231}, DOI={10.1287/moor.2023.0231}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Lin and Tao, Liangde and Verschae, Jos\u00e9}, year={2025}, month=aug }",
+      "source_paper_bibtex": "@article{Chen_2025, title={Tight Running Times for Minimum ℓq-Norm Load Balancing: Beyond Exponential Dependencies on 1/ϵ}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0231}, DOI={10.1287/moor.2023.0231}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Lin and Tao, Liangde and Verschae, José}, year={2025}, month=aug }",
       "problem_index": 0,
       "title": "Tight PTAS running time for q-norm load balancing with intermediate machines",
       "evaluation_area_label": "approximation algorithms",
@@ -888,11 +888,11 @@
       "source_paper_authors": [
         "Tiziano De Angelis",
         "Fabien Gensbittel",
-        "St\u00e9phane Villeneuve"
+        "Stéphane Villeneuve"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{De_Angelis_2025, title={Nash Equilibria for Dividend Distribution with Competition}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0374}, DOI={10.1287/moor.2023.0374}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={De Angelis, Tiziano and Gensbittel, Fabien and Villeneuve, St\u00e9phane}, year={2025}, month=sep }",
+      "source_paper_bibtex": "@article{De_Angelis_2025, title={Nash Equilibria for Dividend Distribution with Competition}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0374}, DOI={10.1287/moor.2023.0374}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={De Angelis, Tiziano and Gensbittel, Fabien and Villeneuve, Stéphane}, year={2025}, month=sep }",
       "problem_index": 0,
       "title": "Existence of reversed role equilibrium in dividend competition game with asymmetry",
       "evaluation_area_label": "none",
@@ -921,12 +921,12 @@
       "source_paper_title": "Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability",
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0770",
       "source_paper_authors": [
-        "Thorben Tr\u00f6bst",
+        "Thorben Tröbst",
         "Vijay V. Vazirani"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Tr_bst_2025, title={Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0770}, DOI={10.1287/moor.2024.0770}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Tr\u00f6bst, Thorben and Vazirani, Vijay V.}, year={2025}, month=sep }",
+      "source_paper_bibtex": "@article{Tr_bst_2025, title={Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0770}, DOI={10.1287/moor.2024.0770}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Tröbst, Thorben and Vazirani, Vijay V.}, year={2025}, month=sep }",
       "problem_index": 0,
       "title": "Polynomial-time constant-factor approximation for justified-envy-free Pareto-optimal lotteries in two-sided markets",
       "evaluation_area_label": "algorithmic mechanism design",
@@ -961,7 +961,7 @@
       "source_paper_publication_year": 2025,
       "source_paper_bibtex": "@article{Srikant_2025, title={Rates of Convergence in the Central Limit Theorem for Markov Chains, with an Application to TD Learning}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0444}, DOI={10.1287/moor.2024.0444}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Srikant, R.}, year={2025}, month=oct }",
       "problem_index": 0,
-      "title": "Improve martingale and Markov chain CLT Wasserstein convergence rate to n^{-1/2}",
+      "title": "Improve martingale and Markov chain CLT Wasserstein convergence rate to the optimal 1/sqrt(n) rate",
       "evaluation_area_label": "none",
       "evaluation_area_in_scope": false,
       "subject_classification": "probability theory (non-asymptotic central limit theorems for dependent processes)",
@@ -989,14 +989,14 @@
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0817",
       "source_paper_authors": [
         "Javier Cembrano",
-        "Jos\u00e9 Correa",
+        "José Correa",
         "Ulrike Schmidt-Kraepelin",
         "Alexandros Tsigonias-Dimitriadis",
-        "V\u00edctor Verdugo"
+        "Víctor Verdugo"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Cembrano_2025, title={New Combinatorial Insights for Monotone Apportionment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0817}, DOI={10.1287/moor.2024.0817}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cembrano, Javier and Correa, Jos\u00e9 and Schmidt-Kraepelin, Ulrike and Tsigonias-Dimitriadis, Alexandros and Verdugo, Victor}, year={2025}, month=oct }",
+      "source_paper_bibtex": "@article{Cembrano_2025, title={New Combinatorial Insights for Monotone Apportionment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0817}, DOI={10.1287/moor.2024.0817}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cembrano, Javier and Correa, José and Schmidt-Kraepelin, Ulrike and Tsigonias-Dimitriadis, Alexandros and Verdugo, Victor}, year={2025}, month=oct }",
       "problem_index": 0,
       "title": "Achieve quota and ex-ante proportionality under population monotonicity with fixed house size",
       "evaluation_area_label": "none",
@@ -1094,11 +1094,11 @@
       "source_paper_url": "https://doi.org/10.1287/moor.2024.0562",
       "source_paper_authors": [
         "Chien-Chung Huang",
-        "Fran\u00e7ois Sellier"
+        "François Sellier"
       ],
       "source_paper_journal": "Mathematics of Operations Research",
       "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Huang_2025, title={Robust Sparsification for Matroid Intersection with Applications}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0562}, DOI={10.1287/moor.2024.0562}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Huang, Chien-Chung and Sellier, Fran\u00e7ois}, year={2025}, month=nov }",
+      "source_paper_bibtex": "@article{Huang_2025, title={Robust Sparsification for Matroid Intersection with Applications}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0562}, DOI={10.1287/moor.2024.0562}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Huang, Chien-Chung and Sellier, François}, year={2025}, month=nov }",
       "problem_index": 0,
       "title": "Efficiently update a density-based matroid decomposition under single-element modifications",
       "evaluation_area_label": "approximation algorithms",

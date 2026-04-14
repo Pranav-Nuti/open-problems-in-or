@@ -144,7 +144,7 @@
           prefix += core[0];
           core = core.slice(1);
         }
-        while (core && ".,;:!?)]}".includes(core[core.length - 1])) {
+        while (core && ".,;:!?)".includes(core[core.length - 1])) {
           suffix = core[core.length - 1] + suffix;
           core = core.slice(0, -1);
         }
@@ -457,9 +457,9 @@
       }
       const detailSuffix = details.length > 0 ? ` (${escapeHtml(details.join(", "))})` : "";
       if (url) {
-        el.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>${detailSuffix}`;
+        el.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${title}</a>${detailSuffix}`;
       } else {
-        el.textContent = `${title}${details.length > 0 ? ` (${details.join(", ")})` : ""}`;
+        el.innerHTML = `${title}${detailSuffix}`;
       }
 
       const reviewSources = payload.literature_review?.sources;
