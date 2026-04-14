@@ -543,7 +543,8 @@
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
       document.getElementById("subject-classification").textContent = payload.subject_classification || "";
-      document.getElementById("problem-area").textContent = payload.area || "other";
+      const areaRaw = payload.area || payload.evaluation_area_label || "";
+      document.getElementById("problem-area").textContent = (areaRaw && areaRaw !== "none") ? areaRaw : "other";
       document.getElementById("verification-status").textContent = unverified
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
