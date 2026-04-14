@@ -138,7 +138,7 @@
     }
 
     function formatSourcePaper(p) {
-      const title = escapeHtml(p.source_paper_title || p.source_paper || p.paper_id || "");
+      const title = p.source_paper_title || p.source_paper || p.paper_id || "";
       const url = p.source_paper_url || "";
       const details = [];
       if (p.source_paper_journal) {
