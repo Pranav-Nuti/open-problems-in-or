@@ -1,0 +1,64 @@
+{
+  "problem_id": "W7128591806_p0",
+  "paper_id": "W7128591806",
+  "source_paper": "W7128591806",
+  "source_paper_title": "Fair and Efficient Multi-resource Allocation for Cloud Computing: Beyond Dominant Resource Fairness",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0714",
+  "source_paper_authors": [
+    "Xiaohui Bei",
+    "Zihao Li",
+    "Junjie Luo"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
+  "source_paper_bibtex": "@article{Bei_2026, title={Fair and Efficient Multi-resource Allocation for Cloud Computing: Beyond Dominant Resource Fairness}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0714}, DOI={10.1287/moor.2024.0714}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bei, Xiaohui and Li, Zihao and Luo, Junjie}, year={2026}, month=feb }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-14T14:28:34.247559+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Price of Strategyproofness), discussion immediately after Theorem 7; and Lemma 16 (page 33\u201334 in the provided text pagination).\n\nFor the case when \\(m = 3\\), we show that the price of SP is still \\(\\infty\\) for utilization, while for SW we can only get a lower bound of 2.\nWe leave the gap between 2 and 3 as an open question.",
+  "title": "Determine the exact price of strategyproofness for social welfare with three resources",
+  "background_latex": "Consider a divisible multi-resource allocation problem with a set of agents \\(N=\\{1,\\dots,n\\}\\) and a set of resources \\(R\\) with \\(|R|=m\\). Each agent \\(i\\) has a (normalized) Leontief demand vector \\(d_i=(d_{i1},\\dots,d_{im})\\in (0,1]^m\\), where at least one coordinate equals \\(1\\); the coordinate(s) equal to \\(1\\) correspond to agent \\(i\\)'s dominant resource(s). An allocation is a matrix \\(A=(A_{ir})_{i\\in N,r\\in R}\\) with \\(A_{ir}\\ge 0\\) and feasibility constraints \\(\\sum_{i\\in N} A_{ir}\\le 1\\) for each resource \\(r\\in R\\) (total supply of each resource is normalized to \\(1\\)).\n\nAgents have Leontief utilities\n\\[\n u_i(A_i)=\\max\\{y\\in \\mathbb{R}_+ : A_{ir}\\ge y\\, d_{ir}\\ \\forall r\\in R\\},\n\\]\nwhere \\(A_i=(A_{i1},\\dots,A_{im})\\). The utilitarian social welfare of allocation \\(A\\) is\n\\[\n \\mathrm{SW}(A)=\\sum_{i\\in N} u_i(A_i).\n\\]\n\nFairness and incentive/efficiency properties:\n1) Share incentive (SI): \\(u_i(A_i)\\ge 1/n\\) for all \\(i\\in N\\).\n2) Envy-freeness (EF): \\(u_i(A_i)\\ge u_i(A_j)\\) for all \\(i,j\\in N\\).\n3) Pareto optimality (PO): there is no feasible allocation \\(A'\\) with \\(u_i(A'_i)\\ge u_i(A_i)\\) for all \\(i\\) and strict inequality for some \\(i\\).\n4) Strategyproofness (SP): a mechanism \\(f\\) mapping instances \\((d_i)_{i\\in N}\\) to feasible allocations is SP if no agent can increase its utility by misreporting its demand vector.\n\nFor a mechanism \\(f\\), define its fair-ratio for social welfare as\n\\[\n \\mathrm{FR}_{\\mathrm{SW}}(f)=\\max_{I}\\ \\frac{\\max\\{\\mathrm{SW}(A): A\\text{ feasible and satisfies SI and EF on }I\\}}{\\mathrm{SW}(f(I))},\n\\]\nwhere \\(I\\) ranges over all instances (demand profiles).\n\nFor a fixed \\(m\\), define the price of strategyproofness (for social welfare) as\n\\[\n \\mathrm{Price\\ of\\ SP}(m)=\\min_{f\\text{ satisfies SI, EF, PO, SP}} \\mathrm{FR}_{\\mathrm{SW}}(f).\n\\]\nThe case of interest here is \\(m=3\\) resources.",
+  "problem_definition_latex": "Determine \\(\\mathrm{Price\\ of\\ SP}(3)\\), i.e., find the exact value of\n\\[\n\\min_{f\\text{ satisfies SI, EF, PO, SP}}\\ \\max_{I}\\ \\frac{\\max\\{\\mathrm{SW}(A): A\\text{ feasible and satisfies SI and EF on }I\\}}{\\mathrm{SW}(f(I))}.\n\\]\nEquivalently, close the current bound \\(\\mathrm{Price\\ of\\ SP}(3)\\in[2,3]\\) by proving either a lower bound \\(\\ge 3\\) or an upper bound \\(\\le 2\\) (or identifying the exact constant in between).",
+  "latex": "Consider a divisible multi-resource allocation problem with a set of agents \\(N=\\{1,\\dots,n\\}\\) and a set of resources \\(R\\) with \\(|R|=m\\). Each agent \\(i\\) has a (normalized) Leontief demand vector \\(d_i=(d_{i1},\\dots,d_{im})\\in (0,1]^m\\), where at least one coordinate equals \\(1\\); the coordinate(s) equal to \\(1\\) correspond to agent \\(i\\)'s dominant resource(s). An allocation is a matrix \\(A=(A_{ir})_{i\\in N,r\\in R}\\) with \\(A_{ir}\\ge 0\\) and feasibility constraints \\(\\sum_{i\\in N} A_{ir}\\le 1\\) for each resource \\(r\\in R\\) (total supply of each resource is normalized to \\(1\\)).\n\nAgents have Leontief utilities\n\\[\n u_i(A_i)=\\max\\{y\\in \\mathbb{R}_+ : A_{ir}\\ge y\\, d_{ir}\\ \\forall r\\in R\\},\n\\]\nwhere \\(A_i=(A_{i1},\\dots,A_{im})\\). The utilitarian social welfare of allocation \\(A\\) is\n\\[\n \\mathrm{SW}(A)=\\sum_{i\\in N} u_i(A_i).\n\\]\n\nFairness and incentive/efficiency properties:\n1) Share incentive (SI): \\(u_i(A_i)\\ge 1/n\\) for all \\(i\\in N\\).\n2) Envy-freeness (EF): \\(u_i(A_i)\\ge u_i(A_j)\\) for all \\(i,j\\in N\\).\n3) Pareto optimality (PO): there is no feasible allocation \\(A'\\) with \\(u_i(A'_i)\\ge u_i(A_i)\\) for all \\(i\\) and strict inequality for some \\(i\\).\n4) Strategyproofness (SP): a mechanism \\(f\\) mapping instances \\((d_i)_{i\\in N}\\) to feasible allocations is SP if no agent can increase its utility by misreporting its demand vector.\n\nFor a mechanism \\(f\\), define its fair-ratio for social welfare as\n\\[\n \\mathrm{FR}_{\\mathrm{SW}}(f)=\\max_{I}\\ \\frac{\\max\\{\\mathrm{SW}(A): A\\text{ feasible and satisfies SI and EF on }I\\}}{\\mathrm{SW}(f(I))},\n\\]\nwhere \\(I\\) ranges over all instances (demand profiles).\n\nFor a fixed \\(m\\), define the price of strategyproofness (for social welfare) as\n\\[\n \\mathrm{Price\\ of\\ SP}(m)=\\min_{f\\text{ satisfies SI, EF, PO, SP}} \\mathrm{FR}_{\\mathrm{SW}}(f).\n\\]\nThe case of interest here is \\(m=3\\) resources.\n\nDetermine \\(\\mathrm{Price\\ of\\ SP}(3)\\), i.e., find the exact value of\n\\[\n\\min_{f\\text{ satisfies SI, EF, PO, SP}}\\ \\max_{I}\\ \\frac{\\max\\{\\mathrm{SW}(A): A\\text{ feasible and satisfies SI and EF on }I\\}}{\\mathrm{SW}(f(I))}.\n\\]\nEquivalently, close the current bound \\(\\mathrm{Price\\ of\\ SP}(3)\\in[2,3]\\) by proving either a lower bound \\(\\ge 3\\) or an upper bound \\(\\le 2\\) (or identifying the exact constant in between).",
+  "location_in_paper": "Section 5 (Price of Strategyproofness), discussion immediately after Theorem 7; and Lemma 16 (page 33\u201334 in the provided text pagination).",
+  "open_problem_quote": "For the case when \\(m = 3\\), we show that the price of SP is still \\(\\infty\\) for utilization, while for SW we can only get a lower bound of 2.\nWe leave the gap between 2 and 3 as an open question.",
+  "evaluation_area_label": "algorithmic mechanism design",
+  "evaluation_area_in_scope": true,
+  "subject_classification": "Fair division and strategyproof mechanism design for multi-resource allocation",
+  "keywords": [
+    "dominant resource fairness",
+    "Leontief preferences",
+    "strategyproofness",
+    "envy-freeness",
+    "share incentive",
+    "price of anarchy-type bounds",
+    "social welfare"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is about the optimal worst-case guarantee over all mechanisms satisfying SI/EF/PO/SP, not a specific conjectured bound for a fixed mechanism. Disproving a candidate value would require reasoning about an infinite mechanism space, making automated finite instance search only weakly informative.",
+  "alphaevolve_suitability": "low",
+  "alphaevolve_suitability_rationale": "There is no clear automatic fitness evaluator for arbitrary mechanisms under SP constraints, and enforcing strategyproofness across continuous misreports is difficult to test computationally. Progress likely needs analytic characterization and lower-bound constructions rather than code-evolution loops.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09707529999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09707529999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_20250414_20260414_problems/W7128591806/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

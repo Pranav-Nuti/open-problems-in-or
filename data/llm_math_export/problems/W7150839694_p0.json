@@ -1,0 +1,61 @@
+{
+  "problem_id": "W7150839694_p0",
+  "paper_id": "W7150839694",
+  "source_paper": "W7150839694",
+  "source_paper_title": "On the Monotonicity and Rate of Convergence of the Markovian Persuasion Value",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0296",
+  "source_paper_authors": [
+    "Dimitry Shaiderman"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2026,
+  "source_paper_bibtex": "@article{Shaiderman_2026, title={On the Monotonicity and Rate of Convergence of the Markovian Persuasion Value}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0296}, DOI={10.1287/moor.2023.0296}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Shaiderman, Dimitry}, year={2026}, month=apr }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-14T14:28:34.247559+00:00",
+  "export_mode": "unverified",
+  "context": "Section 3.2.1 (around p. 12), discussion following Corollary 1 and Figure 1.\n\nNevertheless, the existence of an example for Case B in which \\(0 < \\delta_0 < 1\\) (where \\(\\delta_0\\) was described in Corollary 1) remains an open question.",
+  "title": "Existence of intermediate discount factor where two monotone value trajectories coincide",
+  "background_latex": "Let \\(K=\\{1,\\dots,k\\}\\) be a finite state space and let \\(M\\) be an irreducible stochastic matrix on \\(K\\) with unique invariant distribution \\(\\pi_M\\in\\Delta(K)\\). Consider a Markovian persuasion game with state process \\((X_n)_{n\\ge 1}\\) evolving as a Markov chain with transition matrix \\(M\\), where a sender privately observes \\(X_n\\) each period and sends a signal to a receiver. The receiver forms a posterior belief \\(p_n\\in\\Delta(K)\\) and then chooses an action \\(b(p_n)\\) (assumed to follow expected-utility maximization with tie-breaking in favor of the sender). The sender\u2019s stage payoff depends on the state and the receiver action; equivalently define the induced payoff function \\(u:\\Delta(K)\\to\\mathbb{R}_+\\) by\n\\[\n u(\\xi)=\\sum_{\\ell\\in K}\\xi_\\ell\\,V(\\ell,b(\\xi)).\n\\]\nFor a discount factor \\(\\delta\\in[0,1)\\), let \\(v_\\delta(q)\\) denote the sender\u2019s optimal \\(\\delta\\)-discounted value starting from prior \\(q\\in\\Delta(K)\\).\n\nDefine two functions of \\(\\delta\\in[0,1)\\) (for irreducible \\(M\\)):\n\\[\n\\Phi(\\delta):=v_\\delta(\\pi_M),\n\\qquad\n\\Psi(\\delta):=\\sum_{\\ell\\in K}\\pi_{M,\\ell}\\,v_\\delta(e_\\ell),\n\\]\nwhere \\(e_\\ell\\in\\Delta(K)\\) is the Dirac belief on state \\(\\ell\\), and \\(\\pi_{M,\\ell}\\) is the \\(\\ell\\)-th coordinate of \\(\\pi_M\\). In the paper, \\(\\Phi\\) is shown to be non-increasing in \\(\\delta\\) (for stationary prior \\(\\pi_M\\)), and \\(\\Psi\\) is shown to be non-decreasing in \\(\\delta\\) (as a particular instance of an increasing weighted-average trajectory). Also, concavity of \\(v_\\delta(\\cdot)\\) implies \\(\\Phi(\\delta)\\ge \\Psi(\\delta)\\) for all \\(\\delta\\in[0,1)\\).",
+  "problem_definition_latex": "Determine whether there exists a Markovian persuasion game (i.e., some finite \\(K\\), irreducible transition matrix \\(M\\), receiver action set and payoff primitives inducing \\(u\\)) such that there exists \\(\\delta_0\\in(0,1)\\) with\n\\[\n\\Phi(\\delta_0)=\\Psi(\\delta_0),\n\\]\nwhere \\(\\Phi(\\delta)=v_\\delta(\\pi_M)\\) and \\(\\Psi(\\delta)=\\sum_{\\ell\\in K}\\pi_{M,\\ell} v_\\delta(e_\\ell)\\).\n(Equivalently: can equality between these two monotone trajectories occur at some strictly interior discount factor \\(\\delta_0\\in(0,1)\\), rather than only at \\(\\delta_0=0\\) or in the limit \\(\\delta\\to 1^-\\)?)",
+  "latex": "Let \\(K=\\{1,\\dots,k\\}\\) be a finite state space and let \\(M\\) be an irreducible stochastic matrix on \\(K\\) with unique invariant distribution \\(\\pi_M\\in\\Delta(K)\\). Consider a Markovian persuasion game with state process \\((X_n)_{n\\ge 1}\\) evolving as a Markov chain with transition matrix \\(M\\), where a sender privately observes \\(X_n\\) each period and sends a signal to a receiver. The receiver forms a posterior belief \\(p_n\\in\\Delta(K)\\) and then chooses an action \\(b(p_n)\\) (assumed to follow expected-utility maximization with tie-breaking in favor of the sender). The sender\u2019s stage payoff depends on the state and the receiver action; equivalently define the induced payoff function \\(u:\\Delta(K)\\to\\mathbb{R}_+\\) by\n\\[\n u(\\xi)=\\sum_{\\ell\\in K}\\xi_\\ell\\,V(\\ell,b(\\xi)).\n\\]\nFor a discount factor \\(\\delta\\in[0,1)\\), let \\(v_\\delta(q)\\) denote the sender\u2019s optimal \\(\\delta\\)-discounted value starting from prior \\(q\\in\\Delta(K)\\).\n\nDefine two functions of \\(\\delta\\in[0,1)\\) (for irreducible \\(M\\)):\n\\[\n\\Phi(\\delta):=v_\\delta(\\pi_M),\n\\qquad\n\\Psi(\\delta):=\\sum_{\\ell\\in K}\\pi_{M,\\ell}\\,v_\\delta(e_\\ell),\n\\]\nwhere \\(e_\\ell\\in\\Delta(K)\\) is the Dirac belief on state \\(\\ell\\), and \\(\\pi_{M,\\ell}\\) is the \\(\\ell\\)-th coordinate of \\(\\pi_M\\). In the paper, \\(\\Phi\\) is shown to be non-increasing in \\(\\delta\\) (for stationary prior \\(\\pi_M\\)), and \\(\\Psi\\) is shown to be non-decreasing in \\(\\delta\\) (as a particular instance of an increasing weighted-average trajectory). Also, concavity of \\(v_\\delta(\\cdot)\\) implies \\(\\Phi(\\delta)\\ge \\Psi(\\delta)\\) for all \\(\\delta\\in[0,1)\\).\n\nDetermine whether there exists a Markovian persuasion game (i.e., some finite \\(K\\), irreducible transition matrix \\(M\\), receiver action set and payoff primitives inducing \\(u\\)) such that there exists \\(\\delta_0\\in(0,1)\\) with\n\\[\n\\Phi(\\delta_0)=\\Psi(\\delta_0),\n\\]\nwhere \\(\\Phi(\\delta)=v_\\delta(\\pi_M)\\) and \\(\\Psi(\\delta)=\\sum_{\\ell\\in K}\\pi_{M,\\ell} v_\\delta(e_\\ell)\\).\n(Equivalently: can equality between these two monotone trajectories occur at some strictly interior discount factor \\(\\delta_0\\in(0,1)\\), rather than only at \\(\\delta_0=0\\) or in the limit \\(\\delta\\to 1^-\\)?)",
+  "location_in_paper": "Section 3.2.1 (around p. 12), discussion following Corollary 1 and Figure 1.",
+  "open_problem_quote": "Nevertheless, the existence of an example for Case B in which \\(0 < \\delta_0 < 1\\) (where \\(\\delta_0\\) was described in Corollary 1) remains an open question.",
+  "evaluation_area_label": "information design",
+  "evaluation_area_in_scope": true,
+  "subject_classification": "dynamic Bayesian persuasion / repeated games with incomplete information",
+  "keywords": [
+    "Markovian persuasion",
+    "discounted value",
+    "monotone trajectories",
+    "invariant distribution",
+    "concavification",
+    "Markov chains"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The question asks for existence of a concrete example, which suggests automated search over small finite state spaces and discretized payoff functions could be attempted; however the space of payoff primitives and receiver best responses is large and constraints (e.g., tie-breaking, induced u, computing v_\\delta) are nontrivial, limiting brute-force counterexample searches.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate instances (small \\(K\\), matrices \\(M\\), and piecewise-linear \\(u\\)) can be encoded and evaluated by solving the associated dynamic program for \\(v_\\delta\\) at sampled \\(\\delta\\) values, giving an automatic fitness signal for whether \\(\\Phi(\\delta)-\\Psi(\\delta)\\) crosses zero in \\((0,1)\\). However exact verification and ensuring the instance corresponds to valid persuasion primitives may require additional modeling work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07950705,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07950705
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_20250414_20260414_problems/W7150839694/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

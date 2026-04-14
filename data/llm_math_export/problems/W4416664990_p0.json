@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4416664990_p0",
+  "paper_id": "W4416664990",
+  "source_paper": "W4416664990",
+  "source_paper_title": "Min-Cost Popular Matchings in a Hospitals/Residents Instance with Complete Preferences",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0634",
+  "source_paper_authors": [
+    "Telikepalli Kavitha",
+    "Kazuhisa Makino"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Kavitha_2025, title={Min-Cost Popular Matchings in a Hospitals/Residents Instance with Complete Preferences}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0634}, DOI={10.1287/moor.2024.0634}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kavitha, Telikepalli and Makino, Kazuhisa}, year={2025}, month=nov }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-14T14:28:34.247559+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4 (Conclusions and problems), page 20.\n\nSettling the computational complexity of the min-cost popular maximum matching problem in a many-to-one instance with strict and incomplete preferences is an interesting problem.",
+  "title": "Determine complexity of min-cost popular maximum matchings in many-to-one preferences",
+  "background_latex": "Consider a hospitals/residents (many-to-one) matching instance given by a bipartite graph \\(G=(R\\cup H,E)\\), where \\(R\\) is a set of residents and \\(H\\) is a set of hospitals. Each resident \\(r\\in R\\) has capacity \\(1\\) (so it can be matched to at most one hospital), and each hospital \\(h\\in H\\) has an integer capacity \\(\\mathrm{cap}(h)\\ge 1\\) (so it can be matched to at most \\(\\mathrm{cap}(h)\\) residents). Each vertex has a strict preference order over its neighbors; preferences may be incomplete, i.e., \\(E\\) need not be complete bipartite.\n\nA matching \\(M\\subseteq E\\) satisfies \\(|M(r)|\\le 1\\) for all \\(r\\in R\\) and \\(|M(h)|\\le \\mathrm{cap}(h)\\) for all \\(h\\in H\\), where \\(M(v)=\\{u:(u,v)\\in M\\}\\). The size of \\(M\\) is \\(|M|\\).\n\nTo compare two matchings \\(M\\) and \\(N\\), each resident votes for the matching that gives it a better assignment (being unmatched is worst). A hospital compares the two sets \\(M(h)\\) and \\(N(h)\\) by deleting common residents, then choosing a bijection between the remaining residents (adding dummy residents if needed), and summing pairwise votes according to its preference order; the hospital's vote is defined adversarially as the minimum, over all such bijections, of its net vote for \\(M(h)\\) versus \\(N(h)\\). Let \\(\\Delta(M,N)\\) denote the total net vote for \\(M\\) against \\(N\\) summed over all vertices \\(R\\cup H\\).\n\nA matching \\(M\\) is popular (within a feasible set \\(\\mathcal{F}\\) of matchings) if \\(\\Delta(M,N)\\ge 0\\) for all \\(N\\in\\mathcal{F}\\).\n\nA maximum matching is any matching of maximum cardinality in \\(G\\). A popular maximum matching means a matching \\(M\\) such that (1) \\(|M|\\) is maximum, and (2) \\(M\\) is popular when the comparison quantifies only over maximum matchings \\(N\\) (i.e., \\(\\mathcal{F}\\) is the set of maximum matchings).\n\nEdges have real costs given by \\(\\mathrm{cost}:E\\to\\mathbb{R}\\), and the cost of a matching is \\(\\mathrm{cost}(M)=\\sum_{e\\in M}\\mathrm{cost}(e)\\).",
+  "problem_definition_latex": "Given a hospitals/residents instance \\(G=(R\\cup H,E)\\) with strict (possibly incomplete) preferences, hospital capacities \\(\\mathrm{cap}(h)\\ge 1\\), and edge costs \\(\\mathrm{cost}:E\\to\\mathbb{R}\\), determine the computational complexity of finding a minimum-cost popular maximum matching.\n\nFormally, let \\(\\mathcal{M}_{\\max}\\) be the set of maximum-cardinality matchings in \\(G\\). Find\n\\[\n\\arg\\min\\{\\mathrm{cost}(M): M\\in\\mathcal{M}_{\\max}\\ \\text{and}\\ \\Delta(M,N)\\ge 0\\ \\forall N\\in\\mathcal{M}_{\\max}\\},\n\\]\nor decide that no such matching exists, and classify the problem as polynomial-time solvable vs NP-hard (and under what assumptions, if any).",
+  "latex": "Consider a hospitals/residents (many-to-one) matching instance given by a bipartite graph \\(G=(R\\cup H,E)\\), where \\(R\\) is a set of residents and \\(H\\) is a set of hospitals. Each resident \\(r\\in R\\) has capacity \\(1\\) (so it can be matched to at most one hospital), and each hospital \\(h\\in H\\) has an integer capacity \\(\\mathrm{cap}(h)\\ge 1\\) (so it can be matched to at most \\(\\mathrm{cap}(h)\\) residents). Each vertex has a strict preference order over its neighbors; preferences may be incomplete, i.e., \\(E\\) need not be complete bipartite.\n\nA matching \\(M\\subseteq E\\) satisfies \\(|M(r)|\\le 1\\) for all \\(r\\in R\\) and \\(|M(h)|\\le \\mathrm{cap}(h)\\) for all \\(h\\in H\\), where \\(M(v)=\\{u:(u,v)\\in M\\}\\). The size of \\(M\\) is \\(|M|\\).\n\nTo compare two matchings \\(M\\) and \\(N\\), each resident votes for the matching that gives it a better assignment (being unmatched is worst). A hospital compares the two sets \\(M(h)\\) and \\(N(h)\\) by deleting common residents, then choosing a bijection between the remaining residents (adding dummy residents if needed), and summing pairwise votes according to its preference order; the hospital's vote is defined adversarially as the minimum, over all such bijections, of its net vote for \\(M(h)\\) versus \\(N(h)\\). Let \\(\\Delta(M,N)\\) denote the total net vote for \\(M\\) against \\(N\\) summed over all vertices \\(R\\cup H\\).\n\nA matching \\(M\\) is popular (within a feasible set \\(\\mathcal{F}\\) of matchings) if \\(\\Delta(M,N)\\ge 0\\) for all \\(N\\in\\mathcal{F}\\).\n\nA maximum matching is any matching of maximum cardinality in \\(G\\). A popular maximum matching means a matching \\(M\\) such that (1) \\(|M|\\) is maximum, and (2) \\(M\\) is popular when the comparison quantifies only over maximum matchings \\(N\\) (i.e., \\(\\mathcal{F}\\) is the set of maximum matchings).\n\nEdges have real costs given by \\(\\mathrm{cost}:E\\to\\mathbb{R}\\), and the cost of a matching is \\(\\mathrm{cost}(M)=\\sum_{e\\in M}\\mathrm{cost}(e)\\).\n\nGiven a hospitals/residents instance \\(G=(R\\cup H,E)\\) with strict (possibly incomplete) preferences, hospital capacities \\(\\mathrm{cap}(h)\\ge 1\\), and edge costs \\(\\mathrm{cost}:E\\to\\mathbb{R}\\), determine the computational complexity of finding a minimum-cost popular maximum matching.\n\nFormally, let \\(\\mathcal{M}_{\\max}\\) be the set of maximum-cardinality matchings in \\(G\\). Find\n\\[\n\\arg\\min\\{\\mathrm{cost}(M): M\\in\\mathcal{M}_{\\max}\\ \\text{and}\\ \\Delta(M,N)\\ge 0\\ \\forall N\\in\\mathcal{M}_{\\max}\\},\n\\]\nor decide that no such matching exists, and classify the problem as polynomial-time solvable vs NP-hard (and under what assumptions, if any).",
+  "location_in_paper": "Section 4 (Conclusions and problems), page 20.",
+  "open_problem_quote": "Settling the computational complexity of the min-cost popular maximum matching problem in a many-to-one instance with strict and incomplete preferences is an interesting problem.",
+  "evaluation_area_label": "none",
+  "evaluation_area_in_scope": false,
+  "subject_classification": "Computational complexity of popular matchings in bipartite many-to-one markets",
+  "keywords": [
+    "popular matchings",
+    "hospitals-residents problem",
+    "maximum matchings",
+    "computational complexity",
+    "min-cost matching",
+    "incomplete preferences"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem is about classifying worst-case computational complexity (polynomial-time vs NP-hard), not refuting a conjectured inequality on finite instances. While small instances can illustrate phenomena, they cannot certify complexity class separations.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can automatically evaluate candidate algorithms on generated instances, but proving correctness and worst-case guarantees (or producing reductions for hardness) is not reliably captured by an automatic fitness signal, so an evolutionary loop would at best help generate hypotheses and testbeds.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06263705,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06263705
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/mor_past_year_20250414_20260414_problems/W4416664990/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
