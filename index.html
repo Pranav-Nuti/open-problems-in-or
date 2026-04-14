@@ -125,7 +125,7 @@
           prefix += core[0];
           core = core.slice(1);
         }
-        while (core && ".,;:!?)]}".includes(core[core.length - 1])) {
+        while (core && ".,;:!?)".includes(core[core.length - 1])) {
           suffix = core[core.length - 1] + suffix;
           core = core.slice(0, -1);
         }
