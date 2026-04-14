@@ -44,6 +44,7 @@
       <div class="problem-source-block">
         <div class="problem-source-paper" id="source-paper"></div>
         <div class="problem-source-authors" id="source-paper-authors"></div>
+        <button id="copy-source-bibtex-btn" class="copy-source-bibtex-btn" type="button" hidden>Copy source BibTeX</button>
       </div>
 
       <div class="problem-detail-grid">
@@ -469,6 +470,19 @@
         ? payload.source_paper_authors
         : fallbackAuthors;
       authorsEl.textContent = sourceAuthors.length > 0 ? sourceAuthors.join(", ") : "";
+
+      const bibtex = String(payload.source_paper_bibtex || "").trim();
+      const bibtexBtn = document.getElementById("copy-source-bibtex-btn");
+      if (bibtex && bibtexBtn) {
+        bibtexBtn.hidden = false;
+        bibtexBtn.onclick = async () => {
+          await navigator.clipboard.writeText(bibtex);
+          bibtexBtn.textContent = "Copied!";
+          window.setTimeout(() => {
+            bibtexBtn.textContent = "Copy source BibTeX";
+          }, 1400);
+        };
+      }
     }
 
     function renderExtractionInfo(payload) {
