@@ -321,9 +321,7 @@ main {
 }
 
 .copy-source-bibtex-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  display: inline-block;
   margin-top: 0.65rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -336,14 +334,6 @@ main {
   padding: 0.3rem 0.6rem;
   cursor: pointer;
   transition: border-color 0.15s, color 0.15s, background 0.15s;
-}
-.copy-source-bibtex-btn::before {
-  /* citation icon: double-open-quote */
-  content: '"';
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  line-height: 1;
-  color: var(--color-accent);
 }
 .copy-source-bibtex-btn:hover {
   border-color: var(--color-accent);
