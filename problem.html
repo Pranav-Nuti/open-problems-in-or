@@ -100,6 +100,12 @@
       <h2>Literature review</h2>
       <div id="literature-review"></div>
     </section>
+
+    <nav class="problem-sequence-nav" id="problem-sequence-nav" aria-label="Adjacent problems" hidden>
+      <span id="problem-prev-wrap" class="problem-seq-slot"></span>
+      <span id="problem-seq-counter" class="problem-seq-counter"></span>
+      <span id="problem-next-wrap" class="problem-seq-slot"></span>
+    </nav>
   </main>
 
   <footer class="site-footer">
@@ -111,6 +117,8 @@
 
   <script src="js/site-config.js"></script>
   <script>
+    const LIST_PAGE_SIZE = 10;
+
     function escapeHtml(text) {
       const div = document.createElement("div");
       div.textContent = String(text ?? "");
@@ -210,6 +218,59 @@
         }
       }
       return null;
+    }
+
+    function findProblemIndexInList(indexRows, problemId) {
+      for (let i = 0; i < indexRows.length; i += 1) {
+        const row = indexRows[i];
+        if (row && row.problem_id === problemId) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function problemDetailHref(problemId, problemNumberOneBased) {
+      const page = computeListPage(problemNumberOneBased, LIST_PAGE_SIZE);
+      const params = new URLSearchParams();
+      params.set("id", problemId);
+      params.set("page", String(page));
+      params.set("n", String(problemNumberOneBased));
+      return `problem.html?${params.toString()}`;
+    }
+
+    function configureProblemSequenceNav(indexRows, problemId) {
+      const nav = document.getElementById("problem-sequence-nav");
+      const prevWrap = document.getElementById("problem-prev-wrap");
+      const nextWrap = document.getElementById("problem-next-wrap");
+      const counter = document.getElementById("problem-seq-counter");
+      const idx = findProblemIndexInList(indexRows, problemId);
+      if (idx < 0 || indexRows.length === 0) {
+        nav.hidden = true;
+        return;
+      }
+      nav.hidden = false;
+      const total = indexRows.length;
+      const pos = idx + 1;
+      counter.textContent = `${pos} / ${total}`;
+
+      if (idx > 0) {
+        const prevRow = indexRows[idx - 1];
+        const prevId = prevRow.problem_id;
+        const href = problemDetailHref(prevId, idx);
+        prevWrap.innerHTML = `<a class="problem-seq-btn" href="${escapeHtml(href)}">← Previous problem</a>`;
+      } else {
+        prevWrap.innerHTML = `<span class="problem-seq-btn disabled" aria-disabled="true">← Previous problem</span>`;
+      }
+
+      if (idx < total - 1) {
+        const nextRow = indexRows[idx + 1];
+        const nextId = nextRow.problem_id;
+        const href = problemDetailHref(nextId, idx + 2);
+        nextWrap.innerHTML = `<a class="problem-seq-btn" href="${escapeHtml(href)}">Next problem →</a>`;
+      } else {
+        nextWrap.innerHTML = `<span class="problem-seq-btn disabled" aria-disabled="true">Next problem →</span>`;
+      }
     }
 
     function computeListPage(problemNumber, pageSize) {
@@ -501,8 +562,9 @@
         const indexedNumber = findProblemNumberFromIndex(indexRows, problemId);
         const problemNumber = requestedNumber || indexedNumber;
         const requestedPage = getRequestedPage();
-        const pageNumber = requestedPage || computeListPage(problemNumber, 10);
+        const pageNumber = requestedPage || computeListPage(problemNumber, LIST_PAGE_SIZE);
         configureBackLink(pageNumber);
+        configureProblemSequenceNav(indexRows, problemId);
         renderProblem(payload, problemNumber);
         if (window.MathJax && window.MathJax.typesetPromise) {
           await window.MathJax.typesetPromise([document.body]);
