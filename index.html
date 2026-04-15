@@ -155,9 +155,8 @@
     }
 
     function formatAreaBadge(p) {
-      const areaRaw = String(p?.area || p?.evaluation_area_label || "").trim();
-      const area = (areaRaw && areaRaw.toLowerCase() !== "none") ? areaRaw : "";
-      if (!area || area.toLowerCase() === "other") {
+      const area = String(p?.area || "").trim();
+      if (!area) {
         return "";
       }
       return `<span class="area-pill">${escapeHtml(area)}</span>`;
