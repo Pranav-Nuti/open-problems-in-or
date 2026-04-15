@@ -53,10 +53,6 @@
           <span class="problem-detail-value" id="problem-area"></span>
         </div>
         <div class="problem-detail-item">
-          <span class="problem-detail-label">Classification</span>
-          <span class="problem-detail-value" id="subject-classification"></span>
-        </div>
-        <div class="problem-detail-item">
           <span class="problem-detail-label">Status</span>
           <span class="problem-detail-value" id="verification-status"></span>
         </div>
@@ -542,9 +538,11 @@
       }
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
-      document.getElementById("subject-classification").textContent = payload.subject_classification || "";
-      const areaRaw = payload.area || payload.evaluation_area_label || "";
-      document.getElementById("problem-area").textContent = (areaRaw && areaRaw !== "none") ? areaRaw : "other";
+      const areaRaw = String(payload.area || "").trim();
+      if (!areaRaw) {
+        throw new Error("Problem payload is missing non-empty area.");
+      }
+      document.getElementById("problem-area").textContent = areaRaw;
       document.getElementById("verification-status").textContent = unverified
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
