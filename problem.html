@@ -500,6 +500,18 @@
       return text.replace(/^problem\s*:\s*/i, "");
     }
 
+    function effectiveProblemArea(payload) {
+      const primary = String(payload?.area ?? "").trim();
+      if (primary) {
+        return primary;
+      }
+      const evalLabel = String(payload?.evaluation_area_label ?? "").trim();
+      if (evalLabel && evalLabel.toLowerCase() !== "none") {
+        return evalLabel;
+      }
+      return String(payload?.subject_classification ?? "").trim();
+    }
+
     function buildCombinedProblemLatex(backgroundLatex, definitionLatex) {
       const background = String(backgroundLatex || "").trim();
       const definition = String(definitionLatex || "").trim();
@@ -538,9 +550,11 @@
       }
       renderSourcePaper(payload);
       renderExtractionInfo(payload);
-      const areaRaw = String(payload.area || "").trim();
+      const areaRaw = effectiveProblemArea(payload);
       if (!areaRaw) {
-        throw new Error("Problem payload is missing non-empty area.");
+        throw new Error(
+          "Problem payload is missing non-empty area (no legacy evaluation_area_label / subject_classification either).",
+        );
       }
       document.getElementById("problem-area").textContent = areaRaw;
       document.getElementById("verification-status").textContent = unverified

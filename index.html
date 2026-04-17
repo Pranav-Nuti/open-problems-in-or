@@ -154,8 +154,20 @@
       return `${title}${suffix}`;
     }
 
+    function effectiveProblemArea(payload) {
+      const primary = String(payload?.area ?? "").trim();
+      if (primary) {
+        return primary;
+      }
+      const evalLabel = String(payload?.evaluation_area_label ?? "").trim();
+      if (evalLabel && evalLabel.toLowerCase() !== "none") {
+        return evalLabel;
+      }
+      return String(payload?.subject_classification ?? "").trim();
+    }
+
     function formatAreaBadge(p) {
-      const area = String(p?.area || "").trim();
+      const area = effectiveProblemArea(p);
       if (!area) {
         return "";
       }
