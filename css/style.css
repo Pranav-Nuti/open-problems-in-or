@@ -406,6 +406,73 @@ main {
   border-left: 4px solid var(--color-accent);
 }
 
+/* Computational suitability pills */
+.suitability-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+
+.suitability-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.suitability-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.suitability-value {
+  margin: 0;
+}
+
+.suitability-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+.suitability-pill.high {
+  background: #e6f1e6;
+  border-color: #9cc79c;
+  color: #2f5d2f;
+}
+
+.suitability-pill.medium {
+  background: #fbf0d9;
+  border-color: #d9b877;
+  color: #7a5413;
+}
+
+.suitability-pill.low {
+  background: #eeece9;
+  border-color: var(--color-rule-heavy);
+  color: var(--color-text-muted);
+}
+
+.suitability-pill.unknown {
+  background: transparent;
+  border-color: var(--color-rule);
+  color: var(--color-text-muted);
+}
+
 /* Buttons */
 .copy-bibtex-btn,
 .inline-action-btn {
