@@ -93,6 +93,25 @@
       <p id="problem-keywords"></p>
     </section>
 
+    <section class="problem-section" id="suitability-section" hidden>
+      <h2>Computational suitability</h2>
+      <p class="section-note">
+        How amenable this problem is to automated experimentation. "Counterexample search" asks
+        whether a large instance search can meaningfully attack it; "AlphaEvolve" asks whether an
+        evolutionary coding-agent loop with a computable fitness signal could plausibly advance it.
+      </p>
+      <dl class="suitability-grid">
+        <div class="suitability-row">
+          <dt class="suitability-label">Counterexample search</dt>
+          <dd class="suitability-value"><span id="counterexample-suitability-pill" class="suitability-pill"></span></dd>
+        </div>
+        <div class="suitability-row">
+          <dt class="suitability-label">AlphaEvolve</dt>
+          <dd class="suitability-value"><span id="alphaevolve-suitability-pill" class="suitability-pill"></span></dd>
+        </div>
+      </dl>
+    </section>
+
     <section class="problem-section">
       <h2>Literature review</h2>
       <div id="literature-review"></div>
@@ -409,6 +428,30 @@
       };
     }
 
+    function renderSuitability(payload) {
+      const section = document.getElementById("suitability-section");
+      const counterPill = document.getElementById("counterexample-suitability-pill");
+      const evolvePill = document.getElementById("alphaevolve-suitability-pill");
+      const ALLOWED = new Set(["high", "medium", "low"]);
+
+      function applyPill(el, raw) {
+        const normalized = String(raw ?? "").trim().toLowerCase();
+        el.classList.remove("high", "medium", "low", "unknown");
+        if (ALLOWED.has(normalized)) {
+          el.textContent = normalized;
+          el.classList.add(normalized);
+          return true;
+        }
+        el.textContent = "—";
+        el.classList.add("unknown");
+        return false;
+      }
+
+      const hasCounter = applyPill(counterPill, payload.counterexample_suitability);
+      const hasEvolve = applyPill(evolvePill, payload.alphaevolve_suitability);
+      section.hidden = !(hasCounter || hasEvolve);
+    }
+
     function renderLiterature(payload) {
       const container = document.getElementById("literature-review");
       const review = payload.literature_review;
@@ -586,6 +629,7 @@
       contextEl.textContent = payload.context || "";
       contextEl.classList.add("math-content");
       document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
+      renderSuitability(payload);
       renderLiterature(payload);
     }
 
