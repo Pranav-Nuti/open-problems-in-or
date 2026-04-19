@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4399151428_p0",
+  "paper_id": "W4399151428",
+  "source_paper": "W4399151428",
+  "source_paper_title": "On the Sequential Convergence of Lloyd\u2019s Algorithms",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0550",
+  "source_paper_authors": [
+    "L\u00e9o Portales",
+    "Elsa Cazelles",
+    "Edouard Pauwels"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Portales_2025, title={On the Sequential Convergence of Lloyd\u2019s Algorithms}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0550}, DOI={10.1287/moor.2024.0550}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Portales, Leo and Cazelles, Elsa and Pauwels, Edouard}, year={2025}, month=may }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (paragraph ending with 'remains open')\n\nBeyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
+  "title": "Establish sequential convergence of Lloyd\u2019s algorithms without globally subanalytic densities",
+  "background_latex": "Let \\(\\mu\\) be a probability measure on \\(\\mathbb{R}^d\\) with compact support \\(\\mathrm{Supp}(\\mu)\\) and density \\(f\\) with respect to Lebesgue measure (so \\(d\\mu(x)=f(x)\\,dx\\)). Fix \\(N\\in\\mathbb{N}^*\\) and write \\(Y=(y_1,\\dots,y_N)\\in (\\mathbb{R}^d)^N\\) for the support points of a discrete measure. Let \\(\\Delta_N:=\\{\\pi\\in\\mathbb{R}^N_+:\\sum_{i=1}^N \\pi_i=1\\}\\) be the probability simplex and let \\(\\delta_y\\) denote a Dirac mass at \\(y\\in\\mathbb{R}^d\\).\n\nFor optimal quantization, define the objective\n\\[\nG_N(Y):=\\min_{\\pi\\in\\Delta_N}\\frac12\\,W_2^2\\Bigl(\\mu,\\sum_{i=1}^N \\pi_i\\,\\delta_{y_i}\\Bigr)=\\frac12\\int_{\\mathbb{R}^d}\\min_{1\\le i\\le N}\\|x-y_i\\|^2\\,f(x)\\,dx,\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for the squared Euclidean cost. When \\(Y\\) has distinct points, the Voronoi cells are\n\\[\nV_i(Y):=\\{x\\in\\mathbb{R}^d:\\ \\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\forall j\\ne i\\},\\qquad i=1,\\dots,N.\n\\]\nThe Lloyd update for optimal quantization maps \\(Y\\) to the vector of Voronoi barycenters\n\\[\nT_N(Y):=\\Bigl(\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))}\\Bigr)_{i=1}^N,\n\\]\nand generates iterates \\(Y_{n+1}=T_N(Y_n)\\) (under suitable conditions ensuring \\(\\mu(V_i(Y_n))>0\\)).\n\nFor uniform quantization, define\n\\[\nF_N(Y):=\\frac12\\,W_2^2\\Bigl(\\mu,\\frac1N\\sum_{i=1}^N \\delta_{y_i}\\Bigr).\n\\]\nThe corresponding Lloyd-type update for uniform quantization can be written (via semi-discrete optimal transport duality) as a Laguerre/power-cell barycentric map \\(B_N\\), producing iterates \\(Y_{n+1}=B_N(Y_n)\\).\n\nSequential convergence means that the entire iterate sequence \\((Y_n)_{n\\ge 0}\\) converges to a single limit point (equivalently, has a unique accumulation point), typically a critical point of the relevant objective \\(G_N\\) or \\(F_N\\).\n\nThe paper proves sequential convergence of these Lloyd iterates under the additional hypothesis that the density \\(f\\) is globally subanalytic (hence definable in an o-minimal structure), which yields the Kurdyka-\\L{}ojasiewicz inequality for \\(G_N\\) and \\(F_N\\).",
+  "problem_definition_latex": "Determine conditions on the target measure \\(\\mu\\) (beyond the globally subanalytic/definability hypotheses on the density \\(f\\)) under which the Lloyd iterates \\(Y_{n+1}=T_N(Y_n)\\) for optimal quantization and/or \\(Y_{n+1}=B_N(Y_n)\\) for uniform quantization are guaranteed to converge sequentially (i.e., \\(Y_n\\to Y_\\infty\\) for some \\(Y_\\infty\\)) in the semi-discrete setting where \\(\\mu\\) is absolutely continuous on \\(\\mathbb{R}^d\\).",
+  "latex": "Let \\(\\mu\\) be a probability measure on \\(\\mathbb{R}^d\\) with compact support \\(\\mathrm{Supp}(\\mu)\\) and density \\(f\\) with respect to Lebesgue measure (so \\(d\\mu(x)=f(x)\\,dx\\)). Fix \\(N\\in\\mathbb{N}^*\\) and write \\(Y=(y_1,\\dots,y_N)\\in (\\mathbb{R}^d)^N\\) for the support points of a discrete measure. Let \\(\\Delta_N:=\\{\\pi\\in\\mathbb{R}^N_+:\\sum_{i=1}^N \\pi_i=1\\}\\) be the probability simplex and let \\(\\delta_y\\) denote a Dirac mass at \\(y\\in\\mathbb{R}^d\\).\n\nFor optimal quantization, define the objective\n\\[\nG_N(Y):=\\min_{\\pi\\in\\Delta_N}\\frac12\\,W_2^2\\Bigl(\\mu,\\sum_{i=1}^N \\pi_i\\,\\delta_{y_i}\\Bigr)=\\frac12\\int_{\\mathbb{R}^d}\\min_{1\\le i\\le N}\\|x-y_i\\|^2\\,f(x)\\,dx,\n\\]\nwhere \\(W_2\\) is the 2-Wasserstein distance for the squared Euclidean cost. When \\(Y\\) has distinct points, the Voronoi cells are\n\\[\nV_i(Y):=\\{x\\in\\mathbb{R}^d:\\ \\|x-y_i\\|^2<\\|x-y_j\\|^2\\ \\forall j\\ne i\\},\\qquad i=1,\\dots,N.\n\\]\nThe Lloyd update for optimal quantization maps \\(Y\\) to the vector of Voronoi barycenters\n\\[\nT_N(Y):=\\Bigl(\\frac{\\int_{V_i(Y)} x\\,d\\mu(x)}{\\mu(V_i(Y))}\\Bigr)_{i=1}^N,\n\\]\nand generates iterates \\(Y_{n+1}=T_N(Y_n)\\) (under suitable conditions ensuring \\(\\mu(V_i(Y_n))>0\\)).\n\nFor uniform quantization, define\n\\[\nF_N(Y):=\\frac12\\,W_2^2\\Bigl(\\mu,\\frac1N\\sum_{i=1}^N \\delta_{y_i}\\Bigr).\n\\]\nThe corresponding Lloyd-type update for uniform quantization can be written (via semi-discrete optimal transport duality) as a Laguerre/power-cell barycentric map \\(B_N\\), producing iterates \\(Y_{n+1}=B_N(Y_n)\\).\n\nSequential convergence means that the entire iterate sequence \\((Y_n)_{n\\ge 0}\\) converges to a single limit point (equivalently, has a unique accumulation point), typically a critical point of the relevant objective \\(G_N\\) or \\(F_N\\).\n\nThe paper proves sequential convergence of these Lloyd iterates under the additional hypothesis that the density \\(f\\) is globally subanalytic (hence definable in an o-minimal structure), which yields the Kurdyka-\\L{}ojasiewicz inequality for \\(G_N\\) and \\(F_N\\).\n\nDetermine conditions on the target measure \\(\\mu\\) (beyond the globally subanalytic/definability hypotheses on the density \\(f\\)) under which the Lloyd iterates \\(Y_{n+1}=T_N(Y_n)\\) for optimal quantization and/or \\(Y_{n+1}=B_N(Y_n)\\) for uniform quantization are guaranteed to converge sequentially (i.e., \\(Y_n\\to Y_\\infty\\) for some \\(Y_\\infty\\)) in the semi-discrete setting where \\(\\mu\\) is absolutely continuous on \\(\\mathbb{R}^d\\).",
+  "location_in_paper": "Page 3, Introduction (paragraph ending with 'remains open')",
+  "open_problem_quote": "Beyond existing results, a general sequential convergence guaranty for Lloyd\u2019s methods in the semi-discrete setting remains open.",
+  "area": "online algorithms",
+  "keywords": [
+    "lloyds algorithm",
+    "quantization",
+    "semi-discrete optimal transport",
+    "sequential convergence",
+    "kurdyka-lojasiewicz",
+    "o-minimal structures"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement asks for general sufficient conditions guaranteeing convergence for all instances in a broad continuous-measure setting, so there is no finite or easily parameterized instance family whose exhaustive search would decisively refute a candidate theorem. While one can simulate Lloyd iterates for specific densities to look for nonconvergence, such experiments are not definitive for an unconditional mathematical guarantee.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can code Lloyd iterations and search over parametrized families of densities/initializations to discover empirical nonconvergence phenomena or to conjecture weaker sufficient conditions (e.g., smoothness, log-concavity) by fitting to observed behavior. However, translating such computational findings into a correct general theorem (or a rigorous counterexample) would still require substantial human-driven analysis beyond the fitness signal.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.059029250000000005,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.059029250000000005
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4399151428/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

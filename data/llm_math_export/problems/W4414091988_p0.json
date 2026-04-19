@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4414091988_p0",
+  "paper_id": "W4414091988",
+  "source_paper": "W4414091988",
+  "source_paper_title": "Fast Combinatorial Algorithms for Simultaneously Approximating All \u2113<sub><i>p</i></sub>-Norms in Correlation Clustering",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0567",
+  "source_paper_authors": [
+    "Sami Davies",
+    "Benjamin Moseley",
+    "Heather Newman"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Davies_2025, title={Fast Combinatorial Algorithms for Simultaneously Approximating All \u2113p-Norms in Correlation Clustering}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0567}, DOI={10.1287/moor.2024.0567}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Davies, Sami and Moseley, Benjamin and Newman, Heather}, year={2025}, month=sept }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Page 17, Section 5 (Conclusion).\n\nOne question is whether there is a simpler existential (not necessarily algorithmic) proof that there exists an \\(O(1)\\)-approximation for the all-norm objective for correlation clustering.",
+  "title": "Prove existence of a simpler all-norms approximation clustering for correlation clustering",
+  "background_latex": "Let \\(G=(V,E)\\) be an unweighted complete graph on \\(n=|V|\\) vertices whose edges are labeled \\(+\\) (similar) or \\(-\\) (dissimilar). Write \\(E^+\\) and \\(E^-\\) for the sets of positive and negative edges, respectively.\n\nA clustering \\(\\mathcal C\\) is a partition of \\(V\\) into clusters. For a vertex \\(u\\in V\\), let \\(\\mathcal C(u)\\) denote the cluster containing \\(u\\), and let \\(V\\setminus \\mathcal C(u)\\) be the vertices in other clusters.\n\nAn edge \\(\\{u,v\\}\\in E^+\\) is a disagreement under \\(\\mathcal C\\) if \\(u\\) and \\(v\\) lie in different clusters; an edge \\(\\{u,v\\}\\in E^-\\) is a disagreement if \\(u\\) and \\(v\\) lie in the same cluster.\n\nDefine the disagreement count (disagreement degree) of \\(u\\) under \\(\\mathcal C\\) by\n\\[\n y_{\\mathcal C}(u) := |\\{v\\in V: \\{u,v\\}\\text{ is a disagreement under }\\mathcal C\\}|,\n\\]\nand the disagreement vector \\(y_{\\mathcal C}\\in \\mathbb Z_{\\ge 0}^n\\) by \\((y_{\\mathcal C}(u))_{u\\in V}\\).\n\nFor \\(p\\in [1,\\infty)\\), define \\(\\|y_{\\mathcal C}\\|_p := \\big(\\sum_{u\\in V} y_{\\mathcal C}(u)^p\\big)^{1/p}\\), and \\(\\|y_{\\mathcal C}\\|_{\\infty} := \\max_{u\\in V} y_{\\mathcal C}(u)\\).\n\nFor each \\(p\\in [1,\\infty]\\), let\n\\[\n\\mathrm{OPT}_p := \\min_{\\mathcal C\\text{ a partition of }V}\\ \\|y_{\\mathcal C}\\|_p\n\\]\ndenote the optimal \\(\\ell_p\\)-norm disagreement objective value.\n\nA clustering \\(\\mathcal C\\) is said to be a constant-factor approximation simultaneously for all \\(\\ell_p\\)-objectives (the all-norms objective) if there exists a universal constant \\(\\alpha>0\\) such that for every \\(p\\in [1,\\infty]\\), \\(\\|y_{\\mathcal C}\\|_p \\le \\alpha\\,\\mathrm{OPT}_p\\).",
+  "problem_definition_latex": "Give a proof, not necessarily algorithmic, that for every unweighted complete signed graph \\(G=(V,E)\\) as above, there exists a clustering \\(\\mathcal C\\) and a universal constant \\(\\alpha>0\\) (independent of \\(n\\), the instance \\(G\\), and \\(p\\)) such that\n\\[\n\\|y_{\\mathcal C}\\|_p \\le \\alpha\\,\\mathrm{OPT}_p \\qquad \\text{for all } p\\in [1,\\infty].\n\\]\nThe goal is to obtain a simpler existential argument for the existence of such a clustering than the paper's algorithmic construction and analysis.",
+  "latex": "Let \\(G=(V,E)\\) be an unweighted complete graph on \\(n=|V|\\) vertices whose edges are labeled \\(+\\) (similar) or \\(-\\) (dissimilar). Write \\(E^+\\) and \\(E^-\\) for the sets of positive and negative edges, respectively.\n\nA clustering \\(\\mathcal C\\) is a partition of \\(V\\) into clusters. For a vertex \\(u\\in V\\), let \\(\\mathcal C(u)\\) denote the cluster containing \\(u\\), and let \\(V\\setminus \\mathcal C(u)\\) be the vertices in other clusters.\n\nAn edge \\(\\{u,v\\}\\in E^+\\) is a disagreement under \\(\\mathcal C\\) if \\(u\\) and \\(v\\) lie in different clusters; an edge \\(\\{u,v\\}\\in E^-\\) is a disagreement if \\(u\\) and \\(v\\) lie in the same cluster.\n\nDefine the disagreement count (disagreement degree) of \\(u\\) under \\(\\mathcal C\\) by\n\\[\n y_{\\mathcal C}(u) := |\\{v\\in V: \\{u,v\\}\\text{ is a disagreement under }\\mathcal C\\}|,\n\\]\nand the disagreement vector \\(y_{\\mathcal C}\\in \\mathbb Z_{\\ge 0}^n\\) by \\((y_{\\mathcal C}(u))_{u\\in V}\\).\n\nFor \\(p\\in [1,\\infty)\\), define \\(\\|y_{\\mathcal C}\\|_p := \\big(\\sum_{u\\in V} y_{\\mathcal C}(u)^p\\big)^{1/p}\\), and \\(\\|y_{\\mathcal C}\\|_{\\infty} := \\max_{u\\in V} y_{\\mathcal C}(u)\\).\n\nFor each \\(p\\in [1,\\infty]\\), let\n\\[\n\\mathrm{OPT}_p := \\min_{\\mathcal C\\text{ a partition of }V}\\ \\|y_{\\mathcal C}\\|_p\n\\]\ndenote the optimal \\(\\ell_p\\)-norm disagreement objective value.\n\nA clustering \\(\\mathcal C\\) is said to be a constant-factor approximation simultaneously for all \\(\\ell_p\\)-objectives (the all-norms objective) if there exists a universal constant \\(\\alpha>0\\) such that for every \\(p\\in [1,\\infty]\\), \\(\\|y_{\\mathcal C}\\|_p \\le \\alpha\\,\\mathrm{OPT}_p\\).\n\nGive a proof, not necessarily algorithmic, that for every unweighted complete signed graph \\(G=(V,E)\\) as above, there exists a clustering \\(\\mathcal C\\) and a universal constant \\(\\alpha>0\\) (independent of \\(n\\), the instance \\(G\\), and \\(p\\)) such that\n\\[\n\\|y_{\\mathcal C}\\|_p \\le \\alpha\\,\\mathrm{OPT}_p \\qquad \\text{for all } p\\in [1,\\infty].\n\\]\nThe goal is to obtain a simpler existential argument for the existence of such a clustering than the paper's algorithmic construction and analysis.",
+  "location_in_paper": "Page 17, Section 5 (Conclusion).",
+  "open_problem_quote": "One question is whether there is a simpler existential (not necessarily algorithmic) proof that there exists an \\(O(1)\\)-approximation for the all-norm objective for correlation clustering.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "correlation clustering",
+    "all-norms objective",
+    "simultaneous approximation",
+    "lp norms",
+    "disagreement vector"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for an existential proof, so negative instances are not relevant unless one is trying to refute the statement; but the paper already proves existence constructively. There is no clear finite search space where counterexamples would meaningfully advance the stated goal of simplifying the proof.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop could search for alternative, simpler constructions (e.g., randomized or greedy clusterings) and empirically test the achieved approximation ratios over many generated instances and multiple \\(p\\)-values as a heuristic fitness signal. However, translating empirical patterns into a genuinely simpler general proof may still be nontrivial, so suitability is not high.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06476575,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06476575
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414091988/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

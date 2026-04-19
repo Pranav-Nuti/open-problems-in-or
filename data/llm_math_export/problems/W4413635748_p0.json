@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4413635748_p0",
+  "paper_id": "W4413635748",
+  "source_paper": "W4413635748",
+  "source_paper_title": "On the Uniform Convergence of Subdifferentials in Stochastic Optimization and Learning",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0533",
+  "source_paper_authors": [
+    "Feng Ruan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Ruan_2025, title={On the Uniform Convergence of Subdifferentials in Stochastic Optimization and Learning}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0533}, DOI={10.1287/moor.2024.0533}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ruan, Feng}, year={2025}, month=aug }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Page 24, Section 7 (Discussion), future directions list\n\nCan Theorem 5 be extended to other weakly-convex models, such as max-of-smooth functions [56, 57]? Extending this theorem could provide tools for solving other weakly-convex optimization problems.",
+  "title": "Extend uniform subdifferential convergence rates to max-of-smooth weakly convex models",
+  "background_latex": "Let \\(\\Xi\\) be a measurable space with probability measure \\(P\\), and let \\(\\xi_1,\\dots,\\xi_m\\) be i.i.d. samples from \\(P\\). Consider a stochastic optimization objective of the form\n\\[\n\\phi(x)=\\mathbb{E}_{\\xi\\sim P}[f(x,\\xi)]+R(x)+\\iota_X(x),\\qquad x\\in\\mathbb{R}^d,\n\\]\nwith empirical (sample-average) counterpart\n\\[\n\\phi_S(x)=\\frac{1}{m}\\sum_{i=1}^m f(x,\\xi_i)+R(x)+\\iota_X(x).\n\\]\nHere \\(R:\\mathbb{R}^d\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) is a proper closed convex function, \\(X\\subseteq\\mathbb{R}^d\\) is nonempty closed convex, and \\(\\iota_X\\) is the indicator of \\(X\\). Let \\(\\partial\\) denote the Fr\\'echet (regular) subdifferential, and let \\(H(A,B)\\) denote the Hausdorff distance between nonempty compact subsets \\(A,B\\subset\\mathbb{R}^d\\).\n\nA (locally) weakly convex function on an open set \\(O\\subset\\mathbb{R}^d\\) is a function \\(g:O\\to\\mathbb{R}\\) such that for each \\(x\\in O\\) there exists \\(\\lambda<\\infty\\) and a neighborhood on which \\(y\\mapsto g(y)+\\frac{\\lambda}{2}\\|y\\|^2\\) is convex.\n\nThe paper establishes, for a specific subclass of stochastic weakly convex objectives called stochastic convex-composite models (with one-dimensional convex outer function), high-probability bounds on\n\\[\n\\sup_{x\\in X\\cap B(x_0;r)} H(\\partial\\phi(x),\\partial\\phi_S(x)),\n\\]\nin terms of dimension and a VC-dimension complexity measure of threshold sets induced by the model.\n\nA commonly studied different weakly convex model class is the class of max-of-smooth functions, i.e., objectives representable (at least pointwise) as a maximum over a family of smooth functions; such functions are typically nonsmooth and can be weakly convex under suitable regularity.",
+  "problem_definition_latex": "Develop an analogue of the paper's uniform Hausdorff-distance bound for subdifferential mappings,\n\\[\n\\sup_{x\\in X\\cap B(x_0;r)} H(\\partial\\phi(x),\\partial\\phi_S(x)),\n\\]\nwith explicit (high-probability) convergence rates in \\(m\\), for stochastic weakly convex objectives in the max-of-smooth model class (rather than the stochastic convex-composite class treated in the paper).",
+  "latex": "Let \\(\\Xi\\) be a measurable space with probability measure \\(P\\), and let \\(\\xi_1,\\dots,\\xi_m\\) be i.i.d. samples from \\(P\\). Consider a stochastic optimization objective of the form\n\\[\n\\phi(x)=\\mathbb{E}_{\\xi\\sim P}[f(x,\\xi)]+R(x)+\\iota_X(x),\\qquad x\\in\\mathbb{R}^d,\n\\]\nwith empirical (sample-average) counterpart\n\\[\n\\phi_S(x)=\\frac{1}{m}\\sum_{i=1}^m f(x,\\xi_i)+R(x)+\\iota_X(x).\n\\]\nHere \\(R:\\mathbb{R}^d\\to\\mathbb{R}\\cup\\{+\\infty\\}\\) is a proper closed convex function, \\(X\\subseteq\\mathbb{R}^d\\) is nonempty closed convex, and \\(\\iota_X\\) is the indicator of \\(X\\). Let \\(\\partial\\) denote the Fr\\'echet (regular) subdifferential, and let \\(H(A,B)\\) denote the Hausdorff distance between nonempty compact subsets \\(A,B\\subset\\mathbb{R}^d\\).\n\nA (locally) weakly convex function on an open set \\(O\\subset\\mathbb{R}^d\\) is a function \\(g:O\\to\\mathbb{R}\\) such that for each \\(x\\in O\\) there exists \\(\\lambda<\\infty\\) and a neighborhood on which \\(y\\mapsto g(y)+\\frac{\\lambda}{2}\\|y\\|^2\\) is convex.\n\nThe paper establishes, for a specific subclass of stochastic weakly convex objectives called stochastic convex-composite models (with one-dimensional convex outer function), high-probability bounds on\n\\[\n\\sup_{x\\in X\\cap B(x_0;r)} H(\\partial\\phi(x),\\partial\\phi_S(x)),\n\\]\nin terms of dimension and a VC-dimension complexity measure of threshold sets induced by the model.\n\nA commonly studied different weakly convex model class is the class of max-of-smooth functions, i.e., objectives representable (at least pointwise) as a maximum over a family of smooth functions; such functions are typically nonsmooth and can be weakly convex under suitable regularity.\n\nDevelop an analogue of the paper's uniform Hausdorff-distance bound for subdifferential mappings,\n\\[\n\\sup_{x\\in X\\cap B(x_0;r)} H(\\partial\\phi(x),\\partial\\phi_S(x)),\n\\]\nwith explicit (high-probability) convergence rates in \\(m\\), for stochastic weakly convex objectives in the max-of-smooth model class (rather than the stochastic convex-composite class treated in the paper).",
+  "location_in_paper": "Page 24, Section 7 (Discussion), future directions list",
+  "open_problem_quote": "Can Theorem 5 be extended to other weakly-convex models, such as max-of-smooth functions [56, 57]? Extending this theorem could provide tools for solving other weakly-convex optimization problems.",
+  "area": "stochastic optimization",
+  "keywords": [
+    "weakly convex functions",
+    "subdifferentials",
+    "uniform convergence",
+    "hausdorff distance",
+    "max of smooth",
+    "sample average approximation",
+    "finite sample rates"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for a positive extension (a general theorem with rates) rather than a crisp conjectured inequality that might be falsified by a finite-dimensional counterexample. While specific candidate bounds could be tested numerically on synthetic max-of-smooth instances, failure would not conclusively address the general extension problem.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate bounds/parameters (e.g., smoothing schemes, selection rules, complexity measures) and score them by computed empirical suprema of subgradient deviations versus subdifferential Hausdorff gaps on sampled max-of-smooth instances. However, translating empirical discoveries into a correct general theorem likely requires substantial analytic work beyond what automated search can certify.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.085904,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.085904
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413635748/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

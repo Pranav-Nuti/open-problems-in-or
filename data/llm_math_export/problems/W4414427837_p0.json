@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4414427837_p0",
+  "paper_id": "W4414427837",
+  "source_paper": "W4414427837",
+  "source_paper_title": "Popular Maximum-Utility Matchings with Matroid Constraints",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0633",
+  "source_paper_authors": [
+    "Gergely Cs\u00e1ji",
+    "Tam\u00e1s Kir\u00e1ly",
+    "Kenjiro Takazawa",
+    "Yu Yokoi"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Cs_ji_2025, title={Popular Maximum-Utility Matchings with Matroid Constraints}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0633}, DOI={10.1287/moor.2024.0633}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cs\u00e1ji, Gergely and Kir\u00e1ly, Tam\u00e1s and Takazawa, Kenjiro and Yokoi, Yu}, year={2025}, month=sept }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6 (Introduction, discussion before Theorem 4) and page 22 (Section 5.1, statement of Theorem 4 and surrounding text).\n\nFor the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
+  "title": "Deterministic polynomial-time algorithm for exact matching in bipartite graphs",
+  "background_latex": "Let \\(G=(A,B;E)\\) be a bipartite graph in which every edge is colored either red or blue, and let \\(|A|=|B|\\). A matching \\(M\\subseteq E\\) is perfect if every vertex in \\(A\\cup B\\) is incident to exactly one edge of \\(M\\). For a perfect matching \\(M\\), let \\(r(M)\\) denote the number of red edges in \\(M\\).\n\nThe \\(\\textit{exact matching problem}\\) asks, given \\((G,k)\\) with integer \\(k\\), whether there exists a perfect matching \\(M\\) with \\(r(M)=k\\). The paper studies a different class of problems (popular near-maximum-weight matchings) and proves that if one could solve a certain popularity-constrained matching problem deterministically in polynomial time, then one could solve the exact matching problem deterministically in polynomial time. The paper notes that no deterministic polynomial-time algorithm is known for exact matching.",
+  "problem_definition_latex": "Design a deterministic polynomial-time algorithm that, given a bipartite graph \\(G=(A,B;E)\\) with red/blue edge colors and an integer \\(k\\), decides whether there exists a perfect matching \\(M\\subseteq E\\) such that \\(r(M)=k\\) (i.e., \\(M\\) contains exactly \\(k\\) red edges), and outputs such an \\(M\\) when it exists.",
+  "latex": "Let \\(G=(A,B;E)\\) be a bipartite graph in which every edge is colored either red or blue, and let \\(|A|=|B|\\). A matching \\(M\\subseteq E\\) is perfect if every vertex in \\(A\\cup B\\) is incident to exactly one edge of \\(M\\). For a perfect matching \\(M\\), let \\(r(M)\\) denote the number of red edges in \\(M\\).\n\nThe \\(\\textit{exact matching problem}\\) asks, given \\((G,k)\\) with integer \\(k\\), whether there exists a perfect matching \\(M\\) with \\(r(M)=k\\). The paper studies a different class of problems (popular near-maximum-weight matchings) and proves that if one could solve a certain popularity-constrained matching problem deterministically in polynomial time, then one could solve the exact matching problem deterministically in polynomial time. The paper notes that no deterministic polynomial-time algorithm is known for exact matching.\n\nDesign a deterministic polynomial-time algorithm that, given a bipartite graph \\(G=(A,B;E)\\) with red/blue edge colors and an integer \\(k\\), decides whether there exists a perfect matching \\(M\\subseteq E\\) such that \\(r(M)=k\\) (i.e., \\(M\\) contains exactly \\(k\\) red edges), and outputs such an \\(M\\) when it exists.",
+  "location_in_paper": "Page 6 (Introduction, discussion before Theorem 4) and page 22 (Section 5.1, statement of Theorem 4 and surrounding text).",
+  "open_problem_quote": "For the one-sided preferences model, we demonstrate that this problem is as hard as the exact matching problem [46] (see Section 5.1 for the definition), for which the existence of a deterministic efficient algorithm remains a longstanding open question.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "exact matching",
+    "bipartite perfect matching",
+    "deterministic polynomial time",
+    "colored edges",
+    "reductions"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is an algorithm-existence question over all bipartite graphs rather than a falsifiable universal inequality; there is no finite counterexample to search for. Instance generation can test heuristics but cannot refute existence of an algorithm.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could search for practical deterministic algorithms/heuristics and evaluate them on many random and adversarial instances with a verifiable oracle (e.g., via randomized isolation or exponential verification for small sizes). However, demonstrating a true polynomial-time algorithm with correctness for all instances requires proofs beyond empirical fitness.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07986125,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07986125
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414427837/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

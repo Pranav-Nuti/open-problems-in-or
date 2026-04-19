@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4409800077_p0",
+  "paper_id": "W4409800077",
+  "source_paper": "W4409800077",
+  "source_paper_title": "Riemannian Anderson Mixing Methods for Minimizing <i>C</i><sup>2</sup> Functions on Riemannian Manifolds",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0284",
+  "source_paper_authors": [
+    "Zanyu Li",
+    "Chenglong Bao"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Li_2025, title={Riemannian Anderson Mixing Methods for Minimizing C2 Functions on Riemannian Manifolds}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0284}, DOI={10.1287/moor.2023.0284}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Zanyu and Bao, Chenglong}, year={2025}, month=apr }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4 (Regularied RAM and Global Convergence Analysis), page 10; also reiterated in Section 5.1 (Details Concerning Numerical Implementations), page 14.\n\nThe global convergence of Anderson mixing remains a problem, even in the Euclidean setting.",
+  "title": "Global convergence theory for Anderson mixing methods for Euclidean fixed-point problems",
+  "background_latex": "Let \\(g:\\mathbb{R}^n\\to\\mathbb{R}^n\\) be a (possibly nonlinear) mapping and consider the fixed-point problem\n\\[\n\\text{find }x^\\star\\in\\mathbb{R}^n\\text{ such that }g(x^\\star)=x^\\star.\n\\]\nDefine the residual \\(r(x):=g(x)-x\\). A basic fixed-point iteration is \\(x_{k+1}=g(x_k)\\).\n\nGiven a memory parameter \\(m\\in\\mathbb{N}\\), Anderson mixing (also called Anderson acceleration) constructs iterates \\(x_k\\) by combining current and past residual information. In a common form (depth \\(m\\)), define differences \\(\\Delta x_j := x_{j+1}-x_j\\) and \\(\\Delta r_j := r(x_{j+1})-r(x_j)\\). Form matrices\n\\[\nX_k := [\\Delta x_{k-m},\\ldots,\\Delta x_{k-1}]\\in\\mathbb{R}^{n\\times m},\\qquad\nR_k := [\\Delta r_{k-m},\\ldots,\\Delta r_{k-1}]\\in\\mathbb{R}^{n\\times m}.\n\\]\nCompute coefficients \\(\\Gamma_k\\in\\mathbb{R}^m\\) as a least-squares solution\n\\[\n\\Gamma_k \\in \\arg\\min_{\\Gamma\\in\\mathbb{R}^m}\\ \\|r(x_k)-R_k\\Gamma\\|_2,\n\\]\nand then update, for some mixing parameter \\(\\beta_k>0\\),\n\\[\n\\bar x_k := x_k - X_k\\Gamma_k,\\qquad \\bar r_k := r(x_k)-R_k\\Gamma_k,\\qquad\nx_{k+1} := \\bar x_k + \\beta_k \\bar r_k.\n\\]\n(Equivalent one-step forms exist, but the above captures the standard Anderson mixing scheme.)\n\nAn algorithm is said to be globally convergent (for a specified class of maps \\(g\\), possibly under additional conditions and parameter choices) if, for any initial point \\(x_0\\) (or at least for all \\(x_0\\) in a specified region), the generated sequence \\(\\{x_k\\}\\) is well-defined and converges to a fixed point \\(x^\\star\\) (or has a subsequence converging to a fixed point), typically without requiring the initial point to be sufficiently close to \\(x^\\star\\).",
+  "problem_definition_latex": "Develop a general global convergence theory for Anderson mixing applied to fixed-point problems \\(g(x)=x\\) in \\(\\mathbb{R}^n\\): identify verifiable assumptions on \\(g\\) and parameter choices \\((m,\\{\\beta_k\\})\\) under which, for arbitrary initial point \\(x_0\\in\\mathbb{R}^n\\), the Anderson mixing iterates \\(\\{x_k\\}\\) are guaranteed to converge (or at least have a subsequence converging) to a fixed point \\(x^\\star\\) of \\(g\\).",
+  "latex": "Let \\(g:\\mathbb{R}^n\\to\\mathbb{R}^n\\) be a (possibly nonlinear) mapping and consider the fixed-point problem\n\\[\n\\text{find }x^\\star\\in\\mathbb{R}^n\\text{ such that }g(x^\\star)=x^\\star.\n\\]\nDefine the residual \\(r(x):=g(x)-x\\). A basic fixed-point iteration is \\(x_{k+1}=g(x_k)\\).\n\nGiven a memory parameter \\(m\\in\\mathbb{N}\\), Anderson mixing (also called Anderson acceleration) constructs iterates \\(x_k\\) by combining current and past residual information. In a common form (depth \\(m\\)), define differences \\(\\Delta x_j := x_{j+1}-x_j\\) and \\(\\Delta r_j := r(x_{j+1})-r(x_j)\\). Form matrices\n\\[\nX_k := [\\Delta x_{k-m},\\ldots,\\Delta x_{k-1}]\\in\\mathbb{R}^{n\\times m},\\qquad\nR_k := [\\Delta r_{k-m},\\ldots,\\Delta r_{k-1}]\\in\\mathbb{R}^{n\\times m}.\n\\]\nCompute coefficients \\(\\Gamma_k\\in\\mathbb{R}^m\\) as a least-squares solution\n\\[\n\\Gamma_k \\in \\arg\\min_{\\Gamma\\in\\mathbb{R}^m}\\ \\|r(x_k)-R_k\\Gamma\\|_2,\n\\]\nand then update, for some mixing parameter \\(\\beta_k>0\\),\n\\[\n\\bar x_k := x_k - X_k\\Gamma_k,\\qquad \\bar r_k := r(x_k)-R_k\\Gamma_k,\\qquad\nx_{k+1} := \\bar x_k + \\beta_k \\bar r_k.\n\\]\n(Equivalent one-step forms exist, but the above captures the standard Anderson mixing scheme.)\n\nAn algorithm is said to be globally convergent (for a specified class of maps \\(g\\), possibly under additional conditions and parameter choices) if, for any initial point \\(x_0\\) (or at least for all \\(x_0\\) in a specified region), the generated sequence \\(\\{x_k\\}\\) is well-defined and converges to a fixed point \\(x^\\star\\) (or has a subsequence converging to a fixed point), typically without requiring the initial point to be sufficiently close to \\(x^\\star\\).\n\nDevelop a general global convergence theory for Anderson mixing applied to fixed-point problems \\(g(x)=x\\) in \\(\\mathbb{R}^n\\): identify verifiable assumptions on \\(g\\) and parameter choices \\((m,\\{\\beta_k\\})\\) under which, for arbitrary initial point \\(x_0\\in\\mathbb{R}^n\\), the Anderson mixing iterates \\(\\{x_k\\}\\) are guaranteed to converge (or at least have a subsequence converging) to a fixed point \\(x^\\star\\) of \\(g\\).",
+  "location_in_paper": "Section 4 (Regularied RAM and Global Convergence Analysis), page 10; also reiterated in Section 5.1 (Details Concerning Numerical Implementations), page 14.",
+  "open_problem_quote": "The global convergence of Anderson mixing remains a problem, even in the Euclidean setting.",
+  "area": "online algorithms",
+  "keywords": [
+    "Anderson mixing",
+    "Anderson acceleration",
+    "fixed-point iteration",
+    "global convergence",
+    "nonlinear equations"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can search computationally for maps (e.g., low-dimensional polynomial or piecewise-smooth contractions/noncontractions) and initial points where Anderson mixing cycles or diverges, because iterates are easy to simulate. However, the space of admissible nonlinear maps is vast, and failures/successes may be sensitive to parameterization, so automated search is only partially informative.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate representations such as parametric families of mappings \\(g\\), or algorithmic safeguards/parameter rules \\(\\beta_k\\) and regularizations, can be evolved with a fitness signal based on empirical convergence across test suites. This can generate plausible conjectures or counterexamples, but does not directly yield a proof of global convergence in full generality.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.077378,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.077378
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4409800077/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
