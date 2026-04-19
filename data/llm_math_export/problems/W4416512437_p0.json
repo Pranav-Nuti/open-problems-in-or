@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4416512437_p0",
+  "paper_id": "W4416512437",
+  "source_paper": "W4416512437",
+  "source_paper_title": "Generalized Monotonicity and the Proximal Point Algorithm",
+  "source_paper_url": "https://doi.org/10.1287/moor.2025.0863",
+  "source_paper_authors": [
+    "D. L\u00fcke",
+    "Matthew K. Tam"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Luke_2025, title={Generalized Monotonicity and the Proximal Point Algorithm}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2025.0863}, DOI={10.1287/moor.2025.0863}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Luke, D. Russell and Tam, Matthew K.}, year={2025}, month=nov }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Section 3 (Question 3.8, page 10) and reiterated in Section 6 Conclusion and Future Work (page 29).\n\nQuestion 3.8. Let \\(A : H \\to 2^H\\) be maximally monotone. Suppose that \\(\\mathrm{zer}\\,A = \\{\\bar x\\}\\). Are the following two statements equivalent?\n(i) \\(A\\) is metrically subregular at \\(\\bar x\\) for \\(0 \\in A\\bar x\\).\n(ii) \\(A^{-1}\\) is Lipschitz continuous at \\(0\\) with a positive modulus.",
+  "title": "Equivalence of metric subregularity and inverse Lipschitzness for maximal monotone operators",
+  "background_latex": "Let \\(H\\) be a real Hilbert space with norm \\(\\|\\cdot\\|\\). Let \\(A:H\\rightrightarrows H\\) be a maximally monotone (set-valued) operator, i.e., its graph \\(\\mathrm{gra}\\,A:=\\{(x,u)\\in H\\times H: u\\in A(x)\\}\\) is monotone and maximal w.r.t. graph inclusion.\n\nThe set of zeros of \\(A\\) is \\(\\mathrm{zer}\\,A:=\\{x\\in H: 0\\in A(x)\\}\\). Assume \\(\\mathrm{zer}\\,A=\\{\\bar x\\}\\) is a singleton.\n\nFor a set \\(C\\subseteq H\\), the distance from \\(x\\) to \\(C\\) is \\(d(x,C):=\\inf_{y\\in C}\\|x-y\\|\\). For a point \\(y\\in H\\) and a set-valued mapping \\(F:H\\rightrightarrows H\\), define \\(d(y,F(x)):=\\inf_{v\\in F(x)}\\|y-v\\|\\).\n\nMetric subregularity of \\(A\\) at \\(\\bar x\\) for \\(0\\in A(\\bar x)\\) means: there exist constants \\(\\kappa\\ge 0\\) and \\(\\delta>0\\) such that for all \\(x\\in B[\\bar x;\\delta]:=\\{x\\in H:\\|x-\\bar x\\|\\le \\delta\\}\\),\n\\[\nd\\bigl(x, A^{-1}(0)\\bigr) \\le \\kappa\\, d\\bigl(0, A(x)\\bigr).\n\\]\nSince \\(A^{-1}(0)=\\mathrm{zer}\\,A=\\{\\bar x\\}\\), this can be rewritten as \\(\\|x-\\bar x\\|\\le \\kappa\\, d(0,A(x))\\) for \\(x\\) near \\(\\bar x\\).\n\nLipschitz continuity of the inverse mapping \\(A^{-1}\\) at \\(0\\) with modulus \\(\\alpha>0\\) means: there exist \\(\\tau>0\\) and \\(\\alpha>0\\) such that whenever \\((w,x)\\in \\mathrm{gra}\\,A^{-1}\\) and \\(\\|w\\|\\le \\tau\\),\n\\[\n\\|x-\\bar x\\| \\le \\alpha\\,\\|w\\|.\n\\]\nEquivalently, for all \\(w\\) sufficiently close to \\(0\\) and all \\(x\\in A^{-1}(w)\\), the above inequality holds.",
+  "problem_definition_latex": "Assume \\(A:H\\rightrightarrows H\\) is maximally monotone and \\(\\mathrm{zer}\\,A=\\{\\bar x\\}\\).\n\nDetermine whether the following two properties are equivalent:\n\n1) (Metric subregularity at the unique zero) There exist \\(\\kappa\\ge 0\\) and \\(\\delta>0\\) such that for all \\(x\\in B[\\bar x;\\delta]\\),\n\\[\n\\|x-\\bar x\\| \\le \\kappa\\, d\\bigl(0, A(x)\\bigr).\n\\]\n\n2) (Inverse Lipschitz at the origin) There exist \\(\\alpha>0\\) and \\(\\tau>0\\) such that for all \\((w,x)\\in \\mathrm{gra}\\,A^{-1}\\) with \\(\\|w\\|\\le \\tau\\),\n\\[\n\\|x-\\bar x\\| \\le \\alpha\\,\\|w\\|.\n\\]\n\nIn particular, decide whether 1) implies 2), since 2) implies 1) is already known.",
+  "latex": "Let \\(H\\) be a real Hilbert space with norm \\(\\|\\cdot\\|\\). Let \\(A:H\\rightrightarrows H\\) be a maximally monotone (set-valued) operator, i.e., its graph \\(\\mathrm{gra}\\,A:=\\{(x,u)\\in H\\times H: u\\in A(x)\\}\\) is monotone and maximal w.r.t. graph inclusion.\n\nThe set of zeros of \\(A\\) is \\(\\mathrm{zer}\\,A:=\\{x\\in H: 0\\in A(x)\\}\\). Assume \\(\\mathrm{zer}\\,A=\\{\\bar x\\}\\) is a singleton.\n\nFor a set \\(C\\subseteq H\\), the distance from \\(x\\) to \\(C\\) is \\(d(x,C):=\\inf_{y\\in C}\\|x-y\\|\\). For a point \\(y\\in H\\) and a set-valued mapping \\(F:H\\rightrightarrows H\\), define \\(d(y,F(x)):=\\inf_{v\\in F(x)}\\|y-v\\|\\).\n\nMetric subregularity of \\(A\\) at \\(\\bar x\\) for \\(0\\in A(\\bar x)\\) means: there exist constants \\(\\kappa\\ge 0\\) and \\(\\delta>0\\) such that for all \\(x\\in B[\\bar x;\\delta]:=\\{x\\in H:\\|x-\\bar x\\|\\le \\delta\\}\\),\n\\[\nd\\bigl(x, A^{-1}(0)\\bigr) \\le \\kappa\\, d\\bigl(0, A(x)\\bigr).\n\\]\nSince \\(A^{-1}(0)=\\mathrm{zer}\\,A=\\{\\bar x\\}\\), this can be rewritten as \\(\\|x-\\bar x\\|\\le \\kappa\\, d(0,A(x))\\) for \\(x\\) near \\(\\bar x\\).\n\nLipschitz continuity of the inverse mapping \\(A^{-1}\\) at \\(0\\) with modulus \\(\\alpha>0\\) means: there exist \\(\\tau>0\\) and \\(\\alpha>0\\) such that whenever \\((w,x)\\in \\mathrm{gra}\\,A^{-1}\\) and \\(\\|w\\|\\le \\tau\\),\n\\[\n\\|x-\\bar x\\| \\le \\alpha\\,\\|w\\|.\n\\]\nEquivalently, for all \\(w\\) sufficiently close to \\(0\\) and all \\(x\\in A^{-1}(w)\\), the above inequality holds.\n\nAssume \\(A:H\\rightrightarrows H\\) is maximally monotone and \\(\\mathrm{zer}\\,A=\\{\\bar x\\}\\).\n\nDetermine whether the following two properties are equivalent:\n\n1) (Metric subregularity at the unique zero) There exist \\(\\kappa\\ge 0\\) and \\(\\delta>0\\) such that for all \\(x\\in B[\\bar x;\\delta]\\),\n\\[\n\\|x-\\bar x\\| \\le \\kappa\\, d\\bigl(0, A(x)\\bigr).\n\\]\n\n2) (Inverse Lipschitz at the origin) There exist \\(\\alpha>0\\) and \\(\\tau>0\\) such that for all \\((w,x)\\in \\mathrm{gra}\\,A^{-1}\\) with \\(\\|w\\|\\le \\tau\\),\n\\[\n\\|x-\\bar x\\| \\le \\alpha\\,\\|w\\|.\n\\]\n\nIn particular, decide whether 1) implies 2), since 2) implies 1) is already known.",
+  "location_in_paper": "Section 3 (Question 3.8, page 10) and reiterated in Section 6 Conclusion and Future Work (page 29).",
+  "open_problem_quote": "Question 3.8. Let \\(A : H \\to 2^H\\) be maximally monotone. Suppose that \\(\\mathrm{zer}\\,A = \\{\\bar x\\}\\). Are the following two statements equivalent?\n(i) \\(A\\) is metrically subregular at \\(\\bar x\\) for \\(0 \\in A\\bar x\\).\n(ii) \\(A^{-1}\\) is Lipschitz continuous at \\(0\\) with a positive modulus.",
+  "area": "monotone operator theory",
+  "keywords": [
+    "maximally monotone operator",
+    "metric subregularity",
+    "Lipschitz continuity",
+    "inverse mapping",
+    "error bounds",
+    "Hilbert space"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample, if it exists, would likely live in an infinite-dimensional Hilbert space or involve a carefully constructed set-valued monotone operator; searching systematically is nontrivial. However, for structured families (e.g., subdifferentials of convex functions, normal cone operators, linear relations) one can algorithmically test subregularity/Lipschitz-inverse conditions numerically on discretizations, giving some scope for automated exploration.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize candidate operators within computable subclasses (e.g., piecewise-linear monotone maps in \\(\\mathbb{R}^n\\), subdifferentials of convex piecewise-quadratic functions, or monotone linear relations) and use a fitness signal based on estimating local error-bound constants versus inverse-Lipschitz constants. The main limitation is that verifying the properties rigorously (especially in infinite dimensions or for set-valued maps) may require symbolic/analytic arguments beyond numerical testing.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07438725,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07438725
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416512437/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4410590382_p0",
+  "paper_id": "W4410590382",
+  "source_paper": "W4410590382",
+  "source_paper_title": "Efficient and Near-Optimal Online Portfolio Selection",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0175",
+  "source_paper_authors": [
+    "R\u00e9mi J\u00e9z\u00e9quel",
+    "Dmitrii M. Ostrovskii",
+    "Pierre Gaillard"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{J_z_quel_2025, title={Efficient and Near-Optimal Online Portfolio Selection}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0175}, DOI={10.1287/moor.2023.0175}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={J\u00e9z\u00e9quel, R\u00e9mi and Ostrovskii, Dmitrii and Gaillard, Pierre}, year={2025}, month=may }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (end of discussion of Universal Portfolios and computational barriers).\n\nMeanwhile, no algorithm except Universal Portfolios is known to admit a regret bound matching (5) up to a constant factor. In other words, the following problem stands:\nPropose a computationally feasible and near-optimal online portfolio selection algorithm.",
+  "title": "Design practical regret-optimal online portfolio selection algorithms without high-dimensional integration",
+  "background_latex": "Consider the online portfolio selection game over a horizon \\(T\\in\\mathbb{N}\\) with \\(d\\ge 2\\) assets.\n\n1) Decision set: the simplex \\(\\Delta_d:=\\{w\\in\\mathbb{R}^d_+:\\sum_{i=1}^d w[i]=1\\}\\).\n\n2) Adversary\u2019s move: at each round \\(t\\in\\{1,\\dots,T\\}\\), after observing the learner\u2019s choice \\(w_t\\in\\Delta_d\\), the adversary reveals a nonnegative return vector \\(x_t\\in\\mathbb{R}^d_+\\).\n\n3) Loss: the learner suffers the logarithmic loss\n\\[\n\\ell_t(w):=-\\log(x_t^\\top w),\\qquad w\\in\\Delta_d.\n\\]\n\n4) Comparator class: constantly rebalanced portfolios (CRP), i.e. fixed \\(w\\in\\Delta_d\\) used in every round.\n\n5) Regret against the best CRP in hindsight:\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) := \\sum_{t=1}^T \\ell_t(w_t)\\; -\\; \\min_{w\\in\\Delta_d}\\sum_{t=1}^T \\ell_t(w).\n\\]\n\nCover\u2019s Universal Portfolios strategy selects at time \\(t\\) a portfolio equal to the expectation under a density \\(\\phi_t\\) on \\(\\Delta_d\\) proportional to \\(\\exp\\big(-\\sum_{\\tau=1}^{t-1} \\ell_\\tau(w)\\big)\\), which yields regret \\((d-1)\\log(T+1)\\) for all sequences \\(x_{1:T}\\). However, this update requires (approximately) computing a \\(d\\)-dimensional integral (the expectation under \\(\\phi_t\\)), which is computationally expensive.\n\nAn algorithm is called computationally feasible here if its per-round update can be implemented in time polynomial in \\(d\\) and \\(T\\) with reasonable dependence (e.g. nearly quadratic in \\(d\\)), and without requiring high-dimensional numerical integration or expensive sampling from \\(\\phi_t\\) at each round.",
+  "problem_definition_latex": "Construct an online portfolio selection algorithm (a mapping from past observations to \\(w_t\\in\\Delta_d\\)) such that:\n\n1) For every horizon \\(T\\) and every adversarial sequence \\(x_{1:T}\\in(\\mathbb{R}^d_+)^T\\), the regret satisfies\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) = O\\big(d\\log T\\big)\n\\]\n(up to universal constant factors, matching the \\(\\Theta(d\\log T)\\) worst-case optimal rate of Universal Portfolios).\n\n2) Each round\u2019s update is computationally feasible in the sense of avoiding explicit high-dimensional integration over \\(\\Delta_d\\) (as required by Universal Portfolios) and admitting an efficient implementation with polynomial-time per-round complexity in \\(d\\) and \\(T\\).",
+  "latex": "Consider the online portfolio selection game over a horizon \\(T\\in\\mathbb{N}\\) with \\(d\\ge 2\\) assets.\n\n1) Decision set: the simplex \\(\\Delta_d:=\\{w\\in\\mathbb{R}^d_+:\\sum_{i=1}^d w[i]=1\\}\\).\n\n2) Adversary\u2019s move: at each round \\(t\\in\\{1,\\dots,T\\}\\), after observing the learner\u2019s choice \\(w_t\\in\\Delta_d\\), the adversary reveals a nonnegative return vector \\(x_t\\in\\mathbb{R}^d_+\\).\n\n3) Loss: the learner suffers the logarithmic loss\n\\[\n\\ell_t(w):=-\\log(x_t^\\top w),\\qquad w\\in\\Delta_d.\n\\]\n\n4) Comparator class: constantly rebalanced portfolios (CRP), i.e. fixed \\(w\\in\\Delta_d\\) used in every round.\n\n5) Regret against the best CRP in hindsight:\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) := \\sum_{t=1}^T \\ell_t(w_t)\\; -\\; \\min_{w\\in\\Delta_d}\\sum_{t=1}^T \\ell_t(w).\n\\]\n\nCover\u2019s Universal Portfolios strategy selects at time \\(t\\) a portfolio equal to the expectation under a density \\(\\phi_t\\) on \\(\\Delta_d\\) proportional to \\(\\exp\\big(-\\sum_{\\tau=1}^{t-1} \\ell_\\tau(w)\\big)\\), which yields regret \\((d-1)\\log(T+1)\\) for all sequences \\(x_{1:T}\\). However, this update requires (approximately) computing a \\(d\\)-dimensional integral (the expectation under \\(\\phi_t\\)), which is computationally expensive.\n\nAn algorithm is called computationally feasible here if its per-round update can be implemented in time polynomial in \\(d\\) and \\(T\\) with reasonable dependence (e.g. nearly quadratic in \\(d\\)), and without requiring high-dimensional numerical integration or expensive sampling from \\(\\phi_t\\) at each round.\n\nConstruct an online portfolio selection algorithm (a mapping from past observations to \\(w_t\\in\\Delta_d\\)) such that:\n\n1) For every horizon \\(T\\) and every adversarial sequence \\(x_{1:T}\\in(\\mathbb{R}^d_+)^T\\), the regret satisfies\n\\[\nR_T(w_{1:T}\\mid x_{1:T}) = O\\big(d\\log T\\big)\n\\]\n(up to universal constant factors, matching the \\(\\Theta(d\\log T)\\) worst-case optimal rate of Universal Portfolios).\n\n2) Each round\u2019s update is computationally feasible in the sense of avoiding explicit high-dimensional integration over \\(\\Delta_d\\) (as required by Universal Portfolios) and admitting an efficient implementation with polynomial-time per-round complexity in \\(d\\) and \\(T\\).",
+  "location_in_paper": "Page 3, Introduction (end of discussion of Universal Portfolios and computational barriers).",
+  "open_problem_quote": "Meanwhile, no algorithm except Universal Portfolios is known to admit a regret bound matching (5) up to a constant factor. In other words, the following problem stands:\nPropose a computationally feasible and near-optimal online portfolio selection algorithm.",
+  "area": "online learning",
+  "keywords": [
+    "online portfolio selection",
+    "universal portfolios",
+    "logarithmic regret",
+    "computational efficiency",
+    "follow-the-regularized-leader",
+    "log-concave integration"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is existential/constructive (design an algorithm) rather than a universal inequality that might be falsified by a finite counterexample instance search. Automated instance generation is unlikely to directly yield progress, since failure depends on worst-case regret over all sequences.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize candidate online algorithms (e.g., FTRL/OMD-style with tunable regularizers, update rules, and approximations) and score them via simulated regret on adversarially generated markets. However, the fitness signal (worst-case regret) is hard to approximate reliably, and proving an \\(O(d\\log T)\\) guarantee would still require substantial analytical work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09724575,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09724575
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410590382/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

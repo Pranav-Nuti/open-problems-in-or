@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4410396076_p0",
+  "paper_id": "W4410396076",
+  "source_paper": "W4410396076",
+  "source_paper_title": "Fluid Limits for Longest Job First Queues",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0415",
+  "source_paper_authors": [
+    "\u0141ukasz Kruk"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Kruk_2025, title={Fluid Limits for Longest Job First Queues}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0415}, DOI={10.1287/moor.2024.0415}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kruk, \u0141ukasz}, year={2025}, month=may }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1 Introduction, page 4 (discussion of hard EDF networks and model assumptions)\n\nThe problem appears to be considerably harder with fixed deadlines, having to do with regularity of the arrivals processes into each station. ... We leave open the important question of establishing fluid limits with fixed deadlines.",
+  "title": "Establish fluid limits for hard earliest-deadline-first networks with fixed deadlines",
+  "background_latex": "Consider a generalized Jackson queueing network with \\(K\\ge 1\\) service stations (single-server nodes) and routing matrix \\(P\\in\\mathbb{R}^{K\\times K}\\), where \\(P_{ij}\\ge 0\\) and \\(\\sum_{j=1}^K P_{ij}\\le 1\\) for each \\(i\\). Jobs arrive exogenously to station \\(i\\) over time, require service at the current station, and after service are routed to station \\(j\\) with probability \\(P_{ij}\\) (or leave the network with the remaining probability).\n\nEach job carries a real-valued deadline (also called lead time) that determines priority under the earliest-deadline-first (EDF) discipline: at each station, among waiting jobs the job with smallest deadline has highest non-preemptive priority (ties broken by arrival order).\n\nIn the hard EDF setting, a job waiting in a station's queue reneges (abandons) when its deadline expires before it begins service. (Jobs in service do not renege.) The network state at time \\(t\\) can be described by measure-valued queue-content processes \\(\\xi^i_t\\) on \\(\\mathbb{R}_+\\), where for a Borel set \\(B\\subset\\mathbb{R}_+\\), \\(\\xi^i_t(B)\\) is the amount (or number, in the stochastic model) of jobs in the queue of station \\(i\\) at time \\(t\\) whose deadlines lie in \\(B\\).\n\nThe paper studies fluid (law of large numbers) scaling: given a sequence of stochastic networks indexed by \\(N\\to\\infty\\), one considers rescaled processes \\(\\bar \\xi^{i,N}=N^{-1}\\xi^{i,N}\\) and similarly rescaled arrival, service-capacity, service-completion, routing, idleness, and reneging processes, and seeks deterministic limit trajectories \\((\\xi,\\beta,\\iota,\\rho,\\ldots)\\) that satisfy appropriate fluid model equations.\n\nTwo variants of deadline dynamics are relevant:\n1) Dynamic (postponed) deadlines: when a job completes service at a station and migrates to a new station, its deadline is increased (postponed) by a fixed constant \\(\\varepsilon>0\\).\n2) Fixed deadlines: a job's deadline is assigned upon exogenous arrival and remains unchanged throughout its entire route through the network.\n\nThe paper establishes fluid limits for hard EDF networks under dynamic (postponed) deadlines, but not under fixed deadlines.",
+  "problem_definition_latex": "Formulate and prove a fluid limit (law of large numbers scaling limit) theorem for hard EDF generalized Jackson networks in which each job's deadline is fixed throughout its entire sojourn in the network (i.e., deadlines are not postponed upon migration between stations).\n\nConcretely, under appropriate assumptions on the routing matrix \\(P\\), exogenous arrival processes and their deadline distributions, and service processes/capacities (in the same spirit as those used to obtain fluid limits in the dynamic-deadline model), show that the sequence of fluid-scaled stochastic state processes \\(\\{\\bar \\xi^{N}\\}_{N\\ge 1}\\) (together with the associated departure/service/reneging/idleness processes) converges to a deterministic limit described by a well-posed system of fluid model equations that captures EDF priority and reneging when deadlines expire, with deadlines remaining unchanged across stations.",
+  "latex": "Consider a generalized Jackson queueing network with \\(K\\ge 1\\) service stations (single-server nodes) and routing matrix \\(P\\in\\mathbb{R}^{K\\times K}\\), where \\(P_{ij}\\ge 0\\) and \\(\\sum_{j=1}^K P_{ij}\\le 1\\) for each \\(i\\). Jobs arrive exogenously to station \\(i\\) over time, require service at the current station, and after service are routed to station \\(j\\) with probability \\(P_{ij}\\) (or leave the network with the remaining probability).\n\nEach job carries a real-valued deadline (also called lead time) that determines priority under the earliest-deadline-first (EDF) discipline: at each station, among waiting jobs the job with smallest deadline has highest non-preemptive priority (ties broken by arrival order).\n\nIn the hard EDF setting, a job waiting in a station's queue reneges (abandons) when its deadline expires before it begins service. (Jobs in service do not renege.) The network state at time \\(t\\) can be described by measure-valued queue-content processes \\(\\xi^i_t\\) on \\(\\mathbb{R}_+\\), where for a Borel set \\(B\\subset\\mathbb{R}_+\\), \\(\\xi^i_t(B)\\) is the amount (or number, in the stochastic model) of jobs in the queue of station \\(i\\) at time \\(t\\) whose deadlines lie in \\(B\\).\n\nThe paper studies fluid (law of large numbers) scaling: given a sequence of stochastic networks indexed by \\(N\\to\\infty\\), one considers rescaled processes \\(\\bar \\xi^{i,N}=N^{-1}\\xi^{i,N}\\) and similarly rescaled arrival, service-capacity, service-completion, routing, idleness, and reneging processes, and seeks deterministic limit trajectories \\((\\xi,\\beta,\\iota,\\rho,\\ldots)\\) that satisfy appropriate fluid model equations.\n\nTwo variants of deadline dynamics are relevant:\n1) Dynamic (postponed) deadlines: when a job completes service at a station and migrates to a new station, its deadline is increased (postponed) by a fixed constant \\(\\varepsilon>0\\).\n2) Fixed deadlines: a job's deadline is assigned upon exogenous arrival and remains unchanged throughout its entire route through the network.\n\nThe paper establishes fluid limits for hard EDF networks under dynamic (postponed) deadlines, but not under fixed deadlines.\n\nFormulate and prove a fluid limit (law of large numbers scaling limit) theorem for hard EDF generalized Jackson networks in which each job's deadline is fixed throughout its entire sojourn in the network (i.e., deadlines are not postponed upon migration between stations).\n\nConcretely, under appropriate assumptions on the routing matrix \\(P\\), exogenous arrival processes and their deadline distributions, and service processes/capacities (in the same spirit as those used to obtain fluid limits in the dynamic-deadline model), show that the sequence of fluid-scaled stochastic state processes \\(\\{\\bar \\xi^{N}\\}_{N\\ge 1}\\) (together with the associated departure/service/reneging/idleness processes) converges to a deterministic limit described by a well-posed system of fluid model equations that captures EDF priority and reneging when deadlines expire, with deadlines remaining unchanged across stations.",
+  "location_in_paper": "Section 1 Introduction, page 4 (discussion of hard EDF networks and model assumptions)",
+  "open_problem_quote": "The problem appears to be considerably harder with fixed deadlines, having to do with regularity of the arrivals processes into each station. ... We leave open the important question of establishing fluid limits with fixed deadlines.",
+  "area": "online algorithms",
+  "keywords": [
+    "queueing networks",
+    "earliest deadline first",
+    "fluid limits",
+    "reneging",
+    "measure-valued processes",
+    "Jackson networks"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can simulate finite networks with specified arrival/deadline/service primitives and numerically test whether candidate fluid equations (or conjectured convergence) fail, but the open question is primarily about proving convergence and well-posedness rather than validating a sharp inequality on a finite instance family.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An automated loop could explore and stress-test conjectured fluid-model equations for fixed-deadline hard EDF networks by simulation, searching for pathological arrival/deadline patterns that cause instability or discontinuity, which could guide theory. However, the main goal is a general convergence theorem, and fitness signals would be indirect (e.g., empirical discrepancy from candidate deterministic limits).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06842324999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06842324999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410396076/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
