@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4381379988_p0",
+  "paper_id": "W4381379988",
+  "source_paper": "W4381379988",
+  "source_paper_title": "Asymptotically Optimal Control of Make-to-Stock Systems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0161",
+  "source_paper_authors": [
+    "Xuefeng Gao",
+    "Junfei Huang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Gao_2024, title={Asymptotically Optimal Control of Make-to-Stock Systems}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0161}, DOI={10.1287/moor.2021.0161}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Huang, Junfei}, year={2024}, month=may, pages={948\u2013985} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 2, Introduction (early paragraphs).\n\nOptimizing multi-product ATO systems is an immensely more difficult problem that remains unsolved.",
+  "title": "Compute optimal policy for multi-product assemble-to-order systems with general lead times",
+  "background_latex": "An assemble-to-order (ATO) inventory system has:\n1) A set of components indexed by \\(j\\in\\{1,\\dots,n\\}\\) and products indexed by \\(i\\in\\{1,\\dots,m\\}\\).\n2) A bill-of-materials (BOM) matrix \\(A\\in\\mathbb{Z}_+^{n\\times m}\\), where \\(a_{ji}\\) is the number of units of component \\(j\\) required to assemble one unit of product \\(i\\). Assume every row and every column of \\(A\\) has at least one positive entry.\n3) Deterministic (possibly non-identical) component lead times \\(L_j>0\\). In continuous time, component \\(j\\) ordered at time \\(t\\) arrives at time \\(t+L_j\\).\n4) Exogenous product demand arrivals over time, with unmet demand backlogged (no lost sales).\n\nA control policy consists of:\n1) Replenishment decisions specifying, over time, when and how many units of each component to order, subject to non-anticipativity.\n2) Allocation/assembly decisions specifying how available components are assigned to fulfill backlogged product demands, subject to component availability implied by the BOM and replenishment arrivals.\n\nLet \\(I_j(t)\\) be on-hand inventory of component \\(j\\) at time \\(t\\), and \\(B_i(t)\\) be backlog of product \\(i\\) at time \\(t\\). Holding costs \\(h_j>0\\) accrue per unit of component inventory per unit time, and backlog costs \\(b_i>0\\) accrue per unit of product backlog per unit time.\n\nFor a given feasible non-anticipating policy \\(\\pi\\), define the long-run average expected total cost\n\\[\nC(\\pi)=\\limsup_{T\\to\\infty}\\frac{1}{T}\\int_0^T\\left(\\sum_{j=1}^n h_j\\,\\mathbb{E}[I_j(t)] + \\sum_{i=1}^m b_i\\,\\mathbb{E}[B_i(t)]\\right)\\,dt.\n\\]\nLet \\(C^{\\star}=\\inf_{\\pi} C(\\pi)\\) be the optimal value over all feasible policies.",
+  "problem_definition_latex": "Determine an exactly optimal joint replenishment-and-allocation policy \\(\\pi^{\\star}\\) for a multi-product assemble-to-order inventory system with a general BOM matrix \\(A\\) and general deterministic (non-identical) component lead times \\((L_j)_{j=1}^n\\), under backlogging and long-run average expected holding-plus-backlog cost; equivalently, characterize \\(C^{\\star}=\\inf_{\\pi} C(\\pi)\\) and/or provide a policy attaining \\(C^{\\star}\\).",
+  "latex": "An assemble-to-order (ATO) inventory system has:\n1) A set of components indexed by \\(j\\in\\{1,\\dots,n\\}\\) and products indexed by \\(i\\in\\{1,\\dots,m\\}\\).\n2) A bill-of-materials (BOM) matrix \\(A\\in\\mathbb{Z}_+^{n\\times m}\\), where \\(a_{ji}\\) is the number of units of component \\(j\\) required to assemble one unit of product \\(i\\). Assume every row and every column of \\(A\\) has at least one positive entry.\n3) Deterministic (possibly non-identical) component lead times \\(L_j>0\\). In continuous time, component \\(j\\) ordered at time \\(t\\) arrives at time \\(t+L_j\\).\n4) Exogenous product demand arrivals over time, with unmet demand backlogged (no lost sales).\n\nA control policy consists of:\n1) Replenishment decisions specifying, over time, when and how many units of each component to order, subject to non-anticipativity.\n2) Allocation/assembly decisions specifying how available components are assigned to fulfill backlogged product demands, subject to component availability implied by the BOM and replenishment arrivals.\n\nLet \\(I_j(t)\\) be on-hand inventory of component \\(j\\) at time \\(t\\), and \\(B_i(t)\\) be backlog of product \\(i\\) at time \\(t\\). Holding costs \\(h_j>0\\) accrue per unit of component inventory per unit time, and backlog costs \\(b_i>0\\) accrue per unit of product backlog per unit time.\n\nFor a given feasible non-anticipating policy \\(\\pi\\), define the long-run average expected total cost\n\\[\nC(\\pi)=\\limsup_{T\\to\\infty}\\frac{1}{T}\\int_0^T\\left(\\sum_{j=1}^n h_j\\,\\mathbb{E}[I_j(t)] + \\sum_{i=1}^m b_i\\,\\mathbb{E}[B_i(t)]\\right)\\,dt.\n\\]\nLet \\(C^{\\star}=\\inf_{\\pi} C(\\pi)\\) be the optimal value over all feasible policies.\n\nDetermine an exactly optimal joint replenishment-and-allocation policy \\(\\pi^{\\star}\\) for a multi-product assemble-to-order inventory system with a general BOM matrix \\(A\\) and general deterministic (non-identical) component lead times \\((L_j)_{j=1}^n\\), under backlogging and long-run average expected holding-plus-backlog cost; equivalently, characterize \\(C^{\\star}=\\inf_{\\pi} C(\\pi)\\) and/or provide a policy attaining \\(C^{\\star}\\).",
+  "location_in_paper": "Page 2, Introduction (early paragraphs).",
+  "open_problem_quote": "Optimizing multi-product ATO systems is an immensely more difficult problem that remains unsolved.",
+  "area": "stochastic inventory control",
+  "keywords": [
+    "assemble-to-order",
+    "inventory control",
+    "multi-product systems",
+    "deterministic lead times",
+    "average cost optimality",
+    "joint replenishment and allocation"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is an existence/characterization problem for an optimal policy in a very broad stochastic control class, not a finite conjecture amenable to automated instance search. While one can compute optimal policies for small discretized models, that would not resolve the general unsolved optimal-control question.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could search over parameterized policy classes and benchmark them via simulation/MDP approximation on families of instances, potentially uncovering structural conjectures. However, the open question is about exact optimality in general, and simulation-based fitness is only a heuristic proxy and unlikely to yield a definitive resolution.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.13028925,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.13028925
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4381379988/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

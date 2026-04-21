@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4376149422_p0",
+  "paper_id": "W4376149422",
+  "source_paper": "W4376149422",
+  "source_paper_title": "Distribution-Free Contextual Dynamic Pricing",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1369",
+  "source_paper_authors": [
+    "Yiyun Luo",
+    "Will Wei Sun",
+    "Yufeng Liu"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Luo_2024, title={Distribution-Free Contextual Dynamic Pricing}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1369}, DOI={10.1287/moor.2023.1369}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Luo, Yiyun and Sun, Will Wei and Liu, Yufeng}, year={2024}, month=feb, pages={599\u2013618} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 4 (Introduction, end of Abstract/Contributions discussion) and page 20 (Remark 2 following Theorem 1 in Section 3).\n\nBecause our problems involves both unknown linear parameter \\(\\theta_0\\) and unknown noise distribution \\(F\\), we conjecture the obtained \\(\\tilde O(T^{2/3})\\) rate is close to the optimal rate.\n\nHowever, their constructed instances do not fit into our considered pricing problem with an additional linear structure \\(x^\\top\\theta_0\\). The additional unknown \\(\\theta_0\\) makes the lower bound derivation harder and we leave it for future work.",
+  "title": "Determine minimax regret rate for contextual dynamic pricing with unknown noise distribution",
+  "background_latex": "A seller repeatedly interacts with customers over periods \\(t=1,\\dots,T\\). At time \\(t\\), a covariate (context) \\(x_t\\in\\mathcal X\\subset\\mathbb R^{d_0}\\) is observed, with \\(\\|x_t\\|_\\infty\\le 1\\). The customer's valuation is\n\\[\nv_t = x_t^\\top \\theta_0 + z_t,\n\\]\nwhere \\(\\theta_0\\in\\mathbb R^{d_0}\\) is an unknown parameter (often assumed to satisfy \\(\\|\\theta_0\\|_1\\le W\\) for a known constant \\(W\\)), and \\(\\{z_t\\}\\) are i.i.d. draws from an unknown distribution with CDF \\(F\\). After the seller posts a price \\(p_t>0\\), the seller observes only the binary purchase indicator\n\\[\ny_t = \\mathbf 1\\{v_t\\ge p_t\\}.\n\\]\nThe expected revenue from posting price \\(p\\) in context \\(x\\) is\n\\[\nR(p;x) = p\\,\\mathbb P(v\\ge p\\mid x)= p\\bigl(1-F(p-x^\\top\\theta_0)\\bigr).\n\\]\nDefine the context-dependent optimal price\n\\[\np^*(x)\\in \\arg\\max_{p>0} p\\bigl(1-F(p-x^\\top\\theta_0)\\bigr).\n\\]\nThe (pseudo-)regret over horizon \\(T\\) for a policy producing prices \\(p_t\\) is\n\\[\n\\mathcal R_T = \\sum_{t=1}^T \\Bigl( p^*(x_t)\\bigl(1-F(p^*(x_t)-x_t^\\top\\theta_0)\\bigr) - p_t\\bigl(1-F(p_t-x_t^\\top\\theta_0)\\bigr) \\Bigr),\n\\]\nand performance is measured by \\(\\mathbb E[\\mathcal R_T]\\) over the randomness in the data and any policy randomization. The model is \"distribution-free\" in the sense that \\(F\\) is unknown and not restricted to a known parametric/log-concave family; the paper assumes regularity such as Lipschitz continuity of \\(F\\) in some analyses.",
+  "problem_definition_latex": "Characterize the minimax-optimal regret rate in \\(T\\) for contextual dynamic pricing under the linear valuation model \\(v_t=x_t^\\top\\theta_0+z_t\\) with unknown \\(\\theta_0\\) and unknown noise CDF \\(F\\), given only binary purchase feedback \\(y_t=\\mathbf 1\\{v_t\\ge p_t\\}\\). In particular, determine whether there exists a policy with expected cumulative regret \\(\\mathbb E[\\mathcal R_T]=\\tilde O(T^{2/3})\\) (up to logarithmic factors), or prove a matching lower bound (up to logs) showing \\(\\inf_{\\pi}\\sup_{\\theta_0,F}\\mathbb E_\\pi[\\mathcal R_T]=\\tilde\\Omega(T^{2/3})\\) (or the correct exponent), over an appropriate class of admissible \\(F\\) consistent with the paper's assumptions.",
+  "latex": "A seller repeatedly interacts with customers over periods \\(t=1,\\dots,T\\). At time \\(t\\), a covariate (context) \\(x_t\\in\\mathcal X\\subset\\mathbb R^{d_0}\\) is observed, with \\(\\|x_t\\|_\\infty\\le 1\\). The customer's valuation is\n\\[\nv_t = x_t^\\top \\theta_0 + z_t,\n\\]\nwhere \\(\\theta_0\\in\\mathbb R^{d_0}\\) is an unknown parameter (often assumed to satisfy \\(\\|\\theta_0\\|_1\\le W\\) for a known constant \\(W\\)), and \\(\\{z_t\\}\\) are i.i.d. draws from an unknown distribution with CDF \\(F\\). After the seller posts a price \\(p_t>0\\), the seller observes only the binary purchase indicator\n\\[\ny_t = \\mathbf 1\\{v_t\\ge p_t\\}.\n\\]\nThe expected revenue from posting price \\(p\\) in context \\(x\\) is\n\\[\nR(p;x) = p\\,\\mathbb P(v\\ge p\\mid x)= p\\bigl(1-F(p-x^\\top\\theta_0)\\bigr).\n\\]\nDefine the context-dependent optimal price\n\\[\np^*(x)\\in \\arg\\max_{p>0} p\\bigl(1-F(p-x^\\top\\theta_0)\\bigr).\n\\]\nThe (pseudo-)regret over horizon \\(T\\) for a policy producing prices \\(p_t\\) is\n\\[\n\\mathcal R_T = \\sum_{t=1}^T \\Bigl( p^*(x_t)\\bigl(1-F(p^*(x_t)-x_t^\\top\\theta_0)\\bigr) - p_t\\bigl(1-F(p_t-x_t^\\top\\theta_0)\\bigr) \\Bigr),\n\\]\nand performance is measured by \\(\\mathbb E[\\mathcal R_T]\\) over the randomness in the data and any policy randomization. The model is \"distribution-free\" in the sense that \\(F\\) is unknown and not restricted to a known parametric/log-concave family; the paper assumes regularity such as Lipschitz continuity of \\(F\\) in some analyses.\n\nCharacterize the minimax-optimal regret rate in \\(T\\) for contextual dynamic pricing under the linear valuation model \\(v_t=x_t^\\top\\theta_0+z_t\\) with unknown \\(\\theta_0\\) and unknown noise CDF \\(F\\), given only binary purchase feedback \\(y_t=\\mathbf 1\\{v_t\\ge p_t\\}\\). In particular, determine whether there exists a policy with expected cumulative regret \\(\\mathbb E[\\mathcal R_T]=\\tilde O(T^{2/3})\\) (up to logarithmic factors), or prove a matching lower bound (up to logs) showing \\(\\inf_{\\pi}\\sup_{\\theta_0,F}\\mathbb E_\\pi[\\mathcal R_T]=\\tilde\\Omega(T^{2/3})\\) (or the correct exponent), over an appropriate class of admissible \\(F\\) consistent with the paper's assumptions.",
+  "location_in_paper": "Page 4 (Introduction, end of Abstract/Contributions discussion) and page 20 (Remark 2 following Theorem 1 in Section 3).",
+  "open_problem_quote": "Because our problems involves both unknown linear parameter \\(\\theta_0\\) and unknown noise distribution \\(F\\), we conjecture the obtained \\(\\tilde O(T^{2/3})\\) rate is close to the optimal rate.\n\nHowever, their constructed instances do not fit into our considered pricing problem with an additional linear structure \\(x^\\top\\theta_0\\). The additional unknown \\(\\theta_0\\) makes the lower bound derivation harder and we leave it for future work.",
+  "area": "online learning",
+  "keywords": [
+    "contextual dynamic pricing",
+    "linear valuation model",
+    "unknown noise distribution",
+    "regret minimax lower bound",
+    "distribution-free learning",
+    "bandit feedback"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The open question is a minimax-rate characterization rather than a concrete finite statement, but automated search can explore hard instance families (choices of \\(F\\), context sequences, and \\(\\theta_0\\)) to empirically stress-test candidate algorithms and suggest lower-bound constructions. Verifying regret for a fixed policy/instance is simulable, but proving minimax optimality is not directly decidable by search.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate policies and hard-instance generators can be represented programmatically, with fitness signals given by simulated regret over horizons across sampled or adversarially generated \\((\\theta_0,F)\\) and contexts. This could help discover improved algorithms or plausible lower-bound instance patterns, though translating findings into rigorous minimax proofs would remain substantial theoretical work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.1241555,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.1241555
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4376149422/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

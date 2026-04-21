@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4390588799_p0",
+  "paper_id": "W4390588799",
+  "source_paper": "W4390588799",
+  "source_paper_title": "The Multi-Objective Polynomial Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0200",
+  "source_paper_authors": [
+    "Jiawang Nie",
+    "Zi Yang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Nie_2024, title={The Multi-Objective Polynomial Optimization}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0200}, DOI={10.1287/moor.2023.0200}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Nie, Jiawang and Yang, Zi}, year={2024}, month=nov, pages={2723\u20132748} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Conclusions and discussions), page 24 (Question 7.1); see also Appendix A discussion around pages 28\u201329.\n\nQuestion 7.1. When (A.8) is infeasible, what is a computationally convenient certificate for unboundedness of (A.1)?",
+  "title": "Certificate for unboundedness of polynomial optimization when moment-ray condition fails",
+  "background_latex": "Let \\(K\\subseteq \\mathbb{R}^n\\) be a basic closed semialgebraic set\n\\[\nK:=\\{x\\in\\mathbb{R}^n: c_i(x)=0\\ (i\\in E),\\ c_j(x)\\ge 0\\ (j\\in I)\\},\n\\]\nwhere \\(E,I\\) are finite index sets and each \\(c_i,c_j\\in\\mathbb{R}[x]\\) is a polynomial. Let \\(g\\in\\mathbb{R}[x]\\) be a polynomial of degree \\(d\\), and consider the polynomial optimization problem\n\\[\n\\inf\\{g(x): x\\in K\\}.\n\\]\nWrite \\(\\tilde x:=(x_0,x)\\in\\mathbb{R}^{n+1}\\). The homogenization of a polynomial \\(p\\in\\mathbb{R}[x]\\) of degree \\(\\deg(p)\\) is\n\\(\\tilde p(\\tilde x):=x_0^{\\deg(p)}p(x/x_0)\\), and its highest-degree homogeneous part is \\(p_{\\mathrm{hom}}(x):=\\tilde p(0,x)\\).\nDefine the compact \u201chomogenized\u201d feasible set\n\\[\n\\tilde K:=\\{\\tilde x:\\ \\tilde c_i(\\tilde x)=0\\ (i\\in E),\\ \\tilde c_j(\\tilde x)\\ge 0\\ (j\\in I),\\ \\|\\tilde x\\|_2^2=1,\\ x_0\\ge 0\\},\n\\]\nand the \u201chorizon\u201d (the section \\(x_0=0\\))\n\\[\nK^{\\circ}:=\\{x\\in\\mathbb{R}^n: c_{i,\\mathrm{hom}}(x)=0\\ (i\\in E),\\ c_{j,\\mathrm{hom}}(x)\\ge 0\\ (j\\in I),\\ \\|x\\|_2^2=1\\}.\n\\]\nA (truncated) moment sequence \\(z\\) of degree \\(d\\) supported on \\(K^{\\circ}\\) is an element of the moment cone \\(R_d(K^{\\circ})\\), i.e., there exists a Borel measure \\(\\mu\\) supported on \\(K^{\\circ}\\) such that \\(z_\\alpha=\\int x^\\alpha\\,d\\mu\\) for all \\(|\\alpha|\\le d\\). For a polynomial \\(p\\in\\mathbb{R}[x]_d\\), the pairing is \\(\\langle p,z\\rangle:=\\sum_{|\\alpha|\\le d} p_\\alpha z_\\alpha\\).\nThe paper discusses a sufficient \u201cdecreasing-ray\u201d moment certificate for unboundedness: feasibility of a linear moment system of the form\n\\[\n\\langle g_{\\mathrm{hom}}, z\\rangle=-1,\\quad z\\in R_d(K^{\\circ}).\n\\]\n(Equivalently, the existence of a ray in an appropriate dual moment program.) This condition is sufficient for \\(\\inf_{x\\in K} g(x)=-\\infty\\), but the paper exhibits examples where \\(\\inf_{x\\in K} g(x)=-\\infty\\) while this moment system is infeasible.",
+  "problem_definition_latex": "Given polynomials \\(g\\in\\mathbb{R}[x]\\) and \\(c_i,c_j\\in\\mathbb{R}[x]\\) defining \\(K\\subseteq\\mathbb{R}^n\\) as above, design a computationally convenient certificate (a verifiable condition) that implies\n\\[\n\\inf\\{g(x):x\\in K\\}=-\\infty,\n\\]\nin the regime where the moment-ray condition\n\\[\n\\langle g_{\\mathrm{hom}}, z\\rangle=-1,\\quad z\\in R_d(K^{\\circ})\n\\]\nis infeasible.\n\nEquivalently: characterize or certify unboundedness of \\(\\inf_{x\\in K} g(x)\\) by an efficiently checkable condition that applies even when no feasible \\(z\\in R_d(K^{\\circ})\\) satisfies \\(\\langle g_{\\mathrm{hom}}, z\\rangle=-1\\).",
+  "latex": "Let \\(K\\subseteq \\mathbb{R}^n\\) be a basic closed semialgebraic set\n\\[\nK:=\\{x\\in\\mathbb{R}^n: c_i(x)=0\\ (i\\in E),\\ c_j(x)\\ge 0\\ (j\\in I)\\},\n\\]\nwhere \\(E,I\\) are finite index sets and each \\(c_i,c_j\\in\\mathbb{R}[x]\\) is a polynomial. Let \\(g\\in\\mathbb{R}[x]\\) be a polynomial of degree \\(d\\), and consider the polynomial optimization problem\n\\[\n\\inf\\{g(x): x\\in K\\}.\n\\]\nWrite \\(\\tilde x:=(x_0,x)\\in\\mathbb{R}^{n+1}\\). The homogenization of a polynomial \\(p\\in\\mathbb{R}[x]\\) of degree \\(\\deg(p)\\) is\n\\(\\tilde p(\\tilde x):=x_0^{\\deg(p)}p(x/x_0)\\), and its highest-degree homogeneous part is \\(p_{\\mathrm{hom}}(x):=\\tilde p(0,x)\\).\nDefine the compact \u201chomogenized\u201d feasible set\n\\[\n\\tilde K:=\\{\\tilde x:\\ \\tilde c_i(\\tilde x)=0\\ (i\\in E),\\ \\tilde c_j(\\tilde x)\\ge 0\\ (j\\in I),\\ \\|\\tilde x\\|_2^2=1,\\ x_0\\ge 0\\},\n\\]\nand the \u201chorizon\u201d (the section \\(x_0=0\\))\n\\[\nK^{\\circ}:=\\{x\\in\\mathbb{R}^n: c_{i,\\mathrm{hom}}(x)=0\\ (i\\in E),\\ c_{j,\\mathrm{hom}}(x)\\ge 0\\ (j\\in I),\\ \\|x\\|_2^2=1\\}.\n\\]\nA (truncated) moment sequence \\(z\\) of degree \\(d\\) supported on \\(K^{\\circ}\\) is an element of the moment cone \\(R_d(K^{\\circ})\\), i.e., there exists a Borel measure \\(\\mu\\) supported on \\(K^{\\circ}\\) such that \\(z_\\alpha=\\int x^\\alpha\\,d\\mu\\) for all \\(|\\alpha|\\le d\\). For a polynomial \\(p\\in\\mathbb{R}[x]_d\\), the pairing is \\(\\langle p,z\\rangle:=\\sum_{|\\alpha|\\le d} p_\\alpha z_\\alpha\\).\nThe paper discusses a sufficient \u201cdecreasing-ray\u201d moment certificate for unboundedness: feasibility of a linear moment system of the form\n\\[\n\\langle g_{\\mathrm{hom}}, z\\rangle=-1,\\quad z\\in R_d(K^{\\circ}).\n\\]\n(Equivalently, the existence of a ray in an appropriate dual moment program.) This condition is sufficient for \\(\\inf_{x\\in K} g(x)=-\\infty\\), but the paper exhibits examples where \\(\\inf_{x\\in K} g(x)=-\\infty\\) while this moment system is infeasible.\n\nGiven polynomials \\(g\\in\\mathbb{R}[x]\\) and \\(c_i,c_j\\in\\mathbb{R}[x]\\) defining \\(K\\subseteq\\mathbb{R}^n\\) as above, design a computationally convenient certificate (a verifiable condition) that implies\n\\[\n\\inf\\{g(x):x\\in K\\}=-\\infty,\n\\]\nin the regime where the moment-ray condition\n\\[\n\\langle g_{\\mathrm{hom}}, z\\rangle=-1,\\quad z\\in R_d(K^{\\circ})\n\\]\nis infeasible.\n\nEquivalently: characterize or certify unboundedness of \\(\\inf_{x\\in K} g(x)\\) by an efficiently checkable condition that applies even when no feasible \\(z\\in R_d(K^{\\circ})\\) satisfies \\(\\langle g_{\\mathrm{hom}}, z\\rangle=-1\\).",
+  "location_in_paper": "Section 7 (Conclusions and discussions), page 24 (Question 7.1); see also Appendix A discussion around pages 28\u201329.",
+  "open_problem_quote": "Question 7.1. When (A.8) is infeasible, what is a computationally convenient certificate for unboundedness of (A.1)?",
+  "area": "polynomial optimization",
+  "keywords": [
+    "polynomial optimization",
+    "unboundedness detection",
+    "moment sos relaxations",
+    "homogenization",
+    "Positivstellensatz certificates",
+    "semialgebraic sets"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "It is feasible to search computationally for instances where a proposed certificate fails or is incomplete, because unboundedness can often be numerically suggested by finding descent rays/sequences and checking SOS/moment relaxations. However, the space of semialgebraic sets and polynomials is vast, and verifying true unboundedness (as opposed to numerical evidence) is nontrivial.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could explore candidate certificate templates (e.g., alternative homogenizations, SOS/Positivstellensatz forms, auxiliary variables) and test them on automatically generated benchmark families using SDP relaxations as a fitness proxy. But turning empirical success into a general, correct certificate likely requires substantial theoretical insight beyond what automated search can ensure.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07729050000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07729050000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390588799/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4405639491_p0",
+  "paper_id": "W4405639491",
+  "source_paper": "W4405639491",
+  "source_paper_title": "An Stochastic Differential Equation Perspective on Stochastic Convex Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0162",
+  "source_paper_authors": [
+    "M. Rodrigo",
+    "Jalal Fadili",
+    "H\u00e9dy Attouch"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Rodrigo_2025, title={An Stochastic Differential Equation Perspective on Stochastic Convex Optimization}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0162}, DOI={10.1287/moor.2022.0162}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Rodrigo, Maul\u00e9n S. and Fadili, Jalal and Attouch, Hedy}, year={2025}, month=nov, pages={3190\u20133221} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 23, Section 4.2 (Remark 4.10 and Conjecture 4.11).\n\nTo the best of our knowledge, there is no way to arithmetically solve this non linear ODE, not even a sharp bound of the solution. Nevertheless, if \\(y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\), then \\(p_\\delta(t)=O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\). Which leads us to make the following conjecture: Conjecture 4.11. If \\(p_\\delta=O(\\sigma_\\infty^2)\\) and \\(\\sigma_\\infty^2(t)=O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\) (for constants independent of \\(\\delta\\) and \\(\\hat t_\\delta\\)), then \\(y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\).",
+  "title": "Prove sharp decay rates for nonlinear comparison ODE driven by SDE noise",
+  "background_latex": "Let \\(f:\\mathbb{R}^d\\to\\mathbb{R}\\) be convex and continuously differentiable with \\(L\\)-Lipschitz gradient, and assume the minimizer set \\(S=\\operatorname{argmin} f\\neq\\emptyset\\). Consider the stochastic differential equation (SDE)\n\\[\n dX(t)=-\\nabla f(X(t))\\,dt+\\sigma(t,X(t))\\,dW(t),\\qquad t\\ge 0,\n\\]\nwhere \\(W\\) is an \\(m\\)-dimensional Brownian motion and \\(\\sigma:\\mathbb{R}_+\\times\\mathbb{R}^d\\to\\mathbb{R}^{d\\times m}\\) is measurable, globally bounded in Frobenius norm, and Lipschitz in \\(x\\) uniformly in \\(t\\). Define the worst-case diffusion magnitude\n\\[\n\\sigma_\\infty(t):=\\sup_{x\\in\\mathbb{R}^d}\\|\\sigma(t,x)\\|_F.\n\\]\nAssume \\(\\sigma_\\infty\\in L^2(\\mathbb{R}_+)\\), so the noise vanishes in a square-integrable way.\n\nAssume further that \\(f\\) satisfies a local error-bound / \\L ojasiewicz-type condition near \\(S\\), leading (after localization arguments) to differential inequalities for certain nonnegative quantities \\(y(t)\\) (e.g., \\(y(t)=\\mathbb{E}[f(X(t)) - \\min f]\\) restricted to high-probability events, or \\(y(t)=\\mathbb{E}[\\mathrm{dist}(X(t),S)^2/2]\\) similarly restricted).\n\nIn the analysis, one is led to study a nonlinear scalar ODE (comparison equation)\n\\[\n y'(t)=-a\\,y(t)^b+p_\\delta(t),\\qquad t>\\hat t_\\delta,\n\\]\nwith parameters \\(a>0\\), \\(b>1\\), an initial condition \\(y(\\hat t_\\delta)=y_0(\\hat t_\\delta,\\delta)>0\\), and a nonnegative forcing term \\(p_\\delta(t)\\) depending on the noise profile. The forcing term is of the same order as \\(\\sigma_\\infty(t)^2\\) (more precisely, \\(p_\\delta(t)=O(\\sigma_\\infty(t)^2)\\) in the regime of interest), but it may also depend on \\(\\delta\\) and \\(\\hat t_\\delta\\) through the localization step (Egorov-type arguments).",
+  "problem_definition_latex": "Assume \\(a>0\\), \\(b>1\\), and let \\(p_\\delta:[\\hat t_\\delta,\\infty)\\to\\mathbb{R}_+\\) be a measurable function satisfying \\(p_\\delta(t)=O(\\sigma_\\infty(t)^2)\\). Assume also that\n\\[\n\\sigma_\\infty(t)^2 = O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\qquad (t\\to\\infty),\n\\]\nwith constants independent of \\(\\delta\\) and \\(\\hat t_\\delta\\). Consider the ODE\n\\[\n y'(t)=-a\\,y(t)^b+p_\\delta(t),\\qquad t>\\hat t_\\delta,\\qquad y(\\hat t_\\delta)=y_0(\\hat t_\\delta,\\delta)>0.\n\\]\nEstablish that the corresponding solution satisfies the decay rate\n\\[\n y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\qquad (t\\to\\infty).\n\\]\n(Equivalently: prove the stated implication between the forcing decay \\(p_\\delta(t)\\) at order \\((t+1)^{-b/(b-1)}\\) and the solution decay \\(y(t)\\) at order \\((t+1)^{-1/(b-1)}\\), uniformly with respect to the localization parameters \\(\\delta\\) and \\(\\hat t_\\delta\\) as above.)",
+  "latex": "Let \\(f:\\mathbb{R}^d\\to\\mathbb{R}\\) be convex and continuously differentiable with \\(L\\)-Lipschitz gradient, and assume the minimizer set \\(S=\\operatorname{argmin} f\\neq\\emptyset\\). Consider the stochastic differential equation (SDE)\n\\[\n dX(t)=-\\nabla f(X(t))\\,dt+\\sigma(t,X(t))\\,dW(t),\\qquad t\\ge 0,\n\\]\nwhere \\(W\\) is an \\(m\\)-dimensional Brownian motion and \\(\\sigma:\\mathbb{R}_+\\times\\mathbb{R}^d\\to\\mathbb{R}^{d\\times m}\\) is measurable, globally bounded in Frobenius norm, and Lipschitz in \\(x\\) uniformly in \\(t\\). Define the worst-case diffusion magnitude\n\\[\n\\sigma_\\infty(t):=\\sup_{x\\in\\mathbb{R}^d}\\|\\sigma(t,x)\\|_F.\n\\]\nAssume \\(\\sigma_\\infty\\in L^2(\\mathbb{R}_+)\\), so the noise vanishes in a square-integrable way.\n\nAssume further that \\(f\\) satisfies a local error-bound / \\L ojasiewicz-type condition near \\(S\\), leading (after localization arguments) to differential inequalities for certain nonnegative quantities \\(y(t)\\) (e.g., \\(y(t)=\\mathbb{E}[f(X(t)) - \\min f]\\) restricted to high-probability events, or \\(y(t)=\\mathbb{E}[\\mathrm{dist}(X(t),S)^2/2]\\) similarly restricted).\n\nIn the analysis, one is led to study a nonlinear scalar ODE (comparison equation)\n\\[\n y'(t)=-a\\,y(t)^b+p_\\delta(t),\\qquad t>\\hat t_\\delta,\n\\]\nwith parameters \\(a>0\\), \\(b>1\\), an initial condition \\(y(\\hat t_\\delta)=y_0(\\hat t_\\delta,\\delta)>0\\), and a nonnegative forcing term \\(p_\\delta(t)\\) depending on the noise profile. The forcing term is of the same order as \\(\\sigma_\\infty(t)^2\\) (more precisely, \\(p_\\delta(t)=O(\\sigma_\\infty(t)^2)\\) in the regime of interest), but it may also depend on \\(\\delta\\) and \\(\\hat t_\\delta\\) through the localization step (Egorov-type arguments).\n\nAssume \\(a>0\\), \\(b>1\\), and let \\(p_\\delta:[\\hat t_\\delta,\\infty)\\to\\mathbb{R}_+\\) be a measurable function satisfying \\(p_\\delta(t)=O(\\sigma_\\infty(t)^2)\\). Assume also that\n\\[\n\\sigma_\\infty(t)^2 = O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\qquad (t\\to\\infty),\n\\]\nwith constants independent of \\(\\delta\\) and \\(\\hat t_\\delta\\). Consider the ODE\n\\[\n y'(t)=-a\\,y(t)^b+p_\\delta(t),\\qquad t>\\hat t_\\delta,\\qquad y(\\hat t_\\delta)=y_0(\\hat t_\\delta,\\delta)>0.\n\\]\nEstablish that the corresponding solution satisfies the decay rate\n\\[\n y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\qquad (t\\to\\infty).\n\\]\n(Equivalently: prove the stated implication between the forcing decay \\(p_\\delta(t)\\) at order \\((t+1)^{-b/(b-1)}\\) and the solution decay \\(y(t)\\) at order \\((t+1)^{-1/(b-1)}\\), uniformly with respect to the localization parameters \\(\\delta\\) and \\(\\hat t_\\delta\\) as above.)",
+  "location_in_paper": "Page 23, Section 4.2 (Remark 4.10 and Conjecture 4.11).",
+  "open_problem_quote": "To the best of our knowledge, there is no way to arithmetically solve this non linear ODE, not even a sharp bound of the solution. Nevertheless, if \\(y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\), then \\(p_\\delta(t)=O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\). Which leads us to make the following conjecture: Conjecture 4.11. If \\(p_\\delta=O(\\sigma_\\infty^2)\\) and \\(\\sigma_\\infty^2(t)=O\\big((t+1)^{-\\frac{b}{b-1}}\\big)\\) (for constants independent of \\(\\delta\\) and \\(\\hat t_\\delta\\)), then \\(y(t)=O\\big((t+1)^{-\\frac{1}{b-1}}\\big)\\).",
+  "area": "online learning",
+  "keywords": [
+    "stochastic differential equations",
+    "lojasiewicz inequality",
+    "comparison principle",
+    "nonlinear ode",
+    "convergence rates",
+    "noise decay"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is an asymptotic implication for all forcing terms within a big-O class, so finite-dimensional counterexample search is not directly applicable without discretizing an infinite function space and specifying uniformity precisely.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can numerically explore families of forcings \\(p_\\delta\\) and simulate the ODE to test candidate rate bounds and identify worst-case behaviors, but translating numerical evidence into a rigorous uniform bound (especially with dependence on \\(\\delta,\\hat t_\\delta\\)) remains nontrivial.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.090237,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.090237
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405639491/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4400685310_p0",
+  "paper_id": "W4400685310",
+  "source_paper": "W4400685310",
+  "source_paper_title": "On the Convex Formulations of Robust Markov Decision Processes",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0284",
+  "source_paper_authors": [
+    "Julien Grand-Cl\u00e9ment",
+    "Marek Petrik"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Grand_Cl_ment_2025, title={On the Convex Formulations of Robust Markov Decision Processes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0284}, DOI={10.1287/moor.2022.0284}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Grand-Cl\u00e9ment, Julien and Petrik, Marek}, year={2025}, month=aug, pages={1681\u20131706} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1 (Introduction), page 2; reiterated in Section 7 (Conclusion), page 22.\n\nSurprisingly, there is no known convex optimization formulation for RMDPs, analogous to the linear programming formulation of MDPs.\n\nWe assert that this is an important problem in the field of RMDPs too.\n\nFirst, it may be possible to obtain exact formulations for RMDPs, not based on regularization, for specific uncertainty sets such as \\(\\ell_p\\)-balls or \\(\\phi\\)-divergence balls around nominal transitions.",
+  "title": "Derive an exact tractable convex program for robust Markov decision processes",
+  "background_latex": "A discounted robust Markov decision process (RMDP) is specified by finite sets of states \\(S\\) and actions \\(A\\), nonnegative rewards \\(r_{sa}\\in\\mathbb{R}_+\\) for \\((s,a)\\in S\\times A\\), a discount factor \\(\\gamma\\in(0,1)\\), an initial distribution \\(\\alpha\\in\\Delta(S)\\), and an uncertainty set \\(\\mathcal{U}\\subseteq (\\Delta(S))^{S\\times A}\\) of plausible transition kernels \\(P=(P_{sas'})\\). A stationary policy is \\(\\pi\\in\\Pi:=(\\Delta(A))^S\\). For a fixed transition kernel \\(P\\), the discounted return of \\(\\pi\\) is\n\\[\nR(\\pi,P)=\\mathbb{E}_{\\pi,P}\\Big[\\sum_{t=0}^\\infty \\gamma^t\\, r_{S_tA_t}\\ \\Big|\\ S_0\\sim\\alpha\\Big].\n\\]\nThe RMDP objective is the max\u2013min problem\n\\[\n\\max_{\\pi\\in\\Pi}\\ \\min_{P\\in\\mathcal{U}}\\ R(\\pi,P).\n\\]\nA common tractable structure is rectangularity of \\(\\mathcal{U}\\). Under sa-rectangularity one has \\(\\mathcal{U}=\\prod_{(s,a)\\in S\\times A} \\mathcal{U}_{sa}\\) with \\(\\mathcal{U}_{sa}\\subseteq\\Delta(S)\\) convex and compact, and the robust Bellman operator \\(T:\\mathbb{R}^S\\to\\mathbb{R}^S\\) is\n\\[\nT(v)_s = \\max_{a\\in A}\\ \\min_{p\\in\\mathcal{U}_{sa}}\\Big\\{ r_{sa}+\\gamma\\, p^\\top v\\Big\\},\\qquad s\\in S.\n\\]\nThe fixed point \\(v^\\star\\) of \\(T\\) yields an optimal robust value function and an optimal stationary policy. Unlike the nominal MDP case (where a linear program exists), the maps \\(v\\mapsto T(v)_s\\) need not be convex or concave, so the feasible sets \\(\\{v\\in\\mathbb{R}^S: v\\ge T(v)\\}\\) or \\(\\{v\\in\\mathbb{R}^S: v\\le T(v)\\}\\) are not known to admit a straightforward convex description in general.",
+  "problem_definition_latex": "Find conditions and a polynomial-size convex optimization formulation (e.g., conic, geometric, or other convex program) whose optimal solutions encode an optimal robust stationary policy and the optimal robust value function for the discounted RMDP\n\\[\n\\max_{\\pi\\in\\Pi}\\ \\min_{P\\in\\mathcal{U}}\\ R(\\pi,P),\n\\]\nunder classical rectangular uncertainty (in particular sa-rectangular or s-rectangular \\(\\mathcal{U}\\)), without introducing an approximation scheme based on regularization (i.e., an exact convex reformulation of the original RMDP rather than a sequence of convex programs converging to it).",
+  "latex": "A discounted robust Markov decision process (RMDP) is specified by finite sets of states \\(S\\) and actions \\(A\\), nonnegative rewards \\(r_{sa}\\in\\mathbb{R}_+\\) for \\((s,a)\\in S\\times A\\), a discount factor \\(\\gamma\\in(0,1)\\), an initial distribution \\(\\alpha\\in\\Delta(S)\\), and an uncertainty set \\(\\mathcal{U}\\subseteq (\\Delta(S))^{S\\times A}\\) of plausible transition kernels \\(P=(P_{sas'})\\). A stationary policy is \\(\\pi\\in\\Pi:=(\\Delta(A))^S\\). For a fixed transition kernel \\(P\\), the discounted return of \\(\\pi\\) is\n\\[\nR(\\pi,P)=\\mathbb{E}_{\\pi,P}\\Big[\\sum_{t=0}^\\infty \\gamma^t\\, r_{S_tA_t}\\ \\Big|\\ S_0\\sim\\alpha\\Big].\n\\]\nThe RMDP objective is the max\u2013min problem\n\\[\n\\max_{\\pi\\in\\Pi}\\ \\min_{P\\in\\mathcal{U}}\\ R(\\pi,P).\n\\]\nA common tractable structure is rectangularity of \\(\\mathcal{U}\\). Under sa-rectangularity one has \\(\\mathcal{U}=\\prod_{(s,a)\\in S\\times A} \\mathcal{U}_{sa}\\) with \\(\\mathcal{U}_{sa}\\subseteq\\Delta(S)\\) convex and compact, and the robust Bellman operator \\(T:\\mathbb{R}^S\\to\\mathbb{R}^S\\) is\n\\[\nT(v)_s = \\max_{a\\in A}\\ \\min_{p\\in\\mathcal{U}_{sa}}\\Big\\{ r_{sa}+\\gamma\\, p^\\top v\\Big\\},\\qquad s\\in S.\n\\]\nThe fixed point \\(v^\\star\\) of \\(T\\) yields an optimal robust value function and an optimal stationary policy. Unlike the nominal MDP case (where a linear program exists), the maps \\(v\\mapsto T(v)_s\\) need not be convex or concave, so the feasible sets \\(\\{v\\in\\mathbb{R}^S: v\\ge T(v)\\}\\) or \\(\\{v\\in\\mathbb{R}^S: v\\le T(v)\\}\\) are not known to admit a straightforward convex description in general.\n\nFind conditions and a polynomial-size convex optimization formulation (e.g., conic, geometric, or other convex program) whose optimal solutions encode an optimal robust stationary policy and the optimal robust value function for the discounted RMDP\n\\[\n\\max_{\\pi\\in\\Pi}\\ \\min_{P\\in\\mathcal{U}}\\ R(\\pi,P),\n\\]\nunder classical rectangular uncertainty (in particular sa-rectangular or s-rectangular \\(\\mathcal{U}\\)), without introducing an approximation scheme based on regularization (i.e., an exact convex reformulation of the original RMDP rather than a sequence of convex programs converging to it).",
+  "location_in_paper": "Section 1 (Introduction), page 2; reiterated in Section 7 (Conclusion), page 22.",
+  "open_problem_quote": "Surprisingly, there is no known convex optimization formulation for RMDPs, analogous to the linear programming formulation of MDPs.\n\nWe assert that this is an important problem in the field of RMDPs too.\n\nFirst, it may be possible to obtain exact formulations for RMDPs, not based on regularization, for specific uncertainty sets such as \\(\\ell_p\\)-balls or \\(\\phi\\)-divergence balls around nominal transitions.",
+  "area": "robust optimization",
+  "keywords": [
+    "robust MDPs",
+    "convex formulation",
+    "conic optimization",
+    "rectangular uncertainty",
+    "Bellman operator",
+    "exact reformulation"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for existence/construction of an exact polynomial-size convex reformulation in broad generality (or broad classes of uncertainty sets), which is not naturally falsified by finite counterexamples; failure may depend on complexity-theoretic obstructions rather than a small explicit instance.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "For specific uncertainty sets (e.g., \\(\\ell_p\\)-balls or divergence balls), one can represent candidate reformulations or variable changes and test them computationally by comparing their optimal value against robust value iteration on randomly generated small RMDPs, giving an automatic fitness signal. However, the space of possible exact convexifications is very open-ended and success would likely be limited to discovering promising transformations or formulations for special cases rather than resolving the general problem.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08218525,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08218525
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400685310/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

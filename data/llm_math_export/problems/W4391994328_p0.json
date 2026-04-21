@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4391994328_p0",
+  "paper_id": "W4391994328",
+  "source_paper": "W4391994328",
+  "source_paper_title": "Risk Sharing with Lambda Value at Risk",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0246",
+  "source_paper_authors": [
+    "Peng Liu"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Liu_2025, title={Risk Sharing with Lambda Value at Risk}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0246}, DOI={10.1287/moor.2023.0246}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liu, Peng}, year={2025}, month=feb, pages={313\u2013333} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1 Introduction (page 3) and Section 6 Conclusion (page 17).\n\nThe inf-convolution of two \\(\\Lambda\\mathrm{VaR}^+\\) is a very difficult problem and is beyond the scope of this paper as it involves the robust risk aggregation of two \\(\\Lambda\\mathrm{VaR}^+\\) with fixed marginal distributions and unknown dependence structure.\n\nThere are still some unsolved problems such as the inf-convolution of multiple \\(\\Lambda\\mathrm{VaR}^+\\), and the inf-convolution of multiple \\(\\Lambda\\mathrm{VaR}\\) under heterogenous beliefs.",
+  "title": "Characterize inf-convolution of multiple Lambda value-at-risk plus risk measures setting",
+  "background_latex": "Let \\((\\Omega,\\mathcal F,\\mathbb P)\\) be an atomless probability space and let \\(\\mathcal X\\) be a linear space of real-valued random variables (losses) with \\(L^\\infty\\subseteq \\mathcal X\\subseteq L^1\\). For \\(X\\in\\mathcal X\\), write \\(F_X\\) for its distribution function and \\(F_X^{-1}(p)=\\inf\\{x\\in\\mathbb R: F_X(x)\\ge p\\}\\) for its left-quantile, \\(p\\in(0,1]\\). An \\(n\\)-allocation of an aggregate loss \\(X\\) is an \\(n\\)-tuple \\((X_1,\\dots,X_n)\\in\\mathcal X^n\\) with \\(\\sum_{i=1}^n X_i=X\\) almost surely.\n\nA (not necessarily cash-additive) risk measure is a map \\(\\rho:\\mathcal X\\to(-\\infty,\\infty]\\). Given risk measures \\(\\rho_1,\\dots,\\rho_n\\), their inf-convolution is\n\\[\\big(\\square_{i=1}^n \\rho_i\\big)(X)=\\inf\\Big\\{\\sum_{i=1}^n \\rho_i(X_i): (X_1,\\dots,X_n)\\in\\mathcal X^n,\\ \\sum_{i=1}^n X_i=X\\Big\\}.\\]\n\nFix a right-continuous function \\(\\Lambda:\\mathbb R\\to[0,1]\\) that is not identically equal to \\(1\\). Define the Lambda value-at-risk plus functional by\n\\[\\Lambda\\mathrm{VaR}^+(X)=\\sup\\{x\\in\\mathbb R: F_X(x)< 1-\\Lambda(x)\\},\\]\nwith the conventions \\(\\sup\\emptyset=-\\infty\\) and \\(\\inf\\emptyset=\\infty\\) (when needed). For multiple agents, allow \\(\\Lambda_i\\) and corresponding \\(\\Lambda_i\\mathrm{VaR}^+\\), \\(i=1,\\dots,n\\).\n\nThe paper studies risk sharing via inf-convolution for \\(\\Lambda\\mathrm{VaR}\\) and for \\(\\Lambda\\mathrm{VaR}^+\\) combined with another risk measure under additional structure, but explicitly states that the case of inf-convolving multiple \\(\\Lambda\\mathrm{VaR}^+\\) remains open.",
+  "problem_definition_latex": "Given \\(n\\ge 2\\) right-continuous functions \\(\\Lambda_i:\\mathbb R\\to[0,1]\\) (not identically \\(1\\)) and the associated risk measures \\(\\rho_i=\\Lambda_i\\mathrm{VaR}^+\\) on \\(\\mathcal X\\), determine (i) an explicit or tractable characterization of the inf-convolution\n\\[\\big(\\square_{i=1}^n \\Lambda_i\\mathrm{VaR}^+\\big)(X)=\\inf\\Big\\{\\sum_{i=1}^n \\Lambda_i\\mathrm{VaR}^+(X_i): (X_1,\\dots,X_n)\\in\\mathcal X^n,\\ \\sum_{i=1}^n X_i=X\\Big\\}\\]\nand (ii) the structure (and existence conditions) of optimal allocations \\((X_1,\\dots,X_n)\\) attaining the infimum, as functions of \\(X\\) and \\((\\Lambda_1,\\dots,\\Lambda_n)\\).",
+  "latex": "Let \\((\\Omega,\\mathcal F,\\mathbb P)\\) be an atomless probability space and let \\(\\mathcal X\\) be a linear space of real-valued random variables (losses) with \\(L^\\infty\\subseteq \\mathcal X\\subseteq L^1\\). For \\(X\\in\\mathcal X\\), write \\(F_X\\) for its distribution function and \\(F_X^{-1}(p)=\\inf\\{x\\in\\mathbb R: F_X(x)\\ge p\\}\\) for its left-quantile, \\(p\\in(0,1]\\). An \\(n\\)-allocation of an aggregate loss \\(X\\) is an \\(n\\)-tuple \\((X_1,\\dots,X_n)\\in\\mathcal X^n\\) with \\(\\sum_{i=1}^n X_i=X\\) almost surely.\n\nA (not necessarily cash-additive) risk measure is a map \\(\\rho:\\mathcal X\\to(-\\infty,\\infty]\\). Given risk measures \\(\\rho_1,\\dots,\\rho_n\\), their inf-convolution is\n\\[\\big(\\square_{i=1}^n \\rho_i\\big)(X)=\\inf\\Big\\{\\sum_{i=1}^n \\rho_i(X_i): (X_1,\\dots,X_n)\\in\\mathcal X^n,\\ \\sum_{i=1}^n X_i=X\\Big\\}.\\]\n\nFix a right-continuous function \\(\\Lambda:\\mathbb R\\to[0,1]\\) that is not identically equal to \\(1\\). Define the Lambda value-at-risk plus functional by\n\\[\\Lambda\\mathrm{VaR}^+(X)=\\sup\\{x\\in\\mathbb R: F_X(x)< 1-\\Lambda(x)\\},\\]\nwith the conventions \\(\\sup\\emptyset=-\\infty\\) and \\(\\inf\\emptyset=\\infty\\) (when needed). For multiple agents, allow \\(\\Lambda_i\\) and corresponding \\(\\Lambda_i\\mathrm{VaR}^+\\), \\(i=1,\\dots,n\\).\n\nThe paper studies risk sharing via inf-convolution for \\(\\Lambda\\mathrm{VaR}\\) and for \\(\\Lambda\\mathrm{VaR}^+\\) combined with another risk measure under additional structure, but explicitly states that the case of inf-convolving multiple \\(\\Lambda\\mathrm{VaR}^+\\) remains open.\n\nGiven \\(n\\ge 2\\) right-continuous functions \\(\\Lambda_i:\\mathbb R\\to[0,1]\\) (not identically \\(1\\)) and the associated risk measures \\(\\rho_i=\\Lambda_i\\mathrm{VaR}^+\\) on \\(\\mathcal X\\), determine (i) an explicit or tractable characterization of the inf-convolution\n\\[\\big(\\square_{i=1}^n \\Lambda_i\\mathrm{VaR}^+\\big)(X)=\\inf\\Big\\{\\sum_{i=1}^n \\Lambda_i\\mathrm{VaR}^+(X_i): (X_1,\\dots,X_n)\\in\\mathcal X^n,\\ \\sum_{i=1}^n X_i=X\\Big\\}\\]\nand (ii) the structure (and existence conditions) of optimal allocations \\((X_1,\\dots,X_n)\\) attaining the infimum, as functions of \\(X\\) and \\((\\Lambda_1,\\dots,\\Lambda_n)\\).",
+  "location_in_paper": "Section 1 Introduction (page 3) and Section 6 Conclusion (page 17).",
+  "open_problem_quote": "The inf-convolution of two \\(\\Lambda\\mathrm{VaR}^+\\) is a very difficult problem and is beyond the scope of this paper as it involves the robust risk aggregation of two \\(\\Lambda\\mathrm{VaR}^+\\) with fixed marginal distributions and unknown dependence structure.\n\nThere are still some unsolved problems such as the inf-convolution of multiple \\(\\Lambda\\mathrm{VaR}^+\\), and the inf-convolution of multiple \\(\\Lambda\\mathrm{VaR}\\) under heterogenous beliefs.",
+  "area": "risk sharing",
+  "keywords": [
+    "lambda value at risk",
+    "inf-convolution",
+    "risk sharing",
+    "optimal allocation",
+    "robust risk aggregation",
+    "dependence uncertainty"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can numerically search over finite-dimensional parametric families of \\(\\Lambda_i\\), discrete loss distributions, and dependence couplings to probe candidate formulas or conjectured allocation structures, but the universal quantification over all \\(X\\) and couplings makes definitive counterexamples less straightforward.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate constructions (e.g., allocation rules, bounds, or conjectured closed forms for restricted classes) can be represented programmatically and evaluated by computing \\(\\sum_i \\Lambda_i\\mathrm{VaR}^+(X_i)\\) under constraints \\(\\sum_i X_i=X\\) on discretized spaces; however, the inner optimization and dependence-robust aspects can make the fitness signal expensive and only approximate the full general problem.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07168350000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07168350000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391994328/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

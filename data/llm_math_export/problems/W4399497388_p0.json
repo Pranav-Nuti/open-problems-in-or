@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4399497388_p0",
+  "paper_id": "W4399497388",
+  "source_paper": "W4399497388",
+  "source_paper_title": "How to Design a Stable Serial Knockout Competition",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0352",
+  "source_paper_authors": [
+    "Roel Lambers",
+    "Rudi Pendavingh",
+    "Frits Spieksma"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Lambers_2025, title={How to Design a Stable Serial Knockout Competition}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0352}, DOI={10.1287/moor.2022.0352}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Lambers, Roel and Pendavingh, Rudi and Spieksma, Frits}, year={2025}, month=may, pages={1421\u20131432} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 13, end of Section 5.2 (after Theorem 3) and reiterated in Section 7 (Discussion), page 14.\n\nFor \\(n = 2^k > 8\\) players, we do not know whether there exist stable SKCs that are inequivalent to the ones that we construct in this paper, not even in the case of \\(n=16\\) players.\n\nWe have also shown that the construction to create stable SKCs generates a unique (up to permutation of the players) tournament for eight players; it remains open to generalize this for larger powers of two.",
+  "title": "Classify stable serial knockout competitions up to equivalence for larger powers of two",
+  "background_latex": "Fix an integer \\(k\\ge 2\\) and let \\(n=2^k\\). A (balanced) single-elimination knockout tournament on a player set \\(P\\) with \\(|P|=n\\) is a rooted binary tree with \\(n\\) leaves labeled bijectively by the players; the tournament has \\(k\\) rounds, and players \\(x,x'\\in P\\) are said to be able to meet in round \\(i\\in\\{1,\\dots,k\\}\\) if, given the fixed bracket, there is a possible sequence of earlier match outcomes under which they face each other in round \\(i\\). Formally, for a knockout tournament \\(T\\) on \\(P\\), define \\(v_T(x,x')=i\\) if \\(x\\) and \\(x'\\) can meet in round \\(i\\) in \\(T\\).\n\nA serial knockout competition (SKC) on \\(P\\) is a set \\(\\mathcal{T}\\) of \\(n-1\\) knockout tournaments on the same player set \\(P\\). For each round \\(i\\), the SKC \\(\\mathcal{T}\\) is called stable in round \\(i\\) if there exists a constant \\(c_i\\) such that for every distinct pair \\(x\\ne x'\\) in \\(P\\),\n\\[\n\\#\\{T\\in\\mathcal{T}: v_T(x,x')=i\\}=c_i.\n\\]\nIt is stable if it is stable in all rounds \\(i=1,\\dots,k\\). For an SKC with \\(|\\mathcal{T}|=n-1\\), counting implies \\(c_i=2^{i-1}\\).\n\nTwo knockout tournaments \\(T,T'\\) on player sets \\(P,P'\\) are considered identical if \\(v_T(p,q)=v_{T'}(p,q)\\) for all pairs \\(p,q\\) in the common player set; and two SKCs \\(\\mathcal{T}\\) on \\(P\\) and \\(\\mathcal{T}'\\) on \\(P'\\) are called equivalent if there exists a bijection \\(s:P\\to P'\\) such that \\(\\mathcal{T}'=\\{T(s): T\\in \\mathcal{T}\\}\\), where \\(T(s)\\) is obtained from \\(T\\) by relabeling each player \\(p\\in P\\) as \\(s(p)\\). The paper constructs, for every \\(n=2^k\\), a stable SKC via algebraic structure on \\(\\mathrm{GF}(2^k)\\).",
+  "problem_definition_latex": "For \\(n=2^k>8\\), determine whether every stable serial knockout competition \\(\\mathcal{T}\\) on \\(n\\) players is equivalent (via relabeling of players) to the algebraic stable SKC constructed using \\(\\mathrm{GF}(2^k)\\); equivalently, decide whether there exist stable SKCs on \\(n\\) players that are inequivalent to that construction (in particular, for \\(n=16\\)).",
+  "latex": "Fix an integer \\(k\\ge 2\\) and let \\(n=2^k\\). A (balanced) single-elimination knockout tournament on a player set \\(P\\) with \\(|P|=n\\) is a rooted binary tree with \\(n\\) leaves labeled bijectively by the players; the tournament has \\(k\\) rounds, and players \\(x,x'\\in P\\) are said to be able to meet in round \\(i\\in\\{1,\\dots,k\\}\\) if, given the fixed bracket, there is a possible sequence of earlier match outcomes under which they face each other in round \\(i\\). Formally, for a knockout tournament \\(T\\) on \\(P\\), define \\(v_T(x,x')=i\\) if \\(x\\) and \\(x'\\) can meet in round \\(i\\) in \\(T\\).\n\nA serial knockout competition (SKC) on \\(P\\) is a set \\(\\mathcal{T}\\) of \\(n-1\\) knockout tournaments on the same player set \\(P\\). For each round \\(i\\), the SKC \\(\\mathcal{T}\\) is called stable in round \\(i\\) if there exists a constant \\(c_i\\) such that for every distinct pair \\(x\\ne x'\\) in \\(P\\),\n\\[\n\\#\\{T\\in\\mathcal{T}: v_T(x,x')=i\\}=c_i.\n\\]\nIt is stable if it is stable in all rounds \\(i=1,\\dots,k\\). For an SKC with \\(|\\mathcal{T}|=n-1\\), counting implies \\(c_i=2^{i-1}\\).\n\nTwo knockout tournaments \\(T,T'\\) on player sets \\(P,P'\\) are considered identical if \\(v_T(p,q)=v_{T'}(p,q)\\) for all pairs \\(p,q\\) in the common player set; and two SKCs \\(\\mathcal{T}\\) on \\(P\\) and \\(\\mathcal{T}'\\) on \\(P'\\) are called equivalent if there exists a bijection \\(s:P\\to P'\\) such that \\(\\mathcal{T}'=\\{T(s): T\\in \\mathcal{T}\\}\\), where \\(T(s)\\) is obtained from \\(T\\) by relabeling each player \\(p\\in P\\) as \\(s(p)\\). The paper constructs, for every \\(n=2^k\\), a stable SKC via algebraic structure on \\(\\mathrm{GF}(2^k)\\).\n\nFor \\(n=2^k>8\\), determine whether every stable serial knockout competition \\(\\mathcal{T}\\) on \\(n\\) players is equivalent (via relabeling of players) to the algebraic stable SKC constructed using \\(\\mathrm{GF}(2^k)\\); equivalently, decide whether there exist stable SKCs on \\(n\\) players that are inequivalent to that construction (in particular, for \\(n=16\\)).",
+  "location_in_paper": "Page 13, end of Section 5.2 (after Theorem 3) and reiterated in Section 7 (Discussion), page 14.",
+  "open_problem_quote": "For \\(n = 2^k > 8\\) players, we do not know whether there exist stable SKCs that are inequivalent to the ones that we construct in this paper, not even in the case of \\(n=16\\) players.\n\nWe have also shown that the construction to create stable SKCs generates a unique (up to permutation of the players) tournament for eight players; it remains open to generalize this for larger powers of two.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "tournament design",
+    "serial knockout competition",
+    "stability",
+    "finite fields",
+    "combinatorial designs",
+    "equivalence classes"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "For a fixed small size such as \\(n=16\\), one can search over candidate SKCs (sets of \\(n-1\\) brackets) using SAT/ILP with constraints enforcing stability counts \\(c_i=2^{i-1}\\), and then test equivalence to the \\(\\mathrm{GF}(2^k)\\) construction via canonical labeling/invariants. Finding a single feasible SKC inequivalent to the constructed one would resolve the existential direction for that \\(n\\).",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate SKCs can be encoded as \\(n-1\\) permutations (seedings) or as bracket partitions, and a fitness signal can be computed from deviations of pair-counts from the target \\(2^{i-1}\\) across rounds, plus a penalty for being equivalent to known constructions. However, equivalence testing and the combinatorial search space grow rapidly with \\(n\\), so iterative search may be costly beyond \\(n=16\\) or \\(32\\) without strong symmetry-breaking.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.05043675,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.05043675
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4399497388/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

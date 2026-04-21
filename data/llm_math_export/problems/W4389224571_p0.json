@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4389224571_p0",
+  "paper_id": "W4389224571",
+  "source_paper": "W4389224571",
+  "source_paper_title": "Proximity and Flatness Bounds for Linear Integer Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0335",
+  "source_paper_authors": [
+    "Marcel Celaya",
+    "Stefan Kuhlmann",
+    "Joseph Paat",
+    "Robert Weismantel"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Celaya_2024, title={Proximity and Flatness Bounds for Linear Integer Optimization}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0335}, DOI={10.1287/moor.2022.0335}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Celaya, Marcel and Kuhlmann, Stefan and Paat, Joseph and Weismantel, Robert}, year={2024}, month=nov, pages={2446\u20132467} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (discussion following Theorem 4)\n\nIt is open whether the lattice width of lattice-free polytopes can be bounded solely by \\(\\Delta_n(A)\\).",
+  "title": "Bound lattice width of lattice-free polytopes using only determinant minor parameter",
+  "background_latex": "Let $A\\in\\mathbb{Z}^{m\\times n}$ have full column rank and let $b\\in\\mathbb{Z}^m$. Define the (rational) polyhedron\n\\[\nP(A,b):=\\{x\\in\\mathbb{R}^n: Ax\\le b\\}.\n\\]\nThe polyhedron is called lattice-free if $P(A,b)\\cap\\mathbb{Z}^n=\\emptyset$.\n\nFor a nonzero direction $a\\in\\mathbb{R}^n\\setminus\\{0\\}$, define the width of $P(A,b)$ in direction $a$ by\n\\[\nw_a(P(A,b)):=\\max_{x\\in P(A,b)} a^\\top x-\\min_{y\\in P(A,b)} a^\\top y.\n\\]\nThe lattice width is\n\\[\nw(P(A,b)):=\\min_{a\\in\\mathbb{Z}^n\\setminus\\{0\\}} w_a(P(A,b)).\n\\]\n\nFor $k\\in\\{1,\\dots,n\\}$ define the maximal absolute $k\\times k$ minor of $A$ by\n\\[\n\\Delta_k(A):=\\max\\{ |\\det M| : M \\text{ is a } k\\times k \\text{ submatrix of } A\\}.\n\\]\nIn particular, $\\Delta_n(A)$ is the maximum absolute determinant of an $n\\times n$ submatrix of $A$ (which is nonzero because $A$ has full column rank $n$).",
+  "problem_definition_latex": "Determine whether there exists a function $f:\\mathbb{Z}_{\\ge 1}\\to\\mathbb{R}_{\\ge 0}$ such that for every dimension $n\\ge 2$, every full-column-rank matrix $A\\in\\mathbb{Z}^{m\\times n}$, and every $b\\in\\mathbb{Z}^m$ for which $P(A,b)$ is a (full-dimensional) lattice-free polyhedron, the lattice width satisfies\n\\[\nw(P(A,b))\\le f(\\Delta_n(A)).\n\\]\nEquivalently, decide whether the lattice width of lattice-free polytopes can be bounded above by a function depending only on $\\Delta_n(A)$ (and not on $n$).",
+  "latex": "Let $A\\in\\mathbb{Z}^{m\\times n}$ have full column rank and let $b\\in\\mathbb{Z}^m$. Define the (rational) polyhedron\n\\[\nP(A,b):=\\{x\\in\\mathbb{R}^n: Ax\\le b\\}.\n\\]\nThe polyhedron is called lattice-free if $P(A,b)\\cap\\mathbb{Z}^n=\\emptyset$.\n\nFor a nonzero direction $a\\in\\mathbb{R}^n\\setminus\\{0\\}$, define the width of $P(A,b)$ in direction $a$ by\n\\[\nw_a(P(A,b)):=\\max_{x\\in P(A,b)} a^\\top x-\\min_{y\\in P(A,b)} a^\\top y.\n\\]\nThe lattice width is\n\\[\nw(P(A,b)):=\\min_{a\\in\\mathbb{Z}^n\\setminus\\{0\\}} w_a(P(A,b)).\n\\]\n\nFor $k\\in\\{1,\\dots,n\\}$ define the maximal absolute $k\\times k$ minor of $A$ by\n\\[\n\\Delta_k(A):=\\max\\{ |\\det M| : M \\text{ is a } k\\times k \\text{ submatrix of } A\\}.\n\\]\nIn particular, $\\Delta_n(A)$ is the maximum absolute determinant of an $n\\times n$ submatrix of $A$ (which is nonzero because $A$ has full column rank $n$).\n\nDetermine whether there exists a function $f:\\mathbb{Z}_{\\ge 1}\\to\\mathbb{R}_{\\ge 0}$ such that for every dimension $n\\ge 2$, every full-column-rank matrix $A\\in\\mathbb{Z}^{m\\times n}$, and every $b\\in\\mathbb{Z}^m$ for which $P(A,b)$ is a (full-dimensional) lattice-free polyhedron, the lattice width satisfies\n\\[\nw(P(A,b))\\le f(\\Delta_n(A)).\n\\]\nEquivalently, decide whether the lattice width of lattice-free polytopes can be bounded above by a function depending only on $\\Delta_n(A)$ (and not on $n$).",
+  "location_in_paper": "Page 3, Introduction (discussion following Theorem 4)",
+  "open_problem_quote": "It is open whether the lattice width of lattice-free polytopes can be bounded solely by \\(\\Delta_n(A)\\).",
+  "area": "approximation algorithms",
+  "keywords": [
+    "integer optimization",
+    "lattice-free polyhedra",
+    "lattice width",
+    "subdeterminants",
+    "flatness",
+    "polyhedral theory"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally search for families of lattice-free polytopes with fixed $\\Delta_n(A)$ and large lattice width by enumerating small integer matrices and right-hand sides and checking lattice-freeness and width via MILP/LP. However, the search space grows quickly with $n,m$ and certifying worst-case growth may require guided constructions beyond brute force.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be represented programmatically as integer matrices $A$ and integer vectors $b$, with fitness given by computed lattice width subject to a constraint on $\\Delta_n(A)$ and lattice-freeness. The challenge is efficiently enforcing full-dimensional lattice-freeness and exploring high-dimensional instances, but evolutionary search could plausibly discover structured families with large width or suggest sharper conjectured bounds.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.060313750000000006,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.060313750000000006
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389224571/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

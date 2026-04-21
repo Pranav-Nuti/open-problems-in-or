@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4385980778_p0",
+  "paper_id": "W4385980778",
+  "source_paper": "W4385980778",
+  "source_paper_title": "Improved Online Contention Resolution for Matchings and Applications to the Gig Economy",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1388",
+  "source_paper_authors": [
+    "Tristan Pollner",
+    "Mohammad Roghani",
+    "Amin Saberi",
+    "David Wajc"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Pollner_2024, title={Improved Online Contention Resolution for Matchings and Applications to the Gig Economy}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1388}, DOI={10.1287/moor.2023.1388}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Pollner, Tristan and Roghani, Mohammad and Saberi, Amin and Wajc, David}, year={2024}, month=aug, pages={1582\u20131606} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Discussion), page 20\n\nOur algorithm, as well as all prior work on (RO-)OCRS for matching constraints, works with the degree-bounded relaxation for matchings, which is integral for bipartite graphs, but not for general ones. A natural question is whether better (RO-)OCRS can be achieved for points in the matching polytope, i.e., points which also satisfy Edmonds\u2019 odd-set constraints [Edm65]. Can better bounds be achieved for this polytope, perhaps via a different algorithmic approach?",
+  "title": "Improve contention resolution for points in the exact matching polytope setting",
+  "background_latex": "Let \\(G=(V,E)\\) be an (undirected) graph. A (fractional) vector \\(x\\in[0,1]^E\\) assigns a value \\(x_e\\) to each edge \\(e\\in E\\). The (degree-bounded) matching relaxation is\n\\[P(G):=\\Bigl\\{x\\in\\mathbb{R}_{\\ge 0}^E: \\sum_{e\\ni v} x_e\\le 1\\ \\forall v\\in V\\Bigr\\}.\n\\]\nThe (integral) matching polytope \\(\\mathrm{MP}(G)\\subseteq\\mathbb{R}^E\\) is the convex hull of incidence vectors of matchings in \\(G\\). Edmonds' characterization gives\n\\[\\mathrm{MP}(G)=\\Bigl\\{x\\in P(G): \\sum_{e\\subseteq S} x_e \\le \\frac{|S|-1}{2}\\ \\forall S\\subseteq V\\ \\text{with }|S|\\text{ odd}\\Bigr\\},\n\\]\nwhere \\(\\sum_{e\\subseteq S}\\) denotes the sum over edges with both endpoints in \\(S\\) (the odd-set constraints).\n\nA random-order online contention resolution scheme (RO-OCRS) for matchings takes as input a fractional point \\(x\\) (typically in some polytope such as \\(P(G)\\) or \\(\\mathrm{MP}(G)\\)). Then edges arrive online in a uniformly random order. Each edge \\(e\\) is independently declared active with probability \\(x_e\\). Upon seeing an active edge \\(e\\), the scheme must irrevocably accept it into the output set \\(I\\) or reject it, while maintaining that \\(I\\) is a matching.\n\nA RO-OCRS is called \\(c\\)-balanced if for every graph \\(G\\), every feasible input point \\(x\\), and every edge \\(e\\in E\\), the output matching \\(I\\) satisfies\n\\[\\Pr[e\\in I]\\ge c\\,x_e.\n\\]\nHere probability is over the scheme\u2019s internal randomness, the random arrival order, and the independent activations.",
+  "problem_definition_latex": "Determine whether there exists a constant \\(c>0.456\\) and a (polynomial-time) RO-OCRS for matchings that is \\(c\\)-balanced when the input fractional point \\(x\\) is restricted to lie in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., satisfies both degree constraints and Edmonds' odd-set constraints). More generally, determine the best achievable balance factor\n\\[c^*:=\\sup\\{c: \\exists\\ \\text{a (polytime) RO-OCRS that is }c\\text{-balanced for all }G\\text{ and all }x\\in \\mathrm{MP}(G)\\}.\n\\]",
+  "latex": "Let \\(G=(V,E)\\) be an (undirected) graph. A (fractional) vector \\(x\\in[0,1]^E\\) assigns a value \\(x_e\\) to each edge \\(e\\in E\\). The (degree-bounded) matching relaxation is\n\\[P(G):=\\Bigl\\{x\\in\\mathbb{R}_{\\ge 0}^E: \\sum_{e\\ni v} x_e\\le 1\\ \\forall v\\in V\\Bigr\\}.\n\\]\nThe (integral) matching polytope \\(\\mathrm{MP}(G)\\subseteq\\mathbb{R}^E\\) is the convex hull of incidence vectors of matchings in \\(G\\). Edmonds' characterization gives\n\\[\\mathrm{MP}(G)=\\Bigl\\{x\\in P(G): \\sum_{e\\subseteq S} x_e \\le \\frac{|S|-1}{2}\\ \\forall S\\subseteq V\\ \\text{with }|S|\\text{ odd}\\Bigr\\},\n\\]\nwhere \\(\\sum_{e\\subseteq S}\\) denotes the sum over edges with both endpoints in \\(S\\) (the odd-set constraints).\n\nA random-order online contention resolution scheme (RO-OCRS) for matchings takes as input a fractional point \\(x\\) (typically in some polytope such as \\(P(G)\\) or \\(\\mathrm{MP}(G)\\)). Then edges arrive online in a uniformly random order. Each edge \\(e\\) is independently declared active with probability \\(x_e\\). Upon seeing an active edge \\(e\\), the scheme must irrevocably accept it into the output set \\(I\\) or reject it, while maintaining that \\(I\\) is a matching.\n\nA RO-OCRS is called \\(c\\)-balanced if for every graph \\(G\\), every feasible input point \\(x\\), and every edge \\(e\\in E\\), the output matching \\(I\\) satisfies\n\\[\\Pr[e\\in I]\\ge c\\,x_e.\n\\]\nHere probability is over the scheme\u2019s internal randomness, the random arrival order, and the independent activations.\n\nDetermine whether there exists a constant \\(c>0.456\\) and a (polynomial-time) RO-OCRS for matchings that is \\(c\\)-balanced when the input fractional point \\(x\\) is restricted to lie in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., satisfies both degree constraints and Edmonds' odd-set constraints). More generally, determine the best achievable balance factor\n\\[c^*:=\\sup\\{c: \\exists\\ \\text{a (polytime) RO-OCRS that is }c\\text{-balanced for all }G\\text{ and all }x\\in \\mathrm{MP}(G)\\}.\n\\]",
+  "location_in_paper": "Section 5 (Discussion), page 20",
+  "open_problem_quote": "Our algorithm, as well as all prior work on (RO-)OCRS for matching constraints, works with the degree-bounded relaxation for matchings, which is integral for bipartite graphs, but not for general ones. A natural question is whether better (RO-)OCRS can be achieved for points in the matching polytope, i.e., points which also satisfy Edmonds\u2019 odd-set constraints [Edm65]. Can better bounds be achieved for this polytope, perhaps via a different algorithmic approach?",
+  "area": "online algorithms",
+  "keywords": [
+    "contention resolution schemes",
+    "random-order online algorithms",
+    "matching polytope",
+    "Edmonds odd-set constraints",
+    "correlation gap"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally search for small graphs and fractional points in the matching polytope that appear hard for candidate RO-OCRS policies, but the space of online policies is large and proving optimal lower bounds is difficult. Still, testing specific algorithms and generating adversarial instances is feasible via simulation and optimization over small graphs.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate RO-OCRS policies (e.g., parametric attenuation/priority rules) can be represented as code with tunable parameters, and their worst-case (or empirically minimized) balancedness can be estimated by Monte Carlo over random orders and by adversarial search over small graphs and fractional inputs. This provides an automatic fitness signal (estimated minimum \\(\\Pr[e\\in I]/x_e\\)) enabling iterative improvement or discovery of counterexamples to proposed designs.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.066031,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.066031
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385980778/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

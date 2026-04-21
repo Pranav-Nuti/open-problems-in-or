@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3126339575_p0",
+  "paper_id": "W3126339575",
+  "source_paper": "W3126339575",
+  "source_paper_title": "Shapley\u2013Scarf Housing Markets: Respecting Improvement, Integer Programming, and Kidney Exchange",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0092",
+  "source_paper_authors": [
+    "P\u00e9ter B\u00edr\u00f3",
+    "Flip Klijn",
+    "Xenia Klimentova",
+    "Ana Viana"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Bir__2024, title={Shapley\u2013Scarf Housing Markets: Respecting Improvement, Integer Programming, and Kidney Exchange}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0092}, DOI={10.1287/moor.2022.0092}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bir\u00f3, P\u00e9ter and Klijn, Flip and Klimentova, Xenia and Viana, Ana}, year={2024}, month=aug, pages={1938\u20131972} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Conclusion, page 34, Section 6\n\nAs the main open question we left open whether the respecting improvement property with regard to the best allotment holds for a) the core for unbounded exchanges b) for stable matchings in the roommates problem with strict preferences.",
+  "title": "Respecting improvement for best core allotments in unbounded Shapley-Scarf markets",
+  "background_latex": "A (Shapley--Scarf) housing market consists of a finite set of agents/objects \\(N=\\{1,\\dots,n\\}\\). Agent \\(i\\in N\\) is initially endowed with object \\(e_i=i\\) and has complete and transitive (weak) preferences \\(R_i\\) over \\(N\\). Write \\(P_i\\) for the strict part and \\(I_i\\) for indifference.\n\nAn allocation is a permutation \\(x=(x_i)_{i\\in N}\\in N^N\\) such that each agent receives exactly one object and each object is assigned to exactly one agent. An allocation \\(x\\) is individually rational if \\(x_i R_i i\\) for all \\(i\\).\n\nA nonempty coalition \\(S\\subseteq N\\) blocks an allocation \\(x\\) if there exists an allocation \\(z\\) using only objects of \\(S\\) (i.e., \\(\\{z_i:i\\in S\\}=S\\)) such that \\(z_i P_i x_i\\) for all \\(i\\in S\\). The (weak) core \\(C(R)\\) is the set of allocations that are not blocked by any coalition.\n\nAn \"improvement for agent \\(i\\)\" is a change of preferences from \\(R\\) to \\(\\widetilde R\\) such that: (1) \\(\\widetilde R_i=R_i\\); (2) for each other agent \\(j\\neq i\\), object \\(i\\) can only move weakly up in \\(j\\)'s ranking among acceptable objects (relative orderings among objects \\(\\neq i\\) are unchanged).\n\nFor a set of allocations \\(X\\) and agent \\(i\\), define the set of objects \\(X_i:=\\{x_i: x\\in X\\}\\). Define \\(\\mathrm{best}_i(X)\\) as an \\(R_i\\)-maximal element of \\(X_i\\) (i.e., an agent \\(i\\)'s most preferred allotment attainable within \\(X\\); if there are ties, \\(\\mathrm{best}_i(X)\\) may be non-unique).\n\nThe paper proves that the unique competitive/strong-core allocation respects improvement under strict preferences, and gives related setwise results for competitive allocations under weak preferences, but leaves open a question for the (weak) core under unbounded exchanges.",
+  "problem_definition_latex": "Given a housing market \\((N,R)\\) with unbounded exchange cycles and its core \\(C(R)\\), and an agent \\(i\\in N\\), consider a preference change to \\((N,\\widetilde R)\\) where \\(\\widetilde R\\) is an improvement for \\(i\\) with respect to \\(R\\).\n\nDetermine whether the following property holds: for every choice of \\(x\\in C(R)\\) with \\(x_i\\in \\mathrm{best}_i(C(R))\\) and every choice of \\(\\widetilde x\\in C(\\widetilde R)\\) with \\(\\widetilde x_i\\in \\mathrm{best}_i(C(\\widetilde R))\\), one has\n\\[\n\\widetilde x_i\\; R_i\\; x_i.\n\\]\nEquivalently, decide whether agent \\(i\\)'s most preferred allotment among core allocations can ever become strictly worse after \\(i\\)'s object becomes (weakly) more desirable to other agents (with \\(i\\)'s own preferences fixed).",
+  "latex": "A (Shapley--Scarf) housing market consists of a finite set of agents/objects \\(N=\\{1,\\dots,n\\}\\). Agent \\(i\\in N\\) is initially endowed with object \\(e_i=i\\) and has complete and transitive (weak) preferences \\(R_i\\) over \\(N\\). Write \\(P_i\\) for the strict part and \\(I_i\\) for indifference.\n\nAn allocation is a permutation \\(x=(x_i)_{i\\in N}\\in N^N\\) such that each agent receives exactly one object and each object is assigned to exactly one agent. An allocation \\(x\\) is individually rational if \\(x_i R_i i\\) for all \\(i\\).\n\nA nonempty coalition \\(S\\subseteq N\\) blocks an allocation \\(x\\) if there exists an allocation \\(z\\) using only objects of \\(S\\) (i.e., \\(\\{z_i:i\\in S\\}=S\\)) such that \\(z_i P_i x_i\\) for all \\(i\\in S\\). The (weak) core \\(C(R)\\) is the set of allocations that are not blocked by any coalition.\n\nAn \"improvement for agent \\(i\\)\" is a change of preferences from \\(R\\) to \\(\\widetilde R\\) such that: (1) \\(\\widetilde R_i=R_i\\); (2) for each other agent \\(j\\neq i\\), object \\(i\\) can only move weakly up in \\(j\\)'s ranking among acceptable objects (relative orderings among objects \\(\\neq i\\) are unchanged).\n\nFor a set of allocations \\(X\\) and agent \\(i\\), define the set of objects \\(X_i:=\\{x_i: x\\in X\\}\\). Define \\(\\mathrm{best}_i(X)\\) as an \\(R_i\\)-maximal element of \\(X_i\\) (i.e., an agent \\(i\\)'s most preferred allotment attainable within \\(X\\); if there are ties, \\(\\mathrm{best}_i(X)\\) may be non-unique).\n\nThe paper proves that the unique competitive/strong-core allocation respects improvement under strict preferences, and gives related setwise results for competitive allocations under weak preferences, but leaves open a question for the (weak) core under unbounded exchanges.\n\nGiven a housing market \\((N,R)\\) with unbounded exchange cycles and its core \\(C(R)\\), and an agent \\(i\\in N\\), consider a preference change to \\((N,\\widetilde R)\\) where \\(\\widetilde R\\) is an improvement for \\(i\\) with respect to \\(R\\).\n\nDetermine whether the following property holds: for every choice of \\(x\\in C(R)\\) with \\(x_i\\in \\mathrm{best}_i(C(R))\\) and every choice of \\(\\widetilde x\\in C(\\widetilde R)\\) with \\(\\widetilde x_i\\in \\mathrm{best}_i(C(\\widetilde R))\\), one has\n\\[\n\\widetilde x_i\\; R_i\\; x_i.\n\\]\nEquivalently, decide whether agent \\(i\\)'s most preferred allotment among core allocations can ever become strictly worse after \\(i\\)'s object becomes (weakly) more desirable to other agents (with \\(i\\)'s own preferences fixed).",
+  "location_in_paper": "Conclusion, page 34, Section 6",
+  "open_problem_quote": "As the main open question we left open whether the respecting improvement property with regard to the best allotment holds for a) the core for unbounded exchanges b) for stable matchings in the roommates problem with strict preferences.",
+  "area": "information design",
+  "keywords": [
+    "housing markets",
+    "core stability",
+    "top trading cycles",
+    "comparative statics",
+    "respecting improvement",
+    "indivisible goods"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The question asks whether a monotonicity property always holds; a violation would be witnessed by a finite market with explicit preference lists. One can systematically enumerate small markets and check the core before/after an improvement using existing algorithms or IP formulations, making automated counterexample search very feasible.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate objects are concrete preference profiles and an improvement operation; fitness can be the size of the violation (rank drop in the improving agent's best core allotment) computed by solving for the core via IP/TTC-based routines. An evolutionary loop can efficiently explore preference perturbations and market sizes to discover counterexamples or build evidence for validity.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08870225,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08870225
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3126339575/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

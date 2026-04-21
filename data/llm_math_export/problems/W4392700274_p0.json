@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4392700274_p0",
+  "paper_id": "W4392700274",
+  "source_paper": "W4392700274",
+  "source_paper_title": "Marginal Values of a Stochastic Game",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0297",
+  "source_paper_authors": [
+    "Luc Attia",
+    "Miquel Oliu\u2010Barton",
+    "Raimundo Saona"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Attia_2025, title={Marginal Values of a Stochastic Game}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0297}, DOI={10.1287/moor.2023.0297}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Attia, Luc and Oliu-Barton, Miquel and Saona, Raimundo}, year={2025}, month=feb, pages={482\u2013505} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6.2 (Compact-continuous stochastic games), page 16 (in the provided 19-page text)\n\nDetermining necessary and sufficient conditions on \\(I\\), \\(J\\), \\(g\\), and \\(q\\) which ensure the convergence of the discounted values or the existence of the value is a problem. Bolte, Gaubert and Vigeral [5] provided sufficient conditions, namely that \\(g\\) and \\(q\\) are separable and definable. Without going into a precise definition of these two conditions, they hold in particular when the pay-off function \\(g\\) and the transition \\(q\\) are polynomials in the players\u2019 actions. However, the case where \\(I\\), \\(J\\), \\(g\\), and \\(q\\) are semi-algebraic is still unsolved.",
+  "title": "Characterize convergence of discounted values in compact-continuous zero-sum stochastic games",
+  "background_latex": "A two-player zero-sum stochastic game is specified by a finite state set \\(K=\\{1,\\dots,n\\}\\), compact metric action sets \\(I\\) and \\(J\\), a bounded stage payoff (to Player 1) \\(g:K\\times I\\times J\\to \\mathbb{R}\\), and a transition kernel \\(q:K\\times I\\times J\\to \\Delta(K)\\), both continuous in \\((i,j)\\) (with \\(\\Delta(K)\\) the simplex over \\(K\\)).\n\nFor a discount factor \\(\\lambda\\in(0,1]\\), the \\(\\lambda\\)-discounted payoff starting from an initial state \\(k\\in K\\) is\n\\[\n\\mathbb{E}\\Big[\\sum_{m\\ge 1} \\lambda(1-\\lambda)^{m-1} g(k_m,i_m,j_m)\\Big],\n\\]\nwhere \\(k_1=k\\) and \\(k_{m+1}\\sim q(k_m,i_m,j_m)\\). A (behavioral) strategy maps each player\u2019s observation history to a probability distribution over actions; in these perfect-monitoring games, both players observe the current state and past actions.\n\nLet \\(v^k_\\lambda\\in\\mathbb{R}\\) denote the value of the \\(\\lambda\\)-discounted game starting from state \\(k\\) (existence follows from standard minimax arguments under compactness/continuity). The family \\((v^k_\\lambda)_{\\lambda\\downarrow 0}\\) is said to converge if \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\) exists for each \\(k\\in K\\).\n\nOne is also interested in the (uniform) long-run value \\(v^k\\), defined via the ability of each player to guarantee, for all sufficiently large horizons \\(M\\), an expected average payoff over the first \\(M\\) stages within \\(\\varepsilon\\) of \\(v^k\\). In the finite-action case, this value exists and equals \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\), but in compact-continuous games the discounted values may fail to converge (there are counterexamples).\n\nKnown sufficient conditions for convergence include certain regularity/tameness assumptions such as \\(g\\) and \\(q\\) being separable and definable (in an o-minimal structure), which in particular holds when \\(g\\) and \\(q\\) are polynomial functions of the actions. A set \\(E\\subset\\mathbb{R}^d\\) is semi-algebraic if it can be described by finitely many polynomial inequalities; a function is semi-algebraic if its graph is semi-algebraic.",
+  "problem_definition_latex": "Give necessary and sufficient conditions on the primitives \\(I,J,g,q\\) of a compact-continuous two-player zero-sum stochastic game with finite state set \\(K\\) such that, for every initial state \\(k\\in K\\), the limit \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\) exists (equivalently: characterize when the discounted values converge as \\(\\lambda\\downarrow 0\\)), and/or such that the long-run value \\(v^k\\) exists.\n\nIn particular, determine whether convergence (or existence of \\(v^k\\)) holds when \\(I\\) and \\(J\\) are semi-algebraic sets and \\(g\\) and \\(q\\) are semi-algebraic functions.",
+  "latex": "A two-player zero-sum stochastic game is specified by a finite state set \\(K=\\{1,\\dots,n\\}\\), compact metric action sets \\(I\\) and \\(J\\), a bounded stage payoff (to Player 1) \\(g:K\\times I\\times J\\to \\mathbb{R}\\), and a transition kernel \\(q:K\\times I\\times J\\to \\Delta(K)\\), both continuous in \\((i,j)\\) (with \\(\\Delta(K)\\) the simplex over \\(K\\)).\n\nFor a discount factor \\(\\lambda\\in(0,1]\\), the \\(\\lambda\\)-discounted payoff starting from an initial state \\(k\\in K\\) is\n\\[\n\\mathbb{E}\\Big[\\sum_{m\\ge 1} \\lambda(1-\\lambda)^{m-1} g(k_m,i_m,j_m)\\Big],\n\\]\nwhere \\(k_1=k\\) and \\(k_{m+1}\\sim q(k_m,i_m,j_m)\\). A (behavioral) strategy maps each player\u2019s observation history to a probability distribution over actions; in these perfect-monitoring games, both players observe the current state and past actions.\n\nLet \\(v^k_\\lambda\\in\\mathbb{R}\\) denote the value of the \\(\\lambda\\)-discounted game starting from state \\(k\\) (existence follows from standard minimax arguments under compactness/continuity). The family \\((v^k_\\lambda)_{\\lambda\\downarrow 0}\\) is said to converge if \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\) exists for each \\(k\\in K\\).\n\nOne is also interested in the (uniform) long-run value \\(v^k\\), defined via the ability of each player to guarantee, for all sufficiently large horizons \\(M\\), an expected average payoff over the first \\(M\\) stages within \\(\\varepsilon\\) of \\(v^k\\). In the finite-action case, this value exists and equals \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\), but in compact-continuous games the discounted values may fail to converge (there are counterexamples).\n\nKnown sufficient conditions for convergence include certain regularity/tameness assumptions such as \\(g\\) and \\(q\\) being separable and definable (in an o-minimal structure), which in particular holds when \\(g\\) and \\(q\\) are polynomial functions of the actions. A set \\(E\\subset\\mathbb{R}^d\\) is semi-algebraic if it can be described by finitely many polynomial inequalities; a function is semi-algebraic if its graph is semi-algebraic.\n\nGive necessary and sufficient conditions on the primitives \\(I,J,g,q\\) of a compact-continuous two-player zero-sum stochastic game with finite state set \\(K\\) such that, for every initial state \\(k\\in K\\), the limit \\(\\lim_{\\lambda\\to 0} v^k_\\lambda\\) exists (equivalently: characterize when the discounted values converge as \\(\\lambda\\downarrow 0\\)), and/or such that the long-run value \\(v^k\\) exists.\n\nIn particular, determine whether convergence (or existence of \\(v^k\\)) holds when \\(I\\) and \\(J\\) are semi-algebraic sets and \\(g\\) and \\(q\\) are semi-algebraic functions.",
+  "location_in_paper": "Section 6.2 (Compact-continuous stochastic games), page 16 (in the provided 19-page text)",
+  "open_problem_quote": "Determining necessary and sufficient conditions on \\(I\\), \\(J\\), \\(g\\), and \\(q\\) which ensure the convergence of the discounted values or the existence of the value is a problem. Bolte, Gaubert and Vigeral [5] provided sufficient conditions, namely that \\(g\\) and \\(q\\) are separable and definable. Without going into a precise definition of these two conditions, they hold in particular when the pay-off function \\(g\\) and the transition \\(q\\) are polynomials in the players\u2019 actions. However, the case where \\(I\\), \\(J\\), \\(g\\), and \\(q\\) are semi-algebraic is still unsolved.",
+  "area": "online algorithms",
+  "keywords": [
+    "stochastic games",
+    "discounted value convergence",
+    "compact action sets",
+    "semi-algebraic data",
+    "o-minimal definability",
+    "zero-sum dynamic games"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "To refute proposed sufficient conditions, one can search over parameterized families of compact-continuous games and numerically test convergence of \\(v^k_\\lambda\\) as \\(\\lambda\\downarrow 0\\), but the space of possible \\(g\\) and \\(q\\) is infinite-dimensional and convergence detection is delicate (requires resolving values accurately for small \\(\\lambda\\)).",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate conditions (e.g., structural restrictions on \\(g\\) and \\(q\\)) and candidate counterexamples can be represented programmatically within restricted parametric families (polynomial/semi-algebraic templates), with a fitness signal based on numerical evidence of convergence/nonconvergence of \\(v^k_\\lambda\\) computed via discretization/LP approximations. However, the proxy may be noisy and computationally expensive for very small \\(\\lambda\\), and proving necessity/sufficiency would still require theory beyond search.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.049783999999999995,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.049783999999999995
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4392700274/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

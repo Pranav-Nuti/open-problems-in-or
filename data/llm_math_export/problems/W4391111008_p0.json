@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4391111008_p0",
+  "paper_id": "W4391111008",
+  "source_paper": "W4391111008",
+  "source_paper_title": "Flow Allocation Games",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0355",
+  "source_paper_authors": [
+    "Nils Bertschinger",
+    "Martin Hoefer",
+    "Daniel Schmand"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Bertschinger_2025, title={Flow Allocation Games}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0355}, DOI={10.1287/moor.2022.0355}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bertschinger, Nils and Hoefer, Martin and Schmand, Daniel}, year={2025}, month=feb, pages={68\u201389} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5.1, Remark 21 (page 38 in the provided text pagination)\n\nIt is unclear whether the problem of deciding existence of a pure Nash equilibrium in an edge-ranking game is in NP or not, due to NP-hardness of verification that a node plays a best response (see Theorem 14). It is easy to see that the decision problem is in \\(\\Sigma_2^p\\). The problem could be \\(\\Sigma_2^p\\)-complete, similar to related decision problems in strategic max-flow games [33, 21]. Proving such a result is an interesting problem.",
+  "title": "Classify the complexity of Nash equilibrium existence in edge-ranking flow games",
+  "background_latex": "A flow allocation game is specified by a directed graph \\(G=(V,E)\\), node supplies \\((b_v)_{v\\in V}\\) with \\(b_v\\ge 0\\), and edge capacities \\((c_e)_{e\\in E}\\) with \\(c_e\\ge 0\\). Each node \\(v\\in V\\) is a strategic player.\n\nIn an edge-ranking strategy, each player \\(v\\) chooses a strict total order (a permutation) \\(\\pi_v\\) of its outgoing edges \\(E^+(v)=\\{(v,w)\\in E\\}\\). Given a profile \\(\\pi=(\\pi_v)_{v\\in V}\\), a feasible flow is a vector \\(f=(f_e)_{e\\in E}\\) with \\(0\\le f_e\\le c_e\\) such that for every node \\(v\\), if its total available supply is\n\\[\nF_v \\,=\\, b_v + \\sum_{e\\in E^-(v)} f_e,\n\\]\nthen \\(v\\) sends flow along outgoing edges greedily according to \\(\\pi_v\\): it fully saturates the highest-ranked outgoing edge until either that edge hits capacity or \\(v\\) runs out of supply, then proceeds to the next edge, etc. (Equivalently, \\(f\\) is a fixed point of the induced greedy allocation mapping.)\n\nAmong (possibly multiple) feasible flows for a given profile \\(\\pi\\), the model selects the clearing state \\(\\hat f(\\pi)\\), defined as the coordinate-wise maximum feasible flow (the supremum in the lattice of feasible flows for monotone strategies). The utility of player \\(v\\) under \\(\\pi\\) is the total outgoing flow in the clearing state:\n\\[\nu_v(\\pi) \\,=\\, \\sum_{e\\in E^+(v)} \\hat f_e(\\pi).\n\\]\n\nA pure Nash equilibrium is a profile \\(\\pi\\) such that for every player \\(v\\) and every alternative permutation \\(\\pi'_v\\),\n\\[\nu_v(\\pi) \\ge \\nu_v(\\pi'_v,\\pi_{-v}).\n\\]\n\nThe decision problem of interest is: given \\((G,(b_v),(c_e))\\), does there exist a pure Nash equilibrium in edge-ranking strategies? Complexity is measured in the usual Turing model with \\(b_v,c_e\\) given in binary.",
+  "problem_definition_latex": "Determine the exact complexity class of the following decision problem.\n\nInput: an edge-ranking flow allocation game \\(\\Gamma=(G,(b_v)_{v\\in V},(c_e)_{e\\in E})\\).\n\nQuestion: does there exist a pure Nash equilibrium profile \\(\\pi=(\\pi_v)_{v\\in V}\\) of edge-ranking strategies (permutations of \\(E^+(v)\\)) with utilities \\(u_v(\\pi)=\\sum_{e\\in E^+(v)}\\hat f_e(\\pi)\\) defined by the clearing state \\(\\hat f(\\pi)\\)?\n\nIn particular, decide whether this Nash-existence problem lies in \\(\\mathrm{NP}\\), whether it is \\(\\Sigma_2^p\\)-complete, or otherwise characterize its precise complexity.",
+  "latex": "A flow allocation game is specified by a directed graph \\(G=(V,E)\\), node supplies \\((b_v)_{v\\in V}\\) with \\(b_v\\ge 0\\), and edge capacities \\((c_e)_{e\\in E}\\) with \\(c_e\\ge 0\\). Each node \\(v\\in V\\) is a strategic player.\n\nIn an edge-ranking strategy, each player \\(v\\) chooses a strict total order (a permutation) \\(\\pi_v\\) of its outgoing edges \\(E^+(v)=\\{(v,w)\\in E\\}\\). Given a profile \\(\\pi=(\\pi_v)_{v\\in V}\\), a feasible flow is a vector \\(f=(f_e)_{e\\in E}\\) with \\(0\\le f_e\\le c_e\\) such that for every node \\(v\\), if its total available supply is\n\\[\nF_v \\,=\\, b_v + \\sum_{e\\in E^-(v)} f_e,\n\\]\nthen \\(v\\) sends flow along outgoing edges greedily according to \\(\\pi_v\\): it fully saturates the highest-ranked outgoing edge until either that edge hits capacity or \\(v\\) runs out of supply, then proceeds to the next edge, etc. (Equivalently, \\(f\\) is a fixed point of the induced greedy allocation mapping.)\n\nAmong (possibly multiple) feasible flows for a given profile \\(\\pi\\), the model selects the clearing state \\(\\hat f(\\pi)\\), defined as the coordinate-wise maximum feasible flow (the supremum in the lattice of feasible flows for monotone strategies). The utility of player \\(v\\) under \\(\\pi\\) is the total outgoing flow in the clearing state:\n\\[\nu_v(\\pi) \\,=\\, \\sum_{e\\in E^+(v)} \\hat f_e(\\pi).\n\\]\n\nA pure Nash equilibrium is a profile \\(\\pi\\) such that for every player \\(v\\) and every alternative permutation \\(\\pi'_v\\),\n\\[\nu_v(\\pi) \\ge \\nu_v(\\pi'_v,\\pi_{-v}).\n\\]\n\nThe decision problem of interest is: given \\((G,(b_v),(c_e))\\), does there exist a pure Nash equilibrium in edge-ranking strategies? Complexity is measured in the usual Turing model with \\(b_v,c_e\\) given in binary.\n\nDetermine the exact complexity class of the following decision problem.\n\nInput: an edge-ranking flow allocation game \\(\\Gamma=(G,(b_v)_{v\\in V},(c_e)_{e\\in E})\\).\n\nQuestion: does there exist a pure Nash equilibrium profile \\(\\pi=(\\pi_v)_{v\\in V}\\) of edge-ranking strategies (permutations of \\(E^+(v)\\)) with utilities \\(u_v(\\pi)=\\sum_{e\\in E^+(v)}\\hat f_e(\\pi)\\) defined by the clearing state \\(\\hat f(\\pi)\\)?\n\nIn particular, decide whether this Nash-existence problem lies in \\(\\mathrm{NP}\\), whether it is \\(\\Sigma_2^p\\)-complete, or otherwise characterize its precise complexity.",
+  "location_in_paper": "Section 5.1, Remark 21 (page 38 in the provided text pagination)",
+  "open_problem_quote": "It is unclear whether the problem of deciding existence of a pure Nash equilibrium in an edge-ranking game is in NP or not, due to NP-hardness of verification that a node plays a best response (see Theorem 14). It is easy to see that the decision problem is in \\(\\Sigma_2^p\\). The problem could be \\(\\Sigma_2^p\\)-complete, similar to related decision problems in strategic max-flow games [33, 21]. Proving such a result is an interesting problem.",
+  "area": "online algorithms",
+  "keywords": [
+    "flow allocation games",
+    "edge-ranking strategies",
+    "pure Nash equilibrium",
+    "complexity theory",
+    "polynomial hierarchy",
+    "Sigma2p completeness"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "This is a complexity-classification problem rather than an existential conjecture about a finite structure. While one can search for reductions, automated instance search is not a direct way to resolve membership or completeness in \\(\\mathrm{NP}\\) or \\(\\Sigma_2^p\\).",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could help explore candidate reductions (gadgets) from known \\(\\Sigma_2^p\\)-complete problems and test them on small instances, but the fitness signal is only a heuristic proxy and the final step requires a formal complexity proof.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0676235,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0676235
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391111008/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

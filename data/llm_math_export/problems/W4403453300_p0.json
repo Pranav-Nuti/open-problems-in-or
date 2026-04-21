@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4403453300_p0",
+  "paper_id": "W4403453300",
+  "source_paper": "W4403453300",
+  "source_paper_title": "Fast Convex Optimization via Time Scale and Averaging of the Steepest Descent",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0186",
+  "source_paper_authors": [
+    "H\u00e9dy Attouch",
+    "Radu Ioan Bo\u0163",
+    "Dang\u2010Khoa Nguyen"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Attouch_2025, title={Fast Convex Optimization via Time Scale and Averaging of the Steepest Descent}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0186}, DOI={10.1287/moor.2023.0186}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Attouch, Hedy and Ioan Bo\u0163, Radu and Nguyen, Dang-Khoa}, year={2025}, month=nov, pages={2633\u20132665} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 26, Section 5.1 (Remark 8).\n\nIt would be interesting to know if we can achieve the same convergence rate using time scaling and perturbation techniques.",
+  "title": "Achieve faster residual decay for cocoercive-operator Newton-corrected inertial dynamics",
+  "background_latex": "Let \\(H\\) be a real Hilbert space with inner product \\(\\langle \\cdot,\\cdot\\rangle\\) and norm \\(\\|\\cdot\\|\\). Let \\(M:H\\to H\\) be a single-valued \\(\\rho\\)-cocoercive operator for some \\(\\rho>0\\), meaning\n\\[\n\\langle M(x)-M(y),x-y\\rangle \\ge \\rho\\,\\|M(x)-M(y)\\|^2\\quad\\forall x,y\\in H.\n\\]\nAssume the set of zeros \\(\\mathrm{Zer}\nM:=\\{x\\in H: M(x)=0\\}\\) is nonempty.\n\nFor a trajectory \\(y:[s_0,\\infty)\\to H\\) with \\(s_0>0\\), define the (formal) time derivative of \\(M(y(s))\\) by the chain rule notation\n\\[\n\\frac{d}{ds}(M(y(s)))\n\\]\n(when \\(M\\) is Lipschitz, this can be understood in the a.e. sense along absolutely continuous \\(y\\)).\n\nConsider the second-order inertial dynamics with vanishing viscous damping and a Newton-correction term\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+c(s)\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\\qquad s\\ge s_0,\n\\]\nwhere \\(\\alpha>1\\) and \\(c(s)>0\\) is a prescribed scalar coefficient. Two specific choices discussed are\n1) \\(c(s)=\\frac{s}{\\alpha+1}\\), yielding the system\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nfor which the paper proves \\(\\|M(y(s))\\|=o(1/s)\\).\n2) \\(c(s)=\\frac{2s}{\\alpha+1}\\), yielding the closely related system\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{2s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nwhich another work reports satisfies the sharper decay \\(\\|M(y(s))\\|=o(1/s^2)\\) and \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\).",
+  "problem_definition_latex": "Determine whether the time-scaling and perturbation approach developed for steepest-descent-type systems can be used to obtain the improved convergence rate\n\\[\n\\|M(y(s))\\|=o\\!\\left(\\frac{1}{s^2}\\right)\\quad\\text{as }s\\to\\infty\n\\]\n(and/or the corresponding weighted integrability \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\)) for the Newton-corrected cocoercive-operator inertial dynamics\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nor for an appropriately modified coefficient \\(c(s)\\) within the same time-scaling/perturbation framework, under the standing assumptions that \\(M\\) is cocoercive and \\(\\mathrm{Zer}\\,M\\neq\\emptyset\\).",
+  "latex": "Let \\(H\\) be a real Hilbert space with inner product \\(\\langle \\cdot,\\cdot\\rangle\\) and norm \\(\\|\\cdot\\|\\). Let \\(M:H\\to H\\) be a single-valued \\(\\rho\\)-cocoercive operator for some \\(\\rho>0\\), meaning\n\\[\n\\langle M(x)-M(y),x-y\\rangle \\ge \\rho\\,\\|M(x)-M(y)\\|^2\\quad\\forall x,y\\in H.\n\\]\nAssume the set of zeros \\(\\mathrm{Zer}\nM:=\\{x\\in H: M(x)=0\\}\\) is nonempty.\n\nFor a trajectory \\(y:[s_0,\\infty)\\to H\\) with \\(s_0>0\\), define the (formal) time derivative of \\(M(y(s))\\) by the chain rule notation\n\\[\n\\frac{d}{ds}(M(y(s)))\n\\]\n(when \\(M\\) is Lipschitz, this can be understood in the a.e. sense along absolutely continuous \\(y\\)).\n\nConsider the second-order inertial dynamics with vanishing viscous damping and a Newton-correction term\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+c(s)\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\\qquad s\\ge s_0,\n\\]\nwhere \\(\\alpha>1\\) and \\(c(s)>0\\) is a prescribed scalar coefficient. Two specific choices discussed are\n1) \\(c(s)=\\frac{s}{\\alpha+1}\\), yielding the system\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nfor which the paper proves \\(\\|M(y(s))\\|=o(1/s)\\).\n2) \\(c(s)=\\frac{2s}{\\alpha+1}\\), yielding the closely related system\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{2s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nwhich another work reports satisfies the sharper decay \\(\\|M(y(s))\\|=o(1/s^2)\\) and \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\).\n\nDetermine whether the time-scaling and perturbation approach developed for steepest-descent-type systems can be used to obtain the improved convergence rate\n\\[\n\\|M(y(s))\\|=o\\!\\left(\\frac{1}{s^2}\\right)\\quad\\text{as }s\\to\\infty\n\\]\n(and/or the corresponding weighted integrability \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\)) for the Newton-corrected cocoercive-operator inertial dynamics\n\\[\n y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{s}{\\alpha+1}\\,\\frac{d}{ds}(M(y(s)))+M(y(s))=0,\n\\]\nor for an appropriately modified coefficient \\(c(s)\\) within the same time-scaling/perturbation framework, under the standing assumptions that \\(M\\) is cocoercive and \\(\\mathrm{Zer}\\,M\\neq\\emptyset\\).",
+  "location_in_paper": "Page 26, Section 5.1 (Remark 8).",
+  "open_problem_quote": "It would be interesting to know if we can achieve the same convergence rate using time scaling and perturbation techniques.",
+  "area": "online algorithms",
+  "keywords": [
+    "cocoercive operator",
+    "inertial dynamics",
+    "newton correction term",
+    "time scaling",
+    "convergence rate",
+    "residual decay"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for establishing an improved asymptotic rate under broad operator assumptions rather than refuting a concrete conjectured bound. Searching for counterexamples would require exploring infinite-dimensional operator classes and verifying asymptotic rates of ODE solutions, which is not a finite, well-parameterized instance space.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary code loop could explore alternative time scalings or coefficient functions \\(c(s)\\) and test empirically on finite-dimensional examples (e.g., linear cocoercive operators) by numerically integrating the ODE and measuring residual decay. This would not prove the general result but could discover promising scalings/perturbations that exhibit \\(1/s^2\\) decay and guide analysis.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07645925,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07645925
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4403453300/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

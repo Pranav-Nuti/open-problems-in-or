@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4381248347_p0",
+  "paper_id": "W4381248347",
+  "source_paper": "W4381248347",
+  "source_paper_title": "Minimization Fractional Prophet Inequalities for Sequential Procurement",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0173",
+  "source_paper_authors": [
+    "Junjie Qin",
+    "Shai Vardi",
+    "Adam Wierman"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Qin_2024, title={Minimization Fractional Prophet Inequalities for Sequential Procurement}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0173}, DOI={10.1287/moor.2021.0173}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Qin, Junjie and Vardi, Shai and Wierman, Adam}, year={2024}, month=may, pages={928\u2013947} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, end of Section 1.3 (Our results) and reiterated on page 18, end of Section 4.2 (More than two sellers)\n\nThis helps give some intuition as to why computing the precise competitive ratio for all \\(n \\ge 2, p > 1\\) is a challenging task. We leave it as an open question to analytically resolve the competitive ratio.\n\nComputing the exact competitive ratio as a function of the problem parameters \\((p, n, \\ell, u)\\) is a challenging problem.",
+  "title": "Compute competitive ratio for fractional minimization prophet inequalities without in-house production",
+  "background_latex": "Fix integers \\(n\\ge 2\\) and a real exponent \\(p>1\\). Let \\(\\ell,u\\) satisfy \\(0<\\ell\\le u<\\infty\\). For each stage \\(i\\in\\{1,\\dots,n\\}\\), a cost coefficient \\(C_i\\) is drawn independently from an (a priori known) distribution \\(D_i\\) supported on \\([\\ell,u]\\). After observing \\(C_i=c_i\\), an online algorithm chooses a purchase amount \\(x_i\\in[0,1]\\), where \\(x_i\\) may depend on \\((c_1,\\dots,c_i)\\), and must satisfy the ex post feasibility constraint \\(\\sum_{i=1}^n x_i = 1\\). The realized procurement cost under exponent \\(p\\) is\n\\[\n\\mathrm{ALG}_\\pi(c,p)=\\sum_{i=1}^n c_i x_i^p,\n\\]\nwhere \\(\\pi=(\\pi_1,\\dots,\\pi_n)\\) denotes the online policy and \\(x_i=\\pi_i(c_1,\\dots,c_i)\\).\n\nFor a realized vector \\(c=(c_1,\\dots,c_n)\\), define the clairvoyant (prophet) benchmark as the optimal value of the offline convex program\n\\[\n\\mathrm{OPT}(c,p)=\\min_{x\\in[0,1]^n}\\ \\sum_{i=1}^n c_i x_i^p\\quad\\text{s.t.}\\quad \\sum_{i=1}^n x_i=1.\n\\]\nThe competitive ratio for the family \\(\\mathcal D\\) of allowable distributions is\n\\[\n\\mathrm{CR}(\\mathcal D,p,n)=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)\\in\\mathcal D^n}\\ \\frac{\\mathbb E[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb E[\\mathrm{OPT}(C,p)]},\n\\]\nwhere the expectation is over \\(C_i\\sim D_i\\) independently.\n\nIn the \"without in-house production\" setting, there is no additional deterministic option \\(C_1\\equiv 1\\); all \\(n\\) stages correspond to random sellers, and the supremum ranges over \\(D_1,\\dots,D_n\\) in the allowed class (e.g., supported on \\([\\ell,u]\\)).",
+  "problem_definition_latex": "Determine (in closed form, as a function of \\(p,n,\\ell,u\\)) the competitive ratio\n\\[\n\\mathrm{CR}(\\mathcal D,p,n)=\\inf_{\\pi}\\ \\sup_{D_1,\\dots,D_n\\ \\text{supported on }[\\ell,u]}\\ \\frac{\\mathbb E[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb E[\\mathrm{OPT}(C,p)]}\n\\]\nfor the fractional minimization prophet inequality without in-house production (i.e., with \\(n\\) random sellers only), beyond the special case \\(p=2,n=2\\) treated explicitly in the paper.",
+  "latex": "Fix integers \\(n\\ge 2\\) and a real exponent \\(p>1\\). Let \\(\\ell,u\\) satisfy \\(0<\\ell\\le u<\\infty\\). For each stage \\(i\\in\\{1,\\dots,n\\}\\), a cost coefficient \\(C_i\\) is drawn independently from an (a priori known) distribution \\(D_i\\) supported on \\([\\ell,u]\\). After observing \\(C_i=c_i\\), an online algorithm chooses a purchase amount \\(x_i\\in[0,1]\\), where \\(x_i\\) may depend on \\((c_1,\\dots,c_i)\\), and must satisfy the ex post feasibility constraint \\(\\sum_{i=1}^n x_i = 1\\). The realized procurement cost under exponent \\(p\\) is\n\\[\n\\mathrm{ALG}_\\pi(c,p)=\\sum_{i=1}^n c_i x_i^p,\n\\]\nwhere \\(\\pi=(\\pi_1,\\dots,\\pi_n)\\) denotes the online policy and \\(x_i=\\pi_i(c_1,\\dots,c_i)\\).\n\nFor a realized vector \\(c=(c_1,\\dots,c_n)\\), define the clairvoyant (prophet) benchmark as the optimal value of the offline convex program\n\\[\n\\mathrm{OPT}(c,p)=\\min_{x\\in[0,1]^n}\\ \\sum_{i=1}^n c_i x_i^p\\quad\\text{s.t.}\\quad \\sum_{i=1}^n x_i=1.\n\\]\nThe competitive ratio for the family \\(\\mathcal D\\) of allowable distributions is\n\\[\n\\mathrm{CR}(\\mathcal D,p,n)=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)\\in\\mathcal D^n}\\ \\frac{\\mathbb E[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb E[\\mathrm{OPT}(C,p)]},\n\\]\nwhere the expectation is over \\(C_i\\sim D_i\\) independently.\n\nIn the \"without in-house production\" setting, there is no additional deterministic option \\(C_1\\equiv 1\\); all \\(n\\) stages correspond to random sellers, and the supremum ranges over \\(D_1,\\dots,D_n\\) in the allowed class (e.g., supported on \\([\\ell,u]\\)).\n\nDetermine (in closed form, as a function of \\(p,n,\\ell,u\\)) the competitive ratio\n\\[\n\\mathrm{CR}(\\mathcal D,p,n)=\\inf_{\\pi}\\ \\sup_{D_1,\\dots,D_n\\ \\text{supported on }[\\ell,u]}\\ \\frac{\\mathbb E[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb E[\\mathrm{OPT}(C,p)]}\n\\]\nfor the fractional minimization prophet inequality without in-house production (i.e., with \\(n\\) random sellers only), beyond the special case \\(p=2,n=2\\) treated explicitly in the paper.",
+  "location_in_paper": "Page 6, end of Section 1.3 (Our results) and reiterated on page 18, end of Section 4.2 (More than two sellers)",
+  "open_problem_quote": "This helps give some intuition as to why computing the precise competitive ratio for all \\(n \\ge 2, p > 1\\) is a challenging task. We leave it as an open question to analytically resolve the competitive ratio.\n\nComputing the exact competitive ratio as a function of the problem parameters \\((p, n, \\ell, u)\\) is a challenging problem.",
+  "area": "prophet inequalities",
+  "keywords": [
+    "minimization prophet inequality",
+    "sequential procurement",
+    "fractional allocations",
+    "competitive ratio",
+    "worst-case distributions",
+    "monomial costs"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For fixed \\((p,n,\\ell,u)\\) and a discretized support, the worst-case distribution search becomes a large but finitely parameterized nonconvex optimization that can be brute-forced or locally optimized, potentially revealing structure or candidate extremal distributions. However, the true problem is infinite-dimensional over distributions, so computational searches can suggest conjectures but not decisively refute/confirm the exact formula without additional theory.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate policies \\(\\pi\\) (e.g., parameterized thresholding/dynamic-programming approximations) and candidate hard instances (parameterized discrete distributions on \\([\\ell,u]\\)) can both be represented in code, with an automatic fitness signal given by Monte Carlo estimation of \\(\\mathbb E[\\mathrm{ALG}_\\pi]/\\mathbb E[\\mathrm{OPT}]\\) and inner optimization over \\(x\\) for \\(\\mathrm{OPT}\\). An evolutionary loop could search jointly over policy families and adversarial distributions to conjecture sharp bounds or identify extremal distribution structures for given \\((p,n,\\ell,u)\\).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.061685750000000004,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.061685750000000004
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4381248347/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

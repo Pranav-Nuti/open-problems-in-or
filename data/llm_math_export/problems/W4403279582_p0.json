@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4403279582_p0",
+  "paper_id": "W4403279582",
+  "source_paper": "W4403279582",
+  "source_paper_title": "Primal-Dual Extrapolation Methods for Monotone Inclusions Under Local Lipschitz Continuity",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0407",
+  "source_paper_authors": [
+    "Zhaosong Lu",
+    "Sanyou Mei"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Lu_2025, title={Primal-Dual Extrapolation Methods for Monotone Inclusions Under Local Lipschitz Continuity}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0407}, DOI={10.1287/moor.2024.0407}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Lu, Zhaosong and Mei, Sanyou}, year={2025}, month=nov, pages={2577\u20132599} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Concluding remarks), page 23\n\nOne natural question is whether the aforementioned operation complexity of \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) can be improved to \\(O(\\varepsilon^{-1})\\), which would match the optimal complexity for solving non-strongly monotone inclusion problems under global Lipschitz continuity.",
+  "title": "Remove the log factor in residual complexity for locally Lipschitz monotone inclusions",
+  "background_latex": "Let \\(F:\\mathbb{R}^n\\to\\mathbb{R}^n\\) be a single-valued monotone operator and let \\(B:\\mathbb{R}^n\\rightrightarrows\\mathbb{R}^n\\) be a maximal monotone (set-valued) operator with nonempty domain \\(\\mathrm{dom}\\,B\\). Consider the monotone inclusion problem\n\\[\n\\text{find }x\\in\\mathbb{R}^n\\text{ such that }0\\in (F+B)(x).\n\\]\nAssume a solution exists. For \\(x\\in \\mathrm{dom}\\,B\\), define the residual of \\(F+B\\) at \\(x\\) by\n\\[\n\\mathrm{res}_{F+B}(x):=\\inf\\{\\|v\\|: v\\in (F+B)(x)\\}.\n\\]\nA point \\(x\\in \\mathrm{dom}\\,B\\) is an \\(\\varepsilon\\)-residual solution if \\(\\mathrm{res}_{F+B}(x)\\le \\varepsilon\\).\nAssume further that \\(F\\) is locally Lipschitz continuous on \\(\\overline{\\mathrm{dom}\\,B}\\): for every compact \\(\\Omega\\subseteq \\overline{\\mathrm{dom}\\,B}\\) there exists \\(L_\\Omega>0\\) such that \\(\\|F(x)-F(y)\\|\\le L_\\Omega\\|x-y\\|\\) for all \\(x,y\\in\\Omega\\).\nAn algorithm is measured in operation complexity by the number of fundamental operations, consisting of evaluations of \\(F\\) and evaluations of the resolvent \\((I+\\gamma B)^{-1}\\) (assumed exactly computable) for \\(\\gamma>0\\). Under global Lipschitz continuity of \\(F\\), the optimal complexity for finding an \\(\\varepsilon\\)-residual solution of a monotone (not strongly monotone) inclusion is \\(O(\\varepsilon^{-1})\\) in this operation model.",
+  "problem_definition_latex": "Design an algorithm for the above monotone inclusion setting (monotone \\(F\\), maximal monotone \\(B\\), and \\(F\\) locally Lipschitz continuous on \\(\\overline{\\mathrm{dom}\\,B}\\)) that finds an \\(\\varepsilon\\)-residual solution \\(x\\in\\mathrm{dom}\\,B\\) with \\(\\mathrm{res}_{F+B}(x)\\le \\varepsilon\\) using at most \\(O(\\varepsilon^{-1})\\) evaluations of \\(F\\) and \\((I+\\gamma B)^{-1}\\), i.e., improve the known \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) operation complexity to \\(O(\\varepsilon^{-1})\\) in this local-Lipschitz setting.",
+  "latex": "Let \\(F:\\mathbb{R}^n\\to\\mathbb{R}^n\\) be a single-valued monotone operator and let \\(B:\\mathbb{R}^n\\rightrightarrows\\mathbb{R}^n\\) be a maximal monotone (set-valued) operator with nonempty domain \\(\\mathrm{dom}\\,B\\). Consider the monotone inclusion problem\n\\[\n\\text{find }x\\in\\mathbb{R}^n\\text{ such that }0\\in (F+B)(x).\n\\]\nAssume a solution exists. For \\(x\\in \\mathrm{dom}\\,B\\), define the residual of \\(F+B\\) at \\(x\\) by\n\\[\n\\mathrm{res}_{F+B}(x):=\\inf\\{\\|v\\|: v\\in (F+B)(x)\\}.\n\\]\nA point \\(x\\in \\mathrm{dom}\\,B\\) is an \\(\\varepsilon\\)-residual solution if \\(\\mathrm{res}_{F+B}(x)\\le \\varepsilon\\).\nAssume further that \\(F\\) is locally Lipschitz continuous on \\(\\overline{\\mathrm{dom}\\,B}\\): for every compact \\(\\Omega\\subseteq \\overline{\\mathrm{dom}\\,B}\\) there exists \\(L_\\Omega>0\\) such that \\(\\|F(x)-F(y)\\|\\le L_\\Omega\\|x-y\\|\\) for all \\(x,y\\in\\Omega\\).\nAn algorithm is measured in operation complexity by the number of fundamental operations, consisting of evaluations of \\(F\\) and evaluations of the resolvent \\((I+\\gamma B)^{-1}\\) (assumed exactly computable) for \\(\\gamma>0\\). Under global Lipschitz continuity of \\(F\\), the optimal complexity for finding an \\(\\varepsilon\\)-residual solution of a monotone (not strongly monotone) inclusion is \\(O(\\varepsilon^{-1})\\) in this operation model.\n\nDesign an algorithm for the above monotone inclusion setting (monotone \\(F\\), maximal monotone \\(B\\), and \\(F\\) locally Lipschitz continuous on \\(\\overline{\\mathrm{dom}\\,B}\\)) that finds an \\(\\varepsilon\\)-residual solution \\(x\\in\\mathrm{dom}\\,B\\) with \\(\\mathrm{res}_{F+B}(x)\\le \\varepsilon\\) using at most \\(O(\\varepsilon^{-1})\\) evaluations of \\(F\\) and \\((I+\\gamma B)^{-1}\\), i.e., improve the known \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) operation complexity to \\(O(\\varepsilon^{-1})\\) in this local-Lipschitz setting.",
+  "location_in_paper": "Section 7 (Concluding remarks), page 23",
+  "open_problem_quote": "One natural question is whether the aforementioned operation complexity of \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) can be improved to \\(O(\\varepsilon^{-1})\\), which would match the optimal complexity for solving non-strongly monotone inclusion problems under global Lipschitz continuity.",
+  "area": "online algorithms",
+  "keywords": [
+    "monotone inclusions",
+    "local Lipschitz continuity",
+    "operator splitting",
+    "iteration complexity",
+    "backtracking line search",
+    "residual certificate"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for an improved worst-case upper bound (or matching lower bound) over a broad class of problems with only local Lipschitz continuity, which is not naturally falsified by searching finite instances. While one could numerically probe worst-case behavior on parameterized examples, that does not constitute a rigorous counterexample to a universal complexity claim.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize broad families of first-order splitting schemes with adaptive stepsizes/backtracking and use a computable fitness signal such as empirical iteration/operation counts to reach a target residual over a benchmark suite of monotone inclusions. This could discover candidate methods or heuristics that empirically remove the log factor, but translating empirical performance into a proven worst-case \\(O(\\varepsilon^{-1})\\) guarantee remains nontrivial.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06547625,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06547625
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4403279582/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4390702256_p0",
+  "paper_id": "W4390702256",
+  "source_paper": "W4390702256",
+  "source_paper_title": "Strategy-Proof Multidimensional Mechanism Design",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0324",
+  "source_paper_authors": [
+    "Ranojoy Basu",
+    "Conan Mukherjee"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Basu_2024, title={Strategy-Proof Multidimensional Mechanism Design}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0324}, DOI={10.1287/moor.2022.0324}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Basu, Ranojoy and Mukherjee, Conan}, year={2024}, month=nov, pages={2768\u20132785} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4.2 (page 29) and Conclusion (page 32).\n\nDespite these simplifications, the extent to which \\(S_j\\) can be efficiently characterized remains an open question, which we leave for future work.",
+  "title": "Computational complexity of optimizing large-market obviously strategy-proof trading mechanisms",
+  "background_latex": "Consider a task-allocation problem with a finite set of task types \\(i\\in\\{1,\\dots,I\\}\\) and a finite set of agents \\(j\\in\\{1,\\dots,J\\}\\). Let \\(n_i\\in\\mathbb{Z}_{\\ge 0}\\) denote the total number of instances of task \\(i\\). An (expected) assignment for agent \\(j\\) is a vector \\(x_j\\in\\mathbb{R}^I_{+}\\), where \\(x_j(i)\\) is the expected number of tasks of type \\(i\\) assigned to \\(j\\). The designer has a known cost (or negative value) vector \\(\\pi_j\\in\\mathbb{R}^I\\), so the designer\u2019s total expected social cost is \\(\\sum_{j\\in J}\\pi_j\\cdot x_j\\). Each agent \\(j\\) has a random private cost vector \\(c_j\\in\\mathbb{R}^I_{+}\\) (drawn independently across \\(j\\) from a distribution with full support on a hypercube), and the agent prefers lower workload \\(c_j\\cdot x_j\\). The status quo (outside option) is an endowment assignment \\(\\eta_j\\in\\mathbb{R}^I_{+}\\) for each agent.\n\nA (single-agent) polarized-ray menu for agent \\(j\\) consists of a finite set of trading sets \\(\\{T^k_j\\}_{k\\in K_j}\\) such that either:\n\n1) a remedial menu \\(K_j=\\{0,1\\}\\) with \\(T^0_j=\\{\\eta_j\\}\\) and \\(T^1_j=\\{x\\in\\mathbb{R}^I_{+}: x\\le \\eta_j\\}\\), or\n\n2) each \\(T^k_j\\) is a non-monotone ray with endpoint \\(\\eta_j\\), i.e.\n\\[T^k_j=\\{\\eta_j+y\\kappa^k_j: y\\in\\mathbb{R}_{+}\\}\\]\nfor some direction \\(\\kappa^k_j\\in\\mathbb{R}^I\\) with \\(\\kappa^k_j\\not\\ge 0\\) and \\(\\kappa^k_j\\not\\le 0\\), and the collection of directions is polarized in the sense that for any \\(k',k''\\in K_j\\) there exist scalars \\(y',y''\\ge 0\\), not both zero, such that \\(y'\\kappa^{k'}_j+y''\\kappa^{k''}_j\\ge 0\\) (componentwise).\n\nGiven such a menu, the agent\u2019s (obviously strategy-proof) behavior is myopic: for each realized \\(c_j\\), the agent chooses an index \\(k\\in K_j\\) that minimizes \\(\\min\\{c_j\\cdot x: x\\in T^k_j\\}\\). The designer then selects an assignment point \\(P_j(k)\\in T^k_j\\). In the large-market relaxation, feasibility requires only market clearing in expectation:\n\\[\\sum_{j\\in J}\\mathbb{E}[P_j(s_j(c_j))] = (n_1,\\dots,n_I).\\]\nDefine \\(F_j\\subset\\mathbb{R}^I_{+}\\) as the convex hull of all expected assignments \\(\\mathbb{E}[P_j(s_j(c_j))]\\) achievable for agent \\(j\\) by varying \\(\\{T^k_j\\}_{k\\in K_j}\\), the myopically-optimal strategy \\(s_j\\), and the selection rule \\(P_j\\), subject to the polarized-ray (or remedial) restriction above. Let \\(S_j(w)=\\max\\{w\\cdot y: y\\in F_j\\}\\) be the support function of \\(F_j\\).\n\nThe large-market OSP design problem can be written as the convex program\n\\[\\min_{(x_j)_{j\\in J}}\\ \\sum_{j\\in J}\\pi_j\\cdot x_j\\quad\\text{s.t.}\\quad x_j\\in F_j\\ \\forall j,\\ \\sum_{j\\in J}x_j=(n_1,\\dots,n_I),\\]\nwith dual\n\\[\\sup_{\\lambda\\in\\mathbb{R}^I}\\ \\sum_{i=1}^I\\lambda_i n_i-\\sum_{j\\in J}S_j(\\lambda-\\pi_j).\\]\nEvaluating or optimizing over the mechanism for each agent \\(j\\) therefore reduces to characterizing the support function \\(S_j\\), i.e. solving an optimization problem whose decision variables are menus of polarized rays and selection rules.",
+  "problem_definition_latex": "Determine whether the optimization problem of characterizing \\(S_j(w)=\\max\\{w\\cdot y: y\\in F_j\\}\\) (equivalently, optimizing over polarized-ray menus and selection rules for a given agent \\(j\\) in the large-market relaxation) can be solved efficiently as a function of \\((w,\\eta_j,\\text{the distribution of }c_j)\\). In particular, establish the computational complexity of computing \\(S_j(w)\\) (e.g. polynomial-time solvable vs. NP-hard) and/or design an algorithm with provable complexity guarantees for approximating \\(S_j(w)\\) to a specified accuracy.",
+  "latex": "Consider a task-allocation problem with a finite set of task types \\(i\\in\\{1,\\dots,I\\}\\) and a finite set of agents \\(j\\in\\{1,\\dots,J\\}\\). Let \\(n_i\\in\\mathbb{Z}_{\\ge 0}\\) denote the total number of instances of task \\(i\\). An (expected) assignment for agent \\(j\\) is a vector \\(x_j\\in\\mathbb{R}^I_{+}\\), where \\(x_j(i)\\) is the expected number of tasks of type \\(i\\) assigned to \\(j\\). The designer has a known cost (or negative value) vector \\(\\pi_j\\in\\mathbb{R}^I\\), so the designer\u2019s total expected social cost is \\(\\sum_{j\\in J}\\pi_j\\cdot x_j\\). Each agent \\(j\\) has a random private cost vector \\(c_j\\in\\mathbb{R}^I_{+}\\) (drawn independently across \\(j\\) from a distribution with full support on a hypercube), and the agent prefers lower workload \\(c_j\\cdot x_j\\). The status quo (outside option) is an endowment assignment \\(\\eta_j\\in\\mathbb{R}^I_{+}\\) for each agent.\n\nA (single-agent) polarized-ray menu for agent \\(j\\) consists of a finite set of trading sets \\(\\{T^k_j\\}_{k\\in K_j}\\) such that either:\n\n1) a remedial menu \\(K_j=\\{0,1\\}\\) with \\(T^0_j=\\{\\eta_j\\}\\) and \\(T^1_j=\\{x\\in\\mathbb{R}^I_{+}: x\\le \\eta_j\\}\\), or\n\n2) each \\(T^k_j\\) is a non-monotone ray with endpoint \\(\\eta_j\\), i.e.\n\\[T^k_j=\\{\\eta_j+y\\kappa^k_j: y\\in\\mathbb{R}_{+}\\}\\]\nfor some direction \\(\\kappa^k_j\\in\\mathbb{R}^I\\) with \\(\\kappa^k_j\\not\\ge 0\\) and \\(\\kappa^k_j\\not\\le 0\\), and the collection of directions is polarized in the sense that for any \\(k',k''\\in K_j\\) there exist scalars \\(y',y''\\ge 0\\), not both zero, such that \\(y'\\kappa^{k'}_j+y''\\kappa^{k''}_j\\ge 0\\) (componentwise).\n\nGiven such a menu, the agent\u2019s (obviously strategy-proof) behavior is myopic: for each realized \\(c_j\\), the agent chooses an index \\(k\\in K_j\\) that minimizes \\(\\min\\{c_j\\cdot x: x\\in T^k_j\\}\\). The designer then selects an assignment point \\(P_j(k)\\in T^k_j\\). In the large-market relaxation, feasibility requires only market clearing in expectation:\n\\[\\sum_{j\\in J}\\mathbb{E}[P_j(s_j(c_j))] = (n_1,\\dots,n_I).\\]\nDefine \\(F_j\\subset\\mathbb{R}^I_{+}\\) as the convex hull of all expected assignments \\(\\mathbb{E}[P_j(s_j(c_j))]\\) achievable for agent \\(j\\) by varying \\(\\{T^k_j\\}_{k\\in K_j}\\), the myopically-optimal strategy \\(s_j\\), and the selection rule \\(P_j\\), subject to the polarized-ray (or remedial) restriction above. Let \\(S_j(w)=\\max\\{w\\cdot y: y\\in F_j\\}\\) be the support function of \\(F_j\\).\n\nThe large-market OSP design problem can be written as the convex program\n\\[\\min_{(x_j)_{j\\in J}}\\ \\sum_{j\\in J}\\pi_j\\cdot x_j\\quad\\text{s.t.}\\quad x_j\\in F_j\\ \\forall j,\\ \\sum_{j\\in J}x_j=(n_1,\\dots,n_I),\\]\nwith dual\n\\[\\sup_{\\lambda\\in\\mathbb{R}^I}\\ \\sum_{i=1}^I\\lambda_i n_i-\\sum_{j\\in J}S_j(\\lambda-\\pi_j).\\]\nEvaluating or optimizing over the mechanism for each agent \\(j\\) therefore reduces to characterizing the support function \\(S_j\\), i.e. solving an optimization problem whose decision variables are menus of polarized rays and selection rules.\n\nDetermine whether the optimization problem of characterizing \\(S_j(w)=\\max\\{w\\cdot y: y\\in F_j\\}\\) (equivalently, optimizing over polarized-ray menus and selection rules for a given agent \\(j\\) in the large-market relaxation) can be solved efficiently as a function of \\((w,\\eta_j,\\text{the distribution of }c_j)\\). In particular, establish the computational complexity of computing \\(S_j(w)\\) (e.g. polynomial-time solvable vs. NP-hard) and/or design an algorithm with provable complexity guarantees for approximating \\(S_j(w)\\) to a specified accuracy.",
+  "location_in_paper": "Section 4.2 (page 29) and Conclusion (page 32).",
+  "open_problem_quote": "Despite these simplifications, the extent to which \\(S_j\\) can be efficiently characterized remains an open question, which we leave for future work.",
+  "area": "algorithmic mechanism design",
+  "keywords": [
+    "obvious strategy-proofness",
+    "task allocation",
+    "delegation mechanisms",
+    "polarized rays",
+    "large-market relaxation",
+    "support function",
+    "computational complexity"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "This is primarily an algorithmic/complexity classification question (e.g., proving NP-hardness or designing a polynomial-time algorithm), not a conjecture about existence of a finite counterexample instance. Automated searches may help guess hardness via reductions but do not directly yield a definitive resolution.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate algorithms for approximating \\(S_j(w)\\) can be represented as code and evaluated on simulated instances with a computable objective value as a fitness signal. However, the ultimate goal concerns worst-case efficiency/complexity guarantees, which requires proof beyond empirical performance, so automated evolution would be supportive rather than decisive.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06330975,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06330975
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390702256/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

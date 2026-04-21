@@ -1,0 +1,61 @@
+{
+  "problem_id": "W3135365769_p0",
+  "paper_id": "W3135365769",
+  "source_paper": "W3135365769",
+  "source_paper_title": "Fair-Share Allocations for Agents with Arbitrary Entitlements",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0199",
+  "source_paper_authors": [
+    "Moshe Babaioff",
+    "Tomer Ezra",
+    "Uriel Feige"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Babaioff_2024, title={Fair-Share Allocations for Agents with Arbitrary Entitlements}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0199}, DOI={10.1287/moor.2021.0199}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Babaioff, Moshe and Ezra, Tomer and Feige, Uriel}, year={2024}, month=nov, pages={2180\u20132211} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 5, Introduction (paragraph after Theorem 1.3); reiterated page 5 (after Theorem 1.4) and page 23, Section 6.3 (Open Questions, items 2\u20133).\n\nAs the APS is at least as large as the MMS, we thus conclude that when there are more than two agents one cannot hope to give all agents their APS share exactly, even in the equal entitlements case, and constant approximation is the best we can hope for (we leave open the problem of finding the exact constant).\n\nFinding the best approximation is open even for the case of equal entitlements.",
+  "title": "Determine optimal approximation constant for AnyPrice share allocations with additive valuations",
+  "background_latex": "There are \\(n\\) agents \\(N=\\{1,\\dots,n\\}\\) and a set \\(M\\) of \\(m\\) indivisible goods. Each agent \\(i\\) has an additive valuation \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) of the form \\(v_i(S)=\\sum_{j\\in S} v_i(j)\\). Agents have entitlements (budgets) \\(b_i>0\\) with \\(\\sum_{i\\in N} b_i = 1\\).\n\nFor a fixed agent \\(i\\), define the set of nonnegative price vectors with total price 1 as\n\\[P=\\{(p_1,\\dots,p_m)\\in\\mathbb{R}_{\\ge 0}^m: \\sum_{j\\in M} p_j = 1\\}.\\]\nThe AnyPrice share (APS) of agent \\(i\\) is\n\\[\\mathrm{APS}_i \\;=\\; \\min_{p\\in P}\\; \\max_{S\\subseteq M\\, :\\, \\sum_{j\\in S} p_j\\le b_i} v_i(S).\\]\n(Equivalently, \\(\\mathrm{APS}_i\\) is the largest \\(z\\) for which there exists a distribution over bundles \\(T\\subseteq M\\) each of value at least \\(z\\), such that each item \\(j\\in M\\) appears with total probability at most \\(b_i\\).)\n\nAn allocation is a partition \\(A=(A_1,\\dots,A_n)\\) of \\(M\\) into disjoint bundles. For \\(\\alpha\\in(0,1]\\), an \\(\\alpha\\)-APS allocation is an allocation \\(A\\) such that \\(v_i(A_i)\\ge \\alpha\\,\\mathrm{APS}_i\\) for every agent \\(i\\in N\\).\n\nFor additive valuations and arbitrary entitlements, the paper proves existence and polynomial-time computability of \\(\\alpha\\)-APS allocations for \\(\\alpha=3/5\\) (and stronger entitlement-dependent bounds), and notes that exact \\(\\alpha=1\\) is impossible in general when \\(n\\ge 3\\), even under equal entitlements.",
+  "problem_definition_latex": "Determine the largest constant \\(\\alpha^\\star\\in(0,1)\\) such that, for every instance with additive valuations \\((v_1,\\dots,v_n)\\) and entitlements \\((b_1,\\dots,b_n)\\) with \\(\\sum_i b_i=1\\), there exists an allocation \\(A=(A_1,\\dots,A_n)\\) satisfying\n\\[\\forall i\\in N:\\quad v_i(A_i)\\ge \\alpha^\\star\\,\\mathrm{APS}_i,\\]\nwhere \\(\\mathrm{APS}_i\\) is defined by\n\\[\\mathrm{APS}_i \\;=\\; \\min_{p\\in P}\\; \\max_{S\\subseteq M\\, :\\, \\sum_{j\\in S} p_j\\le b_i} v_i(S).\\]\nEquivalently, determine the optimal worst-case approximation factor for simultaneously guaranteeing each agent a fixed constant fraction of her AnyPrice share (for additive valuations), and provide matching upper and lower bounds (and, if possible, a polynomial-time algorithm achieving \\(\\alpha^\\star\\)).",
+  "latex": "There are \\(n\\) agents \\(N=\\{1,\\dots,n\\}\\) and a set \\(M\\) of \\(m\\) indivisible goods. Each agent \\(i\\) has an additive valuation \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) of the form \\(v_i(S)=\\sum_{j\\in S} v_i(j)\\). Agents have entitlements (budgets) \\(b_i>0\\) with \\(\\sum_{i\\in N} b_i = 1\\).\n\nFor a fixed agent \\(i\\), define the set of nonnegative price vectors with total price 1 as\n\\[P=\\{(p_1,\\dots,p_m)\\in\\mathbb{R}_{\\ge 0}^m: \\sum_{j\\in M} p_j = 1\\}.\\]\nThe AnyPrice share (APS) of agent \\(i\\) is\n\\[\\mathrm{APS}_i \\;=\\; \\min_{p\\in P}\\; \\max_{S\\subseteq M\\, :\\, \\sum_{j\\in S} p_j\\le b_i} v_i(S).\\]\n(Equivalently, \\(\\mathrm{APS}_i\\) is the largest \\(z\\) for which there exists a distribution over bundles \\(T\\subseteq M\\) each of value at least \\(z\\), such that each item \\(j\\in M\\) appears with total probability at most \\(b_i\\).)\n\nAn allocation is a partition \\(A=(A_1,\\dots,A_n)\\) of \\(M\\) into disjoint bundles. For \\(\\alpha\\in(0,1]\\), an \\(\\alpha\\)-APS allocation is an allocation \\(A\\) such that \\(v_i(A_i)\\ge \\alpha\\,\\mathrm{APS}_i\\) for every agent \\(i\\in N\\).\n\nFor additive valuations and arbitrary entitlements, the paper proves existence and polynomial-time computability of \\(\\alpha\\)-APS allocations for \\(\\alpha=3/5\\) (and stronger entitlement-dependent bounds), and notes that exact \\(\\alpha=1\\) is impossible in general when \\(n\\ge 3\\), even under equal entitlements.\n\nDetermine the largest constant \\(\\alpha^\\star\\in(0,1)\\) such that, for every instance with additive valuations \\((v_1,\\dots,v_n)\\) and entitlements \\((b_1,\\dots,b_n)\\) with \\(\\sum_i b_i=1\\), there exists an allocation \\(A=(A_1,\\dots,A_n)\\) satisfying\n\\[\\forall i\\in N:\\quad v_i(A_i)\\ge \\alpha^\\star\\,\\mathrm{APS}_i,\\]\nwhere \\(\\mathrm{APS}_i\\) is defined by\n\\[\\mathrm{APS}_i \\;=\\; \\min_{p\\in P}\\; \\max_{S\\subseteq M\\, :\\, \\sum_{j\\in S} p_j\\le b_i} v_i(S).\\]\nEquivalently, determine the optimal worst-case approximation factor for simultaneously guaranteeing each agent a fixed constant fraction of her AnyPrice share (for additive valuations), and provide matching upper and lower bounds (and, if possible, a polynomial-time algorithm achieving \\(\\alpha^\\star\\)).",
+  "location_in_paper": "Page 5, Introduction (paragraph after Theorem 1.3); reiterated page 5 (after Theorem 1.4) and page 23, Section 6.3 (Open Questions, items 2\u20133).",
+  "open_problem_quote": "As the APS is at least as large as the MMS, we thus conclude that when there are more than two agents one cannot hope to give all agents their APS share exactly, even in the equal entitlements case, and constant approximation is the best we can hope for (we leave open the problem of finding the exact constant).\n\nFinding the best approximation is open even for the case of equal entitlements.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "fair division",
+    "indivisible goods",
+    "anyprice share",
+    "approximation ratio",
+    "additive valuations",
+    "unequal entitlements"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Upper bounds can be sought by searching for small instances (few agents/items) where no allocation achieves a target \\(\\alpha\\), but certifying the universal impossibility of \\(\\alpha\\) typically requires nontrivial reasoning beyond brute-force search. Still, automated enumeration with exact APS computation (pseudo-polynomial/ILP) can generate candidate hard instances and empirical gaps.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate objects include both (i) algorithm families/strategies parameterized by thresholds and (ii) adversarial instances parameterized by item values and entitlements. A fitness signal can be computed by solving, for each generated instance, the best achievable minimum ratio \\(\\min_i v_i(A_i)/\\mathrm{APS}_i\\) over allocations (via MILP/branch-and-bound for small sizes) and, for algorithms, the achieved ratio on sampled/adversarially optimized instances, enabling iterative improvement and counterexample discovery.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.1066555,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.1066555
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3135365769/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

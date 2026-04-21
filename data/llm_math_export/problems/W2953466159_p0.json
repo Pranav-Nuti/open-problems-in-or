@@ -1,0 +1,60 @@
+{
+  "problem_id": "W2953466159_p0",
+  "paper_id": "W2953466159",
+  "source_paper": "W2953466159",
+  "source_paper_title": "Algorithms for Competitive Division of Chores",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1361",
+  "source_paper_authors": [
+    "Simina Br\u00e2nzei",
+    "Fedor Sandomirskiy"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Br_nzei_2024, title={Algorithms for Competitive Division of Chores}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1361}, DOI={10.1287/moor.2023.1361}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Br\u00e2nzei, Simina and Sandomirskiy, Fedor}, year={2024}, month=feb, pages={398\u2013429} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 10, end of Related Work / start of Section 2 (statement just before Section 2), and reiterated in Section 3 (\u201cWhat if both n and m are large?\u201d), page 19.\n\nComputing an exact competitive equilibrium in polynomial time when both the number of agents and chores are variable remains an open question for additive utilities.\n\nproblem. Is it possible to compute one competitive utility profile in time polynomial in \\(n + m\\)?",
+  "title": "Compute a competitive equilibrium utility profile for divisible chores with variable size",
+  "background_latex": "There are \\(n\\) agents and \\(m\\) divisible chores, with one unit of each chore to be allocated. Agent \\(i\\in[n]=\\{1,\\dots,n\\}\\) receives a bundle \\(z_i=(z_{i,1},\\dots,z_{i,m})\\in\\mathbb{R}^m_{\\ge 0}\\), where \\(z_{i,j}\\) is the fraction of chore \\(j\\in[m]=\\{1,\\dots,m\\}\\) assigned to agent \\(i\\). Feasibility requires \\(\\sum_{i=1}^n z_{i,j}=1\\) for every chore \\(j\\).\n\nPreferences are additive and strictly negative (chores): values are given by a matrix \\(v\\in\\mathbb{R}^{n\\times m}_{<0}\\), where \\(v_{i,j}<0\\) is agent \\(i\\)'s value for performing one unit of chore \\(j\\). The utility of agent \\(i\\) for bundle \\(z_i\\) is\n\\[u_i(z_i)=\\sum_{j=1}^m v_{i,j} z_{i,j},\\]\nand the utility profile of an allocation \\(z\\) is \\(u(z)=(u_1(z_1),\\dots,u_n(z_n))\\in\\mathbb{R}^n_{<0}\\).\n\nAgents have (virtual) strictly negative budgets \\(b\\in\\mathbb{R}^n_{<0}\\). A price vector is \\(p\\in\\mathbb{R}^m_{<0}\\), and the price of a bundle \\(x\\in\\mathbb{R}^m_{\\ge 0}\\) is \\(p(x)=\\sum_{j=1}^m p_j x_j\\).\n\nA feasible allocation \\(z\\) is a competitive allocation (competitive equilibrium with budgets \\(b\\)) if there exists \\(p\\in\\mathbb{R}^m_{<0}\\) such that each agent \\(i\\) maximizes \\(u_i(x)\\) over all bundles \\(x\\in\\mathbb{R}^m_{\\ge 0}\\) satisfying \\(p(x)\\le b_i\\). A competitive utility profile is any \\(u\\in\\mathbb{R}^n\\) for which there exists a competitive allocation \\(z\\) with \\(u=u(z)\\).\n\nIn the paper, when either \\(n\\) or \\(m\\) is fixed, there is a strongly polynomial-time algorithm that enumerates all competitive utility profiles for additive chores; however, the complexity when both \\(n\\) and \\(m\\) are variable is unresolved.",
+  "problem_definition_latex": "Design an algorithm that, given arbitrary \\(n,m\\), a valuation matrix \\(v\\in\\mathbb{R}^{n\\times m}_{<0}\\) and budgets \\(b\\in\\mathbb{R}^n_{<0}\\), computes at least one competitive utility profile \\(u\\in\\mathbb{R}^n_{<0}\\) (equivalently, one competitive allocation) in time polynomial in \\(n+m\\).",
+  "latex": "There are \\(n\\) agents and \\(m\\) divisible chores, with one unit of each chore to be allocated. Agent \\(i\\in[n]=\\{1,\\dots,n\\}\\) receives a bundle \\(z_i=(z_{i,1},\\dots,z_{i,m})\\in\\mathbb{R}^m_{\\ge 0}\\), where \\(z_{i,j}\\) is the fraction of chore \\(j\\in[m]=\\{1,\\dots,m\\}\\) assigned to agent \\(i\\). Feasibility requires \\(\\sum_{i=1}^n z_{i,j}=1\\) for every chore \\(j\\).\n\nPreferences are additive and strictly negative (chores): values are given by a matrix \\(v\\in\\mathbb{R}^{n\\times m}_{<0}\\), where \\(v_{i,j}<0\\) is agent \\(i\\)'s value for performing one unit of chore \\(j\\). The utility of agent \\(i\\) for bundle \\(z_i\\) is\n\\[u_i(z_i)=\\sum_{j=1}^m v_{i,j} z_{i,j},\\]\nand the utility profile of an allocation \\(z\\) is \\(u(z)=(u_1(z_1),\\dots,u_n(z_n))\\in\\mathbb{R}^n_{<0}\\).\n\nAgents have (virtual) strictly negative budgets \\(b\\in\\mathbb{R}^n_{<0}\\). A price vector is \\(p\\in\\mathbb{R}^m_{<0}\\), and the price of a bundle \\(x\\in\\mathbb{R}^m_{\\ge 0}\\) is \\(p(x)=\\sum_{j=1}^m p_j x_j\\).\n\nA feasible allocation \\(z\\) is a competitive allocation (competitive equilibrium with budgets \\(b\\)) if there exists \\(p\\in\\mathbb{R}^m_{<0}\\) such that each agent \\(i\\) maximizes \\(u_i(x)\\) over all bundles \\(x\\in\\mathbb{R}^m_{\\ge 0}\\) satisfying \\(p(x)\\le b_i\\). A competitive utility profile is any \\(u\\in\\mathbb{R}^n\\) for which there exists a competitive allocation \\(z\\) with \\(u=u(z)\\).\n\nIn the paper, when either \\(n\\) or \\(m\\) is fixed, there is a strongly polynomial-time algorithm that enumerates all competitive utility profiles for additive chores; however, the complexity when both \\(n\\) and \\(m\\) are variable is unresolved.\n\nDesign an algorithm that, given arbitrary \\(n,m\\), a valuation matrix \\(v\\in\\mathbb{R}^{n\\times m}_{<0}\\) and budgets \\(b\\in\\mathbb{R}^n_{<0}\\), computes at least one competitive utility profile \\(u\\in\\mathbb{R}^n_{<0}\\) (equivalently, one competitive allocation) in time polynomial in \\(n+m\\).",
+  "location_in_paper": "Page 10, end of Related Work / start of Section 2 (statement just before Section 2), and reiterated in Section 3 (\u201cWhat if both n and m are large?\u201d), page 19.",
+  "open_problem_quote": "Computing an exact competitive equilibrium in polynomial time when both the number of agents and chores are variable remains an open question for additive utilities.\n\nproblem. Is it possible to compute one competitive utility profile in time polynomial in \\(n + m\\)?",
+  "area": "approximation algorithms",
+  "keywords": [
+    "competitive equilibrium",
+    "chores",
+    "fair division",
+    "Fisher markets",
+    "additive utilities",
+    "equilibrium computation"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem asks for an algorithmic upper bound (polynomial-time solvability) rather than a universal inequality or structural conjecture that could be refuted by a finite instance. While one could search for hard instances suggesting intractability, there is no well-defined finite certificate of impossibility without a complexity-theoretic reduction.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate algorithms (e.g., pivoting rules, combinatorial procedures, or reductions to flow/LP subroutines) and test them computationally on random and adversarial instances, with a clear fitness signal (success/failure and runtime scaling). However, empirical performance does not certify worst-case polynomial time, so the feedback is only a heuristic proxy for the true goal.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08883875,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08883875
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2953466159/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

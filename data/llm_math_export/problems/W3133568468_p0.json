@@ -1,0 +1,61 @@
+{
+  "problem_id": "W3133568468_p0",
+  "paper_id": "W3133568468",
+  "source_paper": "W3133568468",
+  "source_paper_title": "On Interim Envy-Free Allocation Lotteries",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0203",
+  "source_paper_authors": [
+    "Ioannis Caragiannis",
+    "Panagiotis Kanellopoulos",
+    "Maria Kyropoulou"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Caragiannis_2025, title={On Interim Envy-Free Allocation Lotteries}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0203}, DOI={10.1287/moor.2023.0203}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Caragiannis, Ioannis and Kanellopoulos, Panagiotis and Kyropoulou, Maria}, year={2025}, month=nov, pages={3257\u20133282} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 19, Section 7 (problems)\n\nAlso, in Section 5, we show how to compute iEF lotteries that maximize the expected log-Nash social welfare. Although maximizing log-Nash and average Nash social welfare are equivalent goals for deterministic allocations, this is not the case for lotteries. Computing iEF lotteries of maximum expected average Nash welfare is elusive at this point.",
+  "title": "Compute interim envy-free lotteries maximizing expected average Nash welfare in matching instances",
+  "background_latex": "Consider a matching allocation instance with a set of agents \\(N\\) and a set of indivisible items \\(I\\) such that \\(|N|=|I|=n\\). Each agent \\(i\\in N\\) has a nonnegative additive valuation \\(v_i(S)=\\sum_{g\\in S} v_i(g)\\) over bundles \\(S\\subseteq I\\). A (deterministic) matching \\(\\mu\\) assigns each agent \\(i\\) exactly one item \\(\\mu(i)\\in I\\), with each item assigned to exactly one agent.\n\nA lottery \\(Q\\) is a probability distribution over matchings. If a matching \\(\\mu\\sim Q\\) is drawn, agent \\(i\\) receives the random item \\(\\mu(i)\\). The lottery \\(Q\\) is interim envy-free (iEF) if for every ordered pair of agents \\(i,j\\in N\\) and every item \\(g\\in I\\) that agent \\(i\\) receives with positive probability under \\(Q\\) (i.e., \\(\\Pr_{\\mu\\sim Q}[\\mu(i)=g]>0\\)),\n\\[\nv_i(g) \\ge \\mathbb{E}_{\\mu\\sim Q}\\bigl[v_i(\\mu(j))\\mid \\mu(i)=g\\bigr].\n\\]\n\nFor a deterministic matching \\(\\mu\\), the (average) Nash social welfare is the geometric mean of agents' utilities:\n\\[\n\\mathrm{avN}(\\mu)=\\Bigl(\\prod_{i\\in N} v_i(\\mu(i))\\Bigr)^{1/n}.\n\\]\nFor a lottery \\(Q\\), the objective of interest is the expected average Nash welfare \\(\\mathbb{E}_{\\mu\\sim Q}[\\mathrm{avN}(\\mu)]\\).",
+  "problem_definition_latex": "Given a matching allocation instance \\((N,I,(v_i)_{i\\in N})\\) with \\(|N|=|I|\\), determine how to compute an interim envy-free lottery \\(Q\\) that maximizes the expected average Nash social welfare\n\\[\n\\max_{Q\\ \\text{iEF}}\\ \\mathbb{E}_{\\mu\\sim Q}[\\mathrm{avN}(\\mu)].\n\\]\nIn particular, design an algorithm for this optimization problem (or determine its computational complexity).",
+  "latex": "Consider a matching allocation instance with a set of agents \\(N\\) and a set of indivisible items \\(I\\) such that \\(|N|=|I|=n\\). Each agent \\(i\\in N\\) has a nonnegative additive valuation \\(v_i(S)=\\sum_{g\\in S} v_i(g)\\) over bundles \\(S\\subseteq I\\). A (deterministic) matching \\(\\mu\\) assigns each agent \\(i\\) exactly one item \\(\\mu(i)\\in I\\), with each item assigned to exactly one agent.\n\nA lottery \\(Q\\) is a probability distribution over matchings. If a matching \\(\\mu\\sim Q\\) is drawn, agent \\(i\\) receives the random item \\(\\mu(i)\\). The lottery \\(Q\\) is interim envy-free (iEF) if for every ordered pair of agents \\(i,j\\in N\\) and every item \\(g\\in I\\) that agent \\(i\\) receives with positive probability under \\(Q\\) (i.e., \\(\\Pr_{\\mu\\sim Q}[\\mu(i)=g]>0\\)),\n\\[\nv_i(g) \\ge \\mathbb{E}_{\\mu\\sim Q}\\bigl[v_i(\\mu(j))\\mid \\mu(i)=g\\bigr].\n\\]\n\nFor a deterministic matching \\(\\mu\\), the (average) Nash social welfare is the geometric mean of agents' utilities:\n\\[\n\\mathrm{avN}(\\mu)=\\Bigl(\\prod_{i\\in N} v_i(\\mu(i))\\Bigr)^{1/n}.\n\\]\nFor a lottery \\(Q\\), the objective of interest is the expected average Nash welfare \\(\\mathbb{E}_{\\mu\\sim Q}[\\mathrm{avN}(\\mu)]\\).\n\nGiven a matching allocation instance \\((N,I,(v_i)_{i\\in N})\\) with \\(|N|=|I|\\), determine how to compute an interim envy-free lottery \\(Q\\) that maximizes the expected average Nash social welfare\n\\[\n\\max_{Q\\ \\text{iEF}}\\ \\mathbb{E}_{\\mu\\sim Q}[\\mathrm{avN}(\\mu)].\n\\]\nIn particular, design an algorithm for this optimization problem (or determine its computational complexity).",
+  "location_in_paper": "Page 19, Section 7 (problems)",
+  "open_problem_quote": "Also, in Section 5, we show how to compute iEF lotteries that maximize the expected log-Nash social welfare. Although maximizing log-Nash and average Nash social welfare are equivalent goals for deterministic allocations, this is not the case for lotteries. Computing iEF lotteries of maximum expected average Nash welfare is elusive at this point.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "fair division",
+    "interim envy-freeness",
+    "random allocations",
+    "Nash social welfare",
+    "average Nash welfare",
+    "matching instances"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Small matching instances can be exhaustively searched to compare the best iEF lottery under expected average Nash welfare versus other objectives, but the space of lotteries is continuous and typically requires solving nonconvex optimization, limiting pure instance-search approaches.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate algorithms (e.g., convex relaxations, iterative rounding, local search over supports of lotteries) can be represented programmatically and evaluated by computing iEF feasibility and numerically optimizing/estimating \\(\\mathbb{E}[\\mathrm{avN}]\\) on sampled or enumerated small instances, providing an automatic fitness signal for iterative improvement.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.045857,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.045857
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3133568468/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

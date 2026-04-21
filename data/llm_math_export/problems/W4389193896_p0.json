@@ -1,0 +1,64 @@
+{
+  "problem_id": "W4389193896_p0",
+  "paper_id": "W4389193896",
+  "source_paper": "W4389193896",
+  "source_paper_title": "Allocating Indivisible Goods to Strategic Agents: Pure Nash Equilibria and Fairness",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0058",
+  "source_paper_authors": [
+    "Georgios Amanatidis",
+    "Georgios Birmpas",
+    "Federico Fusco",
+    "Philip Lazos",
+    "Stefano Leonardi",
+    "Rebecca Reiffenh\u00e4user"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Amanatidis_2024, title={Allocating Indivisible Goods to Strategic Agents: Pure Nash Equilibria and Fairness}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0058}, DOI={10.1287/moor.2022.0058}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Amanatidis, Georgios and Birmpas, Georgios and Fusco, Federico and Lazos, Philip and Leonardi, Stefano and Reiffenh\u00e4user, Rebecca}, year={2024}, month=nov, pages={2425\u20132445} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 22, Section 5 (Discussion)\n\nTheorems 4.5 and 4.7 leave an open question on the MMS guarantee that the equilibria of mechanisms that always have PNE and these are EFX. Although we suspect that the corresponding allocations are not always MMS, such a result would immediately imply that for every such mechanism which runs in polynomial time, finding a best response of an agent is a computationally hard problem.",
+  "title": "Determine the MMS guarantee of EFX pure Nash equilibria for two agents",
+  "background_latex": "Consider a finite set of indivisible goods \\(M\\) and two agents \\(N=\\{1,2\\}\\). Each agent \\(i\\) has a nonnegative additive valuation \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\), i.e., \\(v_i(S)=\\sum_{g\\in S} v_i(g)\\) for all \\(S\\subseteq M\\).\n\nAn allocation is a partition \\(A=(A_1,A_2)\\) of \\(M\\). For \\(\\alpha\\in(0,1]\\), the allocation is \\(\\alpha\\)-maximin-share fair (\\(\\alpha\\)-MMS) for agent \\(i\\) if \\(v_i(A_i)\\ge \\alpha\\,\\mu_i\\), where the maximin share is\n\\[\\mu_i = \\mu_i(2,M) := \\max_{(P_1,P_2)\\in \\Pi_2(M)} \\min\\{v_i(P_1),v_i(P_2)\\},\\]\nwith \\(\\Pi_2(M)\\) the set of all 2-way partitions of \\(M\\).\n\nEnvy-freeness up to any good (EFX) for two agents means: for each \\(i\\ne j\\), for every good \\(g\\in A_j\\) with \\(v_i(g)>0\\),\n\\[ v_i(A_i) \\ge v_i(A_j\\setminus\\{g\\}). \\]\n\nA (deterministic, no-money) allocation mechanism \\(\\mathcal{M}\\) maps a bid profile \\(b=(b_1,b_2)\\), where each \\(b_i\\in\\mathbb{R}_{\\ge 0}^{|M|}\\), to an allocation \\(\\mathcal{M}(b)\\). Given true valuations \\(v=(v_1,v_2)\\), a bid profile \\(b\\) is a pure Nash equilibrium (PNE) if no agent can increase her true utility \\(v_i\\big(\\mathcal{M}(b)_i\\big)\\) by unilaterally changing her bid vector.\n\nSay that a mechanism \\(\\mathcal{M}\\) has EFX PNE on all instances if for every pair \\((v_1,v_2)\\) it admits at least one PNE, and for every PNE \\(b\\), the induced allocation \\(\\mathcal{M}(b)\\) is EFX with respect to the true valuations \\((v_1,v_2)\\).",
+  "problem_definition_latex": "Find the best universal constant \\(\\alpha^*\\in[0,1]\\) such that the following holds:\n\nFor every mechanism \\(\\mathcal{M}\\) that, for every additive-valuation instance \\((v_1,v_2)\\), has at least one pure Nash equilibrium and every pure Nash equilibrium induces an EFX allocation with respect to \\((v_1,v_2)\\), every such equilibrium allocation \\(A=\\mathcal{M}(b)\\) satisfies\n\\[ v_i(A_i) \\ge \\alpha^*\\,\\mu_i \\quad \\text{for both } i\\in\\{1,2\\}. \\]\n\nEquivalently, determine the tight worst-case MMS approximation guarantee (as a function-free constant) enjoyed by EFX allocations arising at PNE of mechanisms whose PNE always exist and are always EFX. In particular, decide whether one can always take \\(\\alpha^*=1\\) (MMS always), or whether \\(\\alpha^*<1\\), and if so, determine the optimal \\(\\alpha^*\\) (the paper proves existence of some \\(\\alpha>2/3\\)).",
+  "latex": "Consider a finite set of indivisible goods \\(M\\) and two agents \\(N=\\{1,2\\}\\). Each agent \\(i\\) has a nonnegative additive valuation \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\), i.e., \\(v_i(S)=\\sum_{g\\in S} v_i(g)\\) for all \\(S\\subseteq M\\).\n\nAn allocation is a partition \\(A=(A_1,A_2)\\) of \\(M\\). For \\(\\alpha\\in(0,1]\\), the allocation is \\(\\alpha\\)-maximin-share fair (\\(\\alpha\\)-MMS) for agent \\(i\\) if \\(v_i(A_i)\\ge \\alpha\\,\\mu_i\\), where the maximin share is\n\\[\\mu_i = \\mu_i(2,M) := \\max_{(P_1,P_2)\\in \\Pi_2(M)} \\min\\{v_i(P_1),v_i(P_2)\\},\\]\nwith \\(\\Pi_2(M)\\) the set of all 2-way partitions of \\(M\\).\n\nEnvy-freeness up to any good (EFX) for two agents means: for each \\(i\\ne j\\), for every good \\(g\\in A_j\\) with \\(v_i(g)>0\\),\n\\[ v_i(A_i) \\ge v_i(A_j\\setminus\\{g\\}). \\]\n\nA (deterministic, no-money) allocation mechanism \\(\\mathcal{M}\\) maps a bid profile \\(b=(b_1,b_2)\\), where each \\(b_i\\in\\mathbb{R}_{\\ge 0}^{|M|}\\), to an allocation \\(\\mathcal{M}(b)\\). Given true valuations \\(v=(v_1,v_2)\\), a bid profile \\(b\\) is a pure Nash equilibrium (PNE) if no agent can increase her true utility \\(v_i\\big(\\mathcal{M}(b)_i\\big)\\) by unilaterally changing her bid vector.\n\nSay that a mechanism \\(\\mathcal{M}\\) has EFX PNE on all instances if for every pair \\((v_1,v_2)\\) it admits at least one PNE, and for every PNE \\(b\\), the induced allocation \\(\\mathcal{M}(b)\\) is EFX with respect to the true valuations \\((v_1,v_2)\\).\n\nFind the best universal constant \\(\\alpha^*\\in[0,1]\\) such that the following holds:\n\nFor every mechanism \\(\\mathcal{M}\\) that, for every additive-valuation instance \\((v_1,v_2)\\), has at least one pure Nash equilibrium and every pure Nash equilibrium induces an EFX allocation with respect to \\((v_1,v_2)\\), every such equilibrium allocation \\(A=\\mathcal{M}(b)\\) satisfies\n\\[ v_i(A_i) \\ge \\alpha^*\\,\\mu_i \\quad \\text{for both } i\\in\\{1,2\\}. \\]\n\nEquivalently, determine the tight worst-case MMS approximation guarantee (as a function-free constant) enjoyed by EFX allocations arising at PNE of mechanisms whose PNE always exist and are always EFX. In particular, decide whether one can always take \\(\\alpha^*=1\\) (MMS always), or whether \\(\\alpha^*<1\\), and if so, determine the optimal \\(\\alpha^*\\) (the paper proves existence of some \\(\\alpha>2/3\\)).",
+  "location_in_paper": "Page 22, Section 5 (Discussion)",
+  "open_problem_quote": "Theorems 4.5 and 4.7 leave an open question on the MMS guarantee that the equilibria of mechanisms that always have PNE and these are EFX. Although we suspect that the corresponding allocations are not always MMS, such a result would immediately imply that for every such mechanism which runs in polynomial time, finding a best response of an agent is a computationally hard problem.",
+  "area": "algorithmic mechanism design",
+  "keywords": [
+    "fair division",
+    "indivisible goods",
+    "pure nash equilibrium",
+    "EFX",
+    "maximin share",
+    "mechanism design"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For a fixed candidate mechanism, one can search over small additive instances and check (by enumeration of bid deviations on discretized grids) whether some PNE outcome violates a target MMS ratio, but quantifying over all mechanisms makes the search indirect. Still, automated searches can be informative by testing natural mechanism families or by attempting to construct valuation profiles that force low-MMS EFX equilibria.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary loop could parameterize a family of mechanisms (e.g., cut-and-choose style or sequential/draft rules) and use a fitness signal based on worst-case equilibrium MMS ratio found by an inner solver that searches for PNE and evaluates EFX and MMS. The nested equilibrium search is computationally heavy and may be noisy/incomplete, but could plausibly produce explicit candidate mechanisms or instances that improve bounds or refute conjectured \\(\\alpha^*=1\\).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.077336,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.077336
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389193896/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

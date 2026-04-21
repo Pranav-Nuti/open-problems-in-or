@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3217525437_p0",
+  "paper_id": "W3217525437",
+  "source_paper": "W3217525437",
+  "source_paper_title": "Large Ranking Games with Diffusion Control",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1373",
+  "source_paper_authors": [
+    "Stefan Ankirchner",
+    "Nabil Kazi-Tani",
+    "Julian Wendt",
+    "Chao Zhou"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Ankirchner_2024, title={Large Ranking Games with Diffusion Control}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1373}, DOI={10.1287/moor.2023.1373}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ankirchner, Stefan and Kazi-Tani, Nabil and Wendt, Julian and Zhou, Chao}, year={2024}, month=may, pages={675\u2013696} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Section 1 (Introduction), footnote 1.\n\nIt is still a problem to find conditions, sufficient and necessary at the same time, guaranteeing uniqueness in law of weak solutions of (2) in dimensions greater than 2 (see e.g. abstract of [23]).",
+  "title": "Uniqueness in law criteria for weak solutions of multidimensional Ito SDEs",
+  "background_latex": "Let \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge 0},\\mathbb P)\\) be a filtered probability space supporting a standard \\(d\\)-dimensional Brownian motion \\(W\\). Consider the It\\^o stochastic differential equation (SDE)\n\\[\n dX_t = b(t,X_t)\\,dt + \\sigma(t,X_t)\\,dW_t,\\qquad X_0=x\\in\\mathbb R^d,\n\\]\nwhere \\(b:[0,T]\\times\\mathbb R^d\\to\\mathbb R^d\\) and \\(\\sigma:[0,T]\\times\\mathbb R^d\\to\\mathbb R^{d\\times d}\\) are Borel measurable coefficients. A \\emph{weak solution} is a tuple \\((\\Omega',\\mathcal F',(\\mathcal F'_t)_{t\\ge 0},\\mathbb P',W',X')\\) such that \\(W'\\) is a Brownian motion and \\(X'\\) is an adapted continuous process satisfying the SDE in the It\\^o sense under \\(\\mathbb P'\\). \n\nThe SDE is said to have \\emph{uniqueness in law} (also called \\emph{weak uniqueness}) if for any two weak solutions with the same initial condition \\(x\\), the laws of the solution processes \\((X_t)_{t\\in[0,T]}\\) on path space coincide. One often assumes some form of (uniform) nondegeneracy/ellipticity of \\(\\sigma\\), e.g. \\(\\sigma\\sigma^\\top\\ge \\lambda I\\) for some \\(\\lambda>0\\), but coefficients may still be merely measurable or discontinuous.\n\nIn the attached paper, the finite-player game dynamics lead to an \\(n\\)-dimensional SDE of the form\n\\[\n dX_t = D(t,X_t)\\,dW_t,\n\\]\nwith diagonal diffusion matrix \\(D(t,x)\\) whose diagonal entries are bounded between two positive constants \\(\\sigma_1<\\sigma_2\\) (uniform ellipticity), but can be discontinuous as functions of \\(x\\) because they arise from feedback controls. The paper notes that, in dimensions greater than 2, general necessary-and-sufficient conditions for uniqueness in law of such weak solutions are not known.",
+  "problem_definition_latex": "For dimensions \\(d>2\\), characterize (with conditions that are simultaneously sufficient and necessary) when the It\\^o SDE\n\\[\n dX_t = b(t,X_t)\\,dt + \\sigma(t,X_t)\\,dW_t,\\qquad X_0=x\\in\\mathbb R^d,\n\\]\nadmits uniqueness in law of weak solutions.\n\nIn particular, determine such a sharp characterization for the driftless, uniformly elliptic case\n\\[\n dX_t = \\sigma(t,X_t)\\,dW_t,\n\\]\nincluding the case where \\(\\sigma(t,\\cdot)\\) may be discontinuous (e.g. piecewise constant) and may be restricted to be diagonal-valued.",
+  "latex": "Let \\((\\Omega,\\mathcal F,(\\mathcal F_t)_{t\\ge 0},\\mathbb P)\\) be a filtered probability space supporting a standard \\(d\\)-dimensional Brownian motion \\(W\\). Consider the It\\^o stochastic differential equation (SDE)\n\\[\n dX_t = b(t,X_t)\\,dt + \\sigma(t,X_t)\\,dW_t,\\qquad X_0=x\\in\\mathbb R^d,\n\\]\nwhere \\(b:[0,T]\\times\\mathbb R^d\\to\\mathbb R^d\\) and \\(\\sigma:[0,T]\\times\\mathbb R^d\\to\\mathbb R^{d\\times d}\\) are Borel measurable coefficients. A \\emph{weak solution} is a tuple \\((\\Omega',\\mathcal F',(\\mathcal F'_t)_{t\\ge 0},\\mathbb P',W',X')\\) such that \\(W'\\) is a Brownian motion and \\(X'\\) is an adapted continuous process satisfying the SDE in the It\\^o sense under \\(\\mathbb P'\\). \n\nThe SDE is said to have \\emph{uniqueness in law} (also called \\emph{weak uniqueness}) if for any two weak solutions with the same initial condition \\(x\\), the laws of the solution processes \\((X_t)_{t\\in[0,T]}\\) on path space coincide. One often assumes some form of (uniform) nondegeneracy/ellipticity of \\(\\sigma\\), e.g. \\(\\sigma\\sigma^\\top\\ge \\lambda I\\) for some \\(\\lambda>0\\), but coefficients may still be merely measurable or discontinuous.\n\nIn the attached paper, the finite-player game dynamics lead to an \\(n\\)-dimensional SDE of the form\n\\[\n dX_t = D(t,X_t)\\,dW_t,\n\\]\nwith diagonal diffusion matrix \\(D(t,x)\\) whose diagonal entries are bounded between two positive constants \\(\\sigma_1<\\sigma_2\\) (uniform ellipticity), but can be discontinuous as functions of \\(x\\) because they arise from feedback controls. The paper notes that, in dimensions greater than 2, general necessary-and-sufficient conditions for uniqueness in law of such weak solutions are not known.\n\nFor dimensions \\(d>2\\), characterize (with conditions that are simultaneously sufficient and necessary) when the It\\^o SDE\n\\[\n dX_t = b(t,X_t)\\,dt + \\sigma(t,X_t)\\,dW_t,\\qquad X_0=x\\in\\mathbb R^d,\n\\]\nadmits uniqueness in law of weak solutions.\n\nIn particular, determine such a sharp characterization for the driftless, uniformly elliptic case\n\\[\n dX_t = \\sigma(t,X_t)\\,dW_t,\n\\]\nincluding the case where \\(\\sigma(t,\\cdot)\\) may be discontinuous (e.g. piecewise constant) and may be restricted to be diagonal-valued.",
+  "location_in_paper": "Page 3, Section 1 (Introduction), footnote 1.",
+  "open_problem_quote": "It is still a problem to find conditions, sufficient and necessary at the same time, guaranteeing uniqueness in law of weak solutions of (2) in dimensions greater than 2 (see e.g. abstract of [23]).",
+  "area": "stochastic differential equations",
+  "keywords": [
+    "weak solutions",
+    "uniqueness in law",
+    "uniform ellipticity",
+    "ito sdes",
+    "multidimensional diffusion",
+    "measurable coefficients"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for a sharp necessary-and-sufficient characterization across a broad class of multidimensional SDEs, not a single conjectured inequality or finite-dimensional extremal instance. Automated search might find examples of non-uniqueness/uniqueness for specific coefficient families, but there is no clear finite search space or decisive empirical test that would resolve the full characterization.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary loop could explore parametrized families of discontinuous or piecewise-constant diffusion coefficients \\(\\sigma\\) and numerically probe for non-uniqueness indicators (e.g., by constructing distinct weak solutions via different approximation schemes) to suggest conjectures or counterexamples. However, uniqueness in law is not straightforward to certify computationally, and numerical evidence may be unreliable without rigorous analysis, limiting suitability to medium.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07032200000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07032200000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3217525437/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "problem_id": "W2800787305_p0",
+  "paper_id": "W2800787305",
+  "source_paper": "W2800787305",
+  "source_paper_title": "Robust-to-Dynamics Optimization",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0116",
+  "source_paper_authors": [
+    "Amir Ali Ahmadi",
+    "Oktay G\u00fcnl\u00fck"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Ahmadi_2025, title={Robust-to-Dynamics Optimization}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0116}, DOI={10.1287/moor.2023.0116}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ahmadi, Amir Ali and G\u00fcnl\u00fck, Oktay}, year={2025}, month=may, pages={965\u2013992} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4 (Future directions and a broader agenda), page 34\n\nFor example, is the problem of testing membership of a point to the feasible set of an R-LD-LP decidable? We have shown that this problem is NP-hard in general and polynomial-time solvable when the spectral radius of the linear map is bounded away from one. It follows from [5] that the general problem is decidable when n \\le 3. In higher dimensions, however, decidability is unknown even in the special case where the input polyhedron is a single halfspace.",
+  "title": "Decidability of feasible-set membership for robust-to-linear-dynamics linear programs",
+  "background_latex": "Consider discrete-time linear dynamics on \\(\\mathbb{R}^n\\) given by \\(x_{k+1}=Gx_k\\), where \\(G\\in\\mathbb{Q}^{n\\times n}\\) is a rational matrix. Let the constraint set be a (rational) polyhedron \\(P=\\{x\\in\\mathbb{R}^n: Ax\\le b\\}\\), with \\(A\\in\\mathbb{Q}^{m\\times n\\), \\(b\\in\\mathbb{Q}^m\\), and inequalities interpreted componentwise.\n\nDefine the set of \\(P\\)-invariant initial conditions under \\(G\\) by\n\\[\nS := \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : G^k x \\in P\\} \n   = \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : A G^k x \\le b\\}.\n\\]\nEquivalently, \\(x\\in S\\) if and only if the entire forward orbit \\(\\{G^k x\\}_{k\\ge 0}\\) stays in \\(P\\).\n\nThe associated decision problem (membership problem) takes as input \\((A,b,G,z)\\) with \\(z\\in\\mathbb{Q}^n\\) and asks whether \\(z\\in S\\). This is the feasibility question underlying robust-to-linear-dynamics linear programs (R-LD-LPs), i.e., linear programs with the additional constraint that iterates under \\(G\\) remain in \\(P\\) forever.",
+  "problem_definition_latex": "Given rational data \\(A\\in\\mathbb{Q}^{m\\times n}\\), \\(b\\in\\mathbb{Q}^m\\), \\(G\\in\\mathbb{Q}^{n\\times n}\\), and \\(z\\in\\mathbb{Q}^n\\), decide whether\n\\[\nz \\in S := \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : A G^k x \\le b\\}.\n\\]\nEquivalently, decide whether \\(AG^k z\\le b\\) holds for all integers \\(k\\ge 0\\).",
+  "latex": "Consider discrete-time linear dynamics on \\(\\mathbb{R}^n\\) given by \\(x_{k+1}=Gx_k\\), where \\(G\\in\\mathbb{Q}^{n\\times n}\\) is a rational matrix. Let the constraint set be a (rational) polyhedron \\(P=\\{x\\in\\mathbb{R}^n: Ax\\le b\\}\\), with \\(A\\in\\mathbb{Q}^{m\\times n\\), \\(b\\in\\mathbb{Q}^m\\), and inequalities interpreted componentwise.\n\nDefine the set of \\(P\\)-invariant initial conditions under \\(G\\) by\n\\[\nS := \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : G^k x \\in P\\} \n   = \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : A G^k x \\le b\\}.\n\\]\nEquivalently, \\(x\\in S\\) if and only if the entire forward orbit \\(\\{G^k x\\}_{k\\ge 0}\\) stays in \\(P\\).\n\nThe associated decision problem (membership problem) takes as input \\((A,b,G,z)\\) with \\(z\\in\\mathbb{Q}^n\\) and asks whether \\(z\\in S\\). This is the feasibility question underlying robust-to-linear-dynamics linear programs (R-LD-LPs), i.e., linear programs with the additional constraint that iterates under \\(G\\) remain in \\(P\\) forever.\n\nGiven rational data \\(A\\in\\mathbb{Q}^{m\\times n}\\), \\(b\\in\\mathbb{Q}^m\\), \\(G\\in\\mathbb{Q}^{n\\times n}\\), and \\(z\\in\\mathbb{Q}^n\\), decide whether\n\\[\nz \\in S := \\bigcap_{k=0}^{\\infty}\\{x\\in\\mathbb{R}^n : A G^k x \\le b\\}.\n\\]\nEquivalently, decide whether \\(AG^k z\\le b\\) holds for all integers \\(k\\ge 0\\).",
+  "location_in_paper": "Section 4 (Future directions and a broader agenda), page 34",
+  "open_problem_quote": "For example, is the problem of testing membership of a point to the feasible set of an R-LD-LP decidable? We have shown that this problem is NP-hard in general and polynomial-time solvable when the spectral radius of the linear map is bounded away from one. It follows from [5] that the general problem is decidable when n \\le 3. In higher dimensions, however, decidability is unknown even in the special case where the input polyhedron is a single halfspace.",
+  "area": "online algorithms",
+  "keywords": [
+    "linear dynamical systems",
+    "polyhedral invariance",
+    "decidability",
+    "orbit problems",
+    "Skolem-Pisot problem",
+    "semi-infinite constraints"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem is a decidability question over all rational instances, not a claim that can be refuted by a single finite counterexample within a bounded search space. While one can search for hard instances empirically, negative results would require reductions, and positive results would require a terminating decision procedure, neither of which is well supported by brute-force instance search.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could explore candidate decision procedures or special-case algorithms and test them on large randomly generated instances by simulating orbits up to increasing horizons, but such testing cannot certify decidability or correctness on all inputs. It could still be useful to discover heuristics, invariants, or reductions to known decidable subcases that may guide theory.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07593950000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07593950000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2800787305/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

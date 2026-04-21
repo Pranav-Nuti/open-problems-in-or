@@ -1,0 +1,64 @@
+{
+  "problem_id": "W2922533999_p0",
+  "paper_id": "W2922533999",
+  "source_paper": "W2922533999",
+  "source_paper_title": "Combinatorial Auctions with Interdependent Valuations: SOS to the Rescue",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1371",
+  "source_paper_authors": [
+    "Alon Eden",
+    "Michal Feldman",
+    "Amos Fiat",
+    "Kira Goldner",
+    "Anna R. Karlin"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Eden_2024, title={Combinatorial Auctions with Interdependent Valuations: SOS to the Rescue}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1371}, DOI={10.1287/moor.2023.1371}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Eden, Alon and Feldman, Michal and Fiat, Amos and Goldner, Kira and Karlin, Anna R.}, year={2024}, month=may, pages={653\u2013674} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (problems), page 16 (in the provided PDF pagination)\n\nFor combinatorial auctions with multidimensional signals, is separability a necessary condition for achieving constant approximation to welfare? This problem is open even for single-dimensional signals and even for \u201csimple\u201d combinatorial valuations, such as unit demand.",
+  "title": "Constant-factor welfare approximation without separability in multidimensional-signal combinatorial auctions",
+  "background_latex": "Consider a combinatorial auction with a set of agents  \\( [n]=\\{1,\\dots,n\\}\\) and a set of items \\( [m]=\\{1,\\dots,m\\}\\). An allocation is a partition of items into disjoint bundles \\((T_1,\\dots,T_n)\\) with \\(T_i\\subseteq [m]\\) and \\(T_i\\cap T_{i'}=\\emptyset\\) for \\(i\\neq i'\\); agent \\(i\\) receives bundle \\(T_i\\) (possibly \\(\\emptyset\\)).\n\nSignals are multidimensional over bundles: for every agent \\(j\\in[n]\\) and every bundle \\(T\\subseteq [m]\\), agent \\(j\\) has a private signal \\(s_{jT}\\in\\mathbb{R}_+\\). For each bundle \\(T\\subseteq[m]\\), let \\(s_T=(s_{1T},\\dots,s_{nT})\\in\\mathbb{R}_+^n\\). The full signal profile is \\(s=\\{s_T\\}_{T\\subseteq[m]}\\).\n\nValuations are interdependent: for each agent \\(i\\in[n]\\) and bundle \\(T\\subseteq[m]\\), the value of agent \\(i\\) for receiving bundle \\(T\\) is a known function \\(v_{iT}(s_T)\\in\\mathbb{R}_+\\) of the entire bundle-specific signal vector \\(s_T\\). Each \\(v_{iT}\\) is assumed (as in the paper\u2019s model) to be weakly increasing in every coordinate of \\(s_T\\) and strictly increasing in the agent\u2019s own signal coordinate \\(s_{iT}\\).\n\nIncentives: a (possibly randomized) direct-revelation mechanism maps reported signals to an allocation and payments. The incentive notion of interest is universal ex post incentive compatibility with ex post individual rationality (universally ex post IC-IR): the mechanism is a distribution over deterministic mechanisms, each of which makes truthful reporting an ex post Nash equilibrium and guarantees nonnegative utility to truthful agents.\n\nObjective: social welfare at signal profile \\(s\\) under allocation \\((T_1,\\dots,T_n)\\) is \\(\\sum_{i=1}^n v_{iT_i}(s_{T_i})\\). The optimal welfare is the maximum of this quantity over all feasible allocations.\n\nValuation structure: the paper focuses on the class of valuations that are submodular over signals (SOS). Informally, for each \\(v_{iT}\\), the marginal increase from raising a single coordinate \\(s_{jT}\\) is weakly larger when the other coordinates of \\(s_T\\) are smaller (a diminishing-returns property on \\(\\mathbb{R}_+^n\\)). The paper obtains constant-factor welfare approximations in the multidimensional-signal model only under an additional structural assumption called separability, where \\(v_{iT}(s_T)\\) can be decomposed as a sum of a term depending only on other agents\u2019 signals and a term depending only on \\(i\\)\u2019s own signal.\n\nThe open question is whether such separability is actually required for constant-factor approximation in the multidimensional-signal combinatorial-auction model under SOS valuations.",
+  "problem_definition_latex": "Determine whether there exists a universally ex post IC-IR mechanism \\(\\mathcal{M}\\) and a universal constant \\(c\\ge 1\\) such that, for every instance of a combinatorial auction with multidimensional bundle-specific signals \\(s=\\{s_T\\}_{T\\subseteq[m]}\\) and SOS valuation functions \\(\\{v_{iT}:\\mathbb{R}_+^n\\to\\mathbb{R}_+\\}_{i\\in[n],\\,T\\subseteq[m]}\\) (with no separability assumption), the expected welfare achieved by \\(\\mathcal{M}\\) at every signal profile \\(s\\) is at least \\(\\frac{1}{c}\\) times the optimal welfare at \\(s\\).",
+  "latex": "Consider a combinatorial auction with a set of agents  \\( [n]=\\{1,\\dots,n\\}\\) and a set of items \\( [m]=\\{1,\\dots,m\\}\\). An allocation is a partition of items into disjoint bundles \\((T_1,\\dots,T_n)\\) with \\(T_i\\subseteq [m]\\) and \\(T_i\\cap T_{i'}=\\emptyset\\) for \\(i\\neq i'\\); agent \\(i\\) receives bundle \\(T_i\\) (possibly \\(\\emptyset\\)).\n\nSignals are multidimensional over bundles: for every agent \\(j\\in[n]\\) and every bundle \\(T\\subseteq [m]\\), agent \\(j\\) has a private signal \\(s_{jT}\\in\\mathbb{R}_+\\). For each bundle \\(T\\subseteq[m]\\), let \\(s_T=(s_{1T},\\dots,s_{nT})\\in\\mathbb{R}_+^n\\). The full signal profile is \\(s=\\{s_T\\}_{T\\subseteq[m]}\\).\n\nValuations are interdependent: for each agent \\(i\\in[n]\\) and bundle \\(T\\subseteq[m]\\), the value of agent \\(i\\) for receiving bundle \\(T\\) is a known function \\(v_{iT}(s_T)\\in\\mathbb{R}_+\\) of the entire bundle-specific signal vector \\(s_T\\). Each \\(v_{iT}\\) is assumed (as in the paper\u2019s model) to be weakly increasing in every coordinate of \\(s_T\\) and strictly increasing in the agent\u2019s own signal coordinate \\(s_{iT}\\).\n\nIncentives: a (possibly randomized) direct-revelation mechanism maps reported signals to an allocation and payments. The incentive notion of interest is universal ex post incentive compatibility with ex post individual rationality (universally ex post IC-IR): the mechanism is a distribution over deterministic mechanisms, each of which makes truthful reporting an ex post Nash equilibrium and guarantees nonnegative utility to truthful agents.\n\nObjective: social welfare at signal profile \\(s\\) under allocation \\((T_1,\\dots,T_n)\\) is \\(\\sum_{i=1}^n v_{iT_i}(s_{T_i})\\). The optimal welfare is the maximum of this quantity over all feasible allocations.\n\nValuation structure: the paper focuses on the class of valuations that are submodular over signals (SOS). Informally, for each \\(v_{iT}\\), the marginal increase from raising a single coordinate \\(s_{jT}\\) is weakly larger when the other coordinates of \\(s_T\\) are smaller (a diminishing-returns property on \\(\\mathbb{R}_+^n\\)). The paper obtains constant-factor welfare approximations in the multidimensional-signal model only under an additional structural assumption called separability, where \\(v_{iT}(s_T)\\) can be decomposed as a sum of a term depending only on other agents\u2019 signals and a term depending only on \\(i\\)\u2019s own signal.\n\nThe open question is whether such separability is actually required for constant-factor approximation in the multidimensional-signal combinatorial-auction model under SOS valuations.\n\nDetermine whether there exists a universally ex post IC-IR mechanism \\(\\mathcal{M}\\) and a universal constant \\(c\\ge 1\\) such that, for every instance of a combinatorial auction with multidimensional bundle-specific signals \\(s=\\{s_T\\}_{T\\subseteq[m]}\\) and SOS valuation functions \\(\\{v_{iT}:\\mathbb{R}_+^n\\to\\mathbb{R}_+\\}_{i\\in[n],\\,T\\subseteq[m]}\\) (with no separability assumption), the expected welfare achieved by \\(\\mathcal{M}\\) at every signal profile \\(s\\) is at least \\(\\frac{1}{c}\\) times the optimal welfare at \\(s\\).",
+  "location_in_paper": "Section 7 (problems), page 16 (in the provided PDF pagination)",
+  "open_problem_quote": "For combinatorial auctions with multidimensional signals, is separability a necessary condition for achieving constant approximation to welfare? This problem is open even for single-dimensional signals and even for \u201csimple\u201d combinatorial valuations, such as unit demand.",
+  "area": "algorithmic mechanism design",
+  "keywords": [
+    "interdependent valuations",
+    "combinatorial auctions",
+    "welfare approximation",
+    "ex post incentive compatibility",
+    "submodular over signals",
+    "multidimensional signals",
+    "separability"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The question asks whether separability is necessary, so a counterexample would be a concrete SOS valuation family where every universally ex post IC-IR mechanism has super-constant (or unbounded) approximation ratio. Such hardness can often be explored by automated search over small instances (few agents/items, discrete signal grids) while encoding ex post IC constraints (e.g., via cycle-monotonicity) and optimizing the best achievable welfare ratio.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate hard instances (valuation tables over small discrete signal spaces satisfying SOS constraints) and compute the optimal achievable approximation ratio of mechanisms via linear/convex programs encoding ex post IC/IR feasibility, yielding an automatic fitness signal. Scaling to larger instances and ensuring SOS constraints may be computationally heavy, but iterative search could plausibly discover informative small counterexamples or suggest mechanism templates beyond separability.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07412475,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07412475
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2922533999/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

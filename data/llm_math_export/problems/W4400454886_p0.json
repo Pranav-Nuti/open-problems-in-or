@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4400454886_p0",
+  "paper_id": "W4400454886",
+  "source_paper": "W4400454886",
+  "source_paper_title": "Rank-One Boolean Tensor Factorization and the Multilinear Polytope",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0201",
+  "source_paper_authors": [
+    "Alberto Del Pia",
+    "Aida Khajavirad"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Del_Pia_2025, title={Rank-One Boolean Tensor Factorization and the Multilinear Polytope}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0201}, DOI={10.1287/moor.2022.0201}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Del Pia, Alberto and Khajavirad, Aida}, year={2025}, month=may, pages={1514\u20131554} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 4, Section 1.4 (Our contribution).\n\nNumerical experiments suggest that our recovery guarantees are fairly tight, and that the complete LP significantly outperforms the flower LP. We believe that obtaining recovery guarantees for the complete LP is an interesting open question.",
+  "title": "Recovery threshold for complete LP relaxation in semi-random rank-one Boolean tensors",
+  "background_latex": "Let \\(n,m,l\\in\\mathbb{Z}_{\\ge 1}\\) and let \\(G\\in\\{0,1\\}^{n\\times m\\times l}\\) be an observed binary tensor. A rank-one binary (Boolean) tensor is a tensor of the form\n\\[W=x\\otimes y\\otimes z,\\qquad x\\in\\{0,1\\}^n,\\ y\\in\\{0,1\\}^m,\\ z\\in\\{0,1\\}^l,\\]\nwith entries \\(w_{ijk}=x_i y_j z_k\\).\n\nAssume a planted (ground-truth) rank-one tensor \\(\\bar W=\\bar x\\otimes \\bar y\\otimes \\bar z\\in\\{0,1\\}^{n\\times m\\times l}\\). In the fully-random corruption model with parameter \\(p\\in[0,1]\\), each entry is independently flipped: \\(g_{ijk}=\\bar w_{ijk}\\) with probability \\(1-p\\) and \\(g_{ijk}=1-\\bar w_{ijk}\\) with probability \\(p\\). In the associated semi-random corruption model, after the fully-random flips an adversary may apply any sequence of monotone corrections: it may change \\(g_{ijk}\\) from \\(0\\) to \\(1\\) only when \\(\\bar w_{ijk}=1\\), and from \\(1\\) to \\(0\\) only when \\(\\bar w_{ijk}=0\\).\n\nAn optimization problem is said to recover the ground truth if it has a unique optimal solution and that solution corresponds to \\(\\bar W\\) (equivalently \\((\\bar x,\\bar y,\\bar z)\\)).\n\nThe paper studies linear programming relaxations of rank-one Boolean tensor factorization. The strongest relaxation considered is the \\(\\textit{complete LP}\\), which optimizes the standard linearized objective for rank-one BTF using an extended formulation with auxiliary variables representing all bilinear products and constraints capturing the convex hull of the local multilinear relations.\n\nConcretely, define index sets from the observed tensor \\(G\\):\n\\[S_0:=\\{(i,j,k): g_{ijk}=0\\},\\qquad S_1:=\\{(i,j,k): g_{ijk}=1\\}.\\]\nIntroduce variables \\(x\\in[0,1]^n\\), \\(y\\in[0,1]^m\\), \\(z\\in[0,1]^l\\), and auxiliary variables \\(w\\in[0,1]^{n\\times m\\times l}\\) as well as bilinear auxiliaries \\(w^1\\in[0,1]^{n\\times m}\\), \\(w^2\\in[0,1]^{n\\times l}\\), \\(w^3\\in[0,1]^{m\\times l}\\). The complete LP minimizes\n\\[\\sum_{(i,j,k)\\in S_0} w_{ijk}+\\sum_{(i,j,k)\\in S_1}(1-w_{ijk}),\\]\nsubject to a system of linear inequalities (given explicitly in the paper) that enforce a tight convex relaxation of\n\\(w_{ijk}=x_i y_j z_k\\) together with \\(w^1_{ij}=x_i y_j\\), \\(w^2_{ik}=x_i z_k\\), \\(w^3_{jk}=y_j z_k\\), in a way implied by level-2 reformulation-linearization but with only \\(O(nml)\\) constraints.\n\nLet the planted factor densities be\n\\[r_{\\bar x}:=\\frac{1}{n}\\sum_{i=1}^n \\bar x_i,\\quad r_{\\bar y}:=\\frac{1}{m}\\sum_{j=1}^m \\bar y_j,\\quad r_{\\bar z}:=\\frac{1}{l}\\sum_{k=1}^l \\bar z_k,\\quad r_{\\bar W}:=r_{\\bar x} r_{\\bar y} r_{\\bar z}.\\]\nThe paper establishes high-probability recovery thresholds for weaker LPs (standard LP and flower LP) under the semi-random model, but does not give such a threshold for the complete LP.",
+  "problem_definition_latex": "Determine (in the semi-random corruption model for planted rank-one binary tensors) a high-probability recovery guarantee for the complete LP relaxation.\n\nMore explicitly: characterize, in terms of the corruption probability \\(p\\) and planted densities \\(r_{\\bar x},r_{\\bar y},r_{\\bar z}\\) (and asymptotic growth of \\(n,m,l\\)), conditions under which the complete LP has a unique optimal solution corresponding to the planted tensor \\(\\bar W=\\bar x\\otimes \\bar y\\otimes \\bar z\\) with probability tending to one as \\(n,m,l\\to\\infty\\).",
+  "latex": "Let \\(n,m,l\\in\\mathbb{Z}_{\\ge 1}\\) and let \\(G\\in\\{0,1\\}^{n\\times m\\times l}\\) be an observed binary tensor. A rank-one binary (Boolean) tensor is a tensor of the form\n\\[W=x\\otimes y\\otimes z,\\qquad x\\in\\{0,1\\}^n,\\ y\\in\\{0,1\\}^m,\\ z\\in\\{0,1\\}^l,\\]\nwith entries \\(w_{ijk}=x_i y_j z_k\\).\n\nAssume a planted (ground-truth) rank-one tensor \\(\\bar W=\\bar x\\otimes \\bar y\\otimes \\bar z\\in\\{0,1\\}^{n\\times m\\times l}\\). In the fully-random corruption model with parameter \\(p\\in[0,1]\\), each entry is independently flipped: \\(g_{ijk}=\\bar w_{ijk}\\) with probability \\(1-p\\) and \\(g_{ijk}=1-\\bar w_{ijk}\\) with probability \\(p\\). In the associated semi-random corruption model, after the fully-random flips an adversary may apply any sequence of monotone corrections: it may change \\(g_{ijk}\\) from \\(0\\) to \\(1\\) only when \\(\\bar w_{ijk}=1\\), and from \\(1\\) to \\(0\\) only when \\(\\bar w_{ijk}=0\\).\n\nAn optimization problem is said to recover the ground truth if it has a unique optimal solution and that solution corresponds to \\(\\bar W\\) (equivalently \\((\\bar x,\\bar y,\\bar z)\\)).\n\nThe paper studies linear programming relaxations of rank-one Boolean tensor factorization. The strongest relaxation considered is the \\(\\textit{complete LP}\\), which optimizes the standard linearized objective for rank-one BTF using an extended formulation with auxiliary variables representing all bilinear products and constraints capturing the convex hull of the local multilinear relations.\n\nConcretely, define index sets from the observed tensor \\(G\\):\n\\[S_0:=\\{(i,j,k): g_{ijk}=0\\},\\qquad S_1:=\\{(i,j,k): g_{ijk}=1\\}.\\]\nIntroduce variables \\(x\\in[0,1]^n\\), \\(y\\in[0,1]^m\\), \\(z\\in[0,1]^l\\), and auxiliary variables \\(w\\in[0,1]^{n\\times m\\times l}\\) as well as bilinear auxiliaries \\(w^1\\in[0,1]^{n\\times m}\\), \\(w^2\\in[0,1]^{n\\times l}\\), \\(w^3\\in[0,1]^{m\\times l}\\). The complete LP minimizes\n\\[\\sum_{(i,j,k)\\in S_0} w_{ijk}+\\sum_{(i,j,k)\\in S_1}(1-w_{ijk}),\\]\nsubject to a system of linear inequalities (given explicitly in the paper) that enforce a tight convex relaxation of\n\\(w_{ijk}=x_i y_j z_k\\) together with \\(w^1_{ij}=x_i y_j\\), \\(w^2_{ik}=x_i z_k\\), \\(w^3_{jk}=y_j z_k\\), in a way implied by level-2 reformulation-linearization but with only \\(O(nml)\\) constraints.\n\nLet the planted factor densities be\n\\[r_{\\bar x}:=\\frac{1}{n}\\sum_{i=1}^n \\bar x_i,\\quad r_{\\bar y}:=\\frac{1}{m}\\sum_{j=1}^m \\bar y_j,\\quad r_{\\bar z}:=\\frac{1}{l}\\sum_{k=1}^l \\bar z_k,\\quad r_{\\bar W}:=r_{\\bar x} r_{\\bar y} r_{\\bar z}.\\]\nThe paper establishes high-probability recovery thresholds for weaker LPs (standard LP and flower LP) under the semi-random model, but does not give such a threshold for the complete LP.\n\nDetermine (in the semi-random corruption model for planted rank-one binary tensors) a high-probability recovery guarantee for the complete LP relaxation.\n\nMore explicitly: characterize, in terms of the corruption probability \\(p\\) and planted densities \\(r_{\\bar x},r_{\\bar y},r_{\\bar z}\\) (and asymptotic growth of \\(n,m,l\\)), conditions under which the complete LP has a unique optimal solution corresponding to the planted tensor \\(\\bar W=\\bar x\\otimes \\bar y\\otimes \\bar z\\) with probability tending to one as \\(n,m,l\\to\\infty\\).",
+  "location_in_paper": "Page 4, Section 1.4 (Our contribution).",
+  "open_problem_quote": "Numerical experiments suggest that our recovery guarantees are fairly tight, and that the complete LP significantly outperforms the flower LP. We believe that obtaining recovery guarantees for the complete LP is an interesting open question.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "boolean tensor factorization",
+    "linear programming relaxation",
+    "semi-random model",
+    "recovery guarantee",
+    "multilinear polytope",
+    "planted rank-one tensor"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can generate many random planted instances (and semi-random monotone adversarial modifications) and empirically test whether the complete LP recovers \\(\\bar W\\), making automated search for failure instances feasible. However, the adversary space is enormous, and certifying a true worst-case semi-random counterexample may require nontrivial optimization over monotone transformations.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate statements (e.g., conjectured thresholds or finite-size scaling laws) can be scored by running the complete LP on large batches of simulated planted instances and estimating recovery probability as a function of \\(p\\) and densities. An evolutionary loop can search over functional forms/parameters for conjectured bounds or over adversarial monotone modifications that degrade recovery, using recovery rate as an automatic fitness signal.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.120309,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.120309
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400454886/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

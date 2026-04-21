@@ -1,0 +1,61 @@
+{
+  "problem_id": "W3170420696_p0",
+  "paper_id": "W3170420696",
+  "source_paper": "W3170420696",
+  "source_paper_title": "Binary Extended Formulations and Sequential Convexification",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0129",
+  "source_paper_authors": [
+    "Manuel Aprile",
+    "Michele Conforti",
+    "Marco Di Summa"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Aprile_2024, title={Binary Extended Formulations and Sequential Convexification}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0129}, DOI={10.1287/moor.2021.0129}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Aprile, Manuel and Conforti, Michele and Di Summa, Marco}, year={2024}, month=aug, pages={1566\u20131581} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Conclusion), page 17.\n\nIn light of Lemmas 4.11, 4.13, one concludes that the unary binarization \\(B_U(d)\\) is better than the full binarization \\(B_F(d)\\) in terms of rank. We do not know whether \\(B_U(d)\\) is optimal with respect to all binarizations that are isomorphic to a \\(d\\)-simplex. We leave this as our first open question.",
+  "title": "Optimal rank among simplex-isomorphic binarizations for bounded integer variables",
+  "background_latex": "Let \\(x\\) be an integer variable taking values in \\(\\{0,1,\\dots,k\\}\\). A (polyhedral) binarization of \\(x\\) is a polytope \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) in variables \\((x,y)\\), where \\(y\\in[0,1]^d\\) are intended to be binary, such that\n\\[\n\\pi_x\\bigl(\\{(x,y)\\in B: y\\in\\{0,1\\}^d\\}\\bigr)=\\{0,1,\\dots,k\\},\n\\]\nwhere \\(\\pi_x\\) denotes projection onto the \\(x\\)-coordinate.\nA binarization \\(B\\) is called natural if for every vertex \\((\\bar x,\\bar y)\\in V(B)\\) one has \\(\\bar x\\in\\mathbb{Z}\\) (equivalently \\(\\pi_x(V(B))=\\{0,1,\\dots,k\\}\\)).\n\nGiven a mixed-integer polytope reformulated with binary variables, one can apply sequential convexification: for a polytope \\(Q\\subseteq[0,1]^h\\times\\mathbb{R}^{n-h}\\) and a binary variable \\(y_j\\), define\n\\[\nQ^{y_j}:=\\operatorname{conv}\\bigl(\\{q\\in Q: y_j=0\\}\\cup\\{q\\in Q: y_j=1\\}\\bigr).\n\\]\nIterating this operation over selected binary variables removes vertices fractional in those variables.\n\nFix a natural binarization \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) of \\(x\\) with range \\(\\{0,1,\\dots,d\\}\\) and view it as part of some binary extended formulation. For \\(\\alpha\\in\\{0,1,\\dots,d-1\\}\\), consider the integrality-separation property for \\(x\\): no vertex of the current relaxation has \\(\\alpha< x < \\alpha+1\\). The paper defines a rank parameter \\(\\mathrm{rk}_B(\\alpha)\\) measuring the minimum number of sequential convexifications on the \\(d\\) binary variables \\(y_1,\\dots,y_d\\) needed to enforce this property.\n\nFor the unary binarization \\(B_U(d)\\) (a \\(d\\)-simplex with \\(d+1\\) vertices) and the full binarization \\(B_F(d)\\) (also a \\(d\\)-simplex), the paper derives closed-form expressions showing that \\(B_U(d)\\) has smaller rank than \\(B_F(d)\\) under this criterion.\n\nA binarization is said to be isomorphic to a \\(d\\)-simplex if, as a polytope, it is combinatorially equivalent to a simplex (equivalently, it has \\(d+1\\) vertices and complete graph skeleton).",
+  "problem_definition_latex": "Among all natural binarizations \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) of an integer variable \\(x\\in\\{0,1,\\dots,d\\}\\) whose polytope \\(B\\) is isomorphic (combinatorially equivalent) to a \\(d\\)-dimensional simplex, determine whether the unary binarization \\(B_U(d)\\) minimizes the rank parameter among this class.\n\nEquivalently: decide whether, for every natural simplex-isomorphic binarization \\(B\\) of \\(x\\in\\{0,1,\\dots,d\\}\\) and for every \\(\\alpha\\in\\{0,1,\\dots,d-1\\}\\), one has\n\\[\n\\mathrm{rk}_B(\\alpha)\\ge \\mathrm{rk}_{B_U(d)}(\\alpha),\n\\]\nor otherwise provide a counterexample binarization \\(B\\) (simplex-isomorphic and natural) with strictly smaller rank for at least one such \\(\\alpha\\).",
+  "latex": "Let \\(x\\) be an integer variable taking values in \\(\\{0,1,\\dots,k\\}\\). A (polyhedral) binarization of \\(x\\) is a polytope \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) in variables \\((x,y)\\), where \\(y\\in[0,1]^d\\) are intended to be binary, such that\n\\[\n\\pi_x\\bigl(\\{(x,y)\\in B: y\\in\\{0,1\\}^d\\}\\bigr)=\\{0,1,\\dots,k\\},\n\\]\nwhere \\(\\pi_x\\) denotes projection onto the \\(x\\)-coordinate.\nA binarization \\(B\\) is called natural if for every vertex \\((\\bar x,\\bar y)\\in V(B)\\) one has \\(\\bar x\\in\\mathbb{Z}\\) (equivalently \\(\\pi_x(V(B))=\\{0,1,\\dots,k\\}\\)).\n\nGiven a mixed-integer polytope reformulated with binary variables, one can apply sequential convexification: for a polytope \\(Q\\subseteq[0,1]^h\\times\\mathbb{R}^{n-h}\\) and a binary variable \\(y_j\\), define\n\\[\nQ^{y_j}:=\\operatorname{conv}\\bigl(\\{q\\in Q: y_j=0\\}\\cup\\{q\\in Q: y_j=1\\}\\bigr).\n\\]\nIterating this operation over selected binary variables removes vertices fractional in those variables.\n\nFix a natural binarization \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) of \\(x\\) with range \\(\\{0,1,\\dots,d\\}\\) and view it as part of some binary extended formulation. For \\(\\alpha\\in\\{0,1,\\dots,d-1\\}\\), consider the integrality-separation property for \\(x\\): no vertex of the current relaxation has \\(\\alpha< x < \\alpha+1\\). The paper defines a rank parameter \\(\\mathrm{rk}_B(\\alpha)\\) measuring the minimum number of sequential convexifications on the \\(d\\) binary variables \\(y_1,\\dots,y_d\\) needed to enforce this property.\n\nFor the unary binarization \\(B_U(d)\\) (a \\(d\\)-simplex with \\(d+1\\) vertices) and the full binarization \\(B_F(d)\\) (also a \\(d\\)-simplex), the paper derives closed-form expressions showing that \\(B_U(d)\\) has smaller rank than \\(B_F(d)\\) under this criterion.\n\nA binarization is said to be isomorphic to a \\(d\\)-simplex if, as a polytope, it is combinatorially equivalent to a simplex (equivalently, it has \\(d+1\\) vertices and complete graph skeleton).\n\nAmong all natural binarizations \\(B\\subseteq \\mathbb{R}\\times[0,1]^d\\) of an integer variable \\(x\\in\\{0,1,\\dots,d\\}\\) whose polytope \\(B\\) is isomorphic (combinatorially equivalent) to a \\(d\\)-dimensional simplex, determine whether the unary binarization \\(B_U(d)\\) minimizes the rank parameter among this class.\n\nEquivalently: decide whether, for every natural simplex-isomorphic binarization \\(B\\) of \\(x\\in\\{0,1,\\dots,d\\}\\) and for every \\(\\alpha\\in\\{0,1,\\dots,d-1\\}\\), one has\n\\[\n\\mathrm{rk}_B(\\alpha)\\ge \\mathrm{rk}_{B_U(d)}(\\alpha),\n\\]\nor otherwise provide a counterexample binarization \\(B\\) (simplex-isomorphic and natural) with strictly smaller rank for at least one such \\(\\alpha\\).",
+  "location_in_paper": "Section 5 (Conclusion), page 17.",
+  "open_problem_quote": "In light of Lemmas 4.11, 4.13, one concludes that the unary binarization \\(B_U(d)\\) is better than the full binarization \\(B_F(d)\\) in terms of rank. We do not know whether \\(B_U(d)\\) is optimal with respect to all binarizations that are isomorphic to a \\(d\\)-simplex. We leave this as our first open question.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "mixed-integer programming",
+    "extended formulations",
+    "binarization",
+    "sequential convexification",
+    "lift-and-project rank",
+    "polyhedral combinatorics"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The search space can be parameterized as small polytopes with \\(d+1\\) vertices in \\(\\mathbb{R}\\times[0,1]^d\\) satisfying the binarization conditions; for a fixed small \\(d\\), one can enumerate candidate vertex sets (or constraint descriptions) and compute the rank via the paper\u2019s set-cover formulation on edge indicator vectors. Violations (a binarization beating \\(B_U(d)\\)) can be certified computationally by explicitly solving the associated set covering instances.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate binarizations can be represented as vertex descriptions or linear inequality systems with rational coefficients, with constraints enforced by feasibility checks (binarization property, naturalness, simplex combinatorics). Fitness can be the computed rank (or worst-case rank over \\(\\alpha\\)) obtained by extracting the skeleton/edges and solving the induced set covering problems, enabling iterative improvement and discovery of counterexamples or best-in-class constructions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.059734499999999996,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.059734499999999996
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3170420696/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

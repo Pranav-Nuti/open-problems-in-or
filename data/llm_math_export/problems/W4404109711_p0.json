@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4404109711_p0",
+  "paper_id": "W4404109711",
+  "source_paper": "W4404109711",
+  "source_paper_title": "On the Impossibility of Convergence of Mixed Strategies with Optimal No-Regret Learning",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0016",
+  "source_paper_authors": [
+    "Vidya Muthukumar",
+    "Soham R. Phade",
+    "Anant Sahai"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Muthukumar_2025, title={On the Impossibility of Convergence of Mixed Strategies with Optimal No-Regret Learning}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0016}, DOI={10.1287/moor.2022.0016}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Muthukumar, Vidya and Phade, Soham and Sahai, Anant}, year={2025}, month=nov, pages={2794\u20132833} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 3.5 (\"Beyond the monotonicity assumption: A conjecture\"), page 24-25; Conjecture 3.12. Also reiterated as a main future-work question in Section 5 (Conclusion), page 29.\n\nWe conjecture below that last-iterate oscillations will continue to hold for mean-based strategies that are not monotonic.\n\nConjecture 3.12. If both players 1 and 2 use mean-based (not necessarily monotonic) repeated game strategies \\(\\{f_t\\}_{t\\ge 1}\\) and \\(\\{g_t\\}_{t\\ge 1}\\) that are uniformly no-regret and each have a regret rate of \\((1/2,c)\\), then the pair of mixed strategies \\((P_t,Q_t)\\) does not converge almost surely.",
+  "title": "Prove divergence of last-iterate mixed strategies without monotonicity in 2x2 games",
+  "background_latex": "Consider an infinitely repeated two-player \\(2\\times 2\\) stage game with action sets \\(\\{0,1\\}\\) for each player and payoff matrices \\(G,H\\in\\mathbb{R}^{2\\times 2}\\). At each round \\(t=1,2,\\dots\\), player 1 chooses a mixed action \\(P_t\\in[0,1]\\) (probability of playing action 1) and then realizes a pure action \\(I_t\\in\\{0,1\\}\\) with \\(\\mathbb{P}(I_t=1\\mid \\mathcal{F}_{t-1})=P_t\\); similarly player 2 chooses \\(Q_t\\in[0,1]\\) and realizes \\(J_t\\in\\{0,1\\}\\) with \\(\\mathbb{P}(J_t=1\\mid \\mathcal{F}_{t-1})=Q_t\\). Players observe only realized actions (not the opponent's mixtures), so the history up to time \\(t-1\\) is \\(\\mathcal{F}_{t-1}:=\\sigma\\big((I_s,J_s)_{s=1}^{t-1}\\big)\\).\n\nDefine empirical averages of realized actions by\n\\[\\widehat P_t:=\\frac1t\\sum_{s=1}^t I_s,\\qquad \\widehat Q_t:=\\frac1t\\sum_{s=1}^t J_s.\\]\nA (self-agnostic) repeated-game strategy for player 1 is a sequence of measurable maps \\(f_t:\\{0,1\\}^{t-1}\\to[0,1]\\) so that \\(P_t=f_t((J_s)_{s=1}^{t-1})\\); analogously player 2 uses maps \\(g_t\\) with \\(Q_t=g_t((I_s)_{s=1}^{t-1})\\). A strategy is mean-based if there exist functions (still denoted) \\(f_t:[0,1]\\to[0,1]\\) such that \\(P_t=f_t(\\widehat Q_{t-1})\\), and similarly \\(Q_t=g_t(\\widehat P_{t-1})\\).\n\nPlayer 1's (external) regret up to time \\(T\\) against an opponent realization sequence \\((J_t)_{t=1}^T\\) is\n\\[\\operatorname{Reg}_1(T):=\\max_{i\\in\\{0,1\\}}\\sum_{t=1}^T G(i,J_t)-\\sum_{t=1}^T G(I_t,J_t).\\]\nA strategy is uniformly no-regret with rate \\((r,c)\\) if for all \\(T\\) and all opponent action sequences, \\(\\mathbb{E}[\\operatorname{Reg}_1(T)]\\le c\\,T^{r}\\), where expectation is over the player\u2019s internal randomness (and any randomness in the opponent strategy), and the optimal rate is \\(r=1/2\\).\n\nAssume the stage game is competitive in the sense that it has a unique completely mixed Nash equilibrium \\((p^*,q^*)\\in(0,1)^2\\).",
+  "problem_definition_latex": "Assume both players use mean-based repeated-game strategies \\(\\{f_t\\}_{t\\ge1}\\) and \\(\\{g_t\\}_{t\\ge1}\\) (not assumed monotone) such that each strategy is uniformly no-regret with regret rate \\((1/2,c)\\) for some finite \\(c\\). Determine whether it must hold that the last-iterate mixed-strategy process \\((P_t,Q_t)\\in[0,1]^2\\) fails to converge almost surely; i.e., prove or refute that\n\\[\\mathbb{P}\\big(\\lim_{t\\to\\infty}(P_t,Q_t) \\text{ exists}\\big)=0\\]\nor equivalently that \\((P_t,Q_t)\\) does not converge almost surely (in particular, it cannot converge almost surely to the Nash equilibrium \\((p^*,q^*)\\)).",
+  "latex": "Consider an infinitely repeated two-player \\(2\\times 2\\) stage game with action sets \\(\\{0,1\\}\\) for each player and payoff matrices \\(G,H\\in\\mathbb{R}^{2\\times 2}\\). At each round \\(t=1,2,\\dots\\), player 1 chooses a mixed action \\(P_t\\in[0,1]\\) (probability of playing action 1) and then realizes a pure action \\(I_t\\in\\{0,1\\}\\) with \\(\\mathbb{P}(I_t=1\\mid \\mathcal{F}_{t-1})=P_t\\); similarly player 2 chooses \\(Q_t\\in[0,1]\\) and realizes \\(J_t\\in\\{0,1\\}\\) with \\(\\mathbb{P}(J_t=1\\mid \\mathcal{F}_{t-1})=Q_t\\). Players observe only realized actions (not the opponent's mixtures), so the history up to time \\(t-1\\) is \\(\\mathcal{F}_{t-1}:=\\sigma\\big((I_s,J_s)_{s=1}^{t-1}\\big)\\).\n\nDefine empirical averages of realized actions by\n\\[\\widehat P_t:=\\frac1t\\sum_{s=1}^t I_s,\\qquad \\widehat Q_t:=\\frac1t\\sum_{s=1}^t J_s.\\]\nA (self-agnostic) repeated-game strategy for player 1 is a sequence of measurable maps \\(f_t:\\{0,1\\}^{t-1}\\to[0,1]\\) so that \\(P_t=f_t((J_s)_{s=1}^{t-1})\\); analogously player 2 uses maps \\(g_t\\) with \\(Q_t=g_t((I_s)_{s=1}^{t-1})\\). A strategy is mean-based if there exist functions (still denoted) \\(f_t:[0,1]\\to[0,1]\\) such that \\(P_t=f_t(\\widehat Q_{t-1})\\), and similarly \\(Q_t=g_t(\\widehat P_{t-1})\\).\n\nPlayer 1's (external) regret up to time \\(T\\) against an opponent realization sequence \\((J_t)_{t=1}^T\\) is\n\\[\\operatorname{Reg}_1(T):=\\max_{i\\in\\{0,1\\}}\\sum_{t=1}^T G(i,J_t)-\\sum_{t=1}^T G(I_t,J_t).\\]\nA strategy is uniformly no-regret with rate \\((r,c)\\) if for all \\(T\\) and all opponent action sequences, \\(\\mathbb{E}[\\operatorname{Reg}_1(T)]\\le c\\,T^{r}\\), where expectation is over the player\u2019s internal randomness (and any randomness in the opponent strategy), and the optimal rate is \\(r=1/2\\).\n\nAssume the stage game is competitive in the sense that it has a unique completely mixed Nash equilibrium \\((p^*,q^*)\\in(0,1)^2\\).\n\nAssume both players use mean-based repeated-game strategies \\(\\{f_t\\}_{t\\ge1}\\) and \\(\\{g_t\\}_{t\\ge1}\\) (not assumed monotone) such that each strategy is uniformly no-regret with regret rate \\((1/2,c)\\) for some finite \\(c\\). Determine whether it must hold that the last-iterate mixed-strategy process \\((P_t,Q_t)\\in[0,1]^2\\) fails to converge almost surely; i.e., prove or refute that\n\\[\\mathbb{P}\\big(\\lim_{t\\to\\infty}(P_t,Q_t) \\text{ exists}\\big)=0\\]\nor equivalently that \\((P_t,Q_t)\\) does not converge almost surely (in particular, it cannot converge almost surely to the Nash equilibrium \\((p^*,q^*)\\)).",
+  "location_in_paper": "Section 3.5 (\"Beyond the monotonicity assumption: A conjecture\"), page 24-25; Conjecture 3.12. Also reiterated as a main future-work question in Section 5 (Conclusion), page 29.",
+  "open_problem_quote": "We conjecture below that last-iterate oscillations will continue to hold for mean-based strategies that are not monotonic.\n\nConjecture 3.12. If both players 1 and 2 use mean-based (not necessarily monotonic) repeated game strategies \\(\\{f_t\\}_{t\\ge 1}\\) and \\(\\{g_t\\}_{t\\ge 1}\\) that are uniformly no-regret and each have a regret rate of \\((1/2,c)\\), then the pair of mixed strategies \\((P_t,Q_t)\\) does not converge almost surely.",
+  "area": "online learning",
+  "keywords": [
+    "no-regret learning",
+    "last-iterate convergence",
+    "repeated games",
+    "mean-based strategies",
+    "mixed nash equilibrium",
+    "stochastic feedback",
+    "2x2 competitive games"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample would require explicitly constructing non-monotone mean-based no-regret update maps \\(f_t,g_t\\) and then testing almost-sure convergence, which is hard to certify computationally. However, one can search over parameterized non-monotone families and use long-run simulation plus statistical diagnostics as a proxy to find plausible convergent dynamics.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate strategies can be represented as code for maps \\(f_t,g_t\\) (e.g., piecewise functions or neural nets taking \\(\\widehat Q_{t-1}\\) as input) with a computable fitness signal combining empirical regret and a convergence metric for \\((P_t,Q_t)\\). The main limitation is that convergence is asymptotic and noisy to estimate from finite simulations, so the fitness proxy may be imperfect and expensive.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09855825000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09855825000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404109711/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

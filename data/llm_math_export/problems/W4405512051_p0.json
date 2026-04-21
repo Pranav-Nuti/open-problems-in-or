@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4405512051_p0",
+  "paper_id": "W4405512051",
+  "source_paper": "W4405512051",
+  "source_paper_title": "Pandora\u2019s Problem with Combinatorial Cost",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0248",
+  "source_paper_authors": [
+    "Ben Berger",
+    "Tomer Ezra",
+    "Michal Feldman",
+    "Federico Fusco"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Berger_2025, title={Pandora\u2019s Problem with Combinatorial Cost}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0248}, DOI={10.1287/moor.2023.0248}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Berger, Ben and Ezra, Tomer and Feldman, Michal and Fusco, Federico}, year={2025}, month=nov, pages={3161\u20133189} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Conclusion and Future Directions), page 25.\n\nFor example, it is not clear whether there exists a poly-time algorithm that finds an optimal (or an approximately optimal) strategy under budget-additive costs.",
+  "title": "Polynomial-time optimal or approximate strategies for Pandora problem with budget-additive costs",
+  "background_latex": "Pandora's problem has a ground set of boxes \\([n]=\\{1,\\dots,n\\}\\). Each box \\(i\\) contains an independent nonnegative random value \\(V_i\\sim D_i\\) with finite expectation. A (possibly adaptive) strategy \\(\\pi\\) sequentially chooses unopened boxes to inspect; inspecting reveals the realized value and contributes to the total inspection cost. After any inspection the strategy may halt and receive reward equal to the maximum realized value among inspected boxes.\n\nA combinatorial inspection cost function is \\(c:2^{[n]}\\to \\mathbb{R}_{\\ge 0}\\), assumed normalized and monotone: \\(c(\\varnothing)=0\\) and \\(c(S)\\le c(T)\\) for \\(S\\subseteq T\\). If the strategy inspects exactly the (random) set \\(S(\\pi)\\subseteq [n]\\), its expected utility is\n\\[\n u(\\pi)=\\mathbb{E}\\Big[\\max_{i\\in S(\\pi)} V_i\\Big]-\\mathbb{E}[c(S(\\pi))].\n\\]\n\nA cost function is budget-additive (a.k.a. capped-additive) if there exist nonnegative weights \\((w_i)_{i\\in [n]}\\) and a budget \\(B\\ge 0\\) such that for all \\(S\\subseteq [n]\\),\n\\[\n c(S)=\\min\\Big\\{B,\\sum_{i\\in S} w_i\\Big\\}.\n\\]\nThis class is monotone and submodular. The computational model considered in the paper represents \\(c\\) via oracle access (cost queries): given \\(S\\), a query returns \\(c(S)\\).",
+  "problem_definition_latex": "Design an algorithm that, given oracle access to a budget-additive cost function \\(c(S)=\\min\\{B,\\sum_{i\\in S} w_i\\}\\) and explicit descriptions of independent value distributions \\((D_i)_{i\\in[n]}\\), computes either:\n\n1) an optimal Pandora strategy \\(\\pi^*\\in\\arg\\max_{\\pi} u(\\pi)\\), or\n\n2) a strategy \\(\\pi\\) with provable approximation guarantee for \\(\\max_{\\pi} u(\\pi)\\),\n\nin time polynomial in \\(n\\) (and the input encoding / desired accuracy), using only polynomially many cost queries.",
+  "latex": "Pandora's problem has a ground set of boxes \\([n]=\\{1,\\dots,n\\}\\). Each box \\(i\\) contains an independent nonnegative random value \\(V_i\\sim D_i\\) with finite expectation. A (possibly adaptive) strategy \\(\\pi\\) sequentially chooses unopened boxes to inspect; inspecting reveals the realized value and contributes to the total inspection cost. After any inspection the strategy may halt and receive reward equal to the maximum realized value among inspected boxes.\n\nA combinatorial inspection cost function is \\(c:2^{[n]}\\to \\mathbb{R}_{\\ge 0}\\), assumed normalized and monotone: \\(c(\\varnothing)=0\\) and \\(c(S)\\le c(T)\\) for \\(S\\subseteq T\\). If the strategy inspects exactly the (random) set \\(S(\\pi)\\subseteq [n]\\), its expected utility is\n\\[\n u(\\pi)=\\mathbb{E}\\Big[\\max_{i\\in S(\\pi)} V_i\\Big]-\\mathbb{E}[c(S(\\pi))].\n\\]\n\nA cost function is budget-additive (a.k.a. capped-additive) if there exist nonnegative weights \\((w_i)_{i\\in [n]}\\) and a budget \\(B\\ge 0\\) such that for all \\(S\\subseteq [n]\\),\n\\[\n c(S)=\\min\\Big\\{B,\\sum_{i\\in S} w_i\\Big\\}.\n\\]\nThis class is monotone and submodular. The computational model considered in the paper represents \\(c\\) via oracle access (cost queries): given \\(S\\), a query returns \\(c(S)\\).\n\nDesign an algorithm that, given oracle access to a budget-additive cost function \\(c(S)=\\min\\{B,\\sum_{i\\in S} w_i\\}\\) and explicit descriptions of independent value distributions \\((D_i)_{i\\in[n]}\\), computes either:\n\n1) an optimal Pandora strategy \\(\\pi^*\\in\\arg\\max_{\\pi} u(\\pi)\\), or\n\n2) a strategy \\(\\pi\\) with provable approximation guarantee for \\(\\max_{\\pi} u(\\pi)\\),\n\nin time polynomial in \\(n\\) (and the input encoding / desired accuracy), using only polynomially many cost queries.",
+  "location_in_paper": "Section 6 (Conclusion and Future Directions), page 25.",
+  "open_problem_quote": "For example, it is not clear whether there exists a poly-time algorithm that finds an optimal (or an approximately optimal) strategy under budget-additive costs.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "pandora's problem",
+    "budget-additive costs",
+    "submodular costs",
+    "adaptive search",
+    "oracle complexity",
+    "approximation"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is existential about algorithms (efficient optimal/approximate computation), not a crisp universal inequality that can be falsified by a single finite instance. While one can experiment on instances, failure of specific heuristics does not constitute a counterexample to existence of a polynomial-time algorithm.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate strategies/algorithms (e.g., parameterized fixed-order rules, dynamic programs, or approximation heuristics) can be encoded and evaluated on simulated instances to optimize empirical utility or worst-case observed ratios. However, the target is a worst-case polynomial-time guarantee, and empirical fitness signals are only partial proxies for proving approximation ratios or exact optimality.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0776825,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0776825
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405512051/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

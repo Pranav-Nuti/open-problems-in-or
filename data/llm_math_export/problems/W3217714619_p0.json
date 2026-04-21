@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3217714619_p0",
+  "paper_id": "W3217714619",
+  "source_paper": "W3217714619",
+  "source_paper_title": "On the Simplex Method for 0/1-Polytopes",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0345",
+  "source_paper_authors": [
+    "Alexander E. Black",
+    "Jes\u00fas A. De Loera",
+    "Sean Kafer",
+    "Laura Sanit\u00e0"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Black_2025, title={On the Simplex Method for 0/1-Polytopes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0345}, DOI={10.1287/moor.2021.0345}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Black, Alexander E. and De Loera, Jes\u00fas A. and Kafer, Sean and Sanit\u00e0, Laura}, year={2025}, month=may, pages={1398\u20131420} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 28, Section 4 (Conclusions, Connections, and Comparisons)\n\nTo conclude, we stress that the analysis we did in this paper is only about bounding the number of edge steps and non-degenerate pivots.\nQuestion 2. Is there a polynomial bound to the number of degenerate pivots performed by any of the pivot rules we presented when applied to 0/1-LPs?",
+  "title": "Polynomial bound on degenerate simplex pivots for 0/1 polytope linear programs",
+  "background_latex": "Consider a linear program over a fixed feasible region that is a 0/1 polytope:\n\\[\n\\max\\{c^\\top x : x \\in P\\},\\qquad P=\\{x\\in\\mathbb{R}^n: Ax=b,\\; Dx\\le d\\},\n\\]\nwhere all extreme points (vertices) of \\(P\\) have coordinates in \\(\\{0,1\\}\\), and the input data \\(A,b,D,d,c\\) are integral.\n\nTo run the Simplex method, one may convert the LP to standard equality form by introducing slack variables (without requiring those slack variables to be 0/1 at vertices):\n\\[\n\\max\\{(c')^\\top x' : A' x' = b',\\; x'\\ge 0\\},\n\\]\nwith \\(A'\\in\\mathbb{Z}^{m'\\times n'}\\), \\(b'\\in\\mathbb{Z}^{m'}\\), \\(c'\\in\\mathbb{Z}^{n'}\\). A feasible basis \\(B\\subseteq [n']\\) of size \\(m'\\) determines a basic feasible solution (BFS) \\(x'\\). A simplex pivot exchanges one entering nonbasic variable with one leaving basic variable, producing a new basis (and a new BFS).\n\nA pivot is called non-degenerate if it changes the current vertex (equivalently, the step length in the pivot direction is positive), and degenerate if the basis changes but the BFS remains at the same vertex (step length zero). Degeneracy can cause cycling or long sequences of degenerate pivots (stalling).\n\nThe paper introduces specific pivot rules for 0/1-LPs (variants of steepest-edge and shadow rules) and proves polynomial bounds on the number of non-degenerate pivots; however, the number of degenerate pivots (basis exchanges that do not move to a different vertex) may still be large and is not bounded in their analysis.",
+  "problem_definition_latex": "For at least one of the pivot rules introduced for 0/1-LPs (e.g., the paper's modified steepest-edge or modified shadow pivot rules), determine whether there exists a polynomial upper bound (in the input size, or at least in \\(n,m'\\)) on the total number of degenerate pivots (degenerate basis exchanges) that the Simplex method can perform when solving\n\\[\n\\max\\{c^\\top x : x \\in P\\},\\qquad P\\text{ a 0/1 polytope as above}.\n\\]\nEquivalently, bound by a polynomial the number of iterations in which the basis changes but the current BFS (and hence the current vertex of \\(P\\)) does not change, when the Simplex method is run with one of these pivot rules on arbitrary 0/1-LPs.",
+  "latex": "Consider a linear program over a fixed feasible region that is a 0/1 polytope:\n\\[\n\\max\\{c^\\top x : x \\in P\\},\\qquad P=\\{x\\in\\mathbb{R}^n: Ax=b,\\; Dx\\le d\\},\n\\]\nwhere all extreme points (vertices) of \\(P\\) have coordinates in \\(\\{0,1\\}\\), and the input data \\(A,b,D,d,c\\) are integral.\n\nTo run the Simplex method, one may convert the LP to standard equality form by introducing slack variables (without requiring those slack variables to be 0/1 at vertices):\n\\[\n\\max\\{(c')^\\top x' : A' x' = b',\\; x'\\ge 0\\},\n\\]\nwith \\(A'\\in\\mathbb{Z}^{m'\\times n'}\\), \\(b'\\in\\mathbb{Z}^{m'}\\), \\(c'\\in\\mathbb{Z}^{n'}\\). A feasible basis \\(B\\subseteq [n']\\) of size \\(m'\\) determines a basic feasible solution (BFS) \\(x'\\). A simplex pivot exchanges one entering nonbasic variable with one leaving basic variable, producing a new basis (and a new BFS).\n\nA pivot is called non-degenerate if it changes the current vertex (equivalently, the step length in the pivot direction is positive), and degenerate if the basis changes but the BFS remains at the same vertex (step length zero). Degeneracy can cause cycling or long sequences of degenerate pivots (stalling).\n\nThe paper introduces specific pivot rules for 0/1-LPs (variants of steepest-edge and shadow rules) and proves polynomial bounds on the number of non-degenerate pivots; however, the number of degenerate pivots (basis exchanges that do not move to a different vertex) may still be large and is not bounded in their analysis.\n\nFor at least one of the pivot rules introduced for 0/1-LPs (e.g., the paper's modified steepest-edge or modified shadow pivot rules), determine whether there exists a polynomial upper bound (in the input size, or at least in \\(n,m'\\)) on the total number of degenerate pivots (degenerate basis exchanges) that the Simplex method can perform when solving\n\\[\n\\max\\{c^\\top x : x \\in P\\},\\qquad P\\text{ a 0/1 polytope as above}.\n\\]\nEquivalently, bound by a polynomial the number of iterations in which the basis changes but the current BFS (and hence the current vertex of \\(P\\)) does not change, when the Simplex method is run with one of these pivot rules on arbitrary 0/1-LPs.",
+  "location_in_paper": "Page 28, Section 4 (Conclusions, Connections, and Comparisons)",
+  "open_problem_quote": "To conclude, we stress that the analysis we did in this paper is only about bounding the number of edge steps and non-degenerate pivots.\nQuestion 2. Is there a polynomial bound to the number of degenerate pivots performed by any of the pivot rules we presented when applied to 0/1-LPs?",
+  "area": "online algorithms",
+  "keywords": [
+    "simplex method",
+    "pivot rules",
+    "degeneracy",
+    "0/1 polytopes",
+    "degenerate pivots",
+    "linear programming"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "Given a concrete pivot rule, one can computationally generate families of 0/1-LPs and simulate the pivot sequence to search for instances with many degenerate pivots (stalling). Detecting degeneracy and counting degenerate basis exchanges is straightforward during simulation, enabling large-scale automated searches for superpolynomial growth patterns.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate counterexample families (constraint matrices/objectives) can be programmatically parameterized, and a fitness signal can be the measured number of degenerate pivots under the specified pivot rule. An evolutionary loop can mutate instances to maximize stalling while preserving the 0/1-vertex property (or approximating it with verifiable checks on small sizes).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06686575,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06686575
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3217714619/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

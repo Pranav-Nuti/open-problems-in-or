@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4387738269_p0",
+  "paper_id": "W4387738269",
+  "source_paper": "W4387738269",
+  "source_paper_title": "Finding Hall Blockers by Matrix Scaling",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0198",
+  "source_paper_authors": [
+    "Koyo Hayashi",
+    "Hiroshi Hirai",
+    "K. Sakabe"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Hayashi_2024, title={Finding Hall Blockers by Matrix Scaling}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0198}, DOI={10.1287/moor.2022.0198}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hayashi, Koyo and Hirai, Hiroshi and Sakabe, Keiya}, year={2024}, month=nov, pages={2166\u20132179} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (discussion of operator scaling extension and problem raised in prior work)\n\nIt is a natural question whether the operator Sinkhorn algorithm can find a Hall blocker for nonscalable case. This may need to characterize the limits of the operator Sinkhorn algorithm, which is raised as a problem in [18].",
+  "title": "Characterize and compute limits of operator Sinkhorn algorithm for nonscalable operators",
+  "background_latex": "Let \\(\\Phi\\) be a completely positive linear operator acting on complex matrices (equivalently, a linear map \\(\\Phi: \\mathbb{C}^{n\\times n}\\to\\mathbb{C}^{n\\times n}\\) that maps positive semidefinite matrices to positive semidefinite matrices). Operator scaling asks for invertible matrices \\(L,R\\) such that the scaled operator \\(X\\mapsto L\\,\\Phi(RXR^*)\\,L^*\\) satisfies prescribed left and right marginals (the operator analogue of making a nonnegative matrix doubly stochastic). The operator Sinkhorn algorithm (also called the Gurvits algorithm) is an iterative normalization procedure that alternately rescales the operator to correct its left and right marginals, generalizing the classical Sinkhorn algorithm for matrix scaling.\n\nIn the nonscalable case (i.e., when no choice of \\(L,R\\) can make \\(\\Phi\\) doubly stochastic, even approximately), an analogue of a Hall-type certificate exists: a nontrivial subspace \\(W\\subsetneq \\mathbb{C}^n\\) that is \"shrunk\" by \\(\\Phi\\) (often called a shrunk subspace). Existence of such a shrunk subspace certifies nonscalability, in the same way that a Hall blocker certifies absence of a perfect matching for bipartite graphs.\n\nThe cited paper discusses extending matrix-scaling-based certificate-finding results to operator scaling, and notes that doing so may require understanding the limiting behavior (or limit objects/accumulation structure) of the operator Sinkhorn iterates in the nonscalable case.",
+  "problem_definition_latex": "Determine (i.e., characterize and provide a method to compute) the limits or accumulation-point structure of the iterates produced by the operator Sinkhorn algorithm when applied to a completely positive operator \\(\\Phi\\) that is not (approximately) scalable to doubly stochastic form.",
+  "latex": "Let \\(\\Phi\\) be a completely positive linear operator acting on complex matrices (equivalently, a linear map \\(\\Phi: \\mathbb{C}^{n\\times n}\\to\\mathbb{C}^{n\\times n}\\) that maps positive semidefinite matrices to positive semidefinite matrices). Operator scaling asks for invertible matrices \\(L,R\\) such that the scaled operator \\(X\\mapsto L\\,\\Phi(RXR^*)\\,L^*\\) satisfies prescribed left and right marginals (the operator analogue of making a nonnegative matrix doubly stochastic). The operator Sinkhorn algorithm (also called the Gurvits algorithm) is an iterative normalization procedure that alternately rescales the operator to correct its left and right marginals, generalizing the classical Sinkhorn algorithm for matrix scaling.\n\nIn the nonscalable case (i.e., when no choice of \\(L,R\\) can make \\(\\Phi\\) doubly stochastic, even approximately), an analogue of a Hall-type certificate exists: a nontrivial subspace \\(W\\subsetneq \\mathbb{C}^n\\) that is \"shrunk\" by \\(\\Phi\\) (often called a shrunk subspace). Existence of such a shrunk subspace certifies nonscalability, in the same way that a Hall blocker certifies absence of a perfect matching for bipartite graphs.\n\nThe cited paper discusses extending matrix-scaling-based certificate-finding results to operator scaling, and notes that doing so may require understanding the limiting behavior (or limit objects/accumulation structure) of the operator Sinkhorn iterates in the nonscalable case.\n\nDetermine (i.e., characterize and provide a method to compute) the limits or accumulation-point structure of the iterates produced by the operator Sinkhorn algorithm when applied to a completely positive operator \\(\\Phi\\) that is not (approximately) scalable to doubly stochastic form.",
+  "location_in_paper": "Page 3, Introduction (discussion of operator scaling extension and problem raised in prior work)",
+  "open_problem_quote": "It is a natural question whether the operator Sinkhorn algorithm can find a Hall blocker for nonscalable case. This may need to characterize the limits of the operator Sinkhorn algorithm, which is raised as a problem in [18].",
+  "area": "online algorithms",
+  "keywords": [
+    "operator scaling",
+    "operator Sinkhorn algorithm",
+    "completely positive operators",
+    "nonscalable case",
+    "limits of iterates",
+    "shrunk subspaces",
+    "certificates of nonscalability"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem asks for a general characterization of limiting behavior for all nonscalable completely positive operators, not a bounded finite-family statement where a single small instance would refute a conjecture. While one can simulate iterates numerically, a counterexample would not resolve the characterization question without a matching theory framework.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can programmatically represent completely positive operators (e.g., via Kraus operators) and simulate operator Sinkhorn iterations, using empirical convergence/oscillation diagnostics as a fitness signal to hypothesize structural patterns. However, translating discovered patterns into a correct general characterization is nontrivial and likely requires substantial theoretical work beyond automated search.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.04450425,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.04450425
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387738269/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

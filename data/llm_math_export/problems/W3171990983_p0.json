@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3171990983_p0",
+  "paper_id": "W3171990983",
+  "source_paper": "W3171990983",
+  "source_paper_title": "Improved Guarantees for Offline Stochastic Matching via New Ordered Contention Resolution Schemes",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0256",
+  "source_paper_authors": [
+    "Brian Brubach",
+    "Nathaniel Grammel",
+    "Will Ma",
+    "Aravind Srinivasan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Brubach_2025, title={Improved Guarantees for Offline Stochastic Matching via New Ordered Contention Resolution Schemes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0256}, DOI={10.1287/moor.2022.0256}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind}, year={2025}, month=nov, pages={3243\u20133256} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, end of Subsection 1.2 (\"Reinterpretation as contention resolution under negative correlation\")\n\nWe leave it as an open question whether a \\((1 - 1/e)\\)-selectable Random-order Contention Resolution Scheme is possible under property (2).",
+  "title": "Random-order contention resolution for rank-1 matroids with negative correlation",
+  "background_latex": "A rank-1 matroid can be represented by a ground set of elements (here, edges) \\(E\\) with the feasibility constraint that at most one element may be selected. Equivalently, in a star graph with center vertex \\(v\\), the feasible matchings choose at most one edge incident to \\(v\\).\n\nAn ordered (or random-order) contention resolution scheme (CRS) for this rank-1 constraint operates as follows. Each element \\(e\\in E\\) has an initially unknown activeness indicator \\(Z_e\\in\\{0,1\\}\\). The algorithm observes elements one-by-one in some order; when an element \\(e\\) is revealed to be active (\\(Z_e=1\\)) and no previously accepted element has been chosen, the algorithm may either accept \\(e\\) (and then must reject all later elements) or irrevocably discard \\(e\\).\n\nA random-order CRS means the observation order is a uniformly random permutation of \\(E\\).\n\nLet \\(z_e := \\Pr[Z_e=1]\\) denote the marginal activeness probability of element \\(e\\). The rank-1 feasibility region corresponding to these marginals is \\(\\sum_{e\\in E} z_e \\le 1\\) (and \\(0\\le z_e\\le 1\\)).\n\nA CRS is called \\(c\\)-selectable if for every instance and every element \\(e\\), the ex ante probability that the algorithm accepts \\(e\\) is at least \\(c\\, z_e\\).\n\nIn the setting of this paper, the activeness indicators \\((Z_e)_{e\\in E}\\) need not be independent; they satisfy a (pairwise-to-setwise) negative correlation property: for every subset \\(S\\subseteq E\\) and \\(b\\in\\{0,1\\}\\),\n\\[\\Pr\\big[\\bigwedge_{e\\in S}(Z_e=b)\\big] \\le \\prod_{e\\in S} \\Pr[Z_e=b].\\]\nIn particular, the case \\(b=0\\) asserts that joint inactivity events are no more likely than under independence.",
+  "problem_definition_latex": "Determine whether there exists a \\((1-1/e)\\)-selectable random-order contention resolution scheme for a rank-1 matroid when the activeness indicators \\((Z_e)_{e\\in E}\\) satisfy the negative correlation property\n\\[\\Pr\\big[\\bigwedge_{e\\in S}(Z_e=b)\\big] \\le \\prod_{e\\in S} \\Pr[Z_e=b]\\quad \\forall S\\subseteq E,\\ b\\in\\{0,1\\},\\]\nwith given marginals \\(z_e=\\Pr[Z_e=1]\\) obeying \\(\\sum_{e\\in E} z_e \\le 1\\). That is, decide whether one can guarantee for all such instances that each element \\(e\\) is accepted with probability at least \\((1-1/e) z_e\\) when elements are revealed in a uniformly random order and decisions are irrevocable.",
+  "latex": "A rank-1 matroid can be represented by a ground set of elements (here, edges) \\(E\\) with the feasibility constraint that at most one element may be selected. Equivalently, in a star graph with center vertex \\(v\\), the feasible matchings choose at most one edge incident to \\(v\\).\n\nAn ordered (or random-order) contention resolution scheme (CRS) for this rank-1 constraint operates as follows. Each element \\(e\\in E\\) has an initially unknown activeness indicator \\(Z_e\\in\\{0,1\\}\\). The algorithm observes elements one-by-one in some order; when an element \\(e\\) is revealed to be active (\\(Z_e=1\\)) and no previously accepted element has been chosen, the algorithm may either accept \\(e\\) (and then must reject all later elements) or irrevocably discard \\(e\\).\n\nA random-order CRS means the observation order is a uniformly random permutation of \\(E\\).\n\nLet \\(z_e := \\Pr[Z_e=1]\\) denote the marginal activeness probability of element \\(e\\). The rank-1 feasibility region corresponding to these marginals is \\(\\sum_{e\\in E} z_e \\le 1\\) (and \\(0\\le z_e\\le 1\\)).\n\nA CRS is called \\(c\\)-selectable if for every instance and every element \\(e\\), the ex ante probability that the algorithm accepts \\(e\\) is at least \\(c\\, z_e\\).\n\nIn the setting of this paper, the activeness indicators \\((Z_e)_{e\\in E}\\) need not be independent; they satisfy a (pairwise-to-setwise) negative correlation property: for every subset \\(S\\subseteq E\\) and \\(b\\in\\{0,1\\}\\),\n\\[\\Pr\\big[\\bigwedge_{e\\in S}(Z_e=b)\\big] \\le \\prod_{e\\in S} \\Pr[Z_e=b].\\]\nIn particular, the case \\(b=0\\) asserts that joint inactivity events are no more likely than under independence.\n\nDetermine whether there exists a \\((1-1/e)\\)-selectable random-order contention resolution scheme for a rank-1 matroid when the activeness indicators \\((Z_e)_{e\\in E}\\) satisfy the negative correlation property\n\\[\\Pr\\big[\\bigwedge_{e\\in S}(Z_e=b)\\big] \\le \\prod_{e\\in S} \\Pr[Z_e=b]\\quad \\forall S\\subseteq E,\\ b\\in\\{0,1\\},\\]\nwith given marginals \\(z_e=\\Pr[Z_e=1]\\) obeying \\(\\sum_{e\\in E} z_e \\le 1\\). That is, decide whether one can guarantee for all such instances that each element \\(e\\) is accepted with probability at least \\((1-1/e) z_e\\) when elements are revealed in a uniformly random order and decisions are irrevocable.",
+  "location_in_paper": "Page 6, end of Subsection 1.2 (\"Reinterpretation as contention resolution under negative correlation\")",
+  "open_problem_quote": "We leave it as an open question whether a \\((1 - 1/e)\\)-selectable Random-order Contention Resolution Scheme is possible under property (2).",
+  "area": "online algorithms",
+  "keywords": [
+    "contention resolution schemes",
+    "rank-1 matroid",
+    "random-order model",
+    "negative correlation",
+    "prophet inequalities",
+    "stochastic matching"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally search for small negatively correlated distributions over \\((Z_e)\\) and candidate random-order acceptance rules to upper-bound achievable selectability, but encoding all negatively correlated distributions is nontrivial and quickly becomes large. Still, small-star instances may reveal barriers or suggest tight examples.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate schemes for rank-1 in random order can be parameterized (e.g., acceptance thresholds based on position in the order and/or revealed activeness history), and their worst-case selectability can be estimated by simulation over adversarially generated negatively correlated distributions satisfying the constraint \\(\\sum z_e\\le 1\\). This gives an automatic fitness signal (empirical minimum ratio of acceptance probability to \\(z_e\\)) suitable for iterative search.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0425565,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0425565
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3171990983/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

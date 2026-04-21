@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4392646050_p0",
+  "paper_id": "W4392646050",
+  "source_paper": "W4392646050",
+  "source_paper_title": "A Policy Gradient Algorithm for the Risk-Sensitive Exponential Cost MDP",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0139",
+  "source_paper_authors": [
+    "Mehrdad Moharrami",
+    "Yashaswini Murthy",
+    "Arghyadip Roy",
+    "R. Srikant"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Moharrami_2025, title={A Policy Gradient Algorithm for the Risk-Sensitive Exponential Cost MDP}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0139}, DOI={10.1287/moor.2022.0139}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Moharrami, Mehrdad and Murthy, Yashaswini and Roy, Arghyadip and Srikant, R.}, year={2025}, month=feb, pages={431\u2013458} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 12, Section 7 (Conclusion).\n\nIn preliminary simulations, we have observed an increasing sequence of truncations of the form \\(\\gamma_m^{-\\beta}\\) always works. An interesting open question is to show that this sequence satisfies the conditions provided in our main theorem.",
+  "title": "Verify gamma^{-beta} truncation schedule meets summability condition in policy gradient algorithm",
+  "background_latex": "Consider a finite-state Markov chain (or finite MDP under a stationary randomized policy) with state space \\(\\mathcal X\\) and a designated recurrent regeneration state \\(x^\\ast\\in\\mathcal X\\). A policy is parameterized by \\(\\theta\\in\\mathbb R^\\ell\\), inducing an aperiodic irreducible transition kernel \\(P_\\theta\\) on \\(\\mathcal X\\), and a bounded one-step cost \\(C_\\theta(x)\\). Fix a risk factor \\(\\alpha>0\\).\n\nThe risk-sensitive exponential average cost is\n\\[\\Lambda_\\theta:=\\lim_{n\\to\\infty}\\frac1n\\log\\mathbb E_\\theta\\Big[\\exp\\Big(\\alpha\\sum_{i=0}^{n-1}C_\\theta(\\Phi_i)\\Big)\\,\\Big|\\,\\Phi_0=x\\Big],\\]\nwhich exists and is independent of the initial state \\(x\\in\\mathcal X\\) under the stated ergodicity assumptions.\n\nTo construct trajectory-based stochastic approximation algorithms, the paper introduces a family of smooth truncations indexed by \\(M>1\\), yielding an approximating objective \\(\\Lambda^{(M)}_\\theta\\) defined implicitly as the unique \\(\\Lambda\\) solving\n\\[g^{(M)}(\\theta,\\Lambda)=\\mathbb E_\\theta\\big[ G^{(M)}(\\theta,\\Lambda)\\,\\big|\\,\\Phi_0=x^\\ast\\big]=1,\\]\nwhere \\(G^{(M)}(\\theta,\\Lambda)\\) is a smooth, bounded modification of\n\\[H(\\theta,\\Lambda):=\\exp\\Big(\\sum_{i=0}^{\\tau_{x^\\ast}-1}(\\alpha C_\\theta(\\Phi_i)-\\Lambda)\\Big),\\]\nwith \\(\\tau_{x^\\ast}\\) the first return time to \\(x^\\ast\\). For fixed \\(M\\), the corresponding gradient \\(\\nabla_\\theta\\Lambda^{(M)}_\\theta\\) exists and can be estimated from a single regenerative trajectory segment.\n\nTo recover stationarity for the original (untruncated) objective \\(\\Lambda_\\theta\\), the paper considers an increasing truncation sequence \\((M_m)_{m\\ge 0}\\) (possibly depending on the stepsize \\(\\gamma_m\\)) and a coupled stochastic approximation that updates \\(\\theta_m\\) and an auxiliary cost estimate \\(\\widehat\\Lambda_m\\) at successive regeneration times.\n\nA key technical requirement for varying truncations is the summability condition\n\\[\\sum_{m=0}^\\infty \\sup_{\\theta\\in\\mathbb R^\\ell}\\Big(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\Big)<\\infty,\\]\nwhich ensures the cumulative error caused by changing the truncation level is finite. The paper assumes the existence of some increasing sequence \\((N_i)\\) satisfying this condition and then sets \\(M_m\\) to be (essentially) \\(\\gamma_m^{-\\beta}\\) rounded down to the nearest \\(N_i\\), for some \\(\\beta\\in(0,1/2)\\). In simulations, the authors report that the simple choice \\(M_m=\\gamma_m^{-\\beta}\\) appears to work.",
+  "problem_definition_latex": "Let \\((\\gamma_m)_{m\\ge 0}\\) be a stepsize sequence with \\(\\sum_m \\gamma_m=\\infty\\) and \\(\\gamma_m\\downarrow 0\\), and fix \\(\\beta\\in(0,1/2)\\). For each \\(M>1\\) and \\(\\theta\\in\\mathbb R^\\ell\\), let \\(\\Lambda^{(M)}_\\theta\\) denote the smooth-truncated approximation of the risk-sensitive cost defined as the unique solution to \\(g^{(M)}(\\theta,\\Lambda)=1\\).\n\nShow that the truncation schedule\n\\[M_m=\\gamma_m^{-\\beta}\\]\nsatisfies the varying-truncation summability condition\n\\[\\sum_{m=0}^\\infty \\sup_{\\theta\\in\\mathbb R^\\ell}\\Big(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\Big)<\\infty,\\]\n(or, equivalently, verify that \\((M_m)\\) meets the paper's sufficient conditions for convergence to a stationary point of the untruncated objective when used in the trajectory-based policy-gradient scheme).",
+  "latex": "Consider a finite-state Markov chain (or finite MDP under a stationary randomized policy) with state space \\(\\mathcal X\\) and a designated recurrent regeneration state \\(x^\\ast\\in\\mathcal X\\). A policy is parameterized by \\(\\theta\\in\\mathbb R^\\ell\\), inducing an aperiodic irreducible transition kernel \\(P_\\theta\\) on \\(\\mathcal X\\), and a bounded one-step cost \\(C_\\theta(x)\\). Fix a risk factor \\(\\alpha>0\\).\n\nThe risk-sensitive exponential average cost is\n\\[\\Lambda_\\theta:=\\lim_{n\\to\\infty}\\frac1n\\log\\mathbb E_\\theta\\Big[\\exp\\Big(\\alpha\\sum_{i=0}^{n-1}C_\\theta(\\Phi_i)\\Big)\\,\\Big|\\,\\Phi_0=x\\Big],\\]\nwhich exists and is independent of the initial state \\(x\\in\\mathcal X\\) under the stated ergodicity assumptions.\n\nTo construct trajectory-based stochastic approximation algorithms, the paper introduces a family of smooth truncations indexed by \\(M>1\\), yielding an approximating objective \\(\\Lambda^{(M)}_\\theta\\) defined implicitly as the unique \\(\\Lambda\\) solving\n\\[g^{(M)}(\\theta,\\Lambda)=\\mathbb E_\\theta\\big[ G^{(M)}(\\theta,\\Lambda)\\,\\big|\\,\\Phi_0=x^\\ast\\big]=1,\\]\nwhere \\(G^{(M)}(\\theta,\\Lambda)\\) is a smooth, bounded modification of\n\\[H(\\theta,\\Lambda):=\\exp\\Big(\\sum_{i=0}^{\\tau_{x^\\ast}-1}(\\alpha C_\\theta(\\Phi_i)-\\Lambda)\\Big),\\]\nwith \\(\\tau_{x^\\ast}\\) the first return time to \\(x^\\ast\\). For fixed \\(M\\), the corresponding gradient \\(\\nabla_\\theta\\Lambda^{(M)}_\\theta\\) exists and can be estimated from a single regenerative trajectory segment.\n\nTo recover stationarity for the original (untruncated) objective \\(\\Lambda_\\theta\\), the paper considers an increasing truncation sequence \\((M_m)_{m\\ge 0}\\) (possibly depending on the stepsize \\(\\gamma_m\\)) and a coupled stochastic approximation that updates \\(\\theta_m\\) and an auxiliary cost estimate \\(\\widehat\\Lambda_m\\) at successive regeneration times.\n\nA key technical requirement for varying truncations is the summability condition\n\\[\\sum_{m=0}^\\infty \\sup_{\\theta\\in\\mathbb R^\\ell}\\Big(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\Big)<\\infty,\\]\nwhich ensures the cumulative error caused by changing the truncation level is finite. The paper assumes the existence of some increasing sequence \\((N_i)\\) satisfying this condition and then sets \\(M_m\\) to be (essentially) \\(\\gamma_m^{-\\beta}\\) rounded down to the nearest \\(N_i\\), for some \\(\\beta\\in(0,1/2)\\). In simulations, the authors report that the simple choice \\(M_m=\\gamma_m^{-\\beta}\\) appears to work.\n\nLet \\((\\gamma_m)_{m\\ge 0}\\) be a stepsize sequence with \\(\\sum_m \\gamma_m=\\infty\\) and \\(\\gamma_m\\downarrow 0\\), and fix \\(\\beta\\in(0,1/2)\\). For each \\(M>1\\) and \\(\\theta\\in\\mathbb R^\\ell\\), let \\(\\Lambda^{(M)}_\\theta\\) denote the smooth-truncated approximation of the risk-sensitive cost defined as the unique solution to \\(g^{(M)}(\\theta,\\Lambda)=1\\).\n\nShow that the truncation schedule\n\\[M_m=\\gamma_m^{-\\beta}\\]\nsatisfies the varying-truncation summability condition\n\\[\\sum_{m=0}^\\infty \\sup_{\\theta\\in\\mathbb R^\\ell}\\Big(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\Big)<\\infty,\\]\n(or, equivalently, verify that \\((M_m)\\) meets the paper's sufficient conditions for convergence to a stationary point of the untruncated objective when used in the trajectory-based policy-gradient scheme).",
+  "location_in_paper": "Page 12, Section 7 (Conclusion).",
+  "open_problem_quote": "In preliminary simulations, we have observed an increasing sequence of truncations of the form \\(\\gamma_m^{-\\beta}\\) always works. An interesting open question is to show that this sequence satisfies the conditions provided in our main theorem.",
+  "area": "online learning",
+  "keywords": [
+    "risk-sensitive MDP",
+    "policy gradient",
+    "stochastic approximation",
+    "truncation schedule",
+    "regenerative simulation",
+    "convergence conditions"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is a universal analytic condition (a summability bound over all parameters \\(\\theta\\)) rather than an existence/nonexistence claim over finite instances, so searching for counterexamples computationally would require bounding worst-case behavior over a continuous parameter space and is unlikely to be definitive.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can code the smooth-truncated objective \\(\\Lambda^{(M)}_\\theta\\) for specific finite MDP families and empirically estimate the increments \\(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\) over grids of \\(\\theta\\) to probe rates and suggest conjectured bounds, but converting empirical rate evidence into a uniform-in-\\(\\theta\\) proof is nontrivial and the fitness signal is only a proxy.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0935165,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0935165
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4392646050/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

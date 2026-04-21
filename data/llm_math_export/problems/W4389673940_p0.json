@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4389673940_p0",
+  "paper_id": "W4389673940",
+  "source_paper": "W4389673940",
+  "source_paper_title": "Counting and Enumerating Optimum Cut Sets for Hypergraph <i>k</i>-Partitioning Problems for Fixed <i>k</i>",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0259",
+  "source_paper_authors": [
+    "Calvin Beideman",
+    "Karthekeyan Chandrasekaran",
+    "Weihang Wang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Beideman_2024, title={Counting and Enumerating Optimum Cut Sets for Hypergraph k-Partitioning Problems for Fixed k}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0259}, DOI={10.1287/moor.2022.0259}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Beideman, Calvin and Chandrasekaran, Karthekeyan and Wang, Weihang}, year={2024}, month=nov, pages={2579\u20132601} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 24, Section 7 (Conclusion)\n\nResolving the complexity of this variant of the hypergraph k-partitioning problem for \\(k \\ge 5\\) remains open.",
+  "title": "Determine complexity of minimizing sum of boundary cut sizes in hypergraph k-partitions",
+  "background_latex": "Let \\(G=(V,E)\\) be a (multi-)hypergraph with vertex set \\(V\\) of size \\(n\\) and hyperedge set \\(E\\). Each hyperedge \\(e\\in E\\) is a subset of \\(V\\). (The paper primarily discusses the unweighted case, i.e., each hyperedge has unit cost; the objective below is stated for this setting.)\n\nFor a nonempty proper subset \\(U\\subset V\\), define the cut-set\n\\[\\delta(U):=\\{e\\in E: e\\cap U\\neq\\emptyset \\text{ and } e\\cap (V\\setminus U)\\neq\\emptyset\\},\\]\nand its cut value \\(d(U):=|\\delta(U)|\\).\n\nA \\(k\\)-partition of \\(V\\) is an ordered tuple \\((V_1,\\dots,V_k)\\) of pairwise disjoint nonempty subsets whose union is \\(V\\).\n\nFor a \\(k\\)-partition \\((V_1,\\dots,V_k)\\), the paper considers various objectives based on the boundary sizes \\(|\\delta(V_i)|\\). In particular, the variant highlighted in the conclusion asks to minimize the sum of boundary cut values\n\\[\\sum_{i=1}^k |\\delta(V_i)| = \\sum_{i=1}^k d(V_i).\\]\n",
+  "problem_definition_latex": "Given a hypergraph \\(G=(V,E)\\) and a fixed integer \\(k\\ge 5\\), determine the computational complexity of the optimization problem\n\\[\\min\\left\\{\\sum_{i=1}^k |\\delta(V_i)| : (V_1,\\dots,V_k) \\text{ is a } k\\text{-partition of } V\\right\\}.\\]\nIn particular, decide whether this problem admits a polynomial-time algorithm for fixed \\(k\\ge 5\\) (or whether it is NP-hard) in the unweighted hypergraph setting.",
+  "latex": "Let \\(G=(V,E)\\) be a (multi-)hypergraph with vertex set \\(V\\) of size \\(n\\) and hyperedge set \\(E\\). Each hyperedge \\(e\\in E\\) is a subset of \\(V\\). (The paper primarily discusses the unweighted case, i.e., each hyperedge has unit cost; the objective below is stated for this setting.)\n\nFor a nonempty proper subset \\(U\\subset V\\), define the cut-set\n\\[\\delta(U):=\\{e\\in E: e\\cap U\\neq\\emptyset \\text{ and } e\\cap (V\\setminus U)\\neq\\emptyset\\},\\]\nand its cut value \\(d(U):=|\\delta(U)|\\).\n\nA \\(k\\)-partition of \\(V\\) is an ordered tuple \\((V_1,\\dots,V_k)\\) of pairwise disjoint nonempty subsets whose union is \\(V\\).\n\nFor a \\(k\\)-partition \\((V_1,\\dots,V_k)\\), the paper considers various objectives based on the boundary sizes \\(|\\delta(V_i)|\\). In particular, the variant highlighted in the conclusion asks to minimize the sum of boundary cut values\n\\[\\sum_{i=1}^k |\\delta(V_i)| = \\sum_{i=1}^k d(V_i).\\]\n\nGiven a hypergraph \\(G=(V,E)\\) and a fixed integer \\(k\\ge 5\\), determine the computational complexity of the optimization problem\n\\[\\min\\left\\{\\sum_{i=1}^k |\\delta(V_i)| : (V_1,\\dots,V_k) \\text{ is a } k\\text{-partition of } V\\right\\}.\\]\nIn particular, decide whether this problem admits a polynomial-time algorithm for fixed \\(k\\ge 5\\) (or whether it is NP-hard) in the unweighted hypergraph setting.",
+  "location_in_paper": "Page 24, Section 7 (Conclusion)",
+  "open_problem_quote": "Resolving the complexity of this variant of the hypergraph k-partitioning problem for \\(k \\ge 5\\) remains open.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "hypergraph partitioning",
+    "k-partition",
+    "submodular partitioning",
+    "computational complexity",
+    "cut function",
+    "polynomial-time algorithm"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "This is a complexity-status question (polynomial-time solvable vs NP-hard) rather than a universal inequality that can be refuted by a finite instance search. While one can experiment with heuristics or reductions, automated counterexample search is not a faithful route to resolving the stated problem.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could explore algorithmic ideas (e.g., dynamic programming for fixed \\(k\\), relaxations, or exact solvers on structured instances) and test performance, but empirical success would not establish polynomial-time solvability or hardness. It may still help by discovering patterns or candidate reductions/algorithms that can later be proved.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0654325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0654325
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389673940/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

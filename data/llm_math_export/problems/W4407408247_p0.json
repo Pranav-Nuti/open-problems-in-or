@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4407408247_p0",
+  "paper_id": "W4407408247",
+  "source_paper": "W4407408247",
+  "source_paper_title": "Square-Root Regret Bounds for Continuous-Time Episodic Markov Decision Processes",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0283",
+  "source_paper_authors": [
+    "Xuefeng Gao",
+    "Xunyu Zhou"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Gao_2026, title={Square-Root Regret Bounds for Continuous-Time Episodic Markov Decision Processes}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0283}, DOI={10.1287/moor.2022.0283}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Zhou, Xunyu}, year={2026}, month=jan, pages={333\u2013357} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 14, Section 4 (Main Results), discussion immediately after Theorem 2.\n\nWhile the bounds on \\(K\\) are the most important as they inform the convergence rates of learning algorithms, it remains a significant open question whether one can improve the dependence of these bounds on \\(S\\), \\(H\\) and \\(\\lambda_{\\max}\\) to narrow down the gap between the upper and lower bounds.",
+  "title": "Improve minimax regret dependence on states and horizon in episodic CTMDPs",
+  "background_latex": "Consider an episodic, finite-horizon continuous-time Markov decision process (CTMDP) with finite state space \\(\\mathcal S\\) (\\(|\\mathcal S|=S\\)), finite action space \\(\\mathcal A\\) (\\(|\\mathcal A|=A\\)), and fixed horizon \\([0,H]\\). When action \\(a\\in\\mathcal A\\) is chosen in state \\(x\\in\\mathcal S\\), the process stays in \\(x\\) for an exponentially distributed holding time with rate \\(\\lambda(x,a)\\in[\\lambda_{\\min},\\lambda_{\\max}]\\), accrues reward at rate \\(r(x,a)\\in[0,1]\\) during the holding time, and then jumps to a next state \\(Y\\in\\mathcal S\\) with probability \\(p(\\cdot\\mid x,a)\\) (time-homogeneous). The parameters \\(p\\) and \\(\\lambda\\) are unknown to the learning agent.\n\nA (deterministic Markov) policy \\(\\pi\\) maps a state and remaining time to an action: \\(\\pi:\\mathcal S\\times[0,H]\\to\\mathcal A\\). Starting from a fixed initial state \\(x_0\\), define the (finite-horizon) value function\n\\[\nV^{\\pi}(x,t):=\\mathbb E_{\\pi}\\Big[\\int_0^{t} r(X(u),A(u))\\,du\\,\\Big|\\,X(0)=x\\Big],\\qquad (x,t)\\in\\mathcal S\\times[0,H],\n\\]\nand the optimal value \\(V^*(x,t):=\\sup_{\\pi} V^{\\pi}(x,t)\\).\n\nThe agent interacts with the same unknown CTMDP over \\(K\\) independent episodes, each of length \\(H\\), restarting from \\(x_0\\) each episode. Let \\(\\pi_k\\) be the policy used in episode \\(k\\). The (expected) cumulative regret after \\(K\\) episodes is\n\\[\n\\mathrm{Regret}(K):=\\mathbb E\\Big[\\sum_{k=1}^K \\big(V^*(x_0,H)-V^{\\pi_k}(x_0,H)\\big)\\Big].\n\\]\nA minimax (worst-case) regret rate studies \\(\\sup_{M\\in\\mathcal C}\\mathrm{Regret}(K)\\), where \\(\\mathcal C\\) is the class of all such CTMDPs with given \\((S,A,H,\\lambda_{\\min},\\lambda_{\\max})\\) and bounded rewards.\n\nIn the referenced work, an upper bound of order \\(\\widetilde O(\\sqrt K)\\) is proved but with a leading dependence that is worse than the known lower bound in its dependence on \\(S\\), on \\(H\\), and on \\(\\lambda_{\\max}\\). In particular, their regret upper bound contains an extra factor \\(\\sqrt S\\) (relative to discrete-time tight bounds) and a worse dependence on \\(H\\), while their lower bound scales on the order of \\(H\\sqrt{SAK}\\) (up to constants and log factors) in a certain parameter regime.",
+  "problem_definition_latex": "Determine whether one can design an episodic reinforcement-learning algorithm for the above finite-horizon tabular CTMDP class \\(\\mathcal C\\) whose worst-case expected regret \\(\\sup_{M\\in\\mathcal C}\\mathrm{Regret}(K)\\) improves the known upper bounds by reducing their dependence on \\(S\\), \\(H\\), and \\(\\lambda_{\\max}\\), thereby narrowing the gap to the known lower bounds (which already show \\(\\Omega(H\\sqrt{SAK})\\) scaling in \\(K\\) and \\(A\\) up to log factors).\n\nEquivalently: improve the minimax, instance-independent regret upper bound for episodic finite-horizon tabular CTMDPs beyond the existing \\(\\widetilde O(\\sqrt K)\\) bound by achieving sharper polynomial dependence on \\(S\\), \\(H\\), and \\(\\lambda_{\\max}\\) (and ideally matching the lower bound up to logarithmic factors).",
+  "latex": "Consider an episodic, finite-horizon continuous-time Markov decision process (CTMDP) with finite state space \\(\\mathcal S\\) (\\(|\\mathcal S|=S\\)), finite action space \\(\\mathcal A\\) (\\(|\\mathcal A|=A\\)), and fixed horizon \\([0,H]\\). When action \\(a\\in\\mathcal A\\) is chosen in state \\(x\\in\\mathcal S\\), the process stays in \\(x\\) for an exponentially distributed holding time with rate \\(\\lambda(x,a)\\in[\\lambda_{\\min},\\lambda_{\\max}]\\), accrues reward at rate \\(r(x,a)\\in[0,1]\\) during the holding time, and then jumps to a next state \\(Y\\in\\mathcal S\\) with probability \\(p(\\cdot\\mid x,a)\\) (time-homogeneous). The parameters \\(p\\) and \\(\\lambda\\) are unknown to the learning agent.\n\nA (deterministic Markov) policy \\(\\pi\\) maps a state and remaining time to an action: \\(\\pi:\\mathcal S\\times[0,H]\\to\\mathcal A\\). Starting from a fixed initial state \\(x_0\\), define the (finite-horizon) value function\n\\[\nV^{\\pi}(x,t):=\\mathbb E_{\\pi}\\Big[\\int_0^{t} r(X(u),A(u))\\,du\\,\\Big|\\,X(0)=x\\Big],\\qquad (x,t)\\in\\mathcal S\\times[0,H],\n\\]\nand the optimal value \\(V^*(x,t):=\\sup_{\\pi} V^{\\pi}(x,t)\\).\n\nThe agent interacts with the same unknown CTMDP over \\(K\\) independent episodes, each of length \\(H\\), restarting from \\(x_0\\) each episode. Let \\(\\pi_k\\) be the policy used in episode \\(k\\). The (expected) cumulative regret after \\(K\\) episodes is\n\\[\n\\mathrm{Regret}(K):=\\mathbb E\\Big[\\sum_{k=1}^K \\big(V^*(x_0,H)-V^{\\pi_k}(x_0,H)\\big)\\Big].\n\\]\nA minimax (worst-case) regret rate studies \\(\\sup_{M\\in\\mathcal C}\\mathrm{Regret}(K)\\), where \\(\\mathcal C\\) is the class of all such CTMDPs with given \\((S,A,H,\\lambda_{\\min},\\lambda_{\\max})\\) and bounded rewards.\n\nIn the referenced work, an upper bound of order \\(\\widetilde O(\\sqrt K)\\) is proved but with a leading dependence that is worse than the known lower bound in its dependence on \\(S\\), on \\(H\\), and on \\(\\lambda_{\\max}\\). In particular, their regret upper bound contains an extra factor \\(\\sqrt S\\) (relative to discrete-time tight bounds) and a worse dependence on \\(H\\), while their lower bound scales on the order of \\(H\\sqrt{SAK}\\) (up to constants and log factors) in a certain parameter regime.\n\nDetermine whether one can design an episodic reinforcement-learning algorithm for the above finite-horizon tabular CTMDP class \\(\\mathcal C\\) whose worst-case expected regret \\(\\sup_{M\\in\\mathcal C}\\mathrm{Regret}(K)\\) improves the known upper bounds by reducing their dependence on \\(S\\), \\(H\\), and \\(\\lambda_{\\max}\\), thereby narrowing the gap to the known lower bounds (which already show \\(\\Omega(H\\sqrt{SAK})\\) scaling in \\(K\\) and \\(A\\) up to log factors).\n\nEquivalently: improve the minimax, instance-independent regret upper bound for episodic finite-horizon tabular CTMDPs beyond the existing \\(\\widetilde O(\\sqrt K)\\) bound by achieving sharper polynomial dependence on \\(S\\), \\(H\\), and \\(\\lambda_{\\max}\\) (and ideally matching the lower bound up to logarithmic factors).",
+  "location_in_paper": "Page 14, Section 4 (Main Results), discussion immediately after Theorem 2.",
+  "open_problem_quote": "While the bounds on \\(K\\) are the most important as they inform the convergence rates of learning algorithms, it remains a significant open question whether one can improve the dependence of these bounds on \\(S\\), \\(H\\) and \\(\\lambda_{\\max}\\) to narrow down the gap between the upper and lower bounds.",
+  "area": "online learning",
+  "keywords": [
+    "continuous-time MDPs",
+    "episodic reinforcement learning",
+    "minimax regret",
+    "regret lower bound",
+    "value iteration",
+    "upper confidence bounds",
+    "finite horizon"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is a broad algorithmic upper-bound improvement question rather than a crisp universally quantified conjecture that can be falsified by a single finite instance. Automated search could explore small CTMDPs to guess scaling, but it cannot directly refute or confirm existence of improved algorithms.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate exploration bonuses/planning surrogates and score them by empirical regret on simulated CTMDP families, providing a computable fitness signal. However, empirical performance is only a proxy for minimax regret guarantees, so automated search may suggest promising algorithmic designs but cannot certify the improved theoretical dependence without additional proof work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07410900000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07410900000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4407408247/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4389389242_p0",
+  "paper_id": "W4389389242",
+  "source_paper": "W4389389242",
+  "source_paper_title": "Convergence Analysis of Accelerated Stochastic Gradient Descent Under the Growth Condition",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0293",
+  "source_paper_authors": [
+    "You-Lin Chen",
+    "Sen Na",
+    "Mladen Kolar"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Chen_2024, title={Convergence Analysis of Accelerated Stochastic Gradient Descent Under the Growth Condition}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0293}, DOI={10.1287/moor.2021.0293}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, You-Lin and Na, Sen and Kolar, Mladen}, year={2024}, month=nov, pages={2492\u20132526} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 27, Section 7 (Conclusion)\n\nWe do not provide a lower bound analysis for NAM, RMM, iDAM+, and, therefore, cannot conclude that these methods do not improve the convergence over SGD when \\(\\delta \\ge 1\\). ... One of the limitations of our work is the sharpness of the analysis. Due to the lack of lower bound analysis on \\(\\delta\\), it is unclear whether the condition of having a small \\(\\delta\\) for different methods is necessary for acceleration; and how sharp such a condition is.",
+  "title": "Lower bounds on acceleration thresholds for stochastic momentum methods under growth condition",
+  "background_latex": "Let $f:\\mathbb{R}^d\\to\\mathbb{R}$ be continuously differentiable, $L$-smooth and $m$-strongly convex (with respect to the Euclidean norm $\\|\\cdot\\|$), with condition number $\\kappa:=L/m$, and unique minimizer $x^*\\in\\arg\\min_x f(x)$. A stochastic first-order oracle returns a noisy gradient\n\\[\n g(x)=\\nabla f(x)+\\varepsilon(x),\n\\]\nwhere $\\mathbb{E}[\\varepsilon(x)\\mid x]=0$. The noise is assumed to satisfy the growth condition: there exist constants $\\delta\\ge 0$ and $\\sigma^2\\ge 0$ such that for all $x$,\n\\[\n\\mathbb{E}\\|\\varepsilon(x)\\|^2 \\le \\delta\\,\\|\\nabla f(x)\\|^2 + \\sigma^2.\n\\]\nConsider the following accelerated stochastic gradient-type methods with (constant) algorithm parameters:\n1) Nesterov\u2019s accelerated method (NAM), an iteration that uses a momentum parameter and evaluates stochastic gradients at a momentum-extrapolated point.\n2) Robust momentum method (RMM), an iteration that updates a momentum variable and a primary iterate using fixed parameters.\n3) Implicit accelerated dual averaging (iDAM+), a dual-averaging-based accelerated scheme.\nFor each method, one is interested in whether it can achieve an accelerated linear bias decay of the form $\\exp(-k/c\\sqrt{\\kappa})$ (or equivalently a per-iteration contraction factor $1-\\Theta(1/\\sqrt{\\kappa})$) under the growth condition when the multiplicative noise level $\\delta$ is not small (e.g., $\\delta\\ge 1$), compared with the non-accelerated $1-\\Theta(1/\\kappa)$ rate typical of constant-stepsize SGD.",
+  "problem_definition_latex": "For NAM, RMM, and iDAM+ under the growth condition, determine (prove) sharp necessary conditions on the multiplicative noise parameter $\\delta$ for acceleration over SGD. In particular, establish a lower bound (impossibility result) showing whether there exists a threshold $\\delta_0$ such that for some $\\delta\\ge \\delta_0$ and some $(m,L)$-smooth strongly convex objective $f$ together with an oracle satisfying\n\\(\\mathbb{E}\\|\\varepsilon(x)\\|^2 \\le \\delta\\,\\|\\nabla f(x)\\|^2 + \\sigma^2\\),\nno choice of constant algorithm parameters for these methods can guarantee an accelerated bias decay rate $\\exp(-k/c\\sqrt{\\kappa})$ (equivalently contraction $1-\\Theta(1/\\sqrt{\\kappa})$) uniformly over all such problem instances.",
+  "latex": "Let $f:\\mathbb{R}^d\\to\\mathbb{R}$ be continuously differentiable, $L$-smooth and $m$-strongly convex (with respect to the Euclidean norm $\\|\\cdot\\|$), with condition number $\\kappa:=L/m$, and unique minimizer $x^*\\in\\arg\\min_x f(x)$. A stochastic first-order oracle returns a noisy gradient\n\\[\n g(x)=\\nabla f(x)+\\varepsilon(x),\n\\]\nwhere $\\mathbb{E}[\\varepsilon(x)\\mid x]=0$. The noise is assumed to satisfy the growth condition: there exist constants $\\delta\\ge 0$ and $\\sigma^2\\ge 0$ such that for all $x$,\n\\[\n\\mathbb{E}\\|\\varepsilon(x)\\|^2 \\le \\delta\\,\\|\\nabla f(x)\\|^2 + \\sigma^2.\n\\]\nConsider the following accelerated stochastic gradient-type methods with (constant) algorithm parameters:\n1) Nesterov\u2019s accelerated method (NAM), an iteration that uses a momentum parameter and evaluates stochastic gradients at a momentum-extrapolated point.\n2) Robust momentum method (RMM), an iteration that updates a momentum variable and a primary iterate using fixed parameters.\n3) Implicit accelerated dual averaging (iDAM+), a dual-averaging-based accelerated scheme.\nFor each method, one is interested in whether it can achieve an accelerated linear bias decay of the form $\\exp(-k/c\\sqrt{\\kappa})$ (or equivalently a per-iteration contraction factor $1-\\Theta(1/\\sqrt{\\kappa})$) under the growth condition when the multiplicative noise level $\\delta$ is not small (e.g., $\\delta\\ge 1$), compared with the non-accelerated $1-\\Theta(1/\\kappa)$ rate typical of constant-stepsize SGD.\n\nFor NAM, RMM, and iDAM+ under the growth condition, determine (prove) sharp necessary conditions on the multiplicative noise parameter $\\delta$ for acceleration over SGD. In particular, establish a lower bound (impossibility result) showing whether there exists a threshold $\\delta_0$ such that for some $\\delta\\ge \\delta_0$ and some $(m,L)$-smooth strongly convex objective $f$ together with an oracle satisfying\n\\(\\mathbb{E}\\|\\varepsilon(x)\\|^2 \\le \\delta\\,\\|\\nabla f(x)\\|^2 + \\sigma^2\\),\nno choice of constant algorithm parameters for these methods can guarantee an accelerated bias decay rate $\\exp(-k/c\\sqrt{\\kappa})$ (equivalently contraction $1-\\Theta(1/\\sqrt{\\kappa})$) uniformly over all such problem instances.",
+  "location_in_paper": "Page 27, Section 7 (Conclusion)",
+  "open_problem_quote": "We do not provide a lower bound analysis for NAM, RMM, iDAM+, and, therefore, cannot conclude that these methods do not improve the convergence over SGD when \\(\\delta \\ge 1\\). ... One of the limitations of our work is the sharpness of the analysis. Due to the lack of lower bound analysis on \\(\\delta\\), it is unclear whether the condition of having a small \\(\\delta\\) for different methods is necessary for acceleration; and how sharp such a condition is.",
+  "area": "online learning",
+  "keywords": [
+    "stochastic optimization",
+    "accelerated methods",
+    "growth condition",
+    "multiplicative noise",
+    "lower bounds",
+    "momentum methods"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can search over low-dimensional strongly convex quadratics with parametrized multiplicative-noise oracles to try to exhibit instances where a fixed method/parameterization fails to beat SGD, and performance metrics (contraction factors) are computable. However, proving necessity uniformly over all instances and over all parameter choices is harder than finding a single failing instance.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be represented programmatically (e.g., quadratics plus oracle noise models) and evaluated via simulated convergence rates, enabling evolutionary search over instances and parameter settings to maximize the acceleration gap. This can generate strong empirical evidence and conjectures about sharp thresholds in $\\delta$, though turning them into rigorous lower bounds still requires theory.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0932225,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0932225
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389389242/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

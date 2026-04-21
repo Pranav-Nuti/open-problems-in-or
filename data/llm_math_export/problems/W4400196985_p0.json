@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4400196985_p0",
+  "paper_id": "W4400196985",
+  "source_paper": "W4400196985",
+  "source_paper_title": "Hidden Convexity, Optimization, and Algorithms on Rotation Matrices",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0114",
+  "source_paper_authors": [
+    "Akshay Ramachandran",
+    "Kevin Shu",
+    "Alex L. Wang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Ramachandran_2025, title={Hidden Convexity, Optimization, and Algorithms on Rotation Matrices}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0114}, DOI={10.1287/moor.2023.0114}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ramachandran, Akshay and Shu, Kevin and Wang, Alex L.}, year={2025}, month=may, pages={1454\u20131477} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 29, Section 8 (Summary and open questions), paragraph 'Convex coordinate projections'\n\nConjecture 1. The problem CONVEX is NP-hard.",
+  "title": "Prove NP-hardness of deciding convexity of coordinate projections of rotation matrices",
+  "background_latex": "Let \\(n\\ge 3\\). Let \\(\\mathrm{SO}(n)=\\{X\\in\\mathbb{R}^{n\\times n}:X^\\top X=I,\\ \\det(X)=1\\}\\) denote the special orthogonal group (rotation matrices).\n\nFor a set of matrix coordinates \\(S\\subseteq [n]\\times [n]\\) (where \\([n]=\\{1,\\dots,n\\}\\)), define the coordinate projection map \\(\\pi_S:\\mathbb{R}^{n\\times n}\\to\\mathbb{R}^{|S|}\\) by\n\\[\n\\pi_S(X) := (X_{ij})_{(i,j)\\in S},\n\\]\ni.e., \\(\\pi_S(X)\\) records the entries of \\(X\\) indexed by \\(S\\) (in some fixed order).\n\nDefine the decision problem \\(\\mathrm{CONVEX}\\): the input is \\(n\\) and a coordinate set \\(S\\subseteq [n]\\times[n]\\); the output is \\(\\mathrm{TRUE}\\) if the image set \\(\\pi_S(\\mathrm{SO}(n))\\subseteq\\mathbb{R}^{|S|}\\) is convex, and \\(\\mathrm{FALSE}\\) otherwise.\n\nConvexity here is in the usual Euclidean sense: a set \\(K\\subseteq\\mathbb{R}^d\\) is convex if for all \\(x,y\\in K\\) and all \\(\\lambda\\in[0,1]\\), \\(\\lambda x+(1-\\lambda)y\\in K\\).",
+  "problem_definition_latex": "Determine the computational complexity of \\(\\mathrm{CONVEX}\\). In particular, prove (or refute) that \\(\\mathrm{CONVEX}\\) is NP-hard: given \\(n\\) and \\(S\\subseteq [n]\\times[n]\\), decide whether \\(\\pi_S(\\mathrm{SO}(n))\\) is convex.",
+  "latex": "Let \\(n\\ge 3\\). Let \\(\\mathrm{SO}(n)=\\{X\\in\\mathbb{R}^{n\\times n}:X^\\top X=I,\\ \\det(X)=1\\}\\) denote the special orthogonal group (rotation matrices).\n\nFor a set of matrix coordinates \\(S\\subseteq [n]\\times [n]\\) (where \\([n]=\\{1,\\dots,n\\}\\)), define the coordinate projection map \\(\\pi_S:\\mathbb{R}^{n\\times n}\\to\\mathbb{R}^{|S|}\\) by\n\\[\n\\pi_S(X) := (X_{ij})_{(i,j)\\in S},\n\\]\ni.e., \\(\\pi_S(X)\\) records the entries of \\(X\\) indexed by \\(S\\) (in some fixed order).\n\nDefine the decision problem \\(\\mathrm{CONVEX}\\): the input is \\(n\\) and a coordinate set \\(S\\subseteq [n]\\times[n]\\); the output is \\(\\mathrm{TRUE}\\) if the image set \\(\\pi_S(\\mathrm{SO}(n))\\subseteq\\mathbb{R}^{|S|}\\) is convex, and \\(\\mathrm{FALSE}\\) otherwise.\n\nConvexity here is in the usual Euclidean sense: a set \\(K\\subseteq\\mathbb{R}^d\\) is convex if for all \\(x,y\\in K\\) and all \\(\\lambda\\in[0,1]\\), \\(\\lambda x+(1-\\lambda)y\\in K\\).\n\nDetermine the computational complexity of \\(\\mathrm{CONVEX}\\). In particular, prove (or refute) that \\(\\mathrm{CONVEX}\\) is NP-hard: given \\(n\\) and \\(S\\subseteq [n]\\times[n]\\), decide whether \\(\\pi_S(\\mathrm{SO}(n))\\) is convex.",
+  "location_in_paper": "Page 29, Section 8 (Summary and open questions), paragraph 'Convex coordinate projections'",
+  "open_problem_quote": "Conjecture 1. The problem CONVEX is NP-hard.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "special orthogonal group",
+    "hidden convexity",
+    "coordinate projection",
+    "convexity decision problem",
+    "computational complexity",
+    "np-hardness"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "NP-hardness is a complexity-theoretic statement typically requiring a reduction, not a finite counterexample search. While small-n experiments might suggest patterns, they cannot certify or refute NP-hardness in general.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could search for reductions from known NP-hard problems to structured instances of coordinate sets \\(S\\), with automated verification on bounded sizes as a heuristic fitness signal. However, the true objective (a correct polynomial-time reduction) is hard to validate automatically and ultimately needs a human proof.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.061845000000000004,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.061845000000000004
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400196985/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

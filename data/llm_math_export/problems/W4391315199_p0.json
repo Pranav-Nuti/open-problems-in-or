@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4391315199_p0",
+  "paper_id": "W4391315199",
+  "source_paper": "W4391315199",
+  "source_paper_title": "Joint Mixability and Notions of Negative Dependence",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0121",
+  "source_paper_authors": [
+    "Takaaki Koike",
+    "Liyuan Lin",
+    "Ruodu Wang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Koike_2024, title={Joint Mixability and Notions of Negative Dependence}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0121}, DOI={10.1287/moor.2022.0121}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Koike, Takaaki and Lin, Liyuan and Wang, Ruodu}, year={2024}, month=nov, pages={2786\u20132802} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Conclusion), page 19 (in the provided parsed text; labeled page 19/32).\n\nAssuming homogeneous marginals, does an exchangeable joint mix solve problem (8) for a general convex cost function f? In Theorem 4, we showed that this holds true for quadratic cost. We also know that a joint mix is an optimizer for the general convex cost problem without uncertainty. These observations seem to hint at the possible optimality of some exchangeable joint mix for general convex cost under uncertainty, but we do not have a proof.",
+  "title": "Extend exchangeable joint-mix optimality for uncertain subsets under general convex costs",
+  "background_latex": "Let \\(n\\ge 2\\) and let \\([n]=\\{1,\\dots,n\\}\\). Let \\(F\\) be a univariate probability distribution on \\(\\mathbb{R}\\) with finite second moment, and consider random vectors \\(X=(X_1,\\dots,X_n)\\) such that \\(X_i\\sim F\\) for all \\(i\\in[n]\\) (identical marginals).\n\nFor a subset \\(K\\subseteq[n]\\), define the partial sum \\(S_K(X)=\\sum_{i\\in K} X_i\\), with the convention \\(S_\\varnothing(X)=0\\). Let \\(f:\\mathbb{R}\\to\\mathbb{R}\\) be a convex measurable function such that the relevant expectations are finite.\n\nLet \\(2^{[n]}\\) denote the power set of \\([n]\\). For a probability measure \\(\\mu\\) on \\(2^{[n]}\\), define the uncertainty-averaged cost functional\n\\[\nC_f^\\mu(X):=\\sum_{K\\subseteq[n]} \\mathbb{E}\\bigl[f(S_K(X))\\bigr]\\,\\mu(K).\n\\]\nLet \\(\\mathcal{M}\\) be a nonempty set of probability measures on \\(2^{[n]}\\) (an \"uncertainty set\"). Call \\(\\mathcal{M}\\) symmetric if for every \\(\\mu\\in\\mathcal{M}\\) and every permutation \\(\\pi\\) of \\([n]\\), the permuted measure \\(\\mu^\\pi\\) defined by \\(\\mu^\\pi(K)=\\mu(\\pi(K))\\) also lies in \\(\\mathcal{M}\\), where \\(\\pi(K)=\\{\\pi(i): i\\in K\\}\\).\n\nThe robust multi-marginal transport problem under subset uncertainty is\n\\[\n\\inf\\Bigl\\{\\sup_{\\mu\\in\\mathcal{M}} C_f^\\mu(X):\\ X_i\\sim F\\ \\text{for all } i\\in[n]\\Bigr\\}.\n\\]\nA random vector \\(X\\) is exchangeable if \\((X_1,\\dots,X_n)\\) is distributionally invariant under permutations of coordinates. A joint mix is a vector with \\(\\sum_{i=1}^n X_i=c\\) almost surely for some constant \\(c\\) (for identical marginals this is tied to complete mixability of \\(F\\)).",
+  "problem_definition_latex": "Assume \\(F\\) is \\(n\\)-completely mixable (so that at least one joint mix with marginals \\(F\\) exists) and assume \\(\\mathcal{M}\\) is symmetric.\n\nDetermine whether, for every convex measurable \\(f:\\mathbb{R}\\to\\mathbb{R}\\) (with finite expectations), there exists an exchangeable joint mix \\(X\\) with marginals \\(F\\) that attains the optimum of the robust problem\n\\[\n\\inf\\Bigl\\{\\sup_{\\mu\\in\\mathcal{M}} \\sum_{K\\subseteq[n]} \\mathbb{E}\\bigl[f(S_K(X))\\bigr]\\,\\mu(K):\\ X_i\\sim F\\ \\text{for all } i\\in[n]\\Bigr\\}.\n\\]\nEquivalently: characterize conditions under which some exchangeable joint mix solves the above robust optimization for general convex \\(f\\).",
+  "latex": "Let \\(n\\ge 2\\) and let \\([n]=\\{1,\\dots,n\\}\\). Let \\(F\\) be a univariate probability distribution on \\(\\mathbb{R}\\) with finite second moment, and consider random vectors \\(X=(X_1,\\dots,X_n)\\) such that \\(X_i\\sim F\\) for all \\(i\\in[n]\\) (identical marginals).\n\nFor a subset \\(K\\subseteq[n]\\), define the partial sum \\(S_K(X)=\\sum_{i\\in K} X_i\\), with the convention \\(S_\\varnothing(X)=0\\). Let \\(f:\\mathbb{R}\\to\\mathbb{R}\\) be a convex measurable function such that the relevant expectations are finite.\n\nLet \\(2^{[n]}\\) denote the power set of \\([n]\\). For a probability measure \\(\\mu\\) on \\(2^{[n]}\\), define the uncertainty-averaged cost functional\n\\[\nC_f^\\mu(X):=\\sum_{K\\subseteq[n]} \\mathbb{E}\\bigl[f(S_K(X))\\bigr]\\,\\mu(K).\n\\]\nLet \\(\\mathcal{M}\\) be a nonempty set of probability measures on \\(2^{[n]}\\) (an \"uncertainty set\"). Call \\(\\mathcal{M}\\) symmetric if for every \\(\\mu\\in\\mathcal{M}\\) and every permutation \\(\\pi\\) of \\([n]\\), the permuted measure \\(\\mu^\\pi\\) defined by \\(\\mu^\\pi(K)=\\mu(\\pi(K))\\) also lies in \\(\\mathcal{M}\\), where \\(\\pi(K)=\\{\\pi(i): i\\in K\\}\\).\n\nThe robust multi-marginal transport problem under subset uncertainty is\n\\[\n\\inf\\Bigl\\{\\sup_{\\mu\\in\\mathcal{M}} C_f^\\mu(X):\\ X_i\\sim F\\ \\text{for all } i\\in[n]\\Bigr\\}.\n\\]\nA random vector \\(X\\) is exchangeable if \\((X_1,\\dots,X_n)\\) is distributionally invariant under permutations of coordinates. A joint mix is a vector with \\(\\sum_{i=1}^n X_i=c\\) almost surely for some constant \\(c\\) (for identical marginals this is tied to complete mixability of \\(F\\)).\n\nAssume \\(F\\) is \\(n\\)-completely mixable (so that at least one joint mix with marginals \\(F\\) exists) and assume \\(\\mathcal{M}\\) is symmetric.\n\nDetermine whether, for every convex measurable \\(f:\\mathbb{R}\\to\\mathbb{R}\\) (with finite expectations), there exists an exchangeable joint mix \\(X\\) with marginals \\(F\\) that attains the optimum of the robust problem\n\\[\n\\inf\\Bigl\\{\\sup_{\\mu\\in\\mathcal{M}} \\sum_{K\\subseteq[n]} \\mathbb{E}\\bigl[f(S_K(X))\\bigr]\\,\\mu(K):\\ X_i\\sim F\\ \\text{for all } i\\in[n]\\Bigr\\}.\n\\]\nEquivalently: characterize conditions under which some exchangeable joint mix solves the above robust optimization for general convex \\(f\\).",
+  "location_in_paper": "Section 6 (Conclusion), page 19 (in the provided parsed text; labeled page 19/32).",
+  "open_problem_quote": "Assuming homogeneous marginals, does an exchangeable joint mix solve problem (8) for a general convex cost function f? In Theorem 4, we showed that this holds true for quadratic cost. We also know that a joint mix is an optimizer for the general convex cost problem without uncertainty. These observations seem to hint at the possible optimality of some exchangeable joint mix for general convex cost under uncertainty, but we do not have a proof.",
+  "area": "optimal transport",
+  "keywords": [
+    "joint mixability",
+    "negative dependence",
+    "multi-marginal optimal transport",
+    "robust optimization",
+    "convex cost",
+    "exchangeability"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For fixed small \\(n\\), one can discretize \\(F\\), choose candidate convex functions \\(f\\), and compute/approximate \\(\\sup_{\\mu\\in\\mathcal{M}} C_f^\\mu(X)\\) over parametrized couplings (e.g., via linear programming on finite supports), making automated searches for counterexamples plausible. However, the space of convex \\(f\\) and uncertainty sets \\(\\mathcal{M}\\) is large, and proving nonexistence would still require theoretical arguments beyond a finite search.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate couplings (including exchangeable ones) can be represented algorithmically (e.g., via transport plans on grids or copula parametrizations), and a fitness signal can be the computed robust objective \\(\\sup_{\\mu\\in\\mathcal{M}} C_f^\\mu(X)\\) for chosen \\(f\\) and \\(\\mathcal{M}\\). Evolutionary search could discover couplings that outperform exchangeable joint mixes on discretized instances or suggest extremal structures, but scaling and the need to cover general convex \\(f\\) limit full reliability.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.05926200000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.05926200000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391315199/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
