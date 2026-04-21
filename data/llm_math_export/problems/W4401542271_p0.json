@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4401542271_p0",
+  "paper_id": "W4401542271",
+  "source_paper": "W4401542271",
+  "source_paper_title": "On the Set of Balanced Games",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0379",
+  "source_paper_authors": [
+    "P. Garc\u00eda-Segador",
+    "Michel Grabisch",
+    "Pedro Miranda"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Garcia_Segador_2025, title={On the Set of Balanced Games}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0379}, DOI={10.1287/moor.2023.0379}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Garcia-Segador, Pedro and Grabisch, Michel and Miranda, Pedro}, year={2025}, month=aug, pages={2047\u20132072} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Introduction, page 2 (discussion of minimal balanced collections and enumeration); also referenced indirectly in Section 5.5 via the number of facets depending on the number of minimal balanced collections.\n\nIndeed, the concept of minimal balanced collection generalizes the concept of partitions, and their enumeration remains a problem.",
+  "title": "Enumerate minimal balanced collections on n players in cooperative games",
+  "background_latex": "Let \\(N=\\{1,\\dots,n\\}\\). A (transferable-utility) cooperative game is a set function \\(v:2^N\\to\\mathbb{R}\\) with \\(v(\\emptyset)=0\\).\n\nA family \\(\\mathcal{B}\\subseteq 2^N\\setminus\\{\\emptyset\\}\\) of nonempty coalitions is called a balanced collection if there exist strictly positive weights \\(\\lambda_S>0\\) for \\(S\\in\\mathcal{B}\\) such that each player is covered with total weight 1:\n\\[\n\\sum_{S\\in\\mathcal{B}:\\ i\\in S} \\lambda_S = 1,\\qquad \\forall i\\in N.\n\\]\nA balanced collection \\(\\mathcal{B}\\) is minimal if it contains no proper subcollection that is balanced. (Equivalently, \\(\\mathcal{B}\\) is inclusion-minimal among balanced collections.)\n\nWrite \\(\\mathcal{B}^*(n)\\) for the set of all minimal balanced collections on \\(N\\) excluding the trivial collection \\(\\{N\\}\\). It is known that \\(\\mathcal{B}^*(n)\\) is finite and that any minimal balanced collection has cardinality at most \\(n\\).",
+  "problem_definition_latex": "Given \\(n\\ge 1\\), determine (exactly) the set \\(\\mathcal{B}^*(n)\\) of all minimal balanced collections on \\(N=\\{1,\\dots,n\\}\\), or at least determine \\(|\\mathcal{B}^*(n)|\\) (the number of minimal balanced collections) as an explicit function of \\(n\\).",
+  "latex": "Let \\(N=\\{1,\\dots,n\\}\\). A (transferable-utility) cooperative game is a set function \\(v:2^N\\to\\mathbb{R}\\) with \\(v(\\emptyset)=0\\).\n\nA family \\(\\mathcal{B}\\subseteq 2^N\\setminus\\{\\emptyset\\}\\) of nonempty coalitions is called a balanced collection if there exist strictly positive weights \\(\\lambda_S>0\\) for \\(S\\in\\mathcal{B}\\) such that each player is covered with total weight 1:\n\\[\n\\sum_{S\\in\\mathcal{B}:\\ i\\in S} \\lambda_S = 1,\\qquad \\forall i\\in N.\n\\]\nA balanced collection \\(\\mathcal{B}\\) is minimal if it contains no proper subcollection that is balanced. (Equivalently, \\(\\mathcal{B}\\) is inclusion-minimal among balanced collections.)\n\nWrite \\(\\mathcal{B}^*(n)\\) for the set of all minimal balanced collections on \\(N\\) excluding the trivial collection \\(\\{N\\}\\). It is known that \\(\\mathcal{B}^*(n)\\) is finite and that any minimal balanced collection has cardinality at most \\(n\\).\n\nGiven \\(n\\ge 1\\), determine (exactly) the set \\(\\mathcal{B}^*(n)\\) of all minimal balanced collections on \\(N=\\{1,\\dots,n\\}\\), or at least determine \\(|\\mathcal{B}^*(n)|\\) (the number of minimal balanced collections) as an explicit function of \\(n\\).",
+  "location_in_paper": "Introduction, page 2 (discussion of minimal balanced collections and enumeration); also referenced indirectly in Section 5.5 via the number of facets depending on the number of minimal balanced collections.",
+  "open_problem_quote": "Indeed, the concept of minimal balanced collection generalizes the concept of partitions, and their enumeration remains a problem.",
+  "area": "cooperative game theory",
+  "keywords": [
+    "balanced collections",
+    "core nonemptiness",
+    "Bondareva-Shapley theorem",
+    "polyhedral cones",
+    "facet enumeration",
+    "set systems"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "This is an enumeration/characterization problem rather than a universal inequality where one searches for a counterexample. While one can brute-force small \\(n\\), the search space of set families grows doubly exponentially and does not naturally fit a counterexample-finding workflow.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could search for patterns, recurrences, or constructive generation algorithms for minimal balanced collections and validate them computationally for small \\(n\\). However, scaling and proving correctness for general \\(n\\) is nontrivial, so automated search is more likely to yield conjectures than full solutions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06445075,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06445075
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401542271/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

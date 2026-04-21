@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4408446556_p0",
+  "paper_id": "W4408446556",
+  "source_paper": "W4408446556",
+  "source_paper_title": "Convergence of Augmented Lagrangian Methods for Composite Optimization Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0324",
+  "source_paper_authors": [
+    "Nguyen T. V. Hang",
+    "Ebrahim Sarabi"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Van_Hang_2026, title={Convergence of Augmented Lagrangian Methods for Composite Optimization Problems}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0324}, DOI={10.1287/moor.2023.0324}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Van Hang, Nguyen Thi and Sarabi, Ebrahim}, year={2026}, month=jan, pages={591\u2013620} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 18, end of Section 3 (immediately after Theorem 3.9).\n\nThe main question that remains open here is whether \\(C^2\\)-decomposable functions satisfy in (3.14).",
+  "title": "Equality between semi-strict and strict subgradient derivatives for C2-decomposable functions",
+  "background_latex": "Let \\(Y\\) be a finite-dimensional Hilbert space, and let \\(g:Y\\to\\overline{\\mathbb R}:=[-\\infty,\\infty]\\) be a proper lower-semicontinuous convex function.\n\nFor \\(\\bar u\\in Y\\) with \\(g(\\bar u)<\\infty\\) and \\(\\bar y\\in \\partial g(\\bar u)\\), define:\n\n1) The (limiting/convex) subdifferential \\(\\partial g(\\bar u)\\).\n\n2) The subderivative (first-order epi-derivative)\n\\[\n dg(\\bar u)(w):=\\liminf_{t\\downarrow 0,\\,w'\\to w}\\frac{g(\\bar u+t w')-g(\\bar u)}{t}.\n\\]\n\n3) The critical cone of \\(g\\) at \\(\\bar u\\) for \\(\\bar y\\):\n\\[\n K_g(\\bar u,\\bar y):=\\{w\\in Y\\mid \\langle \\bar y,w\\rangle = dg(\\bar u)(w)\\}.\n\\]\n\n4) The second subderivative of \\(g\\) at \\(\\bar u\\) for \\(\\bar y\\), defined via second-order difference quotients\n\\[\n\\Delta_t^2 g(\\bar u,\\bar y)(w):=\\frac{g(\\bar u+t w)-g(\\bar u)-t\\langle \\bar y,w\\rangle}{\\tfrac12 t^2},\\qquad t>0,\n\\]\n\\[\n d^2 g(\\bar u,\\bar y)(w):=\\liminf_{t\\downarrow 0,\\,w'\\to w}\\Delta_t^2 g(\\bar u,\\bar y)(w').\n\\]\n\n5) The graphical derivative \\(D(\\partial g)(\\bar u,\\bar y)\\) of the set-valued mapping \\(\\partial g\\) at \\((\\bar u,\\bar y)\\), and the tangent cone \\(T_{\\partial g(\\bar u)}(\\bar y)\\) to the (convex) set \\(\\partial g(\\bar u)\\) at \\(\\bar y\\).\n\n6) The semi-strict graphical derivative \\(D^b(\\partial g)(\\bar u,\\bar y)\\) (as defined by the outer limit representation)\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w):=\\limsup_{t\\downarrow 0,\\,w'\\to w\\,;\\,y\\to \\bar y,\\,y\\in \\partial g(\\bar u)}\\frac{\\partial g(\\bar u+t w')-y}{t}.\n\\]\n\nThe paper studies conditions under which one has the identity\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w)=\\operatorname{cl}\\Big(D(\\partial g)(\\bar u,\\bar y)(w)-K_g(\\bar u,\\bar y)^*\\Big)\\quad \\text{for all }w\\in Y,\n\\]\nwhere \\(K_g(\\bar u,\\bar y)^*\\) denotes the polar cone of \\(K_g(\\bar u,\\bar y)\\).\n\nA key function class in the paper is that of \\(C^2\\)-decomposable convex functions. A convex function \\(g\\) is \\(C^2\\)-decomposable at \\(\\bar u\\) if there exist a neighborhood \\(O\\subset Y\\) of \\(\\bar u\\), a finite-dimensional Hilbert space \\(Z\\), a \\(C^2\\)-smooth mapping \\(\\Xi:O\\to Z\\) with \\(\\Xi(\\bar u)=0\\), and a proper lsc sublinear function \\(\\vartheta:Z\\to\\overline{\\mathbb R}\\) such that\n\\[\n g(u)=g(\\bar u)+\\vartheta(\\Xi(u))\\quad \\text{for all }u\\in O.\n\\]\n(Various additional regularity conditions, such as nondegeneracy and dual conditions, are discussed in the paper, but the open question below is about whether the above identity holds in general for \\(C^2\\)-decomposable \\(g\\).)",
+  "problem_definition_latex": "Determine whether every convex function \\(g:Y\\to\\overline{\\mathbb R}\\) that is \\(C^2\\)-decomposable at \\(\\bar u\\in Y\\) satisfies, for each \\(\\bar y\\in \\partial g(\\bar u)\\), the identity\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w)=\\operatorname{cl}\\Big(D(\\partial g)(\\bar u,\\bar y)(w)-K_g(\\bar u,\\bar y)^*\\Big)\\quad \\text{for all }w\\in Y.\n\\]\nEquivalently: characterize whether the semi-strict graphical derivative of the subgradient mapping \\(\\partial g\\) can always be expressed as the (closure of the) Minkowski difference between the graphical derivative \\(D(\\partial g)(\\bar u,\\bar y)\\) and the polar cone \\(K_g(\\bar u,\\bar y)^*\\) when \\(g\\) is \\(C^2\\)-decomposable.",
+  "latex": "Let \\(Y\\) be a finite-dimensional Hilbert space, and let \\(g:Y\\to\\overline{\\mathbb R}:=[-\\infty,\\infty]\\) be a proper lower-semicontinuous convex function.\n\nFor \\(\\bar u\\in Y\\) with \\(g(\\bar u)<\\infty\\) and \\(\\bar y\\in \\partial g(\\bar u)\\), define:\n\n1) The (limiting/convex) subdifferential \\(\\partial g(\\bar u)\\).\n\n2) The subderivative (first-order epi-derivative)\n\\[\n dg(\\bar u)(w):=\\liminf_{t\\downarrow 0,\\,w'\\to w}\\frac{g(\\bar u+t w')-g(\\bar u)}{t}.\n\\]\n\n3) The critical cone of \\(g\\) at \\(\\bar u\\) for \\(\\bar y\\):\n\\[\n K_g(\\bar u,\\bar y):=\\{w\\in Y\\mid \\langle \\bar y,w\\rangle = dg(\\bar u)(w)\\}.\n\\]\n\n4) The second subderivative of \\(g\\) at \\(\\bar u\\) for \\(\\bar y\\), defined via second-order difference quotients\n\\[\n\\Delta_t^2 g(\\bar u,\\bar y)(w):=\\frac{g(\\bar u+t w)-g(\\bar u)-t\\langle \\bar y,w\\rangle}{\\tfrac12 t^2},\\qquad t>0,\n\\]\n\\[\n d^2 g(\\bar u,\\bar y)(w):=\\liminf_{t\\downarrow 0,\\,w'\\to w}\\Delta_t^2 g(\\bar u,\\bar y)(w').\n\\]\n\n5) The graphical derivative \\(D(\\partial g)(\\bar u,\\bar y)\\) of the set-valued mapping \\(\\partial g\\) at \\((\\bar u,\\bar y)\\), and the tangent cone \\(T_{\\partial g(\\bar u)}(\\bar y)\\) to the (convex) set \\(\\partial g(\\bar u)\\) at \\(\\bar y\\).\n\n6) The semi-strict graphical derivative \\(D^b(\\partial g)(\\bar u,\\bar y)\\) (as defined by the outer limit representation)\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w):=\\limsup_{t\\downarrow 0,\\,w'\\to w\\,;\\,y\\to \\bar y,\\,y\\in \\partial g(\\bar u)}\\frac{\\partial g(\\bar u+t w')-y}{t}.\n\\]\n\nThe paper studies conditions under which one has the identity\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w)=\\operatorname{cl}\\Big(D(\\partial g)(\\bar u,\\bar y)(w)-K_g(\\bar u,\\bar y)^*\\Big)\\quad \\text{for all }w\\in Y,\n\\]\nwhere \\(K_g(\\bar u,\\bar y)^*\\) denotes the polar cone of \\(K_g(\\bar u,\\bar y)\\).\n\nA key function class in the paper is that of \\(C^2\\)-decomposable convex functions. A convex function \\(g\\) is \\(C^2\\)-decomposable at \\(\\bar u\\) if there exist a neighborhood \\(O\\subset Y\\) of \\(\\bar u\\), a finite-dimensional Hilbert space \\(Z\\), a \\(C^2\\)-smooth mapping \\(\\Xi:O\\to Z\\) with \\(\\Xi(\\bar u)=0\\), and a proper lsc sublinear function \\(\\vartheta:Z\\to\\overline{\\mathbb R}\\) such that\n\\[\n g(u)=g(\\bar u)+\\vartheta(\\Xi(u))\\quad \\text{for all }u\\in O.\n\\]\n(Various additional regularity conditions, such as nondegeneracy and dual conditions, are discussed in the paper, but the open question below is about whether the above identity holds in general for \\(C^2\\)-decomposable \\(g\\).)\n\nDetermine whether every convex function \\(g:Y\\to\\overline{\\mathbb R}\\) that is \\(C^2\\)-decomposable at \\(\\bar u\\in Y\\) satisfies, for each \\(\\bar y\\in \\partial g(\\bar u)\\), the identity\n\\[\n D^b(\\partial g)(\\bar u,\\bar y)(w)=\\operatorname{cl}\\Big(D(\\partial g)(\\bar u,\\bar y)(w)-K_g(\\bar u,\\bar y)^*\\Big)\\quad \\text{for all }w\\in Y.\n\\]\nEquivalently: characterize whether the semi-strict graphical derivative of the subgradient mapping \\(\\partial g\\) can always be expressed as the (closure of the) Minkowski difference between the graphical derivative \\(D(\\partial g)(\\bar u,\\bar y)\\) and the polar cone \\(K_g(\\bar u,\\bar y)^*\\) when \\(g\\) is \\(C^2\\)-decomposable.",
+  "location_in_paper": "Page 18, end of Section 3 (immediately after Theorem 3.9).",
+  "open_problem_quote": "The main question that remains open here is whether \\(C^2\\)-decomposable functions satisfy in (3.14).",
+  "area": "nonlinear optimization",
+  "keywords": [
+    "augmented Lagrangian",
+    "C2-decomposable functions",
+    "subgradient mapping",
+    "graphical derivative",
+    "critical cone",
+    "metric subregularity"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample would be a specific convex C2-decomposable function together with a point \\((\\bar u,\\bar y)\\) where the derivative identity fails. While the search space is not finite, one can parameterize candidate C2-decompositions \\(\\vartheta\\circ\\Xi\\) (e.g., cones, spectral functions, gauge/indicator sublinear \\(\\vartheta\\)) and numerically approximate tangent/graphical derivatives to test the identity on sampled directions.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidates by code generating \\(\\Xi\\) and sublinear \\(\\vartheta\\), then approximate \\(D(\\partial g)\\), \\(D^b(\\partial g)\\), and \\(K_g^*\\) using finite-difference/outer-limit sampling to build a computable fitness signal measuring violation of the identity. However, accurately computing these set-valued derivatives is delicate and may require sophisticated numerical proxies, limiting automation reliability.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.1007965,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.1007965
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408446556/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

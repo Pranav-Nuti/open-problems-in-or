@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4400732905_p0",
+  "paper_id": "W4400732905",
+  "source_paper": "W4400732905",
+  "source_paper_title": "Risk-Averse Markov Decision Processes Through a Distributional Lens",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0211",
+  "source_paper_authors": [
+    "Ziteng Cheng",
+    "Sebastian Jaimungal"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Cheng_2025, title={Risk-Averse Markov Decision Processes Through a Distributional Lens}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0211}, DOI={10.1287/moor.2023.0211}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cheng, Ziteng and Jaimungal, Sebastian}, year={2025}, month=aug, pages={1707\u20131733} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 14, Remark 2.12 (problem formulation discussion)\n\nAnother potentially promising approach to address uncertainty in the discount factor \\(\\gamma\\) involves considering the limit of \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C(X,A))\\) as \\(\\gamma \\to 1\\). In the risk-neutral setting with discrete state and action spaces, it has been shown that this limit while scaled properly coincides with average optimality (cf. [51, Corollary 8.2.5], [30]). However, the equivalence of this limit in current context remains unclear.",
+  "title": "Equivalence between discount-to-one limit and average optimality in risk-averse MDPs",
+  "background_latex": "Consider a discrete-time controlled Markov process with state space \\(X\\) and action space \\(A\\), with (possibly randomized) Markov policies \\(p=(\\pi_t)_{t\\in\\mathbb{N}}\\), where each \\(\\pi_t(x)\\) is a probability measure on \\(A\\) supported on an admissible set \\(A_t(x)\\subseteq A\\). Let \\(P(t,x,a,\\cdot)\\) be a transition kernel on \\(X\\), and let \\(C_t(x,a,x')\\in\\mathbb{R}\\) be a bounded one-step cost. \n\nFix a discount factor \\(\\gamma\\in(0,1)\\). A (time- and state-dependent) law-invariant convex risk measure at the distributional level is a functional \\(\\sigma_{t,x}\\) mapping the law \\(\\mu\\) of a bounded real random variable to a value in \\(( -\\infty,\\infty]\\), satisfying (i) translation invariance \\(\\sigma_{t,x}(\\mu*\\delta_c)=\\sigma_{t,x}(\\mu)+c\\), (ii) monotonicity with respect to first-order stochastic dominance, and (iii) convexity with respect to mixtures (as formalized on probability measures). A dynamic risk measure (DRM) \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) is constructed by nesting/composing the one-step risk mappings \\(\\sigma_{t,X_t}\\) applied to regular conditional distributions of future (discounted) cost streams under a controlled process \\((X,A)\\).\n\nFor each \\(\\gamma\\in(0,1)\\), define the infinite-horizon discounted risk-averse performance criterion (value) under an admissible policy (or controlled process) as \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\). In classical risk-neutral MDPs with finite state/action spaces, the scaled limit \\((1-\\gamma)\\, \\mathbb{E}[\\sum_{t\\ge 0} \\gamma^t C_t]\\) as \\(\\gamma\\uparrow 1\\) coincides with the optimal long-run average cost under suitable conditions; the paper highlights that an analogous statement for the present risk-averse DRM framework is not established.",
+  "problem_definition_latex": "Establish conditions under which the discount-to-one limit of the discounted infinite-horizon distributional dynamic risk measure recovers an average-optimality criterion. Concretely, analyze whether there is an average-cost (or average-risk) optimality notion \\(\\mathrm{Avg}(C)\\) for the risk-averse MDP such that, for appropriate scaling and under suitable assumptions,\n\\[\n\\lim_{\\gamma\\uparrow 1}\\, (1-\\gamma)\\, \\inf_{(X,A)\\in\\Psi}\\, \\varsigma^{X,\\gamma}_{0,\\infty}(C) \n\\quad\\text{equals}\\quad\n\\inf_{\\text{admissible policies}}\\, \\mathrm{Avg}(C),\n\\]\nor otherwise characterize the limit \\(\\lim_{\\gamma\\uparrow 1} \\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) (possibly after scaling) and its relationship to an average optimality objective in this risk-averse setting.",
+  "latex": "Consider a discrete-time controlled Markov process with state space \\(X\\) and action space \\(A\\), with (possibly randomized) Markov policies \\(p=(\\pi_t)_{t\\in\\mathbb{N}}\\), where each \\(\\pi_t(x)\\) is a probability measure on \\(A\\) supported on an admissible set \\(A_t(x)\\subseteq A\\). Let \\(P(t,x,a,\\cdot)\\) be a transition kernel on \\(X\\), and let \\(C_t(x,a,x')\\in\\mathbb{R}\\) be a bounded one-step cost. \n\nFix a discount factor \\(\\gamma\\in(0,1)\\). A (time- and state-dependent) law-invariant convex risk measure at the distributional level is a functional \\(\\sigma_{t,x}\\) mapping the law \\(\\mu\\) of a bounded real random variable to a value in \\(( -\\infty,\\infty]\\), satisfying (i) translation invariance \\(\\sigma_{t,x}(\\mu*\\delta_c)=\\sigma_{t,x}(\\mu)+c\\), (ii) monotonicity with respect to first-order stochastic dominance, and (iii) convexity with respect to mixtures (as formalized on probability measures). A dynamic risk measure (DRM) \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) is constructed by nesting/composing the one-step risk mappings \\(\\sigma_{t,X_t}\\) applied to regular conditional distributions of future (discounted) cost streams under a controlled process \\((X,A)\\).\n\nFor each \\(\\gamma\\in(0,1)\\), define the infinite-horizon discounted risk-averse performance criterion (value) under an admissible policy (or controlled process) as \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\). In classical risk-neutral MDPs with finite state/action spaces, the scaled limit \\((1-\\gamma)\\, \\mathbb{E}[\\sum_{t\\ge 0} \\gamma^t C_t]\\) as \\(\\gamma\\uparrow 1\\) coincides with the optimal long-run average cost under suitable conditions; the paper highlights that an analogous statement for the present risk-averse DRM framework is not established.\n\nEstablish conditions under which the discount-to-one limit of the discounted infinite-horizon distributional dynamic risk measure recovers an average-optimality criterion. Concretely, analyze whether there is an average-cost (or average-risk) optimality notion \\(\\mathrm{Avg}(C)\\) for the risk-averse MDP such that, for appropriate scaling and under suitable assumptions,\n\\[\n\\lim_{\\gamma\\uparrow 1}\\, (1-\\gamma)\\, \\inf_{(X,A)\\in\\Psi}\\, \\varsigma^{X,\\gamma}_{0,\\infty}(C) \n\\quad\\text{equals}\\quad\n\\inf_{\\text{admissible policies}}\\, \\mathrm{Avg}(C),\n\\]\nor otherwise characterize the limit \\(\\lim_{\\gamma\\uparrow 1} \\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) (possibly after scaling) and its relationship to an average optimality objective in this risk-averse setting.",
+  "location_in_paper": "Page 14, Remark 2.12 (problem formulation discussion)",
+  "open_problem_quote": "Another potentially promising approach to address uncertainty in the discount factor \\(\\gamma\\) involves considering the limit of \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C(X,A))\\) as \\(\\gamma \\to 1\\). In the risk-neutral setting with discrete state and action spaces, it has been shown that this limit while scaled properly coincides with average optimality (cf. [51, Corollary 8.2.5], [30]). However, the equivalence of this limit in current context remains unclear.",
+  "area": "online algorithms",
+  "keywords": [
+    "risk-averse mdp",
+    "dynamic risk measures",
+    "discount factor limit",
+    "average optimality",
+    "Blackwell optimality"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can search over small finite-state/action MDPs and specific law-invariant convex risk measures (e.g., entropic or CVaR-based nested risk) to numerically test whether a proposed scaling limit matches a candidate average-cost notion. However, the space of admissible DRMs and technical conditions is broad, and failures may depend on subtle regularity assumptions, making brute-force falsification only moderately feasible.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary code loop could parameterize finite MDP instances and families of state-dependent risk measures, then optimize policies and estimate \\(\\varsigma^{X,\\gamma}_{0,\\infty}\\) for \\(\\gamma\\) near 1 to detect convergence patterns and hypothesize correct scaling/average criteria. The fitness signal (numerical discrepancy between scaled discounted values and candidate average-risk values) is computable, but expensive and potentially noisy due to near-unit discounting and nested risk evaluation.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09235974999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09235974999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400732905/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3214544052_p0",
+  "paper_id": "W3214544052",
+  "source_paper": "W3214544052",
+  "source_paper_title": "Online Estimation and Optimization of Utility-Based Shortfall Risk",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0266",
+  "source_paper_authors": [
+    "V. S. Hegde",
+    "Arvind S. Menon",
+    "L. A. Prashanth",
+    "Krishna Jagannathan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Hegde_2025, title={Online Estimation and Optimization of Utility-Based Shortfall Risk}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0266}, DOI={10.1287/moor.2022.0266}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hegde, Vishwajit and Menon, Arvind Satish and Prashanth, L.A. and Jagannathan, Krishna}, year={2025}, month=nov, pages={2470\u20132501} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 33, Section 9 (Concluding Remarks and Future Work).\n\nThird, it remains open to extend our finite sample bounds to the estimator of multivariate shortfall risk measure (MSRM) [2]. In a recent work [41], the authors derive asymptotic consistency and normality results for an estimator of MSRM, while finite sample bounds are not available.",
+  "title": "Finite-sample bounds for multivariate shortfall risk estimators with streaming samples",
+  "background_latex": "Let \\((\\Omega,\\mathcal F,\\mathbb P)\\) be a probability space. Fix an integer dimension \\(d\\ge 2\\). Let \\(X\\in L^\\infty(\\Omega;\\mathbb R^d)\\) be a bounded \\(d\\)-dimensional random vector representing (componentwise) losses or positions.\n\nLet \\(\\ell:\\mathbb R^d\\to\\mathbb R\\) be a convex loss/utility-penalty function (sometimes called an aggregation loss), and let \\(\\lambda\\in\\mathbb R\\) be a fixed risk-level parameter (assumed to be in the interior of the range of \\(\\ell\\) under the law of the argument in question).\n\nDefine the acceptance set\n\\[\n\\mathcal A := \\bigl\\{Y\\in L^\\infty(\\Omega;\\mathbb R^d): \\ \\mathbb E[\\,\\ell(-Y)\\,] \\le \\lambda\\bigr\\}.\n\\]\n\nA multivariate shortfall risk measure (MSRM) is a multivariate analogue of utility-based shortfall risk, defined via the cash-additivity/translation of the acceptance set: for a given position \\(X\\), one seeks a deterministic capital allocation vector \\(m\\in\\mathbb R^d\\) such that \\(X+m\\in\\mathcal A\\); one may consider the set of admissible allocations\n\\[\n\\mathcal R_\\lambda(X) := \\{m\\in\\mathbb R^d : \\mathbb E[\\ell(-(X+m))]\\le \\lambda\\},\n\\]\nand/or a scalarized risk value derived from \\(\\mathcal R_\\lambda(X)\\) (the precise scalarization depends on the MSRM definition).\n\nAssume an online/streaming observation model: samples \\(\\{X_i\\}_{i\\ge 1}\\) are revealed one-at-a-time, where \\(X_i\\) are i.i.d. copies of \\(X\\). An estimator for an MSRM is any measurable mapping \\(\\widehat{\\mathcal R}_{\\lambda,n}\\) (or \\(\\widehat m_n\\)) computed from \\(X_1,\\dots,X_n\\). \u201cFinite-sample bounds\u201d refers to non-asymptotic guarantees (e.g., mean-squared error or concentration inequalities) as explicit functions of \\(n\\).",
+  "problem_definition_latex": "Develop non-asymptotic (finite-sample) performance guarantees for an online/streaming estimator of a multivariate shortfall risk measure (MSRM) based on i.i.d. samples \\(X_1,\\dots,X_n\\) of a bounded random vector \\(X\\in\\mathbb R^d\\).\n\nConcretely, provide explicit bounds (in \\(n\\)) on the estimation error of an MSRM estimator \\(\\widehat{\\mathcal R}_{\\lambda,n}\\) (or an estimated capital allocation \\(\\widehat m_n\\in\\mathbb R^d\\)) relative to the target MSRM determined by \\(\\ell\\) and \\(\\lambda\\), analogous in spirit to finite-sample bounds available for the univariate utility-based shortfall risk estimator.",
+  "latex": "Let \\((\\Omega,\\mathcal F,\\mathbb P)\\) be a probability space. Fix an integer dimension \\(d\\ge 2\\). Let \\(X\\in L^\\infty(\\Omega;\\mathbb R^d)\\) be a bounded \\(d\\)-dimensional random vector representing (componentwise) losses or positions.\n\nLet \\(\\ell:\\mathbb R^d\\to\\mathbb R\\) be a convex loss/utility-penalty function (sometimes called an aggregation loss), and let \\(\\lambda\\in\\mathbb R\\) be a fixed risk-level parameter (assumed to be in the interior of the range of \\(\\ell\\) under the law of the argument in question).\n\nDefine the acceptance set\n\\[\n\\mathcal A := \\bigl\\{Y\\in L^\\infty(\\Omega;\\mathbb R^d): \\ \\mathbb E[\\,\\ell(-Y)\\,] \\le \\lambda\\bigr\\}.\n\\]\n\nA multivariate shortfall risk measure (MSRM) is a multivariate analogue of utility-based shortfall risk, defined via the cash-additivity/translation of the acceptance set: for a given position \\(X\\), one seeks a deterministic capital allocation vector \\(m\\in\\mathbb R^d\\) such that \\(X+m\\in\\mathcal A\\); one may consider the set of admissible allocations\n\\[\n\\mathcal R_\\lambda(X) := \\{m\\in\\mathbb R^d : \\mathbb E[\\ell(-(X+m))]\\le \\lambda\\},\n\\]\nand/or a scalarized risk value derived from \\(\\mathcal R_\\lambda(X)\\) (the precise scalarization depends on the MSRM definition).\n\nAssume an online/streaming observation model: samples \\(\\{X_i\\}_{i\\ge 1}\\) are revealed one-at-a-time, where \\(X_i\\) are i.i.d. copies of \\(X\\). An estimator for an MSRM is any measurable mapping \\(\\widehat{\\mathcal R}_{\\lambda,n}\\) (or \\(\\widehat m_n\\)) computed from \\(X_1,\\dots,X_n\\). \u201cFinite-sample bounds\u201d refers to non-asymptotic guarantees (e.g., mean-squared error or concentration inequalities) as explicit functions of \\(n\\).\n\nDevelop non-asymptotic (finite-sample) performance guarantees for an online/streaming estimator of a multivariate shortfall risk measure (MSRM) based on i.i.d. samples \\(X_1,\\dots,X_n\\) of a bounded random vector \\(X\\in\\mathbb R^d\\).\n\nConcretely, provide explicit bounds (in \\(n\\)) on the estimation error of an MSRM estimator \\(\\widehat{\\mathcal R}_{\\lambda,n}\\) (or an estimated capital allocation \\(\\widehat m_n\\in\\mathbb R^d\\)) relative to the target MSRM determined by \\(\\ell\\) and \\(\\lambda\\), analogous in spirit to finite-sample bounds available for the univariate utility-based shortfall risk estimator.",
+  "location_in_paper": "Page 33, Section 9 (Concluding Remarks and Future Work).",
+  "open_problem_quote": "Third, it remains open to extend our finite sample bounds to the estimator of multivariate shortfall risk measure (MSRM) [2]. In a recent work [41], the authors derive asymptotic consistency and normality results for an estimator of MSRM, while finite sample bounds are not available.",
+  "area": "online learning",
+  "keywords": [
+    "shortfall risk",
+    "multivariate risk measures",
+    "stochastic approximation",
+    "finite-sample bounds",
+    "streaming estimation",
+    "concentration inequalities"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem asks for universal upper bounds (rates and constants) rather than existence of a counterexample. Automated search over instances is unlikely to falsify the statement, since the missing object is a proof technique and a bound that should hold uniformly over distributions satisfying assumptions.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate MSRM estimators/recursions (e.g., projected stochastic approximation schemes in \\(\\mathbb R^d\\)) and evaluate them empirically on simulated distributions with a computable proxy loss (empirical risk of constraint violation or distance to a high-accuracy offline solution). However, translating empirical performance into provable finite-sample bounds would still require substantial human proof work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08149575,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08149575
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3214544052/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

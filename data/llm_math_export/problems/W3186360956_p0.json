@@ -1,0 +1,59 @@
+{
+  "problem_id": "W3186360956_p0",
+  "paper_id": "W3186360956",
+  "source_paper": "W3186360956",
+  "source_paper_title": "Extension of Additive Valuations to General Valuations on the Existence of EFX",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0044",
+  "source_paper_authors": [
+    "Ryoga Mahara"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Mahara_2024, title={Extension of Additive Valuations to General Valuations on the Existence of EFX}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0044}, DOI={10.1287/moor.2022.0044}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Mahara, Ryoga}, year={2024}, month=may, pages={1263\u20131277} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 2, Introduction (discussion of prior work and open status of EFX existence for general valuations)\n\nDespite significant effort, we were not able to settle the question of whether an EFX allocation always exists (assuming all goods must be allocated), and leave it as an enigmatic open question.\nIt is not known whether EFX allocations always exist even when \\(n = 3\\) for general valuations.",
+  "title": "Prove existence of complete EFX allocations for general valuations setting",
+  "background_latex": "Let there be a finite set of indivisible items \\(M\\) and a finite set of agents \\(N=\\{1,\\dots,n\\}\\). Each agent \\(i\\in N\\) has a valuation function \\(v_i:2^M\\to \\mathbb{R}_{\\ge 0}\\) satisfying:\n1) Normalization: \\(v_i(\\varnothing)=0\\).\n2) Monotonicity: if \\(S\\subseteq T\\subseteq M\\), then \\(v_i(S)\\le v_i(T)\\).\nAn allocation is an \\(n\\)-tuple \\(X=(X_1,\\dots,X_n)\\) of pairwise-disjoint bundles \\(X_i\\subseteq M\\). It is complete if \\(\\bigcup_{i\\in N} X_i=M\\).\nFor agents \\(i,j\\in N\\), agent \\(i\\) \\emph{envies} agent \\(j\\) under allocation \\(X\\) if \\(v_i(X_i) < v_i(X_j)\\).\nAn allocation \\(X\\) is \\emph{envy-free up to any item (EFX)} if for every pair \\(i,j\\in N\\) and every item \\(g\\in X_j\\),\n\\[\n v_i(X_i) \\ge v_i(X_j\\setminus\\{g\\}).\n\\]\nEquivalently, after removing any single item from \\(j\\)'s bundle, agent \\(i\\) does not prefer the remainder to her own bundle.\nThe central general-valuation setting imposes no further structure such as additivity, submodularity, or identical valuations beyond normalization and monotonicity.",
+  "problem_definition_latex": "Given any numbers of agents \\(n\\ge 1\\), any finite item set \\(M\\), and any collection of normalized, monotone valuation functions \\(\\{v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\}_{i\\in N}\\), determine whether there must exist a complete allocation \\(X=(X_1,\\dots,X_n)\\) of \\(M\\) that is EFX, i.e., satisfies\n\\[\n\\forall i,j\\in N,\\ \\forall g\\in X_j:\\quad v_i(X_i) \\ge v_i(X_j\\setminus\\{g\\}).\n\\]\nIn particular, resolve the existence question for general valuations when all goods must be allocated.",
+  "latex": "Let there be a finite set of indivisible items \\(M\\) and a finite set of agents \\(N=\\{1,\\dots,n\\}\\). Each agent \\(i\\in N\\) has a valuation function \\(v_i:2^M\\to \\mathbb{R}_{\\ge 0}\\) satisfying:\n1) Normalization: \\(v_i(\\varnothing)=0\\).\n2) Monotonicity: if \\(S\\subseteq T\\subseteq M\\), then \\(v_i(S)\\le v_i(T)\\).\nAn allocation is an \\(n\\)-tuple \\(X=(X_1,\\dots,X_n)\\) of pairwise-disjoint bundles \\(X_i\\subseteq M\\). It is complete if \\(\\bigcup_{i\\in N} X_i=M\\).\nFor agents \\(i,j\\in N\\), agent \\(i\\) \\emph{envies} agent \\(j\\) under allocation \\(X\\) if \\(v_i(X_i) < v_i(X_j)\\).\nAn allocation \\(X\\) is \\emph{envy-free up to any item (EFX)} if for every pair \\(i,j\\in N\\) and every item \\(g\\in X_j\\),\n\\[\n v_i(X_i) \\ge v_i(X_j\\setminus\\{g\\}).\n\\]\nEquivalently, after removing any single item from \\(j\\)'s bundle, agent \\(i\\) does not prefer the remainder to her own bundle.\nThe central general-valuation setting imposes no further structure such as additivity, submodularity, or identical valuations beyond normalization and monotonicity.\n\nGiven any numbers of agents \\(n\\ge 1\\), any finite item set \\(M\\), and any collection of normalized, monotone valuation functions \\(\\{v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\}_{i\\in N}\\), determine whether there must exist a complete allocation \\(X=(X_1,\\dots,X_n)\\) of \\(M\\) that is EFX, i.e., satisfies\n\\[\n\\forall i,j\\in N,\\ \\forall g\\in X_j:\\quad v_i(X_i) \\ge v_i(X_j\\setminus\\{g\\}).\n\\]\nIn particular, resolve the existence question for general valuations when all goods must be allocated.",
+  "location_in_paper": "Page 2, Introduction (discussion of prior work and open status of EFX existence for general valuations)",
+  "open_problem_quote": "Despite significant effort, we were not able to settle the question of whether an EFX allocation always exists (assuming all goods must be allocated), and leave it as an enigmatic open question.\nIt is not known whether EFX allocations always exist even when \\(n = 3\\) for general valuations.",
+  "area": "information design",
+  "keywords": [
+    "fair division",
+    "indivisible goods",
+    "EFX",
+    "general valuations",
+    "existence theorem",
+    "envy-freeness"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample search is conceivable by enumerating small \\((n,m)\\) and restricting valuations to a finite parametric family (e.g., integer-valued monotone functions) and then solving a feasibility check for EFX allocations, but the space of monotone set functions is enormous and requires strong discretization assumptions to be computationally tractable.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can encode candidate hard instances (finite valuation tables with monotonicity constraints) and use a fitness signal based on solving an exact/ILP or SAT check for existence of an EFX allocation, enabling an evolutionary search for potential counterexamples or tight families. However, without additional structure, the search space is very large and success may depend on clever instance parameterizations and efficient feasibility solvers.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.049710500000000005,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.049710500000000005
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3186360956/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

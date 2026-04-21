@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4402128674_p0",
+  "paper_id": "W4402128674",
+  "source_paper": "W4402128674",
+  "source_paper_title": "Envy-Free Division of Multilayered Cakes",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0350",
+  "source_paper_authors": [
+    "Ayumi Igarashi",
+    "Fr\u00e9d\u00e9ric Meunier"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Igarashi_2025, title={Envy-Free Division of Multilayered Cakes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0350}, DOI={10.1287/moor.2022.0350}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Igarashi, Ayumi and Meunier, Fr\u00e9d\u00e9ric}, year={2025}, month=aug, pages={2261\u20132286} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 25, Section 6 (Concluding remarks), paragraph beginning \u201cLimitation of the approach based on Volovikov\u2019s theorem.\u201d\n\nHowever, it is still an open question whether or not a counterexample exists for some natural valuation functions.",
+  "title": "Construct natural valuation counterexamples to envy-free multi-divisions with long knives",
+  "background_latex": "A multi-layered cake consists of \\(m\\) layers, each identified with the unit interval \\([0,1]\\). A \\emph{layered piece} is an \\(m\\)-tuple \\(L=(L_\\ell)_{\\ell\\in[m]}\\) where each \\(L_\\ell\\subseteq[0,1]\\) is a (finite union of) disjoint closed subintervals in layer \\(\\ell\\). A \\emph{multi-division} into \\(q\\) pieces is a \\(q\\)-tuple \\(A=(A_1,\\dots,A_q)\\) of layered pieces whose interiors are pairwise disjoint and whose union covers the entire \\(m\\)-layered cake.\n\nA layered piece \\(L\\) is \\emph{contiguous} if each \\(L_\\ell\\) is a single interval. It is \\emph{non-overlapping} if for every two distinct layers \\(\\ell\\neq \\ell'\\), the interiors of \\(L_\\ell\\) and \\(L_{\\ell'}\\) are disjoint as subsets of \\([0,1]\\) (equivalently, they intersect only on a finite set of points). A multi-division is \\emph{feasible} if each \\(A_j\\) is non-overlapping, and it is \\emph{contiguous} if each \\(A_j\\) is contiguous.\n\nA common restricted class of feasible contiguous multi-divisions is given by \\(q-1\\) \\emph{long knives}: one chooses cut positions \\(0=t_0\\le t_1\\le\\cdots\\le t_{q-1}\\le t_q=1\\) and cuts \\emph{every} layer at these positions, producing \\(q\\) intervals \\([t_{r-1},t_r]\\) in each layer. A feasible contiguous multi-division using \\(q-1\\) long knives then assigns to each bundle \\(A_j\\) exactly one of these \\(q\\) intervals from each layer, in such a way that within any fixed bundle \\(A_j\\), the chosen intervals from different layers have disjoint interiors in \\([0,1]\\).\n\nEach agent \\(i\\in[n]\\) has a \\emph{valuation function} \\(v_i\\) that assigns a real value \\(v_i(L)\\) to every layered piece \\(L\\). (The paper discusses both general choice functions and valuations; here we focus on valuations as the paper\u2019s open question does.) Envy-freeness for a multi-division \\(A=(A_1,\\dots,A_q)\\) means there exists a surjective assignment \\(\\pi:[n]\\to[q]\\) such that every agent weakly prefers her assigned piece to any other, e.g. under valuations \\(v_i(A_{\\pi(i)})\\ge \\max_{j\\in[q]} v_i(A_j)\\) for all \\(i\\in[n]\\).",
+  "problem_definition_latex": "Determine whether there exist \\emph{natural} valuation functions \\(v_1,\\dots,v_n\\) (in the sense intended by the paper) for which \\emph{no} envy-free multi-division exists that is both feasible and contiguous and is obtained using \\(q-1\\) long knives; equivalently, either:\n\n1) construct an explicit instance (specified by \\(m,n,q\\) and valuations \\(v_i\\)) with this nonexistence property, or\n\n2) prove that no such counterexample exists for a suitably broad and natural class of valuation functions.\n\nThe paper does not formalize what counts as \u201cnatural\u201d; the task is to resolve existence of such counterexamples under an appropriate natural valuation-function model.",
+  "latex": "A multi-layered cake consists of \\(m\\) layers, each identified with the unit interval \\([0,1]\\). A \\emph{layered piece} is an \\(m\\)-tuple \\(L=(L_\\ell)_{\\ell\\in[m]}\\) where each \\(L_\\ell\\subseteq[0,1]\\) is a (finite union of) disjoint closed subintervals in layer \\(\\ell\\). A \\emph{multi-division} into \\(q\\) pieces is a \\(q\\)-tuple \\(A=(A_1,\\dots,A_q)\\) of layered pieces whose interiors are pairwise disjoint and whose union covers the entire \\(m\\)-layered cake.\n\nA layered piece \\(L\\) is \\emph{contiguous} if each \\(L_\\ell\\) is a single interval. It is \\emph{non-overlapping} if for every two distinct layers \\(\\ell\\neq \\ell'\\), the interiors of \\(L_\\ell\\) and \\(L_{\\ell'}\\) are disjoint as subsets of \\([0,1]\\) (equivalently, they intersect only on a finite set of points). A multi-division is \\emph{feasible} if each \\(A_j\\) is non-overlapping, and it is \\emph{contiguous} if each \\(A_j\\) is contiguous.\n\nA common restricted class of feasible contiguous multi-divisions is given by \\(q-1\\) \\emph{long knives}: one chooses cut positions \\(0=t_0\\le t_1\\le\\cdots\\le t_{q-1}\\le t_q=1\\) and cuts \\emph{every} layer at these positions, producing \\(q\\) intervals \\([t_{r-1},t_r]\\) in each layer. A feasible contiguous multi-division using \\(q-1\\) long knives then assigns to each bundle \\(A_j\\) exactly one of these \\(q\\) intervals from each layer, in such a way that within any fixed bundle \\(A_j\\), the chosen intervals from different layers have disjoint interiors in \\([0,1]\\).\n\nEach agent \\(i\\in[n]\\) has a \\emph{valuation function} \\(v_i\\) that assigns a real value \\(v_i(L)\\) to every layered piece \\(L\\). (The paper discusses both general choice functions and valuations; here we focus on valuations as the paper\u2019s open question does.) Envy-freeness for a multi-division \\(A=(A_1,\\dots,A_q)\\) means there exists a surjective assignment \\(\\pi:[n]\\to[q]\\) such that every agent weakly prefers her assigned piece to any other, e.g. under valuations \\(v_i(A_{\\pi(i)})\\ge \\max_{j\\in[q]} v_i(A_j)\\) for all \\(i\\in[n]\\).\n\nDetermine whether there exist \\emph{natural} valuation functions \\(v_1,\\dots,v_n\\) (in the sense intended by the paper) for which \\emph{no} envy-free multi-division exists that is both feasible and contiguous and is obtained using \\(q-1\\) long knives; equivalently, either:\n\n1) construct an explicit instance (specified by \\(m,n,q\\) and valuations \\(v_i\\)) with this nonexistence property, or\n\n2) prove that no such counterexample exists for a suitably broad and natural class of valuation functions.\n\nThe paper does not formalize what counts as \u201cnatural\u201d; the task is to resolve existence of such counterexamples under an appropriate natural valuation-function model.",
+  "location_in_paper": "Page 25, Section 6 (Concluding remarks), paragraph beginning \u201cLimitation of the approach based on Volovikov\u2019s theorem.\u201d",
+  "open_problem_quote": "However, it is still an open question whether or not a counterexample exists for some natural valuation functions.",
+  "area": "information design",
+  "keywords": [
+    "fair division",
+    "envy-free cake cutting",
+    "multi-layered cake",
+    "long knives",
+    "valuation functions",
+    "topological methods"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can discretize valuations (e.g., piecewise-constant densities on a grid) and then brute-force over long-knife cut positions and bundle assignments to test envy-freeness, making automated search plausible. However, the space is still large and the paper does not specify what \u201cnatural\u201d valuations mean, so search constraints may be ambiguous.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be represented as parametrized piecewise-constant valuation densities across layers, with a fitness signal given by the minimum achievable envy (or infeasibility) over all long-knife divisions and assignments computed by optimization. The main challenge is the nested optimization (searching over divisions/assignments) and the ill-defined notion of \u201cnatural,\u201d but iterative improvement could still produce informative hard instances.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08181250000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08181250000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4402128674/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

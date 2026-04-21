@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4385873460_p0",
+  "paper_id": "W4385873460",
+  "source_paper": "W4385873460",
+  "source_paper_title": "Stochastic Games with General Payoff Functions",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1385",
+  "source_paper_authors": [
+    "J\u00e1nos Flesch",
+    "Eilon Solan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Flesch_2024, title={Stochastic Games with General Payoff Functions}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1385}, DOI={10.1287/moor.2023.1385}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Flesch, J\u00e1nos and Solan, Eilon}, year={2024}, month=aug, pages={1349\u20131371} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 2, Introduction (end of item [4] discussion)\n\nOur result connects with and gives a very partial answer to the long-standing problem of whether every multiplayer stochastic game with finite action spaces, finite or countably infinite state space, and bounded and Borel-measurable payoffs admits an \\(\\varepsilon\\)-equilibrium for every \\(\\varepsilon>0\\).",
+  "title": "Existence of epsilon-equilibria in multiplayer stochastic games with Borel payoffs",
+  "background_latex": "A (multiplayer) stochastic game is a tuple \\(\\Gamma=(I,S,(A_i)_{i\\in I},p,(f_i)_{i\\in I})\\) where:\n1) \\(I\\) is a finite nonempty set of players.\n2) \\(S\\) is a finite or countably infinite set of states.\n3) For each \\(i\\in I\\), \\(A_i\\) is a finite nonempty action set; write \\(A:=\\prod_{i\\in I} A_i\\).\n4) \\(p:S\\times A\\to \\Delta(S)\\) is a transition kernel; when the current state is \\(s\\in S\\) and action profile \\(a\\in A\\) is played, the next state \\(s'\\in S\\) is drawn according to \\(p(\\cdot\\mid s,a)\\).\n5) A run (infinite play) is an infinite sequence \\(r=(s_1,a_1,s_2,a_2,\\dots)\\in (S\\times A)^\\infty\\) consistent with \\(p\\); let \\(R\\) denote the set of all runs. Each \\(f_i:R\\to\\mathbb{R}\\) is bounded and Borel-measurable (with respect to the product topology on \\((S\\times A)^\\infty\\) and the induced Borel \\(\\sigma\\)-algebra on \\(R\\)).\n\nA (behavior) strategy for player \\(i\\) is a mapping \\(\\sigma_i:H\\to\\Delta(A_i)\\), where \\(H\\) is the set of all finite histories \\((s_1,a_1,\\dots,s_n)\\) consistent with \\(p\\). A strategy profile is \\(\\sigma=(\\sigma_i)_{i\\in I}\\). For each initial state \\(s\\in S\\) and strategy profile \\(\\sigma\\), the induced probability measure on runs is denoted \\(\\mathbb{P}_{s,\\sigma}\\) and expectation \\(\\mathbb{E}_{s,\\sigma}\\).\n\nFor \\(\\varepsilon\\ge 0\\), a strategy profile \\(\\sigma^*\\) is an \\(\\varepsilon\\)-equilibrium (Nash equilibrium with additive \\(\\varepsilon\\)-slack) if for every initial state \\(s\\in S\\), every player \\(i\\in I\\), and every alternative strategy \\(\\sigma_i\\),\n\\[\\mathbb{E}_{s,\\sigma^*}[f_i]\\ge \\mathbb{E}_{s,(\\sigma_i,\\sigma^*_{-i})}[f_i]-\\varepsilon.\\]\nEquivalently, no player can improve expected payoff by more than \\(\\varepsilon\\) via a unilateral deviation, from any specified initial state.",
+  "problem_definition_latex": "Determine whether the following statement holds:\n\nFor every stochastic game \\(\\Gamma=(I,S,(A_i)_{i\\in I},p,(f_i)_{i\\in I})\\) with finite action sets \\((A_i)_{i\\in I}\\), finite or countably infinite state space \\(S\\), and bounded Borel-measurable payoff functions \\((f_i)_{i\\in I}\\), and for every \\(\\varepsilon>0\\), there exists a strategy profile \\(\\sigma^*\\) that is an \\(\\varepsilon\\)-equilibrium for every initial state \\(s\\in S\\); that is,\n\\[\\forall s\\in S,\\ \\forall i\\in I,\\ \\forall \\sigma_i,\\quad \\mathbb{E}_{s,\\sigma^*}[f_i]\\ge \\mathbb{E}_{s,(\\sigma_i,\\sigma^*_{-i})}[f_i]-\\varepsilon.\\]",
+  "latex": "A (multiplayer) stochastic game is a tuple \\(\\Gamma=(I,S,(A_i)_{i\\in I},p,(f_i)_{i\\in I})\\) where:\n1) \\(I\\) is a finite nonempty set of players.\n2) \\(S\\) is a finite or countably infinite set of states.\n3) For each \\(i\\in I\\), \\(A_i\\) is a finite nonempty action set; write \\(A:=\\prod_{i\\in I} A_i\\).\n4) \\(p:S\\times A\\to \\Delta(S)\\) is a transition kernel; when the current state is \\(s\\in S\\) and action profile \\(a\\in A\\) is played, the next state \\(s'\\in S\\) is drawn according to \\(p(\\cdot\\mid s,a)\\).\n5) A run (infinite play) is an infinite sequence \\(r=(s_1,a_1,s_2,a_2,\\dots)\\in (S\\times A)^\\infty\\) consistent with \\(p\\); let \\(R\\) denote the set of all runs. Each \\(f_i:R\\to\\mathbb{R}\\) is bounded and Borel-measurable (with respect to the product topology on \\((S\\times A)^\\infty\\) and the induced Borel \\(\\sigma\\)-algebra on \\(R\\)).\n\nA (behavior) strategy for player \\(i\\) is a mapping \\(\\sigma_i:H\\to\\Delta(A_i)\\), where \\(H\\) is the set of all finite histories \\((s_1,a_1,\\dots,s_n)\\) consistent with \\(p\\). A strategy profile is \\(\\sigma=(\\sigma_i)_{i\\in I}\\). For each initial state \\(s\\in S\\) and strategy profile \\(\\sigma\\), the induced probability measure on runs is denoted \\(\\mathbb{P}_{s,\\sigma}\\) and expectation \\(\\mathbb{E}_{s,\\sigma}\\).\n\nFor \\(\\varepsilon\\ge 0\\), a strategy profile \\(\\sigma^*\\) is an \\(\\varepsilon\\)-equilibrium (Nash equilibrium with additive \\(\\varepsilon\\)-slack) if for every initial state \\(s\\in S\\), every player \\(i\\in I\\), and every alternative strategy \\(\\sigma_i\\),\n\\[\\mathbb{E}_{s,\\sigma^*}[f_i]\\ge \\mathbb{E}_{s,(\\sigma_i,\\sigma^*_{-i})}[f_i]-\\varepsilon.\\]\nEquivalently, no player can improve expected payoff by more than \\(\\varepsilon\\) via a unilateral deviation, from any specified initial state.\n\nDetermine whether the following statement holds:\n\nFor every stochastic game \\(\\Gamma=(I,S,(A_i)_{i\\in I},p,(f_i)_{i\\in I})\\) with finite action sets \\((A_i)_{i\\in I}\\), finite or countably infinite state space \\(S\\), and bounded Borel-measurable payoff functions \\((f_i)_{i\\in I}\\), and for every \\(\\varepsilon>0\\), there exists a strategy profile \\(\\sigma^*\\) that is an \\(\\varepsilon\\)-equilibrium for every initial state \\(s\\in S\\); that is,\n\\[\\forall s\\in S,\\ \\forall i\\in I,\\ \\forall \\sigma_i,\\quad \\mathbb{E}_{s,\\sigma^*}[f_i]\\ge \\mathbb{E}_{s,(\\sigma_i,\\sigma^*_{-i})}[f_i]-\\varepsilon.\\]",
+  "location_in_paper": "Page 2, Introduction (end of item [4] discussion)",
+  "open_problem_quote": "Our result connects with and gives a very partial answer to the long-standing problem of whether every multiplayer stochastic game with finite action spaces, finite or countably infinite state space, and bounded and Borel-measurable payoffs admits an \\(\\varepsilon\\)-equilibrium for every \\(\\varepsilon>0\\).",
+  "area": "online learning",
+  "keywords": [
+    "stochastic games",
+    "borel measurable payoffs",
+    "epsilon equilibrium",
+    "nash equilibrium",
+    "countable state space",
+    "existence theorem"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem is a universal existence question over all bounded Borel-measurable payoff functions on infinite plays, so there is no clear finite parametrized instance family to exhaustively search. While one can search for counterexamples within restricted subclasses, failure to find one provides little evidence for the general statement.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary search could explore structured families of stochastic games and payoff specifications to hunt for counterexamples or to test candidate equilibrium-construction templates via approximate best-response computations. However, the full Borel-measurable generality and need for rigorous existence proofs limit the faithfulness of any computable fitness proxy.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.079583,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.079583
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385873460/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

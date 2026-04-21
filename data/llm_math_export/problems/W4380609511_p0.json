@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4380609511_p0",
+  "paper_id": "W4380609511",
+  "source_paper": "W4380609511",
+  "source_paper_title": "Asymptotically Optimal Control of Make-to-Stock Systems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.161",
+  "source_paper_authors": [
+    "Xuefeng Gao",
+    "Junfei Huang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Gao_2023, title={Asymptotically Optimal Control of Make-to-Stock Systems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.161}, DOI={10.1287/moor.2021.161}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Huang, Junfei}, year={2023}, month=june }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1 (step 2 discussion) and Conclusion/Section 9, pages 3\u20134 and 54\n\nDeveloping efficient algorithms for multi-stage SPs is an active area of research. Although we solve the SP for some simple examples in Section 8, solving more general cases is well beyond the scope of this paper...\n\nHow to extend this strategy to multistage SPs is an issue yet to be explored.",
+  "title": "Computationally efficient methods for solving multistage stochastic programs in ATO inventory control",
+  "background_latex": "Consider a continuous-review assemble-to-order (ATO) inventory system with:\n1) A set of products indexed by \\(i\\in\\{1,\\dots,m\\}\\) and components indexed by \\(j\\in\\{1,\\dots,n\\}\\).\n2) A bill-of-materials matrix \\(A\\in\\mathbb{Z}_+^{n\\times m}\\) where \\(a_{ji}\\) units of component \\(j\\) are required per unit of product \\(i\\).\n3) Deterministic component lead times taking \\(K\\) distinct values \\(0<L_1<\\cdots<L_K\\). Components are grouped by lead time: \\(A^k\\) denotes the submatrix of \\(A\\) consisting of the rows (components) whose lead time equals \\(L_k\\), and \\(h^k\\in\\mathbb{R}_{++}^{n_k}\\) are their holding costs.\n4) Backlog costs \\(b\\in\\mathbb{R}_{++}^m\\). Define \\(c=b+\\sum_{k=1}^K (A^k)^\\top h^k\\in\\mathbb{R}_{++}^m\\).\n5) Demand over time is modeled via random vectors \\(D^k\\in\\mathbb{Z}_+^m\\) (\\(k=1,\\dots,K\\)) representing demand increments over disjoint lead-time-related intervals. (Only their distributions matter for the stochastic program below.)\n\nA lower bound on the long-run average cost is given by the optimal value \\(\\varphi_K\\) of a \\((K+1)\\)-stage stochastic program:\n\\[\n\\varphi_K=\\inf_{y_K\\in\\mathbb{R}^{n_K}}\\Bigl\\{h^K\\cdot y_K+\\mathbb{E}\\bigl[\\varphi_{K-1}(y_K,D^K)\\bigr]\\Bigr\\},\n\\]\n\\[\n\\varphi_k(y_{k+1},\\dots,y_K,x)=\\inf_{y_k\\in\\mathbb{R}^{n_k}}\\Bigl\\{h^k\\cdot y_k+\\mathbb{E}\\bigl[\\varphi_{k-1}(y_k,\\dots,y_K,x+D^k)\\bigr]\\Bigr\\},\\quad k=1,\\dots,K-1,\n\\]\nand the last-stage linear program\n\\[\n\\varphi_0(y_1,\\dots,y_K,x)=-\\max_{z\\in\\mathbb{R}^m}\\Bigl\\{c\\cdot z\\ \\big|\\ z\\le x,\\ A^k z\\le y_k\\ (k=1,\\dots,K)\\Bigr\\}.\n\\]\nHere \\(x\\in\\mathbb{R}^m\\) represents accumulated demand over the entire longest lead-time window, and the decisions \\(y_k\\) represent (relaxed) component-availability quantities at each stage.\n\nThe paper emphasizes that to implement their asymptotically optimal policy, one must repeatedly (re-)solve such multistage stochastic programs (or high-dimensional LP approximations of them) as system state changes. However, scenario-tree formulations can have extremely high dimension when \\(K\\) is large and/or lead times are long, making direct solution computationally burdensome.",
+  "problem_definition_latex": "Design algorithmic methods that, for general \\(K\\), general bill-of-materials matrix \\(A\\), and general (given) demand distributions of \\((D^1,\\dots,D^K)\\), can solve (exactly or to a controllable accuracy) the multistage stochastic program defining \\(\\varphi_K\\) above with substantially reduced computational complexity relative to the naive scenario-tree linear-program formulation, in a way suitable for repeated re-optimization over time within an ATO control policy.",
+  "latex": "Consider a continuous-review assemble-to-order (ATO) inventory system with:\n1) A set of products indexed by \\(i\\in\\{1,\\dots,m\\}\\) and components indexed by \\(j\\in\\{1,\\dots,n\\}\\).\n2) A bill-of-materials matrix \\(A\\in\\mathbb{Z}_+^{n\\times m}\\) where \\(a_{ji}\\) units of component \\(j\\) are required per unit of product \\(i\\).\n3) Deterministic component lead times taking \\(K\\) distinct values \\(0<L_1<\\cdots<L_K\\). Components are grouped by lead time: \\(A^k\\) denotes the submatrix of \\(A\\) consisting of the rows (components) whose lead time equals \\(L_k\\), and \\(h^k\\in\\mathbb{R}_{++}^{n_k}\\) are their holding costs.\n4) Backlog costs \\(b\\in\\mathbb{R}_{++}^m\\). Define \\(c=b+\\sum_{k=1}^K (A^k)^\\top h^k\\in\\mathbb{R}_{++}^m\\).\n5) Demand over time is modeled via random vectors \\(D^k\\in\\mathbb{Z}_+^m\\) (\\(k=1,\\dots,K\\)) representing demand increments over disjoint lead-time-related intervals. (Only their distributions matter for the stochastic program below.)\n\nA lower bound on the long-run average cost is given by the optimal value \\(\\varphi_K\\) of a \\((K+1)\\)-stage stochastic program:\n\\[\n\\varphi_K=\\inf_{y_K\\in\\mathbb{R}^{n_K}}\\Bigl\\{h^K\\cdot y_K+\\mathbb{E}\\bigl[\\varphi_{K-1}(y_K,D^K)\\bigr]\\Bigr\\},\n\\]\n\\[\n\\varphi_k(y_{k+1},\\dots,y_K,x)=\\inf_{y_k\\in\\mathbb{R}^{n_k}}\\Bigl\\{h^k\\cdot y_k+\\mathbb{E}\\bigl[\\varphi_{k-1}(y_k,\\dots,y_K,x+D^k)\\bigr]\\Bigr\\},\\quad k=1,\\dots,K-1,\n\\]\nand the last-stage linear program\n\\[\n\\varphi_0(y_1,\\dots,y_K,x)=-\\max_{z\\in\\mathbb{R}^m}\\Bigl\\{c\\cdot z\\ \\big|\\ z\\le x,\\ A^k z\\le y_k\\ (k=1,\\dots,K)\\Bigr\\}.\n\\]\nHere \\(x\\in\\mathbb{R}^m\\) represents accumulated demand over the entire longest lead-time window, and the decisions \\(y_k\\) represent (relaxed) component-availability quantities at each stage.\n\nThe paper emphasizes that to implement their asymptotically optimal policy, one must repeatedly (re-)solve such multistage stochastic programs (or high-dimensional LP approximations of them) as system state changes. However, scenario-tree formulations can have extremely high dimension when \\(K\\) is large and/or lead times are long, making direct solution computationally burdensome.\n\nDesign algorithmic methods that, for general \\(K\\), general bill-of-materials matrix \\(A\\), and general (given) demand distributions of \\((D^1,\\dots,D^K)\\), can solve (exactly or to a controllable accuracy) the multistage stochastic program defining \\(\\varphi_K\\) above with substantially reduced computational complexity relative to the naive scenario-tree linear-program formulation, in a way suitable for repeated re-optimization over time within an ATO control policy.",
+  "location_in_paper": "Section 1 (step 2 discussion) and Conclusion/Section 9, pages 3\u20134 and 54",
+  "open_problem_quote": "Developing efficient algorithms for multi-stage SPs is an active area of research. Although we solve the SP for some simple examples in Section 8, solving more general cases is well beyond the scope of this paper...\n\nHow to extend this strategy to multistage SPs is an issue yet to be explored.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "assemble-to-order",
+    "multistage stochastic programming",
+    "scenario tree",
+    "linear programming",
+    "computational complexity",
+    "inventory control"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "This is an algorithm-design problem rather than a conjectured inequality or structural claim; there is no clear finite instance space where a single counterexample would resolve the question.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate algorithms (decomposition, approximations, rolling-horizon schemes) can be represented as code and evaluated on simulated ATO instances by runtime/accuracy trade-offs, but the objective is not crisply specified as a single computable fitness across all instances, and theoretical guarantees would still be needed.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.02935485,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.02935485
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4380609511/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

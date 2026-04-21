@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4393233856_p0",
+  "paper_id": "W4393233856",
+  "source_paper": "W4393233856",
+  "source_paper_title": "Steiner Cut Dominants",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0280",
+  "source_paper_authors": [
+    "Michele Conforti",
+    "Volker Kaibel"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Conforti_2025, title={Steiner Cut Dominants}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0280}, DOI={10.1287/moor.2022.0280}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Conforti, Michele and Kaibel, Volker}, year={2025}, month=feb, pages={764\u2013781} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 9 (Conclusion), paragraph titled 'Upwards validity', page 22 (of 24 in the provided text)\n\nTherefore, one might ask the question whether every irreducible facet defining Steiner cut inequality for \\(\\mathrm{CUT}^+(G, T)\\) in fact is valid (and thus facet defining) for \\(\\mathrm{CUT}^+(G)\\). Again, Theorem 6 at least shows that this holds for \\(|T| \\le 5\\).",
+  "title": "Characterize when irreducible Steiner-cut facets remain valid for global cut dominants",
+  "background_latex": "Let \\(G=(V,E)\\) be a connected undirected graph and let \\(T\\subseteq V\\) be a terminal set with \\(|T|\\ge 2\\). For \\(S\\subseteq V\\), write \\(\\delta(S)\\subseteq E\\) for the cut consisting of edges with one endpoint in \\(S\\) and the other in \\(V\\setminus S\\). A \\(T\\)-Steiner cut is a cut \\(\\delta(S)\\) such that \\(T\\cap S\\neq\\emptyset\\) and \\(T\\setminus S\\neq\\emptyset\\).\n\nLet \\(\\chi(\\delta(S))\\in\\{0,1\\}^E\\) denote the incidence vector of \\(\\delta(S)\\). The \\(T\\)-Steiner cut polytope is\n\\[\\mathrm{CUT}(G,T)=\\mathrm{conv}\\{\\chi(\\delta(S)) : \\delta(S)\\text{ is a }T\\text{-Steiner cut}\\}\\subseteq \\mathbb{R}^E.\\]\nThe \\(T\\)-Steiner cut dominant is the dominant (upper-closed hull)\n\\[\\mathrm{CUT}^+(G,T)=\\mathrm{CUT}(G,T)+\\mathbb{R}^E_{\\ge 0} = \\{y\\in\\mathbb{R}^E: \\exists x\\in \\mathrm{CUT}(G,T)\\text{ with }y\\ge x\\}.\\]\nSimilarly, the (global) cut dominant is \\(\\mathrm{CUT}^+(G)=\\mathrm{CUT}^+(G,V)\\).\n\nConsider a nontrivial valid inequality for \\(\\mathrm{CUT}^+(G,T)\\) of the form\n\\[c\\cdot x \\ge \\gamma,\\]\nwhere \\(c\\in\\mathbb{R}^E_{\\ge 0}\\) and \\(\\gamma>0\\). Such an inequality is facet-defining for \\(\\mathrm{CUT}^+(G,T)\\) if the face \\(\\{x\\in \\mathrm{CUT}^+(G,T): c\\cdot x=\\gamma\\}\\) has dimension \\(|E|-1\\). The paper uses the notion of an irreducible facet inducing Steiner graph \\((G,T)\\), meaning (i) \\(G\\) has no cut vertex, and (ii) no nonterminal node \\(v\\in V\\setminus T\\) has degree 2. (Equivalently, such a facet is not obtainable from smaller facet-inducing instances by the paper\u2019s subdivision and gluing operations.)\n\nA key monotonicity relation is \\(\\mathrm{CUT}^+(G,T)\\subseteq \\mathrm{CUT}^+(G)\\) whenever \\(T\\subseteq V\\): any inequality valid for \\(\\mathrm{CUT}^+(G)\\) is automatically valid for \\(\\mathrm{CUT}^+(G,T)\\), but the converse may fail. The paper notes explicit examples where enlarging the terminal set (turning a nonterminal into a terminal) can destroy validity of a previously facet-defining Steiner-cut inequality.",
+  "problem_definition_latex": "Determine whether the following statement is true or false.\n\nFor every connected graph \\(G=(V,E)\\), every terminal set \\(T\\subseteq V\\) with \\(|T|\\ge 2\\), and every inequality \\(c\\cdot x\\ge \\gamma\\) that defines a facet of the Steiner cut dominant \\(\\mathrm{CUT}^+(G,T)\\) and is irreducible in the sense that \\((G,T)\\) is an irreducible facet inducing Steiner graph, the same inequality is valid for the global cut dominant \\(\\mathrm{CUT}^+(G)=\\mathrm{CUT}^+(G,V)\\).\n\nEquivalently: characterize whether every facet-defining inequality of \\(\\mathrm{CUT}^+(G,T)\\) coming from an irreducible facet-inducing pair \\((G,T)\\) remains valid (and hence facet-defining) after replacing \\(T\\) by \\(V\\).",
+  "latex": "Let \\(G=(V,E)\\) be a connected undirected graph and let \\(T\\subseteq V\\) be a terminal set with \\(|T|\\ge 2\\). For \\(S\\subseteq V\\), write \\(\\delta(S)\\subseteq E\\) for the cut consisting of edges with one endpoint in \\(S\\) and the other in \\(V\\setminus S\\). A \\(T\\)-Steiner cut is a cut \\(\\delta(S)\\) such that \\(T\\cap S\\neq\\emptyset\\) and \\(T\\setminus S\\neq\\emptyset\\).\n\nLet \\(\\chi(\\delta(S))\\in\\{0,1\\}^E\\) denote the incidence vector of \\(\\delta(S)\\). The \\(T\\)-Steiner cut polytope is\n\\[\\mathrm{CUT}(G,T)=\\mathrm{conv}\\{\\chi(\\delta(S)) : \\delta(S)\\text{ is a }T\\text{-Steiner cut}\\}\\subseteq \\mathbb{R}^E.\\]\nThe \\(T\\)-Steiner cut dominant is the dominant (upper-closed hull)\n\\[\\mathrm{CUT}^+(G,T)=\\mathrm{CUT}(G,T)+\\mathbb{R}^E_{\\ge 0} = \\{y\\in\\mathbb{R}^E: \\exists x\\in \\mathrm{CUT}(G,T)\\text{ with }y\\ge x\\}.\\]\nSimilarly, the (global) cut dominant is \\(\\mathrm{CUT}^+(G)=\\mathrm{CUT}^+(G,V)\\).\n\nConsider a nontrivial valid inequality for \\(\\mathrm{CUT}^+(G,T)\\) of the form\n\\[c\\cdot x \\ge \\gamma,\\]\nwhere \\(c\\in\\mathbb{R}^E_{\\ge 0}\\) and \\(\\gamma>0\\). Such an inequality is facet-defining for \\(\\mathrm{CUT}^+(G,T)\\) if the face \\(\\{x\\in \\mathrm{CUT}^+(G,T): c\\cdot x=\\gamma\\}\\) has dimension \\(|E|-1\\). The paper uses the notion of an irreducible facet inducing Steiner graph \\((G,T)\\), meaning (i) \\(G\\) has no cut vertex, and (ii) no nonterminal node \\(v\\in V\\setminus T\\) has degree 2. (Equivalently, such a facet is not obtainable from smaller facet-inducing instances by the paper\u2019s subdivision and gluing operations.)\n\nA key monotonicity relation is \\(\\mathrm{CUT}^+(G,T)\\subseteq \\mathrm{CUT}^+(G)\\) whenever \\(T\\subseteq V\\): any inequality valid for \\(\\mathrm{CUT}^+(G)\\) is automatically valid for \\(\\mathrm{CUT}^+(G,T)\\), but the converse may fail. The paper notes explicit examples where enlarging the terminal set (turning a nonterminal into a terminal) can destroy validity of a previously facet-defining Steiner-cut inequality.\n\nDetermine whether the following statement is true or false.\n\nFor every connected graph \\(G=(V,E)\\), every terminal set \\(T\\subseteq V\\) with \\(|T|\\ge 2\\), and every inequality \\(c\\cdot x\\ge \\gamma\\) that defines a facet of the Steiner cut dominant \\(\\mathrm{CUT}^+(G,T)\\) and is irreducible in the sense that \\((G,T)\\) is an irreducible facet inducing Steiner graph, the same inequality is valid for the global cut dominant \\(\\mathrm{CUT}^+(G)=\\mathrm{CUT}^+(G,V)\\).\n\nEquivalently: characterize whether every facet-defining inequality of \\(\\mathrm{CUT}^+(G,T)\\) coming from an irreducible facet-inducing pair \\((G,T)\\) remains valid (and hence facet-defining) after replacing \\(T\\) by \\(V\\).",
+  "location_in_paper": "Section 9 (Conclusion), paragraph titled 'Upwards validity', page 22 (of 24 in the provided text)",
+  "open_problem_quote": "Therefore, one might ask the question whether every irreducible facet defining Steiner cut inequality for \\(\\mathrm{CUT}^+(G, T)\\) in fact is valid (and thus facet defining) for \\(\\mathrm{CUT}^+(G)\\). Again, Theorem 6 at least shows that this holds for \\(|T| \\le 5\\).",
+  "area": "approximation algorithms",
+  "keywords": [
+    "cut dominants",
+    "Steiner cuts",
+    "polyhedral combinatorics",
+    "facet validity",
+    "terminal sets",
+    "graph minors"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The statement is existentially refutable: one can enumerate small irreducible facet-inducing pairs \\((G,T)\\), compute facets of \\(\\mathrm{CUT}^+(G,T)\\) via vertex enumeration/separation on the finite cut set, and then check validity against \\(\\mathrm{CUT}^+(G)\\) by optimizing \\(c\\cdot x\\) over all cuts. This makes automated small-instance counterexample search plausible.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be represented as small graphs \\(G\\) with terminal sets \\(T\\), and a fitness signal can be based on (i) finding an irreducible facet of \\(\\mathrm{CUT}^+(G,T)\\) computationally and (ii) measuring its minimum slack over \\(\\mathrm{CUT}^+(G)\\). The bottleneck is reliably identifying facets for \\(\\mathrm{CUT}^+(G,T)\\) (a polyhedral computation) which is feasible only for modest sizes, suggesting medium suitability.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06310325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06310325
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4393233856/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

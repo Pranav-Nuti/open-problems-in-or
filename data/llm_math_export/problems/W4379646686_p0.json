@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4379646686_p0",
+  "paper_id": "W4379646686",
+  "source_paper": "W4379646686",
+  "source_paper_title": "Minimization Fractional Prophet Inequalities for Sequential Procurement",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.173",
+  "source_paper_authors": [
+    "Junjie Qin",
+    "Shai Vardi",
+    "Adam Wierman"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Qin_2023, title={Minimization Fractional Prophet Inequalities for Sequential Procurement}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.173}, DOI={10.1287/moor.2021.173}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Qin, Junjie and Vardi, Shai and Wierman, Adam}, year={2023}, month=june }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, Section 1.3 (Our results) and reiterated Page 18, Section 4.2 (More than two sellers)\n\nThis helps give some intuition as to why computing the precise competitive ratio for all \\(n \\ge 2\\), \\(p > 1\\) is a challenging task. We leave it as an open question to analytically resolve the competitive ratio.\n\nComputing the exact competitive ratio as a function of the problem parameters \\((p, n, \\ell, u)\\) is a challenging problem.",
+  "title": "Compute the exact competitive ratio for minimization fractional prophet inequalities without in-house production",
+  "background_latex": "Fix integers \\(n\\ge 2\\) and a real exponent \\(p>1\\). Let \\(C_1,\\dots,C_n\\) be independent nonnegative random variables, where each \\(C_i\\) has a distribution \\(D_i\\) supported on a known interval \\([\\ell,u]\\) with \\(0<\\ell\\le u<\\infty\\). A (causal) online procurement policy \\(\\pi=(\\pi_1,\\dots,\\pi_n)\\) is a sequence of measurable functions \\(\\pi_i:[\\ell,u]^i\\to[0,1]\\). Given a realized cost vector \\(c=(c_1,\\dots,c_n)\\), the policy selects purchase quantities \\(x_i=\\pi_i(c_1,\\dots,c_i)\\) satisfying the feasibility constraint \\(\\sum_{i=1}^n x_i=1\\) (interpreted as procuring one unit of a divisible commodity).\n\nThe incurred cost under monomial cost functions is\n\\[\\mathrm{ALG}_\\pi(c,p):=\\sum_{i=1}^n c_i x_i^p.\\]\nThe (offline) clairvoyant benchmark (\"prophet\") cost for realization \\(c\\) is the optimal value\n\\[\\mathrm{OPT}(c,p):=\\min_{x\\in[0,1]^n}\\ \\sum_{i=1}^n c_i x_i^p\\quad\\text{s.t.}\\quad \\sum_{i=1}^n x_i=1.\\]\nThe competitive ratio for the family of all independent distributions supported on \\([\\ell,u]\\) (and with no deterministic in-house option) is\n\\[\\mathrm{CR}(F,n):=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)}\\ \\frac{\\mathbb{E}[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb{E}[\\mathrm{OPT}(C,p)]},\\]\nwhere the supremum ranges over all choices of independent \\(C_i\\sim D_i\\) supported on \\([\\ell,u]\\), and expectations are with respect to \\(C=(C_1,\\dots,C_n)\\).",
+  "problem_definition_latex": "Determine (in closed form, as a function of the parameters \\(p,n,\\ell,u\\)) the value of\n\\[\\mathrm{CR}(F,n)=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)}\\ \\frac{\\mathbb{E}[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb{E}[\\mathrm{OPT}(C,p)]}\\]\nfor the minimization fractional prophet inequality described above in the setting without in-house production capabilities (i.e., when all \\(n\\) costs \\(C_1,\\dots,C_n\\) are random and only constrained by support \\([\\ell,u]\\)).",
+  "latex": "Fix integers \\(n\\ge 2\\) and a real exponent \\(p>1\\). Let \\(C_1,\\dots,C_n\\) be independent nonnegative random variables, where each \\(C_i\\) has a distribution \\(D_i\\) supported on a known interval \\([\\ell,u]\\) with \\(0<\\ell\\le u<\\infty\\). A (causal) online procurement policy \\(\\pi=(\\pi_1,\\dots,\\pi_n)\\) is a sequence of measurable functions \\(\\pi_i:[\\ell,u]^i\\to[0,1]\\). Given a realized cost vector \\(c=(c_1,\\dots,c_n)\\), the policy selects purchase quantities \\(x_i=\\pi_i(c_1,\\dots,c_i)\\) satisfying the feasibility constraint \\(\\sum_{i=1}^n x_i=1\\) (interpreted as procuring one unit of a divisible commodity).\n\nThe incurred cost under monomial cost functions is\n\\[\\mathrm{ALG}_\\pi(c,p):=\\sum_{i=1}^n c_i x_i^p.\\]\nThe (offline) clairvoyant benchmark (\"prophet\") cost for realization \\(c\\) is the optimal value\n\\[\\mathrm{OPT}(c,p):=\\min_{x\\in[0,1]^n}\\ \\sum_{i=1}^n c_i x_i^p\\quad\\text{s.t.}\\quad \\sum_{i=1}^n x_i=1.\\]\nThe competitive ratio for the family of all independent distributions supported on \\([\\ell,u]\\) (and with no deterministic in-house option) is\n\\[\\mathrm{CR}(F,n):=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)}\\ \\frac{\\mathbb{E}[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb{E}[\\mathrm{OPT}(C,p)]},\\]\nwhere the supremum ranges over all choices of independent \\(C_i\\sim D_i\\) supported on \\([\\ell,u]\\), and expectations are with respect to \\(C=(C_1,\\dots,C_n)\\).\n\nDetermine (in closed form, as a function of the parameters \\(p,n,\\ell,u\\)) the value of\n\\[\\mathrm{CR}(F,n)=\\inf_{\\pi}\\ \\sup_{(D_1,\\dots,D_n)}\\ \\frac{\\mathbb{E}[\\mathrm{ALG}_\\pi(C,p)]}{\\mathbb{E}[\\mathrm{OPT}(C,p)]}\\]\nfor the minimization fractional prophet inequality described above in the setting without in-house production capabilities (i.e., when all \\(n\\) costs \\(C_1,\\dots,C_n\\) are random and only constrained by support \\([\\ell,u]\\)).",
+  "location_in_paper": "Page 6, Section 1.3 (Our results) and reiterated Page 18, Section 4.2 (More than two sellers)",
+  "open_problem_quote": "This helps give some intuition as to why computing the precise competitive ratio for all \\(n \\ge 2\\), \\(p > 1\\) is a challenging task. We leave it as an open question to analytically resolve the competitive ratio.\n\nComputing the exact competitive ratio as a function of the problem parameters \\((p, n, \\ell, u)\\) is a challenging problem.",
+  "area": "prophet inequalities",
+  "keywords": [
+    "minimization prophet inequalities",
+    "sequential procurement",
+    "fractional allocations",
+    "competitive ratio",
+    "worst-case distributions",
+    "monomial cost functions",
+    "in-house production"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can numerically search over discretized supports and parametrized distribution families to produce instances that yield large competitive ratios for candidate algorithms, but the true supremum is over an infinite-dimensional space of distributions and requires optimizing over policies, so finite search may miss worst cases.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate policies can be represented parametrically (e.g., threshold/DP-inspired rules), and a fitness signal can be computed by Monte Carlo simulation and numerical evaluation of \\(\\mathbb{E}[\\mathrm{ALG}_\\pi]/\\mathbb{E}[\\mathrm{OPT}]\\) over adversarially optimized discretized distributions. However, extending numerical discoveries to exact closed forms and proofs is nontrivial, so the loop would mainly generate conjectures and sharp examples rather than complete resolutions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.020657349999999998,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.020657349999999998
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4379646686/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

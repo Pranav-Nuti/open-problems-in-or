@@ -1,0 +1,64 @@
+{
+  "problem_id": "W4401700153_p0",
+  "paper_id": "W4401700153",
+  "source_paper": "W4401700153",
+  "source_paper_title": "Sparse Integer Programming Is Fixed-Parameter Tractable",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0162",
+  "source_paper_authors": [
+    "Friedrich Eisenbrand",
+    "Christoph Hunkenschr\u00f6der",
+    "Kim-Manuel Klein",
+    "Martin Kouteck\u00fd",
+    "Asaf Levin",
+    "Shmuel Onn"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Eisenbrand_2025, title={Sparse Integer Programming Is Fixed-Parameter Tractable}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0162}, DOI={10.1287/moor.2023.0162}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Eisenbrand, Friedrich and Hunkenschr\u00f6der, Christoph and Klein, Kim-Manuel and Kouteck\u00fd, Martin and Levin, Asaf and Onn, Shmuel}, year={2025}, month=aug, pages={2141\u20132156} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Concluding remarks), page 27\n\nIn Section 5, we have given a structural characterization of matrices $A$ with $g_1(A)$ bounded by showing that $g_1(A)$ is bounded if and only if $A$ is row-equivalent to a matrix with small dual tree-depth and small entry complexity. Unfortunately, a similar (if and only if) characterization of matrices $A$ with $g_{\\infty}(A)$ bounded does not seem to be in our reach.\nProblem 1. Find a structural characterization of matrices $A$ with $g_{\\infty}(A)$ bounded.",
+  "title": "Characterize matrices with bounded Graver basis infinity norm under row operations",
+  "background_latex": "Let $A\\in \\mathbb{Q}^{m\\times n}$ be a rational matrix. The integer kernel of $A$ is\n\\[\\ker_{\\mathbb{Z}}(A)=\\{x\\in \\mathbb{Z}^n: Ax=0\\}.\\]\nFor $x,y\\in \\mathbb{Z}^n$, write $x\\sqsubseteq y$ if (i) $x$ and $y$ lie in the same orthant, i.e., $x_i y_i\\ge 0$ for all $i\\in [n]$, and (ii) $|x_i|\\le |y_i|$ for all $i\\in [n]$. The Graver basis $\\mathcal{G}(A)$ is the set of $\\sqsubseteq$-minimal nonzero vectors in $\\ker_{\\mathbb{Z}}(A)$.\nDefine\n\\[ g_{\\infty}(A)=\\max\\{\\|x\\|_{\\infty}: x\\in \\mathcal{G}(A)\\},\\qquad \\|x\\|_{\\infty}=\\max_{i\\in [n]} |x_i|.\\]\nTwo matrices $A,A'\\in \\mathbb{Q}^{m\\times n}$ are row-equivalent if one can be obtained from the other by elementary row operations (multiplying a row by a nonzero scalar, or adding a scalar multiple of one row to another). Row-equivalent matrices have the same integer kernel, hence the same Graver basis and the same value of $g_{\\infty}(\\cdot)$.\nA \\emph{structural characterization} here means a description, in terms of identifiable structural properties/invariants of $A$ (e.g., graph- or matroid-theoretic parameters associated with $A$, or existence of a row-equivalent matrix with certain sparsity/depth/encoding properties), that is equivalent to the boundedness of $g_{\\infty}(A)$ over the class under consideration.",
+  "problem_definition_latex": "Find conditions on a rational matrix $A\\in\\mathbb{Q}^{m\\times n}$ that are equivalent to the boundedness of $g_{\\infty}(A)$, i.e., characterize the class of matrices for which there exists a function $F$ (depending only on the characterized structural parameters) such that\n\\[ g_{\\infty}(A) \\le F. \\]\nEquivalently, provide an if-and-only-if structural description of those $A$ for which $g_{\\infty}(A)$ is bounded (as a finite number) by a bound determined solely by the proposed structural invariants.",
+  "latex": "Let $A\\in \\mathbb{Q}^{m\\times n}$ be a rational matrix. The integer kernel of $A$ is\n\\[\\ker_{\\mathbb{Z}}(A)=\\{x\\in \\mathbb{Z}^n: Ax=0\\}.\\]\nFor $x,y\\in \\mathbb{Z}^n$, write $x\\sqsubseteq y$ if (i) $x$ and $y$ lie in the same orthant, i.e., $x_i y_i\\ge 0$ for all $i\\in [n]$, and (ii) $|x_i|\\le |y_i|$ for all $i\\in [n]$. The Graver basis $\\mathcal{G}(A)$ is the set of $\\sqsubseteq$-minimal nonzero vectors in $\\ker_{\\mathbb{Z}}(A)$.\nDefine\n\\[ g_{\\infty}(A)=\\max\\{\\|x\\|_{\\infty}: x\\in \\mathcal{G}(A)\\},\\qquad \\|x\\|_{\\infty}=\\max_{i\\in [n]} |x_i|.\\]\nTwo matrices $A,A'\\in \\mathbb{Q}^{m\\times n}$ are row-equivalent if one can be obtained from the other by elementary row operations (multiplying a row by a nonzero scalar, or adding a scalar multiple of one row to another). Row-equivalent matrices have the same integer kernel, hence the same Graver basis and the same value of $g_{\\infty}(\\cdot)$.\nA \\emph{structural characterization} here means a description, in terms of identifiable structural properties/invariants of $A$ (e.g., graph- or matroid-theoretic parameters associated with $A$, or existence of a row-equivalent matrix with certain sparsity/depth/encoding properties), that is equivalent to the boundedness of $g_{\\infty}(A)$ over the class under consideration.\n\nFind conditions on a rational matrix $A\\in\\mathbb{Q}^{m\\times n}$ that are equivalent to the boundedness of $g_{\\infty}(A)$, i.e., characterize the class of matrices for which there exists a function $F$ (depending only on the characterized structural parameters) such that\n\\[ g_{\\infty}(A) \\le F. \\]\nEquivalently, provide an if-and-only-if structural description of those $A$ for which $g_{\\infty}(A)$ is bounded (as a finite number) by a bound determined solely by the proposed structural invariants.",
+  "location_in_paper": "Section 7 (Concluding remarks), page 27",
+  "open_problem_quote": "In Section 5, we have given a structural characterization of matrices $A$ with $g_1(A)$ bounded by showing that $g_1(A)$ is bounded if and only if $A$ is row-equivalent to a matrix with small dual tree-depth and small entry complexity. Unfortunately, a similar (if and only if) characterization of matrices $A$ with $g_{\\infty}(A)$ bounded does not seem to be in our reach.\nProblem 1. Find a structural characterization of matrices $A$ with $g_{\\infty}(A)$ bounded.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "integer programming",
+    "Graver basis",
+    "infinity norm",
+    "row equivalence",
+    "matroid structure",
+    "tree-depth"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally generate families of matrices and compute $g_{\\infty}(A)$ for small sizes (via Graver basis computation) to test candidate characterizations, but the search space is large and Graver basis computation scales poorly, limiting brute-force counterexample hunting to small instances.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate structural characterizations can be encoded as computable features (graph/matroid parameters, depth measures, sparsification via row operations), with a fitness signal based on agreement with computed $g_{\\infty}(A)$ on sampled instances. However, computing $g_{\\infty}(A)$ and relevant invariants may be expensive, and the space of plausible characterizations is broad and hard to parameterize tightly.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.070609,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.070609
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401700153/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

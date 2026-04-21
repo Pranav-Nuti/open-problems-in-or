@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4404717018_p0",
+  "paper_id": "W4404717018",
+  "source_paper": "W4404717018",
+  "source_paper_title": "Tight Bounds for Secretary Matching in General Graphs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0206",
+  "source_paper_authors": [
+    "Tomer Ezra",
+    "Michal Feldman",
+    "Nick Gravin",
+    "Zhihao Gavin Tang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Ezra_2025, title={Tight Bounds for Secretary Matching in General Graphs}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0206}, DOI={10.1287/moor.2022.0206}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ezra, Tomer and Feldman, Michal and Gravin, Nikolai and Tang, Zhihao (Gavin)}, year={2025}, month=nov, pages={3039\u20133054} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, Section 1.1 (Edge arrival techniques discussion); and reiterated Page 23, Remark after Theorem 5.2.\n\nInterestingly, despite the conceptual simplicity of Algorithm 2, it is unclear how to implement it in polynomial time. Thus, our result for the edge arrival model is information theoretic. Obtaining a poly-time algorithm with this ratio remains as an interesting problem.\n\nThus, our result in Theorem 5.2 can be seen as an information-theoretic result. It remains an interesting problem whether there is a poly-time online algorithm that matches this bound of 1{4.",
+  "title": "Designing polynomial-time 1/4-competitive secretary matching algorithm under edge arrivals",
+  "background_latex": "Consider an undirected weighted graph \\(G=(V,E)\\) with \\(|E|=m\\). Each edge \\(e\\in E\\) has an (adversarial) nonnegative weight \\(w_e\\in\\mathbb{R}\\) that is unknown until the edge arrives online. In the edge-arrival secretary model, the edges \\(e_1,\\dots,e_m\\) arrive in a uniformly random order. When edge \\(e_t=uv\\) arrives at time \\(t\\), its weight \\(w_{e_t}\\) is revealed, and the algorithm must immediately and irrevocably decide whether to add \\(e_t\\) to its matching \\(\\mu\\), subject to feasibility (both endpoints \\(u,v\\) are currently unmatched).\n\nLet \\(\\mu^*(E)\\) denote a maximum-weight matching in \\(G\\) (with respect to \\(w\\)), and let \\(\\mathrm{OPT}=w(\\mu^*(E))=\\sum_{e\\in\\mu^*(E)} w_e\\). An online algorithm \\(\\mathrm{ALG}\\) outputs a random matching \\(\\mu\\) and achieves competitive ratio \\(\\alpha\\in[0,1]\\) if for every weighted graph instance \\((G,w)\\),\n\\[\\mathbb{E}[w(\\mu)] \\ge \\alpha\\, \\mathrm{OPT},\\]\nwhere the expectation is over the random arrival order and the algorithm\u2019s internal randomness.\n\nThe paper gives an information-theoretic online algorithm for edge arrivals that achieves \\(\\alpha=1/4\\), but whose implementation appears to require estimating certain conditional availability probabilities that the authors do not know how to compute in polynomial time.",
+  "problem_definition_latex": "Find a polynomial-time online algorithm \\(\\mathrm{ALG}\\) for the edge-arrival secretary matching model such that for every weighted graph \\((G=(V,E),w)\\) with \\(|E|=m\\),\n\\[\\mathbb{E}[w(\\mu)] \\ge \\tfrac{1}{4}\\, w(\\mu^*(E)),\\]\nwhere \\(\\mu\\) is the matching output by \\(\\mathrm{ALG}\\), and the expectation is over the uniformly random arrival order of edges and the randomness of \\(\\mathrm{ALG}\\).",
+  "latex": "Consider an undirected weighted graph \\(G=(V,E)\\) with \\(|E|=m\\). Each edge \\(e\\in E\\) has an (adversarial) nonnegative weight \\(w_e\\in\\mathbb{R}\\) that is unknown until the edge arrives online. In the edge-arrival secretary model, the edges \\(e_1,\\dots,e_m\\) arrive in a uniformly random order. When edge \\(e_t=uv\\) arrives at time \\(t\\), its weight \\(w_{e_t}\\) is revealed, and the algorithm must immediately and irrevocably decide whether to add \\(e_t\\) to its matching \\(\\mu\\), subject to feasibility (both endpoints \\(u,v\\) are currently unmatched).\n\nLet \\(\\mu^*(E)\\) denote a maximum-weight matching in \\(G\\) (with respect to \\(w\\)), and let \\(\\mathrm{OPT}=w(\\mu^*(E))=\\sum_{e\\in\\mu^*(E)} w_e\\). An online algorithm \\(\\mathrm{ALG}\\) outputs a random matching \\(\\mu\\) and achieves competitive ratio \\(\\alpha\\in[0,1]\\) if for every weighted graph instance \\((G,w)\\),\n\\[\\mathbb{E}[w(\\mu)] \\ge \\alpha\\, \\mathrm{OPT},\\]\nwhere the expectation is over the random arrival order and the algorithm\u2019s internal randomness.\n\nThe paper gives an information-theoretic online algorithm for edge arrivals that achieves \\(\\alpha=1/4\\), but whose implementation appears to require estimating certain conditional availability probabilities that the authors do not know how to compute in polynomial time.\n\nFind a polynomial-time online algorithm \\(\\mathrm{ALG}\\) for the edge-arrival secretary matching model such that for every weighted graph \\((G=(V,E),w)\\) with \\(|E|=m\\),\n\\[\\mathbb{E}[w(\\mu)] \\ge \\tfrac{1}{4}\\, w(\\mu^*(E)),\\]\nwhere \\(\\mu\\) is the matching output by \\(\\mathrm{ALG}\\), and the expectation is over the uniformly random arrival order of edges and the randomness of \\(\\mathrm{ALG}\\).",
+  "location_in_paper": "Page 6, Section 1.1 (Edge arrival techniques discussion); and reiterated Page 23, Remark after Theorem 5.2.",
+  "open_problem_quote": "Interestingly, despite the conceptual simplicity of Algorithm 2, it is unclear how to implement it in polynomial time. Thus, our result for the edge arrival model is information theoretic. Obtaining a poly-time algorithm with this ratio remains as an interesting problem.\n\nThus, our result in Theorem 5.2 can be seen as an information-theoretic result. It remains an interesting problem whether there is a poly-time online algorithm that matches this bound of 1{4.",
+  "area": "online algorithms",
+  "keywords": [
+    "secretary problem",
+    "online matching",
+    "edge arrivals",
+    "competitive ratio",
+    "polynomial-time algorithms",
+    "random-order model"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The open question is existential (design an efficient algorithm) rather than a universal claim, so counterexample search is not directly applicable. One could search for hard instances for candidate algorithms, but that would not resolve existence of some other polynomial-time method achieving 1/4.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate online policies (e.g., threshold rules or sampling-based selection probabilities) can be parameterized and evaluated via simulation on random-order edge streams with computable payoff versus offline optimum on generated graphs. However, the objective is worst-case over all weighted graphs, so simulation provides only a heuristic fitness proxy and may miss adversarial constructions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.060429250000000004,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.060429250000000004
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404717018/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

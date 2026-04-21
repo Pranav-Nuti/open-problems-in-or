@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4221167288_p0",
+  "paper_id": "W4221167288",
+  "source_paper": "W4221167288",
+  "source_paper_title": "Variational Inequalities on Unbounded Domains for Zero-Sum Singular Controller vs. Stopper Games",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0029",
+  "source_paper_authors": [
+    "Andrea Bovo",
+    "Tiziano De Angelis",
+    "Elena Issoglio"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Bovo_2025, title={Variational Inequalities on Unbounded Domains for Zero-Sum Singular Controller vs. Stopper Games}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0029}, DOI={10.1287/moor.2023.0029}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bovo, Andrea and De Angelis, Tiziano and Issoglio, Elena}, year={2025}, month=feb, pages={277\u2013312} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 7, Section 3 (Remark 3.5).\n\nUniqueness of the solution to Problem A remains an open question. Methods used in, e.g., [35], do not apply due to the presence of obstacle and gradient constraints.",
+  "title": "Uniqueness of Sobolev solutions to min-max variational inequality with obstacle and gradient constraints",
+  "background_latex": "Fix a finite horizon \\(T\\in(0,\\infty)\\) and dimension \\(d\\in\\mathbb{N}\\). Let \\(b:\\mathbb{R}^d\\to\\mathbb{R}^d\\) and \\(\\sigma:\\mathbb{R}^d\\to\\mathbb{R}^{d\\times d'}\\) be continuously differentiable, locally Lipschitz, with at most linear growth, and let \\(a(x):=\\sigma(x)\\sigma(x)^\\top\\). Assume local ellipticity: for every bounded \\(B\\subset\\mathbb{R}^d\\) there exists \\(\\theta_B>0\\) such that \\(\\langle \\zeta, a(x)\\zeta\\rangle\\ge \\theta_B\\|\\zeta\\|_d^2\\) for all \\(x\\in B\\), \\(\\zeta\\in\\mathbb{R}^d\\).\n\nDefine the second-order operator acting on sufficiently regular \\(\\varphi\\) by\n\\[\n(L\\varphi)(x)=\\tfrac12\\mathrm{tr}\\big(a(x)D^2\\varphi(x)\\big)+\\langle b(x),\\nabla \\varphi(x)\\rangle.\n\\]\nLet \\(r\\ge 0\\) be a constant. Let \\(f,g,h:[0,T]\\times\\mathbb{R}^d\\to[0,\\infty)\\) be continuous, with the regularity and growth conditions ensuring the expressions below are well-defined almost everywhere for Sobolev functions: specifically assume \\(g\\) and \\(f^2\\) are locally \\(C^{1,2,\\alpha}\\) and \\(h\\) is locally \\(C^{0,1,\\alpha}\\) for some \\(\\alpha\\in(0,1)\\), and \\(g(t,x)+h(t,x)\\) has at most quadratic growth in \\(x\\). Assume also the compatibility condition\n\\[\n\\|\\nabla g(t,x)\\|_d\\le f(t,x),\\qquad (t,x)\\in[0,T]\\times\\mathbb{R}^d.\n\\]\n\nFor \\(p>d+2\\), consider functions \\(u\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\). By Sobolev embedding, such \\(u\\) have a locally H\\\"older-continuous spatial gradient, so the pointwise constraints \\(u\\ge g\\) and \\(\\|\\nabla u\\|_d\\le f\\) are meaningful.\n\nDefine the (parabolic) min-max variational inequality on \\([0,T)\\times\\mathbb{R}^d\\) with terminal condition \\(u(T,x)=g(T,x)\\):\n\\[\n\\min\\Big\\{\\,\\max\\big\\{\\partial_t u + Lu - r u + h,\\; g-u\\big\\},\\; f-\\|\\nabla u\\|_d\\,\\Big\\}=0\\quad \\text{a.e. on }[0,T)\\times\\mathbb{R}^d.\n\\]\nA solution is understood in the strong (Sobolev) sense, i.e. the PDE terms hold almost everywhere, with \\(u\\) satisfying the obstacle and gradient constraints and the terminal condition.",
+  "problem_definition_latex": "Determine whether the above min-max variational inequality with terminal condition \\(u(T,x)=g(T,x)\\) admits at most one solution \\(u\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\) (for some/every \\(p>d+2\\)) satisfying the quadratic-growth bound \\(|u(t,x)|\\le c(1+\\|x\\|_d^2)\\) for a constant \\(c>0\\).\n\nEquivalently, prove or disprove: if \\(u_1,u_2\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\) both satisfy\n1) \\(u_i(T,x)=g(T,x)\\) for all \\(x\\in\\mathbb{R}^d\\),\n2) \\(u_i\\ge g\\) and \\(\\|\\nabla u_i\\|_d\\le f\\) pointwise on \\([0,T]\\times\\mathbb{R}^d\\),\n3) \\(\\min\\{\\max\\{\\partial_t u_i + Lu_i - r u_i + h,\\; g-u_i\\},\\; f-\\|\\nabla u_i\\|_d\\}=0\\) a.e. on \\([0,T)\\times\\mathbb{R}^d\\),\n4) \\(|u_i(t,x)|\\le c(1+\\|x\\|_d^2)\\),\nthen \\(u_1\\equiv u_2\\) on \\([0,T]\\times\\mathbb{R}^d\\).",
+  "latex": "Fix a finite horizon \\(T\\in(0,\\infty)\\) and dimension \\(d\\in\\mathbb{N}\\). Let \\(b:\\mathbb{R}^d\\to\\mathbb{R}^d\\) and \\(\\sigma:\\mathbb{R}^d\\to\\mathbb{R}^{d\\times d'}\\) be continuously differentiable, locally Lipschitz, with at most linear growth, and let \\(a(x):=\\sigma(x)\\sigma(x)^\\top\\). Assume local ellipticity: for every bounded \\(B\\subset\\mathbb{R}^d\\) there exists \\(\\theta_B>0\\) such that \\(\\langle \\zeta, a(x)\\zeta\\rangle\\ge \\theta_B\\|\\zeta\\|_d^2\\) for all \\(x\\in B\\), \\(\\zeta\\in\\mathbb{R}^d\\).\n\nDefine the second-order operator acting on sufficiently regular \\(\\varphi\\) by\n\\[\n(L\\varphi)(x)=\\tfrac12\\mathrm{tr}\\big(a(x)D^2\\varphi(x)\\big)+\\langle b(x),\\nabla \\varphi(x)\\rangle.\n\\]\nLet \\(r\\ge 0\\) be a constant. Let \\(f,g,h:[0,T]\\times\\mathbb{R}^d\\to[0,\\infty)\\) be continuous, with the regularity and growth conditions ensuring the expressions below are well-defined almost everywhere for Sobolev functions: specifically assume \\(g\\) and \\(f^2\\) are locally \\(C^{1,2,\\alpha}\\) and \\(h\\) is locally \\(C^{0,1,\\alpha}\\) for some \\(\\alpha\\in(0,1)\\), and \\(g(t,x)+h(t,x)\\) has at most quadratic growth in \\(x\\). Assume also the compatibility condition\n\\[\n\\|\\nabla g(t,x)\\|_d\\le f(t,x),\\qquad (t,x)\\in[0,T]\\times\\mathbb{R}^d.\n\\]\n\nFor \\(p>d+2\\), consider functions \\(u\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\). By Sobolev embedding, such \\(u\\) have a locally H\\\"older-continuous spatial gradient, so the pointwise constraints \\(u\\ge g\\) and \\(\\|\\nabla u\\|_d\\le f\\) are meaningful.\n\nDefine the (parabolic) min-max variational inequality on \\([0,T)\\times\\mathbb{R}^d\\) with terminal condition \\(u(T,x)=g(T,x)\\):\n\\[\n\\min\\Big\\{\\,\\max\\big\\{\\partial_t u + Lu - r u + h,\\; g-u\\big\\},\\; f-\\|\\nabla u\\|_d\\,\\Big\\}=0\\quad \\text{a.e. on }[0,T)\\times\\mathbb{R}^d.\n\\]\nA solution is understood in the strong (Sobolev) sense, i.e. the PDE terms hold almost everywhere, with \\(u\\) satisfying the obstacle and gradient constraints and the terminal condition.\n\nDetermine whether the above min-max variational inequality with terminal condition \\(u(T,x)=g(T,x)\\) admits at most one solution \\(u\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\) (for some/every \\(p>d+2\\)) satisfying the quadratic-growth bound \\(|u(t,x)|\\le c(1+\\|x\\|_d^2)\\) for a constant \\(c>0\\).\n\nEquivalently, prove or disprove: if \\(u_1,u_2\\in W^{1,2,p}_{\\mathrm{loc}}([0,T]\\times\\mathbb{R}^d)\\) both satisfy\n1) \\(u_i(T,x)=g(T,x)\\) for all \\(x\\in\\mathbb{R}^d\\),\n2) \\(u_i\\ge g\\) and \\(\\|\\nabla u_i\\|_d\\le f\\) pointwise on \\([0,T]\\times\\mathbb{R}^d\\),\n3) \\(\\min\\{\\max\\{\\partial_t u_i + Lu_i - r u_i + h,\\; g-u_i\\},\\; f-\\|\\nabla u_i\\|_d\\}=0\\) a.e. on \\([0,T)\\times\\mathbb{R}^d\\),\n4) \\(|u_i(t,x)|\\le c(1+\\|x\\|_d^2)\\),\nthen \\(u_1\\equiv u_2\\) on \\([0,T]\\times\\mathbb{R}^d\\).",
+  "location_in_paper": "Page 7, Section 3 (Remark 3.5).",
+  "open_problem_quote": "Uniqueness of the solution to Problem A remains an open question. Methods used in, e.g., [35], do not apply due to the presence of obstacle and gradient constraints.",
+  "area": "stochastic control",
+  "keywords": [
+    "variational inequality",
+    "gradient constraint",
+    "obstacle problem",
+    "uniqueness",
+    "controller-stopper games",
+    "Sobolev solution"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "Non-uniqueness (or uniqueness) is a universal analytical property of a PDE/variational inequality on an unbounded continuous domain; there is no obvious finite, discretizable instance family whose verification would constitute a rigorous counterexample without additional structure.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop could explore discretizations or restricted parametric families of coefficients/payoffs to search numerically for multiple solutions or to test candidate comparison principles, but translating numerical evidence into a rigorous uniqueness proof/counterexample would still require substantial human-led analysis.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.11583600000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.11583600000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4221167288/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

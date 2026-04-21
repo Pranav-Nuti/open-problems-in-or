@@ -1,0 +1,63 @@
+{
+  "problem_id": "W4226364838_p0",
+  "paper_id": "W4226364838",
+  "source_paper": "W4226364838",
+  "source_paper_title": "Optimal Partition for a Multi-Type Queueing System",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0035",
+  "source_paper_authors": [
+    "Shengyu Cao",
+    "Simai He",
+    "Zizhuo Wang",
+    "Yifan Feng"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Cao_2026, title={Optimal Partition for a Multi-Type Queueing System}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0035}, DOI={10.1287/moor.2023.0035}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cao, Shengyu and He, Simai and Wang, Zizhuo and Feng, Yifan}, year={2026}, month=jan, pages={277\u2013298} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 34, Section 5 (Extension: Analysis of Sojourn Time), near the discussion following Theorem 8; reiterated in Section 6 (Concluding Remarks) on page 35.\n\nMoreover, for the joint assignment and partition problem, we conjecture that under Assumption 1 it is optimal to assign customers with consecutive service rates to the same queue. We have conducted extensive numerical experiments which validate such a conjecture. However, providing a formal proof remains an open challenge, which we leave for future research.",
+  "title": "Prove consecutive-service-rate optimality for sojourn-time partitioning under moment monotonicity",
+  "background_latex": "Consider a multi-type FCFS queueing system with a divisible total service capacity normalized to 1 that can be partitioned into \\(k\\ge 2\\) parallel FCFS sub-queues with capacities \\(\\alpha=(\\alpha_1,\\dots,\\alpha_k)\\) satisfying \\(\\alpha_j\\ge 0\\) and \\(\\sum_{j=1}^k \\alpha_j=1\\). There are \\(n\\) customer types indexed by \\(i\\in\\{1,\\dots,n\\}\\). Type \\(i\\) arrivals form a Poisson process of rate \\(\\lambda_i>0\\). Under unit capacity, type \\(i\\) has service time random variable \\(S_i\\) with first moment \\(\\mathbb E[S_i]=1/\\mu_i\\) (so \\(\\mu_i>0\\) is the service rate) and second moment \\(\\mathbb E[S_i^2]=\\nu_i\\). When served at capacity \\(\\alpha_j\\), service times scale as \\(S_i/\\alpha_j\\). Routing is by type information only: an assignment matrix \\(X=(x_{ij})\\in[0,1]^{n\\times k}\\) specifies \\(x_{ij}\\) = probability that a type \\(i\\) arrival joins queue \\(j\\), with \\(\\sum_{j=1}^k x_{ij}=1\\) for each \\(i\\). For stability/feasibility, each queue \\(j\\) must satisfy the load constraint \\(\\alpha_j>\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\) whenever \\(\\alpha_j>0\\).\n\nThe performance objective here is the expected total sojourn time (waiting time plus service time), averaged over arrivals. Using the Pollaczek\u2013Khinchine formula for each FCFS sub-queue and the scaling of moments under capacity \\(\\alpha_j\\), the expected total sojourn time under \\((\\alpha,X)\\) is\n\\[\n\\tilde W(\\alpha,X)=\\frac{1}{2\\sum_{i=1}^n\\lambda_i}\\sum_{j: \\alpha_j>0}\\left(\\frac{\\sum_{i=1}^n \\lambda_i x_{ij}\\,\\nu_i}{\\alpha_j^2\\left(\\alpha_j-\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\right)}\\right)\\; +\\; \\frac{1}{\\sum_{i=1}^n\\lambda_i}\\sum_{j: \\alpha_j>0}\\sum_{i=1}^n \\lambda_i x_{ij}\\,\\frac{1}{\\alpha_j\\mu_i}.\n\\]\n(Any equivalent expression for expected sojourn time derived from Pollaczek\u2013Khinchine and the model\u2019s scaling is acceptable.)\n\nAssume customer types are indexed so that service rates are strictly decreasing: \\(\\mu_1>\\mu_2>\\cdots>\\mu_n\\). Assume also the following monotonicity property of the first two moments (the paper\u2019s moment condition): for any two types with \\(\\mathbb E[S_i]\\ge \\mathbb E[S_{i'}]\\) (equivalently \\(\\mu_i\\le \\mu_{i'}\\)),\n\\[\n\\frac{\\mathbb E[S_i^2]}{\\mathbb E[S_i]}\\ge \\frac{\\mathbb E[S_{i'}^2]}{\\mathbb E[S_{i'}]}.\n\\]\nThis condition informally requires that types with larger mean service time have larger adjusted variability (second moment divided by mean).",
+  "problem_definition_latex": "In the joint partition-and-assignment optimization problem\n\\[\n\\min_{\\alpha,X}\\; \\tilde W(\\alpha,X)\\quad\\text{s.t.}\\quad \\alpha_j\\ge 0,\\ \\sum_{j=1}^k \\alpha_j=1,\\ x_{ij}\\in[0,1],\\ \\sum_{j=1}^k x_{ij}=1\\ \\forall i,\\ \\alpha_j>\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\ \\forall j\\text{ with }\\alpha_j>0,\n\\]\nprove (or disprove) that under the moment monotonicity condition \\(\\mathbb E[S_i^2]/\\mathbb E[S_i]\\) nondecreasing in \\(\\mathbb E[S_i]\\) and with \\(\\mu_1>\\cdots>\\mu_n\\), there exists an optimal solution \\((\\alpha^*,X^*)\\) in which customers are assigned to queues in consecutive blocks by service rate, i.e., there exist indices\n\\[\n1=i_0\\le i_1\\le \\cdots\\le i_{k-1}\\le i_k=n+1\n\\]\nsuch that for each queue \\(j\\in\\{1,\\dots,k\\}\\), \\(X^*\\) assigns every type \\(i\\in\\{i_{j-1},\\dots,i_j-1\\}\\) to queue \\(j\\) with probability 1 (and assigns types outside this block to queue \\(j\\) with probability 0).",
+  "latex": "Consider a multi-type FCFS queueing system with a divisible total service capacity normalized to 1 that can be partitioned into \\(k\\ge 2\\) parallel FCFS sub-queues with capacities \\(\\alpha=(\\alpha_1,\\dots,\\alpha_k)\\) satisfying \\(\\alpha_j\\ge 0\\) and \\(\\sum_{j=1}^k \\alpha_j=1\\). There are \\(n\\) customer types indexed by \\(i\\in\\{1,\\dots,n\\}\\). Type \\(i\\) arrivals form a Poisson process of rate \\(\\lambda_i>0\\). Under unit capacity, type \\(i\\) has service time random variable \\(S_i\\) with first moment \\(\\mathbb E[S_i]=1/\\mu_i\\) (so \\(\\mu_i>0\\) is the service rate) and second moment \\(\\mathbb E[S_i^2]=\\nu_i\\). When served at capacity \\(\\alpha_j\\), service times scale as \\(S_i/\\alpha_j\\). Routing is by type information only: an assignment matrix \\(X=(x_{ij})\\in[0,1]^{n\\times k}\\) specifies \\(x_{ij}\\) = probability that a type \\(i\\) arrival joins queue \\(j\\), with \\(\\sum_{j=1}^k x_{ij}=1\\) for each \\(i\\). For stability/feasibility, each queue \\(j\\) must satisfy the load constraint \\(\\alpha_j>\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\) whenever \\(\\alpha_j>0\\).\n\nThe performance objective here is the expected total sojourn time (waiting time plus service time), averaged over arrivals. Using the Pollaczek\u2013Khinchine formula for each FCFS sub-queue and the scaling of moments under capacity \\(\\alpha_j\\), the expected total sojourn time under \\((\\alpha,X)\\) is\n\\[\n\\tilde W(\\alpha,X)=\\frac{1}{2\\sum_{i=1}^n\\lambda_i}\\sum_{j: \\alpha_j>0}\\left(\\frac{\\sum_{i=1}^n \\lambda_i x_{ij}\\,\\nu_i}{\\alpha_j^2\\left(\\alpha_j-\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\right)}\\right)\\; +\\; \\frac{1}{\\sum_{i=1}^n\\lambda_i}\\sum_{j: \\alpha_j>0}\\sum_{i=1}^n \\lambda_i x_{ij}\\,\\frac{1}{\\alpha_j\\mu_i}.\n\\]\n(Any equivalent expression for expected sojourn time derived from Pollaczek\u2013Khinchine and the model\u2019s scaling is acceptable.)\n\nAssume customer types are indexed so that service rates are strictly decreasing: \\(\\mu_1>\\mu_2>\\cdots>\\mu_n\\). Assume also the following monotonicity property of the first two moments (the paper\u2019s moment condition): for any two types with \\(\\mathbb E[S_i]\\ge \\mathbb E[S_{i'}]\\) (equivalently \\(\\mu_i\\le \\mu_{i'}\\)),\n\\[\n\\frac{\\mathbb E[S_i^2]}{\\mathbb E[S_i]}\\ge \\frac{\\mathbb E[S_{i'}^2]}{\\mathbb E[S_{i'}]}.\n\\]\nThis condition informally requires that types with larger mean service time have larger adjusted variability (second moment divided by mean).\n\nIn the joint partition-and-assignment optimization problem\n\\[\n\\min_{\\alpha,X}\\; \\tilde W(\\alpha,X)\\quad\\text{s.t.}\\quad \\alpha_j\\ge 0,\\ \\sum_{j=1}^k \\alpha_j=1,\\ x_{ij}\\in[0,1],\\ \\sum_{j=1}^k x_{ij}=1\\ \\forall i,\\ \\alpha_j>\\sum_{i=1}^n \\lambda_i x_{ij}/\\mu_i\\ \\forall j\\text{ with }\\alpha_j>0,\n\\]\nprove (or disprove) that under the moment monotonicity condition \\(\\mathbb E[S_i^2]/\\mathbb E[S_i]\\) nondecreasing in \\(\\mathbb E[S_i]\\) and with \\(\\mu_1>\\cdots>\\mu_n\\), there exists an optimal solution \\((\\alpha^*,X^*)\\) in which customers are assigned to queues in consecutive blocks by service rate, i.e., there exist indices\n\\[\n1=i_0\\le i_1\\le \\cdots\\le i_{k-1}\\le i_k=n+1\n\\]\nsuch that for each queue \\(j\\in\\{1,\\dots,k\\}\\), \\(X^*\\) assigns every type \\(i\\in\\{i_{j-1},\\dots,i_j-1\\}\\) to queue \\(j\\) with probability 1 (and assigns types outside this block to queue \\(j\\) with probability 0).",
+  "location_in_paper": "Page 34, Section 5 (Extension: Analysis of Sojourn Time), near the discussion following Theorem 8; reiterated in Section 6 (Concluding Remarks) on page 35.",
+  "open_problem_quote": "Moreover, for the joint assignment and partition problem, we conjecture that under Assumption 1 it is optimal to assign customers with consecutive service rates to the same queue. We have conducted extensive numerical experiments which validate such a conjecture. However, providing a formal proof remains an open challenge, which we leave for future research.",
+  "area": "queueing optimization",
+  "keywords": [
+    "queue partitioning",
+    "FCFS queues",
+    "sojourn time minimization",
+    "capacity allocation",
+    "routing by types",
+    "structural optimality",
+    "moment conditions"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The conjecture is about existence of an optimal solution with a block structure; for finite n and fixed k one can numerically solve the joint optimization (e.g., via nonlinear programming with multiple restarts) and check whether all global optima violate the consecutive-block property. This makes automated instance search over \\((\\lambda_i,\\mu_i,\\nu_i)\\) feasible as a counterexample hunt, subject to verifying the moment monotonicity condition.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples (or supporting evidence) can be represented by parameterized families of \\((\\lambda_i,\\mu_i,\\nu_i)\\) satisfying the moment condition, and fitness can be based on the best objective value achievable with unrestricted assignments versus restricted consecutive-block assignments. However, reliably certifying global optimality of the unrestricted nonconvex problem may be computationally heavy and noisy, reducing the fidelity of the fitness signal.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.1097285,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.1097285
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4226364838/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

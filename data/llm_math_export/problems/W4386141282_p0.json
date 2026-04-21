@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4386141282_p0",
+  "paper_id": "W4386141282",
+  "source_paper": "W4386141282",
+  "source_paper_title": "Weak Approachability of Convex Sets in Absorbing Games",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0160",
+  "source_paper_authors": [
+    "Thomas Ragel"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Ragel_2024, title={Weak Approachability of Convex Sets in Absorbing Games}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0160}, DOI={10.1287/moor.2021.0160}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ragel, Thomas}, year={2024}, month=aug, pages={1372\u20131402} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 4, Introduction (end of main contributions summary)\n\nWeak determinacy for Big-Match games of type II remains a problem.",
+  "title": "Establish weak determinacy for convex target sets in Big-Match type II",
+  "background_latex": "A (two-player, zero-sum) generalized quitting game has finite action sets split into non-quitting and quitting actions: player 1 has actions \\(I=I^{\\mathrm{nq}}\\cup I^{\\star}\\) and player 2 has actions \\(J=J^{\\mathrm{nq}}\\cup J^{\\star}\\). A stage payoff vector \\(g(i,j)\\in\\mathbb{R}^d\\) is associated to each action pair. The game repeats over stages \\(t=1,2,\\dots\\); once any quitting action is played for the first time (i.e., some \\(i\\in I^{\\star}\\) or \\(j\\in J^{\\star}\\)), the game absorbs and from then on the same action pair (hence the same payoff vector) repeats forever.\n\nA Big-Match game of type II is the special case where player 2 has quitting actions but player 1 does not:\n1) \\(I^{\\star}=\\varnothing\\) and \\(J^{\\star}\\neq\\varnothing\\),\n2) \\(J^{\\mathrm{nq}}\\neq\\varnothing\\) (so player 2 also has at least one non-quitting action).\nThus player 1 always plays in \\(I=I^{\\mathrm{nq}}\\) and player 2 plays in \\(J=J^{\\mathrm{nq}}\\cup J^{\\star}\\).\n\nA (behavioral) strategy for player 1 is a mapping \\(\\sigma\\) from finite histories of non-absorbing action pairs \\((I\\times J^{\\mathrm{nq}})^{t-1}\\) to mixed actions \\(\\Delta(I)\\). A strategy for player 2 is a mapping \\(\\tau\\) from histories to \\(\\Delta(J^{\\mathrm{nq}}\\cup J^{\\star})\\).\n\nFix a closed convex target set \\(C\\subseteq\\mathbb{R}^d\\). For horizon \\(T\\in\\mathbb{N}\\), define the (Ces\\`aro) time-average payoff\n\\[\\bar g_T := \\frac{1}{T}\\sum_{t=1}^T g(i_t,j_t).\\]\nLet \\(d_C(z):=\\inf_{c\\in C}\\|z-c\\|\\) denote Euclidean distance to \\(C\\).\n\nWeak approachability (in expectation) of \\(C\\) by player 1 means:\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\sigma_T,\\ \\forall \\tau,\\ d_C\\big(\\mathbb{E}_{\\sigma_T,\\tau}[\\bar g_T]\\big)\\le \\varepsilon.\\]\nWeak excludability of \\(C\\) by player 2 means: there exists \\(\\delta>0\\) such that player 2 can weakly approach the complement of the \\(\\delta\\)-neighborhood of \\(C\\), i.e. ensure the expected average payoff stays at distance at least \\(\\delta\\) from \\(C\\) for large known horizons.\n\nA game is weakly determined for convex target sets if for every closed convex \\(C\\subseteq\\mathbb{R}^d\\), either \\(C\\) is weakly approachable by player 1 or \\(C\\) is weakly excludable by player 2.",
+  "problem_definition_latex": "Prove (or disprove) weak determinacy for Big-Match games of type II: for every Big-Match type II game with vector payoff \\(g\\) and every closed convex target set \\(C\\subseteq\\mathbb{R}^d\\), show that exactly one of the following holds:\n\n1) \\(C\\) is weakly approachable by player 1, i.e.\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\sigma_T,\\ \\forall \\tau,\\ d_C\\big(\\mathbb{E}_{\\sigma_T,\\tau}[\\bar g_T]\\big)\\le \\varepsilon;\\]\n\nor\n\n2) \\(C\\) is weakly excludable by player 2, i.e. \\(\\exists\\delta>0\\) such that\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\tau_T,\\ \\forall \\sigma,\\ d_C\\big(\\mathbb{E}_{\\sigma,\\tau_T}[\\bar g_T]\\big)\\ge \\delta-\\varepsilon.\\]\n\nEquivalently, determine whether there exist Big-Match type II games and convex sets \\(C\\) that are neither weakly approachable nor weakly excludable, or prove that no such examples exist.",
+  "latex": "A (two-player, zero-sum) generalized quitting game has finite action sets split into non-quitting and quitting actions: player 1 has actions \\(I=I^{\\mathrm{nq}}\\cup I^{\\star}\\) and player 2 has actions \\(J=J^{\\mathrm{nq}}\\cup J^{\\star}\\). A stage payoff vector \\(g(i,j)\\in\\mathbb{R}^d\\) is associated to each action pair. The game repeats over stages \\(t=1,2,\\dots\\); once any quitting action is played for the first time (i.e., some \\(i\\in I^{\\star}\\) or \\(j\\in J^{\\star}\\)), the game absorbs and from then on the same action pair (hence the same payoff vector) repeats forever.\n\nA Big-Match game of type II is the special case where player 2 has quitting actions but player 1 does not:\n1) \\(I^{\\star}=\\varnothing\\) and \\(J^{\\star}\\neq\\varnothing\\),\n2) \\(J^{\\mathrm{nq}}\\neq\\varnothing\\) (so player 2 also has at least one non-quitting action).\nThus player 1 always plays in \\(I=I^{\\mathrm{nq}}\\) and player 2 plays in \\(J=J^{\\mathrm{nq}}\\cup J^{\\star}\\).\n\nA (behavioral) strategy for player 1 is a mapping \\(\\sigma\\) from finite histories of non-absorbing action pairs \\((I\\times J^{\\mathrm{nq}})^{t-1}\\) to mixed actions \\(\\Delta(I)\\). A strategy for player 2 is a mapping \\(\\tau\\) from histories to \\(\\Delta(J^{\\mathrm{nq}}\\cup J^{\\star})\\).\n\nFix a closed convex target set \\(C\\subseteq\\mathbb{R}^d\\). For horizon \\(T\\in\\mathbb{N}\\), define the (Ces\\`aro) time-average payoff\n\\[\\bar g_T := \\frac{1}{T}\\sum_{t=1}^T g(i_t,j_t).\\]\nLet \\(d_C(z):=\\inf_{c\\in C}\\|z-c\\|\\) denote Euclidean distance to \\(C\\).\n\nWeak approachability (in expectation) of \\(C\\) by player 1 means:\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\sigma_T,\\ \\forall \\tau,\\ d_C\\big(\\mathbb{E}_{\\sigma_T,\\tau}[\\bar g_T]\\big)\\le \\varepsilon.\\]\nWeak excludability of \\(C\\) by player 2 means: there exists \\(\\delta>0\\) such that player 2 can weakly approach the complement of the \\(\\delta\\)-neighborhood of \\(C\\), i.e. ensure the expected average payoff stays at distance at least \\(\\delta\\) from \\(C\\) for large known horizons.\n\nA game is weakly determined for convex target sets if for every closed convex \\(C\\subseteq\\mathbb{R}^d\\), either \\(C\\) is weakly approachable by player 1 or \\(C\\) is weakly excludable by player 2.\n\nProve (or disprove) weak determinacy for Big-Match games of type II: for every Big-Match type II game with vector payoff \\(g\\) and every closed convex target set \\(C\\subseteq\\mathbb{R}^d\\), show that exactly one of the following holds:\n\n1) \\(C\\) is weakly approachable by player 1, i.e.\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\sigma_T,\\ \\forall \\tau,\\ d_C\\big(\\mathbb{E}_{\\sigma_T,\\tau}[\\bar g_T]\\big)\\le \\varepsilon;\\]\n\nor\n\n2) \\(C\\) is weakly excludable by player 2, i.e. \\(\\exists\\delta>0\\) such that\n\\[\\forall\\varepsilon>0,\\ \\exists T_\\varepsilon\\in\\mathbb{N},\\ \\forall T\\ge T_\\varepsilon,\\ \\exists \\tau_T,\\ \\forall \\sigma,\\ d_C\\big(\\mathbb{E}_{\\sigma,\\tau_T}[\\bar g_T]\\big)\\ge \\delta-\\varepsilon.\\]\n\nEquivalently, determine whether there exist Big-Match type II games and convex sets \\(C\\) that are neither weakly approachable nor weakly excludable, or prove that no such examples exist.",
+  "location_in_paper": "Page 4, Introduction (end of main contributions summary)",
+  "open_problem_quote": "Weak determinacy for Big-Match games of type II remains a problem.",
+  "area": "online learning",
+  "keywords": [
+    "blackwell approachability",
+    "stochastic games",
+    "big match",
+    "weak determinacy",
+    "convex target sets",
+    "absorbing games"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The game class is finite, so candidate counterexamples can be searched over small action sets and low-dimensional payoffs, but verifying weak approachability/excludability is itself nontrivial and may require solving auxiliary limiting or differential-game characterizations rather than a simple finite certificate.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize small Big-Match type II games and convex targets and use numerical proxies (e.g., finite-horizon minimax with horizon-dependent strategies, discretized differential-game value approximations) as a fitness signal to hunt for candidate indeterminate instances or supporting evidence for determinacy, but the signal may be expensive and only approximate the asymptotic weak notion.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06568975,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06568975
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4386141282/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

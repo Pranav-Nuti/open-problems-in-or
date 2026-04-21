@@ -1,0 +1,61 @@
+{
+  "problem_id": "W3080982993_p0",
+  "paper_id": "W3080982993",
+  "source_paper": "W3080982993",
+  "source_paper_title": "How Many Vertices Does a Random Walk Miss in a Network with a Moderately Increasing Number of Vertices?",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0060",
+  "source_paper_authors": [
+    "Shuji Kijima",
+    "Nobutaka Shimizu",
+    "Takeharu Shiraga"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Kijima_2026, title={How Many Vertices Does a Random Walk Miss in a Network with a Moderately Increasing Number of Vertices?}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0060}, DOI={10.1287/moor.2023.0060}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kijima, Shuji and Shimizu, Nobutaka and Shiraga, Takeharu}, year={2026}, month=jan, pages={783\u2013805} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 5 (end of Section 1.2, discussion after Theorem 1.3) and Page 23, Section 5 Concluding Remarks.\n\nA natural question remains unsettled whether \\(E[U] = O(1)\\) requires \\(d(i) = \\Omega(t_{\\mathrm{hit}}(i))\\) for any RWoGG \\((d,(G(i))_{i\\ge 1},(P^{(i)})_{i\\ge 1})\\).\n\nA general lower bound of \\(E[U]\\) is a challenge: a natural question remains unsettled whether \\(E[U] = O(1)\\) requires \\(d(i) = \\Omega(t_{\\mathrm{hit}}(i))\\).",
+  "title": "Characterize when constant expected unvisited vertices requires duration at least hitting time",
+  "background_latex": "Consider a growing graph process in discrete time in which, for each integer \n\\(i\\ge 1\\), there is a connected simple undirected graph \\(G^{(i)}=(V^{(i)},E^{(i)})\\) with \\(V^{(i)}=\\{v_1,\\dots,v_i\\}\\) and \\(G^{(i+1)}\\) is obtained from \\(G^{(i)}\\) by adding one new vertex \\(v_{i+1}\\) and connecting it to at least one existing vertex (so \\(V^{(i)}\\subseteq V^{(i+1)}\\)).\n\nLet \\(d:\\mathbb{N}\\to\\mathbb{N}\\) be a duration (growth-rate) function: the system stays on \\(G^{(i)}\\) for exactly \\(d(i)\\) consecutive random-walk steps before the next vertex is added. Define the change times \\(T_1:=0\\) and \\(T_{i}:=\\sum_{j=1}^{i-1} d(j)\\) for \\(i\\ge 2\\), so that the vertex set size equals \\(i\\) during times \\(t\\in[T_i,T_{i+1})\\).\n\nA random walk on this growing graph is specified by transition matrices \\(P^{(i)}\\in[0,1]^{V^{(i)}\\times V^{(i)}}\\), where during the period when the current graph is \\(G^{(i)}\\), the walker evolves as the time-homogeneous Markov chain with transition matrix \\(P^{(i)}\\). Assume each \\(P^{(i)}\\) is irreducible (so the walk on \\(G^{(i)}\\) is well-defined) and define its hitting time\n\\[\n t_{\\mathrm{hit}}(i) \\, := \\, \\max_{u,v\\in V^{(i)}} \\mathbb{E}\\big[\\min\\{t\\ge 0: X_0=u,\\ X_t=v\\}\\big],\n\\]\nwhere \\((X_t)_{t\\ge 0}\\) denotes a Markov chain with transition matrix \\(P^{(i)}\\).\n\nLet \\((Z_t)_{t\\ge 0}\\) denote the overall walk on the growing graph (so \\(Z_t\\in V_t\\), and in fact \\(Z_t\\in V_{t-1}\\) for \\(t\\ge 1\\)). Define the number of unvisited vertices just before the \\((n+1)\\)-st vertex is added by\n\\[\nU(n) \\, := \\, \\left|\\, V^{(n)} \\setminus \\bigcup_{t=0}^{T_{n+1}} \\{Z_t\\}\\,\\right|,\n\\]\nand write \\(\\mathbb{E}[U(n)]\\) for its expectation under the law of the walk determined by \\((d,(G^{(i)}),(P^{(i)}))\\).",
+  "problem_definition_latex": "Determine whether the following implication holds uniformly over all random walks on growing graphs as defined above:\n\nIf \\(\\mathbb{E}[U(n)] = O(1)\\) as \\(n\\to\\infty\\), must it be the case that\n\\[\n d(i) = \\Omega\\big(t_{\\mathrm{hit}}(i)\\big) \\quad \\text{as } i\\to\\infty?\n\\]\nEquivalently, decide whether there exists a family \\((d,(G^{(i)}),(P^{(i)}))\\) such that \\(\\mathbb{E}[U(n)]\\) stays bounded while \\(d(i)/t_{\\mathrm{hit}}(i)\\to 0\\), or prove that no such family exists.",
+  "latex": "Consider a growing graph process in discrete time in which, for each integer \n\\(i\\ge 1\\), there is a connected simple undirected graph \\(G^{(i)}=(V^{(i)},E^{(i)})\\) with \\(V^{(i)}=\\{v_1,\\dots,v_i\\}\\) and \\(G^{(i+1)}\\) is obtained from \\(G^{(i)}\\) by adding one new vertex \\(v_{i+1}\\) and connecting it to at least one existing vertex (so \\(V^{(i)}\\subseteq V^{(i+1)}\\)).\n\nLet \\(d:\\mathbb{N}\\to\\mathbb{N}\\) be a duration (growth-rate) function: the system stays on \\(G^{(i)}\\) for exactly \\(d(i)\\) consecutive random-walk steps before the next vertex is added. Define the change times \\(T_1:=0\\) and \\(T_{i}:=\\sum_{j=1}^{i-1} d(j)\\) for \\(i\\ge 2\\), so that the vertex set size equals \\(i\\) during times \\(t\\in[T_i,T_{i+1})\\).\n\nA random walk on this growing graph is specified by transition matrices \\(P^{(i)}\\in[0,1]^{V^{(i)}\\times V^{(i)}}\\), where during the period when the current graph is \\(G^{(i)}\\), the walker evolves as the time-homogeneous Markov chain with transition matrix \\(P^{(i)}\\). Assume each \\(P^{(i)}\\) is irreducible (so the walk on \\(G^{(i)}\\) is well-defined) and define its hitting time\n\\[\n t_{\\mathrm{hit}}(i) \\, := \\, \\max_{u,v\\in V^{(i)}} \\mathbb{E}\\big[\\min\\{t\\ge 0: X_0=u,\\ X_t=v\\}\\big],\n\\]\nwhere \\((X_t)_{t\\ge 0}\\) denotes a Markov chain with transition matrix \\(P^{(i)}\\).\n\nLet \\((Z_t)_{t\\ge 0}\\) denote the overall walk on the growing graph (so \\(Z_t\\in V_t\\), and in fact \\(Z_t\\in V_{t-1}\\) for \\(t\\ge 1\\)). Define the number of unvisited vertices just before the \\((n+1)\\)-st vertex is added by\n\\[\nU(n) \\, := \\, \\left|\\, V^{(n)} \\setminus \\bigcup_{t=0}^{T_{n+1}} \\{Z_t\\}\\,\\right|,\n\\]\nand write \\(\\mathbb{E}[U(n)]\\) for its expectation under the law of the walk determined by \\((d,(G^{(i)}),(P^{(i)}))\\).\n\nDetermine whether the following implication holds uniformly over all random walks on growing graphs as defined above:\n\nIf \\(\\mathbb{E}[U(n)] = O(1)\\) as \\(n\\to\\infty\\), must it be the case that\n\\[\n d(i) = \\Omega\\big(t_{\\mathrm{hit}}(i)\\big) \\quad \\text{as } i\\to\\infty?\n\\]\nEquivalently, decide whether there exists a family \\((d,(G^{(i)}),(P^{(i)}))\\) such that \\(\\mathbb{E}[U(n)]\\) stays bounded while \\(d(i)/t_{\\mathrm{hit}}(i)\\to 0\\), or prove that no such family exists.",
+  "location_in_paper": "Page 5 (end of Section 1.2, discussion after Theorem 1.3) and Page 23, Section 5 Concluding Remarks.",
+  "open_problem_quote": "A natural question remains unsettled whether \\(E[U] = O(1)\\) requires \\(d(i) = \\Omega(t_{\\mathrm{hit}}(i))\\) for any RWoGG \\((d,(G(i))_{i\\ge 1},(P^{(i)})_{i\\ge 1})\\).\n\nA general lower bound of \\(E[U]\\) is a challenge: a natural question remains unsettled whether \\(E[U] = O(1)\\) requires \\(d(i) = \\Omega(t_{\\mathrm{hit}}(i))\\).",
+  "area": "online algorithms",
+  "keywords": [
+    "random walks",
+    "dynamic graphs",
+    "hitting time",
+    "cover time",
+    "growing networks",
+    "unvisited vertices"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample would amount to constructing growing graphs and transition rules with provably small \\(\\mathbb{E}[U(n)]\\) despite durations \\(d(i)\\ll t_{\\mathrm{hit}}(i)\\). Candidate families can be searched computationally on small \\(n\\) by simulating \\(\\mathbb{E}[U(n)]\\) and estimating hitting times, but verifying asymptotic separation and ruling out finite-size artifacts is nontrivial.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can encode candidate constructions (graph-growth rules, attachment choices, and possibly transition matrices) and use simulation-based fitness such as small estimated \\(\\mathbb{E}[U(n)]\\) penalized by large estimated \\(t_{\\mathrm{hit}}(i)/d(i)\\). This provides an automated feedback signal, but the search space is large and the fitness proxy is noisy and may not correlate with the asymptotic statement.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.06786500000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06786500000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3080982993/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

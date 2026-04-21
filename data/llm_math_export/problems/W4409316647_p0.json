@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4409316647_p0",
+  "paper_id": "W4409316647",
+  "source_paper": "W4409316647",
+  "source_paper_title": "Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0317",
+  "source_paper_authors": [
+    "Ritesh Goenka",
+    "Eashan Gupta",
+    "Sushil Khyalia",
+    "Shivaram Kalyanakrishnan"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2025,
+  "source_paper_bibtex": "@article{Goenka_2026, title={Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0317}, DOI={10.1287/moor.2023.0317}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Goenka, Ritesh and Gupta, Eashan and Khyalia, Sushil and Kalyanakrishnan, Shivaram}, year={2026}, month=jan, pages={806\u2013828} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Summary and outlook), page 31.\n\nIt remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions.",
+  "title": "Construct Hamiltonian policy-iteration paths for multi-action Markov decision processes",
+  "background_latex": "Consider a finite discounted Markov decision process (MDP) \\(M=(S,A,T,R,\\gamma)\\) with finite state set \\(S\\) and action set \\(A\\), transition probabilities \\(T:S\\times A\\times S\\to[0,1]\\) (so \\(\\sum_{s'\\in S}T(s,a,s')=1\\)), reward function \\(R:S\\times A\\to\\mathbb{R}\\), and discount factor \\(\\gamma\\in[0,1)\\). A (deterministic, stationary/Markovian) policy is a map \\(\\pi:S\\to A\\). For a policy \\(\\pi\\), its value function \\(V^\\pi:S\\to\\mathbb{R}\\) is\n\\[\nV^\\pi(s)=\\mathbb{E}\\Big[\\sum_{t=0}^{\\infty}\\gamma^t R(s_t,a_t)\\Big],\\quad s_0=s,\\ a_t=\\pi(s_t),\\ s_{t+1}\\sim T(s_t,a_t,\\cdot).\n\\]\nFor policies \\(\\pi,\\pi'\\), write \\(\\pi\\prec\\pi'\\) if \\(V^\\pi(s)\\le V^{\\pi'}(s)\\) for all \\(s\\in S\\) and \\(V^\\pi(s)<V^{\\pi'}(s)\\) for some \\(s\\). For a policy \\(\\pi\\), define the action-value function \\(Q^\\pi(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^\\pi(s')\\) and the gain \\(\\rho^\\pi(s,a)=Q^\\pi(s,a)-V^\\pi(s)\\). A policy improvement step replaces \\(\\pi\\) by a policy \\(\\pi'\\) that differs from \\(\\pi\\) on a nonempty set of states, switching each such state \\(s\\) to an action \\(a\\) with \\(\\rho^\\pi(s,a)>0\\); the policy improvement theorem guarantees \\(\\pi\\prec\\pi'\\).\n\nDefine the policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) as the directed graph whose vertices are all policies \\(\\pi:S\\to A\\), with a directed edge \\(\\pi\\to\\pi'\\) whenever \\(\\pi'\\) can be obtained from \\(\\pi\\) by one policy improvement step (switching any nonempty set of improving actions). A directed path in the PI-DAG corresponds to a possible trajectory of some policy-iteration (PI) algorithm on \\(M\\). A Hamiltonian path in the PI-DAG is a directed path that visits every policy exactly once; for \\(|S|=n\\) and \\(|A|=k\\), this would have length \\(k^n\\) (visiting all \\(k^n\\) policies).",
+  "problem_definition_latex": "For integers \\(n\\ge 1\\) and \\(k\\ge 3\\), determine whether there exists a discounted MDP \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\) and \\(|A|=k\\) whose PI-DAG contains a Hamiltonian directed path, i.e., a directed path that visits all \\(k^n\\) deterministic stationary policies exactly once via successive policy-improvement steps.",
+  "latex": "Consider a finite discounted Markov decision process (MDP) \\(M=(S,A,T,R,\\gamma)\\) with finite state set \\(S\\) and action set \\(A\\), transition probabilities \\(T:S\\times A\\times S\\to[0,1]\\) (so \\(\\sum_{s'\\in S}T(s,a,s')=1\\)), reward function \\(R:S\\times A\\to\\mathbb{R}\\), and discount factor \\(\\gamma\\in[0,1)\\). A (deterministic, stationary/Markovian) policy is a map \\(\\pi:S\\to A\\). For a policy \\(\\pi\\), its value function \\(V^\\pi:S\\to\\mathbb{R}\\) is\n\\[\nV^\\pi(s)=\\mathbb{E}\\Big[\\sum_{t=0}^{\\infty}\\gamma^t R(s_t,a_t)\\Big],\\quad s_0=s,\\ a_t=\\pi(s_t),\\ s_{t+1}\\sim T(s_t,a_t,\\cdot).\n\\]\nFor policies \\(\\pi,\\pi'\\), write \\(\\pi\\prec\\pi'\\) if \\(V^\\pi(s)\\le V^{\\pi'}(s)\\) for all \\(s\\in S\\) and \\(V^\\pi(s)<V^{\\pi'}(s)\\) for some \\(s\\). For a policy \\(\\pi\\), define the action-value function \\(Q^\\pi(s,a)=R(s,a)+\\gamma\\sum_{s'\\in S}T(s,a,s')V^\\pi(s')\\) and the gain \\(\\rho^\\pi(s,a)=Q^\\pi(s,a)-V^\\pi(s)\\). A policy improvement step replaces \\(\\pi\\) by a policy \\(\\pi'\\) that differs from \\(\\pi\\) on a nonempty set of states, switching each such state \\(s\\) to an action \\(a\\) with \\(\\rho^\\pi(s,a)>0\\); the policy improvement theorem guarantees \\(\\pi\\prec\\pi'\\).\n\nDefine the policy-improvement directed acyclic graph (PI-DAG) of \\(M\\) as the directed graph whose vertices are all policies \\(\\pi:S\\to A\\), with a directed edge \\(\\pi\\to\\pi'\\) whenever \\(\\pi'\\) can be obtained from \\(\\pi\\) by one policy improvement step (switching any nonempty set of improving actions). A directed path in the PI-DAG corresponds to a possible trajectory of some policy-iteration (PI) algorithm on \\(M\\). A Hamiltonian path in the PI-DAG is a directed path that visits every policy exactly once; for \\(|S|=n\\) and \\(|A|=k\\), this would have length \\(k^n\\) (visiting all \\(k^n\\) policies).\n\nFor integers \\(n\\ge 1\\) and \\(k\\ge 3\\), determine whether there exists a discounted MDP \\(M=(S,A,T,R,\\gamma)\\) with \\(|S|=n\\) and \\(|A|=k\\) whose PI-DAG contains a Hamiltonian directed path, i.e., a directed path that visits all \\(k^n\\) deterministic stationary policies exactly once via successive policy-improvement steps.",
+  "location_in_paper": "Section 6 (Summary and outlook), page 31.",
+  "open_problem_quote": "It remains unknown if such a Hamiltonian path through the set of policies exists for any MDP with \\(k \\ge 3\\) actions.",
+  "area": "online algorithms",
+  "keywords": [
+    "markov decision processes",
+    "policy iteration",
+    "policy improvement digraph",
+    "hamiltonian path",
+    "worst-case complexity",
+    "multi-action MDPs"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "For fixed small \\(n,k\\) (e.g., \\(n=3,k=3\\)), one can computationally search for an MDP whose PI-DAG contains a Hamiltonian path by parameterizing \\(T,R,\\gamma\\) and checking all \\(k^n\\) policies and improvement edges numerically. The search space is large but finite-dimensional, and feasibility of a candidate can be tested by solving Bellman equations and verifying gains.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate MDP instances can be represented by real-valued parameters \\((T,R,\\gamma)\\) (or restricted families thereof), and a fitness signal can be the length of the longest policy-improvement trajectory achievable (or presence/absence of a Hamiltonian path) computed from gains across all policies. An evolutionary loop can iteratively mutate parameters to increase achievable path length and potentially discover explicit small-instance constructions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09048025,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09048025
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4409316647/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

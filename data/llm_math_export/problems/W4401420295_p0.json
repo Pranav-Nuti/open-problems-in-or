@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4401420295_p0",
+  "paper_id": "W4401420295",
+  "source_paper": "W4401420295",
+  "source_paper_title": "Erratum to: Linear Convergence of Dual Coordinate Descent on Nonpolyhedral Convex Problems",
+  "source_paper_url": "https://doi.org/10.1287/moor.2024.0500",
+  "source_paper_authors": [
+    "Ion Necoara",
+    "Olivier Fercoq"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Necoara_2025, title={Erratum to: Linear Convergence of Dual Coordinate Descent on Nonpolyhedral Convex Problems}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0500}, DOI={10.1287/moor.2024.0500}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Necoara, Ion and Fercoq, Olivier}, year={2025}, month=aug, pages={1935\u20131938} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 13, end of Section 3.2 (immediately after Theorem 3 and its discussion).\n\nOur main result of this section states that we have on any sublevel set a quadratic growth condition on the dual of (3), provided that \\(g\\) is smooth strongly convex function and the sets \\(X_i\\) satisfy Slater\u2019s condition. We conjecture that a similar result holds by replacing the Slater\u2019s condition with the linear regularity condition (5). We will investigate this conjecture in our future work.",
+  "title": "Quadratic growth of the dual objective under linear regularity of constraints",
+  "background_latex": "Consider the constrained convex optimization problem\n\\[\n\\min_{x\\in\\mathbb{R}^n} g(x) \\quad \\text{s.t.}\\quad x\\in X:=\\bigcap_{i=1}^m X_i,\n\\]\nwhere:\n1) \\(g:\\mathbb{R}^n\\to\\mathbb{R}\\) is differentiable, \\(1\\)-strongly convex, and has \\(L\\)-Lipschitz continuous gradient.\n2) Each \\(X_i\\subseteq\\mathbb{R}^n\\) is a closed convex set, and projections onto individual \\(X_i\\) are assumed computationally easy.\n3) The feasible set is \\(X=\\cap_{i=1}^m X_i\\), assumed nonempty.\n\nDefine the (global) linear regularity property for the collection \\(\\{X_i\\}_{i=1}^m\\): there exists \\(\\mu\\in(0,1]\\) such that\n\\[\n\\mu\\,\\mathrm{dist}^2(x,X) \\le \\frac{1}{m}\\sum_{i=1}^m \\mathrm{dist}^2(x,X_i)\\qquad \\forall x\\in\\mathbb{R}^n,\n\\]\nwhere \\(\\mathrm{dist}(x,S)=\\inf_{z\\in S}\\|x-z\\|\\).\n\nForm the standard dual by introducing replicated variables \\((x,x_1,\\dots,x_m)\\) with coupling constraints \\(x=x_i\\) for all \\(i\\), leading to a dual variable \\(y=(y_1;\\dots;y_m)\\in\\mathbb{R}^{mn}\\). The dual objective (to be minimized) has the composite form\n\\[\n d(y) := g^*\\!\\left(-\\sum_{i=1}^m y_i\\right) + \\sum_{i=1}^m \\mathrm{supp}_{X_i}(y_i),\n\\]\nwhere \\(g^*\\) is the Fenchel conjugate of \\(g\\), and \\(\\mathrm{supp}_{X_i}(y)=\\sup_{x\\in X_i}\\langle y,x\\rangle\\) is the support function.\n\nLet \\(d^*:=\\inf_{y\\in\\mathbb{R}^{mn}} d(y)\\) and \\(Y^*:=\\arg\\min_{y\\in\\mathbb{R}^{mn}} d(y)\\) denote the dual optimal value and dual solution set.\n\nA (local) quadratic growth property of \\(d\\) on a given sublevel set \\(\\{y: d(y)\\le d(y_0)\\}\\) means: there exists \\(\\sigma>0\\) (possibly depending on \\(y_0\\)) such that\n\\[\n d(y)-d^* \\ge \\frac{\\sigma}{2}\\,\\mathrm{dist}^2(y,Y^*) \\qquad \\forall y\\in\\mathbb{R}^{mn}\\ \\text{with}\\ d(y)\\le d(y_0).\n\\]\nThe paper proves such a quadratic growth statement under Slater-type constraint qualification (a relative-interior point condition allowing some sets to be polyhedral). It also proves strong duality under linear regularity, but does not establish quadratic growth under linear regularity.",
+  "problem_definition_latex": "Assume that \\(g\\) is differentiable, \\(1\\)-strongly convex, and has \\(L\\)-Lipschitz gradient, and that the closed convex sets \\(\\{X_i\\}_{i=1}^m\\) have nonempty intersection \\(X\\) and satisfy the global linear regularity property\n\\[\n\\mu\\,\\mathrm{dist}^2(x,X) \\le \\frac{1}{m}\\sum_{i=1}^m \\mathrm{dist}^2(x,X_i)\\qquad \\forall x\\in\\mathbb{R}^n\n\\]\nfor some \\(\\mu\\in(0,1]\\).\n\nFor the dual objective\n\\[\n d(y) := g^*\\!\\left(-\\sum_{i=1}^m y_i\\right) + \\sum_{i=1}^m \\mathrm{supp}_{X_i}(y_i),\n\\]\ndetermine whether the following property holds:\n\nFor every \\(y_0\\in\\mathbb{R}^{mn}\\), there exists \\(\\sigma=\\sigma(y_0)>0\\) such that\n\\[\n d(y)-d^* \\ge \\frac{\\sigma}{2}\\,\\mathrm{dist}^2(y,Y^*) \\qquad \\forall y\\in\\mathbb{R}^{mn}\\ \\text{with}\\ d(y)\\le d(y_0),\n\\]\nwhere \\(d^*=\\inf_y d(y)\\) and \\(Y^*=\\arg\\min_y d(y)\\).",
+  "latex": "Consider the constrained convex optimization problem\n\\[\n\\min_{x\\in\\mathbb{R}^n} g(x) \\quad \\text{s.t.}\\quad x\\in X:=\\bigcap_{i=1}^m X_i,\n\\]\nwhere:\n1) \\(g:\\mathbb{R}^n\\to\\mathbb{R}\\) is differentiable, \\(1\\)-strongly convex, and has \\(L\\)-Lipschitz continuous gradient.\n2) Each \\(X_i\\subseteq\\mathbb{R}^n\\) is a closed convex set, and projections onto individual \\(X_i\\) are assumed computationally easy.\n3) The feasible set is \\(X=\\cap_{i=1}^m X_i\\), assumed nonempty.\n\nDefine the (global) linear regularity property for the collection \\(\\{X_i\\}_{i=1}^m\\): there exists \\(\\mu\\in(0,1]\\) such that\n\\[\n\\mu\\,\\mathrm{dist}^2(x,X) \\le \\frac{1}{m}\\sum_{i=1}^m \\mathrm{dist}^2(x,X_i)\\qquad \\forall x\\in\\mathbb{R}^n,\n\\]\nwhere \\(\\mathrm{dist}(x,S)=\\inf_{z\\in S}\\|x-z\\|\\).\n\nForm the standard dual by introducing replicated variables \\((x,x_1,\\dots,x_m)\\) with coupling constraints \\(x=x_i\\) for all \\(i\\), leading to a dual variable \\(y=(y_1;\\dots;y_m)\\in\\mathbb{R}^{mn}\\). The dual objective (to be minimized) has the composite form\n\\[\n d(y) := g^*\\!\\left(-\\sum_{i=1}^m y_i\\right) + \\sum_{i=1}^m \\mathrm{supp}_{X_i}(y_i),\n\\]\nwhere \\(g^*\\) is the Fenchel conjugate of \\(g\\), and \\(\\mathrm{supp}_{X_i}(y)=\\sup_{x\\in X_i}\\langle y,x\\rangle\\) is the support function.\n\nLet \\(d^*:=\\inf_{y\\in\\mathbb{R}^{mn}} d(y)\\) and \\(Y^*:=\\arg\\min_{y\\in\\mathbb{R}^{mn}} d(y)\\) denote the dual optimal value and dual solution set.\n\nA (local) quadratic growth property of \\(d\\) on a given sublevel set \\(\\{y: d(y)\\le d(y_0)\\}\\) means: there exists \\(\\sigma>0\\) (possibly depending on \\(y_0\\)) such that\n\\[\n d(y)-d^* \\ge \\frac{\\sigma}{2}\\,\\mathrm{dist}^2(y,Y^*) \\qquad \\forall y\\in\\mathbb{R}^{mn}\\ \\text{with}\\ d(y)\\le d(y_0).\n\\]\nThe paper proves such a quadratic growth statement under Slater-type constraint qualification (a relative-interior point condition allowing some sets to be polyhedral). It also proves strong duality under linear regularity, but does not establish quadratic growth under linear regularity.\n\nAssume that \\(g\\) is differentiable, \\(1\\)-strongly convex, and has \\(L\\)-Lipschitz gradient, and that the closed convex sets \\(\\{X_i\\}_{i=1}^m\\) have nonempty intersection \\(X\\) and satisfy the global linear regularity property\n\\[\n\\mu\\,\\mathrm{dist}^2(x,X) \\le \\frac{1}{m}\\sum_{i=1}^m \\mathrm{dist}^2(x,X_i)\\qquad \\forall x\\in\\mathbb{R}^n\n\\]\nfor some \\(\\mu\\in(0,1]\\).\n\nFor the dual objective\n\\[\n d(y) := g^*\\!\\left(-\\sum_{i=1}^m y_i\\right) + \\sum_{i=1}^m \\mathrm{supp}_{X_i}(y_i),\n\\]\ndetermine whether the following property holds:\n\nFor every \\(y_0\\in\\mathbb{R}^{mn}\\), there exists \\(\\sigma=\\sigma(y_0)>0\\) such that\n\\[\n d(y)-d^* \\ge \\frac{\\sigma}{2}\\,\\mathrm{dist}^2(y,Y^*) \\qquad \\forall y\\in\\mathbb{R}^{mn}\\ \\text{with}\\ d(y)\\le d(y_0),\n\\]\nwhere \\(d^*=\\inf_y d(y)\\) and \\(Y^*=\\arg\\min_y d(y)\\).",
+  "location_in_paper": "Page 13, end of Section 3.2 (immediately after Theorem 3 and its discussion).",
+  "open_problem_quote": "Our main result of this section states that we have on any sublevel set a quadratic growth condition on the dual of (3), provided that \\(g\\) is smooth strongly convex function and the sets \\(X_i\\) satisfy Slater\u2019s condition. We conjecture that a similar result holds by replacing the Slater\u2019s condition with the linear regularity condition (5). We will investigate this conjecture in our future work.",
+  "area": "convex optimization",
+  "keywords": [
+    "dual coordinate descent",
+    "quadratic growth",
+    "error bounds",
+    "linear regularity",
+    "Slater condition",
+    "Fenchel duality"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can algorithmically generate families of convex sets (e.g., via epigraph/hypograph descriptions or intersections of balls/second-order cones) that satisfy linear regularity but violate Slater, and then numerically probe the dual objective for failure of a quadratic growth inequality on chosen sublevel sets. However, certifying linear regularity and certifying violation of quadratic growth globally are both nontrivial, so automated search would likely rely on heuristics and finite-dimensional discretizations.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be parameterized (e.g., by defining sets \\(X_i\\) through simple projections), and a fitness signal can be based on numerically estimating the smallest local quadratic growth constant over sampled points in a sublevel set while checking approximate linear regularity. The signal is computationally accessible but imperfect because both properties involve worst-case quantifiers that are hard to certify exactly.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.063546,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.063546
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401420295/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

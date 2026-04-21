@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4396905249_p0",
+  "paper_id": "W4396905249",
+  "source_paper": "W4396905249",
+  "source_paper_title": "Liquid Welfare Guarantees for No-Regret Learning in Sequential Budgeted Auctions",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0274",
+  "source_paper_authors": [
+    "Giannis Fikioris",
+    "\u00c9va Tardos"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Fikioris_2025, title={Liquid Welfare Guarantees for No-Regret Learning in Sequential Budgeted Auctions}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0274}, DOI={10.1287/moor.2023.0274}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Fikioris, Giannis and Tardos, \u00c9va}, year={2025}, month=may, pages={1233\u20131249} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 18, Section 8 (Conclusion)\n\nWhile we prove positive liquid welfare guarantees under mild learning assumptions, we leave open the problem of whether stronger learning guarantees imply better liquid welfare. For example, can we get better liquid welfare guarantees if the players have high competitive ratio with respect to the best Lipschitz continuous function that maps values to bids? Or if the values are sampled from a distribution instead of being picked adversarially?",
+  "title": "Design learning guarantees that improve liquid welfare in sequential budgeted auctions",
+  "background_latex": "Consider a sequential auction with one item per round over rounds \\(t\\in[T]=\\{1,\\dots,T\\}\\) and players \\(i\\in[n]\\). Player \\(i\\) has a hard budget \\(B_i>0\\) and per-round value \\(v_{it}\\in[0,1]\\) for winning the round-\\(t\\) item. (In the additive-valuation model, the value of a set of won rounds \\(S\\subseteq[T]\\) is \\(\\sum_{t\\in S} v_{it}\\).) In each round players submit bids; in a first-price auction the highest bidder wins and pays her bid. Let \\(V_i\\) and \\(P_i\\) denote player \\(i\\)'s total realized value and payment over all rounds, and let the (budgeted quasilinear) utility be \\(U_i = V_i-P_i\\) if \\(P_i\\le B_i\\) and \\(-\\infty\\) otherwise.\n\nThe system performance metric is liquid welfare. Player \\(i\\)'s liquid welfare contribution is\n\\[\\mathrm{LW}_i := \\min\\{B_i, V_i\\},\\qquad \\mathrm{LW}:=\\sum_{i=1}^n \\mathrm{LW}_i.\\]\nLet \\(\\mathrm{LW}^*\\) denote the maximum liquid welfare over all feasible allocations of items across rounds.\n\nPlayers are assumed to be learning (not necessarily converging to equilibrium). A baseline behavioral benchmark studied in the paper is comparison to the best fixed multiplicative shading multiplier \\(\\lambda\\in[0,1]\\) applied to values each round, subject to not exceeding the remaining budget. More generally, one can consider richer benchmark classes mapping values to bids; e.g., a (scalar) bidding rule \\(f:[0,1]\\to[0,1]\\) that is Lipschitz continuous (with some Lipschitz constant \\(L\\)) and induces bids \\(b_{it}=f(v_{it})\\) each round, again subject to the remaining budget. One can also distinguish adversarially chosen value sequences \\((v_{it})\\) versus values drawn i.i.d. from a distribution (stochastic model).",
+  "problem_definition_latex": "Determine whether there exist stronger, still natural learning-style performance guarantees on bidders' utilities that imply strictly better worst-case approximation of optimal liquid welfare \\(\\mathrm{LW}^*\\) in sequential budgeted first-price auctions than the bounds obtained under comparison to the best fixed shading multiplier.\n\nIn particular, analyze the liquid-welfare price of anarchy achievable when each player attains a small competitive ratio (or no-regret) with respect to richer benchmark classes such as:\n1) the best Lipschitz continuous bidding function \\(f:[0,1]\\to[0,1]\\) mapping values to bids, and/or\n2) the best fixed shading multiplier when the values \\((v_{it})\\) are sampled from a distribution rather than chosen adversarially.\n\nThe goal is to characterize the best provable factor \\(\\alpha\\) (as a function of the learning guarantee parameters) such that \\(\\mathrm{LW} \\ge \\mathrm{LW}^*/\\alpha\\) (up to lower-order additive terms, if unavoidable) under these stronger learning assumptions.",
+  "latex": "Consider a sequential auction with one item per round over rounds \\(t\\in[T]=\\{1,\\dots,T\\}\\) and players \\(i\\in[n]\\). Player \\(i\\) has a hard budget \\(B_i>0\\) and per-round value \\(v_{it}\\in[0,1]\\) for winning the round-\\(t\\) item. (In the additive-valuation model, the value of a set of won rounds \\(S\\subseteq[T]\\) is \\(\\sum_{t\\in S} v_{it}\\).) In each round players submit bids; in a first-price auction the highest bidder wins and pays her bid. Let \\(V_i\\) and \\(P_i\\) denote player \\(i\\)'s total realized value and payment over all rounds, and let the (budgeted quasilinear) utility be \\(U_i = V_i-P_i\\) if \\(P_i\\le B_i\\) and \\(-\\infty\\) otherwise.\n\nThe system performance metric is liquid welfare. Player \\(i\\)'s liquid welfare contribution is\n\\[\\mathrm{LW}_i := \\min\\{B_i, V_i\\},\\qquad \\mathrm{LW}:=\\sum_{i=1}^n \\mathrm{LW}_i.\\]\nLet \\(\\mathrm{LW}^*\\) denote the maximum liquid welfare over all feasible allocations of items across rounds.\n\nPlayers are assumed to be learning (not necessarily converging to equilibrium). A baseline behavioral benchmark studied in the paper is comparison to the best fixed multiplicative shading multiplier \\(\\lambda\\in[0,1]\\) applied to values each round, subject to not exceeding the remaining budget. More generally, one can consider richer benchmark classes mapping values to bids; e.g., a (scalar) bidding rule \\(f:[0,1]\\to[0,1]\\) that is Lipschitz continuous (with some Lipschitz constant \\(L\\)) and induces bids \\(b_{it}=f(v_{it})\\) each round, again subject to the remaining budget. One can also distinguish adversarially chosen value sequences \\((v_{it})\\) versus values drawn i.i.d. from a distribution (stochastic model).\n\nDetermine whether there exist stronger, still natural learning-style performance guarantees on bidders' utilities that imply strictly better worst-case approximation of optimal liquid welfare \\(\\mathrm{LW}^*\\) in sequential budgeted first-price auctions than the bounds obtained under comparison to the best fixed shading multiplier.\n\nIn particular, analyze the liquid-welfare price of anarchy achievable when each player attains a small competitive ratio (or no-regret) with respect to richer benchmark classes such as:\n1) the best Lipschitz continuous bidding function \\(f:[0,1]\\to[0,1]\\) mapping values to bids, and/or\n2) the best fixed shading multiplier when the values \\((v_{it})\\) are sampled from a distribution rather than chosen adversarially.\n\nThe goal is to characterize the best provable factor \\(\\alpha\\) (as a function of the learning guarantee parameters) such that \\(\\mathrm{LW} \\ge \\mathrm{LW}^*/\\alpha\\) (up to lower-order additive terms, if unavoidable) under these stronger learning assumptions.",
+  "location_in_paper": "Page 18, Section 8 (Conclusion)",
+  "open_problem_quote": "While we prove positive liquid welfare guarantees under mild learning assumptions, we leave open the problem of whether stronger learning guarantees imply better liquid welfare. For example, can we get better liquid welfare guarantees if the players have high competitive ratio with respect to the best Lipschitz continuous function that maps values to bids? Or if the values are sampled from a distribution instead of being picked adversarially?",
+  "area": "online learning",
+  "keywords": [
+    "sequential auctions",
+    "liquid welfare",
+    "budgets",
+    "first-price auctions",
+    "no-regret learning",
+    "competitive ratio",
+    "price of anarchy",
+    "Lipschitz bidding rules"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For any proposed improved guarantee, one can search over small numbers of players/rounds, budgets, and value sequences to try to find instances where high performance against a richer benchmark still yields poor liquid welfare. However, the benchmark involves optimizing over a function class (e.g., Lipschitz functions), which makes automated checking more complex than for a finite action set.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate objects (adversarial instances, value distributions, or learning guarantees/bounds) can be represented programmatically, and a fitness signal can be based on computed liquid-welfare ratios under simulated learning behavior constrained to satisfy a benchmark-competitiveness inequality. But enforcing or optimizing over Lipschitz function benchmarks and quantifying worst-case guarantees is computationally heavy and may require relaxations or proxy optimization.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.063441,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.063441
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4396905249/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

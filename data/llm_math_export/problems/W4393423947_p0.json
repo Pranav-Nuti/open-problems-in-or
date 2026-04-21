@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4393423947_p0",
+  "paper_id": "W4393423947",
+  "source_paper": "W4393423947",
+  "source_paper_title": "Simple and Explicit Bounds for Multiserver Queues with 1/1\u2212<i>\u03c1</i> Scaling",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0131",
+  "source_paper_authors": [
+    "Yuan Li",
+    "David A. Goldberg"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Li_2025, title={Simple and Explicit Bounds for Multiserver Queues with 1/1\u2212\u03c1 Scaling}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0131}, DOI={10.1287/moor.2022.0131}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Yuan and Goldberg, David A.}, year={2025}, month=may, pages={813\u2013837} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 22, Section 3 (\"Towards bounds with no large prefactors\"), immediately after Theorem 9 (Conjecture 1).\n\nConjecture 1. In any M/G/n queue in which \\(E[S^2] < \\infty\\) and all relevant steady-state distributions exist, it holds that\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\times E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\times \\mathrm{Work}_{\\mathrm{service}}(\\infty)],\\]\nand hence \\(E[L(\\infty)] \\le \\tfrac12 E[(S\\mu_S)^2]\\,\\frac{\\rho}{1-\\rho}.\\]\nWe leave a further study as an interesting open question, and note that tools from the theory of associated r.v.s (which have been used to prove related results in the literature) may be relevant here (see e.g. Baccelli et al. [9]).",
+  "title": "Prove covariance inequality between number in service and work in M GI n queues",
+  "background_latex": "Consider a first-come-first-served (FCFS) many-server queue with Poisson arrivals and general i.i.d. service times.\n\n1) Model. An M/GI/n queue has:\n1) arrivals given by a Poisson process of rate \\(\\lambda>0\\);\n2) \\(n\\in\\mathbb{N}\\) identical servers;\n3) i.i.d. service times \\(S\\) with \\(0<E[S]<\\infty\\) and \\(E[S^2]<\\infty\\);\n4) FCFS discipline, no abandonments.\n\nLet \\(\\mu_S = 1/E[S]\\) denote the service rate of a single server, and define the traffic intensity\n\\[\\rho := \\frac{\\lambda}{n\\mu_S} = \\frac{\\lambda E[S]}{n},\\qquad 0<\\rho<1.\\]\nAssume the system is stable and admits a steady state.\n\n2) Steady-state quantities. Let \\(\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\) be the steady-state number of busy servers (number in service). Let \\(\\mathrm{Work}_{\\mathrm{service}}(\\infty)\\) be the steady-state total remaining workload in service, i.e. the sum of the residual service times of all jobs currently in service (with idle servers contributing \\(0\\)).\n\nEquivalently, if \\(R_1(\\infty),\\dots,R_n(\\infty)\\) are the (random) residual service times in steady state on each server (with \\(R_j(\\infty)=0\\) when server \\(j\\) is idle), then\n\\[\\mathrm{Num}_{\\mathrm{service}}(\\infty)=\\sum_{j=1}^n \\mathbf{1}\\{R_j(\\infty)>0\\},\\qquad \\mathrm{Work}_{\\mathrm{service}}(\\infty)=\\sum_{j=1}^n R_j(\\infty).\\]\n\n3) Covariance interpretation. The inequality\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\,E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\,\\mathrm{Work}_{\\mathrm{service}}(\\infty)]\\]\nis equivalent to \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\), i.e. nonnegative correlation between the number of busy servers and the total residual workload in service.\n",
+  "problem_definition_latex": "Establish conditions under which, for an FCFS \\(\\mathrm{M}/\\mathrm{GI}/n\\) queue with \\(E[S^2]<\\infty\\) in steady state,\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\,E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\,\\mathrm{Work}_{\\mathrm{service}}(\\infty)].\\]\nEquivalently, prove that\n\\[\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\]\nfor this class of queues (assuming the relevant steady-state distributions exist).",
+  "latex": "Consider a first-come-first-served (FCFS) many-server queue with Poisson arrivals and general i.i.d. service times.\n\n1) Model. An M/GI/n queue has:\n1) arrivals given by a Poisson process of rate \\(\\lambda>0\\);\n2) \\(n\\in\\mathbb{N}\\) identical servers;\n3) i.i.d. service times \\(S\\) with \\(0<E[S]<\\infty\\) and \\(E[S^2]<\\infty\\);\n4) FCFS discipline, no abandonments.\n\nLet \\(\\mu_S = 1/E[S]\\) denote the service rate of a single server, and define the traffic intensity\n\\[\\rho := \\frac{\\lambda}{n\\mu_S} = \\frac{\\lambda E[S]}{n},\\qquad 0<\\rho<1.\\]\nAssume the system is stable and admits a steady state.\n\n2) Steady-state quantities. Let \\(\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\) be the steady-state number of busy servers (number in service). Let \\(\\mathrm{Work}_{\\mathrm{service}}(\\infty)\\) be the steady-state total remaining workload in service, i.e. the sum of the residual service times of all jobs currently in service (with idle servers contributing \\(0\\)).\n\nEquivalently, if \\(R_1(\\infty),\\dots,R_n(\\infty)\\) are the (random) residual service times in steady state on each server (with \\(R_j(\\infty)=0\\) when server \\(j\\) is idle), then\n\\[\\mathrm{Num}_{\\mathrm{service}}(\\infty)=\\sum_{j=1}^n \\mathbf{1}\\{R_j(\\infty)>0\\},\\qquad \\mathrm{Work}_{\\mathrm{service}}(\\infty)=\\sum_{j=1}^n R_j(\\infty).\\]\n\n3) Covariance interpretation. The inequality\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\,E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\,\\mathrm{Work}_{\\mathrm{service}}(\\infty)]\\]\nis equivalent to \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\), i.e. nonnegative correlation between the number of busy servers and the total residual workload in service.\n\nEstablish conditions under which, for an FCFS \\(\\mathrm{M}/\\mathrm{GI}/n\\) queue with \\(E[S^2]<\\infty\\) in steady state,\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\,E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\,\\mathrm{Work}_{\\mathrm{service}}(\\infty)].\\]\nEquivalently, prove that\n\\[\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\]\nfor this class of queues (assuming the relevant steady-state distributions exist).",
+  "location_in_paper": "Page 22, Section 3 (\"Towards bounds with no large prefactors\"), immediately after Theorem 9 (Conjecture 1).",
+  "open_problem_quote": "Conjecture 1. In any M/G/n queue in which \\(E[S^2] < \\infty\\) and all relevant steady-state distributions exist, it holds that\n\\[E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)]\\times E[\\mathrm{Work}_{\\mathrm{service}}(\\infty)] \\le E[\\mathrm{Num}_{\\mathrm{service}}(\\infty)\\times \\mathrm{Work}_{\\mathrm{service}}(\\infty)],\\]\nand hence \\(E[L(\\infty)] \\le \\tfrac12 E[(S\\mu_S)^2]\\,\\frac{\\rho}{1-\\rho}.\\]\nWe leave a further study as an interesting open question, and note that tools from the theory of associated r.v.s (which have been used to prove related results in the literature) may be relevant here (see e.g. Baccelli et al. [9]).",
+  "area": "online algorithms",
+  "keywords": [
+    "many-server queues",
+    "M/GI/n queue",
+    "steady state",
+    "covariance inequality",
+    "residual workload",
+    "association"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can simulate M/GI/n queues for specific service-time distributions and estimate the covariance between number-in-service and work-in-service; however, turning a suspected violation into a rigorous counterexample is difficult because it concerns an exact steady-state inequality for a continuous-state Markov process.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop could search over parametric service-time distributions (e.g., mixtures, hyperexponential, deterministic-plus-atom) and server counts to maximize negative empirical covariance as a heuristic fitness signal. This could plausibly find candidate counterexamples or suggest strengthened conditions, but it would not by itself prove the inequality or certify a violation.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.14633500000000002,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.14633500000000002
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4393423947/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

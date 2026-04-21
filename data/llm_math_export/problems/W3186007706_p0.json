@@ -1,0 +1,61 @@
+{
+  "problem_id": "W3186007706_p0",
+  "paper_id": "W3186007706",
+  "source_paper": "W3186007706",
+  "source_paper_title": "A Fast Temporal Decomposition Procedure for Long-Horizon Nonlinear Dynamic Programming",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1378",
+  "source_paper_authors": [
+    "Sen Na",
+    "Mihai Anitescu",
+    "Mladen Kolar"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Na_2024, title={A Fast Temporal Decomposition Procedure for Long-Horizon Nonlinear Dynamic Programming}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1378}, DOI={10.1287/moor.2023.1378}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Na, Sen and Anitescu, Mihai and Kolar, Mladen}, year={2024}, month=may, pages={1012\u20131044} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (explicit questions Q1 and Q2)\n\nFirst, only local convergence guarantee is established while global convergence is still unknown.\nIn fact, as we will explain later, the Schwarz scheme does not converge globally in general. There is no guarantee that the composed solution of the subproblems is the solution to the full problem, even if we correctly specify the boundary variables for each subproblem. Thus, we arise the question:\nQ1: How to design an OTD-based procedure that converges globally?",
+  "title": "Design OTD-based globally convergent algorithm for long-horizon nonlinear dynamic programs",
+  "background_latex": "Consider the nonlinear equality-constrained dynamic program over horizon length \\(N\\):\n\\[\n\\min_{x_0,\\dots,x_N,\\,u_0,\\dots,u_{N-1}} \\; \\sum_{k=0}^{N-1} g_k(x_k,u_k) + g_N(x_N)\n\\]\nsubject to the dynamics\n\\[\n x_{k+1}=f_k(x_k,u_k) \\quad (k=0,1,\\dots,N-1), \\qquad x_0=\\bar x_0,\n\\]\nwhere \\(x_k\\in\\mathbb{R}^{n_x}\\) are states, \\(u_k\\in\\mathbb{R}^{n_u}\\) are controls, and \\(g_k, f_k\\) are given (possibly nonlinear, nonconvex) functions.\n\nAn overlapping temporal decomposition (OTD) partitions the stage set \\([0,N]\\) into exclusive subintervals \\([n_i,n_{i+1}]\\) with knots \\(0=n_0<n_1<\\cdots<n_M=N\\), and extends each exclusive interval by \\(b\\ge 1\\) stages at both ends to form an extended interval \\([m_1^i,m_2^i]\\) with\n\\[\n m_1^i=\\max\\{n_i-b,0\\},\\qquad m_2^i=\\min\\{n_{i+1}+b,N\\}.\n\\]\nAssociated to each extended interval one defines a subproblem parameterized by boundary (interface) variables \\(d_i\\) that encode values at or near \\(m_1^i\\) and \\(m_2^i\\) (e.g., initial state and terminal state/control/dual information). Solving subproblems in parallel and then composing only the exclusive parts \\([n_i,n_{i+1})\\) yields a full-horizon candidate trajectory.\n\nA key issue is that even if each subproblem is solved to optimality for given boundary variables, the composed solution need not satisfy the Karush--Kuhn--Tucker (KKT) conditions of the full problem unless compatibility conditions hold at knots (agreement of overlapping solutions and appropriate consistency of multipliers).",
+  "problem_definition_latex": "Construct an algorithm based on overlapping temporal decomposition of the horizon into extended intervals with overlap size \\(b\\), which generates iterates \\((x^{\\tau}_{0:N},u^{\\tau}_{0:N-1},\\lambda^{\\tau}_{0:N})\\) for the full-horizon problem and is globally convergent in the sense that, from an arbitrary (not necessarily locally accurate) initialization, the algorithm is guaranteed to converge to a KKT point of the full nonlinear dynamic program (under explicitly stated, verifiable assumptions).\n\nIn particular, the goal is to specify:\n1) how the subproblems are parameterized and solved across iterations,\n2) how subproblem solutions are composed into a full-horizon iterate,\n3) what globalization mechanism (e.g., merit function/line search/trust region/coordinator) is used,\nso that global convergence to a KKT point is guaranteed for general long-horizon nonlinear dynamic programs of the above form.",
+  "latex": "Consider the nonlinear equality-constrained dynamic program over horizon length \\(N\\):\n\\[\n\\min_{x_0,\\dots,x_N,\\,u_0,\\dots,u_{N-1}} \\; \\sum_{k=0}^{N-1} g_k(x_k,u_k) + g_N(x_N)\n\\]\nsubject to the dynamics\n\\[\n x_{k+1}=f_k(x_k,u_k) \\quad (k=0,1,\\dots,N-1), \\qquad x_0=\\bar x_0,\n\\]\nwhere \\(x_k\\in\\mathbb{R}^{n_x}\\) are states, \\(u_k\\in\\mathbb{R}^{n_u}\\) are controls, and \\(g_k, f_k\\) are given (possibly nonlinear, nonconvex) functions.\n\nAn overlapping temporal decomposition (OTD) partitions the stage set \\([0,N]\\) into exclusive subintervals \\([n_i,n_{i+1}]\\) with knots \\(0=n_0<n_1<\\cdots<n_M=N\\), and extends each exclusive interval by \\(b\\ge 1\\) stages at both ends to form an extended interval \\([m_1^i,m_2^i]\\) with\n\\[\n m_1^i=\\max\\{n_i-b,0\\},\\qquad m_2^i=\\min\\{n_{i+1}+b,N\\}.\n\\]\nAssociated to each extended interval one defines a subproblem parameterized by boundary (interface) variables \\(d_i\\) that encode values at or near \\(m_1^i\\) and \\(m_2^i\\) (e.g., initial state and terminal state/control/dual information). Solving subproblems in parallel and then composing only the exclusive parts \\([n_i,n_{i+1})\\) yields a full-horizon candidate trajectory.\n\nA key issue is that even if each subproblem is solved to optimality for given boundary variables, the composed solution need not satisfy the Karush--Kuhn--Tucker (KKT) conditions of the full problem unless compatibility conditions hold at knots (agreement of overlapping solutions and appropriate consistency of multipliers).\n\nConstruct an algorithm based on overlapping temporal decomposition of the horizon into extended intervals with overlap size \\(b\\), which generates iterates \\((x^{\\tau}_{0:N},u^{\\tau}_{0:N-1},\\lambda^{\\tau}_{0:N})\\) for the full-horizon problem and is globally convergent in the sense that, from an arbitrary (not necessarily locally accurate) initialization, the algorithm is guaranteed to converge to a KKT point of the full nonlinear dynamic program (under explicitly stated, verifiable assumptions).\n\nIn particular, the goal is to specify:\n1) how the subproblems are parameterized and solved across iterations,\n2) how subproblem solutions are composed into a full-horizon iterate,\n3) what globalization mechanism (e.g., merit function/line search/trust region/coordinator) is used,\nso that global convergence to a KKT point is guaranteed for general long-horizon nonlinear dynamic programs of the above form.",
+  "location_in_paper": "Page 3, Introduction (explicit questions Q1 and Q2)",
+  "open_problem_quote": "First, only local convergence guarantee is established while global convergence is still unknown.\nIn fact, as we will explain later, the Schwarz scheme does not converge globally in general. There is no guarantee that the composed solution of the subproblems is the solution to the full problem, even if we correctly specify the boundary variables for each subproblem. Thus, we arise the question:\nQ1: How to design an OTD-based procedure that converges globally?",
+  "area": "online algorithms",
+  "keywords": [
+    "nonlinear dynamic programming",
+    "overlapping temporal decomposition",
+    "Schwarz decomposition",
+    "global convergence",
+    "KKT conditions",
+    "sequential quadratic programming"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for a constructive globally convergent algorithm rather than the validity of a specific universal inequality. There is no clear finite-dimensional instance space whose search would decisively refute the existence of such a procedure in general; negative results would depend on formal impossibility frameworks not specified in the statement.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate algorithms (e.g., interface-update rules, merit functions, line-search/trust-region coordinators) can be represented programmatically and tested on families of benchmark NLDPs with computable stationarity/feasibility residuals as a fitness signal. However, empirical performance is only a proxy for a global convergence guarantee, so automated search can suggest designs but cannot certify the required theorem-level property.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.107576,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.107576
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3186007706/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

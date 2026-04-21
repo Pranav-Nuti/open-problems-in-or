@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4309864804_p0",
+  "paper_id": "W4309864804",
+  "source_paper": "W4309864804",
+  "source_paper_title": "Stochastic Subgradient Descent Escapes Active Strict Saddles on Weakly Convex Functions",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0194",
+  "source_paper_authors": [
+    "Pascal Bianchi",
+    "Walid Hachem",
+    "Sholom Schechtman"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Bianchi_2024, title={Stochastic Subgradient Descent Escapes Active Strict Saddles on Weakly Convex Functions}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0194}, DOI={10.1287/moor.2021.0194}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bianchi, Pascal and Hachem, Walid and Schechtman, Sholom}, year={2024}, month=aug, pages={1761\u20131790} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5.2 (Further Topics), pages 14\u201316; see also Remark 4 on pages 16\u201317.\n\nAn important but challenging problem is to establish, in the absence of weak convexity, that both active strict saddles and sharply repulsive points are avoided.\n\nThus, the question of the generic convergence of SGD toward local minimizers remains open in the non-weakly convex setting.",
+  "title": "Prove generic convergence of stochastic subgradient descent without weak convexity",
+  "background_latex": "Let \\(f:\\mathbb{R}^d\\to\\mathbb{R}\\) be a locally Lipschitz function, and let \\(\\partial f(x)\\) denote its Clarke subdifferential. Consider stochastic subgradient descent (SGD)\n\\[\n x_{n+1}=x_n-\\gamma_n v_n+\\gamma_n\\eta_{n+1},\\qquad v_n\\in \\partial f(x_n),\n\\]\nwhere \\((\\gamma_n)\\) is a deterministic step-size sequence with \\(\\gamma_n\\downarrow 0\\), \\(\\sum_n\\gamma_n=\\infty\\), and typically \\(\\sum_n\\gamma_n^2<\\infty\\). The noise \\((\\eta_{n})\\) is adapted to a filtration \\((\\mathcal{F}_n)\\), satisfies the martingale difference property \\(\\mathbb{E}[\\eta_{n+1}\\mid \\mathcal{F}_n]=0\\), and has bounded conditional moments (e.g., bounded conditional fourth moments).\n\nA point \\(x^\\star\\) is Clarke critical if \\(0\\in \\partial f(x^\\star)\\). In the definable (o-minimal) setting, Clarke critical points admit additional geometric structure via stratifications, and one can define an \\(C^p\\) active manifold \\(M\\) around \\(x^\\star\\) on which \\(f\\) is smooth and off which the subgradients have norm bounded away from \\(0\\). An \\(\\emph{active strict saddle}\\) is a Clarke critical point \\(x^\\star\\) lying on such a manifold \\(M\\) for which the Riemannian Hessian of the restriction \\(f\\vert_M\\) has a negative curvature direction at \\(x^\\star\\). A \\(\\emph{sharply repulsive critical point}\\) (as described in the cited manuscript [37] referenced by the paper) is, generically in the non-weakly convex definable case, a Clarke critical point \\(x^\\star\\) lying on an active manifold \\(M\\) such that \\(x^\\star\\) is a local minimizer of \\(f\\vert_M\\) while nearby subgradients point toward \\(M\\) (intuitively attracting iterates toward \\(M\\) rather than repelling them).\n\nFor definable weakly convex functions, generic perturbations yield that every Clarke critical point is either a local minimizer or an active strict saddle, and the paper proves SGD avoids active strict saddles under suitable noise conditions, implying generic convergence to local minimizers in that setting.",
+  "problem_definition_latex": "Establish, for \\(f\\) definable and locally Lipschitz but \\(\\emph{not assumed weakly convex}\\), a generic convergence guarantee for SGD of the form above: namely, prove that under standard Robbins--Monro-type conditions on \\((\\gamma_n)\\) and suitable nondegenerate noise conditions on \\((\\eta_n)\\), the iterates \\((x_n)\\) converge (when bounded) to a local minimizer of \\(f\\) with probability one.\n\nEquivalently (as suggested by the paper's generic critical-point classification), show that in the non-weakly convex definable setting SGD \\(\\emph{avoids}\\) with probability one both:\n1) active strict saddles, and\n2) sharply repulsive critical points,\nso that the only possible limiting Clarke critical points are local minimizers.",
+  "latex": "Let \\(f:\\mathbb{R}^d\\to\\mathbb{R}\\) be a locally Lipschitz function, and let \\(\\partial f(x)\\) denote its Clarke subdifferential. Consider stochastic subgradient descent (SGD)\n\\[\n x_{n+1}=x_n-\\gamma_n v_n+\\gamma_n\\eta_{n+1},\\qquad v_n\\in \\partial f(x_n),\n\\]\nwhere \\((\\gamma_n)\\) is a deterministic step-size sequence with \\(\\gamma_n\\downarrow 0\\), \\(\\sum_n\\gamma_n=\\infty\\), and typically \\(\\sum_n\\gamma_n^2<\\infty\\). The noise \\((\\eta_{n})\\) is adapted to a filtration \\((\\mathcal{F}_n)\\), satisfies the martingale difference property \\(\\mathbb{E}[\\eta_{n+1}\\mid \\mathcal{F}_n]=0\\), and has bounded conditional moments (e.g., bounded conditional fourth moments).\n\nA point \\(x^\\star\\) is Clarke critical if \\(0\\in \\partial f(x^\\star)\\). In the definable (o-minimal) setting, Clarke critical points admit additional geometric structure via stratifications, and one can define an \\(C^p\\) active manifold \\(M\\) around \\(x^\\star\\) on which \\(f\\) is smooth and off which the subgradients have norm bounded away from \\(0\\). An \\(\\emph{active strict saddle}\\) is a Clarke critical point \\(x^\\star\\) lying on such a manifold \\(M\\) for which the Riemannian Hessian of the restriction \\(f\\vert_M\\) has a negative curvature direction at \\(x^\\star\\). A \\(\\emph{sharply repulsive critical point}\\) (as described in the cited manuscript [37] referenced by the paper) is, generically in the non-weakly convex definable case, a Clarke critical point \\(x^\\star\\) lying on an active manifold \\(M\\) such that \\(x^\\star\\) is a local minimizer of \\(f\\vert_M\\) while nearby subgradients point toward \\(M\\) (intuitively attracting iterates toward \\(M\\) rather than repelling them).\n\nFor definable weakly convex functions, generic perturbations yield that every Clarke critical point is either a local minimizer or an active strict saddle, and the paper proves SGD avoids active strict saddles under suitable noise conditions, implying generic convergence to local minimizers in that setting.\n\nEstablish, for \\(f\\) definable and locally Lipschitz but \\(\\emph{not assumed weakly convex}\\), a generic convergence guarantee for SGD of the form above: namely, prove that under standard Robbins--Monro-type conditions on \\((\\gamma_n)\\) and suitable nondegenerate noise conditions on \\((\\eta_n)\\), the iterates \\((x_n)\\) converge (when bounded) to a local minimizer of \\(f\\) with probability one.\n\nEquivalently (as suggested by the paper's generic critical-point classification), show that in the non-weakly convex definable setting SGD \\(\\emph{avoids}\\) with probability one both:\n1) active strict saddles, and\n2) sharply repulsive critical points,\nso that the only possible limiting Clarke critical points are local minimizers.",
+  "location_in_paper": "Section 5.2 (Further Topics), pages 14\u201316; see also Remark 4 on pages 16\u201317.",
+  "open_problem_quote": "An important but challenging problem is to establish, in the absence of weak convexity, that both active strict saddles and sharply repulsive points are avoided.\n\nThus, the question of the generic convergence of SGD toward local minimizers remains open in the non-weakly convex setting.",
+  "area": "online learning",
+  "keywords": [
+    "stochastic subgradient descent",
+    "nonsmooth nonconvex optimization",
+    "definable functions",
+    "active strict saddles",
+    "generic convergence",
+    "sharp repulsion"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can algorithmically search for low-dimensional definable, locally Lipschitz non-weakly convex examples (e.g., piecewise polynomial/absolute-value constructions) where SGD with specified noise does or does not converge to non-minimizing critical points, but faithfully testing generic (almost-everywhere perturbation) statements and asymptotic avoidance is computationally delicate and depends on long-run behavior.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate functions and noise models can be parameterized (e.g., piecewise-defined definable functions) and evaluated via simulation-based proxies such as empirical frequency of convergence to candidate non-minimizers; however, the true statement is asymptotic and generic, so the fitness signal is indirect and may be noisy, making evolutionary search helpful for proposing counterexamples or conjectural conditions but unlikely to fully resolve the question.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08661100000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08661100000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4309864804/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

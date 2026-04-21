@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4384342505_p0",
+  "paper_id": "W4384342505",
+  "source_paper": "W4384342505",
+  "source_paper_title": "Nash Equilibrium Problems of Polynomials",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0334",
+  "source_paper_authors": [
+    "Jiawang Nie",
+    "Xindong Tang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Nie_2024, title={Nash Equilibrium Problems of Polynomials}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0334}, DOI={10.1287/moor.2022.0334}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Nie, Jiawang and Tang, Xindong}, year={2024}, month=may, pages={1065\u20131090} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Conclusions and Discussions), page 26 (arXiv v2 pdf pagination), near the end of the section beginning 'There is much interesting future work to do.'\n\nHowever, the convergence property of Algorithm 3.1 is not known when there are infinitely many KKT points. In Example 5.2(ii), there are infinitely many KKT points that are not NEs, but Algorithm 3.1 is still able to get an NE in a few loops. If there are infinitely many KKT points that are not NEs, does Algorithm 3.1 still converge to find an NE? This question is mostly open to the authors.",
+  "title": "Prove convergence of iterative KKT-point exclusion for nonconvex polynomial Nash equilibria",
+  "background_latex": "Consider a Nash equilibrium problem with \\(N\\) players. Player \\(i\\) chooses a strategy vector \\(x_i\\in\\mathbb{R}^{n_i}\\) and faces an optimization problem parameterized by the other players' strategies \\(x_{-i}\\):\n\\[\n\\min_{x_i\\in\\mathbb{R}^{n_i}} f_i(x_i,x_{-i}) \\quad\\text{s.t.}\\quad g_{i,j}(x_i)=0\\ (j\\in E_i),\\quad g_{i,j}(x_i)\\ge 0\\ (j\\in I_i),\n\\]\nwhere \\(f_i\\) is a polynomial in \\(x=(x_1,\\dots,x_N)\\) and each constraint polynomial \\(g_{i,j}\\) depends only on \\(x_i\\). The feasible set of player \\(i\\) is\n\\[\nX_i := \\{x_i\\in\\mathbb{R}^{n_i}: g_{i,j}(x_i)=0\\ (j\\in E_i),\\ g_{i,j}(x_i)\\ge 0\\ (j\\in I_i)\\},\n\\]\nand the joint feasible set is \\(X:=X_1\\times\\cdots\\times X_N\\subseteq\\mathbb{R}^n\\), \\(n:=\\sum_i n_i\\).\n\nA (pure-strategy) Nash equilibrium is a point \\(x^*\\in X\\) such that for every \\(i\\), \\(x_i^*\\) is a global minimizer of player \\(i\\)'s problem at \\(x_{-i}^*\\).\n\nAssume each constraint tuple \\(g_i:=(g_{i,1},\\dots,g_{i,m_i})\\) is \\\"nonsingular\\\" in the sense that a certain associated polynomial matrix has full column rank over \\(\\mathbb{C}^{n_i}\\); under this assumption, the Lagrange multipliers for the Karush\u2013Kuhn\u2013Tucker (KKT) conditions can be expressed as polynomial functions \\(\\lambda_{i,j}(x)\\). Then every Nash equilibrium satisfies a polynomial system encoding the KKT equalities together with complementarity and sign conditions:\n1) stationarity \\(\\nabla_{x_i} f_i(x) - \\sum_{j=1}^{m_i} \\lambda_{i,j}(x)\\nabla_{x_i} g_{i,j}(x_i)=0\\),\n2) primal feasibility \\(g_{i,j}(x_i)=0\\) for \\(j\\in E_i\\), \\(g_{i,j}(x_i)\\ge 0\\) for \\(j\\in I_i\\),\n3) complementarity \\(\\lambda_{i,j}(x) g_{i,j}(x_i)=0\\) for \\(j\\in I_i\\),\n4) dual feasibility \\(\\lambda_{i,j}(x)\\ge 0\\) for \\(j\\in I_i\\).\n\nThe paper proposes an iterative algorithm (Algorithm 3.1) that repeatedly solves a polynomial optimization problem over the KKT-feasible set (using a generic strictly convex quadratic objective \\([x]_1^\\top\\Theta [x]_1\\) to pick a unique candidate) and then checks whether the candidate is a Nash equilibrium by solving each player's best-response problem. If the candidate \\(u\\) is not an equilibrium, the algorithm adds finitely many additional polynomial inequalities of the form\n\\[\nf_i(v,x_{-i})-f_i(x_i,x_{-i})\\ge 0\n\\]\nfor selected best-response points \\(v\\) (collected in sets \\(K_i\\)) to exclude the found non-equilibrium KKT point(s) and repeats.",
+  "problem_definition_latex": "Assume the nonsingularity condition holds so that polynomial Lagrange multiplier expressions \\(\\lambda_{i,j}(x)\\) exist, and suppose a Nash equilibrium exists.\n\nAnalyze Algorithm 3.1 described above in the case where there are infinitely many KKT points that are not Nash equilibria. Determine whether, under such circumstances, the iterative procedure of repeatedly:\n1) solving the current polynomial optimization problem over the KKT-feasible set augmented with the accumulated inequalities indexed by \\(K_i\\),\n2) checking the resulting optimizer \\(u\\) for the Nash equilibrium property via each player's global best-response computation,\n3) enlarging \\(K_i\\) by adding some best-response optimizer(s) when \\(u\\) fails the Nash equilibrium check,\nnecessarily converges (in finitely or infinitely many iterations) to a Nash equilibrium.\n\nEquivalently: give conditions under which Algorithm 3.1 is guaranteed to find a Nash equilibrium (or certify nonexistence) even when the set of non-equilibrium KKT points is infinite, or provide an explicit example showing failure of convergence.",
+  "latex": "Consider a Nash equilibrium problem with \\(N\\) players. Player \\(i\\) chooses a strategy vector \\(x_i\\in\\mathbb{R}^{n_i}\\) and faces an optimization problem parameterized by the other players' strategies \\(x_{-i}\\):\n\\[\n\\min_{x_i\\in\\mathbb{R}^{n_i}} f_i(x_i,x_{-i}) \\quad\\text{s.t.}\\quad g_{i,j}(x_i)=0\\ (j\\in E_i),\\quad g_{i,j}(x_i)\\ge 0\\ (j\\in I_i),\n\\]\nwhere \\(f_i\\) is a polynomial in \\(x=(x_1,\\dots,x_N)\\) and each constraint polynomial \\(g_{i,j}\\) depends only on \\(x_i\\). The feasible set of player \\(i\\) is\n\\[\nX_i := \\{x_i\\in\\mathbb{R}^{n_i}: g_{i,j}(x_i)=0\\ (j\\in E_i),\\ g_{i,j}(x_i)\\ge 0\\ (j\\in I_i)\\},\n\\]\nand the joint feasible set is \\(X:=X_1\\times\\cdots\\times X_N\\subseteq\\mathbb{R}^n\\), \\(n:=\\sum_i n_i\\).\n\nA (pure-strategy) Nash equilibrium is a point \\(x^*\\in X\\) such that for every \\(i\\), \\(x_i^*\\) is a global minimizer of player \\(i\\)'s problem at \\(x_{-i}^*\\).\n\nAssume each constraint tuple \\(g_i:=(g_{i,1},\\dots,g_{i,m_i})\\) is \\\"nonsingular\\\" in the sense that a certain associated polynomial matrix has full column rank over \\(\\mathbb{C}^{n_i}\\); under this assumption, the Lagrange multipliers for the Karush\u2013Kuhn\u2013Tucker (KKT) conditions can be expressed as polynomial functions \\(\\lambda_{i,j}(x)\\). Then every Nash equilibrium satisfies a polynomial system encoding the KKT equalities together with complementarity and sign conditions:\n1) stationarity \\(\\nabla_{x_i} f_i(x) - \\sum_{j=1}^{m_i} \\lambda_{i,j}(x)\\nabla_{x_i} g_{i,j}(x_i)=0\\),\n2) primal feasibility \\(g_{i,j}(x_i)=0\\) for \\(j\\in E_i\\), \\(g_{i,j}(x_i)\\ge 0\\) for \\(j\\in I_i\\),\n3) complementarity \\(\\lambda_{i,j}(x) g_{i,j}(x_i)=0\\) for \\(j\\in I_i\\),\n4) dual feasibility \\(\\lambda_{i,j}(x)\\ge 0\\) for \\(j\\in I_i\\).\n\nThe paper proposes an iterative algorithm (Algorithm 3.1) that repeatedly solves a polynomial optimization problem over the KKT-feasible set (using a generic strictly convex quadratic objective \\([x]_1^\\top\\Theta [x]_1\\) to pick a unique candidate) and then checks whether the candidate is a Nash equilibrium by solving each player's best-response problem. If the candidate \\(u\\) is not an equilibrium, the algorithm adds finitely many additional polynomial inequalities of the form\n\\[\nf_i(v,x_{-i})-f_i(x_i,x_{-i})\\ge 0\n\\]\nfor selected best-response points \\(v\\) (collected in sets \\(K_i\\)) to exclude the found non-equilibrium KKT point(s) and repeats.\n\nAssume the nonsingularity condition holds so that polynomial Lagrange multiplier expressions \\(\\lambda_{i,j}(x)\\) exist, and suppose a Nash equilibrium exists.\n\nAnalyze Algorithm 3.1 described above in the case where there are infinitely many KKT points that are not Nash equilibria. Determine whether, under such circumstances, the iterative procedure of repeatedly:\n1) solving the current polynomial optimization problem over the KKT-feasible set augmented with the accumulated inequalities indexed by \\(K_i\\),\n2) checking the resulting optimizer \\(u\\) for the Nash equilibrium property via each player's global best-response computation,\n3) enlarging \\(K_i\\) by adding some best-response optimizer(s) when \\(u\\) fails the Nash equilibrium check,\nnecessarily converges (in finitely or infinitely many iterations) to a Nash equilibrium.\n\nEquivalently: give conditions under which Algorithm 3.1 is guaranteed to find a Nash equilibrium (or certify nonexistence) even when the set of non-equilibrium KKT points is infinite, or provide an explicit example showing failure of convergence.",
+  "location_in_paper": "Section 6 (Conclusions and Discussions), page 26 (arXiv v2 pdf pagination), near the end of the section beginning 'There is much interesting future work to do.'",
+  "open_problem_quote": "However, the convergence property of Algorithm 3.1 is not known when there are infinitely many KKT points. In Example 5.2(ii), there are infinitely many KKT points that are not NEs, but Algorithm 3.1 is still able to get an NE in a few loops. If there are infinitely many KKT points that are not NEs, does Algorithm 3.1 still converge to find an NE? This question is mostly open to the authors.",
+  "area": "polynomial optimization",
+  "keywords": [
+    "nash equilibrium",
+    "nonconvex games",
+    "KKT points",
+    "moment-sos hierarchy",
+    "semidefinite relaxation",
+    "algorithmic convergence"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can algorithmically generate small polynomial games with low degrees and dimensions and test Algorithm 3.1 computationally for cycling or divergence, but the search space is large and the outcome depends on implementation choices (e.g., which best-response optimizers are added to the sets \\(K_i\\)). Still, convergence or failure can often be checked empirically on finite-dimensional instances.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples (families of polynomial games) and algorithm variants (rules for selecting points added to \\(K_i\\), choice of \\(\\Theta\\), etc.) can be encoded and scored by running the resulting procedure and measuring progress toward an equilibrium or detecting nontermination. The main limitation is computational cost of repeated Moment-SOS solves and the difficulty of designing a fitness signal that correlates with provable nonconvergence rather than just slow convergence on sampled instances.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08662325000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08662325000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4384342505/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

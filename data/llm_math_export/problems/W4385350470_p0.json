@@ -1,0 +1,61 @@
+{
+  "problem_id": "W4385350470_p0",
+  "paper_id": "W4385350470",
+  "source_paper": "W4385350470",
+  "source_paper_title": "Probabilistic Bounds on the <i>k</i>-Traveling Salesman Problem and the Traveling Repairman Problem",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0286",
+  "source_paper_authors": [
+    "Mo\u00efse Blanchard",
+    "Alexandre Jacquillat",
+    "Patrick Jaillet"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Blanchard_2024, title={Probabilistic Bounds on the k-Traveling Salesman Problem and the Traveling Repairman Problem}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0286}, DOI={10.1287/moor.2021.0286}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Blanchard, Mo\u00efse and Jacquillat, Alexandre and Jaillet, Patrick}, year={2024}, month=may, pages={1169\u20131191} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 29, Section 6 (Conclusion).\n\nHowever, directly using the TSP as subroutine would improve the constant 2 in the upper bound for the TRP to \\(\\beta_{\\mathrm{TSP}}\\), the constant appearing in the asymptotic length of the TSP. A natural question is whether this constant \\(\\beta_{\\mathrm{TSP}}\\) is tight. This would give an equivalence result of the TRP latency, as opposed to our constant-factor estimates.",
+  "title": "Determine the asymptotically tight constant for traveling repairman latency under i.i.d. sampling",
+  "background_latex": "Let \\(K\\subset \\mathbb{R}^2\\) be a compact set, and let \\(X_1,\\dots,X_n\\) be i.i.d. random points drawn from a distribution on \\(K\\) whose absolutely continuous part has density \\(f\\) (with respect to Lebesgue measure).\n\nGiven a realization \\(V=\\{X_1,\\dots,X_n\\}\\), a (repairman) tour is an ordering \\(x_1,\\dots,x_n\\) of the points, interpreted as the sequence in which they are visited, together with travel at unit speed along straight-line (Euclidean) segments.\n\nFor an ordering \\(x_1,\\dots,x_n\\), define the latency (waiting time) of the \\(i\\)-th visited point \\(x_i\\) as\n\\[\n\\ell_i := \\sum_{j=1}^{i-1} \\|x_{j+1}-x_j\\|,\n\\]\nwith the convention \\(\\ell_1=0\\). The traveling repairman problem (TRP), also called the minimum latency problem, minimizes the total latency\n\\[\nL_{\\mathrm{TRP}}(x_1,\\dots,x_n) := \\sum_{i=1}^n \\ell_i \n= \\sum_{i=1}^{n-1} (n-i)\\,\\|x_{i+1}-x_i\\|.\n\\]\nLet \\(l_{\\mathrm{TRP}}(X_1,\\dots,X_n)\\) denote the optimal value (minimum) of \\(L_{\\mathrm{TRP}}\\) over all orderings.\n\nFor comparison, the Euclidean traveling salesman problem (TSP) tour length on \\(V\\), denoted \\(l_{\\mathrm{TSP}}(X_1,\\dots,X_n)\\), is the minimum over cyclic tours of the total Euclidean length. Under i.i.d. sampling, the Beardwood\u2013Halton\u2013Hammersley (BHH) theorem implies\n\\[\n\\frac{l_{\\mathrm{TSP}}(X_1,\\dots,X_n)}{\\sqrt{n}} \\to \\beta_{\\mathrm{TSP}} \\int_K \\sqrt{f(x)}\\,dx\n\\quad \\text{a.s.}\n\\]\nfor a universal constant \\(\\beta_{\\mathrm{TSP}}\\).",
+  "problem_definition_latex": "Determine whether the constant \\(\\beta_{\\mathrm{TSP}}\\) is the asymptotically tight constant governing the leading-order growth of the expected optimal TRP total latency.\n\nConcretely, decide whether one has an asymptotic equivalence of the form\n\\[\n\\mathbb{E}\\bigl[l_{\\mathrm{TRP}}(X_1,\\dots,X_n)\\bigr] \\sim \\beta_{\\mathrm{TSP}}\\, n\\sqrt{n}\\, \\iint_{K\\times K} g_f(x,y)\\,dx\\,dy\n\\quad \\text{as } n\\to\\infty,\n\\]\n(or an equivalent characterization with leading constant \\(\\beta_{\\mathrm{TSP}}\\)), where \\(g_f\\) is the distribution-dependent integrand used to express the TRP scaling in constant-factor bounds.\n\nEquivalently, determine the exact leading universal constant in the \\(\\Theta(n\\sqrt{n})\\) asymptotics for \\(\\mathbb{E}[l_{\\mathrm{TRP}}]\\), and whether it matches the TSP constant \\(\\beta_{\\mathrm{TSP}}\\).",
+  "latex": "Let \\(K\\subset \\mathbb{R}^2\\) be a compact set, and let \\(X_1,\\dots,X_n\\) be i.i.d. random points drawn from a distribution on \\(K\\) whose absolutely continuous part has density \\(f\\) (with respect to Lebesgue measure).\n\nGiven a realization \\(V=\\{X_1,\\dots,X_n\\}\\), a (repairman) tour is an ordering \\(x_1,\\dots,x_n\\) of the points, interpreted as the sequence in which they are visited, together with travel at unit speed along straight-line (Euclidean) segments.\n\nFor an ordering \\(x_1,\\dots,x_n\\), define the latency (waiting time) of the \\(i\\)-th visited point \\(x_i\\) as\n\\[\n\\ell_i := \\sum_{j=1}^{i-1} \\|x_{j+1}-x_j\\|,\n\\]\nwith the convention \\(\\ell_1=0\\). The traveling repairman problem (TRP), also called the minimum latency problem, minimizes the total latency\n\\[\nL_{\\mathrm{TRP}}(x_1,\\dots,x_n) := \\sum_{i=1}^n \\ell_i \n= \\sum_{i=1}^{n-1} (n-i)\\,\\|x_{i+1}-x_i\\|.\n\\]\nLet \\(l_{\\mathrm{TRP}}(X_1,\\dots,X_n)\\) denote the optimal value (minimum) of \\(L_{\\mathrm{TRP}}\\) over all orderings.\n\nFor comparison, the Euclidean traveling salesman problem (TSP) tour length on \\(V\\), denoted \\(l_{\\mathrm{TSP}}(X_1,\\dots,X_n)\\), is the minimum over cyclic tours of the total Euclidean length. Under i.i.d. sampling, the Beardwood\u2013Halton\u2013Hammersley (BHH) theorem implies\n\\[\n\\frac{l_{\\mathrm{TSP}}(X_1,\\dots,X_n)}{\\sqrt{n}} \\to \\beta_{\\mathrm{TSP}} \\int_K \\sqrt{f(x)}\\,dx\n\\quad \\text{a.s.}\n\\]\nfor a universal constant \\(\\beta_{\\mathrm{TSP}}\\).\n\nDetermine whether the constant \\(\\beta_{\\mathrm{TSP}}\\) is the asymptotically tight constant governing the leading-order growth of the expected optimal TRP total latency.\n\nConcretely, decide whether one has an asymptotic equivalence of the form\n\\[\n\\mathbb{E}\\bigl[l_{\\mathrm{TRP}}(X_1,\\dots,X_n)\\bigr] \\sim \\beta_{\\mathrm{TSP}}\\, n\\sqrt{n}\\, \\iint_{K\\times K} g_f(x,y)\\,dx\\,dy\n\\quad \\text{as } n\\to\\infty,\n\\]\n(or an equivalent characterization with leading constant \\(\\beta_{\\mathrm{TSP}}\\)), where \\(g_f\\) is the distribution-dependent integrand used to express the TRP scaling in constant-factor bounds.\n\nEquivalently, determine the exact leading universal constant in the \\(\\Theta(n\\sqrt{n})\\) asymptotics for \\(\\mathbb{E}[l_{\\mathrm{TRP}}]\\), and whether it matches the TSP constant \\(\\beta_{\\mathrm{TSP}}\\).",
+  "location_in_paper": "Page 29, Section 6 (Conclusion).",
+  "open_problem_quote": "However, directly using the TSP as subroutine would improve the constant 2 in the upper bound for the TRP to \\(\\beta_{\\mathrm{TSP}}\\), the constant appearing in the asymptotic length of the TSP. A natural question is whether this constant \\(\\beta_{\\mathrm{TSP}}\\) is tight. This would give an equivalence result of the TRP latency, as opposed to our constant-factor estimates.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "traveling repairman problem",
+    "minimum latency",
+    "Euclidean random optimization",
+    "asymptotic constant",
+    "Beardwood-Halton-Hammersley constant",
+    "probabilistic bounds"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The conjectured tightness concerns a universal asymptotic constant, so it is not directly falsified by a single small instance. However, one can computationally estimate \\(\\mathbb{E}[l_{\\mathrm{TRP}}]/(n\\sqrt{n})\\) for various densities \\(f\\) and large \\(n\\) to look for systematic gaps from \\(\\beta_{\\mathrm{TSP}}\\), providing empirical counterevidence or guidance.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary loop could search over constructive TRP heuristics (or lower-bound constructions) and use simulated i.i.d. samples to estimate the attained constant factor relative to a benchmark (e.g., the proposed \\(\\beta_{\\mathrm{TSP}}\\)-based constant). The fitness signal is computable via Monte Carlo, but proving optimality/tightness would still require nontrivial theory beyond discovered constructions.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.07207025,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07207025
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385350470/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

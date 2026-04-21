@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3105682563_p0",
+  "paper_id": "W3105682563",
+  "source_paper": "W3105682563",
+  "source_paper_title": "Sample-Driven Optimal Stopping: From the Secretary Problem to the i.i.d. Prophet Inequality",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1363",
+  "source_paper_authors": [
+    "Jos\u00e9 Correa",
+    "Andr\u00e9s Cristi",
+    "Boris Epstein",
+    "Jos\u00e9 A. Soto"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Correa_2024, title={Sample-Driven Optimal Stopping: From the Secretary Problem to the i.i.d. Prophet Inequality}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1363}, DOI={10.1287/moor.2023.1363}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Correa, Jos\u00e9 and Cristi, Andr\u00e9s and Epstein, Boris and Soto, Jos\u00e9 A.}, year={2024}, month=feb, pages={441\u2013475} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5.3, pages 23\u201324 (discussion around the limit as p \u2192 1 and matroid secretary problem consequences)\n\nAn interesting question is whether something similar occurs for other classes of independence systems different than matroids of rank 1.\n\nProving that any of this problems behaves like the limit of p-DOS as p \\to 1 on all matroids may be, in fact, a very difficult task.",
+  "title": "Characterize limiting competitive ratio of p-sample matroid secretary via i.i.d. analogues",
+  "background_latex": "Let \\((S,\\mathcal I)\\) be a matroid (or more generally an independence system) on a finite ground set \\(S\\). In a sampling-based online selection problem parameterized by \\(p\\in[0,1)\\), each element \\(e\\in S\\) is independently placed into an information set \\(H\\) with probability \\(p\\) and otherwise into an online set \\(S\\setminus H\\). An adversary assigns nonnegative weights \\(Y(e)\\ge 0\\) to all elements. The algorithm observes the elements in \\(H\\) (and their relative ranking by weight), then the online elements arrive in uniformly random order; upon each arrival, the algorithm must irrevocably decide whether to accept the element, maintaining that the accepted set remains independent in \\((S,\\mathcal I)\\).\n\nLet \\(S[q]\\) denote the random subset obtained by including each element of \\(S\\) independently with probability \\(q\\). The online set has the same distribution as \\(S[1-p]\\). For a fixed weight function \\(Y\\), define\n\\[\\mathrm{OPT}(\\mathcal I,q,Y) := \\mathbb E\\big[\\max\\{\\sum_{e\\in I} Y(e): I\\in\\mathcal I,\\ I\\subseteq S[q]\\}\\big],\\]\nwhere the expectation is over the randomness of \\(S[q]\\).\n\nFor a class \\(\\mathcal C\\) of independence systems, define \\(\\beta_{\\mathcal C}(p)\\) as the infimum, over \\((S,\\mathcal I)\\in \\mathcal C\\), of the best competitive ratio achievable by any online algorithm in the above \\(p\\)-sampling model, where competitiveness is measured against \\(\\mathrm{OPT}(\\mathcal I,1-p,Y)\\).\n\nLet \\(\\mathcal M\\) denote the class of all matroids. The matroid secretary conjecture asks whether \\(\\beta_{\\mathcal M}(0)>0\\), i.e., whether there exists a constant-competitive algorithm for the matroid secretary problem (the case \\(p=0\\)). The paper observes that understanding the limit \\(L:=\\lim_{p\\to 1} \\beta_{\\mathcal M}(p)\\) and identifying an appropriate full-information/i.i.d.-type analogue whose optimal competitive ratio equals \\(L\\) would have major consequences.",
+  "problem_definition_latex": "Determine whether there exists a natural matroid-valued analogue of the single-choice i.i.d. prophet inequality whose optimal competitive ratio equals\n\\[L := \\lim_{p\\to 1} \\beta_{\\mathcal M}(p),\\]\nwhere \\(\\beta_{\\mathcal M}(p)\\) is the optimal worst-case competitive ratio for the \\(p\\)-sample-driven online selection problem on the class \\(\\mathcal M\\) of all matroids (with adversarial nonnegative weights and random arrival order), benchmarked against \\(\\mathrm{OPT}(\\mathcal I,1-p,Y)\\).\n\nIn particular, decide whether one can prove an equality of the form\n\\[\\lim_{p\\to 1}\\beta_{\\mathcal M}(p) = \\rho,\\]\nwhere \\(\\rho\\) is the optimal competitive ratio of a specified i.i.d.-type matroid online-selection model with known distributions (or another clearly defined probabilistic matroid model), analogous to how \\(\\lim_{p\\to 1}\\alpha(p)=\\alpha^*\\) holds in the rank-1 (single selection) case.",
+  "latex": "Let \\((S,\\mathcal I)\\) be a matroid (or more generally an independence system) on a finite ground set \\(S\\). In a sampling-based online selection problem parameterized by \\(p\\in[0,1)\\), each element \\(e\\in S\\) is independently placed into an information set \\(H\\) with probability \\(p\\) and otherwise into an online set \\(S\\setminus H\\). An adversary assigns nonnegative weights \\(Y(e)\\ge 0\\) to all elements. The algorithm observes the elements in \\(H\\) (and their relative ranking by weight), then the online elements arrive in uniformly random order; upon each arrival, the algorithm must irrevocably decide whether to accept the element, maintaining that the accepted set remains independent in \\((S,\\mathcal I)\\).\n\nLet \\(S[q]\\) denote the random subset obtained by including each element of \\(S\\) independently with probability \\(q\\). The online set has the same distribution as \\(S[1-p]\\). For a fixed weight function \\(Y\\), define\n\\[\\mathrm{OPT}(\\mathcal I,q,Y) := \\mathbb E\\big[\\max\\{\\sum_{e\\in I} Y(e): I\\in\\mathcal I,\\ I\\subseteq S[q]\\}\\big],\\]\nwhere the expectation is over the randomness of \\(S[q]\\).\n\nFor a class \\(\\mathcal C\\) of independence systems, define \\(\\beta_{\\mathcal C}(p)\\) as the infimum, over \\((S,\\mathcal I)\\in \\mathcal C\\), of the best competitive ratio achievable by any online algorithm in the above \\(p\\)-sampling model, where competitiveness is measured against \\(\\mathrm{OPT}(\\mathcal I,1-p,Y)\\).\n\nLet \\(\\mathcal M\\) denote the class of all matroids. The matroid secretary conjecture asks whether \\(\\beta_{\\mathcal M}(0)>0\\), i.e., whether there exists a constant-competitive algorithm for the matroid secretary problem (the case \\(p=0\\)). The paper observes that understanding the limit \\(L:=\\lim_{p\\to 1} \\beta_{\\mathcal M}(p)\\) and identifying an appropriate full-information/i.i.d.-type analogue whose optimal competitive ratio equals \\(L\\) would have major consequences.\n\nDetermine whether there exists a natural matroid-valued analogue of the single-choice i.i.d. prophet inequality whose optimal competitive ratio equals\n\\[L := \\lim_{p\\to 1} \\beta_{\\mathcal M}(p),\\]\nwhere \\(\\beta_{\\mathcal M}(p)\\) is the optimal worst-case competitive ratio for the \\(p\\)-sample-driven online selection problem on the class \\(\\mathcal M\\) of all matroids (with adversarial nonnegative weights and random arrival order), benchmarked against \\(\\mathrm{OPT}(\\mathcal I,1-p,Y)\\).\n\nIn particular, decide whether one can prove an equality of the form\n\\[\\lim_{p\\to 1}\\beta_{\\mathcal M}(p) = \\rho,\\]\nwhere \\(\\rho\\) is the optimal competitive ratio of a specified i.i.d.-type matroid online-selection model with known distributions (or another clearly defined probabilistic matroid model), analogous to how \\(\\lim_{p\\to 1}\\alpha(p)=\\alpha^*\\) holds in the rank-1 (single selection) case.",
+  "location_in_paper": "Section 5.3, pages 23\u201324 (discussion around the limit as p \u2192 1 and matroid secretary problem consequences)",
+  "open_problem_quote": "An interesting question is whether something similar occurs for other classes of independence systems different than matroids of rank 1.\n\nProving that any of this problems behaves like the limit of p-DOS as p \\to 1 on all matroids may be, in fact, a very difficult task.",
+  "area": "online algorithms",
+  "keywords": [
+    "matroid secretary problem",
+    "sampling model",
+    "competitive ratio",
+    "prophet inequalities",
+    "limit as p approaches one",
+    "independence systems"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is about identifying/proving an equivalence between limiting competitive ratios across different probabilistic models on all matroids, not a finite falsifiable statement on bounded-size instances. Automated search over small matroids may generate hypotheses but cannot refute or confirm a universal limiting equivalence.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can encode candidate matroid online algorithms or reductions and evaluate competitive ratios empirically on families of random/adversarial weight assignments for finite matroids, which provides a computable fitness signal. However, the core question is model-identification and asymptotic equality in the limit p\u21921 over all matroids, so computational experiments would be suggestive rather than decisive.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09700775,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09700775
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3105682563/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

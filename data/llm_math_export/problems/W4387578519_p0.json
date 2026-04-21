@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4387578519_p0",
+  "paper_id": "W4387578519",
+  "source_paper": "W4387578519",
+  "source_paper_title": "Robustness of Stochastic Optimal Control to Approximate Diffusion Models Under Several Cost Evaluation Criteria",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0134",
+  "source_paper_authors": [
+    "Somnath Pradhan",
+    "Serdar Y\u00fcksel"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Pradhan_2024, title={Robustness of Stochastic Optimal Control to Approximate Diffusion Models Under Several Cost Evaluation Criteria}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0134}, DOI={10.1287/moor.2022.0134}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Pradhan, Somnath and Y\u00fcksel, Serdar}, year={2024}, month=nov, pages={2049\u20132077} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 31, Section 8 (Conclusion)\n\nIt would be an interesting problem to investigate if such results can be proved in the cases when the limiting system (actual system) is a degenerate diffusion system.",
+  "title": "Extend robustness and continuity results to degenerate controlled diffusion models",
+  "background_latex": "Consider a controlled diffusion process \n\\[dX_t = b(X_t,U_t)\\,dt + \\sigma(X_t)\\,dW_t, \\qquad X_0=x\\in\\mathbb{R}^d,\\]\nwhere \\(W\\) is a \\(d\\)-dimensional standard Wiener process, the action space \\(U\\) is a compact metric space, and \\(U_t\\) is an admissible (non-anticipative) control. The running cost is a bounded continuous function \\(c:\\mathbb{R}^d\\times U\\to\\mathbb{R}_+\\). For each control policy \\(\\pi\\) (e.g., Markov or stationary Markov controls), one considers standard performance criteria such as:\n\n1) Discounted cost for \\(\\alpha>0\\):\n\\[J_\\alpha^{\\pi}(x;c)=\\mathbb{E}^{\\pi}_x\\Big[\\int_0^\\infty e^{-\\alpha t} c(X_t,U_t)\\,dt\\Big],\\qquad V_\\alpha(x)=\\inf_{\\pi} J_\\alpha^{\\pi}(x;c).\\]\n\n2) Ergodic (long-run average) cost:\n\\[\\mathcal{E}_x(c,\\pi)=\\limsup_{T\\to\\infty}\\frac{1}{T}\\,\\mathbb{E}^{\\pi}_x\\Big[\\int_0^T c(X_t,U_t)\\,dt\\Big],\\qquad \\mathcal{E}^*(c)=\\inf_x\\inf_{\\pi}\\mathcal{E}_x(c,\\pi).\\]\n\n3) Finite-horizon cost for a horizon \\(T>0\\) and terminal cost \\(H\\):\n\\[J_T^{\\pi}(x;c)=\\mathbb{E}^{\\pi}_x\\Big[\\int_0^T c(X_t,U_t)\\,dt + H(X_T)\\Big],\\qquad J_T^*(x;c)=\\inf_{\\pi}J_T^{\\pi}(x;c).\\]\n\nThe paper studies an approximation setting in which a sequence of models \\((b_n,\\sigma_n,c_n)\\) converges to \\((b,\\sigma,c)\\) (in a sense ensuring pointwise convergence in the state and continuous convergence in control actions), with associated state processes\n\\[dX_t^{(n)} = b_n(X_t^{(n)},U_t)\\,dt + \\sigma_n(X_t^{(n)})\\,dW_t.\n\\]\nFor each model one has the corresponding optimal values \\(V_{\\alpha}^{(n)}\\), \\(\\mathcal{E}^{*(n)}(c_n)\\), \\(J_{T}^{*(n)}(x;c_n)\\), and one may compare the performance of controls optimized for the approximate model when applied to the true model.\n\nA key standing condition used throughout the paper is uniform nondegeneracy (uniform ellipticity) of the diffusion term: letting \\(a(x)=\\tfrac12\\sigma(x)\\sigma(x)^\\top\\), one assumes that for each radius \\(R>0\\) there exists \\(C_R>0\\) such that\n\\[z^\\top a(x) z \\ge C_R^{-1}\\,|z|^2 \\qquad \\forall x\\in B_R,\\ \\forall z\\in\\mathbb{R}^d,\\]\n(and similarly for \\(a_n\\)). This nondegeneracy assumption enables strong regularity theory for the associated Hamilton--Jacobi--Bellman (HJB) equations and is central to the continuity/robustness proofs in the paper.\n\nA diffusion is called degenerate if the corresponding covariance matrix \\(a(x)\\) fails to be uniformly positive definite (e.g., is singular in some directions, at some states, or on sets of positive measure).",
+  "problem_definition_latex": "Develop an analogue of the paper's continuity and robustness theory for controlled diffusion models when the limiting (true) diffusion is degenerate, i.e., when the uniform nondegeneracy/ellipticity condition on \\(a(x)=\\tfrac12\\sigma(x)\\sigma(x)^\\top\\) is dropped and \\(a(x)\\) may be singular.\n\nConcretely: under a suitable convergence notion for approximating models \\((b_n,\\sigma_n,c_n)\\to (b,\\sigma,c)\\), determine conditions under which (for one or more of the criteria discounted, ergodic, finite-horizon, or exit-time) the optimal values of the approximate models converge to the optimal value of the true (degenerate) model, and the performance loss from applying an optimal control of the approximate model to the true model vanishes in the limit.",
+  "latex": "Consider a controlled diffusion process \n\\[dX_t = b(X_t,U_t)\\,dt + \\sigma(X_t)\\,dW_t, \\qquad X_0=x\\in\\mathbb{R}^d,\\]\nwhere \\(W\\) is a \\(d\\)-dimensional standard Wiener process, the action space \\(U\\) is a compact metric space, and \\(U_t\\) is an admissible (non-anticipative) control. The running cost is a bounded continuous function \\(c:\\mathbb{R}^d\\times U\\to\\mathbb{R}_+\\). For each control policy \\(\\pi\\) (e.g., Markov or stationary Markov controls), one considers standard performance criteria such as:\n\n1) Discounted cost for \\(\\alpha>0\\):\n\\[J_\\alpha^{\\pi}(x;c)=\\mathbb{E}^{\\pi}_x\\Big[\\int_0^\\infty e^{-\\alpha t} c(X_t,U_t)\\,dt\\Big],\\qquad V_\\alpha(x)=\\inf_{\\pi} J_\\alpha^{\\pi}(x;c).\\]\n\n2) Ergodic (long-run average) cost:\n\\[\\mathcal{E}_x(c,\\pi)=\\limsup_{T\\to\\infty}\\frac{1}{T}\\,\\mathbb{E}^{\\pi}_x\\Big[\\int_0^T c(X_t,U_t)\\,dt\\Big],\\qquad \\mathcal{E}^*(c)=\\inf_x\\inf_{\\pi}\\mathcal{E}_x(c,\\pi).\\]\n\n3) Finite-horizon cost for a horizon \\(T>0\\) and terminal cost \\(H\\):\n\\[J_T^{\\pi}(x;c)=\\mathbb{E}^{\\pi}_x\\Big[\\int_0^T c(X_t,U_t)\\,dt + H(X_T)\\Big],\\qquad J_T^*(x;c)=\\inf_{\\pi}J_T^{\\pi}(x;c).\\]\n\nThe paper studies an approximation setting in which a sequence of models \\((b_n,\\sigma_n,c_n)\\) converges to \\((b,\\sigma,c)\\) (in a sense ensuring pointwise convergence in the state and continuous convergence in control actions), with associated state processes\n\\[dX_t^{(n)} = b_n(X_t^{(n)},U_t)\\,dt + \\sigma_n(X_t^{(n)})\\,dW_t.\n\\]\nFor each model one has the corresponding optimal values \\(V_{\\alpha}^{(n)}\\), \\(\\mathcal{E}^{*(n)}(c_n)\\), \\(J_{T}^{*(n)}(x;c_n)\\), and one may compare the performance of controls optimized for the approximate model when applied to the true model.\n\nA key standing condition used throughout the paper is uniform nondegeneracy (uniform ellipticity) of the diffusion term: letting \\(a(x)=\\tfrac12\\sigma(x)\\sigma(x)^\\top\\), one assumes that for each radius \\(R>0\\) there exists \\(C_R>0\\) such that\n\\[z^\\top a(x) z \\ge C_R^{-1}\\,|z|^2 \\qquad \\forall x\\in B_R,\\ \\forall z\\in\\mathbb{R}^d,\\]\n(and similarly for \\(a_n\\)). This nondegeneracy assumption enables strong regularity theory for the associated Hamilton--Jacobi--Bellman (HJB) equations and is central to the continuity/robustness proofs in the paper.\n\nA diffusion is called degenerate if the corresponding covariance matrix \\(a(x)\\) fails to be uniformly positive definite (e.g., is singular in some directions, at some states, or on sets of positive measure).\n\nDevelop an analogue of the paper's continuity and robustness theory for controlled diffusion models when the limiting (true) diffusion is degenerate, i.e., when the uniform nondegeneracy/ellipticity condition on \\(a(x)=\\tfrac12\\sigma(x)\\sigma(x)^\\top\\) is dropped and \\(a(x)\\) may be singular.\n\nConcretely: under a suitable convergence notion for approximating models \\((b_n,\\sigma_n,c_n)\\to (b,\\sigma,c)\\), determine conditions under which (for one or more of the criteria discounted, ergodic, finite-horizon, or exit-time) the optimal values of the approximate models converge to the optimal value of the true (degenerate) model, and the performance loss from applying an optimal control of the approximate model to the true model vanishes in the limit.",
+  "location_in_paper": "Page 31, Section 8 (Conclusion)",
+  "open_problem_quote": "It would be an interesting problem to investigate if such results can be proved in the cases when the limiting system (actual system) is a degenerate diffusion system.",
+  "area": "stochastic control",
+  "keywords": [
+    "controlled diffusions",
+    "robustness",
+    "model approximation",
+    "degenerate diffusion",
+    "HJB equations",
+    "elliptic regularity"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is broadly about extending positive results to a substantially different analytical regime (loss of uniform ellipticity), rather than a sharp finite-dimensional conjecture. Searching for counterexamples is possible in principle, but the space of degenerate diffusions and cost criteria is huge and failure modes may depend on subtle analytic details.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize families of degenerate diffusion-control problems (e.g., low-dimensional SDEs with rank-deficient \\(\\sigma\\)) and numerically test continuity/robustness across approximations by solving HJB equations or simulating candidate policies. However, the main bottleneck is formulating a faithful computable proxy for the universal convergence statements and ensuring numerical PDE/Monte Carlo methods remain stable in degenerate settings.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08701875,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08701875
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387578519/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

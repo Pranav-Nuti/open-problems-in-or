@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4391954556_p0",
+  "paper_id": "W4391954556",
+  "source_paper": "W4391954556",
+  "source_paper_title": "A Characterization of Simultaneous Optimization, Majorization, and (Bi-)Submodular Polyhedra",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0054",
+  "source_paper_authors": [
+    "Martijn H. H. Schoot Uiterkamp"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Schoot_Uiterkamp_2025, title={A Characterization of Simultaneous Optimization, Majorization, and (Bi-)Submodular Polyhedra}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0054}, DOI={10.1287/moor.2023.0054}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Schoot Uiterkamp, Martijn H. H.}, year={2025}, month=feb, pages={252\u2013276} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 25, Section 7 (Conclusions and directions for future research), item 1 in the numbered list of future directions.\n\nOne limitation of this work is that we focused on the case where least \\((a, b)\\)-majorized elements exist for each choice of \\(a\\) and \\(b\\). Moreover, the definition of these elements requires them to be optimal for any choice of separable convex objective structure. Thus, it is interesting to investigate whether the existence of least \\((a, b)\\)-majorized elements for specific (sets of) values of \\(a\\) and \\(b\\) can be characterized. In particular, an interesting question is whether such a characterization exists for \\(b = 0\\), i.e., when we only consider scaled objective functions.",
+  "title": "Characterize least (a,b)-majorized elements for fixed scalings and shifts in feasible sets",
+  "background_latex": "Let \\(n\\in\\mathbb{N}\\) and index set \\(N:=\\{1,\\dots,n\\}\\). For \\(x\\in\\mathbb{R}^n\\) and \\(S\\subseteq N\\), write \\(x(S):=\\sum_{i\\in S} x_i\\). Fix a scaling vector \\(a\\in\\mathbb{R}^n_{>0}\\) and a shift vector \\(b\\in\\mathbb{R}^n\\).\n\nFor vectors \\(x,y\\in\\mathbb{R}^n\\), define \\((a,b)\\)-majorization by\n\\[\n x \\prec_{(a,b)} y \\quad\\text{if}\\quad x(N)=y(N)\\ \\text{and}\\ \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i+b_i}{a_i}\\right)\\le \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{y_i+b_i}{a_i}\\right)\\ \\text{for all continuous convex }\\phi:\\mathbb{R}\\to\\mathbb{R}.\n\\]\nGiven a feasible set \\(C\\subseteq \\mathbb{R}^n\\), a vector \\(x^*\\in C\\) is called a least \\((a,b)\\)-majorized element of \\(C\\) if \\(x^*\\prec_{(a,b)} y\\) for all \\(y\\in C\\). Equivalently, \\(x^*\\) simultaneously minimizes the family of separable convex objectives\n\\[\n x\\mapsto \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i+b_i}{a_i}\\right)\n\\]\nover \\(C\\), for every choice of continuous convex \\(\\phi\\).\n\nA major theme in the paper is that if one requires existence of least \\((a,b)\\)-majorized elements for all choices of \\(a\\in\\mathbb{R}^n_{>0}\\) and \\(b\\in\\mathbb{R}^n\\) within the class of compact convex sets, then the feasible sets are precisely base polyhedra of submodular functions (and analogous characterizations for weaker notions lead to other polyhedra). The paper explicitly notes a limitation: it treats the case of existence for every \\(a,b\\), rather than for specific fixed \\(a,b\\) (or subsets thereof).",
+  "problem_definition_latex": "Given a feasible set \\(C\\subseteq \\mathbb{R}^n\\) and fixed vectors \\(a\\in\\mathbb{R}^n_{>0}\\) and \\(b\\in\\mathbb{R}^n\\), characterize (in structural/combinatorial terms) when \\(C\\) admits a least \\((a,b)\\)-majorized element, i.e., when there exists \\(x^*\\in C\\) such that\n\\[\n\\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i^*+b_i}{a_i}\\right)\\le \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{y_i+b_i}{a_i}\\right)\\quad\\text{for all }y\\in C\\text{ and all continuous convex }\\phi:\\mathbb{R}\\to\\mathbb{R},\n\\]\n(with the implicit requirement \\(x^*(N)=y(N)\\) for all \\(y\\in C\\) whenever \\((a,b)\\)-majorization is used).\nIn particular, investigate whether such a characterization exists in the special case \\(b=0\\) (scaled objectives only).",
+  "latex": "Let \\(n\\in\\mathbb{N}\\) and index set \\(N:=\\{1,\\dots,n\\}\\). For \\(x\\in\\mathbb{R}^n\\) and \\(S\\subseteq N\\), write \\(x(S):=\\sum_{i\\in S} x_i\\). Fix a scaling vector \\(a\\in\\mathbb{R}^n_{>0}\\) and a shift vector \\(b\\in\\mathbb{R}^n\\).\n\nFor vectors \\(x,y\\in\\mathbb{R}^n\\), define \\((a,b)\\)-majorization by\n\\[\n x \\prec_{(a,b)} y \\quad\\text{if}\\quad x(N)=y(N)\\ \\text{and}\\ \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i+b_i}{a_i}\\right)\\le \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{y_i+b_i}{a_i}\\right)\\ \\text{for all continuous convex }\\phi:\\mathbb{R}\\to\\mathbb{R}.\n\\]\nGiven a feasible set \\(C\\subseteq \\mathbb{R}^n\\), a vector \\(x^*\\in C\\) is called a least \\((a,b)\\)-majorized element of \\(C\\) if \\(x^*\\prec_{(a,b)} y\\) for all \\(y\\in C\\). Equivalently, \\(x^*\\) simultaneously minimizes the family of separable convex objectives\n\\[\n x\\mapsto \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i+b_i}{a_i}\\right)\n\\]\nover \\(C\\), for every choice of continuous convex \\(\\phi\\).\n\nA major theme in the paper is that if one requires existence of least \\((a,b)\\)-majorized elements for all choices of \\(a\\in\\mathbb{R}^n_{>0}\\) and \\(b\\in\\mathbb{R}^n\\) within the class of compact convex sets, then the feasible sets are precisely base polyhedra of submodular functions (and analogous characterizations for weaker notions lead to other polyhedra). The paper explicitly notes a limitation: it treats the case of existence for every \\(a,b\\), rather than for specific fixed \\(a,b\\) (or subsets thereof).\n\nGiven a feasible set \\(C\\subseteq \\mathbb{R}^n\\) and fixed vectors \\(a\\in\\mathbb{R}^n_{>0}\\) and \\(b\\in\\mathbb{R}^n\\), characterize (in structural/combinatorial terms) when \\(C\\) admits a least \\((a,b)\\)-majorized element, i.e., when there exists \\(x^*\\in C\\) such that\n\\[\n\\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{x_i^*+b_i}{a_i}\\right)\\le \\sum_{i\\in N} a_i\\,\\phi\\!\\left(\\frac{y_i+b_i}{a_i}\\right)\\quad\\text{for all }y\\in C\\text{ and all continuous convex }\\phi:\\mathbb{R}\\to\\mathbb{R},\n\\]\n(with the implicit requirement \\(x^*(N)=y(N)\\) for all \\(y\\in C\\) whenever \\((a,b)\\)-majorization is used).\nIn particular, investigate whether such a characterization exists in the special case \\(b=0\\) (scaled objectives only).",
+  "location_in_paper": "Page 25, Section 7 (Conclusions and directions for future research), item 1 in the numbered list of future directions.",
+  "open_problem_quote": "One limitation of this work is that we focused on the case where least \\((a, b)\\)-majorized elements exist for each choice of \\(a\\) and \\(b\\). Moreover, the definition of these elements requires them to be optimal for any choice of separable convex objective structure. Thus, it is interesting to investigate whether the existence of least \\((a, b)\\)-majorized elements for specific (sets of) values of \\(a\\) and \\(b\\) can be characterized. In particular, an interesting question is whether such a characterization exists for \\(b = 0\\), i.e., when we only consider scaled objective functions.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "majorization",
+    "separable convex optimization",
+    "submodular polyhedra",
+    "base polyhedra",
+    "resource allocation",
+    "structural characterization"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The problem asks for an existential/structural characterization of feasible sets, which is not naturally reducible to searching finite instances for a counterexample to a concrete conjectured inequality. Automated search could generate examples of sets lacking least \\((a,b)\\)-majorized elements, but that would not directly yield the desired characterization.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can represent candidate families of sets (e.g., parametrized polytopes) and numerically test whether a least \\((a,b)\\)-majorized element exists by solving a suite of convex programs for many convex functions \\(\\phi\\) (approximated via a basis of piecewise-linear convex functions). This could help discover patterns and formulate conjectured structural conditions, but the final goal is a theorem-level characterization.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0785015,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0785015
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391954556/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

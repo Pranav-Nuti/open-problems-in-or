@@ -1,0 +1,63 @@
+{
+  "problem_id": "W4387615605_p0",
+  "paper_id": "W4387615605",
+  "source_paper": "W4387615605",
+  "source_paper_title": "Online Bipartite Matching with Reusable Resources",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0242",
+  "source_paper_authors": [
+    "Steven Delong",
+    "Alireza Farhadi",
+    "Rad Niazadeh",
+    "Balasubramanian Sivan",
+    "Rajan Udwani"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Delong_2024, title={Online Bipartite Matching with Reusable Resources}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0242}, DOI={10.1287/moor.2022.0242}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Delong, Steven and Farhadi, Alireza and Niazadeh, Rad and Sivan, Balasubramanian and Udwani, Rajan}, year={2024}, month=aug, pages={1825\u20131854} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 27, Section 5 (Conclusion), paragraph titled \u201cproblems\u201d\n\nThe main problem left unanswered in our paper is whether one can obtain the competitive ratio of \\(1 - 1/e\\) for OBMRR.",
+  "title": "Achieve the optimal 1 minus 1 over e competitive ratio in reusable-resource matching",
+  "background_latex": "Online bipartite matching with reusable resources (OBMRR) is defined on a bipartite graph \\(G=(V,U;E)\\), where \\(V\\) is a set of offline vertices (reusable resources) and \\(U\\) is a sequence of online vertices (requests) arriving over discrete times \\(j=1,2,\\dots,|U|\\) in an oblivious adversarial order. When request \\(j\\) arrives, its incident edges \\(\\{(i,j)\\in E: i\\in V\\}\\) are revealed, and an online algorithm must either match \\(j\\) to an available neighbor \\(i\\in V\\) or leave \\(j\\) unmatched; decisions are irrevocable.\n\nReusability is governed by a known deterministic usage duration \\(d\\in\\mathbb{N}\\): if resource \\(i\\) is matched at time \\(j\\), then \\(i\\) becomes unavailable for the next \\(d-1\\) arrivals and becomes available again at time \\(j+d\\). Equivalently, each resource \\(i\\) can be matched at most once in any window of \\(d\\) consecutive times.\n\nIn the vertex-weighted version, each resource \\(i\\in V\\) has a nonnegative weight \\(r_i\\). Each time \\(i\\) is matched, the algorithm earns reward \\(r_i\\). The total reward of an algorithm is the sum of rewards over all matches it makes.\n\nLet \\(\\mathrm{ALG}(G,d)\\) denote the (expected) total reward obtained by a (possibly randomized) online algorithm on instance \\((G,d)\\), where the expectation is over the algorithm's internal randomness. Let \\(\\mathrm{OPT}(G,d)\\) denote the maximum total reward achievable by an offline algorithm with full knowledge of the entire arrival sequence and graph, subject to the same reusability constraints.\n\nThe competitive ratio of an online algorithm is the largest \\(\\Gamma\\in[0,1]\\) such that for all instances \\((G,d)\\), \\(\\mathbb{E}[\\mathrm{ALG}(G,d)]\\ge \\Gamma\\,\\mathrm{OPT}(G,d)\\). For the classic non-reusable online bipartite matching (obtained as a special case when \\(d=|U|\\)), the optimal competitive ratio is \\(1-1/e\\) for randomized algorithms, and this value also serves as an upper bound for OBMRR because OBMRR generalizes the non-reusable model (for large \\(d\\), it reduces to the classic case).",
+  "problem_definition_latex": "Determine whether there exists a randomized online algorithm for vertex-weighted OBMRR with deterministic usage duration \\(d\\) that achieves competitive ratio \\(\\Gamma = 1-1/e\\). That is, does there exist an online algorithm such that for every instance \\((G=(V,U;E),d,\\{r_i\\}_{i\\in V})\\),\n\\[\n\\mathbb{E}[\\mathrm{ALG}(G,d)] \\;\\ge\\; (1-1/e)\\,\\mathrm{OPT}(G,d)?\n\\]\nIf not, determine the optimal achievable competitive ratio for OBMRR.",
+  "latex": "Online bipartite matching with reusable resources (OBMRR) is defined on a bipartite graph \\(G=(V,U;E)\\), where \\(V\\) is a set of offline vertices (reusable resources) and \\(U\\) is a sequence of online vertices (requests) arriving over discrete times \\(j=1,2,\\dots,|U|\\) in an oblivious adversarial order. When request \\(j\\) arrives, its incident edges \\(\\{(i,j)\\in E: i\\in V\\}\\) are revealed, and an online algorithm must either match \\(j\\) to an available neighbor \\(i\\in V\\) or leave \\(j\\) unmatched; decisions are irrevocable.\n\nReusability is governed by a known deterministic usage duration \\(d\\in\\mathbb{N}\\): if resource \\(i\\) is matched at time \\(j\\), then \\(i\\) becomes unavailable for the next \\(d-1\\) arrivals and becomes available again at time \\(j+d\\). Equivalently, each resource \\(i\\) can be matched at most once in any window of \\(d\\) consecutive times.\n\nIn the vertex-weighted version, each resource \\(i\\in V\\) has a nonnegative weight \\(r_i\\). Each time \\(i\\) is matched, the algorithm earns reward \\(r_i\\). The total reward of an algorithm is the sum of rewards over all matches it makes.\n\nLet \\(\\mathrm{ALG}(G,d)\\) denote the (expected) total reward obtained by a (possibly randomized) online algorithm on instance \\((G,d)\\), where the expectation is over the algorithm's internal randomness. Let \\(\\mathrm{OPT}(G,d)\\) denote the maximum total reward achievable by an offline algorithm with full knowledge of the entire arrival sequence and graph, subject to the same reusability constraints.\n\nThe competitive ratio of an online algorithm is the largest \\(\\Gamma\\in[0,1]\\) such that for all instances \\((G,d)\\), \\(\\mathbb{E}[\\mathrm{ALG}(G,d)]\\ge \\Gamma\\,\\mathrm{OPT}(G,d)\\). For the classic non-reusable online bipartite matching (obtained as a special case when \\(d=|U|\\)), the optimal competitive ratio is \\(1-1/e\\) for randomized algorithms, and this value also serves as an upper bound for OBMRR because OBMRR generalizes the non-reusable model (for large \\(d\\), it reduces to the classic case).\n\nDetermine whether there exists a randomized online algorithm for vertex-weighted OBMRR with deterministic usage duration \\(d\\) that achieves competitive ratio \\(\\Gamma = 1-1/e\\). That is, does there exist an online algorithm such that for every instance \\((G=(V,U;E),d,\\{r_i\\}_{i\\in V})\\),\n\\[\n\\mathbb{E}[\\mathrm{ALG}(G,d)] \\;\\ge\\; (1-1/e)\\,\\mathrm{OPT}(G,d)?\n\\]\nIf not, determine the optimal achievable competitive ratio for OBMRR.",
+  "location_in_paper": "Page 27, Section 5 (Conclusion), paragraph titled \u201cproblems\u201d",
+  "open_problem_quote": "The main problem left unanswered in our paper is whether one can obtain the competitive ratio of \\(1 - 1/e\\) for OBMRR.",
+  "area": "online algorithms",
+  "keywords": [
+    "online bipartite matching",
+    "reusable resources",
+    "competitive ratio",
+    "randomized algorithms",
+    "vertex-weighted matching",
+    "adversarial arrivals"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally search for hard instances (graphs and arrival orders) and estimate the empirical competitive ratio of candidate algorithms via simulation, but certifying an upper bound against all algorithms or proving tightness is not directly amenable to finite search. Still, automated discovery may uncover candidate lower-bound instances that refute specific algorithmic approaches toward \\(1-1/e\\).",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate online policies can be parameterized (e.g., priority scores, reranking schedules, correlated selection rules) and evaluated on generated adversarial or worst-case-seeking instance distributions using a computable fitness signal such as estimated worst-case competitive ratio over a test suite. An evolutionary loop could iteratively improve algorithm designs or produce informative adversarial families that challenge \\(1-1/e\\) aspirations.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08105825000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08105825000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387615605/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

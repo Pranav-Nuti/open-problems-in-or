@@ -1,0 +1,59 @@
+{
+  "problem_id": "W4400583097_p0",
+  "paper_id": "W4400583097",
+  "source_paper": "W4400583097",
+  "source_paper_title": "Large Independent Sets in Recursive Markov Random Graphs",
+  "source_paper_url": "https://doi.org/10.1287/moor.2022.0215",
+  "source_paper_authors": [
+    "Akshay Gupte",
+    "Yiran Zhu"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Gupte_2025, title={Large Independent Sets in Recursive Markov Random Graphs}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0215}, DOI={10.1287/moor.2022.0215}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gupte, Akshay and Zhu, Yiran}, year={2025}, month=aug, pages={1611\u20131634} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 2.2 Discussion, page 7\n\nQuestion 1. Does there exist a function f(n) = \\Omega(n/ \\log n) such that f(n) = o(n) and \\alpha(G^r_{n,p}) = \\Theta(f(n)) w.h.p.?",
+  "title": "Determine the asymptotic order of maximum independent sets in recursive Markov random graphs",
+  "background_latex": "Fix parameters \\(p\\in(0,1]\\) and \\(r\\in(0,1)\\), and write \\(\\gamma:=1-r\\in(0,1)\\). Define the random graph \\(G^r_{n,p}\\) on vertex set \\(\\{v_1,\\dots,v_n\\}\\) by the following recursive Markov edge-generation rule.\n\n1) For each \\(i\\in\\{2,\\dots,n\\}\\), the edge \\((v_1,v_i)\\) is present with probability \\(p\\).\n\n2) For each fixed \\(i\\in\\{3,\\dots,n\\}\\), the edges \\((v_j,v_i)\\) for \\(j=2,3,\\dots,i-1\\) are generated sequentially as a (non-homogeneous) Markov chain along increasing \\(j\\): conditional on the previous edge \\((v_{j-1},v_i)\\),\n\\[\n\\mathbb P\\big((v_j,v_i)\\in E\\mid (v_{j-1},v_i)\\notin E\\big)=\\mathbb P\\big((v_{j-1},v_i)\\in E\\big),\n\\]\n\\[\n\\mathbb P\\big((v_j,v_i)\\in E\\mid (v_{j-1},v_i)\\in E\\big)=r\\,\\mathbb P\\big((v_{j-1},v_i)\\in E\\big).\n\\]\nEquivalently, if \\(X^i_j\\in\\{0,1\\}\\) indicates whether \\((v_j,v_i)\\) is an edge, and \\(p^i_j:=\\mathbb P(X^i_j=1)\\), then \\(p^i_1=p\\) and for \\(2\\le j\\le i-1\\),\n\\[\n p^i_j = p^i_{j-1}\\big(1-\\gamma p^i_{j-1}\\big).\n\\]\n\nLet \\(\\alpha(G)\\) denote the stability number (maximum cardinality of an independent set) of a graph \\(G\\). The asymptotic regime is \\(n\\to\\infty\\); \u201cwith high probability (w.h.p.)\u201d means with probability tending to 1 as \\(n\\to\\infty\\).",
+  "problem_definition_latex": "Find an explicit function \\(f(n)\\) such that\n\\[\n f(n)=\\Omega\\!\\left(\\frac{n}{\\log n}\\right),\\qquad f(n)=o(n),\n\\]\nand\n\\[\n\\alpha\\big(G^r_{n,p}\\big)=\\Theta\\big(f(n)\\big)\\quad\\text{w.h.p. as }n\\to\\infty.\n\\]\n(Here \\(p\\in(0,1]\\) and \\(r\\in(0,1)\\) are fixed constants and \\(G^r_{n,p}\\) is as defined above.)",
+  "latex": "Fix parameters \\(p\\in(0,1]\\) and \\(r\\in(0,1)\\), and write \\(\\gamma:=1-r\\in(0,1)\\). Define the random graph \\(G^r_{n,p}\\) on vertex set \\(\\{v_1,\\dots,v_n\\}\\) by the following recursive Markov edge-generation rule.\n\n1) For each \\(i\\in\\{2,\\dots,n\\}\\), the edge \\((v_1,v_i)\\) is present with probability \\(p\\).\n\n2) For each fixed \\(i\\in\\{3,\\dots,n\\}\\), the edges \\((v_j,v_i)\\) for \\(j=2,3,\\dots,i-1\\) are generated sequentially as a (non-homogeneous) Markov chain along increasing \\(j\\): conditional on the previous edge \\((v_{j-1},v_i)\\),\n\\[\n\\mathbb P\\big((v_j,v_i)\\in E\\mid (v_{j-1},v_i)\\notin E\\big)=\\mathbb P\\big((v_{j-1},v_i)\\in E\\big),\n\\]\n\\[\n\\mathbb P\\big((v_j,v_i)\\in E\\mid (v_{j-1},v_i)\\in E\\big)=r\\,\\mathbb P\\big((v_{j-1},v_i)\\in E\\big).\n\\]\nEquivalently, if \\(X^i_j\\in\\{0,1\\}\\) indicates whether \\((v_j,v_i)\\) is an edge, and \\(p^i_j:=\\mathbb P(X^i_j=1)\\), then \\(p^i_1=p\\) and for \\(2\\le j\\le i-1\\),\n\\[\n p^i_j = p^i_{j-1}\\big(1-\\gamma p^i_{j-1}\\big).\n\\]\n\nLet \\(\\alpha(G)\\) denote the stability number (maximum cardinality of an independent set) of a graph \\(G\\). The asymptotic regime is \\(n\\to\\infty\\); \u201cwith high probability (w.h.p.)\u201d means with probability tending to 1 as \\(n\\to\\infty\\).\n\nFind an explicit function \\(f(n)\\) such that\n\\[\n f(n)=\\Omega\\!\\left(\\frac{n}{\\log n}\\right),\\qquad f(n)=o(n),\n\\]\nand\n\\[\n\\alpha\\big(G^r_{n,p}\\big)=\\Theta\\big(f(n)\\big)\\quad\\text{w.h.p. as }n\\to\\infty.\n\\]\n(Here \\(p\\in(0,1]\\) and \\(r\\in(0,1)\\) are fixed constants and \\(G^r_{n,p}\\) is as defined above.)",
+  "location_in_paper": "Section 2.2 Discussion, page 7",
+  "open_problem_quote": "Question 1. Does there exist a function f(n) = \\Omega(n/ \\log n) such that f(n) = o(n) and \\alpha(G^r_{n,p}) = \\Theta(f(n)) w.h.p.?",
+  "area": "approximation algorithms",
+  "keywords": [
+    "random graphs",
+    "independent set",
+    "Markov dependence",
+    "asymptotic order",
+    "phase transition"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can simulate the random graph process for moderate n and estimate \\(\\alpha(G^r_{n,p})\\) via heuristics/ILP to guess scaling, but verifying a \\(\\Theta(f(n))\\) law w.h.p. is asymptotic and not falsified by a single finite instance. Still, computational experiments can search for plausible growth rates and constants, or suggest tighter upper/lower bounds.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop can generate candidate scaling hypotheses \\(f(n)\\) (e.g., \\(n/\\log n\\), \\(n/(\\log n)^a\\), \\(n^{\\beta}\\), etc.) and fit them against computed/estimated \\(\\alpha(G^r_{n,p})\\) over many simulated graphs, using regression error as a fitness signal. This can guide conjectures and suggest proof targets, though it cannot directly certify w.h.p. \\(\\Theta(\\cdot)\\) behavior.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0684775,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0684775
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400583097/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4387617469_p0",
+  "paper_id": "W4387617469",
+  "source_paper": "W4387617469",
+  "source_paper_title": "A New Dynamic Programming Approach for Spanning Trees with Chain Constraints and Beyond",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0012",
+  "source_paper_authors": [
+    "Martin N\u00e4gele",
+    "Rico Zenklusen"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{N_gele_2024, title={A New Dynamic Programming Approach for Spanning Trees with Chain Constraints and Beyond}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0012}, DOI={10.1287/moor.2023.0012}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={N\u00e4gele, Martin and Zenklusen, Rico}, year={2024}, month=nov, pages={2078\u20132108} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 3, Introduction (discussion of prior work on laminar cut constraints following results of Bansal et al. and Olver\u2013Zenklusen).\n\nAs later shown by Olver and Zenklusen [OZ18], this is almost optimal because an additive violation of \\(c \\log |V|/\\log\\log |V|\\) units, for some constant \\(c\\), cannot be achieved unless \\(\\mathrm{P}=\\mathrm{NP}\\). It remains open whether \\(O(1)\\)-multiplicative violations are possible.",
+  "title": "Constant-factor multiplicative violation for cut-constrained spanning trees in laminar families",
+  "background_latex": "Let \\(G=(V,E)\\) be an undirected graph with nonnegative edge costs \\(c:E\\to\\mathbb{R}_{\\ge 0}\\). For a nonempty proper vertex subset \\(S\\subset V\\), let \\(\\delta(S)\\subseteq E\\) denote the cut-set, i.e., edges with exactly one endpoint in \\(S\\). A family \\(\\mathcal{L}\\subseteq 2^V\\setminus\\{\\emptyset,V\\}\\) is laminar if for any \\(A,B\\in\\mathcal{L}\\), either \\(A\\subseteq B\\), \\(B\\subseteq A\\), or \\(A\\cap B=\\emptyset\\). Consider spanning-tree feasibility: a spanning tree is a set \\(T\\subseteq E\\) with \\(|T|=|V|-1\\) that connects all vertices.\n\nIn a laminarly cut-constrained spanning tree problem, one is given upper bounds \\(b_S\\in\\mathbb{Z}_{\\ge 0}\\) for each \\(S\\in\\mathcal{L}\\), and seeks a spanning tree of minimum cost subject to \\(|T\\cap \\delta(S)|\\le b_S\\) for all \\(S\\in\\mathcal{L}\\). In the special case where \\(\\mathcal{L}\\) is a chain \\(\\emptyset\\subsetneq S_1\\subsetneq S_2\\subsetneq\\cdots\\subsetneq S_k\\subsetneq V\\), this becomes the (upper-bounded) minimum chain-constrained spanning tree problem.\n\nA common approximation notion allows multiplicative violation of the cut constraints: for \\(\\beta\\ge 1\\), the spanning tree \\(T\\) is said to have \\(\\beta\\)-multiplicative violation if \\(|T\\cap \\delta(S)|\\le \\beta\\, b_S\\) for all \\(S\\in\\mathcal{L}\\). (Cost may be compared to the optimum cost among spanning trees satisfying all constraints exactly.)",
+  "problem_definition_latex": "Determine whether there exists a constant \\(\\beta=O(1)\\) and a polynomial-time algorithm that, for every instance \\((G=(V,E),c,\\mathcal{L},(b_S)_{S\\in\\mathcal{L}})\\) with laminar \\(\\mathcal{L}\\), outputs a spanning tree \\(T\\subseteq E\\) such that\n\\[|T\\cap \\delta(S)|\\le \\beta\\, b_S \\quad\\text{for all } S\\in\\mathcal{L},\\]\nwhile having cost\n\\[c(T)\\le c(\\mathrm{OPT}),\\]\nwhere \\(\\mathrm{OPT}\\) denotes a minimum-cost spanning tree satisfying \\(|\\mathrm{OPT}\\cap \\delta(S)|\\le b_S\\) for all \\(S\\in\\mathcal{L}\\).",
+  "latex": "Let \\(G=(V,E)\\) be an undirected graph with nonnegative edge costs \\(c:E\\to\\mathbb{R}_{\\ge 0}\\). For a nonempty proper vertex subset \\(S\\subset V\\), let \\(\\delta(S)\\subseteq E\\) denote the cut-set, i.e., edges with exactly one endpoint in \\(S\\). A family \\(\\mathcal{L}\\subseteq 2^V\\setminus\\{\\emptyset,V\\}\\) is laminar if for any \\(A,B\\in\\mathcal{L}\\), either \\(A\\subseteq B\\), \\(B\\subseteq A\\), or \\(A\\cap B=\\emptyset\\). Consider spanning-tree feasibility: a spanning tree is a set \\(T\\subseteq E\\) with \\(|T|=|V|-1\\) that connects all vertices.\n\nIn a laminarly cut-constrained spanning tree problem, one is given upper bounds \\(b_S\\in\\mathbb{Z}_{\\ge 0}\\) for each \\(S\\in\\mathcal{L}\\), and seeks a spanning tree of minimum cost subject to \\(|T\\cap \\delta(S)|\\le b_S\\) for all \\(S\\in\\mathcal{L}\\). In the special case where \\(\\mathcal{L}\\) is a chain \\(\\emptyset\\subsetneq S_1\\subsetneq S_2\\subsetneq\\cdots\\subsetneq S_k\\subsetneq V\\), this becomes the (upper-bounded) minimum chain-constrained spanning tree problem.\n\nA common approximation notion allows multiplicative violation of the cut constraints: for \\(\\beta\\ge 1\\), the spanning tree \\(T\\) is said to have \\(\\beta\\)-multiplicative violation if \\(|T\\cap \\delta(S)|\\le \\beta\\, b_S\\) for all \\(S\\in\\mathcal{L}\\). (Cost may be compared to the optimum cost among spanning trees satisfying all constraints exactly.)\n\nDetermine whether there exists a constant \\(\\beta=O(1)\\) and a polynomial-time algorithm that, for every instance \\((G=(V,E),c,\\mathcal{L},(b_S)_{S\\in\\mathcal{L}})\\) with laminar \\(\\mathcal{L}\\), outputs a spanning tree \\(T\\subseteq E\\) such that\n\\[|T\\cap \\delta(S)|\\le \\beta\\, b_S \\quad\\text{for all } S\\in\\mathcal{L},\\]\nwhile having cost\n\\[c(T)\\le c(\\mathrm{OPT}),\\]\nwhere \\(\\mathrm{OPT}\\) denotes a minimum-cost spanning tree satisfying \\(|\\mathrm{OPT}\\cap \\delta(S)|\\le b_S\\) for all \\(S\\in\\mathcal{L}\\).",
+  "location_in_paper": "Page 3, Introduction (discussion of prior work on laminar cut constraints following results of Bansal et al. and Olver\u2013Zenklusen).",
+  "open_problem_quote": "As later shown by Olver and Zenklusen [OZ18], this is almost optimal because an additive violation of \\(c \\log |V|/\\log\\log |V|\\) units, for some constant \\(c\\), cannot be achieved unless \\(\\mathrm{P}=\\mathrm{NP}\\). It remains open whether \\(O(1)\\)-multiplicative violations are possible.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "spanning trees",
+    "laminar cut constraints",
+    "chain constraints",
+    "bicriteria approximation",
+    "multiplicative violation",
+    "network design"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for existence of a constant-factor algorithmic guarantee over all instances, so a single finite counterexample only refutes a specific proposed \\(\\beta\\) or algorithm, not the existential claim. Hardness evidence would likely require complexity-theoretic reductions rather than automated instance search.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize candidate algorithms/rounding/DP schemes and evaluate empirically on generated laminar instances by computing exact optima for small \\(|V|\\) (via ILP/DP) and measuring worst-case violation and cost ratio. This can guide conjectures or discover promising constructions, but does not directly resolve the universal existence question.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09818375,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09818375
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387617469/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

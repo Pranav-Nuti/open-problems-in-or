@@ -1,0 +1,62 @@
+{
+  "problem_id": "W4404566852_p0",
+  "paper_id": "W4404566852",
+  "source_paper": "W4404566852",
+  "source_paper_title": "Improved Guarantees for the A Priori TSP",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0322",
+  "source_paper_authors": [
+    "Jannis Blauth",
+    "Meike Neuwohner",
+    "Luise Puhlmann",
+    "Jens Vygen"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Blauth_2025, title={Improved Guarantees for the A Priori TSP}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0322}, DOI={10.1287/moor.2023.0322}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Blauth, Jannis and Neuwohner, Meike and Puhlmann, Luise and Vygen, Jens}, year={2025}, month=nov, pages={2909\u20132940} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 5, Section 1.2 (after Theorem 6); reiterated in Page 38, Section 9 (Discussion).\n\nWe conjecture that the master route ratio is exactly \\(\\frac{1}{1-e^{-1/2}}\\).",
+  "title": "Determine the exact master route ratio for a priori TSP with depot",
+  "background_latex": "Let \\((V,c)\\) be a finite metric space (triangle inequality, symmetry, and \\(c(v,v)=0\\)) whose points \\(V\\) are called customers. Each customer \\(v\\in V\\) is active independently with probability \\(p(v)\\in(0,1]\\). A distinguished customer \\(d\\in V\\) is a depot with \\(p(d)=1\\).\n\nAn \\emph{a priori TSP tour} is a cyclic ordering (TSP tour) \\(T\\) visiting all vertices in \\(V\\), chosen before seeing which customers are active. Given a realized active set \\(A\\subseteq V\\), the realized tour cost is the length of the tour obtained by \\emph{skipping} inactive vertices in the order prescribed by \\(T\\); denote this realized cost by \\(c(T[A])\\). The objective value of \\(T\\) is \\(\\mathbb{E}[c(T[A])]\\) where the expectation is over the independent activations.\n\nFor a nonempty subset \\(S\\subseteq V\\) with \\(d\\in S\\), a \\emph{master route solution} based on \\(S\\) consists of:\n1) a TSP tour on \\(S\\) of length \\(\\mathrm{OPT}_{\\mathrm{tsp}}(S,c)\\), and\n2) for each \\(v\\in V\\setminus S\\), two parallel edges connecting \\(v\\) to a nearest point in \\(S\\), where \\(c(v,S):=\\min\\{c(v,s): s\\in S\\}\\).\n\nUnder the standard analysis for master route solutions, the expected cost of the master route solution based on \\(S\\) is\n\\[\\mathrm{MR}(S) := \\mathbb{E}\\Big[\\mathbf{1}_{\\{|A|\\ge 2\\}}\\Big(\\mathrm{OPT}_{\\mathrm{tsp}}(S,c) + 2\\sum_{v\\in A} c(v,S)\\Big)\\Big],\\]\nwhere \\(A\\) is the random active set, and the indicator accounts for the convention that if fewer than two customers are active then one may shortcut to cost \\(0\\).\n\nLet \\(\\mathrm{OPT}\\) denote the minimum possible expected cost \\(\\min_T \\mathbb{E}[c(T[A])]\\) over all a priori tours \\(T\\) for \\((V,c,p)\\).\n\nThe \\emph{master route ratio} (with depot) is the worst-case ratio between the best master route solution and the optimal a priori tour, i.e.\n\\[\\rho^* := \\sup_{(V,c,p)\\,\\text{with depot }d} \\ \\frac{\\min\\{\\mathrm{MR}(S): \\varnothing\\ne S\\subseteq V\\}}{\\mathrm{OPT}},\\]\nwith the convention \\(0/0:=1\\) when needed.",
+  "problem_definition_latex": "Determine the exact value of the master route ratio \\(\\rho^*\\), i.e., compute\n\\[\\rho^* := \\sup_{(V,c,p)\\,\\text{with depot }d} \\ \\frac{\\min\\{\\mathrm{MR}(S): \\varnothing\\ne S\\subseteq V\\}}{\\mathrm{OPT}}\\]\nfor the a priori TSP with independent activations and a depot \\(d\\) satisfying \\(p(d)=1\\). In particular, decide whether\n\\[\\rho^* = \\frac{1}{1-e^{-1/2}}.\\]",
+  "latex": "Let \\((V,c)\\) be a finite metric space (triangle inequality, symmetry, and \\(c(v,v)=0\\)) whose points \\(V\\) are called customers. Each customer \\(v\\in V\\) is active independently with probability \\(p(v)\\in(0,1]\\). A distinguished customer \\(d\\in V\\) is a depot with \\(p(d)=1\\).\n\nAn \\emph{a priori TSP tour} is a cyclic ordering (TSP tour) \\(T\\) visiting all vertices in \\(V\\), chosen before seeing which customers are active. Given a realized active set \\(A\\subseteq V\\), the realized tour cost is the length of the tour obtained by \\emph{skipping} inactive vertices in the order prescribed by \\(T\\); denote this realized cost by \\(c(T[A])\\). The objective value of \\(T\\) is \\(\\mathbb{E}[c(T[A])]\\) where the expectation is over the independent activations.\n\nFor a nonempty subset \\(S\\subseteq V\\) with \\(d\\in S\\), a \\emph{master route solution} based on \\(S\\) consists of:\n1) a TSP tour on \\(S\\) of length \\(\\mathrm{OPT}_{\\mathrm{tsp}}(S,c)\\), and\n2) for each \\(v\\in V\\setminus S\\), two parallel edges connecting \\(v\\) to a nearest point in \\(S\\), where \\(c(v,S):=\\min\\{c(v,s): s\\in S\\}\\).\n\nUnder the standard analysis for master route solutions, the expected cost of the master route solution based on \\(S\\) is\n\\[\\mathrm{MR}(S) := \\mathbb{E}\\Big[\\mathbf{1}_{\\{|A|\\ge 2\\}}\\Big(\\mathrm{OPT}_{\\mathrm{tsp}}(S,c) + 2\\sum_{v\\in A} c(v,S)\\Big)\\Big],\\]\nwhere \\(A\\) is the random active set, and the indicator accounts for the convention that if fewer than two customers are active then one may shortcut to cost \\(0\\).\n\nLet \\(\\mathrm{OPT}\\) denote the minimum possible expected cost \\(\\min_T \\mathbb{E}[c(T[A])]\\) over all a priori tours \\(T\\) for \\((V,c,p)\\).\n\nThe \\emph{master route ratio} (with depot) is the worst-case ratio between the best master route solution and the optimal a priori tour, i.e.\n\\[\\rho^* := \\sup_{(V,c,p)\\,\\text{with depot }d} \\ \\frac{\\min\\{\\mathrm{MR}(S): \\varnothing\\ne S\\subseteq V\\}}{\\mathrm{OPT}},\\]\nwith the convention \\(0/0:=1\\) when needed.\n\nDetermine the exact value of the master route ratio \\(\\rho^*\\), i.e., compute\n\\[\\rho^* := \\sup_{(V,c,p)\\,\\text{with depot }d} \\ \\frac{\\min\\{\\mathrm{MR}(S): \\varnothing\\ne S\\subseteq V\\}}{\\mathrm{OPT}}\\]\nfor the a priori TSP with independent activations and a depot \\(d\\) satisfying \\(p(d)=1\\). In particular, decide whether\n\\[\\rho^* = \\frac{1}{1-e^{-1/2}}.\\]",
+  "location_in_paper": "Page 5, Section 1.2 (after Theorem 6); reiterated in Page 38, Section 9 (Discussion).",
+  "open_problem_quote": "We conjecture that the master route ratio is exactly \\(\\frac{1}{1-e^{-1/2}}\\).",
+  "area": "approximation algorithms",
+  "keywords": [
+    "a priori tsp",
+    "stochastic optimization",
+    "master route solutions",
+    "worst-case ratio",
+    "metric tsp",
+    "random activations"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The conjecture is about a worst-case supremum; one can search over finite metric instances and activation probabilities to find ratios exceeding candidate values, and the objective \\(\\min_S \\mathrm{MR}(S)/\\mathrm{OPT}\\) can be computed/approximated algorithmically for small \\(|V|\\) by enumerating tours and subsets.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate hard instances (metrics plus probability vectors) can be represented parametrically and scored by a computable fitness signal (estimated or exact ratio \\(\\min_S \\mathrm{MR}(S)/\\mathrm{OPT}\\)). An evolutionary loop can explore constructions (e.g., clustered metrics, cycle-like metrics, group duplications) to try to push the ratio above or close to \\(1/(1-e^{-1/2})\\), potentially yielding new extremal examples or tighter numerical bounds.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.08571675000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08571675000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404566852/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

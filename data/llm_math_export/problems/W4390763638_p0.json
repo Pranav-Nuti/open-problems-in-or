@@ -1,0 +1,63 @@
+{
+  "problem_id": "W4390763638_p0",
+  "paper_id": "W4390763638",
+  "source_paper": "W4390763638",
+  "source_paper_title": "The Privacy Paradox and Optimal Bias\u2013Variance Trade-offs in Data Acquisition",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0022",
+  "source_paper_authors": [
+    "Guocheng Liao",
+    "Yu Su",
+    "Juba Ziani",
+    "Adam Wierman",
+    "Jianwei Huang"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Liao_2024, title={The Privacy Paradox and Optimal Bias\u2013Variance Trade-offs in Data Acquisition}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0022}, DOI={10.1287/moor.2023.0022}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liao, Guocheng and Su, Yu and Ziani, Juba and Wierman, Adam and Huang, Jianwei}, year={2024}, month=nov, pages={2749\u20132767} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Page 15, Section 5 (Concluding Remarks)\n\nThus, one may ask if it is possible to regulate data marketplaces to avoid such inefficiencies. Unfortunately, our results highlight that typical suggestions, such as avoiding monopolistic platforms, may not be effective. Since our results hold for any fixed participation rate, a platform can exploit information leakage regardless of its market size. Further, differential privacy cannot eliminate the underlying issues in this case, which comes from inter-group and intra-group correlation. Thus, an important problem motivated by our work is: what approaches can be brought to bear to mitigate the impact of information leakage and the privacy paradox in data marketplaces?",
+  "title": "Design mechanisms to mitigate information leakage and privacy paradox in data marketplaces",
+  "background_latex": "Consider a data marketplace (online platform) with a population of agents whose private data may be statistically correlated across agents. When an agent participates and shares data, this can create information leakage about other agents with correlated data, generating privacy externalities.\n\nA platform/analyst designs a data-acquisition mechanism that interacts with agents and may (i) offer payments, (ii) choose which agents' data to acquire, and (iii) influence participation incentives. The platform has an objective related to statistical estimation accuracy (e.g., bias-variance trade-offs) and operates under constraints such as limited budget and incentive compatibility. Agents' utilities incorporate both participation benefits and privacy costs that depend on participation decisions of others due to correlation.\n\nInformation leakage and correlation-driven privacy externalities can lead to oversharing (the \"privacy paradox\") and market inefficiencies, including reduced payments and distorted participation behavior. Standard tools such as increasing competition (avoiding monopoly) or applying differential privacy may not eliminate these correlation-driven externalities.\n\nLet a class of feasible regulatory or market-design interventions be denoted abstractly by \\(\\mathcal{R}\\). An intervention \\(R\\in\\mathcal{R}\\) can represent any rule or policy imposed on the marketplace (e.g., restrictions on data use, limits on inference, compensation rules, information disclosure requirements), without committing to a specific model beyond being implementable alongside the marketplace mechanism.",
+  "problem_definition_latex": "Identify and analyze interventions \\(R\\in\\mathcal{R}\\) that mitigate the impact of information leakage due to correlated data and thereby reduce the inefficiencies associated with the privacy paradox in data marketplaces.",
+  "latex": "Consider a data marketplace (online platform) with a population of agents whose private data may be statistically correlated across agents. When an agent participates and shares data, this can create information leakage about other agents with correlated data, generating privacy externalities.\n\nA platform/analyst designs a data-acquisition mechanism that interacts with agents and may (i) offer payments, (ii) choose which agents' data to acquire, and (iii) influence participation incentives. The platform has an objective related to statistical estimation accuracy (e.g., bias-variance trade-offs) and operates under constraints such as limited budget and incentive compatibility. Agents' utilities incorporate both participation benefits and privacy costs that depend on participation decisions of others due to correlation.\n\nInformation leakage and correlation-driven privacy externalities can lead to oversharing (the \"privacy paradox\") and market inefficiencies, including reduced payments and distorted participation behavior. Standard tools such as increasing competition (avoiding monopoly) or applying differential privacy may not eliminate these correlation-driven externalities.\n\nLet a class of feasible regulatory or market-design interventions be denoted abstractly by \\(\\mathcal{R}\\). An intervention \\(R\\in\\mathcal{R}\\) can represent any rule or policy imposed on the marketplace (e.g., restrictions on data use, limits on inference, compensation rules, information disclosure requirements), without committing to a specific model beyond being implementable alongside the marketplace mechanism.\n\nIdentify and analyze interventions \\(R\\in\\mathcal{R}\\) that mitigate the impact of information leakage due to correlated data and thereby reduce the inefficiencies associated with the privacy paradox in data marketplaces.",
+  "location_in_paper": "Page 15, Section 5 (Concluding Remarks)",
+  "open_problem_quote": "Thus, one may ask if it is possible to regulate data marketplaces to avoid such inefficiencies. Unfortunately, our results highlight that typical suggestions, such as avoiding monopolistic platforms, may not be effective. Since our results hold for any fixed participation rate, a platform can exploit information leakage regardless of its market size. Further, differential privacy cannot eliminate the underlying issues in this case, which comes from inter-group and intra-group correlation. Thus, an important problem motivated by our work is: what approaches can be brought to bear to mitigate the impact of information leakage and the privacy paradox in data marketplaces?",
+  "area": "information design",
+  "keywords": [
+    "data marketplaces",
+    "privacy externalities",
+    "information leakage",
+    "correlated data",
+    "mechanism design",
+    "regulation"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is posed at a high level (\"what approaches can be brought to bear\") rather than as a crisp universal mathematical statement, so there is no well-defined finite instance space where one could search for counterexamples.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "If one fixes a concrete model class for interventions (e.g., caps on inference accuracy, taxes/subsidies, data-sharing restrictions) and a computable inefficiency metric, an evolutionary loop could search over policy parameterizations to reduce inefficiency in simulated correlated-agent environments. However, the paper does not specify the intervention space or objective formally, making the fitness proxy/modeling choices nontrivial.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.09529800000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09529800000000001
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390763638/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

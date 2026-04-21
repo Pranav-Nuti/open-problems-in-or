@@ -1,0 +1,62 @@
+{
+  "problem_id": "W3176856692_p0",
+  "paper_id": "W3176856692",
+  "source_paper": "W3176856692",
+  "source_paper_title": "A Stochastic Sequential Quadratic Optimization Algorithm for Nonlinear-Equality-Constrained Optimization with Rank-Deficient Jacobians",
+  "source_paper_url": "https://doi.org/10.1287/moor.2021.0154",
+  "source_paper_authors": [
+    "Albert S. Berahas",
+    "Frank E. Curtis",
+    "Michael O\u2019Neill",
+    "Daniel P. Robinson"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Berahas_2024, title={A Stochastic Sequential Quadratic Optimization Algorithm for Nonlinear-Equality-Constrained Optimization with Rank-Deficient Jacobians}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0154}, DOI={10.1287/moor.2021.0154}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Berahas, Albert S. and Curtis, Frank E. and O\u2019Neill, Michael J. and Robinson, Daniel P.}, year={2024}, month=nov, pages={2212\u20132248} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4.4 (Complementary Events), page 25.\n\nHowever, it remains an open question whether it is possible to obtain a similar guarantee if/when a subsequence of stochastic gradient estimates diverges.",
+  "title": "Convergence guarantees when stochastic gradient estimates diverge in vanishing-merit regime",
+  "background_latex": "Consider the stochastic equality-constrained optimization problem\n\\[\n\\min_{x\\in \\mathbb{R}^n} f(x) \\quad \\text{s.t.}\\quad c(x)=0,\n\\]\nwhere \\(f(x)=\\mathbb{E}[F(x,\\iota)]\\) for a random variable \\(\\iota\\) and smooth functions \\(f:\\mathbb{R}^n\\to\\mathbb{R}\\), \\(c:\\mathbb{R}^n\\to\\mathbb{R}^m\\). Let \\(J(x):=\\nabla c(x)^T\\in\\mathbb{R}^{m\\times n}\\) be the constraint Jacobian.\n\nDefine the constraint-violation measure\n\\[\n\\varphi(x):=\\|c(x)\\|_2.\n\\]\n(Equivalently, one may consider \\(\\|c(x)\\|_2^2\\); stationarity conditions scale accordingly.) A point \\(x\\) is stationary for \\(\\varphi\\) if either \\(c(x)=0\\) or \\(c(x)\\neq 0\\) and\n\\[\n\\nabla \\varphi(x)= J(x)^T\\frac{c(x)}{\\|c(x)\\|_2}=0.\n\\]\n\nAn iterative stochastic SQP-type method generates iterates \\(\\{x_k\\}_{k\\ge 0}\\) and uses stochastic gradient estimates \\(g_k\\) for \\(\\nabla f(x_k)\\), e.g., unbiased with finite second moment,\n\\[\n\\mathbb{E}_k[g_k]=\\nabla f(x_k),\\qquad \\mathbb{E}_k[\\|g_k-\\nabla f(x_k)\\|_2^2]\\le M,\n\\]\nwhere \\(\\mathbb{E}_k[\\cdot]\\) is conditional expectation given the algorithm has reached \\(x_k\\).\n\nThe method employs an exact-penalty merit function\n\\[\n\\phi(x,\\tau)= \\tau f(x)+\\|c(x)\\|_2,\n\\]\nwith an adaptively updated merit parameter \\(\\tau_k\\ge 0\\). One regime of interest is when \\(\\tau_k\\to 0\\) (the algorithm places vanishing weight on the objective term). In analyses where \\(\\tau_k\\to 0\\), a key additional assumption that enables convergence is that the stochastic gradient errors remain uniformly bounded along the run, i.e., \\(\\sup_k \\|g_k-\\nabla f(x_k)\\|_2<\\infty\\).\n\nDefine the problematic event\n\\[\nE_{\\tau,\\mathrm{zero,bad}}:=\\{\\tau_k\\to 0\\ \\text{and}\\ \\sup_{k\\ge 0}\\|g_k-\\nabla f(x_k)\\|_2=\\infty\\},\n\\]\ni.e., the merit parameter vanishes while a subsequence of stochastic gradient estimates diverges away from the true gradients.",
+  "problem_definition_latex": "Develop convergence guarantees for stochastic SQP-type methods for equality-constrained problems in the event\n\\[\nE_{\\tau,\\mathrm{zero,bad}}:=\\{\\tau_k\\to 0\\ \\text{and}\\ \\sup_{k\\ge 0}\\|g_k-\\nabla f(x_k)\\|_2=\\infty\\}.\n\\]\nIn particular, establish conditions under which one can still guarantee that the iterates satisfy an asymptotic stationarity property for the constraint-violation measure \\(\\varphi(x)=\\|c(x)\\|_2\\) (e.g., \\(\\liminf_{k\\to\\infty}\\|J(x_k)^T c(x_k)\\|_2=0\\), or another appropriate stationarity measure), despite the divergence of the stochastic gradient estimation errors while \\(\\tau_k\\to 0\\).",
+  "latex": "Consider the stochastic equality-constrained optimization problem\n\\[\n\\min_{x\\in \\mathbb{R}^n} f(x) \\quad \\text{s.t.}\\quad c(x)=0,\n\\]\nwhere \\(f(x)=\\mathbb{E}[F(x,\\iota)]\\) for a random variable \\(\\iota\\) and smooth functions \\(f:\\mathbb{R}^n\\to\\mathbb{R}\\), \\(c:\\mathbb{R}^n\\to\\mathbb{R}^m\\). Let \\(J(x):=\\nabla c(x)^T\\in\\mathbb{R}^{m\\times n}\\) be the constraint Jacobian.\n\nDefine the constraint-violation measure\n\\[\n\\varphi(x):=\\|c(x)\\|_2.\n\\]\n(Equivalently, one may consider \\(\\|c(x)\\|_2^2\\); stationarity conditions scale accordingly.) A point \\(x\\) is stationary for \\(\\varphi\\) if either \\(c(x)=0\\) or \\(c(x)\\neq 0\\) and\n\\[\n\\nabla \\varphi(x)= J(x)^T\\frac{c(x)}{\\|c(x)\\|_2}=0.\n\\]\n\nAn iterative stochastic SQP-type method generates iterates \\(\\{x_k\\}_{k\\ge 0}\\) and uses stochastic gradient estimates \\(g_k\\) for \\(\\nabla f(x_k)\\), e.g., unbiased with finite second moment,\n\\[\n\\mathbb{E}_k[g_k]=\\nabla f(x_k),\\qquad \\mathbb{E}_k[\\|g_k-\\nabla f(x_k)\\|_2^2]\\le M,\n\\]\nwhere \\(\\mathbb{E}_k[\\cdot]\\) is conditional expectation given the algorithm has reached \\(x_k\\).\n\nThe method employs an exact-penalty merit function\n\\[\n\\phi(x,\\tau)= \\tau f(x)+\\|c(x)\\|_2,\n\\]\nwith an adaptively updated merit parameter \\(\\tau_k\\ge 0\\). One regime of interest is when \\(\\tau_k\\to 0\\) (the algorithm places vanishing weight on the objective term). In analyses where \\(\\tau_k\\to 0\\), a key additional assumption that enables convergence is that the stochastic gradient errors remain uniformly bounded along the run, i.e., \\(\\sup_k \\|g_k-\\nabla f(x_k)\\|_2<\\infty\\).\n\nDefine the problematic event\n\\[\nE_{\\tau,\\mathrm{zero,bad}}:=\\{\\tau_k\\to 0\\ \\text{and}\\ \\sup_{k\\ge 0}\\|g_k-\\nabla f(x_k)\\|_2=\\infty\\},\n\\]\ni.e., the merit parameter vanishes while a subsequence of stochastic gradient estimates diverges away from the true gradients.\n\nDevelop convergence guarantees for stochastic SQP-type methods for equality-constrained problems in the event\n\\[\nE_{\\tau,\\mathrm{zero,bad}}:=\\{\\tau_k\\to 0\\ \\text{and}\\ \\sup_{k\\ge 0}\\|g_k-\\nabla f(x_k)\\|_2=\\infty\\}.\n\\]\nIn particular, establish conditions under which one can still guarantee that the iterates satisfy an asymptotic stationarity property for the constraint-violation measure \\(\\varphi(x)=\\|c(x)\\|_2\\) (e.g., \\(\\liminf_{k\\to\\infty}\\|J(x_k)^T c(x_k)\\|_2=0\\), or another appropriate stationarity measure), despite the divergence of the stochastic gradient estimation errors while \\(\\tau_k\\to 0\\).",
+  "location_in_paper": "Section 4.4 (Complementary Events), page 25.",
+  "open_problem_quote": "However, it remains an open question whether it is possible to obtain a similar guarantee if/when a subsequence of stochastic gradient estimates diverges.",
+  "area": "stochastic optimization",
+  "keywords": [
+    "stochastic SQP",
+    "equality constraints",
+    "rank-deficient Jacobians",
+    "merit parameter",
+    "constraint violation stationarity",
+    "unbounded gradient noise"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question asks for a positive convergence guarantee under an ill-behaved noise regime, not a sharp universal inequality that can be refuted by a finite-dimensional instance search. While one could search for pathological examples, the space of algorithms/noise processes is too unconstrained for an automated finite counterexample hunt to be decisive.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can programmatically explore toy problem families, noise models that induce divergent gradient estimates, and modified update rules for \\(\\tau_k\\) or stepsizes, with a computable fitness signal based on observed constraint-stationarity measures. However, translating empirical behavior into general guarantees is indirect and would likely require additional human theoretical insight.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.10986499999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.10986499999999999
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3176856692/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4391601457_p0",
+  "paper_id": "W4391601457",
+  "source_paper": "W4391601457",
+  "source_paper_title": "Polynomial Voting Rules",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.0080",
+  "source_paper_authors": [
+    "Wenpin Tang",
+    "David D. Yao"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2024,
+  "source_paper_bibtex": "@article{Tang_2025, title={Polynomial Voting Rules}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0080}, DOI={10.1287/moor.2023.0080}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Tang, Wenpin and Yao, David D.}, year={2025}, month=feb, pages={90\u2013106} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Appendix, Section 5.1 (page 20).\n\nIt remains open to prove such bounds in the range \\((\\lambda_-(\\alpha), \\lambda_+(\\alpha))\\); and once proved, the result will also imply the almost sure convergence of \\(N_t/t^{1/(1+\\alpha)}\\) as \\(t \\to \\infty\\).",
+  "title": "Large-deviation bounds for stake-volume Markov chain in intermediate deviation regime",
+  "background_latex": "Consider the discrete-time, nondecreasing Markov chain \\((N_t)_{t\\ge 0}\\) on \\(\\{N,N+1,\\dots\\}\\) defined by \\(N_0=N\\in\\mathbb{N}_+\\) and the one-step transition\n\\[\nN_{t+1}=\\begin{cases}\nN_t+1,&\\text{with probability }N_t^{-\\alpha},\\\\\nN_t,&\\text{with probability }1-N_t^{-\\alpha},\n\\end{cases}\n\\qquad t\\ge 0,\n\\]\nwhere \\(\\alpha>0\\) is fixed. (Equivalently, the increment \\(\\Delta_t:=N_{t+1}-N_t\\in\\{0,1\\}\\) is Bernoulli with parameter \\(N_t^{-\\alpha}\\) conditional on \\(N_t\\).)\n\nA deterministic growth scale for \\(N_t\\) is \\(t^{1/(1+\\alpha)}\\), and the paper studies tail probabilities of the form \\(\\mathbb{P}(N_t\\le \\lambda t^{1/(1+\\alpha)})\\) and \\(\\mathbb{P}(N_t\\ge \\lambda t^{1/(1+\\alpha)})\\) as \\(t\\to\\infty\\). It introduces the rate function\n\\[\nf_\\alpha(\\lambda)=(1+\\alpha)\\lambda\\log\\lambda-(1+\\alpha)\\lambda+\\lambda^{-\\alpha},\\qquad \\lambda>0.\n\\]\nThis function has two positive roots \\(\\lambda_-(\\alpha)<\\lambda_+(\\alpha)\\) and satisfies \\(f_\\alpha(\\lambda)>0\\) for \\(\\lambda\\in(0,\\lambda_-(\\alpha))\\cup(\\lambda_+(\\alpha),\\infty)\\). The paper proves exponential tail bounds with exponent proportional to \\(t^{1/(1+\\alpha)}\\) in those two outer regimes.\n\nThe chain also has a natural \u201cthreshold\u201d constant \\((1+\\alpha)^{1/(1+\\alpha)}\\) coming from the deterministic fluid-limit scaling \\(N_t\\approx ((1+\\alpha)t)^{1/(1+\\alpha)}\\), so the intermediate regime \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\) contains this threshold.",
+  "problem_definition_latex": "Prove large-deviation-type exponential bounds for \\(N_t\\) on the intermediate scale \\(t^{1/(1+\\alpha)}\\) for deviation parameters \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\). Concretely, establish upper bounds of the form\n\\[\n\\mathbb{P}\\bigl(N_t\\le \\lambda t^{1/(1+\\alpha)}\\bigr)\\le \\exp\\bigl(-c_-(\\lambda)\\,t^{1/(1+\\alpha)}\\bigr),\\qquad\n\\mathbb{P}\\bigl(N_t\\ge \\lambda t^{1/(1+\\alpha)}\\bigr)\\le \\exp\\bigl(-c_+(\\lambda)\\,t^{1/(1+\\alpha)}\\bigr)\n\\]\nfor appropriate strictly positive rate functions \\(c_-(\\lambda),c_+(\\lambda)\\) throughout \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\), and in particular up to (or \u201cright off\u201d) the threshold \\((1+\\alpha)^{1/(1+\\alpha)}\\).",
+  "latex": "Consider the discrete-time, nondecreasing Markov chain \\((N_t)_{t\\ge 0}\\) on \\(\\{N,N+1,\\dots\\}\\) defined by \\(N_0=N\\in\\mathbb{N}_+\\) and the one-step transition\n\\[\nN_{t+1}=\\begin{cases}\nN_t+1,&\\text{with probability }N_t^{-\\alpha},\\\\\nN_t,&\\text{with probability }1-N_t^{-\\alpha},\n\\end{cases}\n\\qquad t\\ge 0,\n\\]\nwhere \\(\\alpha>0\\) is fixed. (Equivalently, the increment \\(\\Delta_t:=N_{t+1}-N_t\\in\\{0,1\\}\\) is Bernoulli with parameter \\(N_t^{-\\alpha}\\) conditional on \\(N_t\\).)\n\nA deterministic growth scale for \\(N_t\\) is \\(t^{1/(1+\\alpha)}\\), and the paper studies tail probabilities of the form \\(\\mathbb{P}(N_t\\le \\lambda t^{1/(1+\\alpha)})\\) and \\(\\mathbb{P}(N_t\\ge \\lambda t^{1/(1+\\alpha)})\\) as \\(t\\to\\infty\\). It introduces the rate function\n\\[\nf_\\alpha(\\lambda)=(1+\\alpha)\\lambda\\log\\lambda-(1+\\alpha)\\lambda+\\lambda^{-\\alpha},\\qquad \\lambda>0.\n\\]\nThis function has two positive roots \\(\\lambda_-(\\alpha)<\\lambda_+(\\alpha)\\) and satisfies \\(f_\\alpha(\\lambda)>0\\) for \\(\\lambda\\in(0,\\lambda_-(\\alpha))\\cup(\\lambda_+(\\alpha),\\infty)\\). The paper proves exponential tail bounds with exponent proportional to \\(t^{1/(1+\\alpha)}\\) in those two outer regimes.\n\nThe chain also has a natural \u201cthreshold\u201d constant \\((1+\\alpha)^{1/(1+\\alpha)}\\) coming from the deterministic fluid-limit scaling \\(N_t\\approx ((1+\\alpha)t)^{1/(1+\\alpha)}\\), so the intermediate regime \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\) contains this threshold.\n\nProve large-deviation-type exponential bounds for \\(N_t\\) on the intermediate scale \\(t^{1/(1+\\alpha)}\\) for deviation parameters \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\). Concretely, establish upper bounds of the form\n\\[\n\\mathbb{P}\\bigl(N_t\\le \\lambda t^{1/(1+\\alpha)}\\bigr)\\le \\exp\\bigl(-c_-(\\lambda)\\,t^{1/(1+\\alpha)}\\bigr),\\qquad\n\\mathbb{P}\\bigl(N_t\\ge \\lambda t^{1/(1+\\alpha)}\\bigr)\\le \\exp\\bigl(-c_+(\\lambda)\\,t^{1/(1+\\alpha)}\\bigr)\n\\]\nfor appropriate strictly positive rate functions \\(c_-(\\lambda),c_+(\\lambda)\\) throughout \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\), and in particular up to (or \u201cright off\u201d) the threshold \\((1+\\alpha)^{1/(1+\\alpha)}\\).",
+  "location_in_paper": "Appendix, Section 5.1 (page 20).",
+  "open_problem_quote": "It remains open to prove such bounds in the range \\((\\lambda_-(\\alpha), \\lambda_+(\\alpha))\\); and once proved, the result will also imply the almost sure convergence of \\(N_t/t^{1/(1+\\alpha)}\\) as \\(t \\to \\infty\\).",
+  "area": "online algorithms",
+  "keywords": [
+    "large deviations",
+    "Markov chains",
+    "proof of stake",
+    "urn models",
+    "fluid limits",
+    "concentration inequalities"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The task is to prove exponential tail bounds uniformly over an interval of \\(\\lambda\\), not to disprove a conjectured inequality on a finite instance set. While simulations might suggest correct rate functions, there is no finite counterexample search that resolves the statement.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "An evolutionary coding loop could search for sharper exponential-moment/supermartingale constructions or improved combinatorial decompositions that empirically tighten bounds for \\(\\mathbb{P}(N_t\\approx \\lambda t^{1/(1+\\alpha)})\\) across \\(\\lambda\\). The fitness signal (numerically estimated log-tail probabilities) is computable, but proving the resulting bounds would still require nontrivial analytic justification.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.057564500000000005,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.057564500000000005
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391601457/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}

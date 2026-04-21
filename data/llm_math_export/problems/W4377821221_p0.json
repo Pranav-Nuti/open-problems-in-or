@@ -1,0 +1,60 @@
+{
+  "problem_id": "W4377821221_p0",
+  "paper_id": "W4377821221",
+  "source_paper": "W4377821221",
+  "source_paper_title": "Approximation Algorithms and Linear Programming Relaxations for Scheduling Problems Related to Min-Sum Set Cover",
+  "source_paper_url": "https://doi.org/10.1287/moor.2023.1368",
+  "source_paper_authors": [
+    "Felix Happach",
+    "Andreas S. Schulz"
+  ],
+  "source_paper_journal": "Mathematics of Operations Research",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@article{Happach_2024, title={Approximation Algorithms and Linear Programming Relaxations for Scheduling Problems Related to Min-Sum Set Cover}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1368}, DOI={10.1287/moor.2023.1368}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Happach, Felix and Schulz, Andreas S.}, year={2024}, month=feb, pages={578\u2013598} }",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7 (Conclusion), page 22 (arXiv v1 pagination)\n\nNote that it is not clear whether the analyses of the algorithms in Section 2 are tight.\n\nIn view of the integrality gaps in Sections 3 and 5, it would be interesting to obtain stronger bounds on the integrality gap of the time-indexed formulation considered in Section 2.",
+  "title": "Bound the integrality gap of time-indexed LP for bipartite AND/OR scheduling",
+  "background_latex": "Consider the single-machine scheduling problem with AND/OR precedence constraints. There is a set of jobs partitioned as \\(N=A\\uplus B\\). Each job \\(j\\in N\\) has a processing time \\(p_j\\ge 0\\) and a weight \\(w_j\\ge 0\\). A schedule is a non-preemptive ordering of the jobs on one machine with no overlap; \\(C_j\\) denotes the completion time of job \\(j\\). AND-precedence constraints are given by a directed arc set \\(E_{\\wedge}\\subseteq (A\\times A)\\cup (B\\times B)\\); an arc \\((i,j)\\in E_{\\wedge}\\) requires that \\(i\\) completes before \\(j\\) starts. OR-precedence constraints are given by an arc set \\(E_{\\vee}\\subseteq A\\times B\\). For each \\(b\\in B\\), its set of OR-predecessors is \\(P(b):=\\{a\\in A:(a,b)\\in E_{\\vee}\\}\\); feasibility requires that each \\(b\\in B\\) with \\(P(b)\\neq\\emptyset\\) starts only after at least one job in \\(P(b)\\) has completed. Let \\(\\Delta:=\\max_{b\\in B}|P(b)|\\).\n\nA standard approach uses a time-indexed linear programming relaxation over a discrete time horizon \\(T:=\\sum_{j\\in N} p_j\\) (for instance in the unit-processing-time case \\(p_j\\in\\{0,1\\}\\), one has \\(T\\le n\\)). Introduce variables \\(x_{jt}\\) indicating (fractionally) that job \\(j\\) completes at integer time \\(t\\in\\{1,\\dots,T\\}\\). The relaxation includes: (i) assignment constraints \\(\\sum_{t=1}^T x_{jt}=1\\) for all \\(j\\); (ii) single-machine capacity constraints ensuring at most one unit-processing job executes at any time; (iii) AND-precedence constraints coupling cumulative completions so that successors cannot complete too early; and (iv) OR-precedence constraints coupling cumulative completions so that a job \\(b\\in B\\) cannot complete by time \\(t+p_b\\) unless at least one predecessor \\(a\\in P(b)\\) has completed by time \\(t\\). The LP objective is the fractional lower bound \\(\\min \\sum_{j\\in N} w_j\\sum_{t=1}^T t\\,x_{jt}\\), corresponding to \\(\\sum_j w_j C_j\\) in integer schedules.\n\nThe paper analyzes rounding algorithms based on random \\(\\alpha\\)-points for this relaxation and notes that the tightness of these analyses (equivalently, the true worst-case integrality gap of the underlying time-indexed formulation for this AND/OR structure) is not established.",
+  "problem_definition_latex": "Determine the best (smallest) constant \\(g\\ge 1\\) such that, for every instance of \\(1\\mid ao\\text{-}prec=A\\uplus B\\mid \\sum_{j\\in N} w_j C_j\\) and for the corresponding time-indexed linear programming relaxation described above, the ratio\n\\[\n\\frac{\\text{optimal objective value of an optimal integer schedule}}{\\text{optimal objective value of the time-indexed LP relaxation}}\n\\]\nis at most \\(g\\). Equivalently, bound the integrality gap of the time-indexed LP relaxation for this problem class (as a function of parameters such as \\(\\Delta\\), or by a universal constant if possible), and in particular decide whether the approximation-factor analyses obtained via random \\(\\alpha\\)-point rounding are tight in the worst case.",
+  "latex": "Consider the single-machine scheduling problem with AND/OR precedence constraints. There is a set of jobs partitioned as \\(N=A\\uplus B\\). Each job \\(j\\in N\\) has a processing time \\(p_j\\ge 0\\) and a weight \\(w_j\\ge 0\\). A schedule is a non-preemptive ordering of the jobs on one machine with no overlap; \\(C_j\\) denotes the completion time of job \\(j\\). AND-precedence constraints are given by a directed arc set \\(E_{\\wedge}\\subseteq (A\\times A)\\cup (B\\times B)\\); an arc \\((i,j)\\in E_{\\wedge}\\) requires that \\(i\\) completes before \\(j\\) starts. OR-precedence constraints are given by an arc set \\(E_{\\vee}\\subseteq A\\times B\\). For each \\(b\\in B\\), its set of OR-predecessors is \\(P(b):=\\{a\\in A:(a,b)\\in E_{\\vee}\\}\\); feasibility requires that each \\(b\\in B\\) with \\(P(b)\\neq\\emptyset\\) starts only after at least one job in \\(P(b)\\) has completed. Let \\(\\Delta:=\\max_{b\\in B}|P(b)|\\).\n\nA standard approach uses a time-indexed linear programming relaxation over a discrete time horizon \\(T:=\\sum_{j\\in N} p_j\\) (for instance in the unit-processing-time case \\(p_j\\in\\{0,1\\}\\), one has \\(T\\le n\\)). Introduce variables \\(x_{jt}\\) indicating (fractionally) that job \\(j\\) completes at integer time \\(t\\in\\{1,\\dots,T\\}\\). The relaxation includes: (i) assignment constraints \\(\\sum_{t=1}^T x_{jt}=1\\) for all \\(j\\); (ii) single-machine capacity constraints ensuring at most one unit-processing job executes at any time; (iii) AND-precedence constraints coupling cumulative completions so that successors cannot complete too early; and (iv) OR-precedence constraints coupling cumulative completions so that a job \\(b\\in B\\) cannot complete by time \\(t+p_b\\) unless at least one predecessor \\(a\\in P(b)\\) has completed by time \\(t\\). The LP objective is the fractional lower bound \\(\\min \\sum_{j\\in N} w_j\\sum_{t=1}^T t\\,x_{jt}\\), corresponding to \\(\\sum_j w_j C_j\\) in integer schedules.\n\nThe paper analyzes rounding algorithms based on random \\(\\alpha\\)-points for this relaxation and notes that the tightness of these analyses (equivalently, the true worst-case integrality gap of the underlying time-indexed formulation for this AND/OR structure) is not established.\n\nDetermine the best (smallest) constant \\(g\\ge 1\\) such that, for every instance of \\(1\\mid ao\\text{-}prec=A\\uplus B\\mid \\sum_{j\\in N} w_j C_j\\) and for the corresponding time-indexed linear programming relaxation described above, the ratio\n\\[\n\\frac{\\text{optimal objective value of an optimal integer schedule}}{\\text{optimal objective value of the time-indexed LP relaxation}}\n\\]\nis at most \\(g\\). Equivalently, bound the integrality gap of the time-indexed LP relaxation for this problem class (as a function of parameters such as \\(\\Delta\\), or by a universal constant if possible), and in particular decide whether the approximation-factor analyses obtained via random \\(\\alpha\\)-point rounding are tight in the worst case.",
+  "location_in_paper": "Section 7 (Conclusion), page 22 (arXiv v1 pagination)",
+  "open_problem_quote": "Note that it is not clear whether the analyses of the algorithms in Section 2 are tight.\n\nIn view of the integrality gaps in Sections 3 and 5, it would be interesting to obtain stronger bounds on the integrality gap of the time-indexed formulation considered in Section 2.",
+  "area": "approximation algorithms",
+  "keywords": [
+    "single-machine scheduling",
+    "OR-precedence constraints",
+    "time-indexed LP",
+    "integrality gap",
+    "alpha-point rounding",
+    "min-sum objectives"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For fixed sizes and bounded time horizon (e.g., unit processing times), one can generate instances and solve both the LP and the exact integer optimum (via MILP) to search for large LP gaps, but the search space over precedence graphs and weights grows quickly and worst-case gaps may require structured constructions.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate instances (graphs, processing times, weights) can be programmatically generated and scored by the computable fitness signal given by the LP integrality-gap ratio (solve LP + exact/MIP or strong bounds). An evolutionary loop can therefore search for extremal families and potentially suggest tight examples or improved conjectured bounds as a function of \\(\\Delta\\).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Generated from the paper text only and not independently verified as still open.",
+    "methods_used": [],
+    "source": null,
+    "model": null,
+    "total_cost_usd": 0.0
+  },
+  "literature_review": null,
+  "costs": {
+    "extractor_total_cost_usd": 0.0703185,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0703185
+  },
+  "provenance": {
+    "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4377821221/problems.json",
+    "verification_source": null,
+    "literature_source": null
+  }
+}
