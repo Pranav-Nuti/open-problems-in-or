@@ -51,6 +51,11 @@
   <script src="js/site-config.js"></script>
   <script>
     const PROBLEMS_PER_PAGE = 10;
+    const GREEN_AREA_LABELS = new Set([
+      "online matching",
+      "prophet inequalities",
+      "multi-armed bandits",
+    ]);
     let PROBLEMS_DATA = [];
     let totalPages = 1;
 
@@ -171,7 +176,9 @@
       if (!area) {
         return "";
       }
-      return `<span class="area-pill">${escapeHtml(area)}</span>`;
+      const normalized = area.toLowerCase();
+      const variant = GREEN_AREA_LABELS.has(normalized) ? " area-pill-green" : "";
+      return `<span class="area-pill${variant}">${escapeHtml(area)}</span>`;
     }
 
     function formatUploadDate(iso) {

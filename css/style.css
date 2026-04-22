@@ -213,6 +213,12 @@ main {
   top: -0.5px;
 }
 
+.area-pill.area-pill-green {
+  border-color: #b7d8b9;
+  background: #edf8ef;
+  color: #1f5f2b;
+}
+
 /* Pagination */
 .pagination {
   display: flex;
@@ -369,6 +375,10 @@ main {
 .problem-detail-value {
   font-weight: 500;
   color: var(--color-text-secondary);
+}
+
+.problem-detail-value.problem-area-green {
+  color: #1f5f2b;
 }
 
 /* Sections */
