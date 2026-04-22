@@ -21,7 +21,7 @@
   "latex": "Let \\(a_1,\\dots,a_m\\in\\mathbb{R}^d\\) be given measurement vectors and let \\(\\bar y\\in\\mathbb{R}^m\\) be given observations. For an integer \\(r\\ge 1\\), define parameters \\(\\beta=(\\beta_1,\\dots,\\beta_r)\\) with \\(\\beta_j\\in\\mathbb{R}^d\\). Define the max-linear predictor\n\\[\n\\hat y_i(\\beta):=\\max_{j\\in\\{1,\\dots,r\\}}\\langle \\beta_j,a_i\\rangle,\\qquad i=1,\\dots,m.\n\\]\nConsider the nonsmooth objective\n\\[\nf(\\beta):=\\frac{1}{m}\\sum_{i=1}^m \\bigl|\\bar y_i-\\hat y_i(\\beta)\\bigr|.\n\\]\nLet \\(f^*:=\\inf_{\\beta} f(\\beta)\\) and \\(X^*:=\\operatorname{argmin} f\\) denote the optimal value and set of minimizers (assumed nonempty). For \\(x\\) in a Euclidean space, \\(\\mathrm{dist}(x,X^*):=\\inf_{z\\in X^*}\\|x-z\\|\\).\n\nDetermine conditions (and/or prove in the intended statistical model) under which there exists \\(\\mu>0\\) and a neighborhood \\(U\\) of a minimizer \\(\\bar\\beta\\in X^*\\) such that the sharp growth (error bound) inequality\n\\[\nf(\\beta)-f^*\\ge \\mu\\,\\mathrm{dist}(\\beta,X^*)\\qquad\\text{for all }\\beta\\in U\n\\]\nholds for the max-linear regression objective \\(f\\) defined above.",
   "location_in_paper": "Section 5.2.2 (Max-linear regression and PolyakSGM), page 38",
   "open_problem_quote": "We do not attempt to verify assumptions (A1) and (A2) for this problem class. Instead, we note that if the solution set is isolated, semialgebraicity of \\(f\\) implies that we (A2) holds (see Proposition 2.1). On the other hand, verifying Assumption (A1) is remains an intriguing problem.",
-  "area": "approximation algorithms",
+  "area": "max linear regression",
   "keywords": [
     "nonsmooth optimization",
     "sharp growth",

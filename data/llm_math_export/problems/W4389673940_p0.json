@@ -22,7 +22,7 @@
   "latex": "Let \\(G=(V,E)\\) be a (multi-)hypergraph with vertex set \\(V\\) of size \\(n\\) and hyperedge set \\(E\\). Each hyperedge \\(e\\in E\\) is a subset of \\(V\\). (The paper primarily discusses the unweighted case, i.e., each hyperedge has unit cost; the objective below is stated for this setting.)\n\nFor a nonempty proper subset \\(U\\subset V\\), define the cut-set\n\\[\\delta(U):=\\{e\\in E: e\\cap U\\neq\\emptyset \\text{ and } e\\cap (V\\setminus U)\\neq\\emptyset\\},\\]\nand its cut value \\(d(U):=|\\delta(U)|\\).\n\nA \\(k\\)-partition of \\(V\\) is an ordered tuple \\((V_1,\\dots,V_k)\\) of pairwise disjoint nonempty subsets whose union is \\(V\\).\n\nFor a \\(k\\)-partition \\((V_1,\\dots,V_k)\\), the paper considers various objectives based on the boundary sizes \\(|\\delta(V_i)|\\). In particular, the variant highlighted in the conclusion asks to minimize the sum of boundary cut values\n\\[\\sum_{i=1}^k |\\delta(V_i)| = \\sum_{i=1}^k d(V_i).\\]\n\nGiven a hypergraph \\(G=(V,E)\\) and a fixed integer \\(k\\ge 5\\), determine the computational complexity of the optimization problem\n\\[\\min\\left\\{\\sum_{i=1}^k |\\delta(V_i)| : (V_1,\\dots,V_k) \\text{ is a } k\\text{-partition of } V\\right\\}.\\]\nIn particular, decide whether this problem admits a polynomial-time algorithm for fixed \\(k\\ge 5\\) (or whether it is NP-hard) in the unweighted hypergraph setting.",
   "location_in_paper": "Page 24, Section 7 (Conclusion)",
   "open_problem_quote": "Resolving the complexity of this variant of the hypergraph k-partitioning problem for \\(k \\ge 5\\) remains open.",
-  "area": "approximation algorithms",
+  "area": "hypergraph k partitioning",
   "keywords": [
     "hypergraph partitioning",
     "k-partition",
