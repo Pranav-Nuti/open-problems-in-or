@@ -22,7 +22,7 @@
   "latex": "Let \\(n\\ge 3\\). Let \\(\\mathrm{SO}(n)=\\{X\\in\\mathbb{R}^{n\\times n}:X^\\top X=I,\\ \\det(X)=1\\}\\) denote the special orthogonal group (rotation matrices).\n\nFor a set of matrix coordinates \\(S\\subseteq [n]\\times [n]\\) (where \\([n]=\\{1,\\dots,n\\}\\)), define the coordinate projection map \\(\\pi_S:\\mathbb{R}^{n\\times n}\\to\\mathbb{R}^{|S|}\\) by\n\\[\n\\pi_S(X) := (X_{ij})_{(i,j)\\in S},\n\\]\ni.e., \\(\\pi_S(X)\\) records the entries of \\(X\\) indexed by \\(S\\) (in some fixed order).\n\nDefine the decision problem \\(\\mathrm{CONVEX}\\): the input is \\(n\\) and a coordinate set \\(S\\subseteq [n]\\times[n]\\); the output is \\(\\mathrm{TRUE}\\) if the image set \\(\\pi_S(\\mathrm{SO}(n))\\subseteq\\mathbb{R}^{|S|}\\) is convex, and \\(\\mathrm{FALSE}\\) otherwise.\n\nConvexity here is in the usual Euclidean sense: a set \\(K\\subseteq\\mathbb{R}^d\\) is convex if for all \\(x,y\\in K\\) and all \\(\\lambda\\in[0,1]\\), \\(\\lambda x+(1-\\lambda)y\\in K\\).\n\nDetermine the computational complexity of \\(\\mathrm{CONVEX}\\). In particular, prove (or refute) that \\(\\mathrm{CONVEX}\\) is NP-hard: given \\(n\\) and \\(S\\subseteq [n]\\times[n]\\), decide whether \\(\\pi_S(\\mathrm{SO}(n))\\) is convex.",
   "location_in_paper": "Page 29, Section 8 (Summary and open questions), paragraph 'Convex coordinate projections'",
   "open_problem_quote": "Conjecture 1. The problem CONVEX is NP-hard.",
-  "area": "approximation algorithms",
+  "area": "computational complexity",
   "keywords": [
     "special orthogonal group",
     "hidden convexity",

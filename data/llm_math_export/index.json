@@ -26,7 +26,7 @@
       "source_paper_bibtex": "@article{Portales_2025, title={On the Sequential Convergence of Lloyd\u2019s Algorithms}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0550}, DOI={10.1287/moor.2024.0550}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Portales, Leo and Cazelles, Elsa and Pauwels, Edouard}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Establish sequential convergence of Lloyd\u2019s algorithms without globally subanalytic densities",
-      "area": "online algorithms",
+      "area": "optimal quantization",
       "keywords": [
         "lloyds algorithm",
         "quantization",
@@ -124,7 +124,7 @@
       "source_paper_bibtex": "@article{Li_2025, title={Riemannian Anderson Mixing Methods for Minimizing C2 Functions on Riemannian Manifolds}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0284}, DOI={10.1287/moor.2023.0284}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Zanyu and Bao, Chenglong}, year={2025}, month=apr }",
       "problem_index": 0,
       "title": "Global convergence theory for Anderson mixing methods for Euclidean fixed-point problems",
-      "area": "online algorithms",
+      "area": "anderson acceleration",
       "keywords": [
         "Anderson mixing",
         "Anderson acceleration",
@@ -188,7 +188,7 @@
       "source_paper_bibtex": "@article{Bogomolnaia_2025, title={Fair Congested Assignment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0581}, DOI={10.1287/moor.2024.0581}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bogomolnaia, Anna and Moulin, Herv\u00e9}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Define and justify competitive fairness under lower congestion bounds setting",
-      "area": "information design",
+      "area": "congested assignment",
       "keywords": [
         "congested assignment",
         "fairness",
@@ -221,7 +221,7 @@
       "source_paper_bibtex": "@article{Hu_2025, title={Positivstellens\u00e4tze and Moment Problems with Universal Quantifiers}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0402}, DOI={10.1287/moor.2024.0402}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hu, Xiaomeng and Klep, Igor and Nie, Jiawang}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Krivine-Stengle Positivstellensatz analog for universal-quantifier-defined polynomial positivity sets",
-      "area": "real algebraic geometry",
+      "area": "positivstellensatz certificates",
       "keywords": [
         "positivstellensatz",
         "krivine-stengle",
@@ -253,7 +253,7 @@
       "source_paper_bibtex": "@article{Hajiabolhassan_2025, title={Online Regret Bounds for Satisficing in Markov Decision Processes}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0275}, DOI={10.1287/moor.2023.0275}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hajiabolhassan, Hossein and Ortner, Ronald}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Achieve square-root worst-case expected regret for bandit optimistic Adversarial MDPs",
-      "area": "online learning",
+      "area": "adversarial mdp bandits",
       "keywords": [
         "adversarial mdps",
         "bandit feedback",
@@ -285,7 +285,7 @@
       "source_paper_bibtex": "@article{Cohen_2025, title={Asymptotic Nash Equilibria of Finite-State Ergodic Markovian Mean Field Games}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0478}, DOI={10.1287/moor.2024.0478}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cohen, Asaf and Zell, Ethan}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Convergence of exact Nash equilibria to mean field equilibria in ergodic Markovian games",
-      "area": "online learning",
+      "area": "mean field games",
       "keywords": [
         "mean field games",
         "ergodic control",
@@ -318,7 +318,7 @@
       "source_paper_bibtex": "@article{Faenza_2025, title={Scarf\u2019s Algorithm and Stable Marriages}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0055}, DOI={10.1287/moor.2023.0055}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Faenza, Yuri and He, Chengyue and Sethuraman, Jay}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Prove polynomial-time convergence of Scarf\u2019s algorithm for any ordinal matrix setting",
-      "area": "approximation algorithms",
+      "area": "stable matching",
       "keywords": [
         "Scarf's algorithm",
         "pivoting algorithms",
@@ -349,7 +349,7 @@
       "source_paper_bibtex": "@article{Kruk_2025, title={Fluid Limits for Longest Job First Queues}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0415}, DOI={10.1287/moor.2024.0415}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kruk, \u0141ukasz}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Establish fluid limits for hard earliest-deadline-first networks with fixed deadlines",
-      "area": "online algorithms",
+      "area": "queueing networks",
       "keywords": [
         "queueing networks",
         "earliest deadline first",
@@ -382,7 +382,7 @@
       "source_paper_bibtex": "@article{J_z_quel_2025, title={Efficient and Near-Optimal Online Portfolio Selection}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0175}, DOI={10.1287/moor.2023.0175}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={J\u00e9z\u00e9quel, R\u00e9mi and Ostrovskii, Dmitrii and Gaillard, Pierre}, year={2025}, month=may }",
       "problem_index": 0,
       "title": "Design practical regret-optimal online portfolio selection algorithms without high-dimensional integration",
-      "area": "online learning",
+      "area": "online portfolio selection",
       "keywords": [
         "online portfolio selection",
         "universal portfolios",
@@ -415,7 +415,7 @@
       "source_paper_bibtex": "@article{Cembrano_2025, title={Improved Bounds for Single-Nomination Impartial Selection}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0431}, DOI={10.1287/moor.2024.0431}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cembrano, Javier and Fischer, Felix and Klimm, Max}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Achieve asymptotic three-quarters approximation for impartial selection in single-nomination graphs",
-      "area": "algorithmic mechanism design",
+      "area": "impartial selection mechanisms",
       "keywords": [
         "impartial selection",
         "single-nomination model",
@@ -448,7 +448,7 @@
       "source_paper_bibtex": "@article{Liu_2025, title={Lower Complexity Bounds of First-Order Methods for Affinely Constrained Composite Nonconvex Problems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0377}, DOI={10.1287/moor.2023.0377}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liu, Wei and Lin, Qihang and Xu, Yangyang}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Achieve tight oracle complexity for composite nonconvex optimization with affine constraints",
-      "area": "approximation algorithms",
+      "area": "first order convex optimization",
       "keywords": [
         "first-order methods",
         "oracle complexity",
@@ -480,7 +480,7 @@
       "source_paper_bibtex": "@article{Bayraktar_2025, title={Equilibrium Transport with Time-Inconsistent Costs}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0323}, DOI={10.1287/moor.2023.0323}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bayraktar, Erhan and Han, Bingyan}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Convergence guarantees for numerical algorithms for time-inconsistent equilibrium transport problems",
-      "area": "online algorithms",
+      "area": "bicausal optimal transport",
       "keywords": [
         "bicausal optimal transport",
         "time inconsistency",
@@ -512,7 +512,7 @@
       "source_paper_bibtex": "@article{Gaspard_2025, title={Monotone Causality in Opportunistically Stochastic Shortest Path Problems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0362}, DOI={10.1287/moor.2023.0362}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gaspard, Mallory E. and Vladimirsky, Alexander}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Label-setting criteria for stochastic shortest path games with two players",
-      "area": "online algorithms",
+      "area": "stochastic shortest path games",
       "keywords": [
         "stochastic shortest path",
         "zero-sum games",
@@ -544,7 +544,7 @@
       "source_paper_bibtex": "@article{Agarwal_2025, title={Invariant States of Hydrodynamic Limits of Randomized Load-Balancing Networks}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2020.0282}, DOI={10.1287/moor.2020.0282}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Agarwal, Pooja and Ramanan, Kavita}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Prove global convergence to the physical invariant state for hydrodynamic equations",
-      "area": "online algorithms",
+      "area": "mean field queueing",
       "keywords": [
         "load balancing",
         "hydrodynamic limit",
@@ -577,7 +577,7 @@
       "source_paper_bibtex": "@article{Liang_2025, title={Dynamic Portfolio Selection for Nonlinear Law-Dependent Preferences}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0345}, DOI={10.1287/moor.2023.0345}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liang, Zongxia and Xia, Jianming and Yuan, Fengyi}, year={2025}, month=june }",
       "problem_index": 0,
       "title": "Well-posedness theory for coupled multidimensional quadratic BSDEs in portfolio equilibria",
-      "area": "stochastic control",
+      "area": "quadratic bsdes",
       "keywords": [
         "quadratic BSDE",
         "multidimensional BSDE",
@@ -641,7 +641,7 @@
       "source_paper_bibtex": "@article{Okuno_2025, title={Analysis of the Primal-Dual Central Path for Nonlinear Semidefinite Optimization Without the Nondegeneracy Condition}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0298}, DOI={10.1287/moor.2022.0298}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Okuno, Takayuki}, year={2025}, month=july }",
       "problem_index": 0,
       "title": "Prove tangential derivative convergence of NSDP central path as barrier vanishes",
-      "area": "nonlinear semidefinite optimization",
+      "area": "nonlinear semidefinite programming",
       "keywords": [
         "nonlinear semidefinite programming",
         "central path",
@@ -675,7 +675,7 @@
       "source_paper_bibtex": "@article{Diao_2025, title={Stability for Nash Equilibrium Problems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0609}, DOI={10.1287/moor.2024.0609}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Diao, Ruoyu and Dai, Yu-Hong and Zhang, Liwei}, year={2025}, month=july }",
       "problem_index": 0,
       "title": "Characterize necessity of the I-property for isolated calmness of KKT mapping",
-      "area": "variational analysis",
+      "area": "variational inequalities",
       "keywords": [
         "nash equilibrium problems",
         "kkt solution mapping",
@@ -707,7 +707,7 @@
       "source_paper_bibtex": "@article{Ma_2025, title={Can Learning Be Explained by Local Optimality in Robust Low-Rank Matrix Recovery?}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0371}, DOI={10.1287/moor.2023.0371}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ma, Jianhao and Fattahi, Salar}, year={2025}, month=july }",
       "problem_index": 0,
       "title": "Prove or disprove saddle-escaping for subgradient methods in robust matrix sensing",
-      "area": "online learning",
+      "area": "nonsmooth optimization dynamics",
       "keywords": [
         "nonsmooth optimization",
         "subgradient method",
@@ -741,7 +741,7 @@
       "source_paper_bibtex": "@article{Liu_2025, title={Distorted Optimal Transport}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0591}, DOI={10.1287/moor.2024.0591}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liu, Haiyan and Wang, Bin and Wang, Ruodu and Zhuang, Sheng Chao}, year={2025}, month=july }",
       "problem_index": 0,
       "title": "Establish strong duality for distorted optimal transport beyond affine costs",
-      "area": "optimal transport",
+      "area": "distorted optimal transport",
       "keywords": [
         "optimal transport",
         "duality",
@@ -773,7 +773,7 @@
       "source_paper_bibtex": "@article{Luner_2025, title={On Averaging and Extrapolation for Gradient Descent}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0449}, DOI={10.1287/moor.2024.0449}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Luner, Alan and Grimmer, Benjamin}, year={2025}, month=july }",
       "problem_index": 0,
       "title": "Prove tight worst-case characterization of gradient descent averaging benefit conditions",
-      "area": "online algorithms",
+      "area": "first order convex optimization",
       "keywords": [
         "gradient descent",
         "iterate averaging",
@@ -804,7 +804,7 @@
       "source_paper_bibtex": "@article{Ruan_2025, title={On the Uniform Convergence of Subdifferentials in Stochastic Optimization and Learning}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0533}, DOI={10.1287/moor.2024.0533}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ruan, Feng}, year={2025}, month=aug }",
       "problem_index": 0,
       "title": "Extend uniform subdifferential convergence rates to max-of-smooth weakly convex models",
-      "area": "stochastic optimization",
+      "area": "stochastic nonsmooth optimization",
       "keywords": [
         "weakly convex functions",
         "subdifferentials",
@@ -838,7 +838,7 @@
       "source_paper_bibtex": "@article{Chen_2025, title={Tight Running Times for Minimum \u2113q-Norm Load Balancing: Beyond Exponential Dependencies on 1/\u03f5}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0231}, DOI={10.1287/moor.2023.0231}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Lin and Tao, Liangde and Verschae, Jos\u00e9}, year={2025}, month=aug }",
       "problem_index": 0,
       "title": "Determine tight PTAS running times for q-norm load balancing with intermediate machines",
-      "area": "approximation algorithms",
+      "area": "parallel machine scheduling",
       "keywords": [
         "scheduling",
         "ptas",
@@ -871,7 +871,7 @@
       "source_paper_bibtex": "@article{Davies_2025, title={Fast Combinatorial Algorithms for Simultaneously Approximating All \u2113p-Norms in Correlation Clustering}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0567}, DOI={10.1287/moor.2024.0567}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Davies, Sami and Moseley, Benjamin and Newman, Heather}, year={2025}, month=sept }",
       "problem_index": 0,
       "title": "Prove existence of a simpler all-norms approximation clustering for correlation clustering",
-      "area": "approximation algorithms",
+      "area": "correlation clustering",
       "keywords": [
         "correlation clustering",
         "all-norms objective",
@@ -903,7 +903,7 @@
       "source_paper_bibtex": "@article{Giannakopoulos_2025, title={On the Smoothed Complexity of Combinatorial Local Search}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0610}, DOI={10.1287/moor.2024.0610}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Giannakopoulos, Yiannis and Grosz, Alexander and Melissourgos, Themistoklis}, year={2025}, month=sept }",
       "problem_index": 0,
       "title": "Resolve smoothed complexity of pure Nash equilibria in unrestricted congestion games",
-      "area": "online algorithms",
+      "area": "smoothed complexity congestion games",
       "keywords": [
         "smoothed analysis",
         "congestion games",
@@ -937,7 +937,7 @@
       "source_paper_bibtex": "@article{Cs_ji_2025, title={Popular Maximum-Utility Matchings with Matroid Constraints}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0633}, DOI={10.1287/moor.2024.0633}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cs\u00e1ji, Gergely and Kir\u00e1ly, Tam\u00e1s and Takazawa, Kenjiro and Yokoi, Yu}, year={2025}, month=sept }",
       "problem_index": 0,
       "title": "Deterministic polynomial-time algorithm for exact matching in bipartite graphs",
-      "area": "approximation algorithms",
+      "area": "exact matching",
       "keywords": [
         "exact matching",
         "bipartite perfect matching",
@@ -969,7 +969,7 @@
       "source_paper_bibtex": "@article{De_Angelis_2025, title={Nash Equilibria for Dividend Distribution with Competition}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0374}, DOI={10.1287/moor.2023.0374}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={De Angelis, Tiziano and Gensbittel, Fabien and Villeneuve, St\u00e9phane}, year={2025}, month=sept }",
       "problem_index": 0,
       "title": "Existence of equilibrium with rich firm using control and poor firm using strategy",
-      "area": "online algorithms",
+      "area": "stochastic differential game",
       "keywords": [
         "stochastic games",
         "singular control",
@@ -1001,7 +1001,7 @@
       "source_paper_bibtex": "@article{Tr_bst_2025, title={Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0770}, DOI={10.1287/moor.2024.0770}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Tr\u00f6bst, Thorben and Vazirani, Vijay V.}, year={2025}, month=sept }",
       "problem_index": 0,
       "title": "Polynomial-time approximation of justified envy-free Pareto-optimal lotteries in two-sided markets",
-      "area": "approximation algorithms",
+      "area": "fair matching",
       "keywords": [
         "two-sided matching",
         "cardinal utilities",
@@ -1032,7 +1032,7 @@
       "source_paper_bibtex": "@article{Srikant_2025, title={Rates of Convergence in the Central Limit Theorem for Markov Chains, with an Application to TD Learning}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0444}, DOI={10.1287/moor.2024.0444}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Srikant, R.}, year={2025}, month=oct }",
       "problem_index": 0,
       "title": "Improve Wasserstein convergence rate for vector martingale central limit theorem",
-      "area": "online learning",
+      "area": "martingale central limit theorem",
       "keywords": [
         "martingale central limit theorem",
         "Wasserstein distance",
@@ -1067,7 +1067,7 @@
       "source_paper_bibtex": "@article{Cembrano_2025, title={New Combinatorial Insights for Monotone Apportionment}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0817}, DOI={10.1287/moor.2024.0817}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cembrano, Javier and Correa, Jos\u00e9 and Schmidt-Kraepelin, Ulrike and Tsigonias-Dimitriadis, Alexandros and Verdugo, Victor}, year={2025}, month=oct }",
       "problem_index": 0,
       "title": "Achieve quota, population monotonicity, and ex-ante proportionality without varying house size",
-      "area": "social choice",
+      "area": "randomized apportionment",
       "keywords": [
         "apportionment",
         "population monotonicity",
@@ -1099,7 +1099,7 @@
       "source_paper_bibtex": "@article{Chen_2025, title={The Complexity of Recognizing Facets for the Knapsack Polytope}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0481}, DOI={10.1287/moor.2024.0481}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Rui and Zhu, Haoran}, year={2025}, month=nov }",
       "problem_index": 0,
       "title": "Fixed-parameter tractability of knapsack facet recognition by distinct coefficients parameter",
-      "area": "approximation algorithms",
+      "area": "knapsack polytope facets",
       "keywords": [
         "knapsack polytope",
         "facet recognition",
@@ -1163,7 +1163,7 @@
       "source_paper_bibtex": "@article{Kavitha_2025, title={Min-Cost Popular Matchings in a Hospitals/Residents Instance with Complete Preferences}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0634}, DOI={10.1287/moor.2024.0634}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kavitha, Telikepalli and Makino, Kazuhisa}, year={2025}, month=nov }",
       "problem_index": 0,
       "title": "Settle complexity of min-cost popular maximum matchings in many-to-one settings",
-      "area": "approximation algorithms",
+      "area": "popular matchings",
       "keywords": [
         "popular matching",
         "hospital residents",
@@ -1195,7 +1195,7 @@
       "source_paper_bibtex": "@article{Huang_2025, title={Robust Sparsification for Matroid Intersection with Applications}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0562}, DOI={10.1287/moor.2024.0562}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Huang, Chien-Chung and Sellier, Fran\u00e7ois}, year={2025}, month=nov }",
       "problem_index": 0,
       "title": "Efficiently update density-based decompositions under single-element insertions and deletions",
-      "area": "approximation algorithms",
+      "area": "dynamic matroid decomposition",
       "keywords": [
         "matroid intersection",
         "density-based decomposition",
@@ -1227,7 +1227,7 @@
       "source_paper_bibtex": "@article{Chen_2025, title={Indefinite Linear-Quadratic Partially Observed Mean-Field Game}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0748}, DOI={10.1287/moor.2024.0748}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Tian and Nie, Tianyang and Wu, Zhen}, year={2025}, month=dec }",
       "problem_index": 0,
       "title": "Solvability conditions for asymmetric indefinite Riccati equation in mean-field game feedback",
-      "area": "mean-field games",
+      "area": "indefinite riccati equations",
       "keywords": [
         "indefinite riccati equation",
         "mean-field game",
@@ -1260,7 +1260,7 @@
       "source_paper_bibtex": "@article{Deng_2025, title={On Time-Consistent Equilibrium Stopping Under Aggregation of Diverse Discount Rates}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0752}, DOI={10.1287/moor.2024.0752}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Deng, Shuoqing and Yu, Xiang and Zhang, Jiacheng}, year={2025}, month=dec }",
       "problem_index": 0,
       "title": "Characterize the optimal equilibrium stopping region under general aggregation preferences",
-      "area": "optimal stopping",
+      "area": "time inconsistent optimal stopping",
       "keywords": [
         "time-inconsistent stopping",
         "equilibrium stopping",
@@ -1294,7 +1294,7 @@
       "source_paper_bibtex": "@article{Brandt_2025, title={Optimal Budget Aggregation with Star-Shaped Preference Domains}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0723}, DOI={10.1287/moor.2024.0723}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brandt, Felix and Greger, Matthias and Segal-Halevi, Erel and Suksompong, Warut}, year={2025}, month=dec }",
       "problem_index": 0,
       "title": "Characterize Nash product rule under strategyproofness and core fairness conditions",
-      "area": "algorithmic mechanism design",
+      "area": "mechanism design",
       "keywords": [
         "participatory budgeting",
         "Leontief utilities",
@@ -1327,7 +1327,7 @@
       "source_paper_bibtex": "@article{Segev_2025, title={Efficient Approximation Schemes for Stochastic Probing and Selection-Stopping Problems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0242}, DOI={10.1287/moor.2023.0242}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Segev, Danny and Singla, Sahil}, year={2025}, month=dec }",
       "problem_index": 0,
       "title": "Designing fully polynomial approximation schemes for stochastic probing and stopping problems",
-      "area": "approximation algorithms",
+      "area": "stochastic combinatorial optimization",
       "keywords": [
         "FPTAS",
         "stochastic optimization",
@@ -1393,7 +1393,7 @@
       "source_paper_bibtex": "@article{Backhoff_Veraguas_2026, title={Specific Wasserstein Divergence Between Continuous Martingales}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2025.0896}, DOI={10.1287/moor.2025.0896}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Backhoff-Veraguas, Julio and Zhang, Xin}, year={2026}, month=jan }",
       "problem_index": 0,
       "title": "Scaling limit of dynamic risk measures with Wasserstein-type one-step penalties",
-      "area": "stochastic optimization",
+      "area": "dynamic risk measures",
       "keywords": [
         "dynamic risk measures",
         "scaling limits",
@@ -1426,7 +1426,7 @@
       "source_paper_bibtex": "@article{Shin_2026, title={Near-Optimal Performance of Stochastic Model Predictive Control}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0159}, DOI={10.1287/moor.2023.0159}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Shin, Sungho and Na, Sen and Anitescu, Mihai}, year={2026}, month=jan }",
       "problem_index": 0,
       "title": "Dynamic regret bounds for distributionally robust stochastic model predictive control policies",
-      "area": "online algorithms",
+      "area": "distributionally robust mpc",
       "keywords": [
         "stochastic model predictive control",
         "dynamic regret",
@@ -1459,7 +1459,7 @@
       "source_paper_bibtex": "@article{Ahmadi_2026, title={Generalized Ellipsoids}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0643}, DOI={10.1287/moor.2024.0643}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ahmadi, Amir Ali and Chaudhry, Abraar and Dibek, Cemil}, year={2026}, month=jan }",
       "problem_index": 0,
       "title": "Approximate symmetric convex bodies by intersections of co-centered ellipsoids in high dimensions",
-      "area": "approximation algorithms",
+      "area": "convex body approximation",
       "keywords": [
         "convex geometry",
         "symmetric convex bodies",
@@ -1492,7 +1492,7 @@
       "source_paper_bibtex": "@article{Wei_2026, title={Time-Consistent Portfolio Selection for Rank-Dependent Utilities in a Constrained Market}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0720}, DOI={10.1287/moor.2024.0720}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Wei, Jiaqin and Xia, Jianming and Zhao, Qian}, year={2026}, month=feb }",
       "problem_index": 0,
       "title": "Existence of non-deterministic equilibrium portfolio strategies under rank-dependent utility",
-      "area": "stochastic control",
+      "area": "time inconsistent portfolio choice",
       "keywords": [
         "rank-dependent utility",
         "time inconsistency",
@@ -1525,7 +1525,7 @@
       "source_paper_bibtex": "@article{Bei_2026, title={Fair and Efficient Multi-resource Allocation for Cloud Computing: Beyond Dominant Resource Fairness}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0714}, DOI={10.1287/moor.2024.0714}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bei, Xiaohui and Li, Zihao and Luo, Junjie}, year={2026}, month=feb }",
       "problem_index": 0,
       "title": "Determine the price of strategyproofness for social welfare with three resources",
-      "area": "algorithmic mechanism design",
+      "area": "fair division mechanisms",
       "keywords": [
         "multi-resource allocation",
         "dominant resource fairness",
@@ -1559,7 +1559,7 @@
       "source_paper_bibtex": "@article{Huang_2026, title={Denoising Diffusion Probabilistic Models Are Optimally Adaptive to Unknown Low Dimensionality}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0769}, DOI={10.1287/moor.2024.0769}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Huang, Zhihan and Wei, Yuting and Chen, Yuxin}, year={2026}, month=mar }",
       "problem_index": 0,
       "title": "Characterize DDPM low-dimensional adaptivity under Wasserstein or total variation metrics",
-      "area": "online learning",
+      "area": "diffusion model sampling",
       "keywords": [
         "diffusion models",
         "DDPM",
@@ -1623,7 +1623,7 @@
       "source_paper_bibtex": "@article{Dimou_2026, title={On the Equivalence of Zero-Sum Games and Conic Programs}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2025.0926}, DOI={10.1287/moor.2025.0926}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Dimou, Nikos}, year={2026}, month=mar }",
       "problem_index": 0,
       "title": "Equilibrium-equivalent reduction of zero-sum games to cone-leveled strategy games",
-      "area": "online algorithms",
+      "area": "zero sum games",
       "keywords": [
         "zero-sum games",
         "Nash equilibrium",
@@ -1655,7 +1655,7 @@
       "source_paper_bibtex": "@article{Li_2026, title={Single-Server Queues with State-Dependent Hawkes Arrivals}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0855}, DOI={10.1287/moor.2024.0855}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Bo and Pang, Guodong}, year={2026}, month=apr }",
       "problem_index": 0,
       "title": "Determine the correct heavy-traffic staffing asymptotics for Hawkes single-server queues",
-      "area": "queueing theory",
+      "area": "hawkes queue staffing",
       "keywords": [
         "Hawkes process",
         "GI/GI/1 queue",
@@ -1687,7 +1687,7 @@
       "source_paper_bibtex": "@article{Shaiderman_2026, title={On the Monotonicity and Rate of Convergence of the Markovian Persuasion Value}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0296}, DOI={10.1287/moor.2023.0296}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Shaiderman, Dimitry}, year={2026}, month=apr }",
       "problem_index": 0,
       "title": "Existence of interior discount factor where decreasing and increasing value trajectories coincide",
-      "area": "information design",
+      "area": "dynamic persuasion",
       "keywords": [
         "dynamic persuasion",
         "Markov chain",
@@ -1719,7 +1719,7 @@
       "source_paper_bibtex": "@article{Ahmadi_2025, title={Robust-to-Dynamics Optimization}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0116}, DOI={10.1287/moor.2023.0116}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ahmadi, Amir Ali and G\u00fcnl\u00fck, Oktay}, year={2025}, month=may, pages={965\u2013992} }",
       "problem_index": 0,
       "title": "Decidability of feasible-set membership for robust-to-linear-dynamics linear programs",
-      "area": "online algorithms",
+      "area": "invariant set verification",
       "keywords": [
         "linear dynamical systems",
         "polyhedral invariance",
@@ -1754,7 +1754,7 @@
       "source_paper_bibtex": "@article{Eden_2024, title={Combinatorial Auctions with Interdependent Valuations: SOS to the Rescue}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1371}, DOI={10.1287/moor.2023.1371}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Eden, Alon and Feldman, Michal and Fiat, Amos and Goldner, Kira and Karlin, Anna R.}, year={2024}, month=may, pages={653\u2013674} }",
       "problem_index": 0,
       "title": "Constant-factor welfare approximation without separability in multidimensional-signal combinatorial auctions",
-      "area": "algorithmic mechanism design",
+      "area": "mechanism design",
       "keywords": [
         "interdependent valuations",
         "combinatorial auctions",
@@ -1789,7 +1789,7 @@
       "source_paper_bibtex": "@article{El_Balghiti_2023, title={Generalization Bounds in the Predict-Then-Optimize Framework}, volume={48}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.1330}, DOI={10.1287/moor.2022.1330}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={El Balghiti, Othman and Elmachtoub, Adam N. and Grigas, Paul and Tewari, Ambuj}, year={2023}, month=nov, pages={2043\u20132065} }",
       "problem_index": 0,
       "title": "Extend vector-contraction inequalities for Rademacher complexity to general norms",
-      "area": "online learning",
+      "area": "rademacher complexity",
       "keywords": [
         "rademacher complexity",
         "vector contraction",
@@ -1821,7 +1821,7 @@
       "source_paper_bibtex": "@article{Br_nzei_2024, title={Algorithms for Competitive Division of Chores}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1361}, DOI={10.1287/moor.2023.1361}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Br\u00e2nzei, Simina and Sandomirskiy, Fedor}, year={2024}, month=feb, pages={398\u2013429} }",
       "problem_index": 0,
       "title": "Compute a competitive equilibrium utility profile for divisible chores with variable size",
-      "area": "approximation algorithms",
+      "area": "competitive equilibrium chores",
       "keywords": [
         "competitive equilibrium",
         "chores",
@@ -1854,7 +1854,7 @@
       "source_paper_bibtex": "@article{Garg_2024, title={Satiation in Fisher Markets and Approximation of Nash Social Welfare}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2019.0129}, DOI={10.1287/moor.2019.0129}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Garg, Jugal and Hoefer, Martin and Mehlhorn, Kurt}, year={2024}, month=may, pages={1109\u20131139} }",
       "problem_index": 0,
       "title": "Deciding existence of equilibria in Fisher markets with earning and utility limits",
-      "area": "approximation algorithms",
+      "area": "fisher market equilibrium",
       "keywords": [
         "Fisher markets",
         "market equilibrium",
@@ -1888,7 +1888,7 @@
       "source_paper_bibtex": "@article{Kijima_2026, title={How Many Vertices Does a Random Walk Miss in a Network with a Moderately Increasing Number of Vertices?}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0060}, DOI={10.1287/moor.2023.0060}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kijima, Shuji and Shimizu, Nobutaka and Shiraga, Takeharu}, year={2026}, month=jan, pages={783\u2013805} }",
       "problem_index": 0,
       "title": "Characterize when constant expected unvisited vertices requires duration at least hitting time",
-      "area": "online algorithms",
+      "area": "random walks on growinggraphs",
       "keywords": [
         "random walks",
         "dynamic graphs",
@@ -1922,7 +1922,7 @@
       "source_paper_bibtex": "@article{Correa_2024, title={Sample-Driven Optimal Stopping: From the Secretary Problem to the i.i.d. Prophet Inequality}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1363}, DOI={10.1287/moor.2023.1363}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Correa, Jos\u00e9 and Cristi, Andr\u00e9s and Epstein, Boris and Soto, Jos\u00e9 A.}, year={2024}, month=feb, pages={441\u2013475} }",
       "problem_index": 0,
       "title": "Characterize limiting competitive ratio of p-sample matroid secretary via i.i.d. analogues",
-      "area": "online algorithms",
+      "area": "prophet inequalities",
       "keywords": [
         "matroid secretary problem",
         "sampling model",
@@ -1956,7 +1956,7 @@
       "source_paper_bibtex": "@article{Bir__2024, title={Shapley\u2013Scarf Housing Markets: Respecting Improvement, Integer Programming, and Kidney Exchange}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0092}, DOI={10.1287/moor.2022.0092}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bir\u00f3, P\u00e9ter and Klijn, Flip and Klimentova, Xenia and Viana, Ana}, year={2024}, month=aug, pages={1938\u20131972} }",
       "problem_index": 0,
       "title": "Respecting improvement for best core allotments in unbounded Shapley-Scarf markets",
-      "area": "information design",
+      "area": "housing market core",
       "keywords": [
         "housing markets",
         "core stability",
@@ -1989,7 +1989,7 @@
       "source_paper_bibtex": "@article{Caragiannis_2025, title={On Interim Envy-Free Allocation Lotteries}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0203}, DOI={10.1287/moor.2023.0203}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Caragiannis, Ioannis and Kanellopoulos, Panagiotis and Kyropoulou, Maria}, year={2025}, month=nov, pages={3257\u20133282} }",
       "problem_index": 0,
       "title": "Compute interim envy-free lotteries maximizing expected average Nash welfare in matching instances",
-      "area": "approximation algorithms",
+      "area": "fair division lotteries",
       "keywords": [
         "fair division",
         "interim envy-freeness",
@@ -2022,7 +2022,7 @@
       "source_paper_bibtex": "@article{Babaioff_2024, title={Fair-Share Allocations for Agents with Arbitrary Entitlements}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0199}, DOI={10.1287/moor.2021.0199}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Babaioff, Moshe and Ezra, Tomer and Feige, Uriel}, year={2024}, month=nov, pages={2180\u20132211} }",
       "problem_index": 0,
       "title": "Determine optimal approximation constant for AnyPrice share allocations with additive valuations",
-      "area": "approximation algorithms",
+      "area": "fair division",
       "keywords": [
         "fair division",
         "indivisible goods",
@@ -2055,7 +2055,7 @@
       "source_paper_bibtex": "@article{Aprile_2024, title={Binary Extended Formulations and Sequential Convexification}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0129}, DOI={10.1287/moor.2021.0129}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Aprile, Manuel and Conforti, Michele and Di Summa, Marco}, year={2024}, month=aug, pages={1566\u20131581} }",
       "problem_index": 0,
       "title": "Optimal rank among simplex-isomorphic binarizations for bounded integer variables",
-      "area": "approximation algorithms",
+      "area": "integer programming formulations",
       "keywords": [
         "mixed-integer programming",
         "extended formulations",
@@ -2089,7 +2089,7 @@
       "source_paper_bibtex": "@article{Brubach_2025, title={Improved Guarantees for Offline Stochastic Matching via New Ordered Contention Resolution Schemes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0256}, DOI={10.1287/moor.2022.0256}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind}, year={2025}, month=nov, pages={3243\u20133256} }",
       "problem_index": 0,
       "title": "Random-order contention resolution for rank-1 matroids with negative correlation",
-      "area": "online algorithms",
+      "area": "contention resolution schemes",
       "keywords": [
         "contention resolution schemes",
         "rank-1 matroid",
@@ -2123,7 +2123,7 @@
       "source_paper_bibtex": "@article{Berahas_2024, title={A Stochastic Sequential Quadratic Optimization Algorithm for Nonlinear-Equality-Constrained Optimization with Rank-Deficient Jacobians}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0154}, DOI={10.1287/moor.2021.0154}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Berahas, Albert S. and Curtis, Frank E. and O\u2019Neill, Michael J. and Robinson, Daniel P.}, year={2024}, month=nov, pages={2212\u20132248} }",
       "problem_index": 0,
       "title": "Convergence guarantees when stochastic gradient estimates diverge in vanishing-merit regime",
-      "area": "stochastic optimization",
+      "area": "stochastic constrained optimization",
       "keywords": [
         "stochastic SQP",
         "equality constraints",
@@ -2156,7 +2156,7 @@
       "source_paper_bibtex": "@article{Na_2024, title={A Fast Temporal Decomposition Procedure for Long-Horizon Nonlinear Dynamic Programming}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1378}, DOI={10.1287/moor.2023.1378}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Na, Sen and Anitescu, Mihai and Kolar, Mladen}, year={2024}, month=may, pages={1012\u20131044} }",
       "problem_index": 0,
       "title": "Design OTD-based globally convergent algorithm for long-horizon nonlinear dynamic programs",
-      "area": "online algorithms",
+      "area": "decomposition methods",
       "keywords": [
         "nonlinear dynamic programming",
         "overlapping temporal decomposition",
@@ -2187,7 +2187,7 @@
       "source_paper_bibtex": "@article{Mahara_2024, title={Extension of Additive Valuations to General Valuations on the Existence of EFX}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0044}, DOI={10.1287/moor.2022.0044}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Mahara, Ryoga}, year={2024}, month=may, pages={1263\u20131277} }",
       "problem_index": 0,
       "title": "Prove existence of complete EFX allocations for general valuations setting",
-      "area": "information design",
+      "area": "fair division",
       "keywords": [
         "fair division",
         "indivisible goods",
@@ -2221,7 +2221,7 @@
       "source_paper_bibtex": "@article{Hegde_2025, title={Online Estimation and Optimization of Utility-Based Shortfall Risk}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0266}, DOI={10.1287/moor.2022.0266}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hegde, Vishwajit and Menon, Arvind Satish and Prashanth, L.A. and Jagannathan, Krishna}, year={2025}, month=nov, pages={2470\u20132501} }",
       "problem_index": 0,
       "title": "Finite-sample bounds for multivariate shortfall risk estimators with streaming samples",
-      "area": "online learning",
+      "area": "risk measure estimation",
       "keywords": [
         "shortfall risk",
         "multivariate risk measures",
@@ -2254,7 +2254,7 @@
       "source_paper_bibtex": "@article{Perez_Salazar_2025, title={Robust Online Selection with Uncertain Offer Acceptance}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0210}, DOI={10.1287/moor.2023.0210}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Perez-Salazar, Sebastian and Singh, Mohit and Toriello, Alejandro}, year={2025}, month=aug, pages={2226\u20132260} }",
       "problem_index": 0,
       "title": "Prove convexity and monotonicity of the optimal robust ratio in acceptance probability",
-      "area": "online algorithms",
+      "area": "secretary problem",
       "keywords": [
         "secretary problem",
         "robust ratio",
@@ -2322,7 +2322,7 @@
       "source_paper_bibtex": "@article{Black_2025, title={On the Simplex Method for 0/1-Polytopes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0345}, DOI={10.1287/moor.2021.0345}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Black, Alexander E. and De Loera, Jes\u00fas A. and Kafer, Sean and Sanit\u00e0, Laura}, year={2025}, month=may, pages={1398\u20131420} }",
       "problem_index": 0,
       "title": "Polynomial bound on degenerate simplex pivots for 0/1 polytope linear programs",
-      "area": "online algorithms",
+      "area": "simplex pivot rules",
       "keywords": [
         "simplex method",
         "pivot rules",
@@ -2355,7 +2355,7 @@
       "source_paper_bibtex": "@article{Bovo_2025, title={Variational Inequalities on Unbounded Domains for Zero-Sum Singular Controller vs. Stopper Games}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0029}, DOI={10.1287/moor.2023.0029}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bovo, Andrea and De Angelis, Tiziano and Issoglio, Elena}, year={2025}, month=feb, pages={277\u2013312} }",
       "problem_index": 0,
       "title": "Uniqueness of Sobolev solutions to min-max variational inequality with obstacle and gradient constraints",
-      "area": "stochastic control",
+      "area": "variational inequalities",
       "keywords": [
         "variational inequality",
         "gradient constraint",
@@ -2387,7 +2387,7 @@
       "source_paper_bibtex": "@article{Possama__2025, title={Is There a Golden Parachute in Sannikov\u2019s Principal\u2013Agent Problem?}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0305}, DOI={10.1287/moor.2022.0305}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Possama\u00ef, Dylan and Touzi, Nizar}, year={2025}, month=may, pages={1173\u20131203} }",
       "problem_index": 0,
       "title": "Determine whether Golden Parachutes arise with an impatient agent setting",
-      "area": "stochastic control",
+      "area": "principal agent optimal stopping",
       "keywords": [
         "continuous-time principal-agent",
         "optimal stopping",
@@ -2455,7 +2455,7 @@
       "source_paper_bibtex": "@article{Bianchi_2024, title={Stochastic Subgradient Descent Escapes Active Strict Saddles on Weakly Convex Functions}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0194}, DOI={10.1287/moor.2021.0194}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bianchi, Pascal and Hachem, Walid and Schechtman, Sholom}, year={2024}, month=aug, pages={1761\u20131790} }",
       "problem_index": 0,
       "title": "Prove generic convergence of stochastic subgradient descent without weak convexity",
-      "area": "online learning",
+      "area": "stochastic subgradient descent",
       "keywords": [
         "stochastic subgradient descent",
         "nonsmooth nonconvex optimization",
@@ -2488,7 +2488,7 @@
       "source_paper_bibtex": "@article{Chen_2024, title={Asymptotic Optimality of Constant-Order Policies in Joint Pricing and Inventory Models}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1367}, DOI={10.1287/moor.2023.1367}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Xin and Stolyar, Alexander L. and Xin, Linwei}, year={2024}, month=feb, pages={557\u2013577} }",
       "problem_index": 0,
       "title": "Determine minimal moment assumptions for asymptotic optimality of constant-order policies",
-      "area": "approximation algorithms",
+      "area": "lost sales inventory",
       "keywords": [
         "lost sales inventory",
         "lead time asymptotics",
@@ -2521,7 +2521,7 @@
       "source_paper_bibtex": "@article{Luo_2024, title={Distribution-Free Contextual Dynamic Pricing}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1369}, DOI={10.1287/moor.2023.1369}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Luo, Yiyun and Sun, Will Wei and Liu, Yufeng}, year={2024}, month=feb, pages={599\u2013618} }",
       "problem_index": 0,
       "title": "Determine minimax regret rate for contextual dynamic pricing with unknown noise distribution",
-      "area": "online learning",
+      "area": "contextual dynamic pricing",
       "keywords": [
         "contextual dynamic pricing",
         "linear valuation model",
@@ -2553,7 +2553,7 @@
       "source_paper_bibtex": "@article{Happach_2024, title={Approximation Algorithms and Linear Programming Relaxations for Scheduling Problems Related to Min-Sum Set Cover}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1368}, DOI={10.1287/moor.2023.1368}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Happach, Felix and Schulz, Andreas S.}, year={2024}, month=feb, pages={578\u2013598} }",
       "problem_index": 0,
       "title": "Bound the integrality gap of time-indexed LP for bipartite AND/OR scheduling",
-      "area": "approximation algorithms",
+      "area": "scheduling with precedence constraints",
       "keywords": [
         "single-machine scheduling",
         "OR-precedence constraints",
@@ -2585,7 +2585,7 @@
       "source_paper_bibtex": "@article{Liang_2024, title={A Unified Analysis of a Class of Proximal Bundle Methods for Solving Hybrid Convex Composite Optimization Problems}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1372}, DOI={10.1287/moor.2023.1372}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liang, Jiaming and Monteiro, Renato D. C.}, year={2024}, month=may, pages={832\u2013855} }",
       "problem_index": 0,
       "title": "Design accelerated proximal bundle methods for hybrid convex composite optimization problems",
-      "area": "approximation algorithms",
+      "area": "convex composite optimization",
       "keywords": [
         "proximal bundle methods",
         "hybrid convex composite optimization",
@@ -2651,7 +2651,7 @@
       "source_paper_bibtex": "@article{Gao_2023, title={Asymptotically Optimal Control of Make-to-Stock Systems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.161}, DOI={10.1287/moor.2021.161}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Huang, Junfei}, year={2023}, month=june }",
       "problem_index": 0,
       "title": "Computationally efficient methods for solving multistage stochastic programs in ATO inventory control",
-      "area": "approximation algorithms",
+      "area": "multistage stochastic programming",
       "keywords": [
         "assemble-to-order",
         "multistage stochastic programming",
@@ -2716,7 +2716,7 @@
       "source_paper_bibtex": "@article{Gao_2024, title={Asymptotically Optimal Control of Make-to-Stock Systems}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0161}, DOI={10.1287/moor.2021.0161}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Huang, Junfei}, year={2024}, month=may, pages={948\u2013985} }",
       "problem_index": 0,
       "title": "Compute optimal policy for multi-product assemble-to-order systems with general lead times",
-      "area": "stochastic inventory control",
+      "area": "assemble to order inventory",
       "keywords": [
         "assemble-to-order",
         "inventory control",
@@ -2748,7 +2748,7 @@
       "source_paper_bibtex": "@article{Nie_2024, title={Nash Equilibrium Problems of Polynomials}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0334}, DOI={10.1287/moor.2022.0334}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Nie, Jiawang and Tang, Xindong}, year={2024}, month=may, pages={1065\u20131090} }",
       "problem_index": 0,
       "title": "Prove convergence of iterative KKT-point exclusion for nonconvex polynomial Nash equilibria",
-      "area": "polynomial optimization",
+      "area": "polynomial nash equilibrium",
       "keywords": [
         "nash equilibrium",
         "nonconvex games",
@@ -2781,7 +2781,7 @@
       "source_paper_bibtex": "@article{Blanchard_2024, title={Probabilistic Bounds on the k-Traveling Salesman Problem and the Traveling Repairman Problem}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0286}, DOI={10.1287/moor.2021.0286}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Blanchard, Mo\u00efse and Jacquillat, Alexandre and Jaillet, Patrick}, year={2024}, month=may, pages={1169\u20131191} }",
       "problem_index": 0,
       "title": "Determine the asymptotically tight constant for traveling repairman latency under i.i.d. sampling",
-      "area": "approximation algorithms",
+      "area": "traveling repairman problem",
       "keywords": [
         "traveling repairman problem",
         "minimum latency",
@@ -2813,7 +2813,7 @@
       "source_paper_bibtex": "@article{Flesch_2024, title={Stochastic Games with General Payoff Functions}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1385}, DOI={10.1287/moor.2023.1385}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Flesch, J\u00e1nos and Solan, Eilon}, year={2024}, month=aug, pages={1349\u20131371} }",
       "problem_index": 0,
       "title": "Existence of epsilon-equilibria in multiplayer stochastic games with Borel payoffs",
-      "area": "online learning",
+      "area": "stochastic games",
       "keywords": [
         "stochastic games",
         "borel measurable payoffs",
@@ -2845,7 +2845,7 @@
       "source_paper_bibtex": "@article{Charisopoulos_2024, title={A Superlinearly Convergent Subgradient Method for Sharp Semismooth Problems}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1390}, DOI={10.1287/moor.2023.1390}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Charisopoulos, Vasileios and Davis, Damek}, year={2024}, month=aug, pages={1678\u20131709} }",
       "problem_index": 0,
       "title": "Verify sharp growth constant for max-linear regression with absolute loss setting",
-      "area": "approximation algorithms",
+      "area": "max linear regression",
       "keywords": [
         "nonsmooth optimization",
         "sharp growth",
@@ -2879,7 +2879,7 @@
       "source_paper_bibtex": "@article{Pollner_2024, title={Improved Online Contention Resolution for Matchings and Applications to the Gig Economy}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1388}, DOI={10.1287/moor.2023.1388}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Pollner, Tristan and Roghani, Mohammad and Saberi, Amin and Wajc, David}, year={2024}, month=aug, pages={1582\u20131606} }",
       "problem_index": 0,
       "title": "Improve contention resolution for points in the exact matching polytope setting",
-      "area": "online algorithms",
+      "area": "online matching",
       "keywords": [
         "contention resolution schemes",
         "random-order online algorithms",
@@ -2909,7 +2909,7 @@
       "source_paper_bibtex": "@article{Ragel_2024, title={Weak Approachability of Convex Sets in Absorbing Games}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0160}, DOI={10.1287/moor.2021.0160}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ragel, Thomas}, year={2024}, month=aug, pages={1372\u20131402} }",
       "problem_index": 0,
       "title": "Establish weak determinacy for convex target sets in Big-Match type II",
-      "area": "online learning",
+      "area": "approachability in repeated games",
       "keywords": [
         "blackwell approachability",
         "stochastic games",
@@ -2942,7 +2942,7 @@
       "source_paper_bibtex": "@article{N_gele_2024, title={Congruency-Constrained TU Problems Beyond the Bimodular Case}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1381}, DOI={10.1287/moor.2023.1381}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={N\u00e4gele, Martin and Santiago, Richard and Zenklusen, Rico}, year={2024}, month=aug, pages={1303\u20131348} }",
       "problem_index": 0,
       "title": "Polynomial-time solvability of integer programs with bounded subdeterminants setting",
-      "area": "approximation algorithms",
+      "area": "bounded subdeterminant ilp",
       "keywords": [
         "integer programming",
         "bounded subdeterminants",
@@ -2972,7 +2972,7 @@
       "source_paper_bibtex": "@article{Zhao_2024, title={A Primal-Dual Smoothing Framework for Max-Structured Non-Convex Optimization}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1387}, DOI={10.1287/moor.2023.1387}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Zhao, Renbo}, year={2024}, month=aug, pages={1535\u20131565} }",
       "problem_index": 0,
       "title": "Lower bound on oracle complexity for near-stationary max-structured nonconvex optimization",
-      "area": "online algorithms",
+      "area": "nonconvex minimax optimization",
       "keywords": [
         "first-order oracle complexity",
         "weakly convex optimization",
@@ -3003,7 +3003,7 @@
       "source_paper_bibtex": "@article{Pradhan_2024, title={Robustness of Stochastic Optimal Control to Approximate Diffusion Models Under Several Cost Evaluation Criteria}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0134}, DOI={10.1287/moor.2022.0134}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Pradhan, Somnath and Y\u00fcksel, Serdar}, year={2024}, month=nov, pages={2049\u20132077} }",
       "problem_index": 0,
       "title": "Extend robustness and continuity results to degenerate controlled diffusion models",
-      "area": "stochastic control",
+      "area": "controlled diffusions",
       "keywords": [
         "controlled diffusions",
         "robustness",
@@ -3038,7 +3038,7 @@
       "source_paper_bibtex": "@article{Delong_2024, title={Online Bipartite Matching with Reusable Resources}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0242}, DOI={10.1287/moor.2022.0242}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Delong, Steven and Farhadi, Alireza and Niazadeh, Rad and Sivan, Balasubramanian and Udwani, Rajan}, year={2024}, month=aug, pages={1825\u20131854} }",
       "problem_index": 0,
       "title": "Achieve the optimal 1 minus 1 over e competitive ratio in reusable-resource matching",
-      "area": "online algorithms",
+      "area": "online matching",
       "keywords": [
         "online bipartite matching",
         "reusable resources",
@@ -3070,7 +3070,7 @@
       "source_paper_bibtex": "@article{N_gele_2024, title={A New Dynamic Programming Approach for Spanning Trees with Chain Constraints and Beyond}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0012}, DOI={10.1287/moor.2023.0012}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={N\u00e4gele, Martin and Zenklusen, Rico}, year={2024}, month=nov, pages={2078\u20132108} }",
       "problem_index": 0,
       "title": "Constant-factor multiplicative violation for cut-constrained spanning trees in laminar families",
-      "area": "approximation algorithms",
+      "area": "degree constrained spanning trees",
       "keywords": [
         "spanning trees",
         "laminar cut constraints",
@@ -3103,7 +3103,7 @@
       "source_paper_bibtex": "@article{Hayashi_2024, title={Finding Hall Blockers by Matrix Scaling}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0198}, DOI={10.1287/moor.2022.0198}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hayashi, Koyo and Hirai, Hiroshi and Sakabe, Keiya}, year={2024}, month=nov, pages={2166\u20132179} }",
       "problem_index": 0,
       "title": "Characterize and compute limits of operator Sinkhorn algorithm for nonscalable operators",
-      "area": "online algorithms",
+      "area": "operator scaling",
       "keywords": [
         "operator scaling",
         "operator Sinkhorn algorithm",
@@ -3138,7 +3138,7 @@
       "source_paper_bibtex": "@article{Brustle_2024, title={The Competition Complexity of Dynamic Pricing}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0230}, DOI={10.1287/moor.2022.0230}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brustle, Johannes and Correa, Jos\u00e9 and Duetting, Paul and Verdugo, Victor}, year={2024}, month=aug, pages={1986\u20132008} }",
       "problem_index": 0,
       "title": "Determine sublinear competition complexity for independent monotone hazard rate stages",
-      "area": "algorithmic mechanism design",
+      "area": "dynamic mechanism design",
       "keywords": [
         "dynamic auctions",
         "competition complexity",
@@ -3170,7 +3170,7 @@
       "source_paper_bibtex": "@article{Nishimura_2024, title={A Class of Dissimilarity Semimetrics for Preference Relations}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0351}, DOI={10.1287/moor.2022.0351}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Nishimura, Hiroki and Ok, Efe A.}, year={2024}, month=nov, pages={2249\u20132270} }",
       "problem_index": 0,
       "title": "Determine diameter of acyclic and preorder preference spaces under top-difference semimetric",
-      "area": "approximation algorithms",
+      "area": "social choice theory",
       "keywords": [
         "preference relations",
         "acyclic orders",
@@ -3205,7 +3205,7 @@
       "source_paper_bibtex": "@article{Chaudhury_2024, title={Improving Envy Freeness up to Any Good Guarantees Through Rainbow Cycle Number}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0252}, DOI={10.1287/moor.2021.0252}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt and Mehta, Ruta and Misra, Pranabendu}, year={2024}, month=nov, pages={2323\u20132340} }",
       "problem_index": 0,
       "title": "Determine the asymptotically tight rainbow cycle number in bounded-partite digraphs",
-      "area": "approximation algorithms",
+      "area": "extremal digraph theory",
       "keywords": [
         "fair division",
         "envy freeness up to any good",
@@ -3241,7 +3241,7 @@
       "source_paper_bibtex": "@article{Amanatidis_2024, title={Allocating Indivisible Goods to Strategic Agents: Pure Nash Equilibria and Fairness}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0058}, DOI={10.1287/moor.2022.0058}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Amanatidis, Georgios and Birmpas, Georgios and Fusco, Federico and Lazos, Philip and Leonardi, Stefano and Reiffenh\u00e4user, Rebecca}, year={2024}, month=nov, pages={2425\u20132445} }",
       "problem_index": 0,
       "title": "Determine the MMS guarantee of EFX pure Nash equilibria for two agents",
-      "area": "algorithmic mechanism design",
+      "area": "fair division",
       "keywords": [
         "fair division",
         "indivisible goods",
@@ -3275,7 +3275,7 @@
       "source_paper_bibtex": "@article{Celaya_2024, title={Proximity and Flatness Bounds for Linear Integer Optimization}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0335}, DOI={10.1287/moor.2022.0335}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Celaya, Marcel and Kuhlmann, Stefan and Paat, Joseph and Weismantel, Robert}, year={2024}, month=nov, pages={2446\u20132467} }",
       "problem_index": 0,
       "title": "Bound lattice width of lattice-free polytopes using only determinant minor parameter",
-      "area": "approximation algorithms",
+      "area": "geometry of numbers",
       "keywords": [
         "integer optimization",
         "lattice-free polyhedra",
@@ -3308,7 +3308,7 @@
       "source_paper_bibtex": "@article{Gast_2024, title={Linear Program-Based Policies for Restless Bandits: Necessary and Sufficient Conditions for (Exponentially Fast) Asymptotic Optimality}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0101}, DOI={10.1287/moor.2022.0101}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gast, Nicolas and Gaujal, Bruno and Yan, Chen}, year={2024}, month=nov, pages={2468\u20132491} }",
       "problem_index": 0,
       "title": "Prove square-root lower bound for LP-compatible policies in degenerate restless bandits",
-      "area": "online algorithms",
+      "area": "restless bandits",
       "keywords": [
         "restless bandits",
         "LP relaxation",
@@ -3341,7 +3341,7 @@
       "source_paper_bibtex": "@article{Chen_2024, title={Convergence Analysis of Accelerated Stochastic Gradient Descent Under the Growth Condition}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0293}, DOI={10.1287/moor.2021.0293}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, You-Lin and Na, Sen and Kolar, Mladen}, year={2024}, month=nov, pages={2492\u20132526} }",
       "problem_index": 0,
       "title": "Lower bounds on acceleration thresholds for stochastic momentum methods under growth condition",
-      "area": "online learning",
+      "area": "stochastic convex optimization",
       "keywords": [
         "stochastic optimization",
         "accelerated methods",
@@ -3374,7 +3374,7 @@
       "source_paper_bibtex": "@article{Beideman_2024, title={Counting and Enumerating Optimum Cut Sets for Hypergraph k-Partitioning Problems for Fixed k}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0259}, DOI={10.1287/moor.2022.0259}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Beideman, Calvin and Chandrasekaran, Karthekeyan and Wang, Weihang}, year={2024}, month=nov, pages={2579\u20132601} }",
       "problem_index": 0,
       "title": "Determine complexity of minimizing sum of boundary cut sizes in hypergraph k-partitions",
-      "area": "approximation algorithms",
+      "area": "hypergraph k partitioning",
       "keywords": [
         "hypergraph partitioning",
         "k-partition",
@@ -3438,7 +3438,7 @@
       "source_paper_bibtex": "@article{Basu_2024, title={Strategy-Proof Multidimensional Mechanism Design}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0324}, DOI={10.1287/moor.2022.0324}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Basu, Ranojoy and Mukherjee, Conan}, year={2024}, month=nov, pages={2768\u20132785} }",
       "problem_index": 0,
       "title": "Computational complexity of optimizing large-market obviously strategy-proof trading mechanisms",
-      "area": "algorithmic mechanism design",
+      "area": "mechanism design",
       "keywords": [
         "obvious strategy-proofness",
         "task allocation",
@@ -3474,7 +3474,7 @@
       "source_paper_bibtex": "@article{Liao_2024, title={The Privacy Paradox and Optimal Bias\u2013Variance Trade-offs in Data Acquisition}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0022}, DOI={10.1287/moor.2023.0022}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Liao, Guocheng and Su, Yu and Ziani, Juba and Wierman, Adam and Huang, Jianwei}, year={2024}, month=nov, pages={2749\u20132767} }",
       "problem_index": 0,
       "title": "Design mechanisms to mitigate information leakage and privacy paradox in data marketplaces",
-      "area": "information design",
+      "area": "mechanism design privacy",
       "keywords": [
         "data marketplaces",
         "privacy externalities",
@@ -3507,7 +3507,7 @@
       "source_paper_bibtex": "@article{Bertschinger_2025, title={Flow Allocation Games}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0355}, DOI={10.1287/moor.2022.0355}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bertschinger, Nils and Hoefer, Martin and Schmand, Daniel}, year={2025}, month=feb, pages={68\u201389} }",
       "problem_index": 0,
       "title": "Classify the complexity of Nash equilibrium existence in edge-ranking flow games",
-      "area": "online algorithms",
+      "area": "algorithmic game theory",
       "keywords": [
         "flow allocation games",
         "edge-ranking strategies",
@@ -3540,7 +3540,7 @@
       "source_paper_bibtex": "@article{Koike_2024, title={Joint Mixability and Notions of Negative Dependence}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0121}, DOI={10.1287/moor.2022.0121}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Koike, Takaaki and Lin, Liyuan and Wang, Ruodu}, year={2024}, month=nov, pages={2786\u20132802} }",
       "problem_index": 0,
       "title": "Extend exchangeable joint-mix optimality for uncertain subsets under general convex costs",
-      "area": "optimal transport",
+      "area": "robust optimal transport",
       "keywords": [
         "joint mixability",
         "negative dependence",
@@ -3572,7 +3572,7 @@
       "source_paper_bibtex": "@article{Tang_2025, title={Polynomial Voting Rules}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0080}, DOI={10.1287/moor.2023.0080}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Tang, Wenpin and Yao, David D.}, year={2025}, month=feb, pages={90\u2013106} }",
       "problem_index": 0,
       "title": "Large-deviation bounds for stake-volume Markov chain in intermediate deviation regime",
-      "area": "online algorithms",
+      "area": "large deviations",
       "keywords": [
         "large deviations",
         "Markov chains",
@@ -3603,7 +3603,7 @@
       "source_paper_bibtex": "@article{Schoot_Uiterkamp_2025, title={A Characterization of Simultaneous Optimization, Majorization, and (Bi-)Submodular Polyhedra}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0054}, DOI={10.1287/moor.2023.0054}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Schoot Uiterkamp, Martijn H. H.}, year={2025}, month=feb, pages={252\u2013276} }",
       "problem_index": 0,
       "title": "Characterize least (a,b)-majorized elements for fixed scalings and shifts in feasible sets",
-      "area": "approximation algorithms",
+      "area": "majorization and convex order",
       "keywords": [
         "majorization",
         "separable convex optimization",
@@ -3668,7 +3668,7 @@
       "source_paper_bibtex": "@article{Moharrami_2025, title={A Policy Gradient Algorithm for the Risk-Sensitive Exponential Cost MDP}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0139}, DOI={10.1287/moor.2022.0139}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Moharrami, Mehrdad and Murthy, Yashaswini and Roy, Arghyadip and Srikant, R.}, year={2025}, month=feb, pages={431\u2013458} }",
       "problem_index": 0,
       "title": "Verify gamma^{-beta} truncation schedule meets summability condition in policy gradient algorithm",
-      "area": "online learning",
+      "area": "risk sensitive mdp",
       "keywords": [
         "risk-sensitive MDP",
         "policy gradient",
@@ -3701,7 +3701,7 @@
       "source_paper_bibtex": "@article{Attia_2025, title={Marginal Values of a Stochastic Game}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0297}, DOI={10.1287/moor.2023.0297}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Attia, Luc and Oliu-Barton, Miquel and Saona, Raimundo}, year={2025}, month=feb, pages={482\u2013505} }",
       "problem_index": 0,
       "title": "Characterize convergence of discounted values in compact-continuous zero-sum stochastic games",
-      "area": "online algorithms",
+      "area": "stochastic games",
       "keywords": [
         "stochastic games",
         "discounted value convergence",
@@ -3734,7 +3734,7 @@
       "source_paper_bibtex": "@article{Laurent_2025, title={Semidefinite Approximations for Bicliques and Bi-Independent Pairs}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0046}, DOI={10.1287/moor.2023.0046}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Laurent, Monique and Polak, Sven and Vargas, Luis Felipe}, year={2025}, month=feb, pages={537\u2013572} }",
       "problem_index": 0,
       "title": "Find stronger closed-form eigenvalue bounds for balanced independent sets in regular bipartite graphs",
-      "area": "approximation algorithms",
+      "area": "spectral graph theory",
       "keywords": [
         "balanced independent set",
         "bipartite regular graphs",
@@ -3766,7 +3766,7 @@
       "source_paper_bibtex": "@article{Conforti_2025, title={Steiner Cut Dominants}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0280}, DOI={10.1287/moor.2022.0280}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Conforti, Michele and Kaibel, Volker}, year={2025}, month=feb, pages={764\u2013781} }",
       "problem_index": 0,
       "title": "Characterize when irreducible Steiner-cut facets remain valid for global cut dominants",
-      "area": "approximation algorithms",
+      "area": "cut polyhedra",
       "keywords": [
         "cut dominants",
         "Steiner cuts",
@@ -3798,7 +3798,7 @@
       "source_paper_bibtex": "@article{Li_2025, title={Simple and Explicit Bounds for Multiserver Queues with 1/1\u2212\u03c1 Scaling}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0131}, DOI={10.1287/moor.2022.0131}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Yuan and Goldberg, David A.}, year={2025}, month=may, pages={813\u2013837} }",
       "problem_index": 0,
       "title": "Prove covariance inequality between number in service and work in M GI n queues",
-      "area": "online algorithms",
+      "area": "queueing theory",
       "keywords": [
         "many-server queues",
         "M/GI/n queue",
@@ -3829,7 +3829,7 @@
       "source_paper_bibtex": "@article{Lim_2025, title={Estimating a Function and Its Derivatives Under a Smoothness Condition}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2020.0161}, DOI={10.1287/moor.2020.0161}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Lim, Eunji}, year={2025}, month=may, pages={1112\u20131138} }",
       "problem_index": 0,
       "title": "Prove consistency and rates for smoothness-minimizing estimator under variance target",
-      "area": "online learning",
+      "area": "smoothing splines",
       "keywords": [
         "nonparametric regression",
         "sobolev spaces",
@@ -3862,7 +3862,7 @@
       "source_paper_bibtex": "@article{Goldsztajn_2025, title={Learning and Balancing Unknown Loads in Large-Scale Systems}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0212}, DOI={10.1287/moor.2021.0212}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Goldsztajn, Diego and Borst, Sem C. and van Leeuwaarden, Johan S. H.}, year={2025}, month=may, pages={1139\u20131172} }",
       "problem_index": 0,
       "title": "Equilibrium of refined learning threshold with Coxian service times setting",
-      "area": "online algorithms",
+      "area": "load balancing queues",
       "keywords": [
         "load balancing",
         "many-server asymptotics",
@@ -3893,7 +3893,7 @@
       "source_paper_bibtex": "@article{Vazirani_2024, title={A Theory of Alternating Paths and Blossoms from the Perspective of Minimum Length}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2020.0388}, DOI={10.1287/moor.2020.0388}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Vazirani, Vijay V.}, year={2024}, month=aug, pages={2009\u20132047} }",
       "problem_index": 0,
       "title": "Linear-time Micali\u2013Vazirani phase implementation on pointer machines via path compression",
-      "area": "online algorithms",
+      "area": "maximum matching algorithms",
       "keywords": [
         "maximum matching",
         "micali vazirani algorithm",
@@ -3925,7 +3925,7 @@
       "source_paper_bibtex": "@article{Fikioris_2025, title={Liquid Welfare Guarantees for No-Regret Learning in Sequential Budgeted Auctions}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0274}, DOI={10.1287/moor.2023.0274}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Fikioris, Giannis and Tardos, \u00c9va}, year={2025}, month=may, pages={1233\u20131249} }",
       "problem_index": 0,
       "title": "Design learning guarantees that improve liquid welfare in sequential budgeted auctions",
-      "area": "online learning",
+      "area": "learning in auctions",
       "keywords": [
         "sequential auctions",
         "liquid welfare",
@@ -3960,7 +3960,7 @@
       "source_paper_bibtex": "@article{Lambers_2025, title={How to Design a Stable Serial Knockout Competition}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0352}, DOI={10.1287/moor.2022.0352}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Lambers, Roel and Pendavingh, Rudi and Spieksma, Frits}, year={2025}, month=may, pages={1421\u20131432} }",
       "problem_index": 0,
       "title": "Classify stable serial knockout competitions up to equivalence for larger powers of two",
-      "area": "approximation algorithms",
+      "area": "tournament design",
       "keywords": [
         "tournament design",
         "serial knockout competition",
@@ -3993,7 +3993,7 @@
       "source_paper_bibtex": "@article{Ramachandran_2025, title={Hidden Convexity, Optimization, and Algorithms on Rotation Matrices}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0114}, DOI={10.1287/moor.2023.0114}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ramachandran, Akshay and Shu, Kevin and Wang, Alex L.}, year={2025}, month=may, pages={1454\u20131477} }",
       "problem_index": 0,
       "title": "Prove NP-hardness of deciding convexity of coordinate projections of rotation matrices",
-      "area": "approximation algorithms",
+      "area": "computational complexity",
       "keywords": [
         "special orthogonal group",
         "hidden convexity",
@@ -4025,7 +4025,7 @@
       "source_paper_bibtex": "@article{Del_Pia_2025, title={Rank-One Boolean Tensor Factorization and the Multilinear Polytope}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0201}, DOI={10.1287/moor.2022.0201}, number={2}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Del Pia, Alberto and Khajavirad, Aida}, year={2025}, month=may, pages={1514\u20131554} }",
       "problem_index": 0,
       "title": "Recovery threshold for complete LP relaxation in semi-random rank-one Boolean tensors",
-      "area": "approximation algorithms",
+      "area": "boolean tensor factorization",
       "keywords": [
         "boolean tensor factorization",
         "linear programming relaxation",
@@ -4058,7 +4058,7 @@
       "source_paper_bibtex": "@article{Gershkov_2025, title={Order Independence in Sequential, Issue-by-Issue Voting}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0342}, DOI={10.1287/moor.2022.0342}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gershkov, Alex and Moldovanu, Benny and Shi, Xianwen}, year={2025}, month=aug, pages={1635\u20131653} }",
       "problem_index": 0,
       "title": "Order dependence of sequential issue-by-issue voting without LAMO bases",
-      "area": "social choice",
+      "area": "spatial voting",
       "keywords": [
         "sequential voting",
         "order independence",
@@ -4091,7 +4091,7 @@
       "source_paper_bibtex": "@article{Gupte_2025, title={Large Independent Sets in Recursive Markov Random Graphs}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0215}, DOI={10.1287/moor.2022.0215}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gupte, Akshay and Zhu, Yiran}, year={2025}, month=aug, pages={1611\u20131634} }",
       "problem_index": 0,
       "title": "Determine the asymptotic order of maximum independent sets in recursive Markov random graphs",
-      "area": "approximation algorithms",
+      "area": "random graphs",
       "keywords": [
         "random graphs",
         "independent set",
@@ -4122,7 +4122,7 @@
       "source_paper_bibtex": "@article{Grand_Cl_ment_2025, title={On the Convex Formulations of Robust Markov Decision Processes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0284}, DOI={10.1287/moor.2022.0284}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Grand-Cl\u00e9ment, Julien and Petrik, Marek}, year={2025}, month=aug, pages={1681\u20131706} }",
       "problem_index": 0,
       "title": "Derive an exact tractable convex program for robust Markov decision processes",
-      "area": "robust optimization",
+      "area": "robust markov decision processes",
       "keywords": [
         "robust MDPs",
         "convex formulation",
@@ -4154,7 +4154,7 @@
       "source_paper_bibtex": "@article{Cheng_2025, title={Risk-Averse Markov Decision Processes Through a Distributional Lens}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0211}, DOI={10.1287/moor.2023.0211}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Cheng, Ziteng and Jaimungal, Sebastian}, year={2025}, month=aug, pages={1707\u20131733} }",
       "problem_index": 0,
       "title": "Equivalence between discount-to-one limit and average optimality in risk-averse MDPs",
-      "area": "online algorithms",
+      "area": "risk averse markov decision",
       "keywords": [
         "risk-averse mdp",
         "dynamic risk measures",
@@ -4185,7 +4185,7 @@
       "source_paper_bibtex": "@article{Babaioff_2025, title={Fair Shares: Feasibility, Domination, and Incentives}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0257}, DOI={10.1287/moor.2022.0257}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Babaioff, Moshe and Feige, Uriel}, year={2025}, month=aug, pages={1901\u20131934} }",
       "problem_index": 0,
       "title": "Largest achievable domination factor for feasible self-maximizing polynomial-time shares under additivity",
-      "area": "approximation algorithms",
+      "area": "fair division",
       "keywords": [
         "fair division",
         "indivisible goods",
@@ -4218,7 +4218,7 @@
       "source_paper_bibtex": "@article{Necoara_2025, title={Erratum to: Linear Convergence of Dual Coordinate Descent on Nonpolyhedral Convex Problems}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0500}, DOI={10.1287/moor.2024.0500}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Necoara, Ion and Fercoq, Olivier}, year={2025}, month=aug, pages={1935\u20131938} }",
       "problem_index": 0,
       "title": "Quadratic growth of the dual objective under linear regularity of constraints",
-      "area": "convex optimization",
+      "area": "convex dual error bounds",
       "keywords": [
         "dual coordinate descent",
         "quadratic growth",
@@ -4250,7 +4250,7 @@
       "source_paper_bibtex": "@article{Mohammadi_2025, title={Parabolic Regularity of Spectral Functions}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0010}, DOI={10.1287/moor.2023.0010}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Mohammadi, Ashkan and Sarabi, Ebrahim}, year={2025}, month=aug, pages={2017\u20132046} }",
       "problem_index": 0,
       "title": "Characterize simultaneous ordered spectral decompositions needed for spectral-function critical cones",
-      "area": "information design",
+      "area": "spectral convex analysis",
       "keywords": [
         "spectral functions",
         "critical cone",
@@ -4318,7 +4318,7 @@
       "source_paper_bibtex": "@article{Eisenbrand_2025, title={Sparse Integer Programming Is Fixed-Parameter Tractable}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0162}, DOI={10.1287/moor.2023.0162}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Eisenbrand, Friedrich and Hunkenschr\u00f6der, Christoph and Klein, Kim-Manuel and Kouteck\u00fd, Martin and Levin, Asaf and Onn, Shmuel}, year={2025}, month=aug, pages={2141\u20132156} }",
       "problem_index": 0,
       "title": "Characterize matrices with bounded Graver basis infinity norm under row operations",
-      "area": "approximation algorithms",
+      "area": "graver basis bounds",
       "keywords": [
         "integer programming",
         "Graver basis",
@@ -4350,7 +4350,7 @@
       "source_paper_bibtex": "@article{Igarashi_2025, title={Envy-Free Division of Multilayered Cakes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0350}, DOI={10.1287/moor.2022.0350}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Igarashi, Ayumi and Meunier, Fr\u00e9d\u00e9ric}, year={2025}, month=aug, pages={2261\u20132286} }",
       "problem_index": 0,
       "title": "Construct natural valuation counterexamples to envy-free multi-divisions with long knives",
-      "area": "information design",
+      "area": "fair division",
       "keywords": [
         "fair division",
         "envy-free cake cutting",
@@ -4382,7 +4382,7 @@
       "source_paper_bibtex": "@article{Lu_2025, title={Primal-Dual Extrapolation Methods for Monotone Inclusions Under Local Lipschitz Continuity}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0407}, DOI={10.1287/moor.2024.0407}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Lu, Zhaosong and Mei, Sanyou}, year={2025}, month=nov, pages={2577\u20132599} }",
       "problem_index": 0,
       "title": "Remove the log factor in residual complexity for locally Lipschitz monotone inclusions",
-      "area": "online algorithms",
+      "area": "monotone inclusion",
       "keywords": [
         "monotone inclusions",
         "local Lipschitz continuity",
@@ -4415,7 +4415,7 @@
       "source_paper_bibtex": "@article{Attouch_2025, title={Fast Convex Optimization via Time Scale and Averaging of the Steepest Descent}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0186}, DOI={10.1287/moor.2023.0186}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Attouch, Hedy and Ioan Bo\u0163, Radu and Nguyen, Dang-Khoa}, year={2025}, month=nov, pages={2633\u20132665} }",
       "problem_index": 0,
       "title": "Achieve faster residual decay for cocoercive-operator Newton-corrected inertial dynamics",
-      "area": "online algorithms",
+      "area": "inertial monotone operator dynamics",
       "keywords": [
         "cocoercive operator",
         "inertial dynamics",
@@ -4449,7 +4449,7 @@
       "source_paper_bibtex": "@article{Bayraktar_2025, title={Relaxed Equilibria for Time-Inconsistent Markov Decision Processes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0209}, DOI={10.1287/moor.2023.0209}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Bayraktar, Erhan and Huang, Yu-Jui and Wang, Zhenhua and Zhou, Zhou}, year={2025}, month=nov, pages={2666\u20132687} }",
       "problem_index": 0,
       "title": "Convergence of single-valued fixed-point iteration for Gibbs-form equilibrium operators",
-      "area": "online learning",
+      "area": "entropy regularized mdp",
       "keywords": [
         "time-inconsistent MDP",
         "entropy regularization",
@@ -4481,7 +4481,7 @@
       "source_paper_bibtex": "@article{Muthukumar_2025, title={On the Impossibility of Convergence of Mixed Strategies with Optimal No-Regret Learning}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0016}, DOI={10.1287/moor.2022.0016}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Muthukumar, Vidya and Phade, Soham and Sahai, Anant}, year={2025}, month=nov, pages={2794\u20132833} }",
       "problem_index": 0,
       "title": "Prove divergence of last-iterate mixed strategies without monotonicity in 2x2 games",
-      "area": "online learning",
+      "area": "no regret learning",
       "keywords": [
         "no-regret learning",
         "last-iterate convergence",
@@ -4516,7 +4516,7 @@
       "source_paper_bibtex": "@article{Blauth_2025, title={Improved Guarantees for the A Priori TSP}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0322}, DOI={10.1287/moor.2023.0322}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Blauth, Jannis and Neuwohner, Meike and Puhlmann, Luise and Vygen, Jens}, year={2025}, month=nov, pages={2909\u20132940} }",
       "problem_index": 0,
       "title": "Determine the exact master route ratio for a priori TSP with depot",
-      "area": "approximation algorithms",
+      "area": "stochastic tsp",
       "keywords": [
         "a priori tsp",
         "stochastic optimization",
@@ -4550,7 +4550,7 @@
       "source_paper_bibtex": "@article{Ezra_2025, title={Tight Bounds for Secretary Matching in General Graphs}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0206}, DOI={10.1287/moor.2022.0206}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ezra, Tomer and Feldman, Michal and Gravin, Nikolai and Tang, Zhihao (Gavin)}, year={2025}, month=nov, pages={3039\u20133054} }",
       "problem_index": 0,
       "title": "Designing polynomial-time 1/4-competitive secretary matching algorithm under edge arrivals",
-      "area": "online algorithms",
+      "area": "online matching",
       "keywords": [
         "secretary problem",
         "online matching",
@@ -4583,7 +4583,7 @@
       "source_paper_bibtex": "@article{Li_2025, title={Stochastic First-Order Methods for Average-Reward Markov Decision Processes}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0241}, DOI={10.1287/moor.2022.0241}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Tianjiao and Wu, Feiyang and Lan, Guanghui}, year={2025}, month=nov, pages={3125\u20133160} }",
       "problem_index": 0,
       "title": "Design sample-efficient on-policy learning for average-reward MDPs with weak exploration",
-      "area": "online learning",
+      "area": "reinforcement learning",
       "keywords": [
         "average-reward MDPs",
         "on-policy learning",
@@ -4618,7 +4618,7 @@
       "source_paper_bibtex": "@article{Berger_2025, title={Pandora\u2019s Problem with Combinatorial Cost}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0248}, DOI={10.1287/moor.2023.0248}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Berger, Ben and Ezra, Tomer and Feldman, Michal and Fusco, Federico}, year={2025}, month=nov, pages={3161\u20133189} }",
       "problem_index": 0,
       "title": "Polynomial-time optimal or approximate strategies for Pandora problem with budget-additive costs",
-      "area": "approximation algorithms",
+      "area": "pandoras box",
       "keywords": [
         "pandora's problem",
         "budget-additive costs",
@@ -4651,7 +4651,7 @@
       "source_paper_bibtex": "@article{Li_2025, title={A Riemannian Alternating Direction Method of Multipliers}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0068}, DOI={10.1287/moor.2023.0068}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Jiaxiang and Ma, Shiqian and Srivastava, Tejes}, year={2025}, month=nov, pages={3222\u20133242} }",
       "problem_index": 0,
       "title": "Designing ADMM methods for nonsmooth Riemannian optimization without Moreau smoothing",
-      "area": "online algorithms",
+      "area": "manifold admm",
       "keywords": [
         "riemannian optimization",
         "admm",
@@ -4684,7 +4684,7 @@
       "source_paper_bibtex": "@article{Rodrigo_2025, title={An Stochastic Differential Equation Perspective on Stochastic Convex Optimization}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0162}, DOI={10.1287/moor.2022.0162}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Rodrigo, Maul\u00e9n S. and Fadili, Jalal and Attouch, Hedy}, year={2025}, month=nov, pages={3190\u20133221} }",
       "problem_index": 0,
       "title": "Prove sharp decay rates for nonlinear comparison ODE driven by SDE noise",
-      "area": "online learning",
+      "area": "nonlinear differential inequalities",
       "keywords": [
         "stochastic differential equations",
         "lojasiewicz inequality",
@@ -4716,7 +4716,7 @@
       "source_paper_bibtex": "@article{Gao_2026, title={Square-Root Regret Bounds for Continuous-Time Episodic Markov Decision Processes}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0283}, DOI={10.1287/moor.2022.0283}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Zhou, Xunyu}, year={2026}, month=jan, pages={333\u2013357} }",
       "problem_index": 0,
       "title": "Improve minimax regret dependence on states and horizon in episodic CTMDPs",
-      "area": "online learning",
+      "area": "reinforcement learning",
       "keywords": [
         "continuous-time MDPs",
         "episodic reinforcement learning",
@@ -4750,7 +4750,7 @@
       "source_paper_bibtex": "@article{Xing_2026, title={A Simple Integral Equation Approach for Optimal Investment Stopping Problems with Partial Information}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0268}, DOI={10.1287/moor.2023.0268}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Xing, Jie and Ma, Jingtang and Zheng, Harry}, year={2026}, month=jan, pages={542\u2013567} }",
       "problem_index": 0,
       "title": "Extend dimension-reduction integral-equation method to Wonham-filter drift uncertainty setting",
-      "area": "stochastic control",
+      "area": "optimal stopping under partialinformation",
       "keywords": [
         "optimal stopping",
         "partial information",
@@ -4783,7 +4783,7 @@
       "source_paper_bibtex": "@article{Van_Hang_2026, title={Convergence of Augmented Lagrangian Methods for Composite Optimization Problems}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0324}, DOI={10.1287/moor.2023.0324}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Van Hang, Nguyen Thi and Sarabi, Ebrahim}, year={2026}, month=jan, pages={591\u2013620} }",
       "problem_index": 0,
       "title": "Equality between semi-strict and strict subgradient derivatives for C2-decomposable functions",
-      "area": "nonlinear optimization",
+      "area": "variational analysis",
       "keywords": [
         "augmented Lagrangian",
         "C2-decomposable functions",
@@ -4819,7 +4819,7 @@
       "source_paper_bibtex": "@article{Brustle_2026, title={The Competition Complexity of Prophet Inequalities}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0684}, DOI={10.1287/moor.2024.0684}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brustle, Johannes and Correa, Jos\u00e9 and D\u00fctting, Paul and Ezra, Tomer and Feldman, Michal and Verdugo, Victor}, year={2026}, month=jan, pages={641\u2013665} }",
       "problem_index": 0,
       "title": "Achieve doubly-exponential competition complexity using dynamic prices in combinatorial auctions",
-      "area": "prophet inequalities",
+      "area": "online posted pricing",
       "keywords": [
         "competition complexity",
         "prophet inequalities",
@@ -4851,7 +4851,7 @@
       "source_paper_bibtex": "@article{Yang_2026, title={Inexact Bregman Proximal Gradient Method and Its Inertial Variant with Absolute and Partial Relative Stopping Criteria}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0328}, DOI={10.1287/moor.2023.0328}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Yang, Lei and Toh, Kim-Chuan}, year={2026}, month=jan, pages={686\u2013714} }",
       "problem_index": 0,
       "title": "Remove zero-gradient error requirement in partial relative inexact Bregman proximal gradient",
-      "area": "online algorithms",
+      "area": "inexact proximal gradient",
       "keywords": [
         "bregman proximal gradient",
         "relative smoothness",
@@ -4885,7 +4885,7 @@
       "source_paper_bibtex": "@article{Goenka_2026, title={Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs}, volume={51}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0317}, DOI={10.1287/moor.2023.0317}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Goenka, Ritesh and Gupta, Eashan and Khyalia, Sushil and Kalyanakrishnan, Shivaram}, year={2026}, month=jan, pages={806\u2013828} }",
       "problem_index": 0,
       "title": "Construct Hamiltonian policy-iteration paths for multi-action Markov decision processes",
-      "area": "online algorithms",
+      "area": "markov decision processes",
       "keywords": [
         "markov decision processes",
         "policy iteration",
