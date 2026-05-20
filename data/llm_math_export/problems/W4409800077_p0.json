@@ -44,16 +44,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The open problem asks for a general global convergence theory for Euclidean Anderson mixing (Anderson acceleration) for fixed-point problems from arbitrary initial points. The provided forward-citation evidence contains only one partially relevant work, which studies a Riemannian analogue on the Bures\u2013Wasserstein manifold of Gaussian measures. That work establishes local linear convergence under assumptions closely paralleling the classical Euclidean local theory: a (local) contraction of the fixed-point map and an a priori uniform bound on the Anderson coefficients, plus geometric regularity and boundedness of vector transport.\n\nIn particular, the cited paper reinforces that current convergence theory for Anderson mixing remains predominantly local and hinges on conditions that are difficult to verify or enforce globally (notably boundedness of the least-squares coefficients and staying within a region where the map is contractive and smooth). It does not provide a Euclidean global convergence result, nor a general mechanism ensuring convergence from arbitrary initial points. Consequently, based on the supplied citation set, the Euclidean global convergence theory remains open; promising directions include adding globalization safeguards (regularization, damping, line search, trust-region-like acceptance) that can guarantee descent or residual decrease while retaining the acceleration effect locally, and developing coefficient-control conditions that are verifiable from iterates.",
+    "total_cost_usd": 0.140427,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Anderson Mixing in Bures Wasserstein Space of Gaussian Measures",
+        "bibtex": "@article{LiBao2023RAM,\n  title        = {Anderson Mixing in Bures Wasserstein Space of Gaussian Measures},\n  author       = {},\n  year         = {\\bibinfo{year}{????}},\n  note         = {Metadata (authors/year/venue/doi) not provided in the citation analysis block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For fixed-point maps on the Bures\u2013Wasserstein manifold of zero-mean Gaussians of the form \\(G(\\Sigma)=\\mathrm{Exp}_{\\Sigma}(-F(\\Sigma))\\), assuming (i) local bi-Lipschitz bounds on \\(F\\) and its Jacobian under parallel transport on a ball \\(B_r(\\Sigma^*)\\), (ii) local contraction \\(W_2(G(\\Sigma_1),G(\\Sigma_2))\\le \\kappa W_2(\\Sigma_1,\\Sigma_2)\\) with \\(\\kappa<1\\), (iii) a bounded vector transport \\(\\|T^{\\Sigma_2}_{\\Sigma_1}V\\|_{\\Sigma_2}\\le M\\|V\\|_{\\Sigma_1}\\), and (iv) uniform boundedness of Anderson coefficients \\(\\|\\Gamma_k\\|_\\infty\\le M_\\Gamma\\), Theorem 3 proves local convergence of Riemannian Anderson mixing: if \\(\\Sigma_0\\) is sufficiently close to \\(\\Sigma^*\\), then all iterates stay in \\(B_r(\\Sigma^*)\\) and the residuals satisfy\n\\[\\|r_{k+1}\\| \\le \\theta_k(1-\\beta_k+\\kappa\\beta_k)\\|r_k\\| + \\sum_{i=0}^{m_k} O(\\|r_{k-i}\\|^2),\\qquad \\theta_k=\\|\\bar r_k\\|/\\|r_k\\|\\le 1.\\]\nThey also establish geometric regularity of small balls around nondegenerate \\(\\Sigma^*\\) (compactness, bounded sectional curvature, local injectivity of \\(\\mathrm{Exp}\\); Theorem 2) and show contractivity on such balls for specific operators (OU flow map (29) and KL-gradient explicit step (32); Theorem 4).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a general global convergence theory for Euclidean Anderson mixing for fixed-point problems \\(g(x)=x\\) from arbitrary initial points. This paper does not address Euclidean global convergence. Instead it develops a local convergence analysis for a Riemannian Anderson mixing variant on the Bures\u2013Wasserstein manifold of Gaussian measures, requiring (local) contraction and a priori bounded Anderson coefficients, and only guarantees convergence when the initial point lies in a sufficiently small neighborhood of the fixed point. Thus it provides partial progress only in the sense of extending/validating convergence assumptions in a non-Euclidean setting and proving local convergence under contraction\u2014conditions reminiscent of (but weaker than) a global theory."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.077378,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.077378
+    "literature_total_cost_usd": 0.140427,
+    "total_cost_usd": 0.217805
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4409800077/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4409800077_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4409800077_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

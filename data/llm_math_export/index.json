@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-04-20T23:09:19.022233+00:00",
+  "generated_at_utc": "2026-05-20T15:35:02.959853+00:00",
   "counts": {
     "exported_problems": 149,
     "open_problems_exported": 149,
-    "with_literature_review": 0,
+    "with_literature_review": 5,
     "newly_added_problems": 97,
     "duplicates_skipped": 1,
     "unverified_problems": 149
@@ -38,7 +38,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4399151428_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -71,7 +71,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4404530034_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -104,7 +104,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4409528654_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -135,7 +135,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4409800077_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -168,7 +168,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4409922425_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"

@@ -464,7 +464,11 @@
         container.innerHTML = "<p>No literature review available.</p>";
         return;
       }
-      container.innerHTML = review.sources.map((source, idx) => `
+      const synthesis = String(review.synthesis || "").trim();
+      const synthesisBlock = synthesis
+        ? `<div class="lit-synthesis math-content"><p><strong>Synthesis</strong></p><p>${escapeHtml(synthesis)}</p></div>`
+        : "";
+      container.innerHTML = synthesisBlock + review.sources.map((source, idx) => `
         <div class="lit-source-card math-content">
           <div class="lit-source-heading">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
