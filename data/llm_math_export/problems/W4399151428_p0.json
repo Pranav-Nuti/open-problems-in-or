@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The 2025 paper of Portales\u2013Cazelles\u2013Pauwels establishes sequential convergence of Lloyd-type fixed-point iterations for both optimal quantization \\(Y_{n+1}=T_N(Y_n)\\) and uniform quantization \\(Y_{n+1}=B_N(Y_n)\\) under the rigidity hypothesis that the target density \\(f\\) is globally subanalytic (hence definable), which implies the Kurdyka\u2013\\L{}ojasiewicz (KL) property for the semi-discrete objectives \\(G_N\\) and \\(F_N\\). The proof combines (i) the classical identities \\(\\nabla G_N(Y)=M(V(Y))(Y-T_N(Y))\\) and \\(\\nabla F_N(Y)=\\tfrac1N(Y-B_N(Y))\\), (ii) a strong descent condition along Lloyd iterates, and (iii) KL-based convergence theorems for gradient-like methods.\n\nBeyond this definability framework, the open problem asks for alternative conditions on \\(\\mu\\) ensuring sequential convergence. The only forward-citing work provided here (\"Weighted quantization using MMD\") does not advance this question for \\(W_2\\)-quantization; it studies different objectives (MMD) and dynamics, though it reinforces the general strategy of viewing fixed-point quantization schemes as (preconditioned) gradient methods where KL-type inequalities can yield convergence.\n\nGiven the current forward-citation evidence supplied, there is no identified solution removing global subanalyticity/definability assumptions. Promising directions suggested by the source paper include: finding other verifiable KL mechanisms for \\(G_N\\) and \\(F_N\\) (e.g., analyticity of parameterized integrals under alternative geometric hypotheses on \\(\\mathrm{Supp}(\\mu)\\)), or proving isolation/stratification properties of critical sets (which would imply convergence once accumulation points are known to be critical).",
+    "total_cost_usd": 0.2612841,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Weighted quantization using MMD: From mean field to mean shift via gradient flows",
+        "bibtex": "@article{WeightedQuantizationMMDGradientFlows,\n  title        = {Weighted quantization using MMD: From mean field to mean shift via gradient flows},\n  author       = {Unknown},\n  year         = {????},\n  note         = {Metadata incomplete in forward-citation analysis (authors/year/venue/doi not provided).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces MMD-optimal weighted quantization algorithms based on Wasserstein\u2013Fisher\u2013Rao (WFR) gradient flows and a fixed-point scheme (MSIP). Key statements include: (i) an interacting particle ODE system discretizing the WFR gradient flow for the MMD functional (Proposition 3.1), with global existence/uniqueness and monotone decrease of the MMD functional along the ODE trajectory under mild kernel assumptions (Proposition 3.2); (ii) a characterization of stationary points via kernel moment conditions (19)\u2013(20) and a resulting fixed-point iteration (24)\u2013(25); (iii) an identity showing MSIP is a preconditioned gradient descent for the finite-particle objective \\(F_M(Y)=\\inf_{w\\in\\mathbb R^M}\\tfrac12\\mathrm{MMD}^2(\\pi,\\sum_i w_i\\delta_{y_i})\\), namely \\(\\nabla F_M(Y)=P(Y)(Y-\\Psi_{\\mathrm{MSIP}}(Y))\\) (Theorem 3.4), and an existence result of step sizes ensuring descent of \\(F_M\\) for squared-exponential kernels (Proposition 3.5).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for sequential convergence of Lloyd iterates for semi-discrete \\(W_2\\)-quantization (optimal and uniform) under conditions on \\(\\mu\\) beyond global subanalyticity/definability of the density. This citing paper does not address sequential convergence of Lloyd\u2019s algorithm for \\(W_2\\) quantization; it only recalls the classical identity \\(\\nabla G_M(Y)=D(Y)(Y-\\Psi_{\\mathrm{Lloyd}}(Y))\\) from Du et al. (1999) as an analogy. Its new convergence/descent results concern different objectives (MMD-based quantization) and different dynamics (WFR gradient flow, MSIP fixed-point/preconditioned gradient descent). It therefore does not solve or partially solve the stated open problem, but it is tangentially related by importing the \u2018Lloyd as preconditioned gradient descent\u2019 viewpoint and by suggesting future use of Kurdyka\u2013\u0141ojasiewicz ideas (citing Portales et al. 2025) for their own algorithms."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.059029250000000005,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.059029250000000005
+    "literature_total_cost_usd": 0.2612841,
+    "total_cost_usd": 0.32031335000000005
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4399151428/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4399151428_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4399151428_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

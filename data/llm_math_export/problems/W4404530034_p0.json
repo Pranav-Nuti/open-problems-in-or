@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for a central limit theorem for the stochastic mirror descent (SMD) estimator \\(z_n=(\\xi_n,y_n)\\) or its weighted average \\(\\bar z_n\\) in the risk-budgeting formulation of Arnaiz Iglesias\u2013Cetingoz\u2013Frikha (2024). In that paper, the objective \\(h(z)=\\mathbb{E}[H(z,X)]\\) is strictly convex in \\(z\\) on \\(\\mathbb{R}\\times(0,\\infty)^d\\), but the gradient in \\(y\\) is singular at the boundary due to \\(-\\sum_i b_i\\log y_i\\). The authors introduce the taming factor \\(\\kappa(y)=(\\min_i y_i)\\wedge 1\\) and a KL/negative-entropy mirror prox map \\(P_y^m\\) on \\(\\{y\\ge 0,\\ \\|y\\|_1\\le m\\}\\), proving almost sure convergence and an almost sure non-asymptotic bound for \\(h(\\bar z_n)-h(z^\\star)\\).\n\nNo forward-citing papers were provided, so the closest relevant literature is the classical stochastic approximation and averaging theory that typically yields CLTs for first-order stochastic optimization. The key template is Polyak\u2013Juditsky averaging: under local smoothness and stability (invertible Jacobian \\(A:=\\nabla^2 h(z^\\star)\\) and martingale-difference noise with covariance \\(S\\)), one expects \\(\\sqrt{n}(\\bar z_n-z^\\star)\\Rightarrow\\mathcal{N}(0,\\Sigma)\\), where \\(\\Sigma\\) solves a Lyapunov equation involving \\(A\\) and \\(S\\). Extending this to the present setting requires (i) showing that near \\(y^\\star\\in(0,\\infty)^d\\) the taming satisfies \\(\\kappa(y)=1\\) and the mirror prox step is differentiable so the recursion reduces locally to a smooth SA; and (ii) controlling the probability of excursions toward the boundary where \\(\\kappa(y)\\neq 1\\) and the log-barrier term dominates. General SA references (Kushner\u2013Yin; Benveniste\u2013M\u00e9tivier\u2013Priouret) provide CLTs for state-dependent gains and constrained recursions, but the specific combination of KL mirror map plus global taming appears not to have a ready-made CLT in the risk-budgeting literature.\n\nAccordingly, the problem appears to remain open in the specific form posed by the paper: a full CLT with explicit \\(a_n\\) and \\(\\Sigma\\) for \\(z_n\\) or \\(\\bar z_n\\) under the taming/mirror mechanism. A promising direction is to prove a two-stage result: first, establish that after a (random) finite time the iterates enter and remain in a compact subset of \\((0,\\infty)^d\\) where \\(\\kappa\\equiv 1\\) and the \\(\\ell_1\\)-constraint is inactive (so \\(P_y^m(v)=y\\odot e^{-v}\\)); second, apply standard SA/averaging CLTs to the resulting locally smooth recursion, yielding \\(a_n=\\sqrt{n}\\) (or \\(\\sqrt{\\sum_{k\\le n}\\gamma_k}\\) for weighted averages) and \\(\\Sigma\\) characterized via \\(\\nabla^2 h(z^\\star)\\) and the covariance of \\(\\nabla H(z^\\star,X)-\\nabla h(z^\\star)\\).",
+    "total_cost_usd": 0.08795675,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Problem Complexity and Method Efficiency in Optimization",
+        "bibtex": "@book{NemirovskyYudin1983,\n  title        = {Problem Complexity and Method Efficiency in Optimization},\n  author       = {Nemirovsky, Arkadi and Yudin, David},\n  year         = {1983},\n  publisher    = {Wiley-Interscience}\n}\n",
+        "source_url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470172435",
+        "theorem_or_result": "Introduces mirror descent and complexity bounds for convex optimization, providing the foundational deterministic framework underlying entropy/KL mirror maps.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides the baseline mirror descent methodology; CLTs for SMD typically linearize the recursion around the minimizer and use stochastic approximation theory built on such first-order schemes."
+      },
+      {
+        "title": "A Stochastic Approximation Method",
+        "bibtex": "@article{RobbinsMonro1951,\n  title   = {A Stochastic Approximation Method},\n  author  = {Robbins, Herbert and Monro, Sutton},\n  journal = {The Annals of Mathematical Statistics},\n  year    = {1951},\n  volume  = {22},\n  number  = {3},\n  pages   = {400--407},\n  doi     = {10.1214/aoms/1177729586}\n}\n",
+        "source_url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full",
+        "theorem_or_result": "Establishes stochastic approximation recursions and convergence principles for root-finding under noisy observations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The SMD recursion in the paper is a stochastic approximation with a non-Euclidean prox step; CLTs for \u0010\\(z_n\\) or Polyak\u2013Ruppert averages are typically proved by adapting Robbins\u2013Monro asymptotic normality theory to mirror maps and constraints."
+      },
+      {
+        "title": "Acceleration of stochastic approximation by averaging",
+        "bibtex": "@article{PolyakJuditsky1992,\n  title   = {Acceleration of stochastic approximation by averaging},\n  author  = {Polyak, Boris T. and Juditsky, Anatoli B.},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {1992},\n  volume  = {30},\n  number  = {4},\n  pages   = {838--855},\n  doi     = {10.1137/0330046}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/0330046",
+        "theorem_or_result": "Proves asymptotic normality and optimal covariance for averaged stochastic approximation (Polyak\u2013Ruppert averaging) under smoothness and stability conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Directly targets the desired CLT for the weighted averaged iterates \\(\\bar z_n\\) used in the paper; suggests scaling \\(a_n=\\sqrt{n}\\) (or \\(\\sqrt{\\sum\\gamma_k}\\) for weighted averages) and covariance given by a Lyapunov equation involving the Jacobian \\(\\nabla^2 h(z^\\star)\\) and noise covariance."
+      },
+      {
+        "title": "Stochastic Approximation and Recursive Algorithms and Applications",
+        "bibtex": "@book{KushnerYin2003,\n  title     = {Stochastic Approximation and Recursive Algorithms and Applications},\n  author    = {Kushner, Harold J. and Yin, G. George},\n  year      = {2003},\n  publisher = {Springer},\n  edition   = {2}\n}\n",
+        "source_url": "https://link.springer.com/book/10.1007/b97441",
+        "theorem_or_result": "Comprehensive treatment of stochastic approximation, including ODE methods, stability, and asymptotic normality/CLTs for SA under various conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides general CLT machinery for SA that can be adapted to the paper's tamed-gradient mirror descent by expressing the prox step as a smooth map near \\(z^\\star\\) and verifying local linearization and martingale-difference noise conditions."
+      },
+      {
+        "title": "Adaptive Algorithms and Stochastic Approximations",
+        "bibtex": "@book{BenvenisteMetivierPriouret1990,\n  title     = {Adaptive Algorithms and Stochastic Approximations},\n  author    = {Benveniste, Albert and M{\\'e}tivier, Michel and Priouret, Pierre},\n  year      = {1990},\n  publisher = {Springer}\n}\n",
+        "source_url": "https://link.springer.com/book/10.1007/978-3-642-75894-4",
+        "theorem_or_result": "Develops asymptotic theory (including CLTs) for stochastic approximation and adaptive algorithms with martingale noise.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Useful for proving CLTs for \\(z_n\\) and averaged \\(\\bar z_n\\) when the update includes state-dependent preconditioning/taming \\(\\kappa(y_k)\\) and a mirror map; provides conditions for asymptotic normality via linearization and stable Jacobians."
+      },
+      {
+        "title": "Dynamics of stochastic approximation algorithms",
+        "bibtex": "@article{Benaim1999,\n  title   = {Dynamics of stochastic approximation algorithms},\n  author  = {Bena{\\\"i}m, Michel},\n  journal = {Probability Surveys},\n  year    = {1999},\n  volume  = {1},\n  pages   = {1--79},\n  doi     = {10.1007/s002850050060}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s002850050060",
+        "theorem_or_result": "Establishes the ODE method for stochastic approximation, linking asymptotic behavior to dynamical systems and invariant sets.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supports the convergence part already proved in the paper and is often a precursor step before proving CLTs (local linearization around stable equilibria)."
+      },
+      {
+        "title": "Adaptive Subgradient Methods for Online Learning and Stochastic Optimization",
+        "bibtex": "@article{DuchiHazanSinger2011,\n  title   = {Adaptive Subgradient Methods for Online Learning and Stochastic Optimization},\n  author  = {Duchi, John and Hazan, Elad and Singer, Yoram},\n  journal = {Journal of Machine Learning Research},\n  year    = {2011},\n  volume  = {12},\n  pages   = {2121--2159}\n}\n",
+        "source_url": "https://jmlr.org/papers/v12/duchi11a.html",
+        "theorem_or_result": "Develops adaptive mirror-descent-type methods (AdaGrad) with regret bounds under convexity and stochasticity.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "While not a CLT paper, it situates mirror descent with entropy-like geometries in stochastic optimization; techniques for handling unbounded gradients are related in spirit to the paper's taming \\(\\kappa(y)\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08326850000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08326850000000001
+    "literature_total_cost_usd": 0.08795675,
+    "total_cost_usd": 0.17122525
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4404530034/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4404530034_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4404530034_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }
