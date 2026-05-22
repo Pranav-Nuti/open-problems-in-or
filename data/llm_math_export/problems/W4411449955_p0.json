@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem posed in Bayraktar\u2013Han concerns designing numerical schemes for computing subgame-perfect equilibrium bicausal transport plans under time-inconsistent objectives (e.g. nonseparable f-divergence regularization, nonlinear functionals \\(G(\\int h\\,d\\pi)\\), or state-dependent preferences), together with rigorous convergence guarantees of iterates \\(\\pi^{(n)}\\to\\pi^*\\) in a suitable topology (weak/adapted weak/Wasserstein on kernels). The source paper develops existence/uniqueness theory for equilibria via an extended dynamic programming recursion (semi-discrete Markovian case using refined Polish topologies and measurable selection; continuous non-Markovian case via parametric couplings and Berge\u2019s maximum theorem), but explicitly leaves convergence of numerical algorithms open (Remark 2.1).\n\nAmong the provided forward citations, the only analyzed citing work is a mean-field equilibrium model for two-sided matching characterized by a coupled HJB\u2013Fokker\u2013Planck system. While it shares the equilibrium-as-fixed-point flavor and uses a fixed-point numerical iteration in experiments, it does not treat bicausal transport on path space nor time-inconsistent transport costs, and it does not provide convergence proofs for numerical iterates. Consequently, it offers at most methodological inspiration (e.g. monotonicity/contractivity conditions for coupled forward\u2013backward systems) rather than progress on convergence guarantees for equilibrium transport algorithms.\n\nOverall, based on the available citation evidence, the convergence-guarantee problem for numerical algorithms computing equilibrium bicausal transport plans with time-inconsistent costs remains open. Promising directions include: (i) identifying settings where the extended DP operator is a contraction in an adapted Wasserstein-type metric, yielding convergence of value iteration; (ii) proving convergence of best-response/fictitious-play style iterations under strict quasiconvexity/monotonicity assumptions akin to those ensuring uniqueness in the parametric case; and (iii) leveraging recent quantitative convergence results for quadratically regularized linear programs to control approximation error when equilibrium problems are solved via regularized surrogates.",
+    "total_cost_usd": 0.2720095,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Optimal Matching Strategies in Two-sided Markets: A Mean Field Approach",
+        "bibtex": "@article{OptimalMatchingTwoSidedMeanField,\n  title        = {Optimal Matching Strategies in Two-sided Markets: A Mean Field Approach},\n  author       = {},\n  year         = {},\n  note         = {Metadata incomplete in provided forward-citation analysis (authors/year/venue/DOI not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper formulates a continuous-time two-population mean field Nash equilibrium for dynamic two-sided matching with threshold controls and proves global existence (and, under additional conditions, uniqueness) of equilibrium via a fully coupled nonlocal HJB\u2013FP system. Concretely, under Assumptions 3.1\u20133.3 it proves existence of a solution \n\\[(V_A,V_B,f_A,f_B)\\in H_A\\times H_B\\times A_A\\times A_B\\]\nto the coupled system (3.13)\u2013(3.17), and verifies that the equilibrium thresholds satisfy \\(u_I^*(\\cdot,t)=V_I^*(\\cdot,t)\\) and the induced laws \\(\\pi_{I,t}^*(\\cdot,0)=f_I^*(\\cdot,t)\\,d\\mathcal L^1\\), \\(\\pi_{I,t}^*(\\cdot,1)=\\mu_{I,0}-f_I^*(\\cdot,t)\\,d\\mathcal L^1\\) form a mean field Nash equilibrium (Theorems 3.1\u20133.3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for numerical algorithms with convergence guarantees for computing subgame-perfect equilibrium bicausal transport plans for time-inconsistent (discrete-time) bicausal optimal transport. This citing paper is not about bicausal optimal transport, time-inconsistent transport costs, or subgame-perfect one-step deviation equilibria on path-space couplings. It does, however, provide an example of (i) equilibrium defined by best responses in a dynamic setting, (ii) a coupled forward\u2013backward PDE/measure system characterizing equilibrium, and (iii) a fixed-point iteration\u2013type numerical scheme (finite differences + fixed-point iteration) used in experiments, though without a rigorous convergence proof for the numerical iterates. Thus it is at most tangentially relevant as background/technique for equilibrium computation, not a solution to the stated convergence-guarantee problem in equilibrium transport."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.12273975000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.12273975000000001
+    "literature_total_cost_usd": 0.2720095,
+    "total_cost_usd": 0.39474925000000005
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411449955/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411449955_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411449955_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

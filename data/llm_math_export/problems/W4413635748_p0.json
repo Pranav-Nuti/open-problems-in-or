@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "Ruan (2025) develops a deterministic reduction (Theorem 1) for locally weakly convex functions on an open set \\(O\\): uniform Hausdorff control of \\(x\\mapsto \\partial f(x)\\) reduces to uniform control of any subgradient selections \\(g(x)\\in\\partial f(x)\\). This enables sharp high-probability rates for stochastic convex-composite models \\(f(x,\\xi)=h(c(x;\\xi))\\) with one-dimensional convex outer \\(h\\), by choosing a selection built from indicator thresholds \\(\\mathbf 1\\{c(x,\\xi)\\ge t\\}\\) and controlling it via VC dimension of the induced threshold class. The resulting bound (Theorem 5) yields essentially \\(m^{-1/2}\\) rates (up to logs) for \\(\\sup_{x\\in X\\cap B(x_0;r)} H(\\partial\\phi(x),\\partial\\phi_S(x))\\) in that model class.\n\nFor the max-of-smooth weakly convex class, the lone forward-citing work provided here gives a complementary, negative message: \u201cFailure of uniform laws of large numbers for subdifferentials and beyond\u201d constructs structured max-type objectives (even convex, in \\(d=2\\), with only two smooth pieces combined by \\(\\max\\{\\cdot,0\\}\\)) where uniform LLNs for subdifferentials fail, and hence uniform Hausdorff convergence \\(\\sup_x H(\\partial f(x),\\partial f_S(x))\\to 0\\) cannot hold in full generality. This indicates the open problem remains unsolved as stated: an analogue of Ruan\u2019s uniform rate bound for general max-of-smooth models is impossible without strengthening assumptions.\n\nPromising directions therefore shift from a blanket extension to identifying verifiable additional conditions under which a Ruan-style reduction plus learning-theoretic control can succeed for max-of-smooth models. Natural candidates include: (i) restricting the index set of maximizers to a class with finite complexity (e.g., finite max, parametric families with bounded VC/pseudodimension), (ii) imposing margin or nondegeneracy conditions ensuring stability of the active set \\(\\arg\\max\\) under sampling, or (iii) weakening the target metric (graphical distance, fixed \\(\\varepsilon\\)-enlarged subdifferentials, or local-in-probability notions) to bypass the demonstrated obstructions.",
+    "total_cost_usd": 0.138103,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Failure of uniform laws of large numbers for subdifferentials and beyond",
+        "bibtex": "@article{FailureUniformLLNSubdifferentials,\n  title        = {Failure of uniform laws of large numbers for subdifferentials and beyond},\n  author       = {},\n  year         = {\\{\\}},\n  note         = {Metadata incomplete in provided forward-citation analysis (authors/year/venue/URL/DOI not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves that uniform laws of large numbers for subdifferentials can fail even for very structured nonsmooth models. In particular, Theorem 3 constructs a random convex function in \n\n- dimension \n\n\\(d=2\\), with \\(X=\\{0\\}\\times[0,1]\\), \\(\\xi\\sim\\mathrm{Unif}[0,1]\\), and \n\\[f(\\xi,x)=\\max\\{g(\\xi,x),0\\}+35\\|x\\|^2,\\]\nwhere \\(g(\\xi,\\cdot)\\) is Lipschitz and \\(C^1\\)-smooth, such that for some \\(\\delta_\\nu\\downarrow 0\\) and nonempty sets \\(D_\\nu\\subset X\\), almost surely\n\\[\\liminf_{\\nu\\to\\infty}\\ \\sup_{x\\in D_\\nu}\\ \\inf_{y,\\hat y\\in B(x,\\delta_\\nu)}\\ \\big\\|\\mathbb E[\\nabla_x f(\\xi,y)]-\\tfrac1\\nu\\sum_{i=1}^\\nu \\nabla_x f(\\xi_i,\\hat y)\\big\\|\\ \\ge \\tfrac12.\\]\nConsequently, uniform Hausdorff convergence \\(\\sup_{x\\in X} d_H(\\partial f(x),\\partial f_\\nu(x))\\to 0\\) (or even with shrinking neighborhood enlargements) fails in general for such max-type nonsmoothness.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks for high-probability uniform convergence rates for Hausdorff distance between subdifferentials for stochastic weakly convex objectives in the max-of-smooth class. This paper shows a fundamental obstruction: even when each sample loss is convex and has only two smooth pieces combined by the simplest max operation \\(t\\mapsto \\max\\{t,0\\}\\) (a prototypical max-of-smooth structure), uniform LLNs for subdifferentials (hence any distribution-free uniform rate bound) can fail in dimension \\(d\\ge 2\\) under natural Lipschitz/smoothness assumptions. Thus, without additional structural complexity controls (e.g., VC-major conditions as in Ruan 2025) or alternative notions (enlarged/\\(\\varepsilon\\)-subdifferentials with fixed \\(\\varepsilon>0\\), graphical convergence, etc.), the desired uniform Hausdorff-distance bounds cannot hold in full generality for max-of-smooth models. The paper therefore provides negative results that delimit what an analogue of Ruan's bound could possibly look like and indicates extra assumptions are necessary."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.085904,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.085904
+    "literature_total_cost_usd": 0.138103,
+    "total_cost_usd": 0.224007
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413635748/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4413635748_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4413635748_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

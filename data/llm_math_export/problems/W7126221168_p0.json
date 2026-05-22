@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for the optimal tradeoff between the number \\(m\\) of co-centered ellipsoids and the approximation factor \\(1+\\varepsilon\\) for arbitrary symmetric convex bodies \\(C\\subset\\mathbb{R}^n\\). For \\(m=1\\), John\u2019s theorem gives a universal guarantee \\(E\\subseteq C\\subseteq \\sqrt{n}E\\), and this is essentially tight in worst case, so any \\((1+\\varepsilon)\\)-approximation with small \\(\\varepsilon\\) requires \\(m\\to\\infty\\) as \\(\\varepsilon\\downarrow 0\\) (for fixed \\(n\\)). The paper \"Generalized Ellipsoids\" shows that intersections of \\(m\\) co-centered ellipsoids are exactly generalized ellipsoids of degree \\(d\\le 2m-3\\), so bounding \\(m(n,\\varepsilon)\\) would immediately sharpen degree-vs-accuracy bounds for GE approximations.\n\nAt present, the only general quantitative \\((1+\\varepsilon)\\)-approximation guarantee in the GE paper proceeds indirectly: approximate the polar body \\(C^\\circ\\) by a polytope with \\(N\\) vertices using Barvinok\u2019s thrifty approximation results, then dualize to obtain a polytope with \\(N\\) facets approximating \\(C\\), and finally represent that polytope (or an intersection of semiellipsoids encoding its facets) as a GE with degree \\(O(N)\\). This yields a GE degree bound of order \\(d\\lesssim 2(\\tfrac{1}{\\sqrt{\\varepsilon}}\\log\\tfrac{1}{\\varepsilon})^n\\), but it does not translate into a comparably sharp bound on \\(m\\) for intersections of ellipsoids because the representation result is one-way: ellipsoid intersections \\(\\Rightarrow\\) GE, not conversely.\n\nThus the core gap remains: develop direct approximation theory for \\(C\\) by \\(\\bigcap_{i=1}^m E(Q_i)\\) with explicit dependence of \\(m\\) on \\(n\\) and \\(\\varepsilon\\), and ideally matching lower bounds. Promising directions include (i) identifying extremal bodies for this approximation model (e.g., \\(\\ell_1\\) or \\(\\ell_\\infty\\) balls, zonoids, or bodies with many nearly-flat regions), (ii) relating ellipsoid-intersection approximation to covering numbers/entropy of the unit sphere under the norm \\(\\|\\cdot\\|_C\\), and (iii) exploiting algorithmic constructions (e.g., iterative selection of supporting ellipsoids) informed by optimization over ellipsoid intersections (as in work on quadratic optimization over such sets). No forward-citation evidence of a solution is available here, so the problem should be regarded as open.",
+    "total_cost_usd": 0.11170775,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Thrifty approximations of convex bodies by polytopes",
+        "bibtex": "@article{Barvinok2014Thrifty,\n  author  = {Barvinok, Alexander},\n  title   = {Thrifty approximations of convex bodies by polytopes},\n  journal = {International Mathematics Research Notices},\n  year    = {2014},\n  pages   = {4341--4356}\n}\n",
+        "source_url": "https://doi.org/10.1093/imrn/rnt097",
+        "theorem_or_result": "Gives near-optimal bounds on approximating a symmetric convex body by a polytope with controlled number of vertices/facets, yielding rates like \\(N\\approx (\\tfrac{1}{\\sqrt{\\varepsilon}}\\log\\tfrac{1}{\\varepsilon})^n\\) for \\((1+\\varepsilon)\\)-approximation in fixed dimension.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "The GE paper\u2019s current quantitative approximation bound (Theorem 5.7) reduces approximation by generalized ellipsoids to polytopic approximation via polarity; any improvement in approximating by intersections of ellipsoids would sharpen these bounds beyond what is inherited from polytopes."
+      },
+      {
+        "title": "A Course in Convexity",
+        "bibtex": "@book{Barvinok2002Course,\n  author    = {Barvinok, Alexander},\n  title     = {A Course in Convexity},\n  publisher = {American Mathematical Society},\n  series    = {Graduate Studies in Mathematics},\n  volume    = {54},\n  year      = {2002}\n}\n",
+        "source_url": "https://bookstore.ams.org/gsm-54",
+        "theorem_or_result": "Comprehensive reference on convex bodies, polarity, and approximation by polytopes; includes duality facts used to translate vertex bounds to facet bounds and vice versa.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides the convex-geometric toolkit (polarity, support functions, approximation notions) underlying the reduction from approximating \\(C\\) to approximating \\(C^\\circ\\) by polytopes, which is the route currently used to approximate by generalized ellipsoids and motivates seeking direct ellipsoidal-intersection approximations."
+      },
+      {
+        "title": "Lecture Notes on Modern Convex Optimization",
+        "bibtex": "@book{BenTalNemirovski2001Modern,\n  author    = {Ben-Tal, Aharon and Nemirovski, Arkadi},\n  title     = {Lecture Notes on Modern Convex Optimization},\n  publisher = {SIAM},\n  year      = {2001}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/book/10.1137/1.9780898718829",
+        "theorem_or_result": "Standard reference on convex optimization and conic representability, including SOCP/SDP representable sets and operations preserving representability.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Intersections of ellipsoids are convex quadratic representable (hence SOCP/SDP representable). Understanding representability and complexity of such intersections is relevant to algorithmic aspects of searching for good approximations and to comparing GE vs finite ellipsoid intersections."
+      },
+      {
+        "title": "Minimum-Volume Ellipsoids: Theory and Algorithms",
+        "bibtex": "@book{Todd2016MinimumVolume,\n  author    = {Todd, Michael J.},\n  title     = {Minimum-Volume Ellipsoids: Theory and Algorithms},\n  publisher = {SIAM},\n  year      = {2016}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/book/10.1137/1.9781611974859",
+        "theorem_or_result": "Develops theory/algorithms for minimum-volume enclosing ellipsoids and related ellipsoidal approximations (John/L\u00f6wner ellipsoids) with quantitative guarantees.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "John/L\u00f6wner ellipsoids give the baseline \\(\\sqrt{n}\\) (or \\(n\\)) factor approximation by a single ellipsoid; the open problem asks how the approximation improves when allowing intersections of \\(m\\) co-centered ellipsoids, so this is a natural starting point and comparison benchmark."
+      },
+      {
+        "title": "Extremum problems with inequalities as subsidiary conditions",
+        "bibtex": "@article{John1948Extremum,\n  author  = {John, Fritz},\n  title   = {Extremum problems with inequalities as subsidiary conditions},\n  journal = {Studies and Essays Presented to R. Courant on his 60th Birthday},\n  year    = {1948},\n  pages   = {187--204}\n}\n",
+        "source_url": "https://zbmath.org/?q=an:0040.20702",
+        "theorem_or_result": "John\u2019s theorem: every symmetric convex body \\(C\\subset\\mathbb{R}^n\\) has a maximum-volume inscribed ellipsoid \\(E\\) with \\(E\\subseteq C\\subseteq \\sqrt{n}E\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Gives the best-possible universal guarantee for \\(m=1\\). The open problem seeks the optimal tradeoff \\(m(n,\\varepsilon)\\) for intersections of \\(m\\) ellipsoids, generalizing John\u2019s single-ellipsoid approximation."
+      },
+      {
+        "title": "On maximization of quadratic form over intersection of ellipsoids with common center",
+        "bibtex": "@article{NemirovskiRoosTerlaky1999Quadratic,\n  author  = {Nemirovski, Arkadi and Roos, C. and Terlaky, Tam{\\'a}s},\n  title   = {On maximization of quadratic form over intersection of ellipsoids with common center},\n  journal = {Mathematical Programming},\n  year    = {1999},\n  volume  = {86},\n  pages   = {463--473}\n}\n",
+        "source_url": "https://doi.org/10.1007/s101070050103",
+        "theorem_or_result": "Analyzes SDP relaxations and approximation ratios for optimizing quadratic forms over intersections of co-centered ellipsoids; provides bounds depending on the number of ellipsoids.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "While not directly about approximating arbitrary convex bodies by ellipsoid intersections, it develops quantitative understanding of geometry/optimization over such intersections and how complexity scales with \\(m\\), which is relevant for algorithmic approaches to constructing approximations."
+      },
+      {
+        "title": "Generalized Ellipsoids",
+        "bibtex": "@misc{AhmadiChaudhryDibek2025Generalized,\n  author       = {Ahmadi, Amir Ali and Chaudhry, Abraar and Dibek, Cemil},\n  title        = {Generalized Ellipsoids},\n  year         = {2025},\n  eprint       = {2407.20362},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  note         = {arXiv:2407.20362v2}\n}\n",
+        "source_url": "https://arxiv.org/abs/2407.20362",
+        "theorem_or_result": "Introduces generalized ellipsoids (GE-d) and proves: (i) any intersection of \\(m\\) co-centered ellipsoids is exactly a GE-d with \\(d\\le 2m-3\\); (ii) any symmetric convex body can be \\((1+\\varepsilon)\\)-approximated by a GE-d with \\(d\\) bounded via polytopic approximation.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the source paper formulating the open problem: improving approximation of symmetric convex bodies by intersections of co-centered ellipsoids would sharpen the degree-vs-accuracy bounds for GE approximation and clarify the expressive power of finite ellipsoid intersections."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0874895,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0874895
+    "literature_total_cost_usd": 0.11170775,
+    "total_cost_usd": 0.19919725
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7126221168/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7126221168_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7126221168_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

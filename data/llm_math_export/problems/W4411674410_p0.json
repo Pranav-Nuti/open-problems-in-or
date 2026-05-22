@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The open problem asks for a priori verifiable local conditions on two-player SSP game data \\((C,p)\\) that guarantee monotone-causality and hence correctness of Dijkstra/Dial-type label-setting methods for the min\u2013max Shapley equation. The source paper develops such explicit conditions for a single-player subclass (OSSPs), using convexification/pruning of actions and inequalities comparing stochastic actions to deterministic ones (via oblique projections) to ensure that optimal transitions strictly decrease the value \\(U\\) (or decrease by at least \\(\\delta\\)). Extending this to antagonistic two-player choices is nontrivial because the relevant operator is \\(\\min_a\\max_b\\) and the set of successor distributions depends on both players.\n\nOnly one forward-citing work was provided. It does not solve the two-player label-setting question; instead it targets non-causal monotone discretizations of anisotropic eikonal equations and proves quasi-linear complexity for a narrow-band iterative method under an \\(\\alpha\\)-acuteness condition after a Kru\\v{z}kov transform. While not directly applicable to SSP games, it suggests a complementary direction: when causality/label-setting cannot be guaranteed, seek transforms and contraction/comparison principles that enable fast iterative or narrow-band solvers. At present, based on the supplied citation set, the two-player label-setting criteria problem remains open.",
+    "total_cost_usd": 0.12318775,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Solving non-causal schemes for anisotropic eikonal equations, with quasi-linear complexity",
+        "bibtex": "@article{Unknown_solvingNonCausalSchemesAnisotropicEikonal,\n  title        = {Solving non-causal schemes for anisotropic eikonal equations, with quasi-linear complexity},\n  author       = {},\n  year         = {\\noop{0}},\n  note         = {Forward-citation analysis provided without full bibliographic metadata (authors/year/venue/DOI unavailable).}\n}\n",
+        "source_url": "(source URL not provided in forward-citation analysis)",
+        "theorem_or_result": "The paper proves a quasi-linear complexity guarantee for a narrow-band iterative solver for non-causal monotone fixed-point schemes arising from discretizations of anisotropic eikonal equations. Concretely, for the semi-Lagrangian update operator \\(\\Lambda\\) (and also Eulerian/Lax\u2013Friedrichs variants), theorem 1.3 shows existence/uniqueness of the discrete fixed point \\(u^*\\) and that algorithm 1 returns \\(u\\) with \\(u-\\varepsilon\\le u^*\\le u\\) using \\(O\\bigl(N\\,\\kappa^2\\,\\ln_+(Nh\\kappa^2/\\varepsilon)\\,(\\kappa+\\ln_+(Nh/\\varepsilon))\\bigr)\\) elementary updates, where \\(N=\\#X\\), \\(h\\) is a stencil scale, and \\(\\kappa\\) an anisotropy ratio. A key technical ingredient is the new \\(\\alpha\\)-acuteness condition (definition 1.4) ensuring a contraction property after a Kru\\v{z}kov exponential transform, replacing classical causality needed for Fast Marching.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for verifiable sufficient conditions (in terms of local costs and transition probabilities) that guarantee applicability/correctness of label-setting (Dijkstra/Dial-like) methods for two-player stochastic shortest path (SSP) games. This paper does not study SSP games or min\u2013max Shapley operators. It instead analyzes single-agent eikonal discretizations (minimization only) and explicitly targets the non-causal setting where Fast Marching/Dijkstra-like label-setting is not applicable. However, it develops operator-theoretic conditions (monotonicity, sub-additivity, comparison principles) and a local geometric condition (\\(\\alpha\\)-acuteness) that yields a contraction after exponential change of variables, plus a narrow-band method that uses Dijkstra only to build bands. These ideas could be viewed as tools/analogies for designing sufficient conditions or alternative algorithms in game/SSP settings, but they do not provide label-setting criteria for two-player SSP games."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0913535,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0913535
+    "literature_total_cost_usd": 0.12318775,
+    "total_cost_usd": 0.21454125000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411674410/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411674410_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411674410_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper introduces the chain-constructed multistep discrepancy \\(D^{W}_{N,p}\\) built from one-step \\(W_1^p\\) costs and identifies the correct normalization \\(N^{p/2-1}\\) for continuous-time limits under martingale laws. It proves that for continuous martingales with absolutely continuous quadratic variation, \\(N^{p/2-1}D^{W}_{N,p}((Q)^N\\|\\|(P)^N)\\) converges to an explicit integral functional of the volatility mismatch, e.g. \\(\\mathrm{SW}^p(Q\\|P)=(2/\\pi)^{p/2}\\,\\mathbb E^Q[\\int_0^1||\\sigma_t|-|\\eta_t||^p\\,dt]\\) for diffusion-martingale reference \\(P\\).\n\nHowever, the open problem concerns the scaling limit of the associated time-consistent dynamic risk measure / robust hedging functional \\(\\inf_H\\rho_N(F_N-(H\\cdot X)_N)\\) when the one-step penalty is \\(\\alpha_1(q)=\\pm W_1(q,P_1)^p\\). The forward citations provided do not resolve this: the reciprocal specific relative entropy paper develops a related continuous-time control problem and links entropy to the \\(p\\downarrow2\\) derivative of the specific \\(p\\)-Wasserstein divergence, while the multidimensional specific relative entropy paper provides an entropy analogue of the scaling-limit-to-quadratic-variation paradigm. Thus, based on the available forward-citation evidence, the discrete-to-continuous scaling limit for the full dynamic risk measure/pricing functional remains open.",
+    "total_cost_usd": 0.19029675000000001,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Reciprocal Specific Relative Entropy between Continuous Martingales",
+        "bibtex": "@article{BackhoffVeraguasZhang_ReciprocalSpecificRelativeEntropy,\n  title={Reciprocal Specific Relative Entropy between Continuous Martingales},\n  author={Backhoff-Veraguas, Julio and Zhang, Xin},\n  year={\\n},\n  note={preprint},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces the reciprocal specific relative entropy between a continuous martingale law \\(Q\\) and Wiener measure \\(W\\),\n\\[h(Q\\|W)=\\tfrac12\\,\\mathbb E^Q\\Big[\\int_0^1 \\big(\\Sigma_t\\log\\Sigma_t+1-\\Sigma_t\\big)\\,dt\\Big],\\]\nwhere \\(\\Sigma_t=d\\langle X\\rangle_t/dt\\). It proves (Theorem 3.1) that, over the class \\(\\mathcal M^{\\mathrm{win}}_{t,x}\\) of win-martingales on \\([t,1]\\) starting at \\(x\\in(0,1)\\) and ending in \\(\\{0,1\\}\\) at time 1, the unique minimizer of \\(\\inf_{Q\\in\\mathcal M^{\\mathrm{win}}_{t,x}} \\tfrac12\\mathbb E^Q[\\int_t^1 \\Sigma_u\\log\\Sigma_u\\,du]\\) is the scaled neutral Wright\u2013Fisher diffusion \\(dM_s=\\sqrt{\\frac{M_s(1-M_s)}{1-s}}\\,dB_s\\), and the value function is explicit. It also shows this objective equals the derivative at \\(p=2\\) of the specific \\(p\\)-Wasserstein divergence objective \\(\\inf_{Q\\in\\mathcal M^{\\mathrm{win}}_{0,x}}\\mathbb E^Q[\\int_0^1 \\Sigma_t^{p/2}\\,dt]\\) under an integrability condition.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the scaling limit of a discrete-time dynamic risk measure/hedging functional whose penalty is built from one-step \\(\\pm W_1(\\cdot,P_1)^p\\), i.e. the additive multistep Wasserstein-type discrepancy \\(D^W_{N,p}\\), including the correct normalization \\(N^{p/2-1}\\), and identification of the limiting continuous-time functional on path laws \\(Q\\in\\mathcal P(\\Omega)\\).\n\nThis citing paper does not analyze the discrete-time dynamic risk measure \\(\\inf_H\\rho_N(F_N-(H\\cdot X)_N)\\) nor the chain-constructed \\(D^W_{N,p}((Q)^N\\|\\|(P)^N)\\) scaling limit. Instead it studies a different continuous-time divergence functional \\(h(Q\\|W)\\) (an entropy in quadratic variation) and shows it arises as the \\(p\\downarrow2\\) derivative of the *specific* \\(p\\)-Wasserstein divergence from [10], which itself is a continuous-time scaling limit object. Thus the paper is relevant mainly as a related tool/insight: it identifies a canonical second-order (critical \\(p=2\\)) refinement/selection criterion for the specific Wasserstein divergence, and provides PDE/control methods and explicit optimizers in a calibration problem.\n\nSo it does not solve the stated scaling-limit problem for the dynamic risk measure with one-step Wasserstein penalties, but it may inform what the limiting penalty could look like near \\(p=2\\) (entropy-type correction) and suggests techniques (HJB/viscosity) for continuous-time limits of discrete-time robust pricing problems."
+      },
+      {
+        "title": "Multidimensional specific relative entropy between continuous martingales",
+        "bibtex": "@article{BackhoffVeraguasBelloto_MultidimensionalSpecificRelativeEntropy,\n  title={Multidimensional specific relative entropy between continuous martingales},\n  author={Backhoff-Veraguas, Julio and Belloto, E.},\n  year={\\n},\n  note={preprint},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper defines the multidimensional specific relative entropy between continuous martingale laws by the scaling limit \n\\[h_l(Q\\mid P):=\\liminf_{n\\to\\infty}2^{-n}H(Q\\mid P)\\big|_{\\mathcal F_{2^n}},\\]\nand proves (multidimensional Gantert inequality) that for a square-integrable \\(\\mathbb R^l\\)-valued \\(Q\\)-martingale with absolutely continuous quadratic covariation \\(d\\langle X\\rangle_t/dt=\\Sigma_t^Q\\),\n\\[h_l(Q\\mid B^l)\\ge \\mathbb E^Q\\Big[\\int_0^1 F_l(\\Sigma_t^Q)\\,dt\\Big],\\qquad F_l(\\Sigma)=\\tfrac12(\\mathrm{tr}(\\Sigma)-l-\\log\\det\\Sigma).\\]\nIt further shows this lower bound is tight in the convex-analytic sense: the functional \\(Q\\mapsto \\mathbb E^Q[\\int_0^1 F_l(\\Sigma_t^Q)dt]\\) is the convex lower semicontinuous envelope of \\(Q\\mapsto h_l(Q\\mid B^l)\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns scaling limits of dynamic risk measures whose discrete-time penalty is an additive chain of one-step \\(W_1^p\\) costs, i.e. a specific Wasserstein-type divergence \\(D^W_{N,p}\\) with normalization \\(N^{p/2-1}\\), and asks for the limiting continuous-time risk/pricing functional \\(\\inf_H\\rho_N(\\cdot)\\). This citing paper instead studies a different divergence (relative entropy) and its scaling limit \\(2^{-n}H(\\cdot\\mid\\cdot)\\) for continuous martingales, proving inequalities and convex envelopes in terms of quadratic variation. It does not analyze Wasserstein penalties, the chain-constructed \\(D^W_{N,p}\\), nor any dynamic risk measure optimization \\(\\inf_H\\rho_N\\). Thus it does not solve the stated open problem, but provides background/analogous results for another divergence where the scaling limit yields an integral functional of quadratic variation."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09000425000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09000425000000001
+    "literature_total_cost_usd": 0.19029675000000001,
+    "total_cost_usd": 0.280301
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7119488906/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7119488906_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7119488906_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

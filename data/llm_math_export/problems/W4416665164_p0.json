@@ -44,16 +44,68 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The density-based decomposition in Huang\u2013Sellier is a greedy rephrasing of the principal sequence/principal partition of a matroid restriction \\(M|_{V'}\\): it repeatedly selects a maximum-cardinality densest set \\(U_j\\) in the current contraction and contracts it, yielding parts \\(U_1,\\dots,U_k\\) with strictly decreasing densities. The paper\u2019s key structural contribution toward dynamic maintenance is the pair of modification lemmas (Lemmas 20\u201321), which show a strong Lipschitz/sensitivity phenomenon under single-element updates of \\(V'\\): insertion makes all associated densities \\(\\tilde\\rho_M(v)\\) monotone nondecreasing and confines changes to elements whose old density lies in an interval of length 1 around the inserted element\u2019s old density (and symmetrically for deletions). These statements suggest that the decomposition changes \u201clocally in density space,\u201d a property reminiscent of stability results for principal partitions.\n\nSubsequent/related work on submodular water-filling (e.g., in the online submodular assignment problem and online matroid intersection via submodular water-filling) studies essentially the same densest-set contraction chain for polymatroids/submodular functions, providing minimax and submodular-minimization characterizations of the level sets and proving monotonicity/locality properties under changes in weights. While these frameworks do not address fully dynamic insert/delete updates of the ground set \\(V'\\), they offer alternative viewpoints (unique maximal minimizers, market/convex duality) that could be leveraged to design incremental algorithms.\n\nAt present, none of the forward-citing analyses provided contains an explicit data structure or algorithm with provably improved update time for maintaining the full decomposition \\(U_1,\\dots,U_k\\) under single-element insertions/deletions, beyond recomputation via repeated submodular minimization. Thus the problem remains open. Promising directions include exploiting Lemmas 20\u201321 to update only a small contiguous block of levels, and specializing to structured matroids (laminar, transversal) where densest-set computations admit faster primitives, potentially enabling polylogarithmic or near-linear-in-affected-region update times.",
+    "total_cost_usd": 0.5675705,
+    "citations_analyzed": 8,
+    "sources": [
+      {
+        "title": "Sparsification for Graph Matching and Matroid Intersection",
+        "bibtex": "@article{HuangSellier2023RobustSparsification,\n  title={Robust Sparsification for Matroid Intersection with Applications},\n  author={Huang, Chien-Chung and Sellier, Fran{\\c{c}}ois},\n  year={2023},\n  journal={arXiv preprint arXiv:2310.16827},\n  eprint={2310.16827},\n  archivePrefix={arXiv},\n  primaryClass={cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/2310.16827",
+        "theorem_or_result": "The paper introduces the density-based decomposition (a greedy/principal-sequence decomposition by iteratively taking a maximum-cardinality densest set and contracting) and proves two \u201cmodification lemmas\u201d describing how the associated densities \\,\\(\\tilde\\rho_M(v)\\) change under a single-element insertion/deletion in the maintained subset \\(V'\\):\n- (Insertion, Lemma 20) For all \\(v\\in V\\), \\(\\tilde\\rho^{new}_M(v)\\ge \\tilde\\rho^{old}_M(v)\\); for the inserted element \\(u\\), \\(\\tilde\\rho^{old}_M(u)\\le \\tilde\\rho^{new}_M(u)\\le \\tilde\\rho^{old}_M(u)+1\\); and elements with \\(\\tilde\\rho^{old}_M(v)\\notin [\\tilde\\rho^{old}_M(u),\\tilde\\rho^{old}_M(u)+1]\\) keep the same associated density.\n- (Deletion, Lemma 21) Symmetric monotonicity: \\(\\tilde\\rho^{new}_M(v)\\le \\tilde\\rho^{old}_M(v)\\); for the deleted element \\(u\\), \\(\\tilde\\rho^{old}_M(u)\\ge \\tilde\\rho^{new}_M(u)\\ge \\tilde\\rho^{old}_M(u)-1\\); and elements with \\(\\tilde\\rho^{old}_M(v)\\notin [\\tilde\\rho^{old}_M(u)-1,\\tilde\\rho^{old}_M(u)]\\) keep the same associated density.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 8,
+        "connection": "The open problem asks for an algorithm that maintains the full density-based decomposition \\(U_1,\\dots,U_k\\) of \\(V'\\) under single-element insertions/deletions faster than recomputation (which may require submodular minimization each time). This paper does not give such a dynamic maintenance algorithm or improved update-time bounds. However, it develops structural sensitivity results (Lemmas 20\u201321) precisely about how the decomposition\u2019s induced associated densities change under one-element updates. These lemmas are a key prerequisite for designing efficient dynamic update algorithms (the authors explicitly note this as an open direction), and they are used to implement a local-search construction of a sparsifier (DCS) via repeated insert/delete operations."
+      },
+      {
+        "title": "The online submodular assignment problem",
+        "bibtex": "@article{OnlineSubmodularAssignment,\n  title={The online submodular assignment problem},\n  author={Unknown},\n  year={\\{\\}},\n  note={Metadata (authors/year/venue/doi) not provided in the citation analysis block}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper develops a \u201cwater level\u201d vector for polymatroids/submodular functions and gives an iterative densest-set contraction procedure (Algorithm 1) producing nested sets \\(\\emptyset=S_0\\subset S_1\\subset\\cdots\\subset S_L=E\\) with densities \\(t_1>\\cdots>t_L\\), assigning each element \\(e\\in S_{\\ell}\\setminus S_{\\ell-1}\\) a level \\(w_e=t_{\\ell}=\\frac{x(S_{\\ell}\\setminus S_{\\ell-1})}{f_{S_{\\ell-1}}(S_{\\ell})}\\). It proves equivalence to a max\u2013min definition \\(w_e=\\max_{S\\ni e}\\min_{T: f_T(\\{e\\})\\neq 0}\\frac{x(S\\setminus T)}{f_T(S)}=\\min_T\\max_{S\\ni e}\\frac{x(S\\setminus T)}{f_T(S)}\\) (Theorem 3.2), and establishes structural properties: monotonicity/continuity, feasibility indication \\(w\\le 1\\iff x(S)\\le f(S)\\ \\forall S\\), locality, and duality \\(L_f(w)=\\sum_e x_e\\) (Props. 3.4\u20133.7).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for a dynamic algorithm to maintain the density-based decomposition of a matroid restriction \\(V'\\) under single-element insertions/deletions, more efficiently than recomputing via submodular minimization. This paper is not about dynamic updates, but it directly studies essentially the same densest-set contraction/principal-partition-type decomposition (Algorithm 1) for a polymatroid defined by a submodular function \\(f\\), and relates it to principal partition sequences of matroids. Thus it provides a clean characterization of the decomposition and strong structural properties (monotonicity, locality, Lipschitz under small-bids) that could be leveraged to design incremental update rules. However, it does not present data structures or update-time guarantees for maintaining the decomposition under element insertions/deletions in \\(V'\\) (or changes in \\(x\\)/ground set), so it does not resolve the dynamic maintenance problem."
+      },
+      {
+        "title": "Sparsification for graph and matroid optimization problems",
+        "bibtex": "@phdthesis{SparsificationGraphMatroidOptimization,\n  title={Sparsification for graph and matroid optimization problems},\n  author={Unknown},\n  year={\\{\\}},\n  school={Unknown},\n  note={Metadata (author/year/school/url) not provided in the citation analysis block}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The thesis develops and analyzes a greedy density-based decomposition of a matroid (Chapter 5.2) and uses it to construct a sparsifier for matroid intersection called a Density-Constrained Subset (DCS). In particular, it proves existence/constructibility of a DCS of size \\(O(|S_{opt}|/\\varepsilon)\\) that contains a \\((3/2+\\varepsilon)\\)-approximate maximum common independent set for matroid intersection (Theorem 5.2, as summarized in the thesis abstract/intro), with applications to one-way communication (Theorem 5.5) and random-order streaming (Theorem 5.6).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for an efficient dynamic (single-element insertion/deletion) maintenance algorithm for the density-based decomposition \\(U_1,\\dots,U_k\\) of a changing subset \\(V'\\subseteq V\\) in a fixed matroid \\(M\\), improving over recomputation via submodular minimization. This thesis uses essentially the same density notion \\(\\rho_M(U)=|U|/\\operatorname{rank}_M(U)\\) and explicitly introduces/uses a greedy \u201cdensity-based decomposition\u201d (Chapter 5.2) as a structural tool to build sparsifiers for matroid intersection. However, the provided excerpted material does not present any algorithm for dynamically updating the decomposition under insertions/deletions of elements of \\(V'\\); the algorithms discussed are for streaming/random-order and for constructing sparsifiers (DCS/DBS), not for fully dynamic maintenance of the decomposition itself. Thus it contributes relevant structural understanding and motivation but does not resolve the dynamic-update problem."
+      },
+      {
+        "title": "Online Matroid Intersection: Submodular Water-Filling and Matroidal Welfare Maximization",
+        "bibtex": "@article{OnlineMatroidIntersectionWaterFilling,\n  title={Online Matroid Intersection: Submodular Water-Filling and Matroidal Welfare Maximization},\n  author={Unknown},\n  year={\\{\\}},\n  note={Metadata (authors/year/venue/doi) not provided in the citation analysis block}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper defines a \u201cwater level\u201d vector for poly-matroids (monotone submodular functions) via an iterative densest-set-and-contract procedure (Algorithm 1), equivalent to level sets given by submodular minimization \n\\[S_f^*(y)=\\text{unique maximal minimizer of }\\min_{S\\subseteq E}(f(S)-y(S))\\]\nand to an SUA-market convex program; it proves key properties (monotonicity, feasibility indication, duality, locality) and uses them to obtain a deterministic polynomial-time \\((1-1/e)\\)-competitive algorithm for fractional online poly-matroid intersection (Theorem 1.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for a dynamic (single-element insert/delete) algorithm to maintain the density-based decomposition of a matroid restriction, where each step selects a maximum-cardinality densest set and contracts it. This paper is not about dynamic updates, but it develops essentially the same kind of densest-set contraction chain (principal partition / density-based decomposition) as a central object: Algorithm 1 repeatedly finds a (unique maximal) densest set with respect to a weight vector \\(x\\) and contracts it, producing nested sets/levels. It also characterizes level sets via submodular minimization \\(\\min_S\\{t\\,f(S)-x(S)\\}\\), which is the same primitive used in naive recomputation in the open problem. These structural characterizations and locality/monotonicity properties describe how the decomposition changes as \\(x\\) changes, and could plausibly be leveraged toward efficient incremental maintenance under updates, but the paper does not provide an algorithm or complexity bounds for maintaining the decomposition under insertions/deletions of elements of \\(V'\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06719125000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06719125000000001
+    "literature_total_cost_usd": 0.5675705,
+    "total_cost_usd": 0.63476175
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416665164/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4416665164_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4416665164_p0",
+    "citations_analyzed": 8,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

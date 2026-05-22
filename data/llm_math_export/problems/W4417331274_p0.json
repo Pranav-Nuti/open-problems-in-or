@@ -46,16 +46,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "In Deng\u2013Yu\u2013Zhang\u2019s aggregation model, the planner evaluates a stopping region \\(R\\) through \\(J(x,R)=\\int_0^\\infty \\varphi(\\mathbb E[e^{-r\\tau(x,R)}g(X_{\\tau(x,R)})])\\,dF_\\rho(r)\\), which generally destroys the reduction to a single discount function and hence breaks the decreasing-impatience machinery used in earlier time-inconsistent stopping. The paper nevertheless shows (for one-dimensional diffusions) that mild equilibria are fixed points of the policy-improvement operator \\(\\Theta\\), and provides sufficient conditions (notably \\(x\\mapsto \\varphi'(x)x\\) increasing) under which the smallest one-barrier equilibrium \\([0,a^*]\\) is optimal for the put payoff. Their Section 5 examples demonstrate that once this structural condition fails, the smallest equilibrium can cease to be optimal and an optimal equilibrium may not exist.\n\nAmong forward citations, the closest progress toward a general selection principle is \u201cAlmost strong equilibria for time\u2010inconsistent stopping problems under finite horizon in continuous time,\u201d which proves\u2014under log sub-additivity of a (single) discount function and 1D regularity\u2014that the optimal equilibrium is the minimal closed equilibrium given by the intersection of all closed equilibria. While it does not cover heterogeneous exponential-rate aggregation or nonlinear \\(\\varphi\\), it offers a template: if one can establish an analogue of equilibrium monotonicity/dominance (smaller equilibria yield larger continuation values) and show closure under intersections for the aggregated functional \\(J\\), then an intersection-type characterization of an optimal equilibrium may follow.\n\nA different direction is suggested by \u201cTime-inconsistent mean-field stopping problems: a regularised equilibrium approach,\u201d which develops entropy-regularized fixed-point methods to obtain stationary relaxed equilibria without monotonicity assumptions. This is relevant to the aggregation setting precisely because Deng\u2013Yu\u2013Zhang exhibit parameter regimes where no pure optimal equilibrium exists; regularization/relaxation may provide a well-posed substitute notion of optimality or selection among multiple equilibria when \\(\\varphi\\) is general. Overall, the open problem remains unresolved: beyond special cases (e.g., put payoff with \\(x\\mapsto \\varphi'(x)x\\) increasing), there is no general characterization of an optimal equilibrium for the aggregated preference, and existence/selection can fail without additional structure.",
+    "total_cost_usd": 0.2609775,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Almost strong equilibria for time\u2010inconsistent stopping problems under finite horizon in continuous time",
+        "bibtex": "@article{BayraktarEtAl_MAFI_AlmostStrongEquilibria,\n  title        = {Almost strong equilibria for time-inconsistent stopping problems under finite horizon in continuous time},\n  journal      = {Mathematical Finance},\n  doi          = {10.1111/mafi.12428},\n  url          = {https://doi.org/10.1111/mafi.12428}\n}\n",
+        "source_url": "https://doi.org/10.1111/mafi.12428",
+        "theorem_or_result": "Assuming a one-dimensional continuous strong Markov process and a non-exponential discount function \\(\\delta\\) that is log sub-additive \\(\\delta(s)\\delta(t)\\le \\delta(s+t)\\), plus a diffusion/regularity condition (Assumption 4.1) and integrability/limit conditions (4.2)\u2013(4.3), the paper constructs an optimal equilibrium stopping region\n\\[R^*:=\\bigcap_{R\\in\\mathcal E,\\,R\\ \\text{closed}} R\\]\nand proves \\(R^*\\in\\mathcal E\\) and \\(V(x,R^*)\\ge V(x,R)\\) for all \\(x\\) and all equilibria \\(R\\in\\mathcal E\\) (Theorem 4.1). It also gives a sufficient condition for uniqueness among closed optimal equilibria: if \\((R^*)^c=C_{R^*}\\) (no indifference outside \\(R^*\\)), then \\(R^*\\) is the unique closed optimal equilibrium (Theorem 5.1).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for general conditions/explicit characterization of an optimal equilibrium for an aggregated stopping payoff \\(J(x,R)=\\int \\varphi(\\mathbb E[e^{-r\\tau(x,R)}g(X_{\\tau})])\\,dF_\\rho(r)\\), without imposing the structural monotonicity condition on \\(x\\mapsto \\varphi'(x)x\\). This citing paper does not study random discount-rate aggregation nor a nonlinear attitude/aggregation \\(\\varphi\\); instead it treats the classical (linear) expected payoff \\(J(x,R)=\\mathbb E[\\delta(\\rho(x,R))f(X_{\\rho})]\\) with a single discount function \\(\\delta\\). Nevertheless, it provides a closely related \u2018Phase II\u2019 selection result: under log sub-additivity (a decreasing-impatience condition) and 1D diffusion regularity, the optimal equilibrium is the minimal (intersection) closed equilibrium. This suggests an approach for the aggregation model if one can establish an analogue of Lemma 3.1/Corollary 3.1 (smaller equilibria dominate larger ones) and closure/intersection stability for equilibria under the nonlinear aggregated functional. The paper therefore gives partial progress and a template of conditions (subadditivity-type inequality + intersection-closedness) that could be adapted, but it does not resolve the open problem in the general \\(\\varphi,F_\\rho\\) setting."
+      },
+      {
+        "title": "Time-inconsistent mean-field stopping problems: a regularised equilibrium approach",
+        "bibtex": "@article{TimeInconsistentMeanFieldStopping_RegularisedEquilibrium_2025,\n  title        = {Time-inconsistent mean-field stopping problems: a regularised equilibrium approach},\n  journal      = {Finance and Stochastics},\n  year         = {2025},\n  doi          = {10.1007/s00780-025-00581-5},\n  url          = {https://doi.org/10.1007/s00780-025-00581-5}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00780-025-00581-5",
+        "theorem_or_result": "Main results (discrete-time mean-field MDP with stopping, non-exponential discount):\n- Theorem 3.2/Cor. 3.3: for each entropy/discount regularization parameter \\(\\lambda>0\\), there exists a stationary Lipschitz regularized equilibrium \\(\\phi_\\lambda\\in F_S^{\\mathrm{Lip}}\\) characterized as a fixed point \\(\\phi_\\lambda=T_1^\\lambda\\circ T_2^\\lambda(\\phi_\\lambda)\\), where \\(T_1^\\lambda\\) is the Gibbs/logit map \\(\\phi(\\mu)=\\frac{\\exp(r(\\mu)/\\lambda)}{\\exp(r(\\mu)/\\lambda)+\\exp(\\mathbb E_0 v(T_0(\\mu,Z_0))/\\lambda)}\\) and \\(T_2^\\lambda(\\phi)=\\tilde J_\\lambda^\\phi\\).\n- Theorem 3.5: under additional absolute-continuity assumptions on the one-step transition kernel (Assumption 4), there exists a stationary relaxed (mixed) equilibrium \\(\\phi_0\\) for the unregularized problem, obtained as a \\(\\lambda\\to0\\) limit of \\(\\phi_\\lambda\\).\n- Theorem 3.4: \\(\\phi_\\lambda\\) is an \\(\\varepsilon\\)-equilibrium for the unregularized problem for \\(\\lambda\\) small.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a characterization of an optimal equilibrium stopping region \\(R^*\\) for a 1D diffusion under an aggregation functional \\(J(x,R)=\\int \\varphi(\\mathbb E[e^{-r\\tau}g(X_\\tau)])\\,dF_\\rho(r)\\), without structural monotonicity assumptions on \\(\\varphi\\). The citing paper does not study this continuous-time diffusion/region equilibrium nor the same aggregator \\(\\varphi\\circ\\mathbb E[\\cdot]\\) integrated over discount rates. Instead it treats a discrete-time mean-field MDP stopping problem with a general (non-exponential) discount sequence \\(\\delta(k)\\), and proves existence of stationary mixed (relaxed) equilibria via entropy regularization and fixed-point arguments, without assuming decreasing impatience.\nThus it provides related methodological progress: (i) existence of mixed equilibria under very general discounting without monotonicity assumptions, (ii) a regularization/limit scheme \\(\\lambda\\to0\\) to obtain equilibria when pure strategies may fail. However it does not characterize an optimal equilibrium among all equilibria, nor identify a stopping region \\(R^*\\) in a 1D diffusion, nor address the specific aggregation over heterogeneous exponential rates and attitude function \\(\\varphi\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07945525,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07945525
+    "literature_total_cost_usd": 0.2609775,
+    "total_cost_usd": 0.34043274999999995
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417331274/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4417331274_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4417331274_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -46,16 +46,113 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Liang\u2013Xia\u2013Yuan, 2023) shows that equilibrium conditions for nonlinear law-dependent preferences can lead, in the weighted-utility case with random coefficients, to a genuinely coupled two-dimensional quadratic BSDE system with cross terms in \\(Z\\) (equations (6.3)\u2013(6.4)). Their solvability result (Lemma 6.3) is obtained only under a smallness regime expressed via small BMO oscillation of \\(\\Theta=\\int_0^T|\\kappa_s|^2ds\\), and it relies heavily on a special linear\u2013quadratic structure plus equivalence of BMO norms under measure changes. This illustrates both the natural solution class \\(Y\\in L^\\infty\\), \\(Z\\in\\mathrm{BMO}\\) and the current limitation: outside special structure/smallness, well-posedness is not available.\n\nExisting multidimensional quadratic BSDE theories provide well-posedness under structural restrictions: diagonally quadratic generators (Hu\u2013Tang 2016; Fan\u2013Hu\u2013Tang 2023) and triangular generators (Jackson\u2013Zitkovi\u0107 2022) yield global existence/uniqueness in \\(S^\\infty\\times\\mathrm{BMO}\\), but do not cover the cross-coupled generators appearing in portfolio equilibria. For genuinely coupled systems, the main available tools are small-data/local results (Tevzadze 2008 in the scalar case; Frei 2014 via splitting; Kramkov\u2013Pulido 2016 for a coupled system arising in price impact), typically requiring small terminal conditions, short horizons, or small BMO norms.\n\nRecent application-driven work such as \u201cEquilibrium Portfolio Selection under Utility-Variance Analysis of Log Returns in Incomplete Markets\u201d further confirms the gap: it derives a coupled 2D quadratic BSDE for equilibria and proves well-posedness only when coupling disappears (\\(\\rho=0\\)) or under bounded constraints, otherwise resorting to approximate equilibria. Alternative characterizations (e.g., deterministic integral equations in certain deterministic-coefficient settings) can bypass BSDEs but do not resolve the general coupled quadratic BSDE well-posedness question. Overall, the open problem remains to develop existence/uniqueness theory for fully coupled multidimensional quadratic BSDEs with cross-term quadratic dependence in \\(Z\\) in \\(L^\\infty\\times\\mathrm{BMO}\\), without relying on diagonal/triangular structure or smallness assumptions.",
+    "total_cost_usd": 0.520198,
+    "citations_analyzed": 7,
+    "sources": [
+      {
+        "title": "Dynamic portfolio selection for nonlinear law-dependent preferences",
+        "bibtex": "@article{LiangXiaYuan2023DynamicPortfolioSelection,\n  title        = {Dynamic portfolio selection for nonlinear law-dependent preferences},\n  author       = {Liang, Zongxia and Xia, Jianming and Yuan, Fengyi},\n  year         = {2023},\n  eprint       = {2311.06745},\n  archivePrefix= {arXiv},\n  primaryClass = {q-fin.MF},\n  url          = {https://arxiv.org/abs/2311.06745}\n}\n",
+        "source_url": "https://arxiv.org/abs/2311.06745",
+        "theorem_or_result": "Formulates equilibrium conditions for time-inconsistent portfolio choice under nonlinear law-dependent preferences and shows that, for weighted utility with random coefficients, the equilibrium is characterized by a genuinely coupled 2D quadratic BSDE system (equations (6.3)\u2013(6.4)). Proves existence/uniqueness only under a smallness condition expressed as small BMO oscillation of \\(\\Theta=\\int_0^T|\\kappa_s|^2ds\\) (Lemma 6.3), exploiting a special linear\u2013quadratic structure and BMO norm equivalences under measure changes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "This is the source paper posing the open problem: it exhibits a coupled multidimensional quadratic BSDE with cross terms in \\(Z\\) arising from portfolio equilibria and explicitly notes that general well-posedness theory beyond diagonal/triangular structures is unavailable; its solvability result relies on special structure and a smallness regime, highlighting the gap the open problem asks to fill."
+      },
+      {
+        "title": "Equilibrium Portfolio Selection under Utility-Variance Analysis of Log Returns in Incomplete Markets",
+        "bibtex": "@article{EquilibriumUtilityVarianceLogReturns,\n  title  = {Equilibrium Portfolio Selection under Utility-Variance Analysis of Log Returns in Incomplete Markets},\n  author = {},\n  year   = {},\n  url    = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper derives a coupled two-dimensional quadratic BSDE system characterizing open-loop time-consistent equilibrium strategies for a utility\u2013variance objective in an incomplete factor market (Theorem 3.1), and proves existence/verification of solutions only in special regimes: (i) when the Brownian motions are independent (correlation \\(\\rho=0\\)), the system decouples and admits a unique bounded solution \\((Y,Z)\\in S^\\infty\\times L^2\\) (Proposition 4.3) yielding an equilibrium strategy (Theorem 4.4); (ii) under a bounded trading constraint \\(\\pi_t\\in A\\), assuming a bounded BMO solution to the constrained coupled BSDE (4.11) exists (via Xing\u2013Zitkovi\u0107 (2018) AB/BF conditions), the projected feedback control (4.12) is an equilibrium (Theorem 4.11); (iii) for general \\(\\rho\\neq 0\\) without constraints, they cannot prove well-posedness, but construct an approximate equilibrium \\(\\pi^\\rho\\) with error \\(O(\\rho^2)\\) (Theorem 5.6) based on solving a Markovian BSDE/PDE system (5.1) with bounded \\(Y^\\rho,Z^\\rho\\) under extra regularity (Proposition 5.5).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for general existence/uniqueness theory for genuinely coupled multidimensional quadratic BSDEs with cross-term quadratic dependence in \\(Z\\), in classes like bounded \\(Y\\) and BMO \\(Z\\), beyond diagonal/triangular structures or smallness assumptions. This paper provides an application-motivated example of such a coupled quadratic BSDE system (their equilibrium system (3.1)/(4.2)) and explicitly explains why standard multidimensional quadratic BSDE theories (fixed-point/triangular/AB-wAB approaches) do not apply in the fully coupled correlated case \\(\\rho\\neq 0\\) (Appendix C). It proves well-posedness only in special cases where coupling disappears (\\(\\rho=0\\)) or is controlled by bounded constraints (projection onto a compact set), and otherwise replaces exact well-posedness by an \\(O(\\rho^2)\\) approximate equilibrium. Thus it does not solve the general well-posedness problem, but contributes partial progress by isolating tractable regimes and clarifying structural obstructions in a concrete coupled quadratic system."
+      },
+      {
+        "title": "An integral equation in portfolio selection with time-inconsistent preferences",
+        "bibtex": "@article{IntegralEquationTimeInconsistentPortfolio,\n  title   = {An integral equation in portfolio selection with time-inconsistent preferences},\n  author  = {},\n  journal = {SIAM Journal on Financial Mathematics},\n  year    = {},\n  doi     = {10.1137/24M170301X},\n  url     = {https://doi.org/10.1137/24M170301X}\n}\n",
+        "source_url": "https://doi.org/10.1137/24M170301X",
+        "theorem_or_result": "They prove existence and uniqueness of a deterministic square-integrable solution to a nonlinear integral equation characterizing equilibrium strategies. Concretely, for bb\\in L^2((0,T),\\mathbb R^d), convex closed constraint sets \\(U_t\\subset\\mathbb R^d\\) with projection \\(P_t\\), and a function \\(h\\) that is I-bounded and locally Lipschitz, the equation\n\\[\na(t)=P_t\\Big(h\\big(t,\\sqrt{\\int_t^T |a(s)|^2ds},\\int_t^T a(s)^\\top\\lambda(s)ds\\big)\\,\\lambda(t)\\Big),\\quad t\\in(0,T),\n\\]\nadmits a unique solution \\(a\\in L^2((0,T),\\mathbb R^d)\\) (Theorem 2.7), with local existence/uniqueness under local I-boundedness (Lemma 2.6, Theorem 2.5).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for well-posedness (existence/uniqueness) of genuinely coupled multidimensional quadratic BSDE systems in classes like bounded \\(Y\\) and BMO \\(Z\\). This paper does not study multidimensional quadratic BSDEs or BMO solutions. Instead it reduces certain time-inconsistent portfolio equilibrium conditions (in a deterministic-coefficient Brownian market) to a deterministic nonlinear integral equation for a function \\(a(t)\\), and proves well-posedness of that integral equation in \\(L^2\\). While such integral equations can sometimes be derived from (or related to) BSDE/HJB formulations, the results here do not provide a general BSDE well-posedness theory for coupled quadratic generators with cross terms."
+      },
+      {
+        "title": "A system of quadratic BSDEs arising in a price impact model",
+        "bibtex": "@article{KramkovPulido2016PriceImpactQuadraticBSDE,\n  title   = {A system of quadratic {BSDE}s arising in a price impact model},\n  author  = {Kramkov, Dmitry and Pulido, Sebastian},\n  journal = {The Annals of Applied Probability},\n  year    = {2016},\n  volume  = {26},\n  number  = {2},\n  pages   = {794--817},\n  doi     = {10.1214/15-AAP1122},\n  url     = {https://doi.org/10.1214/15-AAP1122}\n}\n",
+        "source_url": "https://doi.org/10.1214/15-AAP1122",
+        "theorem_or_result": "Studies a coupled system of multidimensional quadratic BSDEs motivated by equilibrium/price impact; proves solvability under smallness conditions using BMO techniques and fixed-point arguments in suitable norms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Represents a canonical well-posedness result for coupled quadratic BSDE systems under smallness assumptions; it is one of the main methodological templates referenced in the source paper\u2019s Section 6 for handling coupled quadratic terms, but does not cover general large-data genuinely coupled generators."
+      },
+      {
+        "title": "Solvability of backward stochastic differential equations with quadratic growth",
+        "bibtex": "@article{Tevzadze2008QuadraticGrowthBSDE,\n  title   = {Solvability of backward stochastic differential equations with quadratic growth},\n  author  = {Tevzadze, Revaz},\n  journal = {Stochastic Processes and their Applications},\n  year    = {2008},\n  volume  = {118},\n  number  = {3},\n  pages   = {503--515},\n  doi     = {10.1016/j.spa.2007.09.006},\n  url     = {https://doi.org/10.1016/j.spa.2007.09.006}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.spa.2007.09.006",
+        "theorem_or_result": "Provides a foundational existence/uniqueness result for (primarily scalar) quadratic BSDEs and a small-terminal-condition approach that inspired later multidimensional small-data results via BMO and contraction mappings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Although not a multidimensional coupled theory, it underpins the smallness/BMO-contraction methodology repeatedly used in attempts to treat coupled quadratic systems in equilibrium models."
+      },
+      {
+        "title": "Splitting multidimensional BSDEs and finding local equilibria",
+        "bibtex": "@article{Frei2014SplittingMultidimensionalBSDEs,\n  title   = {Splitting multidimensional {BSDE}s and finding local equilibria},\n  author  = {Frei, Carsten},\n  journal = {Stochastic Processes and their Applications},\n  year    = {2014},\n  volume  = {124},\n  number  = {8},\n  pages   = {2654--2671},\n  doi     = {10.1016/j.spa.2013.12.007},\n  url     = {https://doi.org/10.1016/j.spa.2013.12.007}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.spa.2013.12.007",
+        "theorem_or_result": "Develops a splitting method for multidimensional BSDEs with quadratic growth, yielding local-in-time (or small-data) solvability for certain coupled systems and applications to local equilibria.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides partial progress toward coupled multidimensional quadratic BSDE well-posedness via decomposition/splitting, but still relies on locality/smallness and does not cover fully coupled global well-posedness in \\(S^\\infty\\times\\mathrm{BMO}\\)."
+      },
+      {
+        "title": "Existence and uniqueness for non-markovian triangular quadratic bsdes",
+        "bibtex": "@article{JacksonZitkovic2022TriangularQuadraticBSDE,\n  title   = {Existence and uniqueness for non-markovian triangular quadratic {BSDE}s},\n  author  = {Jackson, John and Zitkovi{\\'c}, Gordan},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {2022},\n  volume  = {60},\n  number  = {3},\n  pages   = {1642--1666},\n  doi     = {10.1137/21M1410550},\n  url     = {https://doi.org/10.1137/21M1410550}\n}\n",
+        "source_url": "https://doi.org/10.1137/21M1410550",
+        "theorem_or_result": "Proves global existence and uniqueness for a broad class of multidimensional quadratic BSDEs with triangular structure in the generator, in \\(S^\\infty\\times\\mathrm{BMO}\\), without smallness assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Represents the state of the art for multidimensional quadratic BSDE well-posedness under structural restrictions; the open problem asks to go beyond such triangular/diagonal structures to genuinely coupled cross-term generators."
+      },
+      {
+        "title": "Multi-dimensional backward stochastic differential equations of diagonally quadratic generators",
+        "bibtex": "@article{HuTang2016DiagonallyQuadraticBSDE,\n  title   = {Multi-dimensional backward stochastic differential equations of diagonally quadratic generators},\n  author  = {Hu, Ying and Tang, Shanjian},\n  journal = {Stochastic Processes and their Applications},\n  year    = {2016},\n  volume  = {126},\n  number  = {4},\n  pages   = {1066--1086},\n  doi     = {10.1016/j.spa.2015.12.004},\n  url     = {https://doi.org/10.1016/j.spa.2015.12.004}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.spa.2015.12.004",
+        "theorem_or_result": "Establishes existence/uniqueness for multidimensional quadratic BSDEs under a diagonally quadratic structure, controlling cross-dependence and using BMO estimates.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Shows that well-posedness is achievable under diagonal quadratic structure; however, the portfolio-equilibrium BSDEs in the source paper and related works violate diagonal structure due to cross terms, motivating the open problem."
+      },
+      {
+        "title": "Multi-dimensional backward stochastic differential equations of diagonally quadratic generators: The general result",
+        "bibtex": "@article{FanHuTang2023DiagonallyQuadraticGeneral,\n  title   = {Multi-dimensional backward stochastic differential equations of diagonally quadratic generators: The general result},\n  author  = {Fan, Shuai and Hu, Ying and Tang, Shanjian},\n  journal = {Journal of Differential Equations},\n  year    = {2023},\n  volume  = {368},\n  pages   = {105--140},\n  doi     = {10.1016/j.jde.2023.03.021},\n  url     = {https://doi.org/10.1016/j.jde.2023.03.021}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jde.2023.03.021",
+        "theorem_or_result": "Extends diagonally quadratic BSDE theory to more general settings, providing refined existence/uniqueness results under diagonal quadratic conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Further advances the diagonal-structure theory but still does not address genuinely coupled cross-term quadratic generators arising in portfolio equilibria."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07818125000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07818125000000001
+    "literature_total_cost_usd": 0.520198,
+    "total_cost_usd": 0.59837925
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411801764/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411801764_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411801764_p0",
+    "citations_analyzed": 7,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

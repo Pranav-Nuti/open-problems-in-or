@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Tr{\"o}bst--Vazirani, 2025) motivates the two-sided question by showing that exact EF+PO lotteries can fail to exist even for very small extensions beyond symmetric \\(\\{0,1\\}\\) utilities, and proposes justified envy-freeness (JEF) as a stability-like replacement. It proves unconditional existence of JEF allocations that are weakly Pareto-optimal (no allocation strictly improves everyone), via a limiting argument based on Manjunath\u2019s double-indexed-price (DIP) equilibrium and a subsequent polyhedral extreme-point argument to obtain rationality. However, weak PO is strictly weaker than the strong Pareto-optimality required in the open problem, and the paper leaves open whether one can always compute (or even guarantee existence of) a strongly PO allocation that is constant-factor approximately JEF.\n\nSubsequent work on two-sided cardinal matching has so far not closed this gap. The most directly relevant follow-up (\"Cardinal-Utility Matching Markets and Online Matching\") reinforces the landscape: it highlights the existence of JEF+weak-PO allocations and provides a strong obstruction for a natural polynomial-time candidate, Nash bargaining, by exhibiting instances with \\(\\Theta(n)\\)-factor justified envy. On the algorithmic side, \"Time-efficient algorithms for Nash-bargaining-based matching market models\" supplies fast polynomial-time methods for computing approximate Nash-bargaining outcomes on the Birkhoff polytope; these outcomes are Pareto-optimal but can be far from JEF, so the algorithms do not yield constant-\\(\\alpha\\) approximate JEF.\n\nMore broadly, recent convex-optimization-based fairness relaxations (e.g., proportional fairness / Nash welfare and harm-ratio criteria) show that one can compute Pareto-optimal outcomes with certain constant-factor envy-type guarantees in related divisible-goods models, but the guarantees either do not match the two-sided JEF definition (which depends on the \\(w\\)-threshold sets \\(\\{j: w_{ji}\\ge w_{ji'}\\}\\)) or degrade with \\(n\\). Overall, the existence of JEF+weak-PO suggests that JEF is structurally compatible with feasibility, but obtaining strong PO together with any constant-factor approximation to JEF in polynomial time remains open; promising directions include identifying a convex program whose KKT/dual structure directly enforces approximate JEF constraints, or proving impossibility (e.g., that any strongly PO allocation must incur \\(\\Omega(n)\\) justified envy in the worst case).",
+    "total_cost_usd": 0.9736705999999999,
+    "citations_analyzed": 16,
+    "sources": [
+      {
+        "title": "Cardinal-Utility Matching Markets and Online Matching",
+        "bibtex": "@misc{TrobostVazirani2025CardinalUtilityMatchingMarkets,\n  title        = {Cardinal-Utility Matching Markets: The Quest for Envy-Freeness, Pareto-Optimality, and Efficient Computability},\n  author       = {Thorben Tr{\"o}bst and Vijay V. Vazirani},\n  year         = {2025},\n  eprint       = {2402.08851},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/2402.08851",
+        "theorem_or_result": "For two-sided cardinal-utility bipartite matching markets, the paper proves existence (and rationality) of allocations that are justified envy-free (JEF) and weakly Pareto-optimal: there always exists a rational fractional perfect matching \\(x\\) with no justified envy (Definition 39) and such that there is no feasible allocation \\(y\\) that strictly improves every agent\u2019s expected utility (weak PO). It also shows Nash-bargaining solutions can have \\(\\Theta(n)\\)-factor justified envy (Theorem 46), and poses as an open question whether one can compute constant-\\(\\alpha\\) approximately JEF + (strong) PO in polynomial time.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks for a polynomial-time algorithm that always outputs an allocation that is (strong) Pareto-optimal and constant-factor approximately JEF in two-sided markets. This paper does not give such an algorithm nor establish existence of JEF+PO, but it makes progress by: (i) introducing the specific JEF notion used in the open problem and proving unconditional existence of JEF + weak PO allocations (Theorem 40), including a rational extreme-point argument; (ii) giving negative evidence for a natural candidate mechanism (Nash bargaining), showing it can violate JEF by a factor \\(\\Theta(n)\\) (Theorem 46), so it cannot yield constant-\\(\\alpha\\) approximate JEF in general; and (iii) explicitly listing the constant-\\(\\alpha\\) approx-JEF+PO computability question as open in its conclusion. Thus it advances the structural landscape (existence/obstructions) but does not resolve the algorithmic constant-factor approximation question."
+      },
+      {
+        "title": "Time-efficient algorithms for Nash-bargaining-based matching market models",
+        "bibtex": "@inproceedings{PanageasTrobostVazirani2024TimeEfficientNB,\n  title     = {Time-efficient algorithms for Nash-bargaining-based matching market models},\n  author    = {Ioannis Panageas and Thorben Tr{\"o}bst and Vijay V. Vazirani},\n  booktitle = {Proceedings of the conference volume {\\ldots} (LNCS)},\n  year      = {2024},\n  doi       = {10.1007/978-3-032-08560-3_7},\n  url       = {https://doi.org/10.1007/978-3-032-08560-3_7}\n}\n",
+        "source_url": "https://doi.org/10.1007/978-3-032-08560-3_7",
+        "theorem_or_result": "The paper gives polynomial-time, provably fast first-order algorithms (MWU and conditional gradient/Frank\u2013Wolfe) to compute an \\(\\varepsilon\\)-approximate Nash-bargaining solution for several cardinal-utility matching-market convex programs, including the two-sided linear Arrow\u2013Debreu model\n\\[\n\\max_x \\sum_{i\\in A}\\log(U_i(x)-c_i)+\\sum_{j\\in B}\\log(W_j(x)-d_j)\\quad\\text{s.t. }x\\text{ is a fractional perfect matching}\n\\]\n(Program (7)), and its SPLC generalization (Program (8)/(35)). In particular, for one-sided linear Arrow\u2013Debreu (Program (5)) they prove MWU computes an \\(\\varepsilon\\)-approximate Nash bargaining solution in \\(O(n\\log n/\\varepsilon^2)\\) iterations with \\(O(n^2)\\) work per iteration (Theorem 7), and for conditional gradient they obtain \\(O(\\mathrm{poly}(n,\\kappa,1/\\delta)/\\varepsilon)\\) iteration bounds (e.g., Theorem 25 for two-sided SPLC with endowments).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for a polynomial-time algorithm that outputs a Pareto-optimal (PO) lottery that is constant-factor \\(\\alpha\\)-approximately justified envy-free (JEF) in general two-sided cardinal-utility matching markets.\n\nThis paper does not study JEF as defined in the open problem, nor does it provide a constant-factor approximation guarantee for JEF. Instead it focuses on computing Nash-bargaining (NB) allocations efficiently for one- and two-sided matching markets. NB solutions are Pareto-optimal by construction, and the paper proves certain approximate fairness properties (approximate equal-share/proportionality) for these NB models (e.g., Lemma 4 and related lemmas), but these are different from two-sided JEF.\n\nThus the paper contributes relevant algorithmic machinery (fast polynomial-time computation of PO convex-program solutions on the matching polytope) and an alternative approximate-fairness notion, but it does not resolve whether there exists a constant \\(\\alpha\\) for PO + \\(\\alpha\\)-approximate JEF, nor does it give such an algorithm."
+      },
+      {
+        "title": "Harm ratio: A novel and versatile fairness criterion",
+        "bibtex": "@inproceedings{Anonymous2024HarmRatio,\n  title     = {Harm ratio: A novel and versatile fairness criterion},\n  author    = {Unknown},\n  booktitle = {Proceedings of the ACM Conference on Economics and Computation (EC)},\n  year      = {2024},\n  doi       = {10.1145/3689904.3694701},\n  url       = {https://doi.org/10.1145/3689904.3694701}\n}\n",
+        "source_url": "https://doi.org/10.1145/3689904.3694701",
+        "theorem_or_result": "Defines new fairness notions for the public outcomes model: individual harm ratio (IHR) and group harm ratio (GHR). Shows that proportional fairness (PF) implies 1-GHR, hence PO and 1-IHR (Proposition 2). Under compactness and upper convexity of the feasible utility set \\(U\\), every maximum Nash welfare (MNW) outcome is PF (Theorem 2), hence 1-GHR and PO. Computationally, when \\(U\\) is convex and given by polynomially many linear constraints, a \\((1+\\varepsilon)\\)-PF outcome can be computed in time polynomial in input size and \\(1/\\varepsilon\\), and \\((1+\\varepsilon)\\)-PF implies \\((1+n\\varepsilon)\\)-GHR (Proposition 4).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a polynomial-time algorithm that outputs a Pareto-optimal lottery in a two-sided matching market that is constant-factor approximately justified envy-free (JEF). This paper does not study two-sided matching or JEF; instead it introduces IHR/GHR as alternative fairness criteria and relates them to PF/MNW. Its computational result yields approximate PF (hence approximate GHR) via convex programming when the feasible utility region is convex/linearly described. In the two-sided fractional matching market, the feasible set is a Birkhoff polytope (convex, linear constraints), so their framework could in principle compute \\((1+\\varepsilon)\\)-PF and thus \\((1+n\\varepsilon)\\)-GHR, which is not a constant-factor guarantee independent of \\(n\\), and it is for GHR/IHR rather than JEF. Therefore it does not resolve the stated open problem, but provides potentially relevant convex-optimization machinery and an alternative fairness relaxation that implies PO."
+      },
+      {
+        "title": "Approximating competitive equilibrium by Nash welfare",
+        "bibtex": "@misc{Anonymous2024ApproxCEbyNashWelfare,\n  title        = {Approximating competitive equilibrium by Nash welfare},\n  author       = {Unknown},\n  year         = {2024},\n  note         = {Preprint}\n}\n",
+        "source_url": "Unknown",
+        "theorem_or_result": "In Fisher markets with divisible goods and concave utilities, any Nash-welfare-maximizing allocation (y_i) together with its dual (Gale) prices (q) forms a 2-demand-approximate competitive equilibrium; in the equal-budget case this implies 2-approximate envy-freeness: u_i(y_i)\\ge \\tfrac12\\max_{\\langle q,x\\rangle\\le b_i}u_i(x) and hence u_i(y_i)\\ge \\tfrac12 u_i(y_k) for all agents i,k (Theorem 1.2). For \\(\\Sigma\\)-Gale-substitutes utilities, the Nash-welfare-maximizing allocation guarantees each agent at least half of their utility in any (thrifty) competitive equilibrium: u_i(y_i)\\ge \\tfrac12 u_i(x_i) (Theorems 1.3 and 1.6).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a polynomial-time algorithm in two-sided bipartite matching markets that outputs a Pareto-optimal lottery that is constant-factor approximately justified-envy-free (JEF). This paper is in a different model (Fisher markets with divisible goods) and studies approximate competitive equilibrium / approximate envy-freeness via Nash welfare maximization. It does not address two-sided matching constraints, nor the specific two-sided JEF notion based on mutual acceptability thresholds \\(w_{ji}\\ge w_{ji'}\\). However, it provides a relevant technique: maximizing (weighted) Nash welfare via the EisenbergGale convex program yields Pareto optimality and a constant-factor (2) approximate envy-freeness guarantee, and the paper explicitly notes that a matching-utilities result of TrbstVazirani (2024) giving PO + 2-envy-free can be viewed as a special case. Thus it offers conceptual/algorithmic tools (NSW convex programming, dual-price analysis) that might be adapted, but it does not solve the stated JEF+PO approximation problem in two-sided matching markets."
+      },
+      {
+        "title": "Tight Efficiency Bounds for the Probabilistic Serial Mechanism under Cardinal Preferences",
+        "bibtex": "@misc{Anonymous2024TightEfficiencyPS,\n  title        = {Tight Efficiency Bounds for the Probabilistic Serial Mechanism under Cardinal Preferences},\n  author       = {Unknown},\n  year         = {2024},\n  note         = {Preprint}\n}\n",
+        "source_url": "Unknown",
+        "theorem_or_result": "The paper proves tight efficiency guarantees for the Probabilistic Serial (PS) mechanism in the one-sided random assignment problem (agents vs. items). In particular, PS achieves an \\,\\(H_n\\)-approximation to maximum Nash welfare and hence is \\,\\(H_n\\)-approximately Pareto efficient under cardinal utilities, where \\,\\(H_n=\\sum_{k=1}^n 1/k\\in[\\ln n,\\ln n+1]\\) (Theorem 2.6 / Theorem 1.1). It also gives a polynomial-time algorithm that computes an envy-free allocation that is \\,\\((e^{1/e}-\\varepsilon)\\)-approximately Pareto efficient (equivalently \\,\\((1/e)^{1/e}\\)-approximate Nash welfare) for random assignment and a submodular generalization (Theorem 3.4 / Theorem 1.3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns two-sided bipartite matching markets with utilities on both sides and asks for a polynomial-time algorithm outputting an allocation that is Pareto-optimal (exact PO) and constant-factor approximately justified envy-free (two-sided JEF). This paper studies a different model: one-sided random assignment (agents vs. items) with standard envy-freeness among agents, not two-sided JEF, and it relaxes efficiency to approximate Pareto efficiency (or approximating Nash welfare) rather than exact Pareto-optimality. Thus it does not solve the stated two-sided JEF+PO approximation problem. However, it is methodologically related: it uses Nash-welfare/market-equilibrium ideas and convex programming to obtain envy-free allocations with constant-factor approximate efficiency, which could be relevant as tools or inspiration for the two-sided setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.056801500000000005,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.056801500000000005
+    "literature_total_cost_usd": 0.9736705999999999,
+    "total_cost_usd": 1.0304721
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414541699/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4414541699_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4414541699_p0",
+    "citations_analyzed": 16,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

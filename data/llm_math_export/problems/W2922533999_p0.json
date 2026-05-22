@@ -49,16 +49,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Eden\u2013Feldman\u2013Fiat\u2013Goldner\u2013Karlin, 2023) introduces the SOS condition (submodularity/diminishing returns over signals) as a substitute for single-crossing assumptions in interdependent-value auctions, and shows that random-partition mechanisms can be made universally ex post IC-IR while retaining a constant fraction of welfare when values are estimated using only a random subset of agents\u2019 signals. In the multidimensional bundle-specific signal model, their constant-factor result (a 4-approximation via RS-VCG) relies crucially on separability of each bundle value into an \u201cothers\u2019 signals\u201d term plus an \u201cown signal\u201d term, so that VCG-style payments do not depend on the bidder\u2019s report through the externality term.\n\nSubsequent work has improved constants in more structured environments (e.g., binary signals and matroid constraints), indicating that SOS can indeed support strong welfare guarantees without single crossing in certain single-parameter settings. However, none of the available results remove the separability requirement in the fully multidimensional combinatorial-auction model of bundle-specific signals. Classical impossibility results for multidimensional interdependent settings (e.g., Jehiel\u2013Moldovanu) continue to suggest that without additional structure, ex post implementability is severely constrained, and it remains unclear whether SOS alone suffices to recover constant-factor welfare.\n\nOverall, the state of the art supports constant-factor welfare approximation under SOS in single-parameter settings and under separable-SOS in multidimensional combinatorial auctions, but the existence (or impossibility) of a universally ex post IC-IR constant-factor mechanism for general (nonseparable) SOS valuations with multidimensional bundle-specific signals remains open. Promising directions include identifying weaker payment-relevant decompositions than separability, alternative equilibrium notions, or impossibility constructions tailored to SOS that rule out constant factors in the nonseparable multidimensional model.",
+    "total_cost_usd": 0.08730225,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Combinatorial Auctions with Interdependent Valuations: SOS to the Rescue",
+        "bibtex": "@article{EdenFeldmanFiatGoldnerKarlin2023SOS,\n  author = {Eden, Alon and Feldman, Michal and Fiat, Amos and Goldner, Kira and Karlin, Anna R.},\n  title = {Combinatorial Auctions with Interdependent Valuations: SOS to the Rescue},\n  journal = {Mathematics of Operations Research},\n  year = {2023},\n  doi = {10.1287/moor.2023.1371},\n  url = {https://doi.org/10.1287/moor.2023.1371}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2023.1371",
+        "theorem_or_result": "Introduces SOS (submodular-over-signals) valuations and gives universally ex post IC-IR welfare-approximation mechanisms: 4-approx for single-parameter downward-closed settings with single-dimensional signals (RS-V), 4-approx for combinatorial auctions with multidimensional signals under separable-SOS (RS-VCG), and (k+3)/O(log k) approximations for combinatorial auctions with single-dimensional signals and finite signal spaces.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether separability is necessary to obtain a constant-factor welfare approximation in combinatorial auctions with multidimensional bundle-specific signals under SOS valuations."
+      },
+      {
+        "title": "Auctions with interdependence and SOS: Improved approximation",
+        "bibtex": "@misc{AmerTalgamCohen2021InterdependenceSOS,\n  author = {Amer, A. and Talgam-Cohen, I.},\n  title = {Auctions with interdependence and SOS: Improved approximation},\n  year = {2021},\n  eprint = {2107.08806},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT},\n  url = {https://arxiv.org/abs/2107.08806}\n}\n",
+        "source_url": "https://arxiv.org/abs/2107.08806",
+        "theorem_or_result": "Improves welfare approximation guarantees in SOS interdependent-value auctions for restricted settings (binary signals and matroid feasibility constraints), tightening the achievable factor toward the 1/2 lower bound in those cases.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "Shows that in some structured environments constant factors can be improved without additional assumptions beyond SOS, but it does not address multidimensional bundle-specific signals nor remove separability in the combinatorial setting."
+      },
+      {
+        "title": "Private interdependent valuations",
+        "bibtex": "@inproceedings{EdenGoldnerZheng2022PrivateInterdependent,\n  author = {Eden, Alon and Goldner, Kira and Zheng, Shengyu},\n  title = {Private interdependent valuations},\n  booktitle = {Proceedings of the 2022 ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2022},\n  pages = {2920--2939},\n  url = {https://epubs.siam.org/doi/10.1137/1.9781611977073.114}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611977073.114",
+        "theorem_or_result": "Studies interdependent valuations under private-values-style informational assumptions and provides algorithmic/mechanism-design results and separations between SOS and single-crossing-type conditions in private settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides context on the role of SOS versus other conditions and highlights limitations when moving between public and private interdependence models; not a direct mechanism for multidimensional bundle-specific signals without separability."
+      },
+      {
+        "title": "Instantiating the contingent bids model of truthful interdependent value auctions",
+        "bibtex": "@inproceedings{ItoParkes2006ContingentBids,\n  author = {Ito, Takayuki and Parkes, David C.},\n  title = {Instantiating the contingent bids model of truthful interdependent value auctions},\n  booktitle = {Proceedings of the Fifth International Joint Conference on Autonomous Agents and Multiagent Systems (AAMAS)},\n  year = {2006},\n  pages = {1151--1158},\n  url = {https://dl.acm.org/doi/10.1145/1160633.1160838}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/1160633.1160838",
+        "theorem_or_result": "Develops contingent-bid auction formats for interdependent values and analyzes welfare guarantees in special combinatorial settings (e.g., single-minded bidders) with approximation factors depending on number of goods.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Represents earlier combinatorial-auction work with interdependent values but does not use SOS structure to obtain constant factors in the multidimensional bundle-specific signal model."
+      },
+      {
+        "title": "Efficient design with interdependent valuations",
+        "bibtex": "@article{JehielMoldovanu2001EfficientDesign,\n  author = {Jehiel, Philippe and Moldovanu, Benny},\n  title = {Efficient design with interdependent valuations},\n  journal = {Econometrica},\n  year = {2001},\n  volume = {69},\n  number = {5},\n  pages = {1237--1259},\n  url = {https://www.jstor.org/stable/2692190}\n}\n",
+        "source_url": "https://www.jstor.org/stable/2692190",
+        "theorem_or_result": "Shows broad impossibility results for efficient mechanism design with interdependent valuations and multidimensional signals (generic non-implementability), and characterizes special cases where efficiency is possible under strong structure (e.g., linearity and single-crossing-type conditions).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Motivates why Eden et al. pursue approximation and why additional structure (like separability) may be needed; provides barriers that any constant-factor approximation must circumvent in the multidimensional-signal combinatorial setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07412475,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07412475
+    "literature_total_cost_usd": 0.08730225,
+    "total_cost_usd": 0.161427
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2922533999/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2922533999_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W2922533999_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper establishes that recognizing whether a given nonnegative integer inequality \\(\\alpha^\\top x\\le \\beta\\) defines a facet of the 0\u20131 knapsack polytope \\(P=\\mathrm{conv}(\\{x\\in\\{0,1\\}^n: a^\\top x\\le b\\})\\) is \\(\\mathrm{D}^p\\)-complete, resolving a conjecture of Hartvigsen and Zemel. Despite this hardness, it gives an XP algorithm parameterized by \\(K=|\\alpha|_+\\), the number of distinct positive coefficient values in \\(\\alpha\\), running in \\(n^{K+O(1)}\\) time by enumerating and rank-testing a structured family of \u201cbasic knapsack solutions\u201d induced by grouping variables with equal \\(\\alpha\\)-coefficients.\n\nThe open problem asks whether this XP dependence can be improved to fixed-parameter tractability: an algorithm with running time \\(f(K)\\,\\mathrm{poly}(n)\\). No forward-citation evidence was provided, so there is currently no identified subsequent work resolving the FPT question. Promising directions suggested by the structure of the XP algorithm include compressing the enumeration of basic solutions via dynamic programming over the \\(K\\) coefficient blocks, exploiting matroid/representative-set style rank arguments to avoid explicit enumeration, or proving parameterized hardness (e.g., \\(\\mathrm{W}[1]\\)-hardness) by adapting the paper\u2019s \\(\\mathrm{D}^p\\)-hardness reduction to preserve small \\(K\\).",
+    "total_cost_usd": 0.044199749999999996,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "The Complexity of Recognizing Facets for the Knapsack Polytope",
+        "bibtex": "@article{ChenZhu2025KnapsackFacets,\n  title        = {The Complexity of Recognizing Facets for the Knapsack Polytope},\n  author       = {Chen, Rui and Zhu, Haoran},\n  year         = {2025},\n  journal      = {arXiv preprint arXiv:2211.03311v3},\n  eprint       = {2211.03311},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2211.03311",
+        "theorem_or_result": "Shows KNAPSACK_FACETS is \\(\\mathrm{D}^p\\)-complete in general and gives an XP algorithm running in \\(n^{K+O(1)}\\) time where \\(K=|\\alpha|_+\\) is the number of distinct positive coefficients in \\(\\alpha\\). Leaves open whether the problem is fixed-parameter tractable (FPT) in \\(K\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: improve the XP dependence \\(n^{K+O(1)}\\) to an FPT running time \\(f(K)\\,\\mathrm{poly}(n)\\) for deciding whether \\(\\alpha^\\top x\\le \\beta\\) defines a facet of a 0\u20131 knapsack polytope."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.044611,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.044611
+    "literature_total_cost_usd": 0.044199749999999996,
+    "total_cost_usd": 0.08881075
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416295153/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4416295153_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4416295153_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

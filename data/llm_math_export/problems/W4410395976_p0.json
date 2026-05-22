@@ -46,16 +46,59 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks whether Scarf\u2019s algorithm admits a polynomial pivot bound on the bipartite matching polytope for an arbitrary ordinal matrix \\(C\\), possibly under a suitable degeneracy rule. The source paper (Faenza\u2013He\u2013Sethuraman, 2023) establishes the first polynomial-time convergence result for Scarf\u2019s algorithm in a significant combinatorial setting, but only for a carefully structured consistent ordinal matrix \\(C^*\\) encoding stable-marriage preferences (and for a standard perturbation that removes degeneracy). Their analysis exploits a detailed characterization of feasible bases of the matching polytope (\"forest with single loops\"), a structural description of almost-feasible ordinal bases via a unique \"separator\" man, and a monotone potential \\((i,\\sum_{w\\in W}u_w)\\) that increases over iterations under a tailored cardinal pivot rule.\n\nForward-citation evidence to date does not resolve the arbitrary-\\(C\\) question. The strongest partial progress is the extension to arborescence hypergraphs, where a network-matrix structure enables a pivot rule with at most \\(|V|\\) iterations, indicating that polynomial pivot bounds can hold well beyond bipartite graphs when \\(C\\) has preference-induced structure. Other citing work emphasizes the broader landscape: polynomial-time computation is often achieved by alternative combinatorial or dynamic-programming methods in structured unimodular/normal hypergraphs, while PPAD-hardness results for related core-stability computations reinforce that no general polynomial-time guarantee should be expected for Scarf-style pivoting in full generality. Overall, the problem remains open: existing polynomial bounds rely on strong structure in \\(C\\) (consistency/preference encoding) and/or in the constraint matrix (network/arborescence), and it is unknown whether arbitrary ordinal \\(C\\) on the bipartite matching polytope admits any polynomially bounded execution of Scarf\u2019s algorithm.",
+    "total_cost_usd": 0.37083935,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Scarf's Algorithm on Arborescence Hypergraphs",
+        "bibtex": "@article{ChandrasekaranEtAl_ArborescenceHypergraphs,\n  title        = {Scarf's Algorithm on Arborescence Hypergraphs},\n  author       = {},\n  year         = {},\n  journal      = {},\n  doi          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For hypergraphic preference systems \n\\((H=(V,E),\\succ)\\) where \\(H\\) is an arborescence hypergraph (i.e., the node\u2013hyperedge incidence matrix is a \\(\\{0,1\\}\\)-valued network matrix whose principal tree is an arborescence), the authors design a specific cardinal pivoting rule (the \u201cfirst forward arc leaving\u201d rule) under which Scarf\u2019s algorithm terminates after at most \\(|V|\\) iterations and can be implemented in time \\(O(|V||E|)\\), outputting a (integral) stable matching (Theorem 1).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for polynomial-time convergence of Scarf\u2019s algorithm on the bipartite matching polytope for an arbitrary ordinal matrix \\(C\\) (possibly with an appropriate degeneracy rule). This paper proves polynomial-time convergence only for a different family of polytopes/instances: the stable-matching formulation on arborescence hypergraphs with the specific block-partitioned ordinal matrix \\(C\\) induced by preferences (Aharoni\u2013Fleiner construction, plus an added controlling row/column). It does not address arbitrary ordinal matrices \\(C\\) on the bipartite matching polytope, nor does it prove a pivot bound for all \\(C\\) even in bipartite graphs. Still, it provides partial progress by extending polynomial convergence beyond bipartite stable marriage to a new totally-unimodular/network-matrix setting and by developing structural/pivot analyses (network-matrix interpretation of cardinal pivots, potential-function via \u201cseparator\u201d) that could be relevant to the bipartite/arbitrary-\\(C\\) question."
+      },
+      {
+        "title": "Stable hypergraph matching in unimodular hypergraphs",
+        "bibtex": "@article{StableHypergraphMatchingUnimodular,\n  title        = {Stable hypergraph matching in unimodular hypergraphs},\n  author       = {},\n  year         = {},\n  journal      = {},\n  doi          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies Stable Hypergraph Matching (SHM) and Stable Hypergraph b-Matching (SHbM) under structural restrictions on the underlying (unimodular/normal) hypergraph. Key algorithmic results include:\n- For laminar hypergraphs, Algorithm 2 finds a stable b-matching in polynomial time (Theorem 4.1).\n- For subpath hypergraphs, MaxW-Subpath-SHbM is solvable in time polynomial in input size when the maximum hyperedge size \\(\\ell_{\\max}\\) is bounded (XP in \\(\\ell_{\\max}\\); Theorem 4.4).\n- For subtree hypergraphs (normal but not necessarily unimodular), Subtree-SHM (no capacities) is solvable in polynomial time (Theorem 5.1), while Subtree-SHbM is NP-hard even under strong restrictions (Theorem 5.2).\nIt also notes that Scarf\u2019s algorithm is not polynomial-time in general and cites prior work proving polynomial-time termination for stable marriage and for SHM on arborescence hypergraphs under suitable pivot rules.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "The open problem asks for polynomial-time convergence (number of pivots) of Scarf\u2019s algorithm on the bipartite matching polytope for an arbitrary ordinal matrix \\(C\\), possibly with a degeneracy rule. This paper does not analyze Scarf\u2019s pivoting dynamics on bipartite matching polytopes with arbitrary ordinal matrices, nor does it prove any polynomial bound on Scarf\u2019s algorithm iterations in that setting.\n\nInstead, it studies existence/complexity of finding stable (b-)matchings in hypergraph generalizations motivated by Scarf\u2019s Lemma, giving combinatorial/dynamic-programming algorithms for certain unimodular/normal hypergraph classes and hardness results for others. Its relevance is mainly contextual: it reinforces that (i) Scarf\u2019s Lemma gives existence in unimodular settings but (ii) polynomial-time computation via Scarf\u2019s algorithm is generally unknown/hard, and it points to recent positive results (Faenza\u2013He\u2013Sethuraman for stable marriage; Chandrasekaran et al. for arborescence hypergraphs) about polynomial-time termination under pivot rules. These are adjacent to, but do not resolve, the stated open problem for arbitrary ordinal matrices on bipartite matching polytopes."
+      },
+      {
+        "title": "On the Existence and Complexity of Core-Stable Data Exchanges",
+        "bibtex": "@article{CoreStableDataExchanges,\n  title        = {On the Existence and Complexity of Core-Stable Data Exchanges},\n  author       = {},\n  year         = {},\n  journal      = {},\n  doi          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves existence of core-stable outcomes for a data-exchange economy by modeling it as a balanced n-person game and invoking Scarfs theorem: if each agents payoff function is concave and each cost function is convex, then the induced game is balanced and hence a core-stable data exchange exists (Theorem 3 / Theorem 1). It also proves PPAD-hardness of computing a core-stable exchange even under these concavity/convexity assumptions (Theorem 2), via a reduction from approximate stable fractional hypergraph matching.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a polynomial bound on the number of pivot iterations of Scarfs algorithm on bipartite matching polytopes for arbitrary ordinal matrices C (possibly with a degeneracy rule). This paper uses Scarfs theorem and a related pivoting algorithm framework to compute (approximate) core-stable exchanges in a different application (data exchange), and it explicitly notes that pivoting algorithms may not have polynomially bounded iterations. It does not analyze Scarfs algorithm on bipartite matching polytopes, does not address arbitrary ordinal matrices on matching polytopes, and provides no polynomial-time convergence guarantee; if anything, its PPAD-hardness result for computing core-stable exchanges suggests that one should not expect a general polynomial-time algorithm for that problem class, but this is not a direct refutation of the specific stable-marriage/bipartite-matching ordinal-matrix convergence question."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0886375,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0886375
+    "literature_total_cost_usd": 0.37083935,
+    "total_cost_usd": 0.45947685
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410395976/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4410395976_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4410395976_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -47,16 +47,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper\u2019s margin-based generalization bounds (Theorems 4\u20135) hinge on a vector-contraction step: bounding the scalar Rademacher complexity of the composed class \\(\\{x\\mapsto \\ell^{\\gamma}_{\\mathrm{SPO}}(f(x),c)\\}\\) by a Lipschitz constant times a multivariate Rademacher complexity \\(\\widehat{\\mathfrak R}_n(\\mathcal H)=\\mathbb E\\sup_{f\\in\\mathcal H}\\frac1n\\sum_i \\sigma_i^\\top f(x_i)\\). They explicitly restrict to the \\(\\ell_2\\) setting because the most general available contraction lemma they know is Maurer\u2019s 2016 inequality, which is Hilbertian in nature. The open problem asks for an extension to a general norm \\(\\|\\cdot\\|\\) (e.g., \\(\\ell_q\\)), ideally yielding \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\le C(\\|\\cdot\\|)L\\,\\widehat{\\mathfrak R}_n(\\mathcal H)\\) or a closely related complexity with an explicit constant.\n\nAs of the information provided here (no forward-citation analyses were supplied), there is no identified paper that resolves this extension in full generality. The natural mathematical pathway is through empirical process theory in Banach spaces: for a general norm, the right constant \\(C(\\|\\cdot\\|)\\) typically depends on geometric parameters of the normed space (or its dual), such as type-2 constants, 2-smoothness/uniform smoothness, or related KhintchineKahane inequalities. Classical references by LedouxTalagrand and Pisier develop the machinery that would be used to derive such norm-dependent contraction/comparison results, and they suggest that for \\(\\ell_q\\) norms one should expect constants scaling like \\(\\sqrt{q-1}\\) (for \\(q\\ge2\\)) or dimension-dependent behavior when the space lacks type 2.\n\nConsequently, the problem remains open in the sense articulated by the source paper: a clean, general-purpose vector-contraction inequality for empirical Rademacher complexity under arbitrary norms, with explicit constants usable in learning-theoretic bounds like Theorem 4, is not currently pinned down by the provided citation set. Promising directions include proving contraction under assumptions such as uniform smoothness of the dual norm, or restricting to norm families (e.g., \\(\\ell_q\\), group norms, Schatten norms) where sharp type/smoothness constants are known, thereby yielding explicit \\(C(\\|\\cdot\\|)\\) suitable for predict-then-optimize generalization analyses.",
+    "total_cost_usd": 0.050688750000000005,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A vector-contraction inequality for Rademacher complexities",
+        "bibtex": "@inproceedings{Maurer2016VectorContraction,\n  author    = {Andreas Maurer},\n  title     = {A vector-contraction inequality for Rademacher complexities},\n  booktitle = {International Conference on Algorithmic Learning Theory (ALT)},\n  year      = {2016},\n  publisher = {Springer},\n}\n",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-319-46379-7_1",
+        "theorem_or_result": "Proves a general vector-contraction inequality for Lipschitz maps \u0000\\(\\phi:\\mathbb R^d\\to\\mathbb R\\) when Lipschitzness is measured in \\(\\ell_2\\), bounding \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\) by a constant times \\(L\\) times a multivariate Rademacher complexity of \\(\\mathcal H\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the specific contraction tool cited as [17] in the source paper and is the baseline that the open problem asks to extend from \\(\\ell_2\\) to general norms."
+      },
+      {
+        "title": "Probability in Banach Spaces: Isoperimetry and Processes",
+        "bibtex": "@book{LedouxTalagrand1991ProbabilityBanach,\n  author    = {Michel Ledoux and Michel Talagrand},\n  title     = {Probability in Banach Spaces: Isoperimetry and Processes},\n  publisher = {Springer},\n  year      = {1991},\n}\n",
+        "source_url": "https://link.springer.com/book/10.1007/978-3-642-20212-4",
+        "theorem_or_result": "Develops majorizing measure/generic chaining and comparison inequalities for Rademacher/Gaussian processes indexed by subsets of Banach spaces, including type/cotype and Khintchine\u0013Kahane inequalities that control vector-valued Rademacher sums under general norms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "General-norm vector contraction is closely tied to Banach-space geometry (type 2, smoothness, martingale type). This monograph provides the foundational tools typically used to obtain norm-dependent constants \\(C(\\|\\cdot\\|)\\)."
+      },
+      {
+        "title": "Factorization of linear operators and geometry of Banach spaces",
+        "bibtex": "@book{Pisier1986Factorization,\n  author    = {Gilles Pisier},\n  title     = {Factorization of linear operators and geometry of Banach spaces},\n  publisher = {American Mathematical Society},\n  year      = {1986},\n}\n",
+        "source_url": "https://bookstore.ams.org/cbms-60",
+        "theorem_or_result": "Relates bounds on Rademacher/Gaussian averages in Banach spaces to geometric parameters such as type/cotype and 2-smoothness, yielding dimension-dependent constants for \\(\\ell_q\\) spaces (e.g., \\(\\sqrt{q-1}\\) for \\(q\\ge2\\)).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "A plausible route to \\(C(\\|\\cdot\\|)\\) for general norms is via type-2 or smoothness constants of the dual space; Pisier's results are standard references for such constants, especially for \\(\\ell_q\\) norms."
+      },
+      {
+        "title": "A new look at independence",
+        "bibtex": "@article{Talagrand1996NewLook,\n  author  = {Michel Talagrand},\n  title   = {A new look at independence},\n  journal = {The Annals of Probability},\n  year    = {1996},\n}\n",
+        "source_url": "https://projecteuclid.org/journals/annals-of-probability/volume-24/issue-1/A-new-look-at-independence/10.1214/aop/1042644705.full",
+        "theorem_or_result": "Introduces sharp inequalities for suprema of empirical processes and decoupling/comparison techniques that often underlie contraction and symmetrization arguments beyond Hilbert spaces.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "General-norm contraction may require refined comparison/decoupling beyond the Hilbertian case; Talagrand's techniques are frequently used in modern empirical process theory for Banach-valued classes."
+      },
+      {
+        "title": "Understanding Machine Learning: From Theory to Algorithms",
+        "bibtex": "@book{ShalevShwartzBenDavid2014UML,\n  author    = {Shai Shalev-Shwartz and Shai Ben-David},\n  title     = {Understanding Machine Learning: From Theory to Algorithms},\n  publisher = {Cambridge University Press},\n  year      = {2014},\n}\n",
+        "source_url": "https://www.cambridge.org/highereducation/books/understanding-machine-learning/3059695661405B05D3B8E6B2E8D7E5E2",
+        "theorem_or_result": "Textbook treatment of Rademacher complexity, contraction for scalar Lipschitz maps, and multiclass/margin bounds; provides standard symmetrization and contraction templates.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "While it does not solve the general-norm vector contraction question, it provides the standard scalar contraction lemma and proof patterns that one would try to generalize to vector-valued settings."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.039355749999999995,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.039355749999999995
+    "literature_total_cost_usd": 0.050688750000000005,
+    "total_cost_usd": 0.0900445
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2947637889/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2947637889_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W2947637889_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

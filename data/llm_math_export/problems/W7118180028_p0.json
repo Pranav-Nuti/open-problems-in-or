@@ -47,16 +47,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The 2024 source paper (Cui\u2013Hoheisel\u2013Nghia\u2013Sun) reframes the regularized least-squares KKT system through the Fenchel\u2013Rockafellar dual and applies Robinson strong regularity to obtain a purely first-order characterization of when the solution mapping \\(S(A,b,\\mu)\\) is locally single-valued and Lipschitz: under \\(C^2\\)-cone reducibility of \\(g^*\\) at \\(\\bar z=-\\tfrac{1}{\\bar\\mu}\\bar A^*(\\bar A\\bar x-\\bar b)\\), Lipschitz stability is equivalent to the subspace qualification \\(\\ker \\bar A\\cap \\operatorname{par}\\partial g^*(\\bar z)=\\{0\\}\\). The paper explicitly flags as open the quantitative step of computing the local Lipschitz modulus (the smallest Lipschitz constant) without resorting to coderivatives/second-order variational objects for \\(g\\).\n\nForward-citing work so far provides partial progress mainly in polyhedral settings. The survey/talk \u201cStability of nonsmooth optimization problems\u201d retains coderivative-based criteria in general but, for LASSO, derives an explicit computable upper bound on the Lipschitz modulus in terms of singular values of an active submatrix \\(A_J\\) and the scaled residual \\(A\\bar x-\\bar b\\). \u201cLipschitz continuity of solution multifunctions of extended regularization problems\u201d gives polyhedral-geometry characterizations (global Lipschitzness in \\((\\lambda,b)\\) for fixed \\(A\\), and local Lipschitzness under an active-set linear independence condition) but does not provide an explicit modulus. \u201cIsolated Calmness in Regularized Convex Optimization\u201d supplies geometric necessary/sufficient conditions for isolated calmness in broader composite least-squares models, which supports existence of some local Lipschitz bound but again stops short of a computable minimal constant.\n\nOverall, the problem of determining the exact local Lipschitz modulus of \\(S\\) at \\((\\bar A,\\bar b,\\bar\\mu)\\) in the general \\(C^2\\)-cone reducible-conjugate regime, using only first-order information about \\(g\\), remains open. Current promising directions include: (i) exploiting active-manifold/effective-subspace reductions (as in Newton methods for polyhedral regularizers) to express the modulus via restricted linear systems; and (ii) extending such reductions beyond polyhedral \\(g\\) to broader \\(C^2\\)-cone reducible \\(g^*\\) by identifying computable representations of \\(\\operatorname{par}\\partial g^*(\\bar z)\\) and deriving tight norm bounds for the implicit map induced by the dual strong-regularity linearization.",
+    "total_cost_usd": 0.44237724999999994,
+    "citations_analyzed": 5,
+    "sources": [
+      {
+        "title": "Stability of nonsmooth optimization problems",
+        "bibtex": "@misc{stability_nonsmooth_optimization_problems,\n  title        = {Stability of nonsmooth optimization problems},\n  author       = {},\n  note         = {Unpublished/slide deck; metadata not provided in citation analysis},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For the regularized least-squares problem \\(\\min_x \\tfrac12\\|Ax-b\\|^2+\\lambda g(x)\\) with \\(g\\) closed proper convex, the talk derives a Mordukhovich-type sufficient condition for local single-valued Lipschitz stability of the solution map \\((A,b,\\lambda)\\mapsto \\arg\\min_x \\tfrac12\\|Ax-b\\|^2+\\lambda g(x)\\): if \\(\\bar x\\) solves the problem and \\(\\bar u:=\\tfrac1\\lambda A^*(b-A\\bar x)\\in\\partial g(\\bar x)\\), then the Mordukhovich criterion holds provided \\[\\ker A\\cap D^*(\\partial g^*)(\\bar u\\mid \\bar x)(0)=\\{0\\}.\\]\nIn the polyhedral-support case \\(g=\\sigma_P\\), this reduces to the computable qualification \\(\\operatorname{par}\\partial g^*(\\bar u)\\cap\\ker A=\\{0\\}\\) (denoted (R)). For unconstrained LASSO \\(g(x)=\\|x\\|_1\\), under the intermediate condition \\(\\ker A_J=\\{0\\}\\) (equivalent to (R)), the solution map \\(S(b,\\lambda)\\) is semismooth and locally Lipschitz at \\((\\bar b,\\bar\\lambda)\\) with an explicit upper bound on the Lipschitz modulus:\n\\[L\\le \\frac{1}{\\sigma_{\\min}(A_J)^2}\\Big(\\sigma_{\\max}(A_J)+\\big\\|A_J^T(A\\bar x-\\bar b)/\\bar\\lambda\\big\\|\\Big).\\]",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for computable formulas/estimates of the local Lipschitz modulus of the solution mapping \\(S(A,b,\\mu)\\) for regularized least squares, preferably avoiding heavy second-order objects (coderivatives of \\(\\partial g\\)). This citing work does not give a general formula for the exact Lipschitz modulus for arbitrary convex \\(g\\); it still uses the Mordukhovich criterion and coderivative expressions to certify Lipschitz stability. However, it provides (i) a reduction of the stability condition to a more tangible qualification \\(\\operatorname{par}\\partial g^*(\\bar u)\\cap\\ker A=\\{0\\}\\) in polyhedral-support/PLQ settings, and (ii) an explicit, easily computable upper bound on the Lipschitz modulus for the LASSO solution map in terms of singular values of a submatrix \\(A_J\\) and the residual \\(A\\bar x-\\bar b\\). Thus it constitutes partial progress toward computable modulus estimates in important special cases (\\(\\ell_1\\), PLQ, \\(C^2\\)-cone reducible conjugates), but does not resolve the general-modulus computation problem posed in the original paper."
+      },
+      {
+        "title": "Lipschitz continuity of solution multifunctions of extended regularization problems",
+        "bibtex": "@misc{meng_wu_yang_lipschitz_continuity_extended_l1,\n  title        = {Lipschitz continuity of solution multifunctions of extended regularization problems},\n  author       = {},\n  note         = {Preprint; metadata not provided in citation analysis},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For the extended \\(\\ell_1\\) regularization/Lasso solution multifunction \\(S(\\lambda,b,A)\\), the paper proves: (a) for fixed \\(A\\), \\(S(\\cdot,\\cdot,A)\\) is globally Lipschitz continuous on its convex domain \\(\\mathbb R_+\\times\\mathbb R^m\\) (Theorem 3.1) via a polyhedral decomposition of \\(\\operatorname{gph}S\\); (b) for \\(\\lambda>0\\), local Lipschitz continuity of \\(S\\) around \\((\\bar\\lambda,\\bar b,\\bar A)\\) is equivalent to Condition 1.2 (linear independence of active columns) (Proposition 4.1); and (c) on compact \\(U\\subset \\mathbb R_{++}\\times\\mathbb R^m\\), \\(S\\) is Lipschitz on \\(U\\times V\\) for some neighborhood \\(V\\) of \\(\\bar A\\) iff Condition 1.2 holds at \\((\\lambda,b,\\bar A)\\) for all \\((\\lambda,b)\\in U\\) (Theorem 4.1).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for computable formulas/estimates of the local Lipschitz modulus of the solution mapping for general convex regularizers \\(g\\), avoiding coderivatives/second-order variational objects. This paper addresses a special polyhedral regularizer \\(g(x)=\\|x\\|_1\\) (Lasso/extended \\(\\ell_1\\) model) and establishes Lipschitz continuity characterizations using polyhedral theory rather than coderivatives. However, it does not compute the Lipschitz modulus (minimal constant) at a reference triple, nor does it treat general \\(g\\) beyond \\(\\ell_1\\). The results provide structural decompositions and equivalences that could help bound a modulus in the \\(\\ell_1\\) case, but no explicit modulus formula is given."
+      },
+      {
+        "title": "Isolated Calmness in Regularized Convex Optimization",
+        "bibtex": "@misc{isolated_calmness_regularized_convex_optimization,\n  title        = {Isolated Calmness in Regularized Convex Optimization},\n  author       = {},\n  note         = {Metadata not provided in citation analysis},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For the least-squares regularized composite problem \\(\\min_x \\tfrac{1}{2\\mu}\\|\\Phi x-b\\|^2+g(Kx)\\), the paper gives geometric necessary/sufficient conditions for isolated calmness (local single-valued Lipschitz behavior at an isolated solution) of the solution mapping \\(S_{LS}(b,\\mu)\\). In particular, if \\(x\\bar\\in S_{LS}(\\bar b,\\bar\\mu)\\), \\(\\bar y\\in \\partial g(K\\bar x)\\) with \\(K^*\\bar y=-\\tfrac{1}{\\bar\\mu}\\Phi^*(\\Phi\\bar x-\\bar b)\\), and \\(g\\) satisfies quadratic growth at \\(K\\bar x\\) for \\(\\bar y\\), then \\(S_{LS}\\) is isolated calm at \\((\\bar b,\\bar\\mu)\\) for \\(\\bar x\\) provided \\(\\operatorname{Ker}\\Phi\\cap K^{-1}(T_{\\partial g^*(\\bar y)}(K\\bar x))=\\{0\\}\\); moreover this condition is also necessary under mild qualification assumptions (e.g. \\(\\partial g^*(\\bar y)\\) polyhedral or \\(\\operatorname{Im}K\\cap \\operatorname{ri}(\\partial g^*(\\bar y))\\neq\\emptyset\\)).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for computable formulas/estimates of the local Lipschitz modulus of the solution mapping \\(S(A,b,\\mu)\\) in the regime where it is single-valued and locally Lipschitz, preferably avoiding heavy second-order objects (coderivatives/second-order variational structures of \\(g\\)). This paper does not compute the Lipschitz modulus. Instead it studies the weaker/related property of isolated calmness (a local Lipschitz bound around an isolated solution) and provides geometric characterizations in terms of tangent cones to \\(\\partial g^*(\\bar y)\\) and kernels of \\(\\Phi\\) and \\(K^*\\). While these conditions can help verify Lipschitz stability and imply existence of some modulus \\(\\kappa\\), the paper does not provide an explicit minimal constant (modulus) nor a computable bound in terms of \\(\\bar A,\\bar b,\\bar\\mu\\) without second-order information; it still uses second-order-related structures (graphical derivatives/second subderivatives) but packages them into tangent-cone conditions under quadratic growth."
+      },
+      {
+        "title": "Nonsmooth Newton methods with effective subspaces for polyhedral regularization",
+        "bibtex": "@misc{nonsmooth_newton_effective_subspaces_polyhedral,\n  title        = {Nonsmooth Newton methods with effective subspaces for polyhedral regularization},\n  author       = {},\n  note         = {Metadata not provided in citation analysis},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For composite convex problems \\(\\min_x \\phi(x)=f(x)+g(x)\\) with \\(f\\) \\(C^2\\) and convex and \\(g\\) convex polyhedral, if \\(\\bar x\\) is a tilt-stable minimizer (equivalently, \\(-\\nabla f(\\bar x)\\in \\partial g(\\bar x)\\) and \\(\\ker \\nabla^2 f(\\bar x)\\cap \\operatorname{par}\\partial g^*(-\\nabla f(\\bar x))=\\{0\\}\\)), then the proposed Newton method restricted to the effective subspace \\(L_k:=\\operatorname{par}\\partial g^*(z_k)\\) is well-defined and the iterates converge quadratically to \\(\\bar x\\) (Theorem 3.1; Corollaries 3.3 and 3.8 for ISTA/FISTA-generated \\((y_k,z_k)\\)).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for computable formulas/estimates of the local Lipschitz modulus of the solution mapping \\(S(A,b,\\mu)\\) for regularized least squares, avoiding heavy second-order objects (coderivatives of \\(\\partial g\\)). This paper does not compute the Lipschitz modulus of \\(S\\). However, it develops a first-order-computable object \\(\\operatorname{par}\\partial g^*(z)\\) (effective subspace) and uses tilt-stability/metric regularity to obtain quadratic local convergence of Newton-type methods for least-squares-type models with polyhedral regularizers (including Lasso/TV/OSCAR). Tilt-stability is closely tied to strong metric regularity and hence to Lipschitz behavior of solution mappings, so the paper provides algorithmic tools and explicit subspace formulas that could help estimate sensitivity in polyhedral cases, but it does not provide an explicit Lipschitz-modulus formula for \\(S(A,b,\\mu)\\) under general convex \\(g\\) or even for polyhedral \\(g\\)."
+      },
+      {
+        "title": "Tilt Stability of Ky-Fan -Norm Composite Optimization",
+        "bibtex": "@article{tilt_stability_kyfan_norm_composite_optimization,\n  title        = {Tilt Stability of Ky-Fan -Norm Composite Optimization},\n  author       = {},\n  journal      = {Statistics and Optimization for Machine Learning},\n  year         = {2025},\n  doi          = {10.1007/s11228-025-00778-y},\n  url          = {https://doi.org/10.1007/s11228-025-00778-y}\n}\n",
+        "source_url": "https://doi.org/10.1007/s11228-025-00778-y",
+        "theorem_or_result": "The paper derives point-based necessary and sufficient conditions for tilt stability (single-valued Lipschitz behavior under tilt perturbations) of composite problems of the form \\(\\min_X\\; \\nu\\,\\vartheta(X)+\\Psi_\\kappa(X)\\), where \\(\\vartheta\\) is \\(C^2\\) and locally convex and \\(\\Psi_\\kappa\\) is the Ky-Fan \\(\\kappa\\)-norm. In particular, it provides an explicit formula for the second subderivative \\(d^2\\Psi_\\kappa(X\\mid\\Gamma)(G)\\) (Propositions 3.1\u20133.2) and a verifiable characterization of tilt stability: a local minimizer \\(X\\) is tilt-stable iff \\(\\operatorname{Ker}\\nabla^2\\vartheta(X)\\cap \\Upsilon=\\{0\\}\\), where \\(\\Upsilon\\) is an explicitly described set of directions determined by the SVD structure of \\((X,\\Gamma)\\) (Theorem 4.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for computable formulas/estimates of the local Lipschitz modulus of the solution mapping \\(S(A,b,\\mu)\\) for regularized least squares, preferably avoiding heavy second-order variational objects (coderivatives of \\(\\partial g\\)). This paper does not address the parameterized least-squares mapping \\(S(A,b,\\mu)\\) nor compute its Lipschitz modulus. Instead, it studies tilt stability of minimizers for matrix composite problems with Ky-Fan \\(\\kappa\\)-norm regularizers, using explicit second subderivative calculations. Tilt stability implies a single-valued Lipschitz localization of \\((\\partial f)^{-1}\\), so the results provide second-order tools/criteria that are conceptually related to Lipschitz stability, but they rely heavily on second subderivatives and are specialized to spectral regularizers rather than giving modulus formulas for \\(S(A,b,\\mu)\\) in the least-squares setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0565425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0565425
+    "literature_total_cost_usd": 0.44237724999999994,
+    "total_cost_usd": 0.49891974999999994
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7118180028/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7118180028_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7118180028_p0",
+    "citations_analyzed": 5,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

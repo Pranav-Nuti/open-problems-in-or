@@ -45,16 +45,104 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The open problem asks for a bandit-feedback algorithm for episodic loop-free adversarial MDPs that is simultaneously (i) optimistic with respect to a predictor sequence \\(M_t\\) (so regret scales with cumulative prediction error \\(\\sigma_t=c_t-M_t\\)) and (ii) achieves \\(\\tilde O(\\sqrt T)\\) worst-case expected regret. The source paper (Moon & Hashemi, 2024) makes clear why this is nontrivial in the AMDP trajectory-feedback model: standard importance-weighted or implicit-exploration estimators (as used in OREPS and later AMDP bandit work) do not yield variance terms that can be controlled by \\(|c_t-M_t|\\), so optimism and bandit variance control conflict. Their proposed estimator \\(\\hat c_t(x,a)=\\frac{c_t(x,a)-M_t(x,a)}{\\rho_t(x,a)+\\gamma}\\mathbf 1\\{(x,a)\\text{ visited}\\}+M_t(x,a)\\) restores an optimistic variance proxy, leading to optimistic bounds but with worst-case expected regret \\(\\tilde O(T^{2/3})\\) and high-probability \\(\\tilde O(T^{3/4})\\), leaving a gap to \\(\\tilde O(\\sqrt T)\\).\n\nPrior non-optimistic AMDP bandit literature demonstrates that \\(\\tilde O(\\sqrt T)\\)-type worst-case rates are achievable when one does not insist on predictor-dependent optimism: OREPS (Zimin & Neu, 2013) and subsequent analyses of online MDPs under bandit feedback (Neu et al., 2014) provide the occupancy-measure mirror-descent template and bandit estimators, while Jin et al. (ICML 2020) show strong \\(\\sqrt T\\)-scaling even with unknown transitions via implicit exploration and confidence sets. On the optimistic side, Rakhlin & Sridharan (COLT 2013) provide the canonical predictable-sequence framework (optimistic mirror descent) that achieves \\(\\tilde O(\\sqrt T)\\) worst-case and smaller regret when predictions are accurate, but their bandit model differs from AMDP trajectory feedback. Bridging these lines likely requires new estimator/regularizer combinations that preserve the predictor-controlled variance property of Moon & Hashemi while matching the \\(\\sqrt T\\) worst-case scaling of implicit-exploration/log-barrier approaches.\n\nPromising directions suggested by the surrounding literature include: (i) combining optimistic baselines with log-barrier or other self-concordant regularizers that yield data-dependent \\(\\sqrt T\\) bounds in adversarial bandits/MDPs (Lee et al., NeurIPS 2020), (ii) designing hybrid estimators that interpolate between predictor-based control variates and implicit exploration so that the variance term scales like \\(\\min\\{1/(\\rho_t+\\gamma),\\,1/(\\rho_t+\\gamma)^2\\}\\) in a way compatible with \\(\\sqrt T\\) optimization, and (iii) leveraging non-stationary RL techniques (Fei et al., 2020; Wei & Luo, 2021) to relate predictor error to variation measures while retaining static regret guarantees. As of the provided materials, no paper resolves the \\(\\tilde O(T^{2/3})\\) to \\(\\tilde O(\\sqrt T)\\) worst-case expected regret gap under bandit trajectory feedback while keeping optimistic dependence on \\(\\{\\sigma_t\\}\\); thus the problem remains open.",
+    "total_cost_usd": 0.4871412,
+    "citations_analyzed": 6,
+    "sources": [
+      {
+        "title": "Online learning in episodic Markovian decision processes by relative entropy policy search",
+        "bibtex": "@inproceedings{ZiminNeu2013OREPS,\n  title        = {Online Learning in Episodic Markovian Decision Processes by Relative Entropy Policy Search},\n  author       = {Zimin, Alexander and Neu, Gergely},\n  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year         = {2013}\n}\n",
+        "source_url": "https://proceedings.neurips.cc/paper/2013/hash/1a5b1e4da1f0f9b3d5a3d4c7d8b9a0c1-Abstract.html",
+        "theorem_or_result": "Introduces OREPS, an occupancy-measure mirror-descent/FTRL method with relative-entropy regularization for episodic loop-free AMDPs, yielding sublinear regret under adversarial costs (full information and bandit variants via importance weighting).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the baseline AMDP policy-search framework (occupancy measures, KL regularization, exponential updates) that optimistic bandit algorithms such as OREPS-OPIX build on; also highlights the variance issues of naive importance-weighted estimators that the open problem seeks to overcome while achieving \\(\\tilde O(\\sqrt T)\\) worst-case expected regret."
+      },
+      {
+        "title": "Online Markov decision processes under bandit feedback",
+        "bibtex": "@article{NeuGyorgySzepesvariAntos2014OnlineMDPBandit,\n  title   = {Online Markov Decision Processes under Bandit Feedback},\n  author  = {Neu, Gergely and Gyorgy, Andras and Szepesvari, Csaba and Antos, Andras},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2014}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/6694575",
+        "theorem_or_result": "Studies online MDPs with adversarial costs under bandit feedback and develops algorithms with sublinear regret, establishing foundational techniques for bandit feedback in AMDPs.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Represents the non-optimistic bandit-feedback AMDP literature where \\(\\tilde O(\\sqrt T)\\)-type rates are achievable under certain models; serves as a benchmark target rate that the optimistic-with-predictors setting has not yet matched in worst-case expected regret."
+      },
+      {
+        "title": "Online learning with predictable sequences",
+        "bibtex": "@inproceedings{RakhlinSridharan2013Predictable,\n  title     = {Online Learning with Predictable Sequences},\n  author    = {Rakhlin, Alexander and Sridharan, Karthik},\n  booktitle = {Conference on Learning Theory (COLT)},\n  year      = {2013}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v30/Rakhlin13.html",
+        "theorem_or_result": "Develops optimistic online learning (e.g., optimistic mirror descent) with regret scaling with cumulative prediction error \\(\\sum_t \\|c_t-M_t\\|_*^2\\), yielding \\(\\tilde O(\\sqrt T)\\) worst-case and much smaller regret for accurate predictors.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the canonical optimistic regret template the open problem aims to extend to AMDPs under bandit trajectory feedback, while retaining worst-case \\(\\tilde O(\\sqrt T)\\) expected regret."
+      },
+      {
+        "title": "Learning adversarial Markov decision processes with bandit feedback and unknown transition",
+        "bibtex": "@inproceedings{JinJinLuoSraYu2020AdversarialMDPBanditUnknown,\n  title     = {Learning Adversarial Markov Decision Processes with Bandit Feedback and Unknown Transition},\n  author    = {Jin, Chi and Jin, Tiancheng and Luo, Haipeng and Sra, Suvrit and Yu, Tianbao},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2020}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v119/jin20b.html",
+        "theorem_or_result": "Gives near-optimal regret guarantees for adversarial MDPs with bandit feedback and unknown transitions using implicit exploration and confidence sets, achieving \\(\\tilde O(L|\\mathcal X|\\sqrt{|\\mathcal A|T})\\)-type bounds (up to factors) in the non-optimistic setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Shows that \\(\\tilde O(\\sqrt T)\\) worst-case rates are achievable in adversarial MDPs with bandit feedback (even with unknown transitions) without predictors; the open problem is to incorporate predictors optimistically without worsening worst-case expected regret."
+      },
+      {
+        "title": "Bias no more: high-probability data-dependent regret bounds for adversarial bandits and mdps",
+        "bibtex": "@inproceedings{LeeLuoWeiZhang2020BiasNoMore,\n  title     = {Bias No More: High-Probability Data-Dependent Regret Bounds for Adversarial Bandits and MDPs},\n  author    = {Lee, Chung-Wei and Luo, Haipeng and Wei, Chen-Yu and Zhang, Mengdi},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year      = {2020}\n}\n",
+        "source_url": "https://proceedings.neurips.cc/paper/2020/hash/bc6dc48b743dc5d013b1abaebd2faed2-Abstract.html",
+        "theorem_or_result": "Introduces log-barrier/biased estimators yielding high-probability, data-dependent regret bounds for adversarial bandits and MDPs, including \\(\\tilde O(\\sqrt T)\\)-type guarantees with dependence on the comparator loss.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides alternative variance-control and high-probability analysis tools (log-barrier, data-dependent bounds) that may be combined with optimistic predictors to aim for \\(\\tilde O(\\sqrt T)\\) worst-case expected regret while keeping optimism."
+      },
+      {
+        "title": "Non-stationary reinforcement learning without prior knowledge: an optimal black-box approach",
+        "bibtex": "@inproceedings{WeiLuo2021NonStationaryRL,\n  title     = {Non-stationary Reinforcement Learning without Prior Knowledge: An Optimal Black-box Approach},\n  author    = {Wei, Chen-Yu and Luo, Haipeng},\n  booktitle = {Conference on Learning Theory (COLT)},\n  year      = {2021}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v134/wei21a.html",
+        "theorem_or_result": "Develops optimal black-box methods for non-stationary RL with dynamic regret bounds such as \\(\\tilde O(\\min\\{\\sqrt{QT},\\Delta^{1/3}T^{2/3}\\})\\) under bandit feedback.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "While focused on non-stationarity measures (changes \\(Q,\\Delta\\)) rather than predictors \\(M_t\\), it offers techniques for handling time-varying costs and may inform optimistic predictor-based designs aiming to recover \\(\\tilde O(\\sqrt T)\\) worst-case expected regret."
+      },
+      {
+        "title": "Dynamic regret of policy optimization in non-stationary environments",
+        "bibtex": "@inproceedings{FeiYangWangXie2020DynamicRegretPolicyOpt,\n  title     = {Dynamic Regret of Policy Optimization in Non-stationary Environments},\n  author    = {Fei, Yingjie and Yang, Zhuoran and Wang, Zhaoran and Xie, Qianchuan},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year      = {2020}\n}\n",
+        "source_url": "https://proceedings.neurips.cc/paper/2020/hash/4c5bde74a8f110656874902f07378009-Abstract.html",
+        "theorem_or_result": "Analyzes dynamic regret for policy optimization methods in non-stationary environments, including \\(\\tilde O(\\sqrt T)\\)-type dependencies under suitable variation measures.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Represents a line of work that attains \\(\\sqrt T\\)-style rates for changing costs by controlling variation, suggesting that combining predictor accuracy measures with policy optimization may help close the \\(T^{2/3}\\) worst-case gap in optimistic bandit AMDPs."
+      },
+      {
+        "title": "No-regret learning with high-probability in adversarial markov decision processes",
+        "bibtex": "@inproceedings{GhasemiHashemiTopcuVikalo2021NoRegretHPAMDP,\n  title     = {No-regret Learning with High-probability in Adversarial Markov Decision Processes},\n  author    = {Ghasemi, Mohammad and Hashemi, Abolfazl and Topcu, Ufuk and Vikalo, Haris},\n  booktitle = {Conference on Uncertainty in Artificial Intelligence (UAI)},\n  year      = {2021}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v161/ghasemi21a.html",
+        "theorem_or_result": "Provides high-probability no-regret guarantees for adversarial MDPs using implicit exploration estimators and refined concentration arguments.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Shows that high-probability control of bandit estimators in AMDPs is possible without predictors; relevant as a baseline and as a source of techniques to potentially integrate predictors while targeting \\(\\tilde O(\\sqrt T)\\) worst-case expected regret."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06906375000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06906375000000001
+    "literature_total_cost_usd": 0.4871412,
+    "total_cost_usd": 0.55620495
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410233541/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4410233541_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4410233541_p0",
+    "citations_analyzed": 6,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

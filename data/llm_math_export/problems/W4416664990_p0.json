@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The min-cost popular maximum matching problem in the hospitals/residents (many-to-one) model with strict, possibly incomplete preferences remains open in the sense highlighted by Kavitha and Makino: while min-cost popular matchings with complete preferences are now polynomial-time solvable in many-to-one, the restriction of popularity to the family of maximum-cardinality matchings in the incomplete-preference case does not admit a known polynomial-time algorithm nor a hardness proof.\n\nThe closest forward-cited progress in the provided analysis is the work on popular perfect matchings in the many-to-many setting, which develops structural characterizations of popularity via the nonexistence of positive-weight alternating cycles and leverages a reduction to min-cost stable matching in a carefully constructed colorful auxiliary instance. These techniques mirror the cycle/certificate viewpoints used in the many-to-one complete-preference setting and suggest that an eventual resolution for popular maximum matchings may require a refined decomposition of maximum-matchings\u2019 symmetric differences (cycles and alternating paths) together with a way to encode the adversarial hospital vote within an optimization framework.\n\nA key remaining gap is that, unlike the perfect-matching case where cloning/projection arguments can be made surjective (and dual certificates can be strengthened), popular maximum matchings in many-to-one can be strictly richer than those induced by popular maximum matchings in the cloned one-to-one instance. This obstruction blocks straightforward reductions to known polynomial-time algorithms for one-to-one popular maximum matchings, leaving open whether the many-to-one problem is polynomial-time solvable or NP-hard.",
+    "total_cost_usd": 0.09588949999999999,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Perfect matchings and popularity in the many-to-many setting",
+        "bibtex": "@inproceedings{KavithaMakino2023PerfectManyToMany,\n  author    = {Telikepalli Kavitha and Kazuhisa Makino},\n  title     = {Perfect matchings and popularity in the many-to-many setting},\n  booktitle = {Proceedings of the 43rd IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS)},\n  year      = {2023}\n}\n",
+        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2023/",
+        "theorem_or_result": "The paper proves that in a bipartite many-to-many instance with strict (possibly incomplete) preferences and edge costs, assuming the instance admits a perfect matching, a minimum-cost popular perfect matching can be computed in polynomial time (Theorem 4). The algorithm reduces min-cost popular perfect perfect matching to a min-cost stable matching problem in a constructed colorful auxiliary many-to-many multigraph, using a characterization of popular perfect matchings via absence of positive-weight alternating cycles (Theorem 5) and a surjective projection from stable matchings in the auxiliary instance to popular perfect matchings in the original instance.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the complexity of computing a minimum-cost popular maximum matching in the hospitals/residents (many-to-one) setting with possibly incomplete preferences, where popularity is defined only among maximum-cardinality matchings. This paper does not resolve that: it studies popular perfect matchings (popularity restricted to perfect matchings) in the more general many-to-many setting, and gives a polynomial-time algorithm for min-cost popular perfect matchings under the assumption that a perfect matching exists.\n\nNevertheless, its techniques are closely related: it uses the same adversarial-bijection voting rule for capacitated vertices and develops a reduction from min-cost popular perfect matchings to min-cost stable matchings in a colorful auxiliary instance. The paper explicitly states as an open problem the min-cost popular maximum matching problem in hospitals/residents and notes why the one-to-one reduction does not extend. Thus it provides partial progress/tools but not the sought complexity classification for popular maximum matchings."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06421625,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06421625
+    "literature_total_cost_usd": 0.09588949999999999,
+    "total_cost_usd": 0.16010575
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416664990/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4416664990_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4416664990_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-05-20T15:35:02.959853+00:00",
+  "generated_at_utc": "2026-05-22T19:04:42.613742+00:00",
   "counts": {
     "exported_problems": 149,
     "open_problems_exported": 149,
-    "with_literature_review": 5,
+    "with_literature_review": 55,
     "newly_added_problems": 97,
     "duplicates_skipped": 1,
     "unverified_problems": 149
@@ -200,7 +200,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410154284_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -233,7 +233,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410155359_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -265,7 +265,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410233541_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -297,7 +297,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410233669_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -330,7 +330,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410395976_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -361,7 +361,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410396076_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -394,7 +394,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4410590382_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -427,7 +427,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411023035_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -460,7 +460,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411234993_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -492,7 +492,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411449955_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -524,7 +524,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411674410_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -556,7 +556,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411787576_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -589,7 +589,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411801764_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -622,7 +622,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411879499_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -654,7 +654,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411957271_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -687,7 +687,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4411959281_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -719,7 +719,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "high",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4412612512_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -753,7 +753,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4412630514_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -785,7 +785,7 @@
       "counterexample_suitability": "high",
       "alphaevolve_suitability": "high",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4413077228_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -817,7 +817,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4413635748_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -850,7 +850,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4413848299_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -882,7 +882,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414091988_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -915,7 +915,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414408152_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -948,7 +948,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414427837_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -981,7 +981,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414449781_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1013,7 +1013,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414541699_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1044,7 +1044,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4414783466_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1079,7 +1079,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4415178980_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1111,7 +1111,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4416295153_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1143,7 +1143,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4416512437_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1175,7 +1175,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4416664990_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1206,7 +1206,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4416665164_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1239,7 +1239,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4417166251_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1272,7 +1272,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "high",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4417331274_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1307,7 +1307,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4417437095_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1339,7 +1339,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7114802374_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1373,7 +1373,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7118180028_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1405,7 +1405,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7119488906_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1438,7 +1438,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7125931785_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1471,7 +1471,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7126221168_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1504,7 +1504,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7127637708_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1538,7 +1538,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7128591806_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1572,7 +1572,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7135205807_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1604,7 +1604,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7140189588_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1635,7 +1635,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7143448186_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1668,7 +1668,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7148364054_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1699,7 +1699,7 @@
       "counterexample_suitability": "medium",
       "alphaevolve_suitability": "high",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W7150839694_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00"
@@ -1731,7 +1731,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W2800787305_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00"
@@ -1767,7 +1767,7 @@
       "counterexample_suitability": "high",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W2922533999_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00"
@@ -1801,7 +1801,7 @@
       "counterexample_suitability": "low",
       "alphaevolve_suitability": "medium",
       "is_open": true,
-      "has_literature_review": false,
+      "has_literature_review": true,
       "unverified": true,
       "path": "problems/W2947637889_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00"

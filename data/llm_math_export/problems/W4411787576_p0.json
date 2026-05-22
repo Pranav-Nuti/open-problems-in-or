@@ -45,16 +45,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper (Agarwal\u2013Ramanan, 2020) characterizes physical invariant states \\(\\nu^*\\) of the SQ(d) hydrodynamic equations\u2014countably many coupled age measures \\((\\nu_\\ell)\\)\u2014via densities \\(r_\\ell\\) and tail fractions \\(s^*_\\ell\\) satisfying fixed-point relations built from \\(P_d\\) and the service tail \\(\\bar G\\). It proves existence (and for \\(d=2\\), uniqueness) of the physical invariant state and establishes doubly exponential tail decay under a moment/tail condition on \\(G\\). However, it leaves open the dynamical question of asymptotic stability: whether for a broad class of initial conditions \\(\\nu(t)\\to\\nu^*\\) as \\(t\\to\\infty\\), which would in turn justify convergence of prelimit stationary distributions to \\(\\nu^*\\).\n\nAmong forward citations provided, none resolves this global convergence problem for the SQ(d) hydrodynamic equations. The closest methodological analogue is the SIAM J. Appl. Math. work on GI/G/N+G queues with reneging, which proves global convergence to a unique invariant state for a different (but structurally similar) nonlinearly coupled measure-valued transport system, using either renewal-equation arguments (for decreasing hazard) or a relative-entropy Lyapunov functional (for hazards bounded away from 0 and \\(\\infty\\)). These techniques suggest possible routes for SQ(d): constructing a Lyapunov functional controlling the entire tail-indexed family \\((\\nu_\\ell)\\), or reducing the dynamics to a closed system for tail masses \\(\\langle 1,\\nu_\\ell(t)\\rangle\\) plus renewal-type equations for age densities.\n\nOther citations address stationarity and mean-field approximations in different regimes (heavy-traffic McKean\u2013Vlasov PDE limits; spatial-graph mean-field via coupling) and do not establish \\(t\\to\\infty\\) convergence even in their own settings. Thus the SQ(d) global convergence question remains open; promising directions include identifying monotonicity/contractivity properties of the map \\(\\nu(0)\\mapsto \\nu(t)\\) in a weighted Wasserstein/total-variation metric adapted to \\(\\bar G\\), and developing a Lyapunov/entropy method that handles the nonlinear boundary terms \\(\\eta_\\ell(t)\\) involving \\(P_d\\) and the infinite-dimensional tail coupling.",
+    "total_cost_usd": 0.40123475,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Long-time limit of nonlinearly coupled measure-valued equations that model many-server queues with reneging",
+        "bibtex": "@article{AtarKangKaspiRamanan2023LongTimeReneging,\n  title        = {Long-time limit of nonlinearly coupled measure-valued equations that model many-server queues with reneging},\n  author       = {Atar, Rami and Kang, Weining and Kaspi, Haya and Ramanan, Kavita},\n  journal      = {SIAM Journal on Applied Mathematics},\n  year         = {2023},\n  doi          = {10.1137/21M1433125},\n  url          = {https://doi.org/10.1137/21M1433125}\n}\n",
+        "source_url": "https://doi.org/10.1137/21M1433125",
+        "theorem_or_result": "The paper proves global large-time convergence to a unique invariant state for the fluid (hydrodynamic) equations of the GI/G/N+G many-server queue with reneging. In particular (Theorem 3.2): under Assumption 2.1 and either (i) \n service hazard rate bounded away from 0 and \ninfinity or (ii) decreasing service hazard rate, if the invariant state is unique then for \n\\(\\lambda\\neq 1\\) the solution \\((X(t),\\nu_t,\\eta_t)\\) starting from any initial condition converges as \\(t\\to\\infty\\) to the unique invariant state \\(z^*_{\\lambda}\\); moreover the Dirac mass \\(\\delta_{z^*_{\\lambda}}\\) is the unique random fixed point, implying convergence of stationary distributions of the \\(N\\)-server systems to \\(z^*_{\\lambda}\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem concerns global convergence to the physical invariant state for the SQ(d) randomized load-balancing hydrodynamic equations (a different mean-field model: many parallel queues with power-of-d routing, and a countable family of age measures \\(\\nu_\\ell\\)). This citing paper establishes an analogous type of global convergence result, but for a different set of coupled measure-valued transport equations arising from a GI/G/N+G many-server queue with reneging (single queue, many servers, plus a potential-queue measure \\(\\eta\\)). It does not analyze the SQ(d) hydrodynamic equations, does not address the tail-indexed family \\((\\nu_\\ell)\\), and therefore does not solve the stated open problem. However, it provides potentially relevant techniques (renewal-equation reformulation for decreasing hazard rates; relative-entropy Lyapunov functional when hazard is bounded away from 0 and \\(\\infty\\)) that might be adaptable to prove global convergence in other measure-valued hydrodynamic systems, including load-balancing networks, as the authors explicitly suggest."
+      },
+      {
+        "title": "Invariance principle and McKean\u2013Vlasov limit for randomized load balancing in heavy traffic",
+        "bibtex": "@article{Anonymous2025InvariancePrincipleHeavyTraffic,\n  title        = {Invariance principle and {M}c{K}ean--{V}lasov limit for randomized load balancing in heavy traffic},\n  author       = {Unknown},\n  journal      = {The Annals of Applied Probability},\n  year         = {2025},\n  doi          = {10.1214/25-AAP2145.short},\n  url          = {https://doi.org/10.1214/25-AAP2145.short}\n}\n",
+        "source_url": "https://doi.org/10.1214/25-AAP2145.short",
+        "theorem_or_result": "The paper proves a hydrodynamic limit and invariance principles for a different load-balancing model in a heavy-traffic scaling regime: when a fraction of arrivals are routed by JSQ(\\(\\ell\\)) and the rest uniformly, with per-server load \\(1+\\rho n^{-1/2}\\) and queue lengths scaled by \\(n^{1/2}\\), the empirical measure \\(\\bar\\xi_t^n=\\frac1n\\sum_{i=1}^n\\delta_{\\hat X_i^n(t)}\\) converges to a deterministic measure \\(\\xi_t(dx)=u(x,t)dx\\) where \\(u\\) is the unique classical solution of the parabolic PDE\n\\[u_t=-\\partial_x\\big((b\\ell v^{\\ell-1}-c_1)u\\big)+a\\,u_{xx},\\qquad v(x,t)=\\int_x^\\infty u(y,t)\\,dy,\\]\nwith a Robin boundary condition at 0 (Theorem 2.6). Under \\(\\rho<0\\) this PDE has a unique stationary density \\(u_{\\mathrm{stat}}\\) given explicitly (Proposition 2.3). The authors explicitly state they do not prove that every solution converges to \\(u_{\\mathrm{stat}}\\) as \\(t\\to\\infty\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 3,
+        "connection": "The open problem concerns global convergence \\(\\nu(t)\\to\\nu^*\\) for the measure-valued hydrodynamic equations of the SQ(\\(d\\)) (power-of-\\(d\\)) model with general service-time distribution, in the subcritical mean-field regime \\(\\lambda\\in(0,1)\\), and with state \\(\\nu(t)=(\\nu_\\ell(t))_{\\ell\\ge1}\\) tracking service-age measures at queues of length at least \\(\\ell\\). This citing paper studies a different asymptotic regime (critical heavy traffic with diffusion scaling) and a different model (a thinned JSQ(\\(\\ell\\)) stream plus uniform routing), leading to a single parabolic PDE for the density of normalized queue lengths. While it identifies a unique stationary solution for that PDE, it explicitly does not establish global convergence to stationarity. Therefore it does not solve the stated open problem, and only offers loosely related PDE/uniqueness techniques rather than asymptotic stability for the original hydrodynamic equations."
+      },
+      {
+        "title": "Mean-field analysis for load balancing on spatial graphs",
+        "bibtex": "@article{Anonymous2024SpatialGraphsMeanField,\n  title        = {Mean-field analysis for load balancing on spatial graphs},\n  author       = {Unknown},\n  journal      = {The Annals of Applied Probability},\n  year         = {2024},\n  doi          = {10.1214/24-AAP2090.short},\n  url          = {https://doi.org/10.1214/24-AAP2090.short}\n}\n",
+        "source_url": "https://doi.org/10.1214/24-AAP2090.short",
+        "theorem_or_result": "From the provided excerpt (first two pages only), the paper\u2019s stated main contribution is a coupling-based method to justify a mean-field approximation for JSQ(d)/SQ(d)-type load balancing on a broad class of sparse bipartite compatibility graphs (including spatial graphs), and it claims a system-size-uniform mixing/relaxation-to-steady-state time bound for the occupancy process starting from suitable initial states. No explicit theorem statement is available in the excerpt, and no result about global convergence of the hydrodynamic PDE/measure-valued equations for the fully flexible SQ(d) model with general service-time distribution is stated here.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns asymptotic stability (global convergence to the physical invariant state) of the hydrodynamic equations for the fully flexible SQ(d) model with general service times (a measure-valued, age-structured mean-field limit). The citing paper instead studies mean-field approximations for load balancing on non-exchangeable spatial/compatibility graphs, apparently in a Markovian setting described by the occupancy vector \\(q^N(t)\\) (suggesting exponential service or otherwise Markovian assumptions). While it mentions proving closeness to steady state in time independent of \\(N\\), that is a finite-\\(N\\) mixing/relaxation statement for the graph model and does not directly establish global convergence of the non-Markovian, measure-valued hydrodynamic equations in the open problem. At best, its coupling ideas and uniform-in-\\(N\\) relaxation bounds could be conceptually relevant tools for proving convergence to equilibrium in mean-field limits, but the excerpt does not indicate it resolves the specific hydrodynamic convergence question."
+      },
+      {
+        "title": "Invariant states of hydrodynamic limits of randomized load balancing networks",
+        "bibtex": "@article{AgarwalRamanan2020InvariantStates,\n  title        = {Invariant states of hydrodynamic limits of randomized load balancing networks},\n  author       = {Agarwal, Pooja and Ramanan, Kavita},\n  year         = {2020},\n  eprint       = {2008.08510},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  url          = {https://arxiv.org/abs/2008.08510}\n}\n",
+        "source_url": "https://arxiv.org/abs/2008.08510",
+        "theorem_or_result": "Characterizes invariant states \\(\\nu^*\\) of the SQ(d) hydrodynamic equations via fixed-point relations for densities \\(r_\\ell\\) and tail fractions \\(s^*_\\ell\\); proves existence (and for \\(d=2\\), uniqueness) of the physical invariant state and establishes doubly exponential tail decay under a service-tail/moment condition.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "This is the source paper formulating the open problem: after characterizing \\(\\nu^*\\), it conjectures and provides numerical evidence that solutions \\(\\nu(t)\\) (and prelimit stationary distributions) converge to the physical invariant state, leaving global convergence/asymptotic stability open."
+      },
+      {
+        "title": "The hydrodynamic limit of a randomized load balancing network",
+        "bibtex": "@article{AghajaniRamanan2019HydrodynamicLimit,\n  title        = {The hydrodynamic limit of a randomized load balancing network},\n  author       = {Aghajani, Reza and Ramanan, Kavita},\n  journal      = {The Annals of Applied Probability},\n  year         = {2019},\n  doi          = {10.1214/19-AAP1454},\n  url          = {https://doi.org/10.1214/19-AAP1454}\n}\n",
+        "source_url": "https://doi.org/10.1214/19-AAP1454",
+        "theorem_or_result": "Establishes the hydrodynamic (mean-field) limit for SQ(d) with general service distributions using a measure-valued state \\((\\nu_\\ell)\\) and proves well-posedness/uniqueness of solutions under regularity conditions on the service density.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides the dynamical equations whose global convergence to the physical invariant state is asked for; any asymptotic stability proof must build on this well-posedness and the structure of the coupled measure-valued transport equations."
+      },
+      {
+        "title": "The PDE method for the analysis of randomized load balancing networks",
+        "bibtex": "@article{AghajaniLiRamanan2017PDEMethod,\n  title        = {The {PDE} method for the analysis of randomized load balancing networks},\n  author       = {Aghajani, Reza and Li, Xin and Ramanan, Kavita},\n  journal      = {Proceedings of the ACM on Measurement and Analysis of Computing Systems},\n  year         = {2017},\n  volume       = {1},\n  number       = {2},\n  pages        = {38:1--38:28},\n  doi          = {10.1145/3154506},\n  url          = {https://doi.org/10.1145/3154506}\n}\n",
+        "source_url": "https://doi.org/10.1145/3154506",
+        "theorem_or_result": "Provides a PDE reformulation/analysis framework for randomized load balancing networks with general service distributions, complementing the measure-valued hydrodynamic description.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Offers analytic tools (PDE formulation, regularity) that may be useful for studying long-time behavior and stability of the SQ(d) hydrodynamic equations, though it does not itself prove global convergence to \\(\\nu^*\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11368700000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11368700000000001
+    "literature_total_cost_usd": 0.40123475,
+    "total_cost_usd": 0.51492175
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411787576/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411787576_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411787576_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

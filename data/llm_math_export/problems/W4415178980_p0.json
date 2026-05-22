@@ -48,16 +48,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Cembrano et al., 2024) isolates a central tension in apportionment: deterministic population-monotone rules are essentially divisor methods (Balinski--Young), but divisor methods can violate quota; randomization over stationary divisor methods still leaves worst-case expected quota deviation linear in \\(H\\) (Proposition 4). The paper then shows that if one relaxes the fixed-house constraint ex post (allowing \\(\\sum_i X_i\\neq H\\) but keeping \\(\\mathbb E[\\sum_i X_i]=H\\)), one can simultaneously achieve quota compliance, strong population monotonicity, and ex-ante proportionality via randomized fixed-divisor methods (Theorem 2), with deviation from \\(H\\) controlled by concentration bounds.\n\nThe open problem asks whether the same triple of properties can be achieved while keeping \\(\\sum_i X_i=H\\) almost surely. The only forward-citing work provided here, \"Online Proportional Apportionment\", does not resolve the static question, but it establishes a sharp impossibility threshold in an online model: for \\(n\\ge 4\\), no randomized online method can simultaneously keep the per-step house size fixed, satisfy an ex-post quota-type guarantee at all times, and be ex-ante proportional at each step. Although online constraints are stronger than the one-shot setting and the paper does not incorporate the strong population-monotonicity axiom, its flow-based characterizations and impossibility constructions suggest that enforcing exact house size together with both ex-post quota and exact ex-ante proportionality may face fundamental obstructions beyond the variable-house approach.\n\nAt present, based on the supplied citation analysis, there is no known construction or impossibility theorem that settles the fixed-house, quota-compliant, population-monotone, ex-ante proportional randomized method in the classic one-shot model. Promising directions include adapting the network-flow/polyhedral characterizations used for house-monotone quota methods (as in the source paper\u2019s Section 5) to incorporate population monotonicity constraints, or extracting static impossibility instances by compressing the online impossibility gadgets into two-instance comparisons that witness population-monotonicity violations.",
+    "total_cost_usd": 0.32817925000000003,
+    "citations_analyzed": 3,
+    "sources": [
+      {
+        "title": "Online Proportional Apportionment",
+        "bibtex": "@inproceedings{OnlineProportionalApportionment,\n  title        = {Online Proportional Apportionment},\n  doi          = {10.1137/1.9781611978971.174},\n  url          = {https://doi.org/10.1137/1.9781611978971.174}\n}\n",
+        "source_url": "https://doi.org/10.1137/1.9781611978971.174",
+        "theorem_or_result": "The paper studies an online (sequential) apportionment model. Its main randomized result (Theorem 2) states: an online apportionment method that (i) allocates exactly the prescribed number of seats each step, (ii) satisfies global quota ex post at every time (i.e., for all parties and all times, cumulative seats satisfy \\(A_i^t\\in\\{\\lfloor V_i^t\\rfloor,\\lceil V_i^t\\rceil\\}\\)), and (iii) is ex-ante proportional at every step (\\(\\Pr[i\\in X^t]=v_i^t\\)) exists for all instances if and only if \\(n\\le 3\\). For \\(n\\ge 4\\), impossibility follows from their deterministic lower bound (Corollary 1) that global quota online is achievable for all instances iff \\(n\\le 3\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for a randomized apportionment method in the classic one-shot setting with fixed house size \\(H\\) almost surely, satisfying (1) quota compliance, (2) strong population monotonicity, and (3) ex-ante proportionality \\(\\mathbb E[X_i]=q_i\\). This paper does not address that exact static problem or the strong population-monotonicity axiom. Instead it treats a different, online/sequential model and proves a sharp feasibility threshold (\\(n\\le 3\\)) for simultaneously achieving an ex-post quota-type guarantee (global quota over time) and ex-ante proportionality while keeping the per-step house size fixed. Methodologically, it provides a constructive network-flow characterization of all such online methods (Proposition 2). These flow/rounding ideas are related to the original paper\u2019s use of flows/lotteries to reconcile quota and expectation constraints, but they neither construct nor rule out the desired static, population-monotone, fixed-house method in general. At best, it offers related tools and an impossibility phenomenon in a stricter online setting, suggesting potential barriers but not resolving the open problem."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.108374,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.108374
+    "literature_total_cost_usd": 0.32817925000000003,
+    "total_cost_usd": 0.43655325
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4415178980/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4415178980_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4415178980_p0",
+    "citations_analyzed": 3,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

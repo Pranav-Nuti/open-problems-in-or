@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "Segev\u2013Singla (2025) give EPTASes for several stochastic probing and selection-stopping problems (Free-Order Prophets, Pandora\u2019s Box with Commitment, non-adaptive and adaptive ProbeMax) by reducing them to a constant-machine, constant-dimension Multi-Dimensional Santa Claus feasibility problem and then applying an EPTAS for that subroutine. Their paper explicitly notes that an FPTAS for the Santa Claus subroutine is impossible in general (via strong NP-hardness from 3-Partition), so any FPTAS for the stochastic problems would require techniques that avoid this reduction or exploit additional structure in the stochastic objectives.\n\nThe only forward-citing work provided here, \"Approximation Schemes for Sequential Hiring Problems\", makes partial progress in the broader direction of approximation schemes for stochastic dynamic decision problems by proving a PTAS based on structural simplifications (block-responsive policies) and dynamic programming. However, its dependence on \\(1/\\epsilon\\) is super-polynomial, so it does not resolve whether any of the Segev\u2013Singla problems admit an FPTAS. At present, based on the supplied citation data, the FPTAS question remains open; promising directions include identifying special cases where the stochastic objectives admit pseudo-polynomial dynamic programs (enabling scaling-based FPTASes) or proving hardness of FPTAS for specific stochastic probing/stopping problems under standard complexity assumptions.",
+    "total_cost_usd": 0.15706074999999997,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Approximation Schemes for Sequential Hiring Problems",
+        "bibtex": "@article{ApproxSchemesSequentialHiring,\n  title={Approximation Schemes for Sequential Hiring Problems},\n  author={},\n  year={},\n  doi={}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves a polynomial-time approximation scheme for the sequential hiring problem: for any fixed \\(\\epsilon>0\\), there is an algorithm running in \\(O(n^{O(1)}\\cdot T^{2^{\\tilde O(1/\\epsilon^2)}})\\) time that outputs an (efficiently representable) adaptive hiring policy with expected reward at least \\((1-\\epsilon)\\) times optimal (Theorem 1.1). It also shows existence of near-optimal block-responsive policies of size \\((1/\\epsilon)^{O(k)}\\) (Theorem 4.3) and uses this to obtain a truly polynomial-time PTAS in the few-positions regime and an approximation scheme via prior work when \\(k\\ge 1/\\epsilon^2\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether the stochastic probing/selection-stopping problems in Segev\u2013Singla (2025) admit an FPTAS (time \\(\\mathrm{poly}(n,1/\\epsilon)\\)). This citing paper studies a different stochastic optimization model (sequential hiring) and provides a PTAS whose running time is polynomial in \\(n\\) but has super-polynomial dependence on \\(1/\\epsilon\\) (and also depends on \\(T\\) as \\(T^{2^{\\tilde O(1/\\epsilon^2)}}\\)). Therefore it does not give an FPTAS for the Segev\u2013Singla problems, nor does it resolve the barrier about FPTAS impossibility for their multi-dimensional Santa Claus subroutine. Its relevance is that it develops structural/rounding and block(-responsive) policy techniques in stochastic dynamic optimization/probing that could be conceptually related to designing faster schemes, but it does not establish fully polynomial dependence on \\(1/\\epsilon\\) for the target problems."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07594825,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07594825
+    "literature_total_cost_usd": 0.15706074999999997,
+    "total_cost_usd": 0.23300899999999997
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7114802374/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7114802374_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7114802374_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

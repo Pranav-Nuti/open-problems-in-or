@@ -44,16 +44,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 7,
+    "synthesis": "The source paper (Shaiderman, 2025) isolates two canonical discount-factor trajectories in Markovian persuasion when the Markov chain is irreducible: the invariant-prior value \\(\\Phi(\\delta)=v_\\delta(\\pi_M)\\), shown to be non-increasing in \\(\\delta\\), and the Dirac-weighted average \\(\\Psi(\\delta)=\\sum_{\\ell}\\pi_M(\\ell)v_\\delta(e_\\ell)\\), known from Lehrer and Shaiderman (2025, stochastic revelations) to be non-decreasing. Concavity of \\(v_\\delta(\\cdot)\\) yields \\(\\Phi(\\delta)\\ge \\Psi(\\delta)\\) for each \\(\\delta\\). A key structural corollary is that if equality \\(\\Phi(\\delta_0)=\\Psi(\\delta_0)\\) holds at some \\(\\delta_0<1\\), then both trajectories must be constant on \\([\\delta_0,1)\\), so the question becomes whether one can realize a genuine \u201ckink\u201d regime where strict inequality holds for \\(\\delta<\\delta_0\\) but equality holds for all larger \\(\\delta\\).\n\nExisting results and examples in Shaiderman (2025) and earlier work show that several qualitative regimes are feasible: (i) strict separation \\(\\Phi>\\Psi\\) for all \\(\\delta\\in[0,1)\\) (Case A in the paper\u2019s Figure 1) can occur even with ergodic \\(M\\); (ii) non-meeting can occur in periodic settings (Case C). However, no construction is currently known that forces first equality at an interior \\(\\delta_0\\in(0,1)\\) (Case B with \\(\\delta_0>0\\)), and no impossibility theorem rules it out. The monotonicity-through-information-design techniques (memory erasures for \\(\\Phi\\), stochastic revelations for \\(\\Psi\\)) explain why any interior meeting would correspond to a region where the optimal policy effectively becomes \\(\\delta\\)-independent and simultaneously saturates the concavity bound \\(v_\\delta(\\pi_M)=\\sum_\\ell \\pi_M(\\ell)v_\\delta(e_\\ell)\\).\n\nPromising directions suggested by the current state of the art include: (a) characterizing when Jensen-tightness \\(v_\\delta(\\pi_M)=\\mathbb{E}[v_\\delta(p)]\\) can hold for the particular split induced by \\(\\pi_M=\\sum_\\ell \\pi_M(\\ell)e_\\ell\\), which would require \\(v_\\delta\\) to be affine on the simplex region spanned by the \\(e_\\ell\\) relevant under the optimal stationary policy; (b) exploiting semi-algebraicity/piecewise-linearity phenomena of concavifications in finite-state models to engineer a phase transition in the optimal split at a threshold \\(\\delta_0\\); and (c) translating the question to the related Markov chain games framework (Renault, 2006) where additional strategic structure might make such a threshold easier to construct or to preclude.",
+    "total_cost_usd": 0.1022805,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Markovian persuasion",
+        "bibtex": "@article{LehrerShaiderman2025MarkovianPersuasion,\n  title        = {Markovian persuasion},\n  author       = {Lehrer, Ehud and Shaiderman, Dimitry},\n  year         = {2025},\n  journal      = {Theoretical Economics},\n  note         = {Accepted; to appear},\n  url          = {https://econtheory.org/ojs/index.php/te/article/viewForthcomingFile/5372/42663/}\n}\n",
+        "source_url": "https://econtheory.org/ojs/index.php/te/article/viewForthcomingFile/5372/42663/",
+        "theorem_or_result": "Establishes existence of an asymptotic value v_\u221e under ergodicity and develops the dynamic programming/MDP approach for Markovian persuasion; provides examples and structural results used in later monotonicity/rate arguments.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the baseline model and convergence framework in which \u03a6(\u03b4) and \u03a8(\u03b4) are compared; the open question about an interior equality point \u03b40 is posed relative to the monotonicity phenomena developed across this line of work."
+      },
+      {
+        "title": "Markovian persuasion with stochastic revelations",
+        "bibtex": "@article{LehrerShaiderman2025StochasticRevelations,\n  title        = {Markovian persuasion with stochastic revelations},\n  author       = {Lehrer, Ehud and Shaiderman, Dimitry},\n  year         = {2025},\n  journal      = {Games and Economic Behavior},\n  volume       = {154},\n  pages        = {411--439}\n}\n",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624000XXX",
+        "theorem_or_result": "Proves existence of increasing weighted-average trajectories in \u03b4 (including \u03a8(\u03b4)=\u2211_\u2113 \u03c0_M(\u2113)v_\u03b4(e_\u2113) non-decreasing) via an information-design coupling with stochastic revelations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Supplies the monotone increasing counterpart \u03a8(\u03b4) used to define \u03b40 and to deduce that if \u03a6(\u03b40)=\u03a8(\u03b40) then both trajectories are constant on [\u03b40,1); thus it is central to the interior-\u03b40 question."
+      },
+      {
+        "title": "On the Monotonicity and Rate of Convergence of the Markovian Persuasion Value",
+        "bibtex": "@article{Shaiderman2025MonotonicityRate,\n  title        = {On the Monotonicity and Rate of Convergence of the Markovian Persuasion Value},\n  author       = {Shaiderman, Dimitry},\n  year         = {2025},\n  journal      = {arXiv preprint},\n  eprint       = {2512.06794},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2512.06794}\n}\n",
+        "source_url": "https://arxiv.org/abs/2512.06794",
+        "theorem_or_result": "Shows \u03a6(\u03b4)=v_\u03b4(\u03c0_M) is non-increasing for invariant priors; combines with increasing \u03a8(\u03b4) to bound convergence rate; exhibits Cases A/C and leaves open existence of Case B with interior \u03b40.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the source paper posing the open problem; it proves the structural constraint that any interior equality point forces constancy on [\u03b40,1), sharpening the question to existence of such a regime."
+      },
+      {
+        "title": "The value of Markov chain games with lack of information on one side",
+        "bibtex": "@article{Renault2006MarkovChainGames,\n  title        = {The value of {M}arkov chain games with lack of information on one side},\n  author       = {Renault, J{\\'e}r{\\^o}me},\n  year         = {2006},\n  journal      = {Mathematics of Operations Research},\n  volume       = {31},\n  number       = {3},\n  pages        = {490--512},\n  url          = {https://pubsonline.informs.org/doi/abs/10.1287/moor.1060.0208}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/abs/10.1287/moor.1060.0208",
+        "theorem_or_result": "Introduces Markov chain games and proves existence/structure of discounted values in dynamic incomplete-information settings; provides the related framework extended in Shaiderman (2025).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "While not directly addressing \u03a6 vs \u03a8, it supplies the broader dynamic-information and MDP machinery; analogous monotonicity questions for invariant priors motivate the persuasion setting and may offer construction ideas/counterexamples."
+      },
+      {
+        "title": "Optimal dynamic information provision",
+        "bibtex": "@article{RenaultSolanVieille2017OptimalDynamicInformationProvision,\n  title        = {Optimal dynamic information provision},\n  author       = {Renault, J{\\'e}r{\\^o}me and Solan, Eilon and Vieille, Nicolas},\n  year         = {2017},\n  journal      = {Games and Economic Behavior},\n  volume       = {104},\n  pages        = {329--349},\n  doi          = {10.1016/j.geb.2017.04.006},\n  url          = {https://doi.org/10.1016/j.geb.2017.04.006}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.geb.2017.04.006",
+        "theorem_or_result": "Develops dynamic information provision with Markovian state evolution, characterizing optimal policies via concavification/dynamic programming in related models.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides foundational techniques for analyzing v_\u03b4(q) as a concave value function and may inform attempts to construct examples where \u03a6 and \u03a8 coincide on a tail interval."
+      },
+      {
+        "title": "Beeps",
+        "bibtex": "@article{Ely2017Beeps,\n  title        = {Beeps},\n  author       = {Ely, Jeffrey C.},\n  year         = {2017},\n  journal      = {American Economic Review},\n  volume       = {107},\n  number       = {1},\n  pages        = {31--53},\n  doi          = {10.1257/aer.20150015},\n  url          = {https://doi.org/10.1257/aer.20150015}\n}\n",
+        "source_url": "https://doi.org/10.1257/aer.20150015",
+        "theorem_or_result": "Studies a dynamic persuasion/information design model with evolving states and derives optimal disclosure structures in a stylized setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Offers alternative constructions and intuition for dynamic persuasion values; could inspire payoff/transition designs that might generate an interior \u03b40 regime, though no direct result on \u03a6 vs \u03a8."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07935025000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07935025000000001
+    "literature_total_cost_usd": 0.1022805,
+    "total_cost_usd": 0.18163075
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7150839694/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7150839694_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7150839694_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }
