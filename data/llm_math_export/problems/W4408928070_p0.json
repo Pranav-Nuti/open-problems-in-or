@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "No forward-citation block was provided, so the review is necessarily anchored in the source paper and closely related foundational literature on (i) relative smoothness and Bregman proximal gradient methods, and (ii) inexact proximal-gradient/FISTA relative error rules. In the source paper, the absolute stopping criterion (AbSC) already permits nonzero \\(\\Delta_k\\) via summability-type controls, while the partial relative stopping criterion (ReSC) enforces \\(\\|\\Delta_k\\|=0\\) to remove the troublesome term \\(|\\langle \\Delta_k,\\tilde x_{k+1}-x\\rangle|\\) in the descent inequality (their Lemma 3.1 / inequality (3.7)), enabling a clean telescoping argument.\n\nThe open direction is to design a verifiable relative-type rule that controls \\(\\Delta_k\\) in a way compatible with the Bregman geometry, e.g., by bounding \\(|\\langle \\Delta_k,\\tilde x_{k+1}-x\\rangle|\\) for a suitable choice of \\(x\\) (often an optimal solution) or by relating \\(\\|\\Delta_k\\|_*\\) to a computable Bregman step size such as \\(D_\\phi(\\tilde x_{k+1},x_k)\\) or \\(\\|\\nabla\\phi(x_{k+1})-\\nabla\\phi(x_k)\\|\\). Existing inexact accelerated proximal-gradient analyses with relative error rules (e.g., for FISTA) suggest that allowing \\(\\Delta_k\\neq 0\\) is plausible if one can ensure either summability of the induced error terms or a relative bound that preserves sufficient descent. However, a complete treatment in the specific two-point Bregman setting of the source paper (with \\(\\tilde x_{k+1}\\) and \\(x_{k+1}\\) separated) appears not to be settled here, so the problem remains open given the information provided.",
+    "total_cost_usd": 0.09226175,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Inexact Bregman Proximal Gradient Method and its Inertial Variant with Absolute and Partial Relative Stopping Criteria",
+        "bibtex": "@article{YangToh2025InexactBPGM,\n  title        = {Inexact Bregman Proximal Gradient Method and its Inertial Variant with Absolute and Partial Relative Stopping Criteria},\n  author       = {Yang, Lei and Toh, Kim-Chuan},\n  year         = {2025},\n  journal      = {arXiv preprint},\n  eprint       = {2109.05690},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2109.05690",
+        "theorem_or_result": "Introduces iBPGM and v-iBPGM under restricted relative smoothness. Provides two-point inexactness model with absolute stopping criterion allowing nonzero \\(\\Delta_k\\), and a partial relative stopping criterion requiring \\(\\|\\Delta_k\\|=0\\). Establishes \\(O(1/k)\\) and \\(O(1/k^\\gamma)\\) rates and (under extra assumptions) iterate convergence.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether the partial relative stopping rule (ReSC) can be generalized to allow \\(\\Delta_k\\neq 0\\) while retaining convergence guarantees."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09605925,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09605925
+    "literature_total_cost_usd": 0.09226175,
+    "total_cost_usd": 0.18832100000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408928070/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4408928070_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4408928070_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

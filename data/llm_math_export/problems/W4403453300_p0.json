@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The source paper (Attouch\u2013Bot\u2013Nguyen) develops a general mechanism\u2014time scaling of a first-order dissipative flow, followed by an averaging step and (when needed) an asymptotically vanishing perturbation argument\u2014to obtain higher-order inertial dynamics with provable rates without constructing new Lyapunov functions. In the cocoercive-operator setting, starting from the basic flow \\(z'(t)+M(z(t))=0\\) (for \\(\\rho\\)-cocoercive \\(M\\)), the framework yields the Newton-corrected inertial system with coefficient \\(c(s)=\\tfrac{s}{\\alpha+1}\\) and establishes residual decay \\(\\|M(y(s))\\|=o(1/s)\\) together with \\(\\int_{s_0}^\\infty s\\,\\|M(y(s))\\|^2\\,ds<\\infty\\) for \\(\\alpha>1\\). However, the method as implemented there does not reach the accelerated \\(o(1/s^2)\\) residual regime.\n\nA closely related dynamics with a larger Newton-correction coefficient, \\(c(s)=\\tfrac{2s}{\\alpha+1}\\), is analyzed in Bot\u2013Csetnek\u2013Nguyen (Fast OGDA in continuous and discrete time), where one obtains the sharper estimates \\(\\|M(y(s))\\|=o(1/s^2)\\) and \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\). This demonstrates that the accelerated residual decay is achievable for cocoercive operators, but via a different (or at least differently tuned) continuous-time model and analysis.\n\nAt present, with no forward-citation evidence provided beyond these works, the specific question remains open: whether the time-scaling/perturbation approach can be refined to recover \\(o(1/s^2)\\) for the \\(c(s)=\\tfrac{s}{\\alpha+1}\\) system, or whether one must modify the coefficient within that framework (e.g., effectively reproducing the \\(2s/(\\alpha+1)\\) scaling or introducing additional averaging/regularization) to access the stronger weighted energy estimate \\(\\int s^3\\|M(y(s))\\|^2<\\infty\\). Promising directions suggested by the existing proofs include identifying a time scale \\(\\tau\\) and perturbation \\(g\\) that upgrade the base residual bound for \\(z'(t)+M(z(t))=g(t)\\) from \\(o(t^{-1/2})\\) to \\(o(t^{-1})\\) (or better), since the current scaling \\(\\tau(s)\\asymp s^2\\) converts \\(o(t^{-1/2})\\) exactly into \\(o(s^{-1})\\); achieving \\(o(s^{-2})\\) would require a fundamentally stronger decay in the base flow or a different mechanism than simple time scaling.",
+    "total_cost_usd": 0.0995925,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Fast convex optimization via time scale and averaging of the steepest descent",
+        "bibtex": "@article{AttouchBotNguyen2023FastTimeScaleAveraging,\n  title        = {Fast convex optimization via time scale and averaging of the steepest descent},\n  author       = {Attouch, Hedy and Bot, Radu Ioan and Nguyen, Dang-Khoa},\n  year         = {2023},\n  journal      = {arXiv preprint},\n  eprint       = {2208.08260},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2208.08260",
+        "theorem_or_result": "Develops a time-scaling + averaging + perturbation framework that transfers convergence properties of the first-order steepest descent (and its perturbed version) to higher-order inertial dynamics. In the cocoercive-operator setting, derives for the Newton-corrected system with coefficient \\(c(s)=\\tfrac{s}{\\alpha+1}\\) the residual decay \\(\\|M(y(s))\\|=o(1/s)\\) and weighted integrability \\(\\int_{s_0}^\\infty s\\,\\|M(y(s))\\|^2\\,ds<\\infty\\) for \\(\\alpha>1\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the source paper posing the open question: whether the same time-scaling/perturbation approach can yield the sharper residual decay \\(\\|M(y(s))\\|=o(1/s^2)\\) known for a closely related dynamics with a larger Newton-correction coefficient."
+      },
+      {
+        "title": "Fast OGDA in continuous and discrete time",
+        "bibtex": "@article{BotCsetnekNguyen2022FastOGDA,\n  title        = {Fast OGDA in continuous and discrete time},\n  author       = {Bot, Radu Ioan and Csetnek, Ern{\\H{o}} Robert and Nguyen, Dang-Khoa},\n  year         = {2022},\n  journal      = {arXiv preprint},\n  eprint       = {2203.10947},\n  archivePrefix= {arXiv}\n}\n",
+        "source_url": "https://arxiv.org/abs/2203.10947",
+        "theorem_or_result": "Studies the cocoercive-operator inertial dynamics \\(y''(s)+\\frac{\\alpha}{s}y'(s)+\\frac{2s}{\\alpha+1}\\frac{d}{ds}(M(y(s)))+M(y(s))=0\\) and proves the sharper residual estimates \\(\\|M(y(s))\\|=o(1/s^2)\\) and \\(\\int_{s_0}^\\infty s^3\\|M(y(s))\\|^2\\,ds<\\infty\\) (under \\(\\alpha>1\\) in the cited remark).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Provides the benchmark \\(o(1/s^2)\\) residual decay for the modified Newton-correction coefficient \\(c(s)=\\tfrac{2s}{\\alpha+1}\\). The open problem asks whether the time-scaling/perturbation framework can recover this rate (or similar) for \\(c(s)=\\tfrac{s}{\\alpha+1}\\) or via an admissible modification."
+      },
+      {
+        "title": "A dynamical system associated with the fixed points set of a nonexpansive operator",
+        "bibtex": "@article{BotCsetnek2017NonexpansiveDynamics,\n  title   = {A dynamical system associated with the fixed points set of a nonexpansive operator},\n  author  = {Bot, Radu Ioan and Csetnek, Ern{\\H{o}} Robert},\n  journal = {Journal of Dynamics and Differential Equations},\n  year    = {2017},\n  volume  = {29},\n  pages   = {155--168},\n  doi     = {10.1007/s10884-015-9438-x}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10884-015-9438-x",
+        "theorem_or_result": "Establishes weak convergence for trajectories of first-order dynamics governed by nonexpansive operators and provides residual/velocity integrability estimates that are typical in cocoercive/nonexpansive settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies foundational continuous-time convergence tools for cocoercive/nonexpansive operator flows that underlie the time-scaling approach when starting from \\(z'(t)+M(z(t))=0\\)."
+      },
+      {
+        "title": "First-order algorithms via inertial systems with hessian driven damping",
+        "bibtex": "@article{AttouchChbaniFadiliRiahi2022HessianDriven,\n  title   = {First-order algorithms via inertial systems with hessian driven damping},\n  author  = {Attouch, Hedy and Chbani, Zaki and Fadili, Jalal and Riahi, Hassan},\n  journal = {Mathematical Programming},\n  year    = {2022},\n  volume  = {193},\n  pages   = {113--155},\n  doi     = {10.1007/s10107-020-01591-1}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-020-01591-1",
+        "theorem_or_result": "Develops Lyapunov analyses for inertial dynamics with Hessian-driven damping (explicit and implicit forms), proving fast \\(O(1/s^2)\\)/\\(o(1/s^2)\\) rates for function values and related integrability properties under suitable parameter regimes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Although focused on gradient-driven dynamics, it provides methodological and structural analogues for Newton-corrected terms and suggests what kinds of weighted estimates (e.g., \\(\\int s^3\\|\\cdot\\|^2\\)) are plausible in accelerated regimes."
+      },
+      {
+        "title": "Fast convex optimization via inertial dynamics with Hessian driven damping",
+        "bibtex": "@article{AttouchPeypouquetRedont2016HessianDamping,\n  title   = {Fast convex optimization via inertial dynamics with Hessian driven damping},\n  author  = {Attouch, Hedy and Peypouquet, J{\\'e}r{\\^o}me and Redont, Patrick},\n  journal = {Journal of Differential Equations},\n  year    = {2016},\n  volume  = {261},\n  pages   = {5734--5783},\n  doi     = {10.1016/j.jde.2016.08.020}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jde.2016.08.020",
+        "theorem_or_result": "Introduces and analyzes inertial gradient dynamics with vanishing damping and Hessian-driven damping, establishing fast convergence rates and motivating Newton/Hessian correction terms to control oscillations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Serves as a conceptual precursor for Newton-corrected inertial dynamics; while not in the general cocoercive-operator setting, it motivates the form of correction terms and the target accelerated decay rates."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07645925,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07645925
+    "literature_total_cost_usd": 0.0995925,
+    "total_cost_usd": 0.17605175
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4403453300/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4403453300_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4403453300_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

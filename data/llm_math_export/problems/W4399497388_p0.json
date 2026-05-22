@@ -46,16 +46,31 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for a classification, up to relabeling equivalence, of stable serial knockout competitions (SKCs) on \n\\(n=2^k\\) players for \\(k\\ge 4\\), and in particular whether the algebraic construction based on \\(\\mathrm{GF}(2^k)\\) given by Lambers\u2013Pendavingh\u2013Spieksma is essentially the unique stable SKC for \\(n>8\\). The original paper establishes existence for all powers of two and proves uniqueness only in the smallest nontrivial case \\(n=8\\), via a connection to the Fano plane; for \\(n=16,32\\) it provides explicit stable schedules but does not address uniqueness. With no forward-citation data provided here, there is currently no evidence in this record of a later paper resolving the uniqueness/classification question for \\(n\\ge 16\\).\n\nFrom the perspective of design theory, stability imposes that for each round \\(i\\) every unordered pair \\(\\{x,x'\\}\\) appears exactly \\(c_i=2^{i-1}\\) times among the \\(n-1\\) brackets as a pair that can meet in round \\(i\\). This can be reinterpreted as a highly regular decomposition of the complete graph \\(K_n\\) into \\(n-1\\) edge-labeled ultrametrics (coming from rooted balanced binary trees), with prescribed pair-counts at each distance level. The \\(\\mathrm{GF}(2^k)\\) construction realizes this regularity using the additive structure of the vector space \\((\\mathbb{F}_2)^k\\), suggesting links to affine geometries, spreads, and orthogonal arrays; these connections are natural avenues for classification.\n\nKey gaps remain: (1) determining the full automorphism group of the algebraic SKC and identifying invariants that distinguish inequivalent SKCs; (2) either proving rigidity (uniqueness up to relabeling) for all \\(k\\ge 4\\) or constructing explicit counterexamples (inequivalent stable SKCs) starting at \\(n=16\\); and (3) developing a general equivalence theory, potentially via translation to known objects in finite geometry (e.g., resolvable designs or decompositions of \\(K_{2^k}\\) into hierarchical partitions). Computational classification for \\(n=16\\) (using canonical labeling of the multiset of trees under \\(S_n\\)) together with theoretical constraints from design/finite-geometry may be the most promising near-term approach.",
+    "total_cost_usd": 0.022352749999999998,
+    "citations_analyzed": 0,
+    "sources": []
+  },
   "costs": {
     "extractor_total_cost_usd": 0.05043675,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.05043675
+    "literature_total_cost_usd": 0.022352749999999998,
+    "total_cost_usd": 0.07278950000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4399497388/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4399497388_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4399497388_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

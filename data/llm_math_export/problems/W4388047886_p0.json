@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 7,
+    "synthesis": "The top-difference semimetric \\(D(\\%,\\mathcal D)=\\sum_{S\\subseteq X}|M(S,\\%)\\triangle M(S,\\mathcal D)|\\), introduced by Nishimura and Ok, measures dissimilarity of (acyclic) preference relations purely through discrepancies in induced maximal-choice sets across all menus. This choice-theoretic viewpoint connects directly to Klamler\u2019s \\(\\ell_1\\)-type distance on choice correspondences and to representation results of Eliaz\u2013Ok that rationalizable choice correspondences arise as maximal-element choice from (possibly incomplete) transitive preferences. The source paper provides axiomatic characterizations of the broader \\(\\mu\\)-top-difference family \\(D_\\mu\\), computationally efficient formulae for evaluating \\(D_\\mu\\), and several structural results (e.g., non-embeddability in strictly convex normed spaces).\n\nFor diameter questions, the source paper fully resolves the case of complete preferences (total preorders): it proves an exact closed form for \\(\\operatorname{diam}_D(P_{\\mathrm{total}}(X))\\) (Theorem 4.1) and notes that \\(\\operatorname{diam}_D(A(X))\\ge \\operatorname{diam}_D(P(X))\\ge \\operatorname{diam}_D(P_{\\mathrm{total}}(X))\\), but explicitly states that it is not known whether either inequality is an equality. Related work on weighted Kendall/Kemeny-type metrics (e.g., Can; Hassanzadeh\u2013Milenkovic) helps interpret \\(D\\) on linear orders and supplies tools for extremal constructions on \\(L(X)\\), yet does not address the broader acyclic or preorder domains. As of the provided materials (and with no forward-citation evidence supplied), the exact diameters \\(\\operatorname{diam}_D(A(X))\\) and \\(\\operatorname{diam}_D(P(X))\\) remain open.",
+    "total_cost_usd": 0.083272,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Preference structures I: Distances between transitive preference relations",
+        "bibtex": "@article{Bogart1973PreferenceStructuresI,\n  author  = {Bogart, K.},\n  title   = {Preference structures I: Distances between transitive preference relations},\n  journal = {Journal of Mathematical Sociology},\n  year    = {1973},\n  volume  = {3},\n  pages   = {49--67}\n}\n",
+        "source_url": "https://doi.org/10.1080/0022250X.1973.9989806",
+        "theorem_or_result": "Introduces and studies distance functions on transitive preference relations (preorders/partial orders), extending Kemeny\u2013Snell-type ideas beyond linear orders.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides foundational context for metric/diameter questions on spaces of (transitive) preference relations, though not for the specific top-difference semimetric \\(D\\)."
+      },
+      {
+        "title": "Preference structures II: Distances between asymmetric relations",
+        "bibtex": "@article{Bogart1975PreferenceStructuresII,\n  author  = {Bogart, K.},\n  title   = {Preference structures II: Distances between asymmetric relations},\n  journal = {SIAM Journal on Applied Mathematics},\n  year    = {1975},\n  volume  = {29},\n  pages   = {254--262}\n}\n",
+        "source_url": "https://doi.org/10.1137/0129024",
+        "theorem_or_result": "Develops distance notions for broader classes of asymmetric relations and discusses betweenness/additivity properties for preference distances.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Relevant as background on axiomatic/additive structure for preference distances; may inspire techniques for diameter bounds but does not treat \\(D\\)."
+      },
+      {
+        "title": "A distance measure for choice functions",
+        "bibtex": "@article{Klamler2008DistanceChoiceFunctions,\n  author  = {Klamler, C.},\n  title   = {A distance measure for choice functions},\n  journal = {Social Choice and Welfare},\n  year    = {2008},\n  volume  = {30},\n  pages   = {419--425}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00355-007-0243-5",
+        "theorem_or_result": "Defines an \\(\\ell_1\\)-type distance on choice correspondences \\(d_K(C,C')=\\sum_S |C(S)\\triangle C'(S)|\\) and provides axiomatic characterization.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The top-difference semimetric \\(D\\) is exactly Klamler\u2019s distance applied to choice correspondences rationalized by maximal-element choice \\(M(\\cdot,\\%)\\); informs interpretation and may guide extremal/diameter reasoning."
+      },
+      {
+        "title": "Indifference or Indecisiveness? Choice Theoretic Foundations of Incomplete Preferences",
+        "bibtex": "@article{EliazOk2006IndifferenceIndecisiveness,\n  author  = {Eliaz, K. and Ok, Efe A.},\n  title   = {Indifference or Indecisiveness? Choice Theoretic Foundations of Incomplete Preferences},\n  journal = {Games and Economic Behavior},\n  year    = {2006},\n  volume  = {56},\n  pages   = {61--86}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.geb.2005.05.001",
+        "theorem_or_result": "Shows representation of choice correspondences satisfying a relaxed WARP by maximal-element choice from a (transitive, possibly incomplete) preference relation; introduces regular preorders and behavioral indifference notions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supports the paper\u2019s motivation that \\(D\\) measures discrepancies in induced (rationalizable) choice behavior; relevant for restricting to preorder domains like \\(P(X)\\)."
+      },
+      {
+        "title": "Weighted distances between preferences",
+        "bibtex": "@article{Can2014WeightedDistances,\n  author  = {Can, B.},\n  title   = {Weighted distances between preferences},\n  journal = {Journal of Mathematical Economics},\n  year    = {2014},\n  volume  = {51},\n  pages   = {109--115}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jmateco.2013.12.002",
+        "theorem_or_result": "Introduces weighted distance measures between linear orders emphasizing where rank reversals occur (weighted Kendall/Kemeny-type metrics).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "On \\(L(X)\\), the top-difference metric \\(D\\) coincides with a particular weighted Kendall metric; these tools may help search for extremal pairs and diameter arguments, though they do not address \\(A(X)\\) or \\(P(X)\\) diameters under \\(D\\)."
+      },
+      {
+        "title": "An axiomatic approach to constructing distances for rank comparisons and aggregation",
+        "bibtex": "@article{HassanzadehMilenkovic2014AxiomaticDistances,\n  author  = {Hassanzadeh, F. and Milenkovic, O.},\n  title   = {An axiomatic approach to constructing distances for rank comparisons and aggregation},\n  journal = {IEEE Transactions on Information Theory},\n  year    = {2014},\n  volume  = {60},\n  pages   = {6417--6439}\n}\n",
+        "source_url": "https://doi.org/10.1109/TIT.2014.2343624",
+        "theorem_or_result": "Axiomatizes weighted Kendall-type distances for rank aggregation via adjacent transpositions with position-dependent weights.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Provides an axiomatic framework that, when specialized, recovers \\(D\\) on linear orders; may offer techniques for extremal distance/diameter on \\(L(X)\\) but not directly for \\(A(X)\\) or \\(P(X)\\)."
+      },
+      {
+        "title": "A Class of Dissimilarity Semimetrics for Preference Relations",
+        "bibtex": "@misc{NishimuraOk2022TopDifference,\n  author       = {Nishimura, Hiroki and Ok, Efe A.},\n  title        = {A Class of Dissimilarity Semimetrics for Preference Relations},\n  year         = {2022},\n  eprint       = {2203.04418},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO},\n  url          = {https://arxiv.org/abs/2203.04418}\n}\n",
+        "source_url": "https://arxiv.org/abs/2203.04418",
+        "theorem_or_result": "Defines the top-difference semimetric \\(D(\\%,\\mathcal D)=\\sum_{S\\subseteq X}|M(S,\\%)\\triangle M(S,\\mathcal D)|\\); gives axiomatic characterizations; computes diameter for complete (total preorder) preferences \\(P_{\\mathrm{total}}(X)\\); leaves \\(\\operatorname{diam}_D(A(X))\\) and \\(\\operatorname{diam}_D(P(X))\\) open.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open diameter questions for \\(A(X)\\) and \\(P(X)\\) under \\(D\\), after solving the complete-preference case (Theorem 4.1)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06326075,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06326075
+    "literature_total_cost_usd": 0.083272,
+    "total_cost_usd": 0.14653275
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4388047886/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4388047886_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4388047886_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

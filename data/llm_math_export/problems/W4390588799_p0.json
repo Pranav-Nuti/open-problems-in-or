@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Nie\u2013Yang) reduces unboundedness of \\(\\inf\\{g(x):x\\in K\\}\\) to infeasibility of a conic lower-bounding problem over \\(P_d(K)\\), and via homogenization to a dual moment problem over the compactified set \\(\\tilde K\\). A sufficient certificate is the existence of a \u201cdecreasing ray\u201d supported on the horizon \\(K^{\\circ}\\): find \\(z\\in R_d(K^{\\circ})\\) with \\(\\langle g_{\\mathrm{hom}},z\\rangle=-1\\). The open issue is that this horizon-moment system can be infeasible even when the original problem is unbounded below; this reflects subtle gaps between behavior at infinity and representability/closedness properties of the relevant truncated moment cones.\n\nSubsequent work on noncompact polynomial optimization provides partial progress toward alternative, computationally checkable certificates. In particular, homogenization-based frameworks for unbounded sets develop convergent SDP hierarchies that more systematically encode asymptotic behavior, potentially capturing unboundedness even when a single truncated horizon moment condition fails. Complementarily, positivity certificates tailored to non-compact semialgebraic sets (using modified quadratic modules/preorderings and growth conditions) offer SOS-verifiable sufficient conditions that can certify (un)boundedness without relying solely on a single horizon moment ray. Generalized truncated moment problem results on unbounded sets clarify when truncated moment data fail to admit representing measures and suggest that higher-order extensions or alternative cones may be necessary.\n\nOverall, there is no generally accepted necessary-and-sufficient, efficiently checkable certificate that covers the failure regime of \\(\\langle g_{\\mathrm{hom}},z\\rangle=-1\\) with \\(z\\in R_d(K^{\\circ})\\). The most promising directions combine (i) refined homogenization/compactification plus SDP hierarchies that incorporate additional asymptotic constraints beyond \\(K^{\\circ}\\), and (ii) noncompact Positivstellensatz-type certificates that enforce coercivity or detect directions of escape through SOS conditions. Bridging the remaining gap likely requires characterizing when unboundedness is witnessed only by non-measure-theoretic objects at the truncation level (e.g., limits of feasible moment sequences without a representing measure) and designing relaxations that can detect such limiting behavior.",
+    "total_cost_usd": 0.100163,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Global optimization with polynomials and the problem of moments",
+        "bibtex": "@article{Lasserre2001GlobalOptimizationMoments,\n  author  = {Jean B. Lasserre},\n  title   = {Global optimization with polynomials and the problem of moments},\n  journal = {SIAM Journal on Optimization},\n  year    = {2001},\n  volume  = {11},\n  number  = {3},\n  pages   = {796--817},\n  doi     = {10.1137/S1052623400366802}\n}\n",
+        "source_url": "https://doi.org/10.1137/S1052623400366802",
+        "theorem_or_result": "Introduces the Moment-SOS (Lasserre) hierarchy for polynomial optimization via moment and SOS relaxations, providing convergence under archimedean/compactness assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the foundational moment/SOS framework used in the paper\u2019s decreasing-ray certificate; however it does not address noncompact unboundedness certificates when the horizon-moment system is infeasible."
+      },
+      {
+        "title": "Discriminants and nonnegative polynomials",
+        "bibtex": "@article{Nie2012DiscriminantsNonnegative,\n  author  = {Jiawang Nie},\n  title   = {Discriminants and nonnegative polynomials},\n  journal = {Journal of Symbolic Computation},\n  year    = {2012},\n  volume  = {47},\n  number  = {2},\n  pages   = {167--191},\n  doi     = {10.1016/j.jsc.2011.09.002}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jsc.2011.09.002",
+        "theorem_or_result": "Develops homogenization-at-infinity techniques and discriminant-based analysis for nonnegativity and polynomial optimization, including the notion of sets closed at infinity.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The open problem is explicitly about certificates for unboundedness on noncompact semialgebraic sets; this paper underpins the homogenization/horizon set methodology used to derive the moment-ray condition and its limitations."
+      },
+      {
+        "title": "Linear optimization with cones of moments and nonnegative polynomials",
+        "bibtex": "@article{Nie2015LinearOptimizationMoments,\n  author  = {Jiawang Nie},\n  title   = {Linear optimization with cones of moments and nonnegative polynomials},\n  journal = {Mathematical Programming},\n  year    = {2015},\n  volume  = {153},\n  pages   = {247--274},\n  doi     = {10.1007/s10107-014-0825-9}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-014-0825-9",
+        "theorem_or_result": "Studies linear conic optimization over moment cones and nonnegative polynomial cones, giving SDP hierarchies and convergence results for generalized moment problems on compact sets.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The decreasing-ray condition is a linear moment feasibility problem; this work provides the general conic duality and SDP approximation viewpoint, but compactness assumptions limit direct applicability to the failure regime on horizons/nonclosed cones."
+      },
+      {
+        "title": "Positivity certificates and polynomial optimization on non-compact semialgebraic sets",
+        "bibtex": "@article{MaiLasserreMagron2021PositivityNoncompact,\n  author  = {Ngoc Hoang Mai and Jean B. Lasserre and Victor Magron},\n  title   = {Positivity certificates and polynomial optimization on non-compact semialgebraic sets},\n  journal = {Mathematical Programming},\n  year    = {2021},\n  doi     = {10.1007/s10107-021-01726-7}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-021-01726-7",
+        "theorem_or_result": "Develops positivity certificates and convergent SDP hierarchies for polynomial optimization on noncompact semialgebraic sets using alternative quadratic modules/preorderings and growth/coercivity-type conditions.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Directly targets the noncompact setting where standard moment/SOS methods and simple horizon-ray certificates can fail; offers computationally checkable sufficient conditions (via SOS certificates) for boundedness/unboundedness behavior beyond the basic horizon moment system."
+      },
+      {
+        "title": "Homogenization for polynomial optimization with unbounded sets",
+        "bibtex": "@article{HuangNieYuan2023HomogenizationUnbounded,\n  author  = {Lihong Huang and Jiawang Nie and Ya-xiang Yuan},\n  title   = {Homogenization for polynomial optimization with unbounded sets},\n  journal = {Mathematical Programming},\n  year    = {2023},\n  volume  = {200},\n  number  = {1},\n  pages   = {105--145},\n  doi     = {10.1007/s10107-022-01862-9}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-022-01862-9",
+        "theorem_or_result": "Provides a homogenization framework and SDP hierarchies for polynomial optimization over unbounded semialgebraic sets, with conditions ensuring convergence and mechanisms to handle behavior at infinity.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Most directly connected: it refines the homogenization-at-infinity approach used in the source paper and can yield alternative certificates/algorithms for detecting unboundedness when simple horizon moment-ray feasibility fails."
+      },
+      {
+        "title": "Generalized truncated moment problems with unbounded sets",
+        "bibtex": "@article{HuangNieYuan2023GeneralizedTruncatedMoment,\n  author  = {Lihong Huang and Jiawang Nie and Ya-xiang Yuan},\n  title   = {Generalized truncated moment problems with unbounded sets},\n  journal = {Journal of Scientific Computing},\n  year    = {2023},\n  volume  = {95},\n  number  = {1},\n  pages   = {15},\n  doi     = {10.1007/s12532-022-00235-7}\n}\n",
+        "source_url": "https://doi.org/10.1007/s12532-022-00235-7",
+        "theorem_or_result": "Extends truncated moment problem theory and SDP methods to unbounded sets, addressing existence/approximation of representing measures and convergence issues in noncompact settings.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "The failure of the moment-ray condition is tied to nonclosedness/representation issues for moment cones on horizon sets; generalized truncated moment results help explain and potentially remedy infeasibility gaps via higher-degree extensions or alternative cones."
+      },
+      {
+        "title": "Tight relaxations for polynomial optimization and Lagrange multiplier expressions",
+        "bibtex": "@article{Nie2019TightRelaxations,\n  author  = {Jiawang Nie},\n  title   = {Tight relaxations for polynomial optimization and Lagrange multiplier expressions},\n  journal = {Mathematical Programming},\n  year    = {2019},\n  volume  = {178},\n  pages   = {1--37},\n  doi     = {10.1007/s10107-018-1285-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-018-1285-0",
+        "theorem_or_result": "Introduces tight SDP relaxations using KKT/Lagrange multiplier polynomial expressions, often achieving finite convergence without archimedeanness under genericity conditions.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "While not an unboundedness certificate per se, tight relaxations can help detect infeasibility/boundedness by solving modified KKT systems and may complement homogenization-based unboundedness detection when horizon moment rays are absent."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07729050000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07729050000000001
+    "literature_total_cost_usd": 0.100163,
+    "total_cost_usd": 0.17745350000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390588799/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4390588799_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4390588799_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

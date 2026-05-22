@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Bovo\u2013De Angelis\u2013Issoglio) establishes existence of a strong Sobolev solution with quadratic growth to the parabolic min-max variational inequality \\(\\min\\{\\max\\{\\partial_t u+Lu-ru+h,\\ g-u\\},\\ f-\\|\\nabla u\\|\\}=0\\) on \\([0,T)\\times\\mathbb R^d\\) under local ellipticity and compatibility \\(\\|\\nabla g\\|\\le f\\). The solution is obtained as a limit of doubly-penalised semilinear PDEs on expanding bounded cylinders, with delicate uniform gradient bounds and bounds on the penalty terms. The resulting limit is shown to be the maximal Sobolev solution and coincides with the value of the associated singular-controller vs stopper game.\n\nHowever, uniqueness in the class \\(W^{1,2,p}_{\\mathrm{loc}}\\) with quadratic growth remains open (Remark 3.5). Classical comparison/uniqueness arguments for gradient-constrained singular control (e.g., Soner\u2013Shreve\u2019s parabolic free-boundary analysis) do not directly apply because the equation combines both an obstacle constraint and a gradient constraint in a min-max structure, and is posed on an unbounded domain with only local ellipticity. Related analytic works (Evans; Hynd; Kelbert\u2013Moreno-Franco) provide techniques for gradient constraints and penalisation, but do not resolve comparison for this mixed obstacle/gradient min-max variational inequality. Promising directions include developing a comparison principle tailored to the nested \\(\\min\\)-\\(\\max\\) operator in a strong Sobolev setting (possibly via monotonicity methods or a game-theoretic dynamic programming/comparison argument) and identifying additional structural conditions (e.g., convexity in \\(x\\), uniform ellipticity, or stronger coercivity/growth controls) under which uniqueness can be proved.",
+    "total_cost_usd": 0.1315475,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Variational Inequalities on Unbounded Domains for Zero-Sum Singular-Controller vs. Stopper Games",
+        "bibtex": "@article{BovoDeAngelisIssoglio2023ControllerStopperVI,\n  title        = {Variational Inequalities on Unbounded Domains for Zero-Sum Singular-Controller vs. Stopper Games},\n  author       = {Bovo, Andrea and De Angelis, Tiziano and Issoglio, Elena},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2203.06247},\n  eprint       = {2203.06247},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2203.06247}\n}\n",
+        "source_url": "https://arxiv.org/abs/2203.06247",
+        "theorem_or_result": "Proves existence of a maximal strong Sobolev solution with quadratic growth to the parabolic min-max variational inequality with obstacle constraint \\(u\\ge g\\) and gradient constraint \\(\\|\\nabla u\\|\\le f\\) on \\([0,T]\\times\\mathbb R^d\\), via double penalisation and compactness; establishes game value representation and maximality but leaves uniqueness open.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper formulating the open uniqueness question (Remark 3.5) for strong Sobolev solutions of the min-max variational inequality on an unbounded domain under local ellipticity and quadratic growth."
+      },
+      {
+        "title": "A second order elliptic equation with gradient constraint",
+        "bibtex": "@article{Evans1979SecondOrderGradientConstraint,\n  title   = {A second order elliptic equation with gradient constraint},\n  author  = {Evans, Lawrence C.},\n  journal = {Communications in Partial Differential Equations},\n  volume  = {4},\n  number  = {5},\n  pages   = {555--572},\n  year    = {1979},\n  doi     = {10.1080/03605307908820154}\n}\n",
+        "source_url": "https://doi.org/10.1080/03605307908820154",
+        "theorem_or_result": "Introduces penalisation and a priori estimates for second-order PDEs with gradient constraints, establishing existence/regularity frameworks that became standard in singular control HJB equations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides foundational analytic techniques (penalisation, gradient bounds) used in the source paper; however it does not address the parabolic min-max structure with simultaneous obstacle and gradient constraints nor uniqueness on \\(\\mathbb R^d\\)."
+      },
+      {
+        "title": "A free boundary problem related to singular stochastic control: the parabolic case",
+        "bibtex": "@article{SonerShreve1991ParabolicSingularControl,\n  title   = {A free boundary problem related to singular stochastic control: the parabolic case},\n  author  = {Soner, H. Mete and Shreve, Steven E.},\n  journal = {Communications in Partial Differential Equations},\n  volume  = {16},\n  number  = {2-3},\n  pages   = {373--424},\n  year    = {1991},\n  doi     = {10.1080/03605309108820704}\n}\n",
+        "source_url": "https://doi.org/10.1080/03605309108820704",
+        "theorem_or_result": "Studies parabolic variational inequalities/free-boundary problems arising from singular stochastic control with gradient constraints; develops comparison/uniqueness and regularity in settings without an additional obstacle constraint.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Often-cited uniqueness/comparison methods for gradient-constrained problems, but the source paper notes these methods do not directly extend to the combined obstacle+gradient min-max inequality on unbounded domains."
+      },
+      {
+        "title": "HJB equations with gradient constraint associated with controlled jump-diffusion processes",
+        "bibtex": "@article{KelbertMorenoFranco2019HJBGradientConstraintJumps,\n  title   = {HJB equations with gradient constraint associated with controlled jump-diffusion processes},\n  author  = {Kelbert, M. and Moreno-Franco, H. A.},\n  journal = {SIAM Journal on Control and Optimization},\n  volume  = {57},\n  number  = {3},\n  pages   = {2185--2213},\n  year    = {2019},\n  doi     = {10.1137/18M1216322}\n}\n",
+        "source_url": "https://doi.org/10.1137/18M1216322",
+        "theorem_or_result": "Establishes existence/regularity for HJB equations with gradient constraints for controlled jump-diffusions using penalisation and Sobolev techniques.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Technically close on the gradient-constraint side and uses similar penalisation ideas, but does not incorporate the additional obstacle/min-max structure or address uniqueness for strong Sobolev solutions under quadratic growth on \\(\\mathbb R^d\\)."
+      },
+      {
+        "title": "Analysis of Hamilton-Jacobi-Bellman equations arising in stochastic singular control",
+        "bibtex": "@article{Hynd2013AnalysisHJBGradientConstraint,\n  title   = {Analysis of Hamilton-Jacobi-Bellman equations arising in stochastic singular control},\n  author  = {Hynd, Robert},\n  journal = {ESAIM: Control, Optimisation and Calculus of Variations},\n  volume  = {19},\n  number  = {1},\n  pages   = {112--128},\n  year    = {2013},\n  doi     = {10.1051/cocv/2012016}\n}\n",
+        "source_url": "https://doi.org/10.1051/cocv/2012016",
+        "theorem_or_result": "Provides PDE analysis for HJB equations from singular control, including gradient constraints, focusing on existence/regularity and structural properties.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Relevant for analytic tools around gradient constraints; does not settle uniqueness for the parabolic min-max obstacle+gradient variational inequality in Sobolev class on unbounded domains."
+      },
+      {
+        "title": "A zero-sum game between a singular stochastic controller and a discretionary stopper",
+        "bibtex": "@article{HernandezHernandezSimonZervos2015SingularControllerStopper,\n  title   = {A zero-sum game between a singular stochastic controller and a discretionary stopper},\n  author  = {Hern{\\'a}ndez-Hern{\\'a}ndez, David and Simon, Ross A. and Zervos, Mihail},\n  journal = {The Annals of Applied Probability},\n  volume  = {25},\n  number  = {1},\n  pages   = {46--80},\n  year    = {2015},\n  doi     = {10.1214/14-AAP1005}\n}\n",
+        "source_url": "https://doi.org/10.1214/14-AAP1005",
+        "theorem_or_result": "Analyzes one-dimensional singular controller vs stopper zero-sum games; provides verification and explicit solutions in examples, highlighting potential nonsmoothness of the value.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Motivates the min-max obstacle/gradient structure from controller-stopper games; however results are largely 1D and do not provide uniqueness for multidimensional Sobolev solutions of the associated variational inequality."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11583600000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11583600000000001
+    "literature_total_cost_usd": 0.1315475,
+    "total_cost_usd": 0.24738350000000003
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4221167288/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4221167288_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4221167288_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -44,16 +44,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 10,
+    "difficulty": 10,
+    "synthesis": "The complete-allocations EFX existence question for general (only normalized and monotone) valuations remains open in full generality, and is not known even for \\(n=3\\). The foundational work of Plaut and Roughgarden establishes the main tractable special cases in this general model\u2014complete EFX for \\(n=2\\) and for identical valuations\u2014and also highlights algorithmic barriers via strong value-query lower bounds. Subsequent progress has largely proceeded by importing structural tools from the additive setting, especially the champion graph and Pareto-improvable (PI) cycles, which allow one to transform a partial EFX allocation into another EFX allocation that improves a carefully chosen potential.\n\nMahara (2021) is the main advance within the general-valuation model: it extends additive-technique results to show complete EFX existence in two notable regimes\u2014when agents\u2019 valuations come from only two valuation functions, and when the number of items is small (\\(m\\le n+3\\)). It also strengthens the best-known \u201cEFX with charity\u201d guarantee for general valuations from \\(|U|\\le n-1\\) (Chaudhury et al. 2020) to \\(|U|\\le n-2\\), while ensuring no agent envies the unallocated set \\(U\\). Technically, this relies on champion-graph reasoning plus two potential functions: the lexicographic potential (as in the \\(n=3\\) additive existence proof of Chaudhury, Garg, and Mehlhorn) and a new partition-leximin potential tailored to the two-valuations regime.\n\nDespite these advances, the gap to full generality is substantial: Mahara also constructs a \\(n=3\\) general-valuation instance showing that the lexicographic-potential progress approach can get stuck, indicating that new ideas are needed beyond current champion-graph/potential-function frameworks. Promising directions include identifying additional valuation structure short of additivity that still supports monotone potential progress, strengthening PI-cycle existence arguments in generalized champion graphs, or developing existence proofs that avoid algorithmic progress measures altogether (e.g., via topological or combinatorial fixed-point style arguments adapted to discrete allocations).",
+    "total_cost_usd": 0.08032675,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Almost envy-freeness with general valuations",
+        "bibtex": "@article{PlautRoughgarden2020AlmostEFX,\n  author = {Plaut, Benjamin and Roughgarden, Tim},\n  title = {Almost envy-freeness with general valuations},\n  journal = {SIAM Journal on Discrete Mathematics},\n  year = {2020},\n  volume = {34},\n  number = {2},\n  pages = {1039--1068}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/19M124397X",
+        "theorem_or_result": "For general (normalized, monotone) valuations, proves existence of complete EFX allocations for (i) two agents and (ii) identical valuations; also shows strong query-complexity lower bounds for finding EFX even in restricted cases, and proves existence of partial EFX allocations leaving up to \\(n-1\\) items unallocated with a non-envy-to-charity guarantee.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the foundational positive evidence and barrier result for the open question of complete EFX existence under general valuations; it establishes the main known solvable special cases and motivates the need for new techniques beyond value-query algorithms."
+      },
+      {
+        "title": "EFX exists for three agents",
+        "bibtex": "@inproceedings{ChaudhuryGargMehlhorn2020EFX3,\n  author = {Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt},\n  title = {EFX Exists for Three Agents},\n  booktitle = {Proceedings of the 21st ACM Conference on Economics and Computation (EC)},\n  year = {2020}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399536",
+        "theorem_or_result": "Proves existence of complete EFX allocations for \\(n=3\\) under additive valuations via the champion graph and a lexicographic potential argument that maintains EFX while making progress.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Although limited to additive valuations, it introduces the champion-graph/PI-cycle framework and lexicographic potential method that Mahara adapts to general valuations for partial-allocation results and small-\\(m\\) regimes."
+      },
+      {
+        "title": "A little charity guarantees almost envy-freeness",
+        "bibtex": "@inproceedings{ChaudhuryKavithaMehlhornSgouritsa2020Charity,\n  author = {Chaudhury, Bhaskar Ray and Kavitha, Telikepalli and Mehlhorn, Kurt and Sgouritsa, Alkmini},\n  title = {A Little Charity Guarantees Almost Envy-Freeness},\n  booktitle = {Proceedings of the 31st ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2020},\n  pages = {2658--2672}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975994.163",
+        "theorem_or_result": "For general valuations, establishes existence of partial EFX allocations with a set \\(U\\) of unallocated items such that no agent envies \\(U\\), with \\(|U|\\le n-1\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Directly addresses the general-valuation setting by proving an 'EFX with charity' guarantee; Mahara strengthens the bound to \\(|U|\\le n-2\\), but the complete-allocation existence remains open."
+      },
+      {
+        "title": "Extension of Additive Valuations to General Valuations on the Existence of EFX",
+        "bibtex": "@article{Mahara2021ExtensionGeneralEFX,\n  author = {Mahara, Ryoga},\n  title = {Extension of Additive Valuations to General Valuations on the Existence of EFX},\n  year = {2021},\n  eprint = {2107.09901},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/2107.09901",
+        "theorem_or_result": "For general valuations, proves: (i) complete EFX exists when agents have one of two valuations; (ii) complete EFX exists when \\(m\\le n+3\\); (iii) EFX with charity exists with \\(|U|\\le n-2\\) and no agent envies \\(U\\); and gives an \\(n=3\\) example showing limitations of lexicographic-potential progress.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "This is the source paper framing the open problem; it provides the strongest known general-valuation existence results short of full generality and develops the partition-leximin potential technique."
+      },
+      {
+        "title": "Existence of EFX for two additive valuations",
+        "bibtex": "@article{Mahara2020TwoAdditiveValuationsEFX,\n  author = {Mahara, Ryoga},\n  title = {Existence of EFX for Two Additive Valuations},\n  year = {2020},\n  eprint = {2008.08798},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/2008.08798",
+        "theorem_or_result": "Shows that for additive valuations, complete EFX allocations exist when all agents' valuations come from a set of two additive valuation functions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Precursor to Mahara (2021): motivates the 'two valuations' tractable regime and informs the general-valuation extension via new potential functions."
+      },
+      {
+        "title": "(almost full) EFX exists for four agents (and beyond)",
+        "bibtex": "@article{BergerCohenFeldmanFiat2021AlmostFullEFX,\n  author = {Berger, Ben and Cohen, Avi and Feldman, Michal and Fiat, Amos},\n  title = {(almost full) EFX exists for four agents (and beyond)},\n  year = {2021},\n  eprint = {2102.10654},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/2102.10654",
+        "theorem_or_result": "Develops generalized champion-graph machinery and proves near-complete EFX guarantees (e.g., for \\(n=4\\) with at most one unallocated item) and broader valuation classes (nice cancelable valuations) with \\(|U|\\le n-2\\) unallocated items.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 8,
+        "connection": "Provides key technical tools (Pareto-improvable cycles and generalized champion graphs) used by Mahara to extend 'charity' and other results to general valuations; still does not resolve complete EFX existence for arbitrary general valuations."
+      },
+      {
+        "title": "Envy-freeness up to any item with high Nash welfare: The virtue of donating items",
+        "bibtex": "@inproceedings{CaragiannisGravinHuang2019Donating,\n  author = {Caragiannis, Ioannis and Gravin, Nick and Huang, Xin},\n  title = {Envy-Freeness up to Any Item with High Nash Welfare: The Virtue of Donating Items},\n  booktitle = {Proceedings of the 20th ACM Conference on Economics and Computation (EC)},\n  year = {2019},\n  pages = {527--545}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3328526.3329575",
+        "theorem_or_result": "Introduces and studies 'EFX with charity' (donating/unallocated items) and shows existence of partial EFX allocations with strong welfare guarantees under additive valuations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Establishes the charity relaxation framework that later work (including Chaudhury et al. 2020 and Mahara 2021) extends to general valuations and tighter bounds on the number of unallocated items."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.049710500000000005,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.049710500000000005
+    "literature_total_cost_usd": 0.08032675,
+    "total_cost_usd": 0.13003725
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3186360956/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3186360956_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3186360956_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

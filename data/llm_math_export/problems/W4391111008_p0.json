@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The forward-citation block provided contains no analyzed citing papers, so the only directly citable item here is the original paper itself. In that paper, edge-ranking flow allocation games are shown to have potentially no pure Nash equilibrium, and deciding existence is proved strongly NP-hard. Moreover, the authors note that NP-membership is unclear because verifying a best response can be NP-hard, but the existence problem is easily seen to lie in \\(\\Sigma_2^p\\). They explicitly leave open whether the problem is in NP or \\(\\Sigma_2^p\\)-complete.\n\nWith no forward-citation evidence available, there is currently no basis in the provided data to claim a resolution of the exact complexity classification. The most accurate status from the source is therefore that the problem remains open: the decision problem is strongly NP-hard and in \\(\\Sigma_2^p\\), with the gap between NP and \\(\\Sigma_2^p\\) (and potential \\(\\Sigma_2^p\\)-completeness) unresolved.\n\nPromising directions suggested by the source context include (i) proving \\(\\Sigma_2^p\\)-hardness via a reduction from a canonical \\(\\exists\\forall\\)-QBF problem, likely by encoding the universal quantifier into the best-response verification subproblem, and (ii) alternatively proving NP-membership by establishing a polynomial-size certificate for equilibrium existence (e.g., a succinct representation of a profile together with a polynomial-time verifiable condition implying no profitable deviation), which would require overcoming the apparent hardness of best-response checking in the edge-ranking model.",
+    "total_cost_usd": 0.064134,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Flow Allocation Games",
+        "bibtex": "@article{BertschingerHoeferSchmand2023FlowAllocationGames,\n  title        = {Flow Allocation Games},\n  author       = {Bertschinger, Nils and Hoefer, Martin and Schmand, Daniel},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:1908.01714v3},\n  eprint       = {1908.01714},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/1908.01714",
+        "theorem_or_result": "Introduces flow allocation games and analyzes equilibria for unit-ranking vs. edge-ranking strategies. For edge-ranking games, proves strong NP-hardness of deciding existence of pure Nash equilibrium and strong equilibrium, and shows membership of Nash-existence in \\(\\Sigma_2^p\\) with the precise complexity left open (Remark 21).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: classify the exact complexity of pure Nash equilibrium existence in edge-ranking flow allocation games beyond strong NP-hardness and \\(\\Sigma_2^p\\) membership."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0676235,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0676235
+    "literature_total_cost_usd": 0.064134,
+    "total_cost_usd": 0.1317575
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391111008/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4391111008_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4391111008_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

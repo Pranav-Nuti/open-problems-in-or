@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper introduces a large-market relaxation of optimal obviously strategy-proof (OSP) trading-mechanism design in a multi-task allocation problem with outside-option endowments \\(\\eta_j\\). Using Theorem 2, it restricts attention to polarized-ray menus (or a remedial menu) and shows that the large-market design problem decomposes into an outer convex program with dual \\(\\sup_{\\lambda}\\ \\sum_i \\lambda_i n_i-\\sum_j S_j(\\lambda-\\pi_j)\\), where \\(S_j(w)=\\max\\{w\\cdot y:y\\in F_j\\}\\) is the support function of the set of expected assignments achievable for agent \\(j\\) by varying polarized-ray menus and selection rules. Thus, computational tractability hinges on evaluating/optimizing \\(S_j\\) for given \\(w\\), \\(\\eta_j\\), and the distribution of \\(c_j\\).\n\nAs of the source paper (2026), the computational complexity of characterizing \\(S_j(w)\\) is explicitly left open: while the polarized-ray characterization yields a strong dimension reduction (menu size at most \\(I+1\\)) and separability across agents in the dual, the remaining inner optimization over ray directions and selection rules is still a difficult nonconvex design problem. Related work on computational aspects of OSP (Golowich and Li) and on hardness/duality in multi-dimensional mechanism design (Daskalakis\u2013Deckelbaum\u2013Tzamos; Hart\u2013Nisan) suggests that intractability is plausible in general, while posted-price/prophet-inequality techniques (Feldman\u2013Gravin\u2013Lucier; D{\"u}tting et al.) point toward approximation algorithms under additional structure. However, no paper in the provided corpus resolves whether \\(S_j(w)\\) is polynomial-time computable or NP-hard in the general polarized-ray setting, nor provides a general-purpose approximation scheme with guarantees.\n\nPromising directions include: (i) identifying special cases where \\(S_j\\) reduces to a tractable convex program (e.g. \\(I=2\\), or distributions with monotone hazard/regularity properties akin to the two-task case referenced in the source paper); (ii) proving hardness by reduction from knapsack/partition-like problems encoded in the choice of ray directions and cutoffs in type space; and (iii) developing approximation algorithms by discretizing the type hypercube and restricting to a finite candidate set of ray directions, with error bounds translating into additive/multiplicative approximation of \\(S_j(w)\\) and hence of the outer dual objective.",
+    "total_cost_usd": 0.08386350000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Obviously Strategy-Proof Multi-Dimensional Allocation and the Value of Choice",
+        "bibtex": "@misc{ValenzuelaStookey2026OSP,\n  author       = {Quitz{\\'e} Valenzuela-Stookey},\n  title        = {Obviously Strategy-Proof Multi-Dimensional Allocation and the Value of Choice},\n  year         = {2026},\n  eprint       = {2601.20035},\n  archivePrefix= {arXiv},\n  primaryClass = {econ.TH},\n  url          = {https://arxiv.org/abs/2601.20035}\n}\n",
+        "source_url": "https://arxiv.org/abs/2601.20035",
+        "theorem_or_result": "Characterizes OSP trading mechanisms as (effectively) polarized-ray menus (Theorem 2), derives a large-market relaxation whose dual reduces mechanism optimization to computing support functions \\(S_j(w)=\\max\\{w\\cdot y:y\\in F_j\\}\\), and explicitly leaves the computational complexity of evaluating \\(S_j\\) as an open question.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: in the large-market dual, optimizing OSP mechanisms requires characterizing \\(S_j(w)\\) for each agent, i.e. optimizing over polarized-ray menus and selection rules; Section 4.2 states that efficient characterization remains open."
+      },
+      {
+        "title": "On the computational properties of obviously strategy-proof mechanisms",
+        "bibtex": "@misc{GolowichLi2021ComputationalOSP,\n  author       = {Louis Golowich and Shu Li},\n  title        = {On the computational properties of obviously strategy-proof mechanisms},\n  year         = {2021},\n  eprint       = {2101.05149},\n  archivePrefix= {arXiv},\n  primaryClass = {econ.TH},\n  url          = {https://arxiv.org/abs/2101.05149}\n}\n",
+        "source_url": "https://arxiv.org/abs/2101.05149",
+        "theorem_or_result": "Studies algorithmic/computational aspects of OSP implementation, identifying structural restrictions and computational barriers in various mechanism classes (context-dependent).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides general computational perspective on OSP mechanisms; potentially relevant for proving hardness or designing algorithms for optimizing within restricted OSP families such as polarized-ray menus, though it does not directly analyze the support-function problem \\(S_j(w)\\)."
+      },
+      {
+        "title": "The complexity of optimal mechanism design",
+        "bibtex": "@inproceedings{DaskalakisDeckelbaumTzamos2014ComplexityOMD,\n  author    = {Constantinos Daskalakis and Alan Deckelbaum and Christos Tzamos},\n  title     = {The Complexity of Optimal Mechanism Design},\n  booktitle = {Proceedings of the Twenty-Fifth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2014},\n  pages     = {1302--1318},\n  url       = {https://epubs.siam.org/doi/abs/10.1137/1.9781611973402.96}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/abs/10.1137/1.9781611973402.96",
+        "theorem_or_result": "Shows computational intractability phenomena for optimal mechanism design in multi-dimensional settings (hardness results under various formulations).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Suggests that optimizing over multi-dimensional mechanisms can be computationally hard; may inform NP-hardness conjectures for computing \\(S_j(w)\\) when the menu/selection-rule optimization encodes hard combinatorial structure, though the model here is without transfers and with polarized-ray restrictions."
+      },
+      {
+        "title": "Strong duality for a multiple-good monopolist",
+        "bibtex": "@inproceedings{DaskalakisDeckelbaumTzamos2015StrongDuality,\n  author    = {Constantinos Daskalakis and Alan Deckelbaum and Christos Tzamos},\n  title     = {Strong Duality for a Multiple-Good Monopolist},\n  booktitle = {Proceedings of the Sixteenth ACM Conference on Economics and Computation (EC)},\n  year      = {2015},\n  pages     = {449--450},\n  url       = {https://dl.acm.org/doi/10.1145/2764468.2764513}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/2764468.2764513",
+        "theorem_or_result": "Develops duality-based approaches for multi-good mechanism design, enabling convex-analytic formulations in certain settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Methodologically related: the source paper\u2019s large-market relaxation uses convex duality and support functions \\(S_j\\); this work provides precedent for duality tools, though not directly for polarized-ray menu optimization."
+      },
+      {
+        "title": "Combinatorial auctions via posted prices",
+        "bibtex": "@inproceedings{FeldmanGravinLucier2014PostedPrices,\n  author    = {Michal Feldman and Nick Gravin and Brendan Lucier},\n  title     = {Combinatorial Auctions via Posted Prices},\n  booktitle = {Proceedings of the Twenty-Sixth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2015},\n  pages     = {123--135},\n  url       = {https://epubs.siam.org/doi/10.1137/1.9781611973730.10}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973730.10",
+        "theorem_or_result": "Designs posted-price mechanisms for combinatorial allocation with approximation guarantees under certain valuation models.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Polarized-ray menus resemble restricted posted-price/linear-trade offers; posted-price approximation techniques may inspire polynomial-time approximation schemes for \\(S_j(w)\\) under additional structure on the cost distribution or task types."
+      },
+      {
+        "title": "Posted prices, smoothness, and combinatorial prophet inequalities",
+        "bibtex": "@misc{DuettingEtAl2016PostedPricesProphet,\n  author       = {Paul D{\\\"u}tting and Michal Feldman and Thomas Kesselheim and Brendan Lucier},\n  title        = {Posted Prices, Smoothness, and Combinatorial Prophet Inequalities},\n  year         = {2016},\n  eprint       = {1612.03161},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/1612.03161}\n}\n",
+        "source_url": "https://arxiv.org/abs/1612.03161",
+        "theorem_or_result": "Connects posted-price mechanisms to prophet inequalities and smoothness, yielding approximation results for online/uncertain allocation problems.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "May provide approximation frameworks for large-market allocation with uncertainty; could be adapted to approximate \\(S_j(w)\\) when polarized-ray menus can be interpreted as posted-price trades along directions."
+      },
+      {
+        "title": "Selling multiple correlated goods: Revenue maximization and menu-size complexity",
+        "bibtex": "@article{HartNisan2019MenuSize,\n  author  = {Sergiu Hart and Noam Nisan},\n  title   = {Selling Multiple Correlated Goods: Revenue Maximization and Menu-Size Complexity},\n  journal = {Journal of Economic Theory},\n  year    = {2019},\n  volume  = {183},\n  pages   = {991--1029},\n  doi     = {},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0022053119300780}\n}\n",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053119300780",
+        "theorem_or_result": "Studies complexity arising from menu size in multi-dimensional mechanism design; shows large menus may be required for near-optimality in some settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Although the polarized-ray characterization bounds menu size by \\(I+1\\), the paper highlights that even restricted menus can face nontrivial computational/approximation issues; provides conceptual backdrop for complexity questions about computing \\(S_j(w)\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06330975,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06330975
+    "literature_total_cost_usd": 0.08386350000000001,
+    "total_cost_usd": 0.14717325
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390702256/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4390702256_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4390702256_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

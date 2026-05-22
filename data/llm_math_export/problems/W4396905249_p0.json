@@ -47,16 +47,104 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper (Fikioris\u2013Tardos) establishes that in sequential budgeted first-price auctions, a per-bidder learning guarantee against a very weak benchmark\u2014best fixed multiplicative shading \\(\\lambda\\in[0,1]\\) subject to remaining budget\u2014already implies a constant-factor approximation to optimal liquid welfare \\(\\mathrm{LW}^*\\). Specifically, if each bidder achieves competitive ratio \\(\\gamma\\) (plus small regret) relative to the best fixed shading multiplier, then \\(\\mathrm{LW}\\) is within \\(\\gamma+1/2+O(1/\\gamma)\\) of \\(\\mathrm{LW}^*\\) (additive valuations), and within \\((2+\\gamma+\\sqrt{\\gamma^2+4})/2\\) for submodular valuations. Matching lower bounds show that in worst-case/adversarial instances one cannot hope for substantially better than \\(\\max\\{\\gamma,2\\}\\) even if bidders compete against the stronger benchmark of the best bid sequence, leaving only a narrow gap (notably between 2 and \\(\\approx 2.41\\) when \\(\\gamma=1\\)).\n\nThe open problem asks whether strengthening the learning benchmark class (e.g., to the best Lipschitz bidding function \\(f:[0,1]\\to[0,1]\\)) or moving to stochastic/i.i.d. values can provably improve the worst-case liquid-welfare approximation beyond what fixed shading yields. Existing related work gives partial evidence in both directions: (i) in stochastic repeated-auction models, algorithm-specific pacing dynamics can achieve factor-2 liquid-welfare guarantees (Gaitonde et al.; Lucier et al.), suggesting that distributional structure plus particular dynamics can improve efficiency; but (ii) the source paper\u2019s impossibility results indicate that merely strengthening the individual benchmark (even to best bid sequence) does not automatically improve worst-case liquid welfare in adversarial environments.\n\nMethodologically, the main technical tools around this question come from budgeted online learning and Bandits with Knapsacks (BKS; Immorlica et al.; Castiglioni et al.; Fikioris\u2013Tardos). These results enable high-probability competitive-ratio guarantees and may be adaptable to richer benchmark classes by exploiting structure (e.g., Lipschitzness) to reduce discretization error and improve regret/competitive terms. However, no existing work (in the provided set) resolves whether such stronger learning guarantees translate into strictly better liquid-welfare price-of-anarchy bounds in sequential budgeted first-price auctions; thus the problem remains open.",
+    "total_cost_usd": 0.097881,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Learning in Repeated Auctions with Budgets: Regret Minimization and Equilibrium",
+        "bibtex": "@article{BalseiroGur2019LearningRepeatedAuctionsBudgets,\n  author = {Balseiro, Santiago R. and Gur, Yonatan},\n  title = {Learning in Repeated Auctions with Budgets: Regret Minimization and Equilibrium},\n  journal = {Management Science},\n  year = {2019},\n  volume = {65},\n  number = {9},\n  pages = {3952--3968},\n  doi = {10.1287/MNSC.2018.3174}\n}\n",
+        "source_url": "https://doi.org/10.1287/mnsc.2018.3174",
+        "theorem_or_result": "Introduces pacing/shading-style learning guarantees for budget-constrained bidders in repeated auctions. Proves in adversarial environments a bidder can guarantee competitive ratio \\(\\max\\{1,T/B\\}\\) against a strong benchmark (best bid sequence), and in stochastic i.i.d. settings achieves near-optimality (competitive ratio 1 with \\(O(\\sqrt{T})\\) regret) under suitable conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the canonical learning benchmark and techniques for budgeted repeated auctions; the open problem asks whether strengthening the benchmark class (e.g., Lipschitz bidding functions) or moving to stochastic values yields strictly better liquid-welfare guarantees than fixed shading multipliers."
+      },
+      {
+        "title": "Budget Pacing in Repeated Auctions: Regret and Efficiency without Convergence",
+        "bibtex": "@article{GaitondeLucierNisanSankararaman2022BudgetPacing,\n  author = {Gaitonde, Jason and Lucier, Brendan and Nisan, Noam and Sankararaman, Karthik Abinav},\n  title = {Budget Pacing in Repeated Auctions: Regret and Efficiency without Convergence},\n  journal = {CoRR},\n  year = {2022},\n  volume = {abs/2205.08674},\n  doi = {10.48550/arXiv.2205.08674},\n  url = {https://arxiv.org/abs/2205.08674}\n}\n",
+        "source_url": "https://doi.org/10.48550/arXiv.2205.08674",
+        "theorem_or_result": "Shows that under i.i.d. values and when bidders use a specific pacing algorithm, liquid welfare in repeated first- and second-price auctions is within factor 2 of optimal up to sublinear additive error. Also proves impossibility in sequential second-price auctions: even with no-regret, liquid welfare can be arbitrarily bad.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Establishes the baseline 2-approximation in a stochastic model but under algorithm-specific assumptions, and highlights that first-price is the promising format. The open problem asks whether stronger learning guarantees (e.g., richer benchmark classes) can beat the fixed-multiplier-based bounds in sequential first-price auctions."
+      },
+      {
+        "title": "Autobidders with Budget and ROI Constraints: Efficiency, Regret, and Pacing Dynamics",
+        "bibtex": "@article{LucierNisanSankararamanGaitonde2023Autobidders,\n  author = {Lucier, Brendan and Nisan, Noam and Sankararaman, Karthik Abinav and Gaitonde, Jason},\n  title = {Autobidders with Budget and ROI Constraints: Efficiency, Regret, and Pacing Dynamics},\n  journal = {CoRR},\n  year = {2023},\n  volume = {abs/2301.13306},\n  doi = {10.48550/arXiv.2301.13306},\n  url = {https://arxiv.org/abs/2301.13306}\n}\n",
+        "source_url": "https://doi.org/10.48550/arXiv.2301.13306",
+        "theorem_or_result": "Develops adaptive pacing dynamics for autobidders with budget and ROI constraints, giving no-regret-type guarantees and showing resulting outcomes achieve a factor-2 liquid-welfare approximation under their model assumptions.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Represents progress on connecting learning dynamics to liquid-welfare efficiency beyond fixed multipliers, but still largely within pacing-style strategy classes; informs whether richer benchmark classes might improve worst-case liquid welfare."
+      },
+      {
+        "title": "Online Learning with Knapsacks: the Best of Both Worlds",
+        "bibtex": "@inproceedings{CastiglioniCelliKroer2022OnlineLearningKnapsacks,\n  author = {Castiglioni, Matteo and Celli, Andrea and Kroer, Christian},\n  title = {Online Learning with Knapsacks: the Best of Both Worlds},\n  booktitle = {Proceedings of the 39th International Conference on Machine Learning (ICML)},\n  series = {Proceedings of Machine Learning Research},\n  volume = {162},\n  year = {2022},\n  pages = {2767--2783},\n  url = {https://proceedings.mlr.press/v162/castiglioni22a.html}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v162/castiglioni22a.html",
+        "theorem_or_result": "Provides bandits-with-knapsacks algorithms that achieve near-optimal performance in stochastic settings (competitive ratio 1) while retaining robust guarantees in adversarial settings (competitive ratio scaling like \\(T/B\\)), with high-probability bounds.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The original paper reduces budgeted first-price learning to adversarial BwK; improvements in BwK (especially for structured action spaces) are a key tool if one wants to compete with richer benchmark classes such as Lipschitz bidding functions."
+      },
+      {
+        "title": "Approximately Stationary Bandits with Knapsacks",
+        "bibtex": "@inproceedings{FikiorisTardos2023ApproximatelyStationaryBwK,\n  author = {Fikioris, Giannis and Tardos, {\\'E}va},\n  title = {Approximately Stationary Bandits with Knapsacks},\n  booktitle = {Proceedings of the 36th Conference on Learning Theory (COLT)},\n  series = {Proceedings of Machine Learning Research},\n  volume = {195},\n  year = {2023},\n  pages = {3758--3782},\n  url = {https://proceedings.mlr.press/v195/fikioris23a.html}\n}\n",
+        "source_url": "https://proceedings.mlr.press/v195/fikioris23a.html",
+        "theorem_or_result": "Studies BwK in intermediate regimes between stochastic and adversarial, giving algorithms with guarantees that interpolate between competitive ratio 1 (stochastic) and \\(T/B\\) (adversarial), with high-probability bounds.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Directly used by the source paper to obtain high-probability competitive ratio guarantees. Such intermediate-regime results are relevant to the open problem\u2019s stochastic-values variant and may be extendable to richer benchmark classes."
+      },
+      {
+        "title": "Bandits with Knapsacks",
+        "bibtex": "@article{BadanidiyuruKleinbergSlivkins2018BanditsKnapsacks,\n  author = {Badanidiyuru, Ashwinkumar and Kleinberg, Robert and Slivkins, Aleksandrs},\n  title = {Bandits with Knapsacks},\n  journal = {Journal of the ACM},\n  year = {2018},\n  volume = {65},\n  number = {3},\n  pages = {13:1--13:55},\n  doi = {10.1145/3164539}\n}\n",
+        "source_url": "https://doi.org/10.1145/3164539",
+        "theorem_or_result": "Introduces the BwK framework and gives algorithms achieving near-optimal regret/competitive performance in the stochastic setting (competitive ratio 1 up to sublinear terms), forming the basis for later adversarial and best-of-both-worlds results.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "If values are i.i.d. (stochastic model), BwK-style results suggest stronger per-bidder learning guarantees may be achievable, potentially enabling improved liquid-welfare bounds compared to adversarial settings."
+      },
+      {
+        "title": "Adversarial Bandits with Knapsacks",
+        "bibtex": "@article{ImmorlicaEtAl2022AdversarialBwK,\n  author = {Immorlica, Nicole and Sankararaman, Karthik A. and Kannan, Sampath and Kumar, Ravi and Mirrokni, Vahab},\n  title = {Adversarial Bandits with Knapsacks},\n  journal = {Journal of the ACM},\n  year = {2022},\n  volume = {69},\n  number = {6},\n  pages = {40:1--40:47},\n  doi = {10.1145/3557045}\n}\n",
+        "source_url": "https://doi.org/10.1145/3557045",
+        "theorem_or_result": "Develops adversarial BwK algorithms with polylogarithmic competitive ratios and regret bounds, and establishes lower bounds showing limitations when budgets are small (e.g., \\(B\\ll \\sqrt{T}\\)).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides the adversarial-learning backbone for budgeted sequential auctions; limitations here may translate into limits on what richer benchmark classes can guarantee in worst-case value sequences."
+      },
+      {
+        "title": "Contextual Standard Auctions with Budgets: Revenue Equivalence and Efficiency Guarantees",
+        "bibtex": "@article{BalseiroKroerKumar2023ContextualStandardAuctionsBudgets,\n  author = {Balseiro, Santiago R. and Kroer, Christian and Kumar, Rachitesh},\n  title = {Contextual Standard Auctions with Budgets: Revenue Equivalence and Efficiency Guarantees},\n  journal = {Management Science},\n  year = {2023},\n  volume = {69},\n  number = {11},\n  pages = {6837--6854},\n  doi = {10.1287/MNSC.2023.4719}\n}\n",
+        "source_url": "https://doi.org/10.1287/mnsc.2023.4719",
+        "theorem_or_result": "Analyzes budget management via value shading in (contextual) first-price auctions under distributional assumptions, establishing equilibrium and efficiency properties (including constant-factor welfare-type guarantees) in those models.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Represents the distributional/auction-theoretic side of shading-based bidding in first-price auctions. The open problem\u2019s stochastic-values direction aligns with this line, and suggests that richer bidding rules might be analyzable under i.i.d. contexts."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.063441,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.063441
+    "literature_total_cost_usd": 0.097881,
+    "total_cost_usd": 0.161322
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4396905249/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4396905249_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4396905249_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

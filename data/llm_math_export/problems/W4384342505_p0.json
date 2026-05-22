@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "Algorithm 3.1 of Nie--Tang (2023) reduces a nonconvex polynomial Nash equilibrium problem to a sequence of polynomial optimization problems over the KKT-feasible set, where KKT conditions are encoded purely polynomially using Lagrange multiplier expressions \\(\\lambda_{i,j}(x)\\) available under a nonsingularity hypothesis. The algorithm selects a unique KKT candidate by minimizing a generic strictly convex quadratic \\([x]_1^\\top\\Theta[x]_1\\), then verifies the Nash property by solving each player\u2019s global best-response problem. When verification fails, it adds finitely many best-response inequalities \\(f_i(v,x_{-i})-f_i(x_i,x_{-i})\\ge 0\\) (with \\(v\\) drawn from best responses) to exclude the offending KKT point and repeats. The paper proves finite termination when the set of non-equilibrium KKT points \\(G\\setminus G^*\\) is finite, and shows this holds generically because the KKT system has finitely many solutions.\n\nThe open difficulty is precisely the regime where \\(G\\setminus G^*\\) is infinite: the exclusion step removes the current optimizer but may leave infinitely many other non-equilibrium KKT points with smaller \\([x]_1^\\top\\Theta[x]_1\\) value than any equilibrium, potentially causing an infinite sequence of exclusions without reaching \\(G^*\\). Existing foundational work on polynomial Lagrange multiplier expressions (Nie 2019) and on finite/asymptotic convergence of moment-SOS relaxations (Nie 2013, 2014) ensures that each inner polynomial optimization and best-response computation can be solved (often with finite convergence under standard optimality/compactness assumptions), but it does not by itself control the outer-loop dynamics of adding best-response cuts.\n\nAt present, there appears to be no general convergence theorem guaranteeing that the iterative KKT-point exclusion procedure must converge to a Nash equilibrium when there are infinitely many non-equilibrium KKT points. Progress likely requires additional structural conditions ensuring that the accumulated best-response inequalities eventually carve out a neighborhood of \\(G^*\\) (e.g., some form of error bound, isolation/finite stratification of equilibria, or a separation property between equilibria and non-equilibrium KKT points in the \\(\\Theta\\)-objective), or else an explicit counterexample where the algorithm cycles through an infinite descending chain of non-equilibrium KKT points while equilibria remain feasible but never selected.",
+    "total_cost_usd": 0.09280425,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Nash Equilibrium Problems of Polynomials",
+        "bibtex": "@article{NieTang2023NEPP,\n  title        = {Nash Equilibrium Problems of Polynomials},\n  author       = {Nie, Jiawang and Tang, Xindong},\n  journal      = {arXiv preprint arXiv:2006.09490v2},\n  year         = {2023},\n  eprint       = {2006.09490},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2006.09490}\n}\n",
+        "source_url": "https://arxiv.org/abs/2006.09490",
+        "theorem_or_result": "Introduces Algorithm 3.1 for computing Nash equilibria of polynomial games by solving a sequence of polynomial optimization problems over the KKT-feasible set (with polynomial Lagrange multiplier expressions under a nonsingularity assumption) and iteratively excluding non-equilibrium KKT points via best-response inequalities. Proves finite termination when the set of non-equilibrium KKT points is finite, and shows finite termination for generic data (finitely many KKT points). Leaves open convergence when there are infinitely many non-equilibrium KKT points.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether iterative KKT-point exclusion (Algorithm 3.1) converges when there are infinitely many KKT points that are not Nash equilibria; it provides the algorithmic framework, assumptions (nonsingularity giving polynomial multipliers), and the known finite-termination regime."
+      },
+      {
+        "title": "Convex generalized Nash equilibrium problems and polynomial optimization",
+        "bibtex": "@article{NieTang2023ConvexGNEP,\n  title   = {Convex generalized Nash equilibrium problems and polynomial optimization},\n  author  = {Nie, Jiawang and Tang, Xindong},\n  journal = {Mathematical Programming},\n  year    = {2023}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-022-01892-6",
+        "theorem_or_result": "Develops semidefinite relaxation methods for convex polynomial generalized Nash equilibrium problems using (rational/parametric) Lagrange multiplier expressions; guarantees finding a GNE or certifying nonexistence under convexity and regularity assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides closely related methodology and convergence guarantees in the convex setting; highlights that the difficulty in Algorithm 3.1 is specifically the nonconvex case where KKT points need not be equilibria, motivating why infinite non-equilibrium KKT sets are problematic."
+      },
+      {
+        "title": "Tight relaxations for polynomial optimization and Lagrange multiplier expressions",
+        "bibtex": "@article{Nie2019TightLME,\n  title   = {Tight relaxations for polynomial optimization and Lagrange multiplier expressions},\n  author  = {Nie, Jiawang},\n  journal = {Mathematical Programming},\n  year    = {2019}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-018-1327-0",
+        "theorem_or_result": "Establishes existence and construction of polynomial Lagrange multiplier expressions under nonsingularity conditions and proves tightness/finite convergence properties for SOS relaxations augmented with such expressions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Algorithm 3.1 relies on polynomial multiplier expressions \\(\\lambda_{i,j}(x)\\) to encode KKT conditions without introducing multiplier variables; this paper supplies the foundational theory ensuring these expressions exist and yield tight SOS relaxations, which is prerequisite for analyzing convergence of the outer exclusion loop."
+      },
+      {
+        "title": "Optimality conditions and finite convergence of Lasserre\u2019s hierarchy",
+        "bibtex": "@article{Nie2014OptimalityFinite,\n  title   = {Optimality conditions and finite convergence of {L}asserre's hierarchy},\n  author  = {Nie, Jiawang},\n  journal = {Mathematical Programming},\n  year    = {2014}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-013-0680-0",
+        "theorem_or_result": "Gives optimality conditions (e.g., constraint qualification, strict complementarity, second-order sufficiency) implying finite convergence of Lasserre\u2019s moment-SOS hierarchy for polynomial optimization.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Algorithm 3.1 repeatedly solves polynomial optimization problems (3.10) and best-response problems (3.8) via moment-SOS relaxations; understanding when these inner solves terminate finitely is important when analyzing the outer-loop behavior in the infinite-KKT regime."
+      },
+      {
+        "title": "Certifying convergence of Lasserre\u2019s hierarchy via flat truncation",
+        "bibtex": "@article{Nie2013FlatTrunc,\n  title   = {Certifying convergence of {L}asserre's hierarchy via flat truncation},\n  author  = {Nie, Jiawang},\n  journal = {Mathematical Programming},\n  year    = {2013}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-012-0606-0",
+        "theorem_or_result": "Develops the flat truncation criterion for certifying finite convergence and extracting global minimizers from moment relaxations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "The algorithm\u2019s subproblems are solved by moment relaxations; flat truncation is the practical and theoretical certificate used in the source paper to detect exactness and extract candidate KKT points and best responses, affecting any rigorous convergence analysis of the overall iterative exclusion scheme."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08662325000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08662325000000001
+    "literature_total_cost_usd": 0.09280425,
+    "total_cost_usd": 0.17942750000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4384342505/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4384342505_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4384342505_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

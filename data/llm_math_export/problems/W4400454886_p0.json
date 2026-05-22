@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "No forward-citation evidence was provided, so there is currently no identified paper that resolves the open problem of a sharp high-probability recovery threshold for the complete LP (cLP) in the semi-random corruption model for planted rank-one Boolean tensors. The source paper establishes that the NP-hard maximum-likelihood formulation recovers w.h.p. iff \\(p<1/2\\) (under mild growth assumptions), and proves sufficient semi-random recovery thresholds for two weaker LP relaxations: the standard LP (sLP) and the flower LP (fLP). In the dense regime with tensor density \\(r_{\\bar W}=r_{\\bar x}r_{\\bar y}r_{\\bar z}\\), the flower LP succeeds for \\(p< r_{\\bar W}/(1+2r_{\\bar W})\\), while numerical experiments indicate that the complete LP significantly outperforms the flower LP.\n\nThe complete LP strengthens the standard LP by introducing bilinear auxiliaries \\(w^1,w^2,w^3\\) and enforcing local convex-hull constraints equivalent to a compact subset of level-2 RLT constraints; it also implicitly contains flower and running-intersection inequalities. A plausible route to a recovery guarantee is to extend the dual-certificate approach used for sLP/fLP: construct dual variables for constraints (9)\u2013(12) that certify optimality of \\((\\bar x,\\bar y,\\bar z,\\bar W)\\), then prove strict feasibility/uniqueness via a Mangasarian-type argument. The main technical gap is to exploit the additional coupling provided by \\(w^1,w^2,w^3\\) to relax the per-index concentration requirements that limit the flower LP threshold, potentially pushing the provable threshold closer to the information-theoretic limit \\(p<1/2\\) (at least in dense regimes). At present, however, this remains open.",
+    "total_cost_usd": 0.13923875,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Rank-one Boolean tensor factorization and the multilinear polytope",
+        "bibtex": "@article{DelPiaKhajavirad2024RankOneBooleanTensor,\n  title        = {Rank-one Boolean tensor factorization and the multilinear polytope},\n  author       = {Del Pia, Alberto and Khajavirad, Aida},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2202.07053},\n  eprint       = {2202.07053},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2202.07053}\n}\n",
+        "source_url": "https://arxiv.org/abs/2202.07053",
+        "theorem_or_result": "Introduces the complete LP (cLP) for rank-one Boolean tensor factorization using an extended formulation capturing local convex hull constraints for \n\\(w_{ijk}=x_i y_j z_k\\) together with bilinear auxiliaries \\(w^1,w^2,w^3\\). Proves high-probability recovery thresholds under a semi-random corruption model for the standard LP and the flower LP, but leaves the recovery threshold for the complete LP as an open question.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: obtain a high-probability recovery guarantee for the complete LP under the semi-random corruption model, improving upon the flower LP threshold \\(p< r_{\\bar W}/(1+2r_{\\bar W})\\)."
+      },
+      {
+        "title": "Uniqueness of solution in linear programming",
+        "bibtex": "@article{Mangasarian1979UniquenessLP,\n  title   = {Uniqueness of solution in linear programming},\n  author  = {Mangasarian, O. L.},\n  journal = {Linear Algebra and its Applications},\n  volume  = {25},\n  pages   = {151--162},\n  year    = {1979}\n}\n",
+        "source_url": "https://doi.org/10.1016/0024-3795(79)90016-0",
+        "theorem_or_result": "Gives a characterization of uniqueness of LP optimal solutions via active constraints and dual variables: uniqueness holds if there is no nonzero direction satisfying \\(C_K x=0,\\ C_L x\\le 0\\) for the sets of tight constraints with positive/zero dual multipliers.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper uses Mangasarian\u2019s criterion to prove uniqueness for the standard and flower LPs. Any complete-LP recovery proof will likely need an analogous dual certificate plus uniqueness argument, so this is methodological background."
+      },
+      {
+        "title": "A hierarchy of relaxations between the continuous and convex hull representations for zero-one programming problems",
+        "bibtex": "@article{SheraliAdams1990RLT,\n  title   = {A hierarchy of relaxations between the continuous and convex hull representations for zero-one programming problems},\n  author  = {Sherali, H. D. and Adams, W. P.},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume  = {3},\n  number  = {3},\n  pages   = {411--430},\n  year    = {1990},\n  doi     = {10.1137/0403036}\n}\n",
+        "source_url": "https://doi.org/10.1137/0403036",
+        "theorem_or_result": "Introduces the Reformulation-Linearization Technique (RLT) hierarchy; level-2 RLT yields linear relaxations for multilinear 0-1 programs by adding product variables and linear constraints approximating the convex hull.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The complete LP is described as being contained in level-2 RLT for the rank-one BTF formulation but with only \\(O(nml)\\) constraints. Understanding RLT and convex-hull descriptions is relevant for analyzing tightness and potential recovery thresholds of the complete LP."
+      },
+      {
+        "title": "Concave extensions for non-linear 0\u22121 maximization problems",
+        "bibtex": "@article{Crama1993ConcaveExtensions,\n  title   = {Concave extensions for non-linear 0--1 maximization problems},\n  author  = {Crama, Y.},\n  journal = {Mathematical Programming},\n  volume  = {61},\n  pages   = {53--60},\n  year    = {1993},\n  doi     = {10.1007/BF01582044}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01582044",
+        "theorem_or_result": "Studies convex/concave envelopes and linearization techniques for nonlinear 0-1 optimization, including tight relaxations for multilinear terms over the hypercube.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "The standard LP uses convex-hull linearizations of \\(w_{ijk}=x_i y_j z_k\\) over \\([0,1]^3\\) and objective-sign-based constraint pruning. Envelope results underpin the relaxation strength comparisons relevant to complete LP analysis."
+      },
+      {
+        "title": "The multilinear polytope for acyclic hypergraphs",
+        "bibtex": "@article{DelPiaKhajavirad2018MultilinearPolytopeAcyclic,\n  title   = {The multilinear polytope for acyclic hypergraphs},\n  author  = {Del Pia, A. and Khajavirad, A.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {28},\n  pages   = {1049--1076},\n  year    = {2018},\n  doi     = {10.1137/17M1128010}\n}\n",
+        "source_url": "https://doi.org/10.1137/17M1128010",
+        "theorem_or_result": "Develops flower inequalities and shows they yield compact extended formulations for multilinear polytopes associated with acyclic hypergraphs; provides facet/validity results for these inequalities.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Flower inequalities are used to define the flower LP, which is implied by the complete LP. Techniques for deriving and analyzing such inequalities inform how one might build dual certificates for the complete LP and potentially sharpen thresholds."
+      },
+      {
+        "title": "The running intersection relaxation of the multilinear polytope",
+        "bibtex": "@article{DelPiaKhajavirad2018RunningIntersectionRelaxation,\n  title   = {The running intersection relaxation of the multilinear polytope},\n  author  = {Del Pia, A. and Khajavirad, A.},\n  journal = {Mathematics of Operations Research},\n  volume  = {46},\n  pages   = {1008--1037},\n  year    = {2021},\n  doi     = {10.1287/moor.2020.1071}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2020.1071",
+        "theorem_or_result": "Introduces running intersection inequalities/relaxations for multilinear polytopes; proves strength and extended formulation properties, and relates them to decomposability of multilinear sets.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The complete LP constraints (10)\u2013(12) are described as running intersection inequalities for an augmented hypergraph. Understanding these inequalities is central to analyzing why the complete LP empirically outperforms the flower LP and what additional structure might yield better recovery thresholds."
+      },
+      {
+        "title": "Heuristics for semirandom graph problems",
+        "bibtex": "@article{FeigeKilian2001Semirandom,\n  title   = {Heuristics for semirandom graph problems},\n  author  = {Feige, Uriel and Kilian, Joe},\n  journal = {Journal of Computer and System Sciences},\n  volume  = {63},\n  number  = {4},\n  pages   = {639--671},\n  year    = {2001},\n  doi     = {10.1006/jcss.2001.1781}\n}\n",
+        "source_url": "https://doi.org/10.1006/jcss.2001.1781",
+        "theorem_or_result": "Introduces semi-random (random + adversarial monotone) models for combinatorial problems and analyzes robustness of algorithms under such models.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "The corruption model in the source paper is a tensor analogue of semi-random models. Conceptual tools from semi-random analysis motivate robustness arguments (e.g., Proposition 2) that reduce semi-random recovery to fully-random recovery for monotone objectives."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.120309,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.120309
+    "literature_total_cost_usd": 0.13923875,
+    "total_cost_usd": 0.25954774999999997
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400454886/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400454886_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4400454886_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

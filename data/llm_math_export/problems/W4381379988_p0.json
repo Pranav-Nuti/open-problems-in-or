@@ -45,16 +45,113 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 10,
+    "synthesis": "The open problem asks for an exactly optimal joint replenishment-and-allocation policy for a multi-product assemble-to-order system with a general BOM matrix \\(A\\) and general deterministic (non-identical) component lead times \\((L_j)\\), under backlogging and long-run average holding-plus-backlog cost. The 2021 paper by Reiman, Wan, and Wang frames this as a long-standing unsolved problem: the state must include on-hand inventories, backlogs, and the entire vector of outstanding orders across heterogeneous lead times, and replenishment and allocation are tightly coupled through the BOM constraints \\(A Z(t)\\le R(t-L)\\).\n\nProgress has largely come from (i) exact solutions in special cases and (ii) asymptotically optimal policies derived from stochastic-programming (SP) relaxations. Rosling (1989) gives an exact optimal policy for the single-product assembly case with multiple components and general lead times, illustrating that heterogenous lead times can be handled when allocation coupling is absent. For multi-product systems, Reiman and Wang (2012) introduce a multi-stage SP lower bound on the achievable average cost, and Reiman and Wang (2015) show that for identical lead times an SP-calibrated base-stock replenishment combined with an SP-guided allocation principle is asymptotically optimal as the common lead time grows.\n\nThe main advance toward the general-lead-time setting is Reiman, Wan, and Wang (2021), which replaces constant base-stock replenishment with dynamic inventory-position targets \\(IP^k(t)\\) that depend on demand observed over nested lead-time windows, and couples this with an allocation rule that tracks SP-implied backlog targets. A key technical contribution is a stochastic tracking model proving that actual inventory positions and backlogs track their targets on the diffusion scale, yielding \\(\\lim_{L\\to\\infty}(C^{(L)}-\\underline C^{(L)})/\\sqrt L=0\\) and hence vanishing relative optimality gap as the longest lead time grows. However, this does not yield an exactly optimal policy for fixed finite lead times and general \\(A\\); the exact dynamic-programming characterization remains computationally and analytically intractable beyond special BOMs (e.g., N/W systems) where additional structural results are available (Lu, Song, and Zhang 2015). Remaining gaps include exact optimality for general BOM/lead times, tractable computation of the multi-stage SP (or its LP approximations) in large systems, and identifying broader structural classes where exact optimal policies (or finite-lead-time optimality of SP-based tracking policies) can be proved.",
+    "total_cost_usd": 0.1726935,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Optimal inventory policies for assembly systems under random demands",
+        "bibtex": "@article{Rosling1989Optimal,\n  author  = {Rosling, K.},\n  title   = {Optimal inventory policies for assembly systems under random demands},\n  journal = {Operations Research},\n  year    = {1989},\n  volume  = {37},\n  number  = {4},\n  pages   = {565--579}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.37.4.565",
+        "theorem_or_result": "Derives exactly optimal control for single-product assembly systems with multiple components and general (non-identical) deterministic lead times under backlogging and linear holding/backlog costs; optimal policy can be expressed via coordinated inventory-position targets (a generalized base-stock structure).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Shows exact optimality is achievable in the single-product case and motivates why multi-product general BOM is harder: allocation coupling across products is absent when there is only one product."
+      },
+      {
+        "title": "Asymptotically optimal inventory control for assemble-to-order systems with identical lead times",
+        "bibtex": "@article{ReimanWang2015ATO,\n  author  = {Reiman, Martin I. and Wang, Qiong},\n  title   = {Asymptotically optimal inventory control for assemble-to-order systems with identical lead times},\n  journal = {Operations Research},\n  year    = {2015},\n  volume  = {63},\n  number  = {3},\n  pages   = {716--732}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2015.1379",
+        "theorem_or_result": "For multi-product ATO with general BOM but identical component lead times, constructs a stochastic-programming (SP) lower bound and an SP-based replenishment/allocation policy that is asymptotically optimal as the common lead time grows (diffusion scale).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Provides a solved asymptotic version of the open problem in the special case of identical lead times; the 2021 paper generalizes this to non-identical lead times but still only asymptotically."
+      },
+      {
+        "title": "A stochastic program based lower bound for assemble-to-order inventory systems",
+        "bibtex": "@article{ReimanWang2012LowerBound,\n  author  = {Reiman, Martin I. and Wang, Qiong},\n  title   = {A stochastic program based lower bound for assemble-to-order inventory systems},\n  journal = {Operations Research Letters},\n  year    = {2012},\n  volume  = {40},\n  number  = {2},\n  pages   = {89--95}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.orl.2011.12.006",
+        "theorem_or_result": "Introduces a multi-stage stochastic-programming relaxation that yields a computable lower bound on the long-run average cost for multi-product ATO systems; establishes the lower-bound property rigorously.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Supplies the key lower-bound/proxy model used in later asymptotic-optimality constructions; does not give an exactly optimal policy for general lead times."
+      },
+      {
+        "title": "On the use of independent base-stock policies in assemble-to-order inventory systems with nonidentical lead times",
+        "bibtex": "@article{ReimanWanWang2016Independent,\n  author  = {Reiman, Martin I. and Wan, Haohua and Wang, Qiong},\n  title   = {On the use of independent base-stock policies in assemble-to-order inventory systems with nonidentical lead times},\n  journal = {Operations Research Letters},\n  year    = {2016},\n  volume  = {44},\n  number  = {4},\n  pages   = {436--442},\n  doi     = {10.1016/j.orl.2016.04.013}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.orl.2016.04.013",
+        "theorem_or_result": "Shows regimes where simple independent base-stock replenishment (decoupled across components) is asymptotically optimal when lead-time differences are small relative to the lead times; provides performance guarantees and structural insight.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Addresses non-identical lead times but under a restricted asymptotic regime (near-identical lead times), not the fully general deterministic lead-time setting."
+      },
+      {
+        "title": "A stochastic programming based inventory policy for assemble-to-order systems with application to the W model",
+        "bibtex": "@article{DogruReimanWang2010W,\n  author  = {Dogru, M. K. and Reiman, Martin I. and Wang, Qiong},\n  title   = {A stochastic programming based inventory policy for assemble-to-order systems with application to the W model},\n  journal = {Operations Research},\n  year    = {2010},\n  volume  = {58},\n  number  = {4-part-1},\n  pages   = {849--864},\n  doi     = {10.1287/opre.1090.0790}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.1090.0790",
+        "theorem_or_result": "Develops an SP-based policy and analysis for the two-product W system (a canonical ATO with a common component), including numerical evidence and structural allocation insights; provides near-optimal performance relative to an SP lower bound.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Represents progress on special BOM structures (W system) but not a general exact solution; informs allocation heuristics and SP relaxations used in later general frameworks."
+      },
+      {
+        "title": "Assemble-to-order inventory management via stochastic programming: Chained BOMs and the M-system",
+        "bibtex": "@article{DogruReimanWang2017M,\n  author  = {Dogru, M. K. and Reiman, Martin I. and Wang, Qiong},\n  title   = {Assemble-to-order inventory management via stochastic programming: Chained BOMs and the M-system},\n  journal = {Production and Operations Management},\n  year    = {2017},\n  volume  = {26},\n  number  = {3},\n  pages   = {446--468},\n  doi     = {10.1111/poms.12643}\n}\n",
+        "source_url": "https://doi.org/10.1111/poms.12643",
+        "theorem_or_result": "Extends SP-based control ideas to chained BOM structures (M-system), characterizing allocation structure across cost regions and providing computational/numerical results.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Further partial progress on structured multi-product ATO; still not an exact general-lead-time solution but helps understand allocation coupling."
+      },
+      {
+        "title": "Optimal and asymptotically optimal policies for assemble-to-order N-and W-systems",
+        "bibtex": "@article{LuSongZhang2015NW,\n  author  = {Lu, L. and Song, J.-S. and Zhang, H.},\n  title   = {Optimal and asymptotically optimal policies for assemble-to-order N-and W-systems},\n  journal = {Naval Research Logistics},\n  year    = {2015},\n  volume  = {62},\n  number  = {8},\n  pages   = {617--645},\n  doi     = {10.1002/nav.21666}\n}\n",
+        "source_url": "https://doi.org/10.1002/nav.21666",
+        "theorem_or_result": "For N and W systems, derives optimal or asymptotically optimal allocation/replenishment structures (including no-holdback-type rules) under continuous time, clarifying when simple priority allocation is optimal.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "Gives exact/near-exact structural results for canonical small BOMs, illustrating what an exact solution can look like and why general BOMs are difficult."
+      },
+      {
+        "title": "No-holdback allocation rules for continuous-time assemble-to-order systems",
+        "bibtex": "@article{LuSongZhao2010NoHoldback,\n  author  = {Lu, Y. and Song, J.-S. and Zhao, Y.},\n  title   = {No-holdback allocation rules for continuous-time assemble-to-order systems},\n  journal = {Operations Research},\n  year    = {2010},\n  volume  = {58},\n  number  = {3},\n  pages   = {691--705},\n  doi     = {10.1287/opre.1090.0796}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.1090.0796",
+        "theorem_or_result": "Studies allocation rules (no-holdback) for continuous-time ATO systems, providing conditions under which greedy allocation is optimal or near-optimal and performance comparisons.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Informs the allocation side of the joint control problem; however does not resolve joint replenishment-allocation optimality for general BOM and lead times."
+      },
+      {
+        "title": "Asymptotically Optimal Inventory Control for Assemble-to-Order Systems",
+        "bibtex": "@article{ReimanWanWang2021Asymptotically,\n  author  = {Reiman, Martin I. and Wan, Haohua and Wang, Qiong},\n  title   = {Asymptotically Optimal Inventory Control for Assemble-to-Order Systems},\n  year    = {2021},\n  note    = {arXiv:1809.08271v4}\n}\n",
+        "source_url": "https://arxiv.org/abs/1809.08271",
+        "theorem_or_result": "Develops a joint replenishment-and-allocation policy for multi-product ATO with general BOM and general deterministic non-identical lead times; proves diffusion-scale asymptotic optimality as the longest lead time grows using a multi-stage SP lower bound, dynamic inventory-position targets, and a stochastic tracking model.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses the open problem but only in an asymptotic sense; does not provide an exactly optimal policy for finite lead times and general BOM."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.13028925,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.13028925
+    "literature_total_cost_usd": 0.1726935,
+    "total_cost_usd": 0.30298274999999997
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4381379988/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4381379988_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4381379988_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

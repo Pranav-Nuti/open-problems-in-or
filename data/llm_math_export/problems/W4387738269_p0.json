@@ -47,16 +47,113 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The open problem asks for a characterization and computable description of the limit/accumulation structure of the operator Sinkhorn (Gurvits) iterates when a completely positive operator \\(\\Phi\\) is not (approximately) scalable to prescribed marginals (in particular, doubly stochastic). In the commutative matrix case, the source paper (Hayashi\u2013Hirai\u2013Sakabe) builds on the information-geometric view of Sinkhorn as alternating KL-projections (Csisz\\'ar\u2013Tusn\\'ady; Gietl\u2013Reffel) and on Aas\u2019s analysis of nonscalable limits to show that the iterates approach a structured oscillatory limit whose block decomposition is governed by extreme stable sets / principal partitions / refined Dulmage\u2013Mendelsohn decompositions. This structure can be computed (via parametric flow) and then used to extract Hall blockers (certificates of nonscalability) from sufficiently advanced iterates.\n\nFor operator scaling, the scalable case is well understood: capacity serves as a potential, and the operator Sinkhorn algorithm decides (approximate) scalability in polynomial time (Garg\u2013Gurvits\u2013Oliveira\u2013Wigderson), building on Gurvits\u2019s original formulation. In the nonscalable case, shrunk subspaces play the role of Hall blockers, but the detailed asymptotic behavior of the unmodified operator Sinkhorn iterates remains largely uncharacterized; surveys such as Garg\u2013Oliveira explicitly flag this as an open direction. A promising route is to develop a noncommutative analogue of the KL-divergence alternating-minimization picture that underlies the matrix nonscalable-limit theory; Matsuda\u2013Soma makes progress by developing an information-geometric framework for operator scaling that could support such a characterization.\n\nAlgorithmically, Franks\u2013Soma\u2013Goemans provide strong partial progress: they modify the operator Sinkhorn iteration/potential framework to output a shrunk subspace in polynomial time when \\(\\Phi\\) is nonscalable, thereby obtaining certificates without needing a full description of the original iterates\u2019 accumulation set. However, this does not settle the specific question of describing the limit objects (e.g., whether there is a two-cycle/oscillation phenomenon, a canonical block decomposition, or a variational characterization of accumulation points) for the standard operator Sinkhorn algorithm in the nonscalable regime. Establishing such a theory would likely require identifying the correct noncommutative divergence/projection geometry and relating the resulting limit structure to invariant-theoretic obstructions (shrunk subspaces) in a way analogous to how principal partitions control the matrix case.",
+    "total_cost_usd": 0.08013075,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Operator scaling: theory and applications",
+        "bibtex": "@article{GargGurvitsOliveiraWigderson2020OperatorScaling,\n  author  = {Garg, Ankit and Gurvits, Leonid and Oliveira, Rafael and Wigderson, Avi},\n  title   = {Operator scaling: theory and applications},\n  journal = {Foundations of Computational Mathematics},\n  year    = {2020},\n  volume  = {20},\n  pages   = {223--290},\n  doi     = {10.1007/s10208-019-09413-x}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10208-019-09413-x",
+        "theorem_or_result": "Develops the theory of operator scaling for completely positive maps, including the operator Sinkhorn (Gurvits) algorithm, capacity as a potential function, and a polynomial-time algorithm to decide (approximate) scalability to doubly stochastic form (and more general marginals).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the baseline convergence/complexity theory in the scalable case and frames the nonscalable case via shrunk subspaces; the open problem asks for a characterization of the limiting/accumulation behavior of the same iterates when scalability fails."
+      },
+      {
+        "title": "Shrunk subspaces via operator Sinkhorn iteration",
+        "bibtex": "@misc{FranksSomaGoemans2022ShrunkSubspaces,\n  author       = {Franks, Cole and Soma, Takeru and Goemans, Michel X.},\n  title        = {Shrunk subspaces via operator Sinkhorn iteration},\n  year         = {2022},\n  eprint       = {2207.08311},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/2207.08311",
+        "theorem_or_result": "Gives a polynomial-time method, based on a modified operator Sinkhorn iteration/potential framework, to output a shrunk subspace certificate when an operator is not scalable (to specified marginals).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Circumvents the need to fully characterize accumulation points of the unmodified operator Sinkhorn iterates by modifying the procedure to extract a shrunk subspace; this is strong partial progress toward algorithmic certification in the nonscalable regime, but does not by itself characterize the original iterates' limit set."
+      },
+      {
+        "title": "Information geometry of operator scaling",
+        "bibtex": "@article{MatsudaSoma2022InfoGeometryOperatorScaling,\n  author  = {Matsuda, Tatsuro and Soma, Takeru},\n  title   = {Information geometry of operator scaling},\n  journal = {Linear Algebra and its Applications},\n  year    = {2022},\n  volume  = {649},\n  pages   = {240--267},\n  doi     = {10.1016/j.laa.2022.04.013}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.laa.2022.04.013",
+        "theorem_or_result": "Develops an information-geometric viewpoint for operator scaling, introducing noncommutative analogues of divergence and geometric structures that relate scaling steps to projections/alternating minimization in a suitable geometry.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 9,
+        "connection": "The matrix case\u2019s nonscalable-limit analysis in the source paper relies on KL-divergence alternating minimization and limit oscillation structure; this work is a key step toward an operator analogue of that divergence framework, potentially enabling characterization of accumulation points in the nonscalable operator case."
+      },
+      {
+        "title": "Classical complexity and quantum entanglement",
+        "bibtex": "@article{Gurvits2004ClassicalComplexityQuantumEntanglement,\n  author  = {Gurvits, Leonid},\n  title   = {Classical complexity and quantum entanglement},\n  journal = {Journal of Computer and System Sciences},\n  year    = {2004},\n  volume  = {69},\n  number  = {3},\n  pages   = {448--484},\n  doi     = {10.1016/j.jcss.2004.06.001}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jcss.2004.06.001",
+        "theorem_or_result": "Introduces operator scaling (in the context of quantum entanglement) and the Gurvits/operator Sinkhorn algorithm, connecting progress to capacity-like quantities and invariant theory.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Foundational source for the operator Sinkhorn iteration whose nonscalable limiting behavior is being asked to characterize; also motivates shrunk subspaces as obstructions."
+      },
+      {
+        "title": "Operator scaling with specified marginals",
+        "bibtex": "@misc{Franks2018OperatorScalingSpecifiedMarginals,\n  author       = {Franks, Cole},\n  title        = {Operator scaling with specified marginals},\n  year         = {2018},\n  eprint       = {1801.01412},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/1801.01412",
+        "theorem_or_result": "Extends operator scaling to prescribed marginals and studies algorithmic/structural aspects of scaling completely positive maps beyond the doubly stochastic setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The open problem concerns nonscalable operators for prescribed left/right marginals; this paper provides the formalism and conditions in which the operator Sinkhorn iteration is run and analyzed."
+      },
+      {
+        "title": "Recent progress on scaling algorithms and applications",
+        "bibtex": "@misc{GargOliveira2018RecentProgressScaling,\n  author       = {Garg, Ankit and Oliveira, Rafael},\n  title        = {Recent progress on scaling algorithms and applications},\n  year         = {2018},\n  eprint       = {1808.09669},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/1808.09669",
+        "theorem_or_result": "Survey of matrix and operator scaling, including algorithmic results, invariant-theoretic viewpoints, and open problems about convergence and certificates.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Explicitly highlights the open issue of understanding the operator Sinkhorn algorithm\u2019s behavior in the nonscalable regime, aligning with the problem statement here."
+      },
+      {
+        "title": "Finding Hall blockers by matrix scaling",
+        "bibtex": "@misc{HayashiHiraiSakabe2023FindingHallBlockers,\n  author       = {Hayashi, Koyo and Hirai, Hiroshi and Sakabe, Keiya},\n  title        = {Finding Hall blockers by matrix scaling},\n  year         = {2023},\n  eprint       = {2204.07425},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/2204.07425",
+        "theorem_or_result": "Characterizes nonscalable matrix Sinkhorn accumulation via KL-divergence alternating minimization, yielding a block-triangular/DM-type decomposition and polynomial-time extraction of (parametric) Hall blockers from iterates.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the matrix analogue and methodological template (divergence minimization, limit block structure, extraction of certificates) that the open operator-scaling problem seeks to generalize to completely positive maps."
+      },
+      {
+        "title": "Limit points of the iterative scaling procedure",
+        "bibtex": "@article{Aas2014LimitPointsIterativeScaling,\n  author  = {Aas, Eivind},\n  title   = {Limit points of the iterative scaling procedure},\n  journal = {Annals of Operations Research},\n  year    = {2014},\n  volume  = {215},\n  pages   = {15--23},\n  doi     = {10.1007/s10479-013-1450-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10479-013-1450-0",
+        "theorem_or_result": "Analyzes accumulation/limit points of iterative proportional fitting (Sinkhorn) in the nonscalable matrix case, proving an oscillatory two-cycle structure and a block decomposition computable in polynomial time.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "This is the key precedent for nonscalable-limit characterization in the commutative (matrix) setting; it motivates seeking an operator analogue of oscillation/block structure for completely positive maps."
+      },
+      {
+        "title": "Accumulation points of the iterative proportional fitting procedure",
+        "bibtex": "@article{GietlReffel2013AccumulationIPFP,\n  author  = {Gietl, Christian and Reffel, Franz P.},\n  title   = {Accumulation points of the iterative proportional fitting procedure},\n  journal = {Metrika},\n  year    = {2013},\n  volume  = {76},\n  pages   = {783--798},\n  doi     = {10.1007/s00184-012-0435-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00184-012-0435-0",
+        "theorem_or_result": "Shows that in the nonscalable matrix case, Sinkhorn/IPFP does not converge but oscillates between two matrices that minimize a KL-divergence between row- and column-normalized affine sets, using information-geometric alternating minimization.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies the divergence-minimization lens used in the source paper; an operator analogue of this KL-projection picture is a natural route to characterizing operator Sinkhorn accumulation points."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.04450425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.04450425
+    "literature_total_cost_usd": 0.08013075,
+    "total_cost_usd": 0.124635
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387738269/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387738269_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4387738269_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

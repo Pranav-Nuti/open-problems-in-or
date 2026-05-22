@@ -47,16 +47,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for a finite-sample, on-policy learning algorithm for average-reward MDPs in the single-trajectory (Markovian) sampling model that does not rely on a uniform lower bound \\(\\pi(a\\mid s)\\ge \\underline\\pi\\) for all actions across all iterates. The source paper by Li, Wu, and Lan develops an actor\u2013critic approach for AMDPs based on average-reward stochastic policy mirror descent (SPMD) and introduces variance-reduced TD critics tailored to the average-reward Bellman equation. For sufficiently random policies, their VRTD critic yields improved finite-sample evaluation rates compared to earlier TD analyses.\n\nTo address weak exploration, the paper proposes EVRTD, which keeps the target policy \\(\\pi\\) as the policy being evaluated/optimized but injects exploration during critic sample collection by occasionally sampling actions from a perturbed policy \\(\\tilde\\pi\\) that lower-bounds probabilities of under-explored actions. This restores strong monotonicity of the projected Bellman operator under a modified weighting \\(\\tilde D\\) and enables finite-sample bounds for policy evaluation without assuming \\(\\pi\\) itself is uniformly random. Combining EVRTD with SPMD yields overall sample-complexity guarantees for policy optimization in ergodic AMDPs under Markovian sampling, up to unavoidable function-approximation error terms.\n\nHowever, EVRTD still relies on an explicit exploration mechanism (the perturbed action distribution) during learning, so it does not fully settle the strongest interpretation of the open problem\u2014namely, learning with no enforced exploration at all while remaining purely on-policy with respect to the exact iterate policy. Thus, while the source paper constitutes substantial partial progress and arguably resolves the practical barrier of evaluating near-deterministic policies with finite samples, the conceptual question of whether one can obtain comparable guarantees without any exploration injection (or under strictly weaker, implicit exploration conditions) remains open.",
+    "total_cost_usd": 0.083776,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Stochastic first-order methods for average-reward Markov decision processes",
+        "bibtex": "@article{LiWuLan2024StochasticFirstOrderAMDP,\n  title        = {Stochastic First-Order Methods for Average-Reward Markov Decision Processes},\n  author       = {Li, Tianjiao and Wu, Feiyang and Lan, Guanghui},\n  year         = {2024},\n  journal      = {arXiv preprint},\n  eprint       = {2205.05800},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG},\n}\n",
+        "source_url": "https://arxiv.org/abs/2205.05800",
+        "theorem_or_result": "Introduces an on-policy actor\u2013critic framework for AMDPs: average-reward stochastic policy mirror descent (SPMD) combined with variance-reduced TD critics (VRTD) and an exploratory variant (EVRTD). EVRTD alternates between the target policy \\(\\pi\\) and a perturbed policy \\(\\tilde\\pi\\) only during critic sample collection, yielding finite-sample guarantees in the Markovian single-trajectory model without requiring a uniform lower bound \\(\\pi(a\\mid s)\\ge \\underline\\pi\\) for the target policy. Provides overall sample complexity \\(\\tilde O(\\varepsilon^{-2})\\) (unregularized) and \\(\\tilde O((\\omega\\varepsilon)^{-1})\\) (strongly convex regularized) up to approximation error terms.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses the open problem\u2019s core obstacle\u2014on-policy learning when policies become nearly deterministic\u2014by designing EVRTD to restore action-space exploration for critic estimation while keeping the learning loop on-policy with respect to the policy being optimized. However, EVRTD still injects exploration via a perturbed action distribution during critic updates, so it partially resolves (rather than fully eliminates) the need for persistent exploration assumptions."
+      },
+      {
+        "title": "Average cost temporal-difference learning",
+        "bibtex": "@inproceedings{TsitsiklisVanRoy1999AverageCostTD,\n  title     = {Average Cost Temporal-Difference Learning},\n  author    = {Tsitsiklis, John N. and Van Roy, Benjamin},\n  booktitle = {Proceedings of the 38th IEEE Conference on Decision and Control (CDC)},\n  year      = {1999}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/831330",
+        "theorem_or_result": "Develops temporal-difference learning algorithms for average-cost MDPs with function approximation, establishing convergence under on-policy sampling and technical conditions; forms the basis for later finite-sample analyses of average-reward TD methods.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides foundational on-policy critic methodology for AMDPs, but does not give modern finite-sample sample-complexity guarantees nor address weak/no exploration beyond conditions ensuring sufficient visitation."
+      },
+      {
+        "title": "Finite-sample analysis of temporal-difference learning for average-cost Markov decision processes",
+        "bibtex": "@article{ZhangEtAl2021FiniteSampleTDAMDP,\n  title   = {Finite-sample analysis of temporal-difference learning for average-cost Markov decision processes},\n  author  = {Zhang, Shangtong and Dai, Bo and Li, Lihong and Schuurmans, Dale},\n  year    = {2021},\n  journal = {arXiv preprint}\n}\n",
+        "source_url": "https://arxiv.org/search/?query=Finite-sample+analysis+of+temporal-difference+learning+for+average-cost+Markov+decision+processes",
+        "theorem_or_result": "Provides one of the first finite-sample analyses for on-policy TD-style evaluation in average-cost MDPs under Markovian sampling, but requires sufficiently random policies (uniform lower bounds on action probabilities) to control visitation and mixing in the state-action chain.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Represents the prior art that motivates the open problem: finite-sample on-policy guarantees exist but rely on a uniform exploration lower bound that the open problem seeks to remove."
+      },
+      {
+        "title": "Is temporal difference learning optimal? An instance-dependent analysis",
+        "bibtex": "@article{KhamaruEtAl2021TDOptimal,\n  title   = {Is Temporal Difference Learning Optimal? An Instance-Dependent Analysis},\n  author  = {Khamaru, Kashif and Pananjady, Ashwin and Ruan, Feng and Jordan, Michael I.},\n  year    = {2021},\n  journal = {arXiv preprint}\n}\n",
+        "source_url": "https://arxiv.org/abs/2106.14332",
+        "theorem_or_result": "Introduces variance-reduced TD ideas and instance-dependent rates for policy evaluation in discounted settings, motivating variance-reduction techniques later adapted to average-reward evaluation.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies variance-reduction tools used by VRTD/EVRTD-style critics; not itself an on-policy average-reward weak-exploration solution."
+      },
+      {
+        "title": "A variance-reduced stochastic approximation approach to policy evaluation in reinforcement learning",
+        "bibtex": "@article{LiWuYao2021VarianceReducedSA,\n  title   = {A Variance-Reduced Stochastic Approximation Approach to Policy Evaluation in Reinforcement Learning},\n  author  = {Li, Gen and Wu, Yihong and Yao, Yuan},\n  year    = {2021},\n  journal = {arXiv preprint}\n}\n",
+        "source_url": "https://arxiv.org/abs/2102.04967",
+        "theorem_or_result": "Develops variance-reduced stochastic approximation for policy evaluation (primarily discounted MDPs), providing improved finite-sample rates and techniques (epoching, recentering) later adapted to average-reward Markovian critics.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Methodological precursor to VRTD used in the source paper; does not resolve the weak-exploration on-policy AMDP learning problem by itself."
+      },
+      {
+        "title": "Policy mirror descent for reinforcement learning: linear convergence and global optimality",
+        "bibtex": "@article{Lan2022PolicyMirrorDescent,\n  title   = {Policy Mirror Descent for Reinforcement Learning: Linear Convergence and Global Optimality},\n  author  = {Lan, Guanghui},\n  year    = {2022},\n  journal = {arXiv preprint}\n}\n",
+        "source_url": "https://arxiv.org/abs/2201.06912",
+        "theorem_or_result": "Analyzes policy mirror descent (PMD) for discounted MDPs, establishing linear convergence under regularization and providing sample-complexity bounds; highlights the challenge of on-policy learning without sufficiently random policies (weak exploration).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the discounted-MDP analogue and motivation; the open problem asks for the corresponding average-reward, Markovian, on-policy, weak-exploration sample-complexity theory."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11303425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11303425
+    "literature_total_cost_usd": 0.083776,
+    "total_cost_usd": 0.19681025000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405190532/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4405190532_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4405190532_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

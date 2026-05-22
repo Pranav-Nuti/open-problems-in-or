@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The upward-validity question asks whether every facet-defining inequality \\(c\\cdot x\\ge \\gamma\\) of a Steiner cut dominant \\(\\mathrm{CUT}^+(G,T)\\) that is irreducible (no cut vertex in \\(G\\), and no degree-2 nonterminal) must remain valid for the global cut dominant \\(\\mathrm{CUT}^+(G)=\\mathrm{CUT}^+(G,V)\\). In the source paper, Conforti and Kaibel develop a detailed structural theory for facets of \\(\\mathrm{CUT}^+(G,T)\\): every facet admits a laminar root basis (an uncrossing/laminarity phenomenon), and every facet-inducing instance can be built from finitely many irreducible ones via subdivision and gluing. They prove a complete classification for \\(|T|\\le 5\\), showing that all facets come from Steiner tree and Steiner cactus inequalities; in particular, irreducible facets are just terminal cycles, and these inequalities are valid for \\(\\mathrm{CUT}^+(G)\\), establishing upward validity in this range.\n\nBeyond five terminals, the paper exhibits that enlarging the terminal set can destroy validity, but the known counterexamples rely on turning a degree-2 nonterminal into a terminal. This leaves open whether irreducibility suffices to prevent such failures. A key constraint comes from Conforti\u2013Fiorini\u2013Pashkovich\u2019s forbidden-minor theorem for \\(\\mathrm{CUT}^+(G)\\): if an inequality with right-hand side \\(\\gamma>2\\) were globally facet-defining, then \\(G\\) must contain a prism or pyramid minor. The source paper uses this to rule out small irreducible non-cactus candidates when \\(|T|\\le 5\\), but for \\(|T|\\ge 6\\) computer enumeration already finds irreducible facet-inducing Steiner graphs with \\(\\gamma=4\\), including the prism itself, suggesting that any resolution will likely require understanding how such higher-\\(\\gamma\\) Steiner facets interact with non-Steiner cuts.\n\nAt present there is no forward-citation evidence provided here of a resolution, and the source paper explicitly lists the irreducible-upward-validity question as open. Promising directions include (i) searching for a counterexample among the enumerated irreducible facet-inducing Steiner graphs with six terminals by explicitly checking validity against \\(\\mathrm{CUT}^+(G)\\) (e.g., via separation/optimization over compact formulations), and (ii) proving a general \u201cupward closure\u201d theorem for irreducible instances using laminar root bases and minor-based obstructions, potentially showing that any violation forces a reducible configuration (such as a degree-2 nonterminal) or a specific minor structure.",
+    "total_cost_usd": 0.082523,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Steiner Cut Dominants",
+        "bibtex": "@article{ConfortiKaibel2024SteinerCutDominants,\n  title        = {Steiner Cut Dominants},\n  author       = {Conforti, Michele and Kaibel, Volker},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2209.14802v2},\n  eprint       = {2209.14802},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO},\n  url          = {https://arxiv.org/abs/2209.14802}\n}\n",
+        "source_url": "https://arxiv.org/abs/2209.14802",
+        "theorem_or_result": "Introduces Steiner cut dominants \\(\\mathrm{CUT}^+(G,T)\\), proves existence of laminar root bases for facets, develops subdivision and gluing operations, and classifies all facet-defining inequalities for \\(|T|\\le 5\\) as Steiner tree and Steiner cactus inequalities. Poses the open question of whether every irreducible facet-defining Steiner-cut inequality remains valid for the global cut dominant \\(\\mathrm{CUT}^+(G)\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper formulating the upward-validity question: whether irreducible facets of \\(\\mathrm{CUT}^+(G,T)\\) remain valid for \\(\\mathrm{CUT}^+(G)\\). It proves the statement for \\(|T|\\le 5\\) and provides counterexamples to upward validity when a degree-2 nonterminal is turned into a terminal, leaving the irreducible case open."
+      },
+      {
+        "title": "Cut dominants and forbidden minors",
+        "bibtex": "@article{ConfortiFioriniPashkovich2016CutDominantsForbiddenMinors,\n  title   = {Cut dominants and forbidden minors},\n  author  = {Conforti, Michele and Fiorini, Samuel and Pashkovich, Kanstantsin},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume  = {30},\n  number  = {3},\n  pages   = {1571--1589},\n  year    = {2016},\n  doi     = {10.1137/15M1010555},\n  url     = {https://doi.org/10.1137/15M1010555}\n}\n",
+        "source_url": "https://doi.org/10.1137/15M1010555",
+        "theorem_or_result": "Gives a forbidden-minor characterization of graphs whose cut dominant \\(\\mathrm{CUT}^+(G)\\) admits a description by inequalities with right-hand side at most 2 (in minimum integer form). In particular, any facet of \\(\\mathrm{CUT}^+(G)\\) with \\(\\gamma>2\\) forces a prism or pyramid minor.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the main obstruction tool used in the source paper: if an irreducible Steiner facet were also valid globally with \\(\\gamma>2\\), then \\(G\\) must contain a prism/pyramid minor. This constrains possible counterexamples and is used to prove the \\(|T|\\le 5\\) upward-validity result."
+      },
+      {
+        "title": "On the dominant of the s-t-cut polytope: vertices, facets, and adjacency",
+        "bibtex": "@article{SkutellaWeber2010DominantSTCutPolytope,\n  title   = {On the dominant of the s-t-cut polytope: vertices, facets, and adjacency},\n  author  = {Skutella, Martin and Weber, Alexia},\n  journal = {Mathematical Programming},\n  volume  = {124},\n  number  = {1-2},\n  pages   = {441--454},\n  year    = {2010},\n  doi     = {10.1007/s10107-010-0373-7},\n  url     = {https://doi.org/10.1007/s10107-010-0373-7}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-010-0373-7",
+        "theorem_or_result": "Studies the \\(s\\)-\\(t\\) cut dominant \\(\\mathrm{CUT}^+(G,\\{s,t\\})\\): characterizes vertices/facets and adjacency structure, relating facets to \\(s\\)-\\(t\\) path inequalities and related combinatorial objects.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Serves as the base case \\(|T|=2\\) where upward validity holds (path inequalities are valid for global cut dominant). Provides techniques and intuition for dominant polyhedra facets that motivate the Steiner generalization."
+      },
+      {
+        "title": "The traveling salesman problem on a graph and some related integer polyhedra",
+        "bibtex": "@article{CornuejolsFonluptNaddef1985TSPGraphRelatedPolyhedra,\n  title   = {The traveling salesman problem on a graph and some related integer polyhedra},\n  author  = {Cornu{\\'e}jols, G{\\'e}rard and Fonlupt, Jean and Naddef, Denis},\n  journal = {Mathematical Programming},\n  volume  = {33},\n  number  = {1},\n  pages   = {1--27},\n  year    = {1985},\n  doi     = {10.1007/BF01582008},\n  url     = {https://doi.org/10.1007/BF01582008}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01582008",
+        "theorem_or_result": "Develops polyhedral results for TSP on a graph and related blocking polyhedra; includes laminarity/uncrossing-type structural results that underlie facet descriptions via blocking duality.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper\u2019s laminar root-basis theorem is presented as a generalization of a corresponding statement for cut dominants obtainable via blocking duality from results in this line of work."
+      },
+      {
+        "title": "Compacting cuts: a new linear formulation for minimum cut",
+        "bibtex": "@article{CarrKonjevodLittleNatarajanParekh2009CompactingCuts,\n  title   = {Compacting cuts: a new linear formulation for minimum cut},\n  author  = {Carr, Robert D. and Konjevod, Goran and Little, Andrew and Natarajan, Vivek and Parekh, Anupam},\n  journal = {ACM Transactions on Algorithms},\n  volume  = {5},\n  number  = {3},\n  pages   = {27:1--27:16},\n  year    = {2009},\n  doi     = {10.1145/1541885.1541888},\n  url     = {https://doi.org/10.1145/1541885.1541888}\n}\n",
+        "source_url": "https://doi.org/10.1145/1541885.1541888",
+        "theorem_or_result": "Introduces a compact higher-dimensional linear formulation whose projection\u2019s dominant equals the cut dominant, enabling minimum cut optimization via LP over a compact relaxation.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "While not addressing facet validity, it provides an alternative polyhedral representation of cut dominants that could be used to test validity of candidate inequalities or search for counterexamples computationally."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06310325,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06310325
+    "literature_total_cost_usd": 0.082523,
+    "total_cost_usd": 0.14562625
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4393233856/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4393233856_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4393233856_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

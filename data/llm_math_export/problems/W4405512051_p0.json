@@ -47,16 +47,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Berger\u2013Ezra\u2013Feldman\u2013Fusco, 2023) initiates Pandora\u2019s problem with combinatorial inspection costs and proves a sharp separation between structure and computation. For all submodular cost functions, there exists an optimal strategy with a non-adaptive exploration order (a fixed permutation with stopping thresholds), extending Weitzman\u2019s fixed-order phenomenon beyond additive costs. However, under oracle access to a general submodular cost function, even deciding whether any strategy achieves positive expected utility requires super-polynomially many cost queries (via indistinguishability constructions inspired by Svitkina\u2013Fleischer), ruling out any polynomial-query approximation in that broad model.\n\nBudget-additive costs, defined by \\(c(S)=\\min\\{B,\\sum_{i\\in S} w_i\\}\\), sit inside submodular costs but have much more structure: they are determined by \\((w_i)\\) and \\(B\\), and their marginal costs are simple until the cap binds. The impossibility result for arbitrary submodular costs therefore does not directly resolve the budget-additive case, and the paper explicitly leaves open whether one can compute an optimal or approximately optimal strategy in polynomial time with only polynomially many cost queries. The classical additive-cost case (Weitzman) is efficiently solvable via reservation values, but Example 2 in the source paper shows that naive reservation-value reasoning can fail badly under non-additive submodular costs, suggesting that new algorithmic ideas are needed.\n\nRelated lines of work on Pandora variants (e.g., order constraints and nonobligatory inspection) show that fixed-order structure and efficient computation can diverge, and that PTAS techniques can sometimes be developed even when exact optimization is hard. For the budget-additive open problem, promising directions include exploiting the explicit parametric form of the cost (learning \\(w_i\\) and \\(B\\) from queries, or assuming they are given), reducing the search for an optimal fixed order to a tractable optimization over permutations and thresholds, and designing approximation schemes that discretize values and reason about when the cap \\(B\\) becomes binding.",
+    "total_cost_usd": 0.10255175,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Optimal search for the best alternative",
+        "bibtex": "@article{Weitzman1979OptimalSearch,\n  title        = {Optimal Search for the Best Alternative},\n  author       = {Weitzman, Martin L.},\n  journal      = {Econometrica},\n  year         = {1979},\n  volume       = {47},\n  number       = {3},\n  pages        = {641--654}\n}\n",
+        "source_url": "https://www.jstor.org/stable/1910417",
+        "theorem_or_result": "Introduces Pandora\u2019s problem with additive inspection costs and proves an optimal non-adaptive index (reservation value) policy: open boxes in decreasing reservation value and stop when the current best exceeds the next index.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Serves as the baseline: with additive costs (a special case of budget-additive when the cap never binds), the problem is solvable efficiently with a fixed order. The open problem asks whether similar polynomial-time solvability/approximability holds for budget-additive costs, which are submodular but non-additive due to the cap."
+      },
+      {
+        "title": "Delegated search approximates efficient search",
+        "bibtex": "@inproceedings{KleinbergKleinberg2018DelegatedSearch,\n  title        = {Delegated Search Approximates Efficient Search},\n  author       = {Kleinberg, Jon M. and Kleinberg, Robert},\n  booktitle    = {Proceedings of the 2018 ACM Conference on Economics and Computation (EC)},\n  year         = {2018},\n  pages        = {287--302},\n  publisher    = {ACM}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3219166.3219178",
+        "theorem_or_result": "Studies variants of Pandora-like search and shows approximation guarantees for delegated/strategic search settings, leveraging index-like structure in related models.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides conceptual and technical background on index/threshold policies and their robustness in extensions of Pandora\u2019s problem, though it does not address combinatorial (budget-additive) inspection costs."
+      },
+      {
+        "title": "Pandora\u2019s box problem with order constraints",
+        "bibtex": "@inproceedings{BoodaghiansEtAl2020PandoraOrderConstraints,\n  title        = {Pandora's Box Problem with Order Constraints},\n  author       = {Boodaghians, Shant and Fusco, Federico and Lazos, Philip and Leonardi, Stefano},\n  booktitle    = {Proceedings of the 2020 ACM Conference on Economics and Computation (EC)},\n  year         = {2020},\n  pages        = {439--458},\n  publisher    = {ACM}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399529",
+        "theorem_or_result": "Analyzes Pandora\u2019s box under precedence constraints; shows fixed-order optimality and efficient computation for tree constraints, but NP-hardness and need for adaptivity under general precedence graphs.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper uses this work to relate adaptivity phenomena beyond submodular costs and to motivate structural questions. It is indirectly relevant: budget-additive costs are submodular, so fixed-order optimality holds structurally, but computational tractability remains open."
+      },
+      {
+        "title": "Submodular approximation: Sampling-based algorithms and lower bounds",
+        "bibtex": "@article{SvitkinaFleischer2011SubmodularApproximation,\n  title        = {Submodular Approximation: Sampling-Based Algorithms and Lower Bounds},\n  author       = {Svitkina, Zoya and Fleischer, Lisa},\n  journal      = {SIAM Journal on Computing},\n  year         = {2011},\n  volume       = {40},\n  number       = {6},\n  pages        = {1715--1737},\n  doi          = {10.1137/090760734}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/090760734",
+        "theorem_or_result": "Develops query-complexity lower bounds for submodular optimization and constructs hard-to-distinguish submodular functions under value (oracle) queries.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper\u2019s computational impossibility for submodular-cost Pandora leverages the indistinguishability framework from this work. For budget-additive costs, which are a restricted submodular class, these lower bounds may not apply directly, motivating the open problem."
+      },
+      {
+        "title": "The price of information in combinatorial optimization",
+        "bibtex": "@inproceedings{Singla2018PriceOfInformation,\n  title        = {The Price of Information in Combinatorial Optimization},\n  author       = {Singla, Sahil},\n  booktitle    = {Proceedings of the 2018 ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year         = {2018},\n  pages        = {2523--2532},\n  publisher    = {SIAM}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975031.162",
+        "theorem_or_result": "Introduces an adaptivity-gap framework for stochastic probing/selection problems, relating adaptive and non-adaptive policies and giving approximation algorithms in several models.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Budget-additive costs are submodular, and the source paper proves adaptivity is not needed structurally for all submodular costs. Singla\u2019s techniques are relevant as potential tools for approximation under restricted cost classes like budget-additive, though not directly solving Pandora with capped-additive inspection costs."
+      },
+      {
+        "title": "Pandora\u2019s problem with nonobligatory inspection: Optimal structure and a PTAS",
+        "bibtex": "@article{BeyhaghiCai2023NonobligatoryPTAS,\n  title        = {Pandora's Problem with Nonobligatory Inspection: Optimal Structure and a PTAS},\n  author       = {Beyhaghi, Hedyeh and Cai, Linda},\n  journal      = {arXiv preprint arXiv:2212.01524},\n  year         = {2022}\n}\n",
+        "source_url": "https://arxiv.org/abs/2212.01524",
+        "theorem_or_result": "Shows Pandora\u2019s problem with nonobligatory inspection is NP-hard but admits a PTAS; also characterizes structural properties of near-optimal strategies.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Demonstrates that small rule changes can yield PTAS despite NP-hardness. While the cost model differs, PTAS design ideas (discretization, dynamic programming over thresholds) may inspire approximation approaches for budget-additive inspection costs."
+      },
+      {
+        "title": "Whether or not to open Pandora\u2019s box",
+        "bibtex": "@article{Doval2018WhetherOrNot,\n  title        = {Whether or Not to Open Pandora's Box},\n  author       = {Doval, Laura},\n  journal      = {Journal of Economic Theory},\n  year         = {2018},\n  volume       = {175},\n  pages        = {127--158},\n  doi          = {10.1016/j.jet.2018.02.003}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jet.2018.02.003",
+        "theorem_or_result": "Introduces Pandora\u2019s problem with non-obligatory inspection and shows optimal strategies may require adaptively choosing which boxes to inspect.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Highlights that adaptivity can become necessary under modified rules even with additive costs; contrasts with the submodular-cost setting where fixed-order optimality holds. Not directly about budget-additive costs but informs structural expectations."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0776825,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0776825
+    "literature_total_cost_usd": 0.10255175,
+    "total_cost_usd": 0.18023424999999998
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405512051/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4405512051_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4405512051_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The conjectured inequality is equivalent to nonnegativity of \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\), where \\(\\mathrm{Work}_{\\mathrm{service}}\\) is the sum of residual service times across busy servers. In Li--Goldberg (2023), this covariance appears as the only obstruction term in an exact identity for \\(\\mathbb E[L(\\infty)]\\) derived from workload drift arguments (building on Hokstad and later Lyapunov-based analyses). Proving the covariance is nonnegative would immediately yield a clean Kingman-type upper bound for the mean queue length in M/GI/n.\n\nNo forward-citation evidence was provided, so there is currently no documented resolution in the supplied corpus. The problem remains open as stated; progress likely requires establishing positive association/association-type properties for the stationary residual-service vector under FCFS, or developing a coupling/monotonicity argument that shows that larger numbers in service stochastically increase total residual work in service.",
+    "total_cost_usd": 0.1420265,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Simple and explicit bounds for multi-server queues with universal 1/(1-rho) scaling",
+        "bibtex": "@article{LiGoldberg2023SimpleExplicitBounds,\n  title        = {Simple and explicit bounds for multi-server queues with universal 1/(1-rho) scaling},\n  author       = {Li, Yuan and Goldberg, David A.},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:1706.04628v3},\n  eprint       = {1706.04628},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  url          = {https://arxiv.org/abs/1706.04628}\n}\n",
+        "source_url": "https://arxiv.org/abs/1706.04628",
+        "theorem_or_result": "Derives identity \\(\\mathbb E[L(\\infty)] = \\tfrac12\\mathbb E[(S\\mu_S)^2]\\,\\tfrac{\\rho}{1-\\rho} + \\frac{\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}]\\,\\mathbb E[\\mathrm{Work}_{\\mathrm{service}}]-\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}\\,\\mathrm{Work}_{\\mathrm{service}}]}{n(1-\\rho)\\mathbb E[S]}\\) for M/GI/n under technical assumptions, motivating the conjectured nonnegative covariance \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}},\\mathrm{Work}_{\\mathrm{service}})\\ge 0\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "This is the source of the open problem: proving \\(\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}]\\,\\mathbb E[\\mathrm{Work}_{\\mathrm{service}}]\\le \\mathbb E[\\mathrm{Num}_{\\mathrm{service}}\\,\\mathrm{Work}_{\\mathrm{service}}]\\) would make the covariance term nonnegative and yield a clean Kingman-like bound for \\(\\mathbb E[L(\\infty)]\\) in M/GI/n."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.14633500000000002,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.14633500000000002
+    "literature_total_cost_usd": 0.1420265,
+    "total_cost_usd": 0.28836150000000005
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4393423947/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4393423947_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4393423947_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

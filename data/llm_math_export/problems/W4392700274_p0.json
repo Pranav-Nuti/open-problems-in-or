@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The compact-continuous finite-state zero-sum stochastic game model retains Shapley\u2019s discounted value and stationary optimality for each fixed \\(\\lambda\\), but the asymptotic regime \\(\\lambda\\downarrow 0\\) is delicate: Vigeral constructed a continuous compact-action counterexample where \\(v^k_\\lambda\\) fails to converge, so no unconditional analogue of the finite-action Bewley\u2013Kohlberg and Mertens\u2013Neyman theorems can hold. Attia and Oliu-Barton\u2019s PNAS paper clarifies where the finite-action convergence proof becomes unavailable in the compact-continuous setting: in the finite case, the auxiliary matrix-game value \\(\\lambda\\mapsto \\mathrm{val}\\,W^k_\\lambda(z)\\) is eventually a rational function of \\(\\lambda\\), enabling the limit \\(F^k(z)=\\lim_{\\lambda\\to 0} \\mathrm{val}\\,W^k_\\lambda(z)/\\lambda^n\\) and hence convergence; this rationality breaks down with infinite action sets.\n\nThe main positive progress toward the open problem is the o-minimal/tameness approach of Bolte\u2013Gaubert\u2013Vigeral, who prove that if the payoff and transition are separable and definable (in an o-minimal structure), then the asymptotic value \\(\\lim_{\\lambda\\downarrow 0} v^k_\\lambda\\) exists. This covers many \u201ctame\u201d primitives, notably polynomial data (and more generally globally subanalytic/semialgebraic data in appropriate structures), and is currently the closest to a general criterion ensuring convergence in compact-continuous games. Beyond existence, Tauberian results for nonexpansive (Shapley) operators, such as Ziliotto\u2019s, help relate discounted convergence to other evaluations (weighted averages, long-run averages) once suitable regularity is present.\n\nHowever, a full characterization\u2014necessary and sufficient conditions on \\((I,J,g,q)\\) guaranteeing convergence of \\(v^k_\\lambda\\) (and/or existence of a uniform long-run value) in the compact-continuous setting\u2014remains open. In particular, whether semialgebraicity of \\(I,J,g,q\\) alone suffices is not settled in the source paper\u2019s account: definability plus separability is sufficient, but semialgebraicity without additional separability hypotheses is not known to imply convergence. Promising directions include identifying the precise \u201ctameness\u201d property needed to recover a finite-type description of \\(\\lambda\\mapsto \\mathrm{val}\\,W^k_\\lambda(z)\\) near 0 (e.g., definable selection/stratification arguments), or constructing semialgebraic counterexamples to show additional hypotheses are necessary.",
+    "total_cost_usd": 0.0689465,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Definable zero-sum stochastic games",
+        "bibtex": "@article{BolteGaubertVigeral2014Definable,\n  author  = {Bolte, J{\\'e}r{\\^o}me and Gaubert, St{\\'e}phane and Vigeral, Guillaume},\n  title   = {Definable zero-sum stochastic games},\n  journal = {Mathematics of Operations Research},\n  year    = {2014},\n  volume  = {40},\n  number  = {1},\n  pages   = {171--191}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.2014.0667",
+        "theorem_or_result": "Gives sufficient conditions (\"separable\" and \"definable\" in an o-minimal structure) ensuring existence of the asymptotic value \\,\\(\\lim_{\\lambda\\downarrow 0} v^k_\\lambda\\)\\, in compact-continuous zero-sum stochastic games; in particular covers polynomial (hence semi-algebraic/definable) data in many standard o-minimal structures.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses convergence of discounted values in the compact-continuous setting by providing a broad tameness framework (o-minimal definability) under which convergence holds; it is the main positive result cited in the source paper for the open problem."
+      },
+      {
+        "title": "A zero-sum stochastic game with compact action sets and no asymptotic value",
+        "bibtex": "@article{Vigeral2013NoAsymptoticValue,\n  author  = {Vigeral, Guillaume},\n  title   = {A zero-sum stochastic game with compact action sets and no asymptotic value},\n  journal = {Dynamic Games and Applications},\n  year    = {2013},\n  volume  = {3},\n  number  = {2},\n  pages   = {172--186}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s13235-012-0072-3",
+        "theorem_or_result": "Constructs a compact-continuous two-player zero-sum stochastic game (finite state space, compact action sets, continuous payoff and transition) for which the discounted values \\,\\(v^k_\\lambda\\)\\, do not converge as \\,\\(\\lambda\\downarrow 0\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the canonical obstruction showing that, without additional structure, convergence can fail; motivates the need for necessary and sufficient conditions and frames the open problem."
+      },
+      {
+        "title": "A formula for the value of a stochastic game",
+        "bibtex": "@article{AttiaOliuBarton2019Formula,\n  author  = {Attia, Luc and Oliu-Barton, Miquel},\n  title   = {A formula for the value of a stochastic game},\n  journal = {Proceedings of the National Academy of Sciences of the United States of America},\n  year    = {2019},\n  doi     = {10.1073/pnas.1908643116}\n}\n",
+        "source_url": "https://doi.org/10.1073/pnas.1908643116",
+        "theorem_or_result": "Provides an uncoupled characterization of discounted values (via parameterized matrix games \\,\\(W^k_\\lambda(z)\\)) and a tractable formula for the value in the finite-action case; explains why the value formula fails to extend to compact-continuous games and explicitly states the open problem of characterizing convergence in that setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "This is the source paper framing the open problem; it isolates the technical point that breaks in the compact-continuous case (loss of rational dependence on \\,\\(\\lambda\\)) and points to definability as a sufficient condition."
+      },
+      {
+        "title": "Stochastic games",
+        "bibtex": "@article{MertensNeyman1981Stochastic,\n  author  = {Mertens, Jean-Fran{\\c{c}}ois and Neyman, Abraham},\n  title   = {Stochastic games},\n  journal = {International Journal of Game Theory},\n  year    = {1981},\n  volume  = {10},\n  number  = {2},\n  pages   = {53--66}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/BF01769293",
+        "theorem_or_result": "Proves existence of the uniform value \\,\\(v^k\\)\\, for finite-state, finite-action zero-sum stochastic games and shows \\,\\(v^k=\\lim_{\\lambda\\downarrow 0} v^k_\\lambda\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Serves as the benchmark positive result in the finite-action case; the open problem asks for analogues/conditions in the compact-continuous case where this theorem no longer applies."
+      },
+      {
+        "title": "The asymptotic theory of stochastic games",
+        "bibtex": "@article{BewleyKohlberg1976Asymptotic,\n  author  = {Bewley, Truman and Kohlberg, Elon},\n  title   = {The asymptotic theory of stochastic games},\n  journal = {Mathematics of Operations Research},\n  year    = {1976},\n  volume  = {1},\n  number  = {3},\n  pages   = {197--208}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.1.3.197",
+        "theorem_or_result": "Shows convergence of discounted values in finite-action stochastic games as \\,\\(\\lambda\\downarrow 0\\), using real algebraic geometry (Tarski-Seidenberg elimination).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Highlights that algebraic-geometry tameness yields convergence in the finite-action case; conceptually related to the semi-algebraic/o-minimal approach sought in the compact-continuous setting."
+      },
+      {
+        "title": "A Tauberian theorem for nonexpansive operators and applications to zero-sum stochastic games",
+        "bibtex": "@article{Ziliotto2016Tauberian,\n  author  = {Ziliotto, Bruno},\n  title   = {A Tauberian theorem for nonexpansive operators and applications to zero-sum stochastic games},\n  journal = {Mathematics of Operations Research},\n  year    = {2016},\n  volume  = {41},\n  number  = {4},\n  pages   = {1522--1534}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.2015.0780",
+        "theorem_or_result": "Develops Tauberian-type results for nonexpansive operators (including Shapley operators) linking asymptotics of discounted and long-run/weighted evaluations under regularity of the evaluation weights.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides functional-analytic tools to transfer convergence between evaluation schemes once an asymptotic value exists; relevant for understanding long-run value and robustness, though it does not give a full characterization in the compact-continuous case."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.049783999999999995,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.049783999999999995
+    "literature_total_cost_usd": 0.0689465,
+    "total_cost_usd": 0.11873049999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4392700274/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4392700274_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4392700274_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "No forward-citation set was provided, so the state of the art must be inferred from the source paper itself and its internal related-work pointers. The paper introduces the AnyPrice share (APS) benchmark for agents with arbitrary entitlements and additive valuations, proves APS is well-defined via equivalent price-based and fractional-packing definitions, and establishes existence and polynomial-time computation of allocations guaranteeing every agent at least \\(3/5\\) of her APS (and a stronger entitlement-dependent factor \\(1/(2-b_i)\\) for larger entitlements). For equal entitlements, it shows a stronger \\(\\ge 2/3\\) APS guarantee (via Greedy-EFX analysis) and discusses separations between APS, MMS, pessimistic share, and truncated proportional share.\n\nThe open problem asks for the optimal universal constant \\(\\alpha^\\star\\in(0,1)\\) such that an \\(\\alpha^\\star\\)-APS allocation always exists for additive valuations and arbitrary entitlements, together with matching upper bounds and (ideally) a polynomial-time algorithm. From the source paper, the best known general lower bound is \\(\\alpha\\ge 3/5\\), while impossibility of exact \\(\\alpha=1\\) holds already for equal entitlements when \\(n\\ge 3\\). The paper also notes a separate upper bound phenomenon inherited from MMS: there are instances where no allocation can give every agent more than \\(39/40\\) of her MMS, which also limits APS guarantees since \\(\\mathrm{APS}\\ge \\mathrm{MMS}\\). Closing the gap between \\(3/5\\) and the best possible upper bound remains open, and likely requires either new structural understanding of APS (e.g., sharper relations to MMS/TPS or new rounding/market-based arguments) or explicit hard instances that separate APS from achievable allocations.",
+    "total_cost_usd": 0.103691,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Fair-Share Allocations for Agents with Arbitrary Entitlements",
+        "bibtex": "@article{BabaioffEzraFeige2021APS,\n  title        = {Fair-Share Allocations for Agents with Arbitrary Entitlements},\n  author       = {Babaioff, Moshe and Ezra, Tomer and Feige, Uriel},\n  year         = {2021},\n  journal      = {arXiv preprint arXiv:2103.04304},\n  eprint       = {2103.04304},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/2103.04304}\n}\n",
+        "source_url": "https://arxiv.org/abs/2103.04304",
+        "theorem_or_result": "Introduces AnyPrice share (APS) for arbitrary entitlements and proves existence of polynomial-time computable \\,\\(3/5\\)-APS allocations for additive valuations (and \\,\\(\\max\\{3/5,1/(2-b_i)\\}\\) entitlement-dependent guarantees). Shows exact \\,\\(1\\)-APS is impossible in general for \\,\\(n\\ge 3\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that formulates APS and explicitly leaves open the optimal worst-case constant \\,\\(\\alpha^\\star\\) for additive valuations (both equal and arbitrary entitlements), providing the current best general lower bound \\,\\(\\alpha\\ge 3/5\\) and motivating the need for matching upper bounds or improved algorithms."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.1066555,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1066555
+    "literature_total_cost_usd": 0.103691,
+    "total_cost_usd": 0.2103465
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3135365769/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3135365769_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3135365769_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

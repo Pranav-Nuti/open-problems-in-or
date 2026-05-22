@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "No forward-citation corpus was provided, so the state of the art must be reconstructed from the original paper\u2019s context and the pre-2022 MMS-approximation literature it builds on. The core obstruction is that \\(\\mathrm{MMS}_n\\) itself is infeasible for additive valuations when \\(n\\ge 3\\) (Kurokawa--Procaccia--Wang), so \\(\\rho^*<1\\) for the share-design problem. Babaioff--Feige introduce self-maximizing shares via the implied guarantee \\(\\hat s_v(\\cdot)\\), show that exact SM-domination is impossible, and then give explicit feasible, self-maximizing, polynomial-time shares (notably Nested Shares \\(\\mathrm{NS}_{n,3}\\)) that \\(\\rho\\)-dominate MMS with \\(\\rho=\\frac{2n}{3n-1}\\) for general \\(n\\) and \\(\\rho=\\frac45\\) for \\(n\\le 4\\), plus a PTAS for \\(n=2\\).\n\nThe open problem asks for the optimal achievable domination factor \\(\\rho^*\\) under the joint constraints of feasibility, self-maximization, and polynomial-time computability. Existing MMS-allocation algorithms (e.g., Garg--McGlaughlin--Taki; Garg--Taki) imply feasibility of \\(\\rho\\)-MMS shares for \\(\\rho\\approx \\frac34\\), but Babaioff--Feige show \\(\\rho\\)-MMS shares are not self-maximizing for any \\(0<\\rho<1\\), so these results do not directly translate. Conversely, incentive constraints are weaker than full mechanism truthfulness (Amanatidis--Birmpas--Markakis explain why the latter is too demanding), but still nontrivial. At present there is no matching upper bound on \\(\\rho^*\\) beyond the trivial \\(\\rho^*\\le 1\\), and no known construction beating the \\(\\frac{2n}{3n-1}\\) (asymptotically \\(2/3\\)) domination guarantee while retaining self-maximization and polytime computability. Thus the problem remains open; progress likely requires either new self-maximizing share families with stronger MMS domination, or impossibility/upper-bound techniques that exploit the implied-guarantee incentive constraint rather than allocation infeasibility alone.",
+    "total_cost_usd": 0.11506775,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Fair enough: Guaranteeing approximate maximin shares",
+        "bibtex": "@article{KurokawaProcacciaWang2018FairEnough,\n  title        = {Fair Enough: Guaranteeing Approximate Maximin Shares},\n  author       = {Kurokawa, David and Procaccia, Ariel D. and Wang, Junxing},\n  journal      = {Journal of the ACM},\n  volume       = {65},\n  number       = {2},\n  pages        = {8:1--8:27},\n  year         = {2018}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3140756",
+        "theorem_or_result": "Shows MMS is not feasible for additive valuations when \\(n\\ge 3\\); establishes existence and algorithms for constant-factor MMS approximations (\\(\\rho\\)-MMS allocations).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "The open problem asks for the best \\(\\rho\\) achievable by feasible, self-maximizing, polytime shares that \\(\\rho\\)-dominate MMS. Infeasibility of MMS (\\(\\rho=1\\)) for \\(n\\ge 3\\) is the fundamental barrier and motivates approximate domination."
+      },
+      {
+        "title": "Approximating maximin share allocations",
+        "bibtex": "@inproceedings{GargMcGlaughlinTaki2019Approximating,\n  title        = {Approximating Maximin Share Allocations},\n  author       = {Garg, Jugal and McGlaughlin, Peter and Taki, Setareh},\n  booktitle    = {2nd Symposium on Simplicity in Algorithms (SOSA 2019)},\n  series       = {OASIcs},\n  volume       = {69},\n  pages        = {20:1--20:11},\n  year         = {2019}\n}\n",
+        "source_url": "https://drops.dagstuhl.de/entities/document/10.4230/OASIcs.SOSA.2019.20",
+        "theorem_or_result": "Gives approximation algorithms for MMS allocations; in particular yields a \\(\\frac{2n}{3n-1}\\)-approximation for additive valuations (among other bounds).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Babaioff--Feige\u2019s Nested Shares \\(\\mathrm{NS}_{n,3}\\) achieve \\(\\frac{2n}{3n-1}\\)-domination, and their analysis is derived from the same approximation phenomena as in this work; it provides the algorithmic benchmark for feasible guarantees relative to MMS."
+      },
+      {
+        "title": "An improved approximation algorithm for maximin shares",
+        "bibtex": "@inproceedings{GargTaki2020Improved,\n  title        = {An Improved Approximation Algorithm for Maximin Shares},\n  author       = {Garg, Jugal and Taki, Setareh},\n  booktitle    = {Proceedings of the 21st ACM Conference on Economics and Computation (EC '20)},\n  pages        = {379--380},\n  year         = {2020}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399532",
+        "theorem_or_result": "Improves the approximation ratio for MMS allocations for additive valuations to \\(\\frac{3}{4}+\\Theta(\\frac{1}{n})\\) (reported as \\(\\frac{3}{4}+\\frac{1}{12n}\\) in Babaioff--Feige).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Shows that feasibility of a \\(\\rho\\)-MMS share holds for \\(\\rho\\approx \\frac{3}{4}\\), but Babaioff--Feige note such \\(\\rho\\)-MMS shares are not self-maximizing; thus it separates feasibility/algorithmic approximation from the incentive-compatible (self-maximizing) share-design objective."
+      },
+      {
+        "title": "On truthful mechanisms for maximin share allocations",
+        "bibtex": "@inproceedings{AmanatidisBirmpasMarkakis2016TruthfulMMS,\n  title        = {On Truthful Mechanisms for Maximin Share Allocations},\n  author       = {Amanatidis, Georgios and Birmpas, Georgios and Markakis, Evangelos},\n  booktitle    = {Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence (IJCAI 2016)},\n  pages        = {31--37},\n  year         = {2016}\n}\n",
+        "source_url": "https://www.ijcai.org/Proceedings/16/Papers/005.pdf",
+        "theorem_or_result": "Shows strong impossibility results for truthful mechanisms achieving good MMS approximations when all items must be allocated; relates picking sequences/strategyproofness limitations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Babaioff--Feige\u2019s notion of self-maximizing shares is weaker than full mechanism truthfulness; ABM16 explains why one cannot hope for incentive-compatible allocation mechanisms with good MMS approximation, motivating the contract/share approach and clarifying the incentive landscape."
+      },
+      {
+        "title": "Characterizing conflicts in fair division of indivisible goods using a scale of criteria",
+        "bibtex": "@article{BouveretLemaitre2016Conflicts,\n  title        = {Characterizing Conflicts in Fair Division of Indivisible Goods Using a Scale of Criteria},\n  author       = {Bouveret, Sylvain and Lema{\\^\\i}tre, Michel},\n  journal      = {Autonomous Agents and Multi-Agent Systems},\n  volume       = {30},\n  number       = {2},\n  pages        = {259--290},\n  year         = {2016}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10458-015-9308-3",
+        "theorem_or_result": "Provides reduction/transfer principles between ordered and general instances for additive valuations (used by Babaioff--Feige to reduce feasibility proofs to ordered instances).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Used as a technical tool in proving feasibility of Nested Shares: an algorithm that works on ordered instances can be lifted to arbitrary instances, enabling feasibility proofs for \\(\\mathrm{NS}_{n,3}\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.10372425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10372425
+    "literature_total_cost_usd": 0.11506775,
+    "total_cost_usd": 0.218792
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401117667/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4401117667_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4401117667_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

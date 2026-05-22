@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 7,
+    "synthesis": "The objective in the open problem,\n\\[f(\\beta)=\\tfrac1m\\sum_{i=1}^m\\bigl|\\bar y_i-\\max_{j\\le r}\\langle \\beta_j,a_i\\rangle\\bigr|,\\]\nis a locally Lipschitz, semialgebraic, piecewise-linear function of \\(\\beta\\). In the framework of Charisopoulos and Davis, semialgebraicity strongly suggests that the semismoothness-type condition they call (b)-regularity should hold automatically (at least along isolated minimizers, and often along solution sets after stratification). Hence the main missing ingredient for applying their superlinear subgradient/bundle methodology to max-linear regression is precisely the sharp growth (error bound) inequality\n\\[f(\\beta)-f^*\\ge \\mu\\,\\mathrm{dist}(\\beta,X^*)\\quad\\text{locally near }X^*.\n\\]\n\nExisting literature does not appear to directly settle sharpness for this specific nonconvex max-linear absolute-loss model in the intended statistical setting (e.g., random designs and a planted max-linear ground truth). However, there is a mature variational-analytic toolkit for proving error bounds for piecewise-linear/inequality systems via metric regularity and polyhedral geometry (e.g., Lewis--Pang and related work, as well as the general theory in Rockafellar--Wets). A plausible route is to rewrite the model with auxiliary variables \\(t_i\\) representing \\(\\max_j\\langle \\beta_j,a_i\\rangle\\) and residual variables for the absolute values, yielding a polyhedral system coupled with the nonconvex assignment structure (which index \\(j\\) is active at each \\(i\\)). If one can show that, in a neighborhood of a target minimizer \\(\\bar\\beta\\), the active pattern (or a suitable set of active patterns) is stable and the resulting local model is effectively polyhedral with a nondegenerate solution (a strong form of constraint qualification/metric regularity), then a local Lipschitz error bound\u2014and hence sharp growth\u2014follows.\n\nAt present, the problem should be regarded as open: sharp growth for max-linear regression with absolute loss likely requires additional identifiability and nondegeneracy conditions (e.g., separation/margin conditions preventing ties in the max, and a local uniqueness/modulo-permutation structure of \\(X^*\\)), together with design assumptions ensuring a polyhedral error bound constant \\(\\mu\\) bounded away from zero with high probability. Promising directions include: (i) proving metric subregularity of the KKT mapping for an epigraph reformulation at \\(\\bar\\beta\\); (ii) establishing a local \u201cactive-set stability\u201d or strict complementarity-type condition that reduces the model to a fixed piecewise-linear regime; and (iii) deriving probabilistic lower bounds on the resulting Hoffman-type constants under random \\(a_i\\).",
+    "total_cost_usd": 0.1759723,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A superlinearly convergent subgradient method for sharp semismooth problems",
+        "bibtex": "@article{CharisopoulosDavis2022SuperPolyak,\n  title={A superlinearly convergent subgradient method for sharp semismooth problems},\n  author={Charisopoulos, Vasileios and Davis, Damek},\n  year={2022},\n  journal={arXiv preprint arXiv:2201.04611},\n  eprint={2201.04611},\n  archivePrefix={arXiv},\n  primaryClass={math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2201.04611",
+        "theorem_or_result": "Develops SuperPolyak, a locally superlinearly convergent subgradient/bundle-type method for minimizing locally Lipschitz objectives satisfying (i) sharp growth (an error bound) and (ii) (b)-regularity (a uniform semismoothness estimate). Provides calculus rules implying (b)-regularity for broad semialgebraic constructions and includes max-linear regression among numerical illustrations/problem classes motivating the sharpness assumption.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "The open problem is exactly to verify the sharp growth inequality for the max-linear absolute-loss objective. This paper supplies the algorithmic motivation and identifies sharpness as the missing regularity condition; it also suggests (b)-regularity is likely automatic here because the objective is semialgebraic/piecewise linear, focusing attention on proving sharp growth under statistical assumptions."
+      },
+      {
+        "title": "Stochastic subgradient method converges at the rate O(1/k) on sharp weakly convex functions",
+        "bibtex": "@article{DavisDrusvyatskiy2020SharpWeaklyConvex,\n  title={Stochastic subgradient method converges at the rate {O}(1/k) on sharp weakly convex functions},\n  author={Davis, Damek and Drusvyatskiy, Dmitriy},\n  year={2020},\n  journal={arXiv preprint arXiv:2002.11639},\n  eprint={2002.11639},\n  archivePrefix={arXiv},\n  primaryClass={math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2002.11639",
+        "theorem_or_result": "Establishes improved convergence guarantees for (stochastic) subgradient methods on sharp weakly convex objectives, relating sharp growth/error bounds to algorithmic rates and to variational-analytic regularity (e.g., metric subregularity of the subdifferential).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides general variational-analytic machinery for proving and exploiting sharpness. For max-linear absolute loss, it motivates proving a local error bound via metric subregularity/tilt-stability style conditions for piecewise-linear objectives."
+      },
+      {
+        "title": "Error bounds for convex inequality systems",
+        "bibtex": "@article{LewisPang1998ErrorBounds,\n  title={Error bounds for convex inequality systems},\n  author={Lewis, Adrian S. and Pang, Jong-Shi},\n  journal={SIAM Journal on Optimization},\n  volume={8},\n  number={1},\n  pages={1--27},\n  year={1998},\n  doi={10.1137/S1052623496304320}\n}\n",
+        "source_url": "https://doi.org/10.1137/S1052623496304320",
+        "theorem_or_result": "Develops a theory of local/global error bounds for convex inequality systems, connecting them to constraint qualifications and metric regularity. Provides tools to derive Lipschitz error bounds for piecewise-linear/convex systems and to compute/estimate constants.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Although the max-linear absolute-loss objective is generally nonconvex in \u007f\\(\\beta\\) for \u007f\\(r>1\\), it is piecewise linear and can be represented with auxiliary variables and linear inequalities. This paper is a foundational source for deriving local error bounds from polyhedral geometry/metric regularity, which is a plausible route to proving sharp growth in neighborhoods where the active pattern is stable."
+      },
+      {
+        "title": "A global error bound for convex inequalities",
+        "bibtex": "@article{WuMangasarian1993GlobalErrorBound,\n  title={A global error bound for convex inequalities},\n  author={Wu, Kuo-Chu and Mangasarian, O. L.},\n  journal={Mathematical Programming},\n  volume={57},\n  pages={459--468},\n  year={1993},\n  doi={10.1007/BF01581256}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01581256",
+        "theorem_or_result": "Provides global error bounds for systems of convex inequalities under suitable conditions, with emphasis on polyhedral/convex-analytic structure and explicit constants in certain cases.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Max-linear models admit epigraph/inequality representations using auxiliary variables \u007f\\(t_i\\ge \\langle \\beta_j,a_i\\rangle\\). While the full objective is nonconvex for \u007f\\(r>1\\), local analysis near a minimizer often reduces to a fixed active pattern yielding a polyhedral model; global/local error-bound techniques for convex inequalities inform how to obtain a sharp growth constant \u007f\\(\\mu\\) from such representations."
+      },
+      {
+        "title": "Variational Analysis",
+        "bibtex": "@book{RockafellarWets1998VA,\n  title={Variational Analysis},\n  author={Rockafellar, R. Tyrrell and Wets, Roger J.-B.},\n  year={1998},\n  publisher={Society for Industrial and Applied Mathematics},\n  address={Philadelphia, PA},\n  doi={10.1137/1.9781611971309}\n}\n",
+        "source_url": "https://doi.org/10.1137/1.9781611971309",
+        "theorem_or_result": "Comprehensive reference on variational analysis, including metric regularity/subregularity, error bounds, and stability properties for nonsmooth and set-valued mappings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Sharp growth is an error-bound property that can often be established via metric subregularity of an associated mapping (e.g., subdifferential or KKT system of an epigraph reformulation). This monograph provides the core tools and definitions needed to formalize such an approach for the max-linear absolute-loss objective."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08250900000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08250900000000001
+    "literature_total_cost_usd": 0.1759723,
+    "total_cost_usd": 0.2584813
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385878155/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4385878155_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4385878155_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

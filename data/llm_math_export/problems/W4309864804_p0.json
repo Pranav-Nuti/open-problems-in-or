@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Bianchi\u2013Hachem\u2013Schechtman) proves that for definable weakly convex locally Lipschitz functions, stochastic subgradient descent with Robbins\u2013Monro steps and sufficiently nondegenerate martingale-difference noise avoids active strict saddles almost surely. The argument uses a strengthened projection formula based on Verdier stratifications to reduce the dynamics near an active manifold to a smooth Robbins\u2013Monro recursion on the manifold, and then applies refined trap-avoidance results in the spirit of Pemantle and Brandi\u00e8re\u2013Duflo. Together with the generic critical-point classification for weakly convex definable functions (via Drusvyatskiy\u2013Ioffe\u2013Lewis and Davis\u2013Drusvyatskiy), this yields generic convergence to local minimizers when iterates are bounded.\n\nIn the non-weakly convex definable setting, the same generic classification is expected to include, besides local minimizers and active strict saddles, additional Clarke critical points termed sharply repulsive: points that are locally minimizing along an active manifold but whose nearby subgradients point toward the manifold, potentially attracting iterates to it. The source paper explains that an earlier attempt to treat the non-weakly convex case relied on an incorrect asymptotic pseudotrajectory theorem, leaving open the key step of proving that SGD avoids both active strict saddles and sharply repulsive critical points. Existing convergence-to-critical-set results for tame functions (Davis\u2013Drusvyatskiy\u2013Kakade\u2013Lee) do not distinguish minimizers from such spurious critical points, and current active-manifold local theories (e.g., Davis\u2013Drusvyatskiy\u2013Jiang) still rely on proximal aiming/angle-type conditions that can fail without weak convexity.\n\nAt present, there is no published theorem establishing generic almost sure convergence of explicit stochastic subgradient descent to local minimizers for definable locally Lipschitz functions without weak convexity. Progress likely requires (i) a correct replacement for the missing asymptotic pseudotrajectory step to control approach to the active manifold when the angle condition fails, and (ii) a new stochastic nonconvergence mechanism tailored to sharply repulsive points, where the drift may be attracting toward the manifold while the on-manifold dynamics is locally minimizing.",
+    "total_cost_usd": 0.1154615,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Stochastic Subgradient Descent Escapes Active Strict Saddles on Weakly Convex Functions",
+        "bibtex": "@article{BianchiHachemSchechtman2024SGDActiveStrictSaddles,\n  author  = {Bianchi, Pascal and Hachem, Walid and Schechtman, Sholom},\n  title   = {Stochastic Subgradient Descent Escapes Active Strict Saddles on Weakly Convex Functions},\n  journal = {Mathematics of Operations Research},\n  year    = {2024},\n  volume  = {49},\n  number  = {3},\n  pages   = {1761--1790},\n  doi     = {10.1287/moor.2021.0194},\n  url     = {https://hal.science/hal-03442137v3}\n}\n",
+        "source_url": "https://hal.science/hal-03442137v3",
+        "theorem_or_result": "For definable weakly convex locally Lipschitz functions, under generic perturbations every Clarke critical point is either a local minimizer or an active strict saddle; with Verdier stratification and an angle (proximal aiming) condition plus nondegenerate martingale-difference noise, stochastic subgradient descent avoids active strict saddles almost surely, implying generic convergence to local minimizers when iterates are bounded.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: extend generic convergence of stochastic subgradient descent from the weakly convex definable setting to the general definable locally Lipschitz (non-weakly convex) setting, where sharply repulsive critical points can occur and the angle condition may fail."
+      },
+      {
+        "title": "Stochastic subgradient method converges on tame functions",
+        "bibtex": "@article{DavisDrusvyatskiyKakadeLee2020TameSGD,\n  author  = {Davis, Damek and Drusvyatskiy, Dmitriy and Kakade, Sham and Lee, Jason D.},\n  title   = {Stochastic subgradient method converges on tame functions},\n  journal = {Foundations of Computational Mathematics},\n  year    = {2020},\n  volume  = {20},\n  pages   = {119--154},\n  doi     = {},\n  url     = {https://doi.org/10.1007/s10208-019-09423-1}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10208-019-09423-1",
+        "theorem_or_result": "Establishes almost sure convergence of stochastic subgradient-type methods (under Robbins--Monro steps and martingale-difference noise) to the set of Clarke critical points for locally Lipschitz tame/definable functions, via differential inclusion techniques and stratification/Kurdyka--\u0141ojasiewicz geometry.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the baseline convergence-to-critical-set result in the definable setting; the open problem asks to strengthen this to convergence to local minimizers by proving avoidance of non-minimizing Clarke critical points (active strict saddles and sharply repulsive points) without weak convexity."
+      },
+      {
+        "title": "Proximal methods avoid active strict saddles of weakly convex functions",
+        "bibtex": "@article{DavisDrusvyatskiy2022ProxAvoidActiveStrictSaddles,\n  author  = {Davis, Damek and Drusvyatskiy, Dmitriy},\n  title   = {Proximal methods avoid active strict saddles of weakly convex functions},\n  journal = {Foundations of Computational Mathematics},\n  year    = {2022},\n  volume  = {22},\n  pages   = {561--606},\n  doi     = {},\n  url     = {https://doi.org/10.1007/s10208-021-09536-1}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10208-021-09536-1",
+        "theorem_or_result": "Shows that for weakly convex functions, (implicit) proximal-type methods avoid active strict saddles for almost all initializations, leveraging smoothness of the Moreau envelope and stable manifold arguments.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Motivates the notion of active strict saddles and avoidance mechanisms; however it relies on weak convexity (Moreau envelope) and mostly noiseless/initialization randomness, whereas the open problem concerns explicit stochastic subgradient descent without weak convexity and with additional sharply repulsive critical points."
+      },
+      {
+        "title": "Subgradient methods near active manifolds: saddle point avoidance, local convergence, and asymptotic normality",
+        "bibtex": "@misc{DavisDrusvyatskiyJiang2021SubgradientNearActiveManifolds,\n  author       = {Davis, Damek and Drusvyatskiy, Dmitriy and Jiang, Liwei},\n  title        = {Subgradient methods near active manifolds: saddle point avoidance, local convergence, and asymptotic normality},\n  year         = {2021},\n  eprint       = {2108.11832},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2108.11832}\n}\n",
+        "source_url": "https://arxiv.org/abs/2108.11832",
+        "theorem_or_result": "Develops a detailed local theory of subgradient methods near active manifolds (proximal aiming/angle-type conditions), including saddle avoidance, local convergence rates, and asymptotic normality, using stratification and smooth reduction to dynamics on the active manifold.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 8,
+        "connection": "Provides techniques for analyzing dynamics near active manifolds and conditions akin to the angle condition; potentially adaptable when weak convexity fails, but does not resolve avoidance of sharply repulsive critical points or provide a generic convergence theorem in the non-weakly convex definable setting."
+      },
+      {
+        "title": "Generic minimizing behavior in semialgebraic optimization",
+        "bibtex": "@article{DrusvyatskiyIoffeLewis2016GenericMinimizing,\n  author  = {Drusvyatskiy, Dmitriy and Ioffe, Alexander D. and Lewis, Adrian S.},\n  title   = {Generic minimizing behavior in semialgebraic optimization},\n  journal = {SIAM Journal on Optimization},\n  year    = {2016},\n  volume  = {26},\n  number  = {1},\n  pages   = {513--534},\n  doi     = {},\n  url     = {https://doi.org/10.1137/15M101648X}\n}\n",
+        "source_url": "https://doi.org/10.1137/15M101648X",
+        "theorem_or_result": "Proves generic properties of critical points for semialgebraic/definable optimization under linear perturbations, underpinning the classification that (in weakly convex settings) critical points are generically either local minimizers or active strict saddles on identifiable/active manifolds.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supplies the generic critical-point classification machinery used in the weakly convex case; extending such classification and coupling it with stochastic avoidance arguments is central to the open problem, especially to incorporate sharply repulsive critical points in the non-weakly convex case."
+      },
+      {
+        "title": "Nonconvergence to unstable points in urn models and stochastic approximations",
+        "bibtex": "@article{Pemantle1990NonconvergenceUnstable,\n  author  = {Pemantle, Robin},\n  title   = {Nonconvergence to unstable points in urn models and stochastic approximations},\n  journal = {The Annals of Probability},\n  year    = {1990},\n  volume  = {18},\n  number  = {2},\n  pages   = {698--712},\n  doi     = {},\n  url     = {https://projecteuclid.org/euclid.aop/1176990745}\n}\n",
+        "source_url": "https://projecteuclid.org/euclid.aop/1176990745",
+        "theorem_or_result": "Shows that stochastic approximation schemes with suitable nondegenerate noise avoid unstable equilibria (repulsive fixed points) with probability one, providing foundational trap-avoidance arguments for Robbins--Monro algorithms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The source paper reduces avoidance of active strict saddles to a smooth trap-avoidance statement in the projected dynamics; extending avoidance to sharply repulsive critical points likely requires new variants of such nonconvergence results for dynamics attracted to a manifold but repelled along normal directions."
+      },
+      {
+        "title": "Les algorithmes stochastiques contournent-ils les pi\u00e8ges?",
+        "bibtex": "@article{BrandiereDuflo1996Pieges,\n  author  = {Brandiere, Olivier and Duflo, Michel},\n  title   = {Les algorithmes stochastiques contournent-ils les pi{\\`e}ges?},\n  journal = {Annales de l'Institut Henri Poincar{\\'e} Probabilit{\\'e}s et Statistiques},\n  year    = {1996},\n  volume  = {32},\n  number  = {3},\n  pages   = {395--427},\n  doi     = {},\n  url     = {http://www.numdam.org/item/AIHPB_1996__32_3_395_0/}\n}\n",
+        "source_url": "http://www.numdam.org/item/AIHPB_1996__32_3_395_0/",
+        "theorem_or_result": "Establishes nonconvergence of stochastic approximation algorithms to traps (unstable critical points) under martingale-difference noise with nontrivial variance in directions of negative curvature, using stable manifold ideas.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The source paper\u2019s avoidance of active strict saddles adapts and strengthens this framework; any extension beyond weak convexity will likely need further refinements to handle non-smooth geometry and sharply repulsive points where the drift may attract iterates to an active manifold."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08661100000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08661100000000001
+    "literature_total_cost_usd": 0.1154615,
+    "total_cost_usd": 0.2020725
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4309864804/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4309864804_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4309864804_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

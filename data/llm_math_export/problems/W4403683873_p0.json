@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The open problem in Bayraktar\u2013Huang\u2013Wang\u2013Zhou asks for verifiable conditions ensuring convergence of the naive fixed-point iteration \\(y_{n+1}=\\Psi_\\lambda(y_n)\\), where \\(\\Psi_\\lambda(y)=V^{\\Gamma_\\lambda(y,\\cdot)}_\\lambda\\) and \\(\\Gamma_\\lambda\\) is the Gibbs (softmax) best-response map induced by entropy regularization. In the source paper, existence of a fixed point is obtained via Brouwer by showing \\(\\Psi_\\lambda\\) is continuous and maps a large ball to itself, using the key entropy growth estimate \\(\\sup_i |H(\\Gamma_\\lambda(y,i))|\\lesssim \\ln(1+|y|)\\). However, no contraction or monotonicity property is established, so convergence of the straightforward iteration remains unresolved in general.\n\nThe closest partial progress comes from Huang\u2013Wang\u2013Zhou (2022), which proves convergence of policy iteration / soft policy updates for entropy-regularized stochastic control problems. Although their setting is time-consistent control rather than time-inconsistent equilibrium, the analytic ingredients overlap strongly: Gibbs-form improvement operators, entropy bounds, and continuity/compactness arguments. Their results suggest that convergence can be proved when one can strengthen the source paper\u2019s continuity/self-mapping property to a contraction (e.g., under sufficiently strong discounting, small Lipschitz constants of \\(u\\mapsto p_i^u\\) and \\(u\\mapsto f(0,i,u)\\), or small enough effective horizon), or when \\(\\Psi_\\lambda\\) is order-preserving and admits a unique fixed point.\n\nAt present, without additional structural assumptions (such as a global contraction of \\(\\Psi_\\lambda\\) in a suitable norm, uniqueness of the regular relaxed equilibrium, or a monotone/concave structure enabling global convergence of best-response dynamics), the convergence of \\(y_{n+1}=\\Psi_\\lambda(y_n)\\) from arbitrary initialization appears to remain open. Promising directions include: (i) deriving explicit Lipschitz constants for \\(y\\mapsto \\Gamma_\\lambda(y,\\cdot)\\) via log-sum-exp smoothing and combining them with sensitivity bounds for \\(\\pi\\mapsto V^\\pi_\\lambda\\); (ii) proving \\(\\Psi_\\lambda\\) is a contraction for large \\(\\lambda\\) (strong regularization) or for sufficiently small \\(\\|p_i^{u_1}-p_i^{u_2}\\|\\) (weak control influence), then using continuation in \\(\\lambda\\); and (iii) studying damped iterations \\(y_{n+1}=(1-\\eta)y_n+\\eta\\Psi_\\lambda(y_n)\\) where \\(\\eta\\) is chosen to enforce contraction.",
+    "total_cost_usd": 0.09125549999999999,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Convergence of policy iteration for entropy-regularized stochastic control problems",
+        "bibtex": "@misc{HuangWangZhou2022PolicyIterationEntropy,\\n  title        = {Convergence of policy iteration for entropy-regularized stochastic control problems},\\n  author       = {Huang, Yu-Jui and Wang, Zhenhua and Zhou, Zhou},\\n  year         = {2022},\\n  eprint       = {2209.07059},\\n  archivePrefix= {arXiv},\\n  primaryClass = {math.OC},\\n  url          = {https://arxiv.org/abs/2209.07059}\\n}\\n",
+        "source_url": "https://arxiv.org/abs/2209.07059",
+        "theorem_or_result": "Proves convergence of policy iteration / soft policy updates for entropy-regularized stochastic control under conditions yielding a contraction/monotonicity structure; provides entropy estimates and continuity arguments that control the Gibbs (softmax) operator.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Directly addresses convergence of iterative schemes for entropy-regularized control with Gibbs-form updates, supplying techniques (entropy bounds, continuity, contraction-type arguments) that can be adapted to the equilibrium operator \\(\\Psi_\\lambda\\) / \\(\\Phi_\\lambda\\) in the time-inconsistent setting."
+      },
+      {
+        "title": "Taming the noise in reinforcement learning via soft updates",
+        "bibtex": "@inproceedings{FoxPakmanTishby2016SoftUpdates,\\n  title     = {Taming the noise in reinforcement learning via soft updates},\\n  author    = {Fox, Roy and Pakman, Ari and Tishby, Naftali},\\n  booktitle = {Proceedings of the Thirty-Second Conference on Uncertainty in Artificial Intelligence (UAI)},\\n  year      = {2016},\\n  url       = {https://arxiv.org/abs/1512.08562}\\n}\\n",
+        "source_url": "https://arxiv.org/abs/1512.08562",
+        "theorem_or_result": "Introduces soft (entropy-regularized) policy updates and analyzes stability properties of soft updates in RL, motivating Gibbs/softmax operators as smooth best responses.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides background on Gibbs-form policy operators and iterative soft updates; while not about time inconsistency, it motivates fixed-point iterations for softmax operators akin to \\(\\Phi_\\lambda\\)."
+      },
+      {
+        "title": "Reinforcement learning in continuous time and space: A stochastic control approach",
+        "bibtex": "@article{WangZariphopoulouZhou2020RLContinuous,\\n  title   = {Reinforcement learning in continuous time and space: A stochastic control approach},\\n  author  = {Wang, Haoxiang and Zariphopoulou, Thaleia and Zhou, Xunyu},\\n  journal = {Journal of Machine Learning Research},\\n  volume  = {21},\\n  number  = {198},\\n  pages   = {1--34},\\n  year    = {2020},\\n  url     = {https://jmlr.org/papers/v21/19-680.html}\\n}\\n",
+        "source_url": "https://jmlr.org/papers/v21/19-680.html",
+        "theorem_or_result": "Develops entropy-regularized control and RL connections in continuous time, including softmax/Gibbs characterizations and iterative schemes for control.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Background on entropy-regularized control and Gibbs operators; may offer analytical tools (e.g., regularity, contraction under discounting) relevant when adapting convergence proofs to \\(\\Psi_\\lambda\\)."
+      },
+      {
+        "title": "Maximum entropy inverse reinforcement learning",
+        "bibtex": "@inproceedings{ZiebartMaasBagnellDey2008MaxEntIRL,\\n  title     = {Maximum Entropy Inverse Reinforcement Learning},\\n  author    = {Ziebart, Brian D. and Maas, Andrew L. and Bagnell, J. Andrew and Dey, Anind K.},\\n  booktitle = {Proceedings of the Twenty-Third AAAI Conference on Artificial Intelligence (AAAI)},\\n  year      = {2008},\\n  pages     = {1433--1438},\\n  url       = {https://www.aaai.org/Papers/AAAI/2008/AAAI08-227.pdf}\\n}\\n",
+        "source_url": "https://www.aaai.org/Papers/AAAI/2008/AAAI08-227.pdf",
+        "theorem_or_result": "Establishes maximum-entropy principle leading to Gibbs distributions over trajectories/policies; foundational for entropy regularization and softmax policies.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "Foundational background for the Gibbs-form operator \\(\\Gamma_\\lambda\\) used in the fixed-point map \\(\\Psi_\\lambda\\)."
+      },
+      {
+        "title": "Time-inconsistent optimal control problems and the equilibrium HJB equation",
+        "bibtex": "@article{Yong2012EquilibriumHJB,\\n  title   = {Time-inconsistent optimal control problems and the equilibrium HJB equation},\\n  author  = {Yong, Jiongmin},\\n  journal = {Mathematical Control and Related Fields},\\n  volume  = {2},\\n  number  = {3},\\n  pages   = {271--329},\\n  year    = {2012},\\n  doi     = {10.3934/mcrf.2012.2.271},\\n  url     = {https://www.aimsciences.org/article/doi/10.3934/mcrf.2012.2.271}\\n}\\n",
+        "source_url": "https://www.aimsciences.org/article/doi/10.3934/mcrf.2012.2.271",
+        "theorem_or_result": "Introduces equilibrium HJB framework for time-inconsistent control, providing analytical characterization of subgame-perfect equilibria.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Background on equilibrium concepts and fixed-point characterizations in time-inconsistent control; informs how \\(\\Psi_\\lambda\\) arises as an equilibrium operator though not about convergence of its iteration."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0772135,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0772135
+    "literature_total_cost_usd": 0.09125549999999999,
+    "total_cost_usd": 0.16846899999999998
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4403683873/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4403683873_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4403683873_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }
