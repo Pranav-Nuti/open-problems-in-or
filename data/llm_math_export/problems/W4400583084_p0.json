@@ -47,16 +47,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The source paper establishes LAMO as a sufficient geometric condition (in terms of Birkhoff--James orthogonality of each coordinate hyperplane to its axis) for order independence of sequential issue-by-issue median voting, and proves a full converse only for inner-product norms and a two-dimensional partial converse for general norms. The open problem asks whether the two-dimensional converse extends to higher dimensions: does failure of LAMO necessarily generate order dependence for some profile and two permutations.\n\nNo forward-citation data were provided, so the review below relies on the foundational references already cited in the source paper: work on BJ orthogonality, Auerbach bases, and norm-one projections/1-complemented subspaces, as well as the authors' earlier characterization of strategy-proof marginal medians via LAMO. These references clarify why extending the converse is difficult: BJ orthogonality is neither symmetric nor additive, and in dimensions d>2 LAMO bases may fail to exist generically, suggesting that order dependence should be prevalent but not yet fully characterized by a clean necessity theorem.",
+    "total_cost_usd": 0.05783575,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Order Independence in Sequential, Issue-by-Issue Voting",
+        "bibtex": "@unpublished{GershkovMoldovanuShi2023OrderIndependence,\n  title        = {Order Independence in Sequential, Issue-by-Issue Voting},\n  author       = {Gershkov, Alex and Moldovanu, Benny and Shi, Xianwen},\n  year         = {2023},\n  note         = {Working paper, version dated November 13, 2023}\n}\n",
+        "source_url": "(no URL provided in prompt)",
+        "theorem_or_result": "Introduces sequential issue-by-issue voting in \n normed spaces and proves: if the basis is LAMO then sequential outcomes are order independent; for inner-product norms order independence holds iff the basis is orthogonal; and for \n d=2 if LAMO fails then order matters. Leaves open whether failure of LAMO implies order dependence for all d\\ge 3 and general norms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: whether non-LAMO bases necessarily yield order dependence in sequential issue-by-issue voting for general norms in dimensions d\\ge 3."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06615175000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06615175000000001
+    "literature_total_cost_usd": 0.05783575,
+    "total_cost_usd": 0.1239875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400583084/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400583084_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4400583084_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

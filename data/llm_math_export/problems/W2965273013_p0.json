@@ -47,16 +47,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper defines thrifty and modest equilibria for linear Fisher markets with both buyer utility caps \\((c_i)\\) and seller earning caps \\((d_j)\\). It shows that, unlike the cases with only one type of cap, equilibria may fail to exist and the equilibrium set can be non-convex, ruling out a direct convex-program characterization. A key sufficient condition is the money-clearing inequality \\(\\sum_{i\\in \\hat B} m_i \\le \\sum_{j\\in N(\\hat B)} d_j\\) for all buyer subsets \\(\\hat B\\), under which existence is guaranteed and approximate equilibria can be computed via an FPTAS (by perturbing utilities and using a descending-price/flow-feasibility framework).\n\nFor exact computation under money clearing, the paper provides (i) a finite-time descending-price algorithm yielding membership in \\(\\mathrm{PLS}\\), and (ii) an LCP formulation plus Lemke-style path-following with carefully engineered positive lower bounds (using a min-price equilibrium of the utility-caps-only market to separate zero-price goods), yielding membership in \\(\\mathrm{PPAD}\\). However, these results do not resolve the general decision problem: given arbitrary integer data \\((u_{ij},m_i,c_i,d_j)\\), decide whether any thrifty and modest equilibrium exists. The paper explicitly identifies this as a future direction, and no forward-citation evidence was provided here to indicate a later resolution. Accordingly, based on the supplied materials, the decision problem remains open beyond special cases (e.g., money-clearing markets, or constant numbers of buyers/goods).",
+    "total_cost_usd": 0.08599325000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Satiation in Fisher Markets and Approximation of Nash Social Welfare",
+        "bibtex": "@article{GargHoeferMehlhorn2019Satiation,\n  title        = {Satiation in Fisher Markets and Approximation of Nash Social Welfare},\n  author       = {Garg, Jugal and Hoefer, Martin and Mehlhorn, Kurt},\n  year         = {2019},\n  journal      = {arXiv preprint arXiv:1707.04428},\n  eprint       = {1707.04428},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/1707.04428",
+        "theorem_or_result": "Introduces Fisher markets with both earning caps \\((d_j)\\) and utility caps \\((c_i)\\), defines thrifty and modest equilibria, shows existence is not guaranteed in general, and proves money-clearing is sufficient for existence. Gives an FPTAS for approximate equilibria in money-clearing markets and places exact equilibrium computation in \\(\\mathrm{PPAD}\\cap\\mathrm{PLS}\\). Leaves open deciding existence beyond the money-clearing sufficient condition.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: characterize/decide existence of thrifty and modest equilibria when both earning and utility limits are present, without restricting to money-clearing markets."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09235625,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09235625
+    "literature_total_cost_usd": 0.08599325000000001,
+    "total_cost_usd": 0.1783495
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2965273013/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2965273013_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W2965273013_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

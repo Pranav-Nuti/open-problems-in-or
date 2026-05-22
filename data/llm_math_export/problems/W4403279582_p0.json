@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Lu\u2013Mei) formulates the monotone inclusion \\(0\\in(F+B)(x)\\) with monotone single-valued \\(F\\) that is only locally Lipschitz on \\(\\overline{\\mathrm{dom}\\,B}\\), and maximal monotone \\(B\\) with exactly computable resolvent. Their primal\u2013dual extrapolation method with backtracking achieves \\(O(\\log \\varepsilon^{-1})\\) operations in the strongly monotone case \\(\\mu>0\\), and for the merely monotone case \\(\\mu=0\\) they obtain \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) operations by solving a sequence of regularized (strongly monotone) subproblems. This improves earlier locally-Lipschitz-capable schemes such as forward-reflected-backward splitting (FRBS) and related adaptive methods, which (in this operation model) yield at best \\(O(\\varepsilon^{-2})\\) residual complexity.\n\nIn the global Lipschitz regime, optimal \\(O(\\varepsilon^{-1})\\) pointwise/ergodic complexity for monotone variational inequalities and inclusions is classical (e.g., Mirror-Prox and Tseng/Monteiro\u2013Svaiter analyses via extragradient/HPE frameworks). The open difficulty is that local Lipschitz continuity does not provide a uniform global stepsize bound a priori, so backtracking/regularization is needed to ensure well-posedness and descent-type inequalities on the trajectory; in Lu\u2013Mei\u2019s approach, the outer regularization schedule and inner termination tolerances introduce the extra \\(\\log \\varepsilon^{-1}\\) factor.\n\nNo forward-citation evidence was provided indicating that the \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) bound has been improved to \\(O(\\varepsilon^{-1})\\) under the same local-Lipschitz assumptions. Thus, based on the available record here, the problem remains open. Promising directions include: (i) designing a single-loop method with an adaptive stepsize rule that yields a telescoping HPE-type potential directly for the original (unregularized) inclusion, avoiding geometric outer loops; (ii) proving that the backtracking stepsizes stabilize after a bounded number of reductions on the relevant bounded region, enabling a uniform \\(O(\\varepsilon^{-1})\\) bound; or (iii) developing a localized complexity theory that replaces global Lipschitz constants by trajectory-dependent quantities while preserving \\(O(\\varepsilon^{-1})\\) worst-case operation counts.",
+    "total_cost_usd": 0.09815575,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Primal-dual extrapolation methods for monotone inclusions under local Lipschitz continuity",
+        "bibtex": "@article{LuMei2024PDExtrapolationLocalLip,\n  title        = {Primal-dual extrapolation methods for monotone inclusions under local Lipschitz continuity},\n  author       = {Lu, Zhaosong and Mei, Sanyou},\n  year         = {2024},\n  journal      = {arXiv preprint},\n  eprint       = {2206.00973},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2206.00973",
+        "theorem_or_result": "Introduces primal-dual extrapolation with backtracking for monotone inclusions with locally Lipschitz monotone single-valued part, achieving operation complexity \n\\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\) for \\(\\mu=0\\) and \\(O(\\log \\varepsilon^{-1})\\) for \\(\\mu>0\\) in terms of evaluations of \\(F\\) and the resolvent of \\(B\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether the extra \\(\\log \\varepsilon^{-1}\\) factor in the \\(\\mu=0\\) residual complexity can be removed under only local Lipschitz continuity. It provides the current best bound and the algorithmic framework (regularization + inner strongly monotone solves) whose analysis introduces the logarithmic factor."
+      },
+      {
+        "title": "A forward-backward splitting method for monotone inclusions without cocoercivity",
+        "bibtex": "@article{MalitskyTam2020FRBS,\n  title   = {A forward-backward splitting method for monotone inclusions without cocoercivity},\n  author  = {Malitsky, Yura and Tam, Matthew K.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {30},\n  number  = {2},\n  pages   = {1451--1472},\n  year    = {2020},\n  doi     = {10.1137/19M1255840}\n}\n",
+        "source_url": "https://doi.org/10.1137/19M1255840",
+        "theorem_or_result": "Proposes the forward-reflected-backward splitting (FRBS) method for monotone inclusions with monotone Lipschitz \\(F\\) (no cocoercivity), proving global convergence; for locally Lipschitz settings it can be shown to yield \\(O(\\varepsilon^{-2})\\) operation complexity for \\(\\varepsilon\\)-residual solutions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Serves as a baseline splitting scheme using operator extrapolation that works without cocoercivity. In the local-Lipschitz regime it motivates the need for backtracking and improved complexity; Lu--Mei improve its \\(O(\\varepsilon^{-2})\\) behavior to \\(O(\\varepsilon^{-1}\\log \\varepsilon^{-1})\\)."
+      },
+      {
+        "title": "A modified forward-backward splitting method for maximal monotone mappings",
+        "bibtex": "@article{Tseng2000MFBS,\n  title   = {A modified forward-backward splitting method for maximal monotone mappings},\n  author  = {Tseng, Paul},\n  journal = {SIAM Journal on Control and Optimization},\n  volume  = {38},\n  number  = {2},\n  pages   = {431--446},\n  year    = {2000},\n  doi     = {10.1137/S0363012998338806}\n}\n",
+        "source_url": "https://doi.org/10.1137/S0363012998338806",
+        "theorem_or_result": "Introduces Tseng's modified forward-backward splitting (forward-backward-forward) for monotone inclusions with Lipschitz \\(F\\), enabling convergence without cocoercivity and inspiring later extragradient-type splitting analyses.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides a foundational splitting template (MFBS/FBF) that under global Lipschitz assumptions supports \\(O(\\varepsilon^{-1})\\)-type residual rates in various analyses; understanding whether and how such rates extend to local Lipschitz via adaptive stepsizes is central to removing the log factor."
+      },
+      {
+        "title": "Complexity of variants of Tseng\u2019s modified FB splitting and Korpelevich\u2019s methods for hemivariational inequalities with applications to saddle-point and convex optimization problems",
+        "bibtex": "@article{MonteiroSvaiter2011TsengKorpelevichComplexity,\n  title   = {Complexity of variants of Tseng's modified {FB} splitting and {Korpelevich}'s methods for hemivariational inequalities with applications to saddle-point and convex optimization problems},\n  author  = {Monteiro, Renato D. C. and Svaiter, Benar F.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {21},\n  number  = {4},\n  pages   = {1688--1720},\n  year    = {2011},\n  doi     = {10.1137/100797468}\n}\n",
+        "source_url": "https://doi.org/10.1137/100797468",
+        "theorem_or_result": "Develops complexity bounds for Tseng-type and extragradient-type methods (including pointwise and ergodic measures) under Lipschitz assumptions, using hybrid proximal extragradient (HPE) framework techniques.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Represents the main complexity-analysis toolkit for \\(O(\\varepsilon^{-1})\\) residual guarantees under global Lipschitz continuity. Extending or localizing these HPE-style arguments without paying a \\(\\log \\varepsilon^{-1}\\) penalty is a plausible route to solve the open problem."
+      },
+      {
+        "title": "On the complexity of the hybrid proximal extragradient method for the iterates and the ergodic mean",
+        "bibtex": "@article{MonteiroSvaiter2010HPEComplexity,\n  title   = {On the complexity of the hybrid proximal extragradient method for the iterates and the ergodic mean},\n  author  = {Monteiro, Renato D. and Svaiter, Benar F.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {20},\n  number  = {6},\n  pages   = {2755--2787},\n  year    = {2010},\n  doi     = {10.1137/090767600}\n}\n",
+        "source_url": "https://doi.org/10.1137/090767600",
+        "theorem_or_result": "Establishes pointwise and ergodic complexity results for the hybrid proximal extragradient (HPE) method for maximal monotone inclusions, including \\(O(\\varepsilon^{-1})\\) iteration bounds for certain residual measures.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The HPE framework underpins many optimal \\(O(\\varepsilon^{-1})\\) residual results when stepsizes are controlled. A key question is whether Lu--Mei's local-Lipschitz backtracking can be embedded into an HPE scheme with uniform complexity, potentially eliminating the logarithmic overhead."
+      },
+      {
+        "title": "Prox-method with rate of convergence O(1/t) for variational inequalities with Lipschitz continuous monotone operators and smooth convex-concave saddle-point problems",
+        "bibtex": "@article{Nemirovski2005MirrorProx,\n  title   = {Prox-method with rate of convergence {O}(1/t) for variational inequalities with {L}ipschitz continuous monotone operators and smooth convex-concave saddle-point problems},\n  author  = {Nemirovski, Arkadi},\n  journal = {SIAM Journal on Optimization},\n  volume  = {15},\n  number  = {1},\n  pages   = {229--251},\n  year    = {2005},\n  doi     = {10.1137/S1052623403425629}\n}\n",
+        "source_url": "https://doi.org/10.1137/S1052623403425629",
+        "theorem_or_result": "Introduces Mirror-Prox (extragradient) with \\(O(1/t)\\) gap decay and \\(O(\\varepsilon^{-1})\\) complexity for monotone Lipschitz variational inequalities, a cornerstone optimal result in the global Lipschitz setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides the benchmark \\(O(\\varepsilon^{-1})\\) rate under global Lipschitz continuity. The open problem asks whether one can match this rate when only local Lipschitz continuity holds on \\(\\overline{\\mathrm{dom}\\,B}\\), using only \\(F\\) and resolvent evaluations."
+      },
+      {
+        "title": "Golden ratio algorithms for variational inequalities",
+        "bibtex": "@article{Malitsky2020GoldenRatioVI,\n  title   = {Golden ratio algorithms for variational inequalities},\n  author  = {Malitsky, Yura},\n  journal = {Mathematical Programming},\n  volume  = {184},\n  number  = {1--2},\n  pages   = {383--410},\n  year    = {2020},\n  doi     = {10.1007/s10107-019-01435-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-019-01435-0",
+        "theorem_or_result": "Proposes golden ratio algorithms for monotone variational inequalities with Lipschitz operators; adaptive variants can handle some unknown Lipschitz constants, with typical \\(O(\\varepsilon^{-2})\\) pointwise residual behavior in non-strongly monotone settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Represents another adaptive-step family relevant to local Lipschitz contexts. Lu--Mei note that in the locally Lipschitz setting such methods do not achieve \\(O(\\varepsilon^{-1})\\) residual complexity, highlighting the challenge of removing the log factor."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06547625,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06547625
+    "literature_total_cost_usd": 0.09815575,
+    "total_cost_usd": 0.163632
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4403279582/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4403279582_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4403279582_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

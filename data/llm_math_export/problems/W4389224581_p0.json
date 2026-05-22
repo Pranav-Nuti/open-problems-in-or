@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "No forward-citation evidence was provided, so the state of the conjecture must be inferred from the source paper and the pre-2024 literature it cites. Gast\u2013Gaujal\u2013Yan (2023) establish a sharp dichotomy for finite-horizon LP-based control: LP-compatibility is necessary and sufficient for asymptotic optimality, Lipschitz LP-compatible policies achieve an \\(O(1/\\sqrt{N})\\) gap, and locally linear LP-compatible policies achieve an exponential gap \\(e^{-\\Theta(N)}\\). They further show that local linearity exists if and only if the instance is non-degenerate in their sense (equivalently, \\(|S_0(t)|\\ge 1\\) along an optimal LP trajectory), and they give a concrete degenerate two-state example where the LP gap under any LP-compatible policy is of order \\(1/\\sqrt{N}\\) due to boundary effects when \\(|S_0(t)|=0\\).\n\nThe open problem asks for a general \\(\\Omega(1/\\sqrt{N})\\) lower bound (and matching \\(O(1/\\sqrt{N})\\) upper bound) for all LP-compatible policies on essentially all degenerate finite-horizon instances. Existing related works (e.g. Zhang\u2013Frazier\u2019s non-degeneracy theory and Brown\u2013Smith\u2019s Lagrangian-index bounds) support the intuition that degeneracy prevents faster-than-CLT rates, but they do not provide a universal instance-wise lower bound across all LP-compatible policies. Thus, based on the available information, the conjectured square-root lower bound in degenerate models remains open. Promising directions include formalizing the boundary-crossing mechanism highlighted by the two-state construction: when \\(m^*(t)\\) lies on the hyperplane \\(\\sum_{s\\in S_+(t)} m_s = \\alpha\\), fluctuations of \\(M^{(N)}(t)\\) of size \\(\\Theta(1/\\sqrt{N})\\) induce a one-sided loss \\(\\mathbb{E}[(\\alpha-\\sum_{s\\in S_+(t)} M^{(N)}_s(t))_+]\\) of order \\(\\Theta(1/\\sqrt{N})\\). Turning this into a general lower bound likely requires (i) a nontrivial reward sensitivity at times where \\(|S_0(t)|=0\\), and (ii) a quantitative CLT/non-lattice anti-concentration for the relevant linear functional of \\(M^{(N)}(t)\\) under any LP-compatible policy.",
+    "total_cost_usd": 0.09913575000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Restless bandits with many arms: Beating the central limit theorem",
+        "bibtex": "@article{ZhangFrazier2021RestlessBeatingCLT,\n  title={Restless bandits with many arms: Beating the central limit theorem},\n  author={Zhang, Xiaohan and Frazier, Peter I.},\n  year={2021},\n  journal={arXiv preprint arXiv:2107.11911},\n  eprint={2107.11911},\n  archivePrefix={arXiv},\n  primaryClass={math.OC},\n  url={https://arxiv.org/abs/2107.11911}\n}",
+        "source_url": "https://arxiv.org/abs/2107.11911",
+        "theorem_or_result": "Introduces non-degeneracy conditions under which fluid-priority/LP-based policies can achieve faster-than-\\(1/\\sqrt{N}\\) convergence (e.g. \\(O(1/N)\\)) to the LP relaxation, and highlights that degeneracy obstructs such improvements.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the conceptual precursor to the degeneracy notion used by Gast\u2013Gaujal\u2013Yan and motivates why degenerate instances are expected to have only \\(\\Theta(1/\\sqrt{N})\\) gaps; however it does not prove a universal \\(\\Omega(1/\\sqrt{N})\\) lower bound for all LP-compatible policies."
+      },
+      {
+        "title": "An asymptotically optimal index policy for finite-horizon restless bandits",
+        "bibtex": "@article{HuFrazier2017FiniteHorizonIndex,\n  title={An asymptotically optimal index policy for finite-horizon restless bandits},\n  author={Hu, Weiqiang and Frazier, Peter I.},\n  year={2017},\n  journal={arXiv preprint arXiv:1707.00205},\n  eprint={1707.00205},\n  archivePrefix={arXiv},\n  primaryClass={math.OC},\n  url={https://arxiv.org/abs/1707.00205}\n}",
+        "source_url": "https://arxiv.org/abs/1707.00205",
+        "theorem_or_result": "Proposes a finite-horizon LP/Lagrangian index policy and proves asymptotic optimality (\\(o(1)\\) gap) as \\(N\\to\\infty\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Establishes the LP-relaxation framework and LP-based index constructions that underlie LP-compatible policies, but does not address sharp lower bounds in degenerate cases."
+      },
+      {
+        "title": "Index policies and performance bounds for dynamic selection problems",
+        "bibtex": "@article{BrownSmith2020IndexPolicies,\n  title={Index policies and performance bounds for dynamic selection problems},\n  author={Brown, David B. and Smith, James E.},\n  journal={Management Science},\n  year={2020},\n  volume={66},\n  number={7},\n  pages={3029--3050},\n  doi={10.1287/mnsc.2019.3525},\n  url={https://doi.org/10.1287/mnsc.2019.3525}\n}",
+        "source_url": "https://doi.org/10.1287/mnsc.2019.3525",
+        "theorem_or_result": "Develops Lagrangian/LP-based index policies and establishes \\(O(1/\\sqrt{N})\\)-type performance bounds for dynamic selection/restless-bandit-like problems, including re-optimization variants.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides general \\(O(1/\\sqrt{N})\\) upper bounds and methodology (Lagrangian indices) relevant to LP-compatible policies, but does not prove matching \\(\\Omega(1/\\sqrt{N})\\) lower bounds in degenerate finite-horizon restless bandits."
+      },
+      {
+        "title": "Near-optimality for infinite-horizon restless bandits with many arms",
+        "bibtex": "@article{ZhangFrazier2022NearOptimality,\n  title={Near-optimality for infinite-horizon restless bandits with many arms},\n  author={Zhang, Xiaohan and Frazier, Peter I.},\n  year={2022},\n  journal={arXiv preprint arXiv:2203.15853},\n  eprint={2203.15853},\n  archivePrefix={arXiv},\n  primaryClass={math.OC},\n  url={https://arxiv.org/abs/2203.15853}\n}",
+        "source_url": "https://arxiv.org/abs/2203.15853",
+        "theorem_or_result": "Establishes \\(O(1/\\sqrt{N})\\) near-optimality guarantees for discounted/infinite-horizon restless bandits under LP-based approaches.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Supports the ubiquity of \\(1/\\sqrt{N}\\) rates absent stronger regularity, but does not settle the conjectured universal lower bound for degenerate finite-horizon instances."
+      },
+      {
+        "title": "An asymptotically optimal heuristic for general non-stationary finite-horizon restless multi-armed multi-action bandits",
+        "bibtex": "@unpublished{ZayasCabanJasinWang2017Heuristic,\n  title={An asymptotically optimal heuristic for general non-stationary finite-horizon restless multi-armed multi-action bandits},\n  author={Zayas-Cab{\\'a}n, Guillermo and Jasin, Stefan and Wang, Guanghui},\n  year={2017},\n  note={Working paper},\n  url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3056012}\n}",
+        "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3056012",
+        "theorem_or_result": "Provides finite-horizon LP-based heuristics for multi-action restless bandits with performance bounds of order \\(O(\\log N/\\sqrt{N})\\) under general nonstationarity.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Shows robustness of \\(1/\\sqrt{N}\\)-type rates in broad settings, but does not address sharpness/lower bounds tied to degeneracy of optimal LP solutions."
+      },
+      {
+        "title": "Asymptotically optimal priority policies for indexable and nonindexable restless bandits",
+        "bibtex": "@article{Verloop2016AsymptoticallyOptimal,\n  title={Asymptotically optimal priority policies for indexable and nonindexable restless bandits},\n  author={Verloop, Marcel},\n  journal={The Annals of Applied Probability},\n  year={2016},\n  volume={26},\n  number={4},\n  pages={1947--1995},\n  doi={10.1214/15-AAP1133},\n  url={https://doi.org/10.1214/15-AAP1133}\n}",
+        "source_url": "https://doi.org/10.1214/15-AAP1133",
+        "theorem_or_result": "Defines LP-priority policies from an infinite-horizon LP relaxation and proves asymptotic optimality under a uniform global attractor property.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Provides foundational LP-based policy class and asymptotic optimality mechanisms; not focused on finite-horizon degeneracy-induced \\(\\Omega(1/\\sqrt{N})\\) gaps."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08679825000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08679825000000001
+    "literature_total_cost_usd": 0.09913575000000001,
+    "total_cost_usd": 0.18593400000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389224581/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389224581_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4389224581_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

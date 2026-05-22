@@ -45,16 +45,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "In the Possama\\\"{\\i}--Touzi reformulation of Sannikov\u2019s infinite-horizon moral-hazard model with endogenous retirement, the principal\u2019s problem becomes a mixed control-and-stopping problem in the agent\u2019s continuation utility \\(Y\\), with stopping reward given by the face-lifted function \\(F\\). The Golden Parachute question is whether the stopping region \\(\\{y:V(y)=F(y)\\}\\) contains a nontrivial upper interval \\([y_{\\mathrm{gp}},\\infty)\\) with finite \\(y_{\\mathrm{gp}}\\), or whether \\(V>F\\) on \\((0,\\infty)\\) so that \\(y_{\\mathrm{gp}}=\\infty\\). Possama\\\"{\\i}--Touzi establish that under concavity of \\(F'\\) the stopping region must be of the form \\(\\{0\\}\\cup[y_{\\mathrm{gp}},\\infty)\\), but they explicitly leave open whether \\(y_{\\mathrm{gp}}\\) is finite when \\(\\delta=r/\\rho>1\\), providing numerical evidence suggesting \\(V>F\\) (no Golden Parachute) can occur.\n\nMethodologically, the rigorous reduction to a continuation-utility control problem relies on BSDE/dynamic-programming frameworks developed in Cvitani\\'{c}--Possama\\\"{\\i}--Touzi and extended to random horizons by Lin--Ren--Touzi--Yang. These tools justify the HJB/viscosity characterization used to analyze contact sets and smooth-fit, and they clarify where Sannikov\u2019s original arguments require additional regularity/existence inputs (as also discussed in Strulovici--Szydlowski). Related stopping-in-contracting models (e.g., Hajjej--Hillairet--Mnif) show how differing discounting interacts with termination options, but do not settle the finiteness of \\(y_{\\mathrm{gp}}\\) in the \\(\\delta>1\\) regime.\n\nOverall, with no forward-citation evidence provided beyond the source paper\u2019s bibliography, the specific finiteness/infinity of \\(y_{\\mathrm{gp}}\\) for \\(\\delta>1\\) remains open in general. Promising directions suggested by the existing analysis include: (i) proving sharper sufficient conditions for (NGP1) \\(I(F',F'')>0\\) globally (implying \\(V>F\\)) in the \\(\\delta>1\\) regime, possibly via duality in the concave conjugate variable \\(p=V'(y)\\); and (ii) identifying parameter regimes (utility curvature near 0, marginal cost \\(\\beta=h'(0)\\), and volatility \\(\\sigma\\)) where \\(F\\) becomes a supersolution/subsolution barrier forcing eventual contact, which would yield a finite \\(y_{\\mathrm{gp}}\\).",
+    "total_cost_usd": 0.12354125,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A continuous-time version of the principal\u2013agent problem",
+        "bibtex": "@article{Sannikov2008ContinuousTimePA,\n  author  = {Sannikov, Yuliy},\n  title   = {A continuous-time version of the principal--agent problem},\n  journal = {The Review of Economic Studies},\n  year    = {2008},\n  volume  = {75},\n  number  = {3},\n  pages   = {957--984}\n}\n",
+        "source_url": "https://doi.org/10.1111/j.1467-937X.2008.00508.x",
+        "theorem_or_result": "Introduces the continuation-utility state variable and derives an HJB/free-boundary characterization for the principal\u2019s infinite-horizon moral-hazard problem; claims existence of a finite retirement threshold (Golden Parachute) under \n positive marginal cost of effort at zero.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the baseline model whose claimed finite stopping threshold is questioned; the open problem asks whether the stopping threshold remains finite when \n the agent is more impatient than the principal (\n\\(\\delta>1\\))."
+      },
+      {
+        "title": "Random horizon principal\u2013agent problem",
+        "bibtex": "@article{LinRenTouziYang2020RandomHorizon,\n  author = {Lin, Ying Hu and Ren, Zhenyu and Touzi, Nizar and Yang, Jianfeng},\n  title  = {Random horizon principal--agent problem},\n  year   = {2020},\n  eprint = {2002.10982},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.PR}\n}\n",
+        "source_url": "https://arxiv.org/abs/2002.10982",
+        "theorem_or_result": "Provides a rigorous reduction of random-horizon continuous-time principal\u2013agent problems to a control (and stopping) problem in the agent\u2019s continuation utility, using BSDE methods and dynamic programming.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 8,
+        "connection": "Possama\u00ef\u2013Touzi rely on this reduction to justify the HJB/viscosity formulation with endogenous retirement and the face-lifted reward \n\\(F\\); it underpins any attempt to resolve finiteness of \n\\(y_{\\mathrm{gp}}\\) for \n\\(\\delta>1\\)."
+      },
+      {
+        "title": "Dynamic programming approach to principal\u2013agent problems",
+        "bibtex": "@article{CvitanicPossamaiTouzi2018DynamicProgrammingPA,\n  author  = {Cvitani{\\'{c}}, Jak{\\v{s}}a and Possama{\\\"{\\i}}, Dylan and Touzi, Nizar},\n  title   = {Dynamic programming approach to principal--agent problems},\n  journal = {Finance and Stochastics},\n  year    = {2018},\n  volume  = {22},\n  number  = {1},\n  pages   = {1--37},\n  doi     = {10.1007/s00780-017-0347-5}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00780-017-0347-5",
+        "theorem_or_result": "Develops a dynamic programming/BSDE framework for continuous-time principal\u2013agent problems, yielding HJB characterizations in the agent\u2019s continuation utility and verification arguments.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides core methodology used in later rigorous treatments (including random-horizon/endogenous stopping) needed to analyze the stopping region \n\\(\\{V=F\\}\\) and the Golden Parachute threshold."
+      },
+      {
+        "title": "On the smoothness of value functions and the existence of optimal strategies in diffusion models",
+        "bibtex": "@article{StruloviciSzydlowski2015Smoothness,\n  author  = {Strulovici, Bruno and Szydlowski, Marek},\n  title   = {On the smoothness of value functions and the existence of optimal strategies in diffusion models},\n  journal = {Journal of Economic Theory},\n  year    = {2015},\n  volume  = {159},\n  pages   = {1016--1055},\n  doi     = {10.1016/j.jet.2015.07.006}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.jet.2015.07.006",
+        "theorem_or_result": "Studies regularity of value functions and existence of optimal strategies in diffusion control problems relevant to continuous-time contracting; includes discussion of technical gaps in earlier continuous-time agency analyses.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Cited by Possama\u00ef\u2013Touzi as prior work addressing rigor/existence issues around Sannikov-type HJB/free-boundary solutions; informs the PDE/viscosity regularity needed to decide whether a finite \n\\(y_{\\mathrm{gp}}\\) exists."
+      },
+      {
+        "title": "Optimal stopping contract for public private partnerships under moral hazard",
+        "bibtex": "@article{HajjejHillairetMnif2019OptimalStoppingPPP,\n  author = {Hajjej, Imen and Hillairet, Christophe and Mnif, Mounir},\n  title  = {Optimal stopping contract for public private partnerships under moral hazard},\n  year   = {2019},\n  eprint = {1910.05538},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/1910.05538",
+        "theorem_or_result": "Analyzes a moral-hazard contracting model with an optimal stopping feature under differing discounting; provides verification conditions for optimal contracts with termination options.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "One of few works allowing risk-averse agents with different discount rates and stopping; offers related techniques and conditions, though not a direct resolution of finiteness/infinity of \n\\(y_{\\mathrm{gp}}\\) in Sannikov\u2019s model for \n\\(\\delta>1\\)."
+      },
+      {
+        "title": "A two-dimensional control problem arising from dynamic contracting theory",
+        "bibtex": "@article{DecampsVilleneuve2019TwoDimControl,\n  author  = {D{\\'{e}}camps, Jean-Paul and Villeneuve, St{\\'{e}}phane},\n  title   = {A two-dimensional control problem arising from dynamic contracting theory},\n  journal = {Finance and Stochastics},\n  year    = {2019},\n  volume  = {23},\n  number  = {1},\n  pages   = {1--28},\n  doi     = {10.1007/s00780-018-0375-2}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00780-018-0375-2",
+        "theorem_or_result": "Studies a related dynamic contracting problem leading to a two-dimensional stochastic control problem; emphasizes technical clarity and PDE/control methods.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides adjacent methodological insights for rigorous analysis of dynamic contracting HJBs with boundaries/free boundaries, relevant to understanding the stopping region structure in the Golden Parachute question."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.1045835,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1045835
+    "literature_total_cost_usd": 0.12354125,
+    "total_cost_usd": 0.22812475
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4226226337/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4226226337_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4226226337_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

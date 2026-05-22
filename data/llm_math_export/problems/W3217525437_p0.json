@@ -47,16 +47,104 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 10,
+    "synthesis": "The source paper\u2019s game-theoretic motivation leads to driftless, uniformly elliptic SDEs with discontinuous (often piecewise constant) diffusion coefficients, notably diagonal matrices arising from feedback diffusion controls. Existence of weak solutions in this regime is classical (e.g. via Krylov\u2019s uniformly elliptic theory and the Stroock\u2013Varadhan martingale problem framework), but uniqueness in law in dimensions \\(d>2\\) is not governed by a single sharp criterion comparable to the one-dimensional bounded-variation theory (Nakao) or the two-dimensional measurable-coefficient results (Krylov 1969) used in the paper\u2019s \\(n=2\\) analysis.\n\nKnown positive results toward weak uniqueness in higher dimensions typically impose additional regularity or structure: H\u00f6lder (or better) continuity of the diffusion matrix yields well-posed martingale problems (Bass\u2013Chen), while singular drifts can be handled under integrability assumptions when the diffusion is sufficiently regular/nondegenerate (Zvonkin; Veretennikov; Krylov\u2013R\u00f6ckner). These results, however, are not necessary-and-sufficient, and they do not cover the discontinuous, state-dependent, uniformly elliptic diffusion matrices (including diagonal, piecewise constant ones) that naturally appear in diffusion-control games.\n\nAccordingly, the open problem remains: to characterize, in \\(d>2\\), when the martingale problem for \\(\\tfrac12\\mathrm{tr}(a\\nabla^2)+b\\cdot\\nabla\\) with merely measurable coefficients is well-posed, and in particular to find sharp criteria for driftless uniformly elliptic SDEs with discontinuous \\(\\sigma\\). Promising directions suggested by the existing literature include identifying geometric/analytic conditions on discontinuity interfaces (e.g. transmission conditions for divergence/nondivergence form operators), developing invariance/Dirichlet-form criteria for uniqueness of associated Markov processes, and isolating special classes (such as diagonal diffusions with coordinatewise discontinuities) where PDE methods or coupling arguments might yield a complete characterization.",
+    "total_cost_usd": 0.09682225,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On It\u00f4\u2019s stochastic integral equations",
+        "bibtex": "@article{Krylov1969Ito,\n  author  = {Krylov, N. V.},\n  title   = {On It\\^{o}'s stochastic integral equations},\n  journal = {Theory of Probability and its Applications},\n  year    = {1969},\n  volume  = {14},\n  number  = {2},\n  pages   = {330--336}\n}\n",
+        "source_url": "https://doi.org/10.1137/1114030",
+        "theorem_or_result": "Establishes foundational existence/uniqueness-in-law results for certain multidimensional It\u00f4 SDEs with measurable coefficients under structural conditions; in particular provides a two-dimensional weak uniqueness theorem used in the source paper for the 2-player case.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Serves as a classical positive result on weak uniqueness for measurable coefficients in low dimension, highlighting the dimension-dependence that motivates the open problem for \\(d>2\\)."
+      },
+      {
+        "title": "Controlled Diffusion Processes",
+        "bibtex": "@book{Krylov1980Controlled,\n  author    = {Krylov, N. V.},\n  title     = {Controlled Diffusion Processes},\n  publisher = {Springer},\n  year      = {1980}\n}\n",
+        "source_url": "https://link.springer.com/book/10.1007/978-1-4612-6062-9",
+        "theorem_or_result": "Provides existence of weak solutions for uniformly elliptic SDEs with merely measurable coefficients (via martingale problem/PDE methods), a key tool for driftless uniformly elliptic dynamics with discontinuous diffusion.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Gives the baseline existence theory used in the source paper for the diagonal, uniformly elliptic diffusion matrix \\(D(t,x)\\); does not yield a sharp necessary-and-sufficient weak uniqueness characterization in \\(d>2\\)."
+      },
+      {
+        "title": "Multidimensional Diffusion Processes",
+        "bibtex": "@book{StroockVaradhan1979MDP,\n  author    = {Stroock, Daniel W. and Varadhan, S. R. S.},\n  title     = {Multidimensional Diffusion Processes},\n  publisher = {Springer},\n  year      = {1979}\n}\n",
+        "source_url": "https://link.springer.com/book/10.1007/978-3-642-61449-3",
+        "theorem_or_result": "Develops the martingale problem framework and links weak uniqueness to uniqueness for the associated martingale problem/generator; provides broad sufficient conditions and counterexamples for uniqueness in law.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Frames the open problem as seeking necessary-and-sufficient conditions for uniqueness of the martingale problem for generators \\(\\tfrac12\\mathrm{tr}(a\\nabla^2)+b\\cdot\\nabla\\) with measurable coefficients in \\(d>2\\), including uniformly elliptic but discontinuous \\(a\\)."
+      },
+      {
+        "title": "On strong solutions and explicit formulas for solutions of stochastic integral equations",
+        "bibtex": "@article{Veretennikov1981Strong,\n  author  = {Veretennikov, A. Yu.},\n  title   = {On strong solutions and explicit formulas for solutions of stochastic integral equations},\n  journal = {Mathematics of the USSR-Sbornik},\n  year    = {1981},\n  volume  = {39},\n  number  = {3},\n  pages   = {387--403}\n}\n",
+        "source_url": "https://doi.org/10.1070/SM1981v039n03ABEH001496",
+        "theorem_or_result": "Shows strong existence and uniqueness (hence weak uniqueness) for SDEs with bounded measurable drift and nondegenerate constant diffusion (and extensions), via Zvonkin-type transforms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Illustrates that for uniformly elliptic diffusions, adding regularity/structure (e.g. constant \\(\\sigma\\)) yields uniqueness in law even with merely measurable drift; however does not cover discontinuous state-dependent \\(\\sigma\\) in \\(d>2\\)."
+      },
+      {
+        "title": "A transformation of the phase space of a diffusion process that removes the drift",
+        "bibtex": "@article{Zvonkin1974Transform,\n  author  = {Zvonkin, A. K.},\n  title   = {A transformation of the phase space of a diffusion process that removes the drift},\n  journal = {Mathematics of the USSR-Sbornik},\n  year    = {1974},\n  volume  = {22},\n  number  = {1},\n  pages   = {129--149}\n}\n",
+        "source_url": "https://doi.org/10.1070/SM1974v022n01ABEH002294",
+        "theorem_or_result": "Introduces the Zvonkin transform removing irregular drift under nondegeneracy, leading to (strong/weak) uniqueness results for SDEs with singular drift.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Relevant as a key technique for weak uniqueness when \\(b\\) is merely measurable but \\(\\sigma\\) is sufficiently regular/nondegenerate; does not address the driftless but discontinuous \\(\\sigma\\) regime emphasized by the source paper."
+      },
+      {
+        "title": "Stochastic differential equations with H\u00f6lder continuous coefficients and supermartingale problems",
+        "bibtex": "@article{BassChen2005Holder,\n  author  = {Bass, Richard F. and Chen, Zhen-Qing},\n  title   = {Stochastic differential equations with H\\\"older continuous coefficients and supermartingale problems},\n  journal = {Annals of Probability},\n  year    = {2005},\n  volume  = {33},\n  number  = {2},\n  pages   = {703--734},\n  doi     = {10.1214/009117904000000937}\n}\n",
+        "source_url": "https://doi.org/10.1214/009117904000000937",
+        "theorem_or_result": "Provides weak uniqueness/well-posedness for martingale problems under H\u00f6lder continuity of the diffusion matrix (and related conditions), using analytic/probabilistic techniques.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Gives sharp-ish sufficient conditions beyond Lipschitz for weak uniqueness in \\(d\\ge 2\\), but still far from necessary-and-sufficient and does not cover discontinuous piecewise-constant \\(\\sigma\\) in \\(d>2\\)."
+      },
+      {
+        "title": "Strong solutions of stochastic equations with singular time dependent drift",
+        "bibtex": "@article{KrylovRockner2005Singular,\n  author  = {Krylov, N. V. and R\\\"ockner, Michael},\n  title   = {Strong solutions of stochastic equations with singular time dependent drift},\n  journal = {Probability Theory and Related Fields},\n  year    = {2005},\n  volume  = {131},\n  number  = {2},\n  pages   = {154--196},\n  doi     = {10.1007/s00440-004-0366-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00440-004-0366-0",
+        "theorem_or_result": "Establishes strong well-posedness (hence weak uniqueness) for SDEs with drift in \\(L^q_t L^p_x\\) under nondegeneracy and regularity of diffusion (often constant or sufficiently smooth).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Shows that for \\(d>2\\) one can obtain uniqueness in law under integrability conditions on \\(b\\) when \\(\\sigma\\) is regular; complements the source paper\u2019s focus on discontinuous \\(\\sigma\\) arising from feedback diffusion control."
+      },
+      {
+        "title": "On the pathwise uniqueness of solutions of one-dimensional stochastic differential equations",
+        "bibtex": "@article{Nakao1972Pathwise,\n  author  = {Nakao, S.},\n  title   = {On the pathwise uniqueness of solutions of one-dimensional stochastic differential equations},\n  journal = {Osaka Journal of Mathematics},\n  year    = {1972},\n  volume  = {9},\n  number  = {3},\n  pages   = {513--518}\n}\n",
+        "source_url": "https://projecteuclid.org/journals/osaka-journal-of-mathematics/volume-9/issue-3/On-the-pathwise-uniqueness-of-solutions-of-one-dimensional/ojm/1200692986",
+        "theorem_or_result": "Proves pathwise uniqueness for certain 1D SDEs with diffusion coefficients of bounded variation (including discontinuous piecewise constant), implying strong existence/uniqueness in 1D.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Explains why the oscillating Brownian motion (1D, piecewise constant \\(\\sigma\\)) used in the source paper is strongly well-posed; highlights the stark contrast with the multidimensional \\(d>2\\) case where such discontinuities can break weak uniqueness."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07032200000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07032200000000001
+    "literature_total_cost_usd": 0.09682225,
+    "total_cost_usd": 0.16714425
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3217525437/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3217525437_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3217525437_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

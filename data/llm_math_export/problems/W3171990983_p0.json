@@ -47,16 +47,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 7,
+    "synthesis": "The open problem asks whether the classical \\\\(1-1/e\\\\) selectability for rank-1 (\"choose at most one\") contention resolution in random order\u2014known under independent activeness\u2014extends to the substantially more delicate setting where activeness indicators satisfy strong negative correlation bounds for both \\\\(b=0\\\\) and \\\\(b=1\\\\). In the source paper, negative correlation arises naturally from dependent rounding (Gandhi--Khuller--Parthasarathy--Srinivasan), and the authors show that when the algorithm may choose the order (an ordered CRS), sorting by weight achieves \\\\(1-1/e\\\\) in expectation even though per-element guarantees can fail for correlation-agnostic schemes. They explicitly leave open whether random order can still guarantee \\\\(1-1/e\\\\) per element.\n\nPrior work of Lee and Singla establishes \\\\(1-1/e\\\\)-selectable random-order/online contention resolution for rank-1 matroids under independence, via ex-ante prophet inequalities, while Adamczyk and W\\l{}odarczyk develop broader random-order CRS theory with constant factors. These results do not directly apply under negative correlation, and the source paper provides evidence of a barrier: under certain negatively correlated constructions, any scheme that ignores correlation structure can degrade to \\\\(1/2\\\\)-selectability for individual elements. At present (given no forward-citation evidence supplied), there is no documented resolution of whether a \\\\(1-1/e\\\\)-selectable random-order CRS exists under the stated negative correlation property; the problem therefore appears to remain open.\n\nPromising directions include: (i) extending ex-ante prophet inequality techniques to distributions with negative dependence (possibly requiring new martingale or correlation-gap style bounds tailored to random arrival), (ii) identifying additional structural assumptions beyond (pairwise-to-setwise) negative correlation that are satisfied by dependent rounding outputs and are sufficient for \\\\(1-1/e\\\\) in random order, or (iii) proving an impossibility result by constructing a negatively correlated family (respecting the \\\\(b\\in\\{0,1\\}\\\\) inequalities) that forces any random-order stopping rule to lose a constant factor below \\\\(1-1/e\\\\).",
+    "total_cost_usd": 0.058968,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Optimal online contention resolution schemes via ex-ante prophet inequalities",
+        "bibtex": "@inproceedings{LeeSingla2018OptimalOnlineCRS,\n  title        = {Optimal online contention resolution schemes via ex-ante prophet inequalities},\n  author       = {Lee, E. and Singla, S.},\n  booktitle    = {26th Annual European Symposium on Algorithms (ESA 2018)},\n  year         = {2018}\n}\n",
+        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2018/9494/",
+        "theorem_or_result": "Introduces and analyzes random-order/online contention resolution schemes and shows a \\\\(1-1/e\\\\)-selectable random-order CRS for rank-1 matroids under independent activeness, via an ex-ante prophet inequality framework.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the baseline \\\\(1-1/e\\\\) guarantee in the independent case and the conceptual framework (ex-ante prophet inequalities) that the open problem asks to extend to negatively correlated activeness."
+      },
+      {
+        "title": "Random order contention resolution schemes",
+        "bibtex": "@inproceedings{AdamczykWlodarczyk2018RandomOrderCRS,\n  title        = {Random order contention resolution schemes},\n  author       = {Adamczyk, M. and W{\\l}odarczyk, M.},\n  booktitle    = {2018 IEEE 59th Annual Symposium on Foundations of Computer Science (FOCS)},\n  year         = {2018},\n  publisher    = {IEEE}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/8555076",
+        "theorem_or_result": "Develops general theory of random-order contention resolution schemes, primarily for matroid-type constraints, giving constant-factor selectability guarantees in random order.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supplies general random-order CRS machinery and benchmarks; helps situate what is known beyond rank-1 and highlights where correlation assumptions enter."
+      },
+      {
+        "title": "Dependent rounding and its applications to approximation algorithms",
+        "bibtex": "@article{GandhiKhullerParthasarathySrinivasan2006DependentRounding,\n  title   = {Dependent rounding and its applications to approximation algorithms},\n  author  = {Gandhi, R. and Khuller, S. and Parthasarathy, S. and Srinivasan, A.},\n  journal = {Journal of the ACM},\n  volume  = {53},\n  number  = {3},\n  pages   = {324--360},\n  year    = {2006}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/1147954.1147956",
+        "theorem_or_result": "Introduces dependent rounding with negative correlation properties: for rounded indicators \\\\(Z_e\\\\), joint events of the form \\\\(\\wedge_{e\\in S}(Z_e=b)\\\\) are upper-bounded by the product of marginals.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "This is the canonical source of the negative correlation property assumed in the open problem; it motivates why such correlations arise and what inequalities are available."
+      },
+      {
+        "title": "Attenuate locally, win globally: Attenuation-based frameworks for online stochastic matching with timeouts",
+        "bibtex": "@article{BrubachSankararamanSrinivasanXu2020Attenuate,\n  title   = {Attenuate locally, win globally: Attenuation-based frameworks for online stochastic matching with timeouts},\n  author  = {Brubach, Brian and Sankararaman, K. A. and Srinivasan, Aravind and Xu, Pan},\n  journal = {Algorithmica},\n  volume  = {82},\n  number  = {1},\n  pages   = {64--87},\n  year    = {2020}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s00453-019-00615-8",
+        "theorem_or_result": "Develops attenuation-based frameworks for online/offline stochastic matching with timeouts, yielding contention-resolution-like guarantees under certain models.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Provides techniques (attenuation, random-order analysis) that influence the 2022 paper and may be adaptable when studying rank-1 random-order CRS under correlation."
+      },
+      {
+        "title": "Improved Guarantees for Offline Stochastic Matching via new Ordered Contention Resolution Schemes",
+        "bibtex": "@inproceedings{BrubachGrammelMaSrinivasan2021ImprovedGuarantees,\n  title     = {Improved Guarantees for Offline Stochastic Matching via new Ordered Contention Resolution Schemes},\n  author    = {Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume    = {34},\n  year      = {2021},\n  eprint    = {2106.06892},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS}\n}\n",
+        "source_url": "https://arxiv.org/abs/2106.06892",
+        "theorem_or_result": "Gives a \\\\(1-1/e\\\\)-selectable ordered CRS for rank-1 matroids under the negative correlation property when the algorithm may choose the order; leaves open whether the same is possible in random order.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the originating paper that formulates the open question: extend \\\\(1-1/e\\\\) selectability from ordered (chosen order) to random-order under negative correlation."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0425565,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0425565
+    "literature_total_cost_usd": 0.058968,
+    "total_cost_usd": 0.10152449999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3171990983/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3171990983_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3171990983_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

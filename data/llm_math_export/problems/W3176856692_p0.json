@@ -47,16 +47,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Berahas--Curtis--O'Neill--Robinson, 2023) develops a stochastic SQP method for equality constraints with potentially rank-deficient Jacobians, using a Byrd--Omojokun-style normal/tangential decomposition and an exact-penalty merit \\(\\phi(x,\\tau)=\\tau f(x)+\\|c(x)\\|_2\\). Their convergence analysis splits into regimes depending on the behavior of the adaptive merit parameter \\(\\tau_k\\). When \\(\\tau_k\\) stabilizes at a sufficiently small positive value, they obtain expected decrease bounds for a model reduction \\(\\Delta \\ell\\) and derive asymptotic stationarity measures involving \\(\\|J(x_k)^T c(x_k)\\|\\) and a reduced-gradient term \\(\\|Z_k^T\\nabla f(x_k)\\|\\). When \\(\\tau_k\\to 0\\), they show the method transitions toward minimizing constraint violation \\(\\varphi(x)=\\|c(x)\\|\\), proving \\(\\liminf_k \\|J(x_k)^T c(x_k)\\|=0\\) under an additional deterministic boundedness assumption on the stochastic gradient errors.\n\nThe open difficulty is precisely the complementary event \\(E_{\\tau,\\mathrm{zero,bad}}\\): \\(\\tau_k\\to 0\\) while \\(\\sup_k\\|g_k-\\nabla f(x_k)\\|=\\infty\\). In this regime, the merit update (which compares predicted constraint reduction against a noisy objective model term) can be repeatedly perturbed by rare but arbitrarily large gradient-estimation errors, undermining the key inequalities used to bound constraint decrease (e.g., the bounds controlling terms like \\(\\alpha_k\\tau_k(\\nabla f(x_k)-g_k)^T d_k\\)). Existing related work either assumes LICQ and/or enforces accuracy control (e.g., Na--Anitescu--Kolar, 2021) or provides deterministic rank-deficient foundations (Curtis--Nocedal--W{\"a}chter, 2009) that do not address unbounded stochastic errors.\n\nAt present, there is no forward-citation evidence (none provided) of a paper resolving \\(E_{\\tau,\\mathrm{zero,bad}}\\). Promising directions suggested by the structure of the source analysis include: (i) replacing the deterministic boundedness requirement with high-probability or almost-sure control via robustification (e.g., gradient clipping or median-of-means estimators) so that the effective noise entering the merit update is uniformly bounded; (ii) modifying the merit-parameter update to depend on truncated/filtered objective-model terms so that large \\(\\|g_k\\|\\) events cannot dominate when \\(\\tau_k\\) is small; and (iii) developing a supermartingale argument directly for \\(\\varphi(x_k)\\) that treats the objective-related stochastic terms as summable perturbations when \\(\\tau_k\\to 0\\), possibly under tail assumptions (sub-exponential/sub-Weibull) rather than uniform boundedness. These directions would aim to recover an asymptotic feasibility-stationarity guarantee such as \\(\\liminf_{k\\to\\infty}\\|J(x_k)^T c(x_k)\\|_2=0\\) even when gradient errors are unbounded but sufficiently rare or sufficiently integrable.",
+    "total_cost_usd": 0.1336405,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A Stochastic Sequential Quadratic Optimization Algorithm for Nonlinear Equality Constrained Optimization with Rank-Deficient Jacobians",
+        "bibtex": "@article{BerahasCurtisONeillRobinson2023StochasticSQPRankDeficient,\n  title        = {A Stochastic Sequential Quadratic Optimization Algorithm for Nonlinear Equality Constrained Optimization with Rank-Deficient Jacobians},\n  author       = {Berahas, Albert S. and Curtis, Frank E. and O'Neill, Michael J. and Robinson, Daniel P.},\n  year         = {2023},\n  journal      = {arXiv preprint},\n  eprint       = {2106.13015},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2106.13015}\n}\n",
+        "source_url": "https://arxiv.org/abs/2106.13015",
+        "theorem_or_result": "Introduces a stochastic SQP method with normal/tangential step decomposition and an exact-penalty merit \u000e\\(\\phi(x,\\tau)=\\tau f(x)+\\|c(x)\\|_2\\), allowing rank-deficient Jacobians. Proves convergence in expectation under several regimes: (i) constant sufficiently small \\(\\tau_k\\) leading to primal-dual-type stationarity measures; (ii) vanishing \\(\\tau_k\\to 0\\) with an added deterministic boundedness assumption on gradient errors, yielding \\(\\liminf_k\\|J(x_k)^T c(x_k)\\|_2=0\\). Explicitly identifies the open event \\(E_{\\tau,\\mathrm{zero,bad}}\\) where \\(\\tau_k\\to 0\\) and stochastic gradient errors diverge.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: extend the vanishing-merit analysis to the case where \\(\\tau_k\\to 0\\) but \\(\\sup_k\\|g_k-\\nabla f(x_k)\\|_2=\\infty\\). It provides the algorithmic structure, notation, and the existing convergence proof that breaks without bounded gradient errors."
+      },
+      {
+        "title": "Sequential Quadratic Optimization for Nonlinear Equality Constrained Stochastic Optimization",
+        "bibtex": "@article{BerahasCurtisRobinsonZhou2021StochasticSQP,\n  title   = {Sequential Quadratic Optimization for Nonlinear Equality Constrained Stochastic Optimization},\n  author  = {Berahas, Albert S. and Curtis, Frank E. and Robinson, Daniel P. and Zhou, Baoyu},\n  journal = {SIAM Journal on Optimization},\n  volume  = {31},\n  number  = {2},\n  pages   = {1352--1379},\n  year    = {2021},\n  doi     = {10.1137/20M1342903},\n  url     = {https://doi.org/10.1137/20M1342903}\n}\n",
+        "source_url": "https://doi.org/10.1137/20M1342903",
+        "theorem_or_result": "Develops a stochastic SQP framework for equality-constrained stochastic optimization under LICQ (constraint Jacobians uniformly full row rank). Establishes expected convergence to stationarity measures for the constrained problem using an exact-penalty merit and step decomposition, but does not address rank-deficient Jacobians or the \\(\\tau_k\\to 0\\) regime with unbounded gradient noise.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the predecessor analysis techniques (merit parameter updates, model decrease, expected descent) that the 2023 paper generalizes. It does not resolve the open event \\(E_{\\tau,\\mathrm{zero,bad}}\\) but is key background for how bounded-variance noise is handled when \\(\\tau_k\\) stays bounded away from 0."
+      },
+      {
+        "title": "A matrix-free algorithm for equality constrained optimization problems with rank deficient Jacobians",
+        "bibtex": "@article{CurtisNocedalWachter2009MatrixFreeRankDeficient,\n  title   = {A matrix-free algorithm for equality constrained optimization problems with rank deficient Jacobians},\n  author  = {Curtis, Frank E. and Nocedal, Jorge and W{\"a}chter, Andreas},\n  journal = {SIAM Journal on Optimization},\n  volume  = {20},\n  number  = {3},\n  pages   = {1224--1249},\n  year    = {2009},\n  doi     = {10.1137/080724863},\n  url     = {https://doi.org/10.1137/080724863}\n}\n",
+        "source_url": "https://doi.org/10.1137/080724863",
+        "theorem_or_result": "Presents a deterministic matrix-free SQP/trust-region framework for equality-constrained optimization that remains well-defined with rank-deficient Jacobians, using normal/tangential decomposition and Krylov methods. Proves global convergence to feasibility-stationarity measures such as \\(\\|J(x_k)^T c(x_k)\\|\\to 0\\) under appropriate conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies deterministic rank-deficient Jacobian techniques (normal step Cauchy decrease, tangential step in \\(\\mathrm{Null}(J_k)\\)) that underpin the stochastic algorithm. However, it does not treat stochastic gradients or vanishing-merit/noise-divergence interactions."
+      },
+      {
+        "title": "An adaptive stochastic sequential quadratic programming with differentiable exact augmented Lagrangians",
+        "bibtex": "@article{NaAnitescuKolar2021AdaptiveStochasticSQP,\n  title        = {An adaptive stochastic sequential quadratic programming with differentiable exact augmented Lagrangians},\n  author       = {Na, Sen and Anitescu, Mihai and Kolar, Mladen},\n  year         = {2021},\n  journal      = {arXiv preprint},\n  eprint       = {2102.05320},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2102.05320}\n}\n",
+        "source_url": "https://arxiv.org/abs/2102.05320",
+        "theorem_or_result": "Proposes an adaptive stochastic SQP method using differentiable exact augmented Lagrangians and a line-search-like mechanism that may require increasingly accurate stochastic gradients. Assumes LICQ at iterates and focuses on convergence under controlled stochasticity.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Represents an alternative stochastic SQP line that avoids vanishing-merit exact-penalty behavior by using augmented Lagrangians and accuracy control. It does not address rank deficiency nor the regime \\(\\tau_k\\to 0\\) with diverging gradient errors, but suggests that controlling gradient accuracy is one way to preclude \\(E_{\\tau,\\mathrm{zero,bad}}\\)."
+      },
+      {
+        "title": "Stochastic subgradient method converges on tame functions",
+        "bibtex": "@article{DavisDrusvyatskiyKakade2020TameSSM,\n  title   = {Stochastic subgradient method converges on tame functions},\n  author  = {Davis, Damek and Drusvyatskiy, Dmitriy and Kakade, Sham},\n  journal = {Foundations of Computational Mathematics},\n  volume  = {20},\n  pages   = {119--154},\n  year    = {2020},\n  doi     = {10.1007/s10208-019-09423-2},\n  url     = {https://doi.org/10.1007/s10208-019-09423-2}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10208-019-09423-2",
+        "theorem_or_result": "Establishes convergence of the stochastic subgradient method for broad classes of nonsmooth nonconvex (tame/definable) objectives under standard step-size and noise assumptions, using tools such as supermartingale arguments and stability properties.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Provides general stochastic-approximation machinery that might be adapted to analyze constraint-violation minimization \\(\\varphi(x)=\\|c(x)\\|\\) when the algorithm effectively behaves like a stochastic method on \\(\\varphi\\). However, it does not directly handle the coupled merit-parameter update and unbounded gradient noise in \\(E_{\\tau,\\mathrm{zero,bad}}\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.10986499999999999,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10986499999999999
+    "literature_total_cost_usd": 0.1336405,
+    "total_cost_usd": 0.24350549999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3176856692/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3176856692_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3176856692_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

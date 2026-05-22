@@ -49,16 +49,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The forward-citation list was not provided, so the review is necessarily grounded in the source paper and its cited prior work. The source establishes doubly-exponential convergence in the single-item prophet inequality via block thresholds, and gives only preliminary combinatorial-auction extensions: block-consistent prices achieve O(\\log(1/\u03b5)) competition complexity for XOS/submodular valuations, while static prices require O(1/\u03b5). The paper explicitly leaves open whether fully dynamic posted prices can improve this to \u0398(\\log\\log(1/\u03b5)) in combinatorial auctions.\n\nBased on the current information, the problem remains open. Progress likely requires new structural characterizations of optimal dynamic pricing in combinatorial auctions (analogous to the block-threshold optimality in the single-item case) or new stochastic-dominance/duality arguments that can exploit adaptivity across blocks while respecting item competition and complement-free valuations.",
+    "total_cost_usd": 0.068061,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "The Competition Complexity of Prophet Inequalities",
+        "bibtex": "@article{BrustleEtAl2024CompetitionComplexityProphetInequalities,\n  title        = {The Competition Complexity of Prophet Inequalities},\n  author       = {Brustle, Johannes and Correa, Jos{\\'e} and D{\\\"u}tting, Paul and Ezra, Tomer and Feldman, Michal and Verdugo, Victor},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2402.11084},\n  eprint       = {2402.11084},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}\n",
+        "source_url": "https://arxiv.org/abs/2402.11084",
+        "theorem_or_result": "Introduces the \u001a(1-\u001a\u03b5)-competition complexity benchmark for prophet inequalities under resource augmentation. Proves \u001a\u0398(\\log\\log(1/\u03b5)) blocks suffice for single-item prophet inequalities via block thresholds, but for XOS/submodular combinatorial auctions only achieves \u001aO(\\log(1/\u03b5)) with block-consistent prices and \u001aO(1/\u03b5) with static prices; explicitly leaves open whether fully dynamic posted prices can achieve \u001a\u0398(\\log\\log(1/\u03b5)) in combinatorial auctions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: whether dynamic posted-pricing in XOS/submodular combinatorial auctions can match the doubly-exponential convergence (competition complexity \u001a\u0398(\\log\\log(1/\u03b5))) known for the single-item prophet setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.073395,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.073395
+    "literature_total_cost_usd": 0.068061,
+    "total_cost_usd": 0.141456
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408830023/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4408830023_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4408830023_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

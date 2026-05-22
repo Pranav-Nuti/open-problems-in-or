@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The robust subset-uncertainty transport problem is introduced and analyzed in Koike\u2013Lin\u2013Wang (2024) in the homogeneous, symmetric-uncertainty setting. When \\(F\\) is \\(n\\)-completely mixable, joint mixes exist and are optimal for the classical (non-robust) Monge\u2013Kantorovich objective \\(\\mathbb E[f(\\sum_{i=1}^n X_i)]\\) for convex \\(f\\) (Wang\u2013Wang 2016). Under subset uncertainty, Koike\u2013Lin\u2013Wang show that for quadratic cost \\(f(x)=x^2\\) the robust objective is minimized by exchangeable negatively correlated joint mixes with correlation matrix having off-diagonal entries \\(-1/(n-1)\\) (Theorems 4\u20135), leveraging symmetry of \\(\\mathcal M\\) and exchangeabilization arguments.\n\nFor general convex \\(f\\), however, the paper explicitly leaves open whether some exchangeable joint mix remains robustly optimal under symmetric uncertainty sets \\(\\mathcal M\\). Existing foundational works provide ingredients but not a resolution: joint mixability theory explains why constant-sum couplings are optimal for convex functions of the full sum, while multi-marginal OT theory supplies tools for symmetric costs, but the robust \\(\\sup_{\\mu\\in\\mathcal M}\\) over subset-indexed costs introduces a max-type nonlinearity that breaks the direct Jensen argument. At present there is no forward-citation evidence of a solution, so the problem remains open; progress likely requires either identifying classes of convex \\(f\\) and symmetric \\(\\mathcal M\\) for which exchangeable joint mixes are minimax optimal, or constructing counterexamples where non-joint-mix couplings outperform all exchangeable joint mixes under worst-case subset selection.",
+    "total_cost_usd": 0.0780815,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Joint mixability and notions of negative dependence",
+        "bibtex": "@article{KoikeLinWang2024JointMixability,\n  title        = {Joint mixability and notions of negative dependence},\n  author       = {Koike, Takaaki and Lin, Liyuan and Wang, Ruodu},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2204.11438},\n  eprint       = {2204.11438},\n  archivePrefix= {arXiv},\n  primaryClass = {math.ST}\n}\n",
+        "source_url": "https://arxiv.org/abs/2204.11438",
+        "theorem_or_result": "Formulates the robust subset-uncertainty multi-marginal transport problem \\(\\inf_X \\sup_{\\mu\\in\\mathcal M}\\sum_{K\\subseteq[n]}\\mathbb E[f(S_K(X))]\\mu(K)\\) and proves optimality of exchangeable NCD joint mixes for quadratic cost \\(f(x)=x^2\\) when \\(F\\) is \\(n\\)-completely mixable and \\(\\mathcal M\\) is symmetric (Theorems 4\u20135). It explicitly leaves open whether an exchangeable joint mix is optimal for general convex \\(f\\) under symmetric uncertainty (Open Question 4).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing exactly the open problem: extend the quadratic-cost optimality of exchangeable joint mixes under symmetric subset uncertainty to general convex costs, or characterize when such optimality holds."
+      },
+      {
+        "title": "Maxmin expected utility with non-unique prior",
+        "bibtex": "@article{GilboaSchmeidler1989Maxmin,\n  title   = {Maxmin expected utility with non-unique prior},\n  author  = {Gilboa, Itzhak and Schmeidler, David},\n  journal = {Journal of Mathematical Economics},\n  volume  = {18},\n  number  = {2},\n  pages   = {141--153},\n  year    = {1989},\n  doi     = {10.1016/0304-4068(89)90018-9}\n}\n",
+        "source_url": "https://doi.org/10.1016/0304-4068(89)90018-9",
+        "theorem_or_result": "Introduces the maxmin expected utility criterion \\(\\max_{a}\\min_{p\\in\\mathcal P} \\mathbb E_p[u(a)]\\), providing the decision-theoretic foundation for robust optimization via \\(\\sup_{\\mu\\in\\mathcal M}\\) over a set of priors.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides the conceptual justification for taking a worst case over subset-selection measures \\(\\mu\\in\\mathcal M\\) in the robust transport objective, but does not address joint mixability or convex-cost optimality."
+      },
+      {
+        "title": "Joint mixability",
+        "bibtex": "@article{WangWang2016JointMixability,\n  title   = {Joint mixability},\n  author  = {Wang, Bo and Wang, Ruodu},\n  journal = {Mathematics of Operations Research},\n  volume  = {41},\n  number  = {3},\n  pages   = {808--826},\n  year    = {2016},\n  doi     = {10.1287/moor.2015.0774}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2015.0774",
+        "theorem_or_result": "Develops the theory of joint mixability and shows that when a joint mix exists, it minimizes \\(\\mathbb E[f(\\sum_{i=1}^n X_i)]\\) for convex \\(f\\) (and is essentially characterized by strict convexity). Provides necessary conditions such as \\(2\\max_i \\sigma_i \\le \\sum_i \\sigma_i\\) for existence of a joint mix.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supplies the baseline (non-robust, no subset uncertainty) convex-cost optimality of joint mixes, which motivates asking whether joint-mix optimality persists under subset uncertainty and worst-case \\(\\mu\\)."
+      },
+      {
+        "title": "Extremal dependence concepts",
+        "bibtex": "@article{PuccettiWang2015Extremal,\n  title   = {Extremal dependence concepts},\n  author  = {Puccetti, Giovanni and Wang, Ruodu},\n  journal = {Statistical Science},\n  volume  = {30},\n  number  = {4},\n  pages   = {485--517},\n  year    = {2015},\n  doi     = {10.1214/15-STS527}\n}\n",
+        "source_url": "https://doi.org/10.1214/15-STS527",
+        "theorem_or_result": "Surveys extremal positive/negative dependence, including complete/joint mixability and countermonotonicity, and connects them to optimization of convex functionals of sums and risk aggregation bounds.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides broader context and tools around joint mixability as extremal negative dependence and its role in convex optimization, but does not treat the robust subset-uncertainty objective."
+      },
+      {
+        "title": "Centers of probability measures without the mean",
+        "bibtex": "@article{PuccettiRigoWangWang2019Centers,\n  title   = {Centers of probability measures without the mean},\n  author  = {Puccetti, Giovanni and Rigo, Pietro and Wang, Bingyan and Wang, Ruodu},\n  journal = {Journal of Theoretical Probability},\n  volume  = {32},\n  number  = {3},\n  pages   = {1482--1501},\n  year    = {2019},\n  doi     = {10.1007/s10959-018-0855-9}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10959-018-0855-9",
+        "theorem_or_result": "Shows that for \\(n\\)-completely mixable \\(F\\), there exists an exchangeable joint mix with marginals \\(F\\) (and studies centers beyond the mean).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Ensures feasibility of restricting attention to exchangeable joint mixes when \\(F\\) is \\(n\\)-completely mixable, a key structural ingredient in the open problem."
+      },
+      {
+        "title": "Multi-marginal optimal transport: Theory and applications",
+        "bibtex": "@article{Pass2015MultiMarginal,\n  title   = {Multi-marginal optimal transport: Theory and applications},\n  author  = {Pass, Brendan},\n  journal = {ESAIM: Mathematical Modelling and Numerical Analysis},\n  volume  = {49},\n  number  = {6},\n  pages   = {1771--1790},\n  year    = {2015},\n  doi     = {10.1051/m2an/2015053}\n}\n",
+        "source_url": "https://doi.org/10.1051/m2an/2015053",
+        "theorem_or_result": "Surveys multi-marginal optimal transport, including structure/uniqueness for costs depending on sums and repulsive costs, and links to convexity and symmetry considerations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Gives OT background relevant to interpreting the robust problem as a multi-marginal transport with a family of costs indexed by subsets, but does not resolve the convex-cost robust optimality question."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.05926200000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.05926200000000001
+    "literature_total_cost_usd": 0.0780815,
+    "total_cost_usd": 0.1373435
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391315199/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4391315199_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4391315199_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

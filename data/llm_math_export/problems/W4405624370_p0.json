@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper (Li\u2013Ma\u2013Srivastava, 2024) proposes RADMM for the split manifold problem \\(\\min\\{f(x)+g(y):x\\in\\mathcal M,\\ Ax-y=0\\}\\) by replacing the convex nonsmooth term \\(g\\) with its Moreau envelope \\(g_\\gamma\\), which makes the \\(z\\)-block smooth and enables a descent analysis of an augmented Lagrangian with explicit updates. Their complexity bound \\(O(\\varepsilon^{-4})\\) hinges on smoothness of \\(g_\\gamma\\) (in particular, \\(\\nabla g_\\gamma\\) being \\(1/\\gamma\\)-Lipschitz) and on identities such as \\(\\nabla g_\\gamma(z^{k+1})=\\lambda^{k+1}\\), which are used to control dual increments by primal increments.\n\nIn contrast, earlier unsmoothed ADMM-like splittings on manifolds\u2014SOC (Lai\u2013Osher) and MADMM (Kovnatsky et al.)\u2014already alternate between a manifold step and a proximal step for \\(g\\), but they lack general convergence guarantees in the nonconvex-manifold/nonsmooth-objective regime. The most relevant rigorous nonsmooth Riemannian baselines without smoothing are ManPG (Chen et al.), which achieves complexity guarantees via a tangent-space proximal-gradient subproblem, and proximal-ADMM frameworks on manifolds (Zhang\u2013Ma\u2013Zhang) that prove complexity under structural restrictions that do not cover the two-block split where the manifold block and the nonsmooth block are separated exactly as in \\(Ax-y=0\\).\n\nConsequently, the specific open problem\u2014designing and analyzing an ADMM-type method that directly handles \\(g\\) (no Moreau smoothing) for \\(\\min_{x\\in\\mathcal M} f(x)+g(Ax)\\) with rigorous convergence to an appropriate stationarity notion\u2014appears to remain open at the level of generality posed in the source paper. Promising directions suggested by the existing analyses include: (i) importing nonconvex nonsmooth ADMM theory (e.g., via KL property / prox-regularity) while carefully handling the manifold block through retraction-smoothness and tangent projections, and (ii) designing a Riemannian proximal-ADMM step for the \\(x\\)-block (rather than a pure gradient step) to recover a descent inequality without needing \\(\\nabla g_\\gamma\\) to control the dual sequence.",
+    "total_cost_usd": 0.07879900000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A Riemannian Alternating Direction Method of Multipliers",
+        "bibtex": "@article{LiMaSrivastava2024RADMM,\n  title={A Riemannian Alternating Direction Method of Multipliers},\n  author={Li, Jiaxiang and Ma, Shiqian and Srivastava, Tejes},\n  journal={Mathematics of Operations Research},\n  year={2024},\n  doi={10.1287/moor.2023.0068},\n  note={Articles in Advance}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2023.0068",
+        "theorem_or_result": "Introduces RADMM for \n\\(\\min_{x\\in\\mathcal M} f(x)+g(Ax)\\) by smoothing the convex nonsmooth term via the Moreau envelope \\(g_\\gamma\\), yielding explicit updates (retraction step for \\(x\\), proximal step for \\(g\\)) and an iteration complexity bound of order \\(O(\\varepsilon^{-4})\\) for an \\(\\varepsilon\\)-stationary point under compactness and Lipschitz assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: design an ADMM-type method for the original unsmoothed composite problem on manifolds, i.e., avoid replacing \\(g\\) by \\(g_\\gamma\\) while retaining rigorous convergence guarantees."
+      },
+      {
+        "title": "A Manifold Proximal Gradient Method for Nonsmooth Optimization Over the Stiefel Manifold",
+        "bibtex": "@article{ChenHanLiZhang2020ManPG,\n  title={A Manifold Proximal Gradient Method for Nonsmooth Optimization Over the Stiefel Manifold},\n  author={Chen, Jianxin and Han, Deren and Li, Huan and Zhang, Xiaoqun},\n  journal={SIAM Journal on Optimization},\n  year={2020}\n}\n",
+        "source_url": "https://epubs.siam.org",
+        "theorem_or_result": "Proposes ManPG for problems of the form \\(\\min_{x\\in\\mathcal M} f(x)+g(Ax)\\) (not ADMM), using a tangent-space proximal-gradient subproblem and retraction; establishes iteration complexity to an \\(\\varepsilon\\)-stationary point under Lipschitz-type assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides a baseline nonsmooth Riemannian method without smoothing \\(g\\); its stationarity notions and analysis techniques are relevant ingredients for proving convergence of an unsmoothed Riemannian ADMM."
+      },
+      {
+        "title": "MADMM: a generic algorithm for non-smooth optimization on manifolds",
+        "bibtex": "@inproceedings{KovnatskyGlashoffBronsteinBresson2016MADMM,\n  title={MADMM: a generic algorithm for non-smooth optimization on manifolds},\n  author={Kovnatsky, Artiom and Glashoff, Klaus and Bronstein, Michael M. and Bresson, Xavier},\n  booktitle={European Conference on Computer Vision Workshops},\n  year={2016}\n}\n",
+        "source_url": "https://arxiv.org",
+        "theorem_or_result": "Introduces a manifold ADMM heuristic for split problems with one manifold-constrained block and one nonsmooth block, using a Riemannian solver for the manifold subproblem and Euclidean proximal steps for the nonsmooth term; no general convergence theory provided.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Directly targets the unsmoothed split formulation \\(\\min f(x)+g(y)\\) s.t. \\(Ax-y=0, x\\in\\mathcal M\\), but lacks rigorous convergence guarantees\u2014precisely the gap in the open problem."
+      },
+      {
+        "title": "An efficient method for minimizing orthogonality constrained problems",
+        "bibtex": "@article{LaiOsher2013SOC,\n  title={An efficient method for minimizing orthogonality constrained problems},\n  author={Lai, Rongjie and Osher, Stanley},\n  journal={SIAM Journal on Scientific Computing},\n  year={2013}\n}\n",
+        "source_url": "https://epubs.siam.org",
+        "theorem_or_result": "Proposes splitting orthogonality constraints (SOC), an ADMM-like splitting that alternates an unconstrained (possibly nonsmooth) Euclidean step with projection onto the manifold; convergence theory is not established in the general nonsmooth setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "SOC is an early unsmoothed splitting approach separating manifold projection from nonsmooth terms; it motivates unsmoothed Riemannian ADMM designs but does not provide the desired rigorous guarantees."
+      },
+      {
+        "title": "A Proximal Alternating Direction Method of Multipliers for Nonsmooth Optimization on Riemannian Manifolds",
+        "bibtex": "@article{ZhangMaZhang2021ProxADMMManifold,\n  title={A Proximal Alternating Direction Method of Multipliers for Nonsmooth Optimization on Riemannian Manifolds},\n  author={Zhang, Jun and Ma, Shiqian and Zhang, Yin},\n  journal={Journal of Optimization Theory and Applications},\n  year={2021}\n}\n",
+        "source_url": "https://link.springer.com",
+        "theorem_or_result": "Studies a multi-block proximal ADMM framework with some manifold-constrained blocks and nonsmooth terms, proving iteration complexity to an \\(\\varepsilon\\)-stationary point under structural assumptions (notably restrictions on which blocks can be nonsmooth/manifold-constrained).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Closest existing convergence theory for ADMM-like methods with manifold constraints, but its structural assumptions exclude the two-block split where one block is manifold-constrained and the other carries the nonsmooth term, matching the open problem\u2019s setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06972175,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06972175
+    "literature_total_cost_usd": 0.07879900000000001,
+    "total_cost_usd": 0.14852075
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405624370/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4405624370_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4405624370_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

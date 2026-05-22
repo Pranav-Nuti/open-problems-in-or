@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 6,
+    "synthesis": "The open problem arises in the local \\L ojasiewicz/error-bound analysis of the vanishing-noise SDE \\(dX(t)=-\\nabla f(X(t))dt+\\sigma(t,X(t))dW(t)\\) in Maul\\'en--Fadili--Attouch. After localizing the process on high-probability events \\(\\Omega_\\delta\\) via Egorov-type arguments, the expected objective gap or squared distance to the minimizer set is shown to satisfy a differential inequality that reduces to a scalar comparison equation \\(y'(t)=-a y(t)^b+p_\\delta(t)\\) with \\(b>1\\) and forcing \\(p_\\delta(t)\\) of the same order as \\(\\sigma_\\infty(t)^2\\). The conjectured \u201csharp\u201d implication is that if \\(p_\\delta(t)=O((t+1)^{-b/(b-1)})\\), then the solution decays as \\(y(t)=O((t+1)^{-1/(b-1)})\\), uniformly with respect to the localization parameters \\(\\delta\\) and \\(\\hat t_\\delta\\).\n\nExisting literature provides the deterministic backbone (error bounds \\(\\Leftrightarrow\\) \\L ojasiewicz inequalities for convex functions and resulting unforced decay laws) and the stochastic convergence context for vanishing-noise gradient-like flows (APT/WAPT methods and cooling SDE results). However, none of these works appears to directly settle the forced nonlinear comparison-ODE rate in the uniform-in-\\(\\delta\\) form required by the localization scheme. Consequently, the conjecture remains open; progress likely requires refined comparison principles for \\(y'=-a y^b+p(t)\\) at the critical forcing exponent \\(p(t)\\asymp t^{-b/(b-1)}\\), with careful tracking of constants to ensure uniformity in the random localization horizon \\(\\hat t_\\delta\\).",
+    "total_cost_usd": 0.10302425,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "An SDE Perspective on Stochastic Convex Optimization",
+        "bibtex": "@article{MaulenFadiliAttouch2025SDEPerspective,\n  title        = {An {SDE} Perspective on Stochastic Convex Optimization},\n  author       = {Maul{\\'e}n, Rodrigo and Fadili, Jalal M. and Attouch, Hedy},\n  year         = {2025},\n  journal      = {Mathematics of Operations Research},\n  note         = {In press. HAL preprint: hal-04789071v1},\n  url          = {https://hal.science/hal-04789071v1}\n}\n",
+        "source_url": "https://hal.science/hal-04789071v1",
+        "theorem_or_result": "Introduces the comparison ODE \\,\\(y'(t)=-a y(t)^b+p_\\delta(t)\\) arising from localization (Egorov) in SDE analysis under local \\L ojasiewicz/error-bound conditions, and formulates Conjecture 4.11 predicting that if \\(p_\\delta(t)=O(\\sigma_\\infty(t)^2)\\) with \\(\\sigma_\\infty(t)^2=O((t+1)^{-b/(b-1)})\\), then \\(y(t)=O((t+1)^{-1/(b-1)})\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source of the open problem: proving sharp decay rates for the nonlinear comparison ODE uniformly in localization parameters \\(\\delta,\\hat t_\\delta\\)."
+      },
+      {
+        "title": "From error bounds to the complexity of first-order descent methods for convex functions",
+        "bibtex": "@article{BolteNguyenPeypouquetSuter2016ErrorBounds,\n  title   = {From error bounds to the complexity of first-order descent methods for convex functions},\n  author  = {Bolte, J{\\'e}r{\\^o}me and Nguyen, Trong Phong and Peypouquet, Juan and Suter, Bruce W.},\n  journal = {Mathematical Programming},\n  year    = {2016},\n  volume  = {165},\n  pages   = {471--507}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-016-0996-2",
+        "theorem_or_result": "Establishes equivalences between error bounds and \\L ojasiewicz-type inequalities for convex functions and derives complexity rates for deterministic first-order methods via differential inequalities of the form \\(y'\\le -c y^b\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides deterministic comparison-ODE techniques and the convex error-bound/\\L ojasiewicz framework that motivates the stochastic localized inequalities leading to \\(y'(t)=-a y(t)^b+p_\\delta(t)\\)."
+      },
+      {
+        "title": "On the convergence of gradient-like flows with noisy gradient input",
+        "bibtex": "@article{MertikopoulosStaudigl2018NoisyGradientFlows,\n  title   = {On the convergence of gradient-like flows with noisy gradient input},\n  author  = {Mertikopoulos, Panayotis and Staudigl, Mathias},\n  journal = {SIAM Journal on Optimization},\n  year    = {2018},\n  volume  = {28},\n  number  = {1},\n  pages   = {163--197},\n  doi     = {10.1137/16M1108232}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/16M1108232",
+        "theorem_or_result": "Studies continuous-time gradient-like dynamics with stochastic perturbations and establishes almost sure convergence under vanishing noise conditions using asymptotic pseudo-trajectory ideas.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Contextual background for SDE-based optimization and vanishing-noise assumptions; does not resolve the sharp forced nonlinear ODE decay but motivates comparison arguments."
+      },
+      {
+        "title": "Cooling down stochastic differential equations: Almost sure convergence",
+        "bibtex": "@article{DereichKassing2021CoolingDown,\n  title   = {Cooling down stochastic differential equations: Almost sure convergence},\n  author  = {Dereich, Steffen and Kassing, Sebastian},\n  year    = {2021},\n  note    = {arXiv:2106.03510},\n  eprint  = {2106.03510},\n  archivePrefix = {arXiv}\n}\n",
+        "source_url": "https://arxiv.org/abs/2106.03510",
+        "theorem_or_result": "Analyzes SDEs with square-integrable (cooling) noise and proves almost sure convergence of trajectories to critical points under additional conditions (e.g., semialgebraic/tame objectives).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides related vanishing-noise SDE convergence results; the open problem here concerns extracting sharp polynomial rates from the forced nonlinear comparison ODE arising in localized \\L ojasiewicz analysis."
+      },
+      {
+        "title": "Dynamics of stochastic approximation algorithms",
+        "bibtex": "@incollection{Benaim1999DynamicsSA,\n  title     = {Dynamics of stochastic approximation algorithms},\n  author    = {Bena{\\\"i}m, Michel},\n  booktitle = {S{\\'e}minaire de Probabilit{\\'e}s XXXIII},\n  series    = {Lecture Notes in Mathematics},\n  volume    = {1709},\n  pages     = {1--69},\n  year      = {1999},\n  publisher = {Springer}\n}\n",
+        "source_url": "https://link.springer.com/chapter/10.1007/BFb0096519",
+        "theorem_or_result": "Develops the asymptotic pseudo-trajectory framework for stochastic approximation, giving conditions under which noisy dynamics track deterministic semiflows.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Underlying methodology for vanishing-noise convergence; does not address the specific forced nonlinear ODE rate conjecture but informs the localization and comparison approach."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.090237,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.090237
+    "literature_total_cost_usd": 0.10302425,
+    "total_cost_usd": 0.19326125
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4405639491/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4405639491_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4405639491_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

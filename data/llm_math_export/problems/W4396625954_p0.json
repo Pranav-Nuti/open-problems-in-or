@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Goldsztajn\u2013Borst\u2013van Leeuwaarden, 2024) develops a two-loop control framework: a threshold-based dispatcher (inner loop) and a learning mechanism for the threshold (outer loop). In the Coxian setting with constant arrival rate, the paper proves a strong form of stabilization for the basic learning scheme: when \\(\\rho\\notin\\{i\\Delta\\}\\), the threshold satisfies \\(\\ell_n(t)=\\lfloor\\rho\\rfloor_\\Delta\\) for all \\(t\\ge\\sigma\\) and all sufficiently large \\(n\\) almost surely, and the occupancy tails above \\(\\ell+\\Delta\\) decay exponentially at a rate governed by a lower bound \\(\\eta\\) on the hazard rate. This essentially resolves equilibrium identification and eventual stabilization for Coxian services under the basic learning rule, and it yields near-perfect balancing when \\(\\Delta=1\\).\n\nHowever, the open problem as stated asks for equilibrium of the refined learning threshold under Coxian service times. The source paper explicitly notes that extending the refined-learning equilibrium proof from exponential to general Coxian service times is nontrivial: the refined scheme\u2019s updates are triggered by fine occupancy events, and with Coxian services the residual-service heterogeneity complicates the occupancy dynamics. Existing general-service mean-field/hydrodynamic approaches (e.g., Bramson\u2013Lu\u2013Prabhakar; Aghajani\u2013Ramanan) provide methodological background for handling non-exponential services, but they do not directly establish almost-sure finite-time stabilization of a rapidly-updating threshold process. Thus, based on the provided materials, the refined-learning Coxian equilibrium question remains open, while the analogous statement for the basic learning scheme is solved in the 2024 paper.",
+    "total_cost_usd": 0.11144875,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Learning and balancing unknown loads in large-scale systems",
+        "bibtex": "@article{GoldsztajnBorstVanLeeuwaarden2024LearningBalancing,\n  title        = {Learning and balancing unknown loads in large-scale systems},\n  author       = {Goldsztajn, Diego and Borst, Sem C. and van Leeuwaarden, Johan S. H.},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2012.10142v3},\n  eprint       = {2012.10142},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  url          = {https://arxiv.org/abs/2012.10142}\n}\n",
+        "source_url": "https://arxiv.org/abs/2012.10142",
+        "theorem_or_result": "Proves equilibrium of the threshold for (i) refined learning with exponential service and time-varying arrivals on \u0006-bounded intervals, and (ii) basic learning with Coxian service times and constant arrivals: if \\(\\rho\\notin\\{i\\Delta\\}\\), then \\(\\ell_n(t)=\\lfloor\\rho\\rfloor_\\Delta\\) for all \\(t\\ge\\sigma\\) and large \\(n\\) a.s., with near-perfect load balance when \\(\\Delta=1\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses threshold stabilization and equilibrium characterization under Coxian service times, but for the basic learning scheme; it also discusses why extending full equilibrium stabilization to the refined learning scheme with Coxian times is nontrivial."
+      },
+      {
+        "title": "Self-learning threshold-based load balancing",
+        "bibtex": "@article{GoldsztajnBorstVanLeeuwaardenMukherjeeWhiting2022SelfLearning,\n  title   = {Self-learning threshold-based load balancing},\n  author  = {Goldsztajn, D. and Borst, S. C. and van Leeuwaarden, J. S. H. and Mukherjee, D. and Whiting, P. A.},\n  journal = {INFORMS Journal on Computing},\n  volume  = {34},\n  number  = {1},\n  pages   = {39--54},\n  year    = {2022},\n  url     = {https://pubsonline.informs.org/doi/10.1287/ijoc.2021.1093}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/ijoc.2021.1093",
+        "theorem_or_result": "Analyzes threshold-based dispatching with \\(\\Delta=1\\) and a self-learning mechanism under exponential service and constant arrivals; establishes fluid and diffusion optimality (matching JSQ) under conditions on the learning parameter.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the precursor refined learning framework and equilibrium/optimality results in the exponential setting; motivates the Coxian extension and highlights what changes when service times are non-exponential."
+      },
+      {
+        "title": "Pull-based load distribution in large-scale heterogeneous service systems",
+        "bibtex": "@article{Stolyar2015PullBased,\n  title   = {Pull-based load distribution in large-scale heterogeneous service systems},\n  author  = {Stolyar, Alexander L.},\n  journal = {Queueing Systems},\n  volume  = {80},\n  pages   = {341--361},\n  year    = {2015},\n  url     = {https://link.springer.com/article/10.1007/s11134-015-9448-7}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s11134-015-9448-7",
+        "theorem_or_result": "Develops pull-based (token) load distribution schemes and establishes asymptotic optimality properties in large-scale regimes, including for heterogeneous servers.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Conceptually related via token-based implementations and large-scale asymptotics; offers techniques and comparisons for low-overhead load balancing but not the refined learning threshold equilibrium under Coxian service."
+      },
+      {
+        "title": "Asymptotic independence of queues under randomized load balancing",
+        "bibtex": "@article{BramsonLuPrabhakar2012AsymptoticIndependence,\n  title   = {Asymptotic independence of queues under randomized load balancing},\n  author  = {Bramson, Maury and Lu, Yi and Prabhakar, Balaji},\n  journal = {Queueing Systems},\n  volume  = {71},\n  pages   = {247--292},\n  year    = {2012},\n  url     = {https://link.springer.com/article/10.1007/s11134-012-9299-8}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s11134-012-9299-8",
+        "theorem_or_result": "Proves propagation of chaos/asymptotic independence for randomized load balancing under general service time distributions under certain conditions (e.g., decreasing hazard rate or small arrival rate).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides mean-field tools for non-exponential service times; potentially relevant for analyzing refined learning with Coxian services via asymptotic independence, though the present problem concerns threshold learning dynamics rather than fixed randomized policies."
+      },
+      {
+        "title": "The hydrodynamic limit of a randomized load balancing network",
+        "bibtex": "@article{AghajaniRamanan2019Hydrodynamic,\n  title   = {The hydrodynamic limit of a randomized load balancing network},\n  author  = {Aghajani, Ramin and Ramanan, Kavita},\n  journal = {The Annals of Applied Probability},\n  volume  = {29},\n  number  = {4},\n  pages   = {2114--2174},\n  year    = {2019},\n  url     = {https://projecteuclid.org/journals/annals-of-applied-probability/volume-29/issue-4/The-hydrodynamic-limit-of-a-randomized-load-balancing-network/10.1214/18-AAP1445.full}\n}\n",
+        "source_url": "https://projecteuclid.org/journals/annals-of-applied-probability/volume-29/issue-4/The-hydrodynamic-limit-of-a-randomized-load-balancing-network/10.1214/18-AAP1445.full",
+        "theorem_or_result": "Establishes hydrodynamic (PDE) limits for randomized load balancing networks using measure-valued state descriptors, enabling analysis beyond exponential service assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Methodological background for handling general service distributions without relying on finite-dimensional fluid limits; could inform future work on refined learning with Coxian service times via measure-valued limits."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0934465,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0934465
+    "literature_total_cost_usd": 0.11144875,
+    "total_cost_usd": 0.20489525
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4396625954/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4396625954_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4396625954_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

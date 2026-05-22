@@ -47,16 +47,104 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper formulates a p-sampling extension of secretary-type problems and, in the rank-1 case, proves that the optimal worst-case competitive ratio \\(\\alpha(p)=\\beta(p)\\) converges as \\(p\\to 1\\) to \\(\\alpha^*\\approx 0.745\\), the optimal constant for the i.i.d. prophet inequality. In Section 5 it extends the model to general independence systems and matroids, defining \\(\\beta_{\\mathcal C}(p)\\) and highlighting the central open question: whether for \\(\\mathcal M\\) (all matroids) the limit \\(L=\\lim_{p\\to 1}\\beta_{\\mathcal M}(p)\\) can be characterized as the optimal ratio of a natural full-information/i.i.d.-type matroid analogue, in the same spirit as the rank-1 convergence to \\(\\alpha^*\\).\n\nSeveral candidate analogues already exist in the literature: the random-assignment matroid secretary model and prophet-secretary-type models on matroids. These models admit constant-competitive algorithms, so if one could prove that any such model has optimal ratio equal to \\(L\\), then \\(L>0\\) would follow. The source paper observes that this would immediately imply \\(\\beta_{\\mathcal M}(0)>0\\) via monotonicity and scaling relations in \\(p\\), thereby resolving the matroid secretary conjecture. This strong consequence suggests that either (i) the equality \\(L=\\rho\\) for a known matroid i.i.d.-type model is very difficult, or (ii) the \u2018correct\u2019 analogue must be more subtle than existing ones.\n\nAt present there is no forward-citation evidence provided that the limit characterization has been proved, and the broader matroid secretary conjecture remains open with best known guarantees \\(\\beta_{\\mathcal M_r}(0)=\\Omega(1/\\log\\log r)\\) for rank \\(r\\). Thus the problem remains open. Promising directions include: sharpening comparisons between p-sampling and stochastic matroid models (random-assignment, i.i.d. matroid prophet inequalities, prophet secretary), identifying obstructions (as in rank-1 prophet secretary upper bounds below \\(\\alpha^*\\)), and developing structural/LP-limit techniques for matroid constraints analogous to the continuous LP and threshold structure that succeeds in rank 1.",
+    "total_cost_usd": 0.12505675,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Matroids, secretary problems, and online mechanisms",
+        "bibtex": "@inproceedings{BabaioffImmorlicaKleinberg2007MatroidSecretary,\n  author    = {Moshe Babaioff and Nicole Immorlica and Robert Kleinberg},\n  title     = {Matroids, Secretary Problems, and Online Mechanisms},\n  booktitle = {Proceedings of the 18th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2007}\n}\n",
+        "source_url": "https://dl.acm.org/doi/proceedings/10.5555/1283383",
+        "theorem_or_result": "Introduces the matroid secretary problem (MSP) and initiates the study of constant-competitive online selection under matroid constraints with random arrival order.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "The open problem asks about \\,\\(\\lim_{p\\to 1}\\beta_{\\mathcal M}(p)\\) for the p-sampling extension of MSP; this paper is the foundational definition and motivation for \\(\\beta_{\\mathcal M}(0)\\) (matroid secretary conjecture)."
+      },
+      {
+        "title": "Matroid Secretary Problem in the Random-Assignment Model",
+        "bibtex": "@article{Soto2013RandomAssignmentMSP,\n  author  = {Jos{\\'e} A. Soto},\n  title   = {Matroid Secretary Problem in the Random-Assignment Model},\n  journal = {SIAM Journal on Computing},\n  year    = {2013},\n  volume  = {42},\n  number  = {1},\n  pages   = {178--211}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/110833042",
+        "theorem_or_result": "Studies a stochastic variant of MSP where an adversary chooses values which are then randomly assigned to elements; gives constant-competitive algorithms in that model.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Section 5.3 of the source paper lists random-assignment MSP as a candidate i.i.d.-type analogue; comparing its optimal ratio to \\(L=\\lim_{p\\to 1}\\beta_{\\mathcal M}(p)\\) is central to the characterization question."
+      },
+      {
+        "title": "Prophet secretary for combinatorial auctions and matroids",
+        "bibtex": "@inproceedings{EhsaniEtAl2018ProphetSecretaryMatroids,\n  author    = {Saeed Ehsani and MohammadTaghi Hajiaghayi and Thomas Kesselheim and Saeed Seddighin and Shayan Oveis Gharan and Saeed Singla},\n  title     = {Prophet Secretary for Combinatorial Auctions and Matroids},\n  booktitle = {Proceedings of the 29th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2018}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/abs/10.1137/1.9781611975031.77",
+        "theorem_or_result": "Introduces and analyzes prophet secretary problems for matroids (known distributions, random arrival order), giving constant-factor guarantees.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "One of the natural i.i.d.-type matroid analogues mentioned in the source paper; the open problem asks whether such a model\u2019s optimal ratio equals \\(\\lim_{p\\to 1}\\beta_{\\mathcal M}(p)\\)."
+      },
+      {
+        "title": "Prophet secretary through blind strategies",
+        "bibtex": "@inproceedings{CorreaSaonaZiliotto2019ProphetSecretaryBlind,\n  author    = {Jos{\\'e} Correa and Raimundo Saona and Bruno Ziliotto},\n  title     = {Prophet Secretary through Blind Strategies},\n  booktitle = {Proceedings of the 30th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2019}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975482.80",
+        "theorem_or_result": "Develops blind strategies for prophet secretary problems and proves upper bounds (including a 0.732 upper bound in the single-choice prophet secretary setting).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper notes prophet secretary is unlikely to match the \\(p\\to 1\\) limit even in rank 1 because of known upper bounds below \\(\\alpha^*\\approx 0.745\\); this informs what analogues cannot equal \\(L\\)."
+      },
+      {
+        "title": "O(log log Rank) Competitive Ratio for the Matroid Secretary Problem",
+        "bibtex": "@inproceedings{Lachish2014MatroidSecretaryLogLog,\n  author    = {Oded Lachish},\n  title     = {O(log log Rank) Competitive Ratio for the Matroid Secretary Problem},\n  booktitle = {Proceedings of the 55th Annual IEEE Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2014}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/7039520",
+        "theorem_or_result": "Gives an \\(O(\\log\\log r)\\)-competitive algorithm for MSP on rank-\\(r\\) matroids, implying \\(\\beta_{\\mathcal M_r}(0)=\\Omega(1/\\log\\log r)\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Shows the best known guarantees for \\(p=0\\) on general matroids are far from constant; the open problem\u2019s limit characterization would have major implications for the matroid secretary conjecture."
+      },
+      {
+        "title": "A Simple O(log log(rank))-Competitive Algorithm for the Matroid Secretary Problem",
+        "bibtex": "@article{FeldmanSvenssonZenklusen2018MatroidSecretary,\n  author  = {Michal Feldman and Ola Svensson and Rico Zenklusen},\n  title   = {A Simple O(log log(rank))-Competitive Algorithm for the Matroid Secretary Problem},\n  journal = {Mathematics of Operations Research},\n  year    = {2018},\n  volume  = {43},\n  number  = {2},\n  pages   = {638--650}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.2017.0865",
+        "theorem_or_result": "Simplifies and strengthens the \\(O(\\log\\log r)\\)-competitive approach for MSP, giving a clean algorithmic framework.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides the state-of-the-art for \\(\\beta_{\\mathcal M_r}(0)\\); underscores why identifying \\(L=\\lim_{p\\to 1}\\beta_{\\mathcal M}(p)\\) via an i.i.d.-type analogue would be significant."
+      },
+      {
+        "title": "The Secretary Problem with independent sampling",
+        "bibtex": "@inproceedings{CorreaEtAl2021IndependentSamplingSecretary,\n  author    = {Jos{\\'e} Correa and Andr{\\'e}s Cristi and Laurent Feuilloley and Tim Oosterwijk and Antonios Tsigonias-Dimitriadis},\n  title     = {The Secretary Problem with Independent Sampling},\n  booktitle = {Proceedings of the 32nd Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2021}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611976465.55",
+        "theorem_or_result": "Studies secretary-type selection with independent (binomial) sampling, relating it to dependent sampling and providing algorithms/analysis tools for the sampling model.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "The open problem is posed in the independent sampling model for matroids; techniques for translating between independent and dependent sampling and analyzing sampling-based secretary problems are directly relevant."
+      },
+      {
+        "title": "Competitive analysis with a sample and the Secretary Problem",
+        "bibtex": "@inproceedings{KaplanNaoriRaz2020CompetitiveWithSample,\n  author    = {Haim Kaplan and Dafna Naori and Danny Raz},\n  title     = {Competitive Analysis with a Sample and the Secretary Problem},\n  booktitle = {Proceedings of the 31st Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2020}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975994.18",
+        "theorem_or_result": "Introduces/advances the secretary problem with a sample (dependent sampling), giving bounds and algorithms as a function of sampling rate.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "This is a precursor to the source paper\u2019s p-sampling framework; understanding the \\(p\\to 1\\) limit for matroids is an extension of this line from rank 1 to general matroids."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09700775,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09700775
+    "literature_total_cost_usd": 0.12505675,
+    "total_cost_usd": 0.2220645
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3105682563/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3105682563_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3105682563_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 8,
+    "synthesis": "The source paper (Hang\u2013Sarabi, 2023) introduces the semi-strict graphical derivative \\(D^b(\\partial g)(\\bar u,\\bar y)\\) and shows that for convex \\(g\\) one always has an inclusion of the form \\(\\operatorname{cl}(D(\\partial g)(\\bar u,\\bar y)(w)-T_{\\partial g(\\bar u)}(\\bar y))\\subset D^b(\\partial g)(\\bar u,\\bar y)(w)\\), and under subdifferential regularity the tangent cone term can be replaced by \\(K_g(\\bar u,\\bar y)^*\\). For important subclasses\u2014most notably convex piecewise linear-quadratic (CPLQ) functions and several cone-indicator examples such as the second-order cone\u2014this inclusion becomes an equality, essentially because the geometry is polyhedral after reduction or because explicit proto-derivative formulas are available.\n\nFor general \\(C^2\\)-decomposable convex functions (in the sense of Shapiro\u2019s composite representation \\(g(u)=g(\\bar u)+\\vartheta(\\Xi(u))\\) with \\(\\vartheta\\) sublinear), the source paper proves a chain rule (their Proposition 3.5) showing that the desired equality for \\(g\\) follows if it holds for the outer sublinear function \\(\\vartheta\\) and if a nondegeneracy condition holds. However, the paper explicitly leaves open whether \\(C^2\\)-decomposability alone (without additional nondegeneracy/dual conditions) guarantees the identity \\(D^b(\\partial g)=\\operatorname{cl}(D(\\partial g)-K_g^*)\\) for all directions.\n\nRelated second-order variational analysis works (e.g., Mohammadi\u2013Sarabi 2020; Mohammadi\u2013Mordukhovich\u2013Sarabi 2021; Mordukhovich\u2013Sarabi 2019) provide tools such as twice epi-differentiability, parabolic regularity, and multiplier stability that often yield explicit formulas for \\(D(\\partial g)\\) and thus can be leveraged to compare \\(D^b\\) and \\(D\\). Existing explicit computations in nonpolyhedral settings (e.g., second-order cone programming) support the plausibility of the identity in structured cases, but no general theorem appears to settle it for all \\(C^2\\)-decomposable convex functions. Consequently, based on the provided material and lack of forward-citation evidence, the problem remains open.",
+    "total_cost_usd": 0.1171905,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On a class of nonsmooth composite functions",
+        "bibtex": "@article{Shapiro2003NonsmoothComposite,\n  author  = {Shapiro, A.},\n  title   = {On a class of nonsmooth composite functions},\n  journal = {Mathematics of Operations Research},\n  year    = {2003},\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.28.4.677.24902",
+        "theorem_or_result": "Introduces and studies the class of convex functions that admit a local representation \\(g(u)=g(\\bar u)+\\vartheta(\\Xi(u))\\) with \\(\\Xi\\in C^2\\) and \\(\\vartheta\\) sublinear, i.e., \\(C^2\\)-decomposability, and develops basic calculus for subdifferentials and second-order objects in this setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the foundational definition and structural properties of \\(C^2\\)-decomposable functions that underlie the open identity relating \\(D^b(\\partial g)\\) and \\(D(\\partial g)\\) minus \\(K_g^*\\)."
+      },
+      {
+        "title": "Criticality of Lagrange multipliers in variational systems",
+        "bibtex": "@article{MordukhovichSarabi2019Criticality,\n  author  = {Mordukhovich, B. S. and Sarabi, M. E.},\n  title   = {Criticality of {L}agrange multipliers in variational systems},\n  journal = {SIAM Journal on Optimization},\n  year    = {2019},\n}\n",
+        "source_url": "https://doi.org/10.1137/18M1192944",
+        "theorem_or_result": "Develops second-order variational analysis for composite/variational systems, including multiplier mappings and conditions (dual/nondegeneracy-type) ensuring stability and uniqueness of multipliers, with applications to second-order conditions and sensitivity.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supplies multiplier-mapping tools and dual conditions closely related to those used in the source paper to derive chain rules for graphical derivatives; informs when additional regularity beyond \\(C^2\\)-decomposability is needed."
+      },
+      {
+        "title": "Twice epi-differentiability of extended-real-valued functions with applications in composite optimization",
+        "bibtex": "@article{MohammadiSarabi2020TwiceEpi,\n  author  = {Mohammadi, A. and Sarabi, M. E.},\n  title   = {Twice epi-differentiability of extended-real-valued functions with applications in composite optimization},\n  journal = {SIAM Journal on Optimization},\n  year    = {2020},\n}\n",
+        "source_url": "https://doi.org/10.1137/19M1292670",
+        "theorem_or_result": "Establishes broad sufficient conditions and calculus rules for twice epi-differentiability and second subderivatives for composite/extended-real-valued functions, including parabolic regularity and proto-differentiability consequences.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides machinery connecting second subderivatives and proto-derivatives of subgradient mappings, which is central to relating \\(D(\\partial g)\\) and semi-strict variants in the \\(C^2\\)-decomposable setting."
+      },
+      {
+        "title": "Parabolic regularity via geometric variational analysis",
+        "bibtex": "@article{MohammadiMordukhovichSarabi2021Parabolic,\n  author  = {Mohammadi, A. and Mordukhovich, B. S. and Sarabi, M. E.},\n  title   = {Parabolic regularity via geometric variational analysis},\n  journal = {Transactions of the American Mathematical Society},\n  year    = {2021},\n}\n",
+        "source_url": "https://doi.org/10.1090/tran/8012",
+        "theorem_or_result": "Develops geometric criteria for parabolic regularity and related second-order properties for sets and functions, enabling refined second-order calculus and stability analysis.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Parabolic regularity and proto-differentiability are closely tied to explicit formulas for \\(D(\\partial g)\\) and may be prerequisites for proving the desired identity for general \\(C^2\\)-decomposable \\(g\\)."
+      },
+      {
+        "title": "Second-order variational analysis in second-order cone programming",
+        "bibtex": "@article{HangMordukhovichSarabi2020SOCP,\n  author  = {Hang, N. T. V. and Mordukhovich, B. S. and Sarabi, M. E.},\n  title   = {Second-order variational analysis in second-order cone programming},\n  journal = {Mathematical Programming},\n  year    = {2020},\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-019-01406-1",
+        "theorem_or_result": "Derives explicit second-order variational formulas (including graphical derivatives of normal cone/subgradient mappings) for second-order cone programming, handling boundary and vertex cases.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "Serves as a nonpolyhedral testbed where the identity between semi-strict and strict graphical derivatives can be verified (as in the source paper\u2019s Example 3.6 for \\(\\delta_Q\\)), suggesting how to extend to other \\(C^2\\)-cone reducible structures."
+      },
+      {
+        "title": "Primal superlinear convergence of SQP methods for piecewise linear-quadratic composite optimization problems",
+        "bibtex": "@article{Sarabi2022SQP,\n  author  = {Sarabi, M. E.},\n  title   = {Primal superlinear convergence of {SQP} methods for piecewise linear-quadratic composite optimization problems},\n  journal = {Set-Valued and Variational Analysis},\n  year    = {2022},\n}\n",
+        "source_url": "https://doi.org/10.1007/s11228-021-00608-5",
+        "theorem_or_result": "Develops second-order analysis and convergence results for SQP in CPLQ composite optimization, using reduction lemmas and explicit graphical derivative formulas for \\(\\partial g\\) in the CPLQ setting.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 5,
+        "connection": "Confirms the desired identity in the CPLQ case (where the right-hand side is polyhedral and closure can be dropped), providing a solved subclass and techniques that might generalize to \\(C^2\\)-decomposable but non-CPLQ functions."
+      },
+      {
+        "title": "Quadratic growth and strong metric subregularity of the subdifferential via subgradient graphical derivative",
+        "bibtex": "@article{ChieuEtAl2021QuadraticGrowth,\n  author  = {Chieu, N. H. and Hien, L. V. and Nghia, T. T. A. and Tuan, H. A.},\n  title   = {Quadratic growth and strong metric subregularity of the subdifferential via subgradient graphical derivative},\n  journal = {SIAM Journal on Optimization},\n  year    = {2021},\n}\n",
+        "source_url": "https://doi.org/10.1137/20M1327286",
+        "theorem_or_result": "Relates quadratic growth/strong metric subregularity to properties of the subgradient graphical derivative, providing criteria and estimates in variational analysis.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Offers complementary characterizations linking \\(D(\\partial g)\\) to stability properties; such links may help in proving or disproving the semi-strict vs strict graphical derivative identity under \\(C^2\\)-decomposability."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.1007965,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1007965
+    "literature_total_cost_usd": 0.1171905,
+    "total_cost_usd": 0.217987
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408446556/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4408446556_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4408446556_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

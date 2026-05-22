@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 9,
+    "synthesis": "The source paper proves continuity of value functions and robustness of optimal controls for several cost criteria by leveraging existence/uniqueness and Sobolev/Schauder regularity for uniformly elliptic HJB equations on \\(\\mathbb{R}^d\\) (and parabolic analogues for finite horizon). The open problem asks for an analogue when the limiting diffusion is degenerate, where elliptic regularity and strong maximum principles may fail and HJB solutions may only exist in viscosity/weak senses.\n\nA degenerate extension likely requires replacing the uniformly elliptic PDE toolkit with viscosity solution stability, weak convergence/occupation-measure methods, or hypoelliptic/controllability conditions (e.g., H\u00f6rmander-type) that recover enough regularity. Key gaps include ensuring well-posedness of the controlled martingale problem under merely measurable stationary controls, identifying appropriate compactness/tightness conditions for invariant measures in the ergodic case, and proving convergence/robustness without relying on \\(C^2\\) solutions and It\u00f4--Krylov representations.",
+    "total_cost_usd": 0.0793835,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Robustness of Stochastic Optimal Control to Approximate Diffusion Models Under Several Cost Evaluation Criteria",
+        "bibtex": "@article{PradhanYuksel2023RobustnessApproxDiffusions,\n  title        = {Robustness of Stochastic Optimal Control to Approximate Diffusion Models Under Several Cost Evaluation Criteria},\n  author       = {Pradhan, Somnath and Y{\"u}ksel, Serdar},\n  year         = {2023},\n  journal      = {arXiv preprint},\n  eprint       = {2205.05894},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2205.05894}\n}\n",
+        "source_url": "https://arxiv.org/abs/2205.05894",
+        "theorem_or_result": "Establishes continuity of optimal values and robustness of optimal controls for controlled diffusions under discounted, ergodic (near-monotone or Lyapunov), finite-horizon, and exit-time criteria, assuming local uniform nondegeneracy of the diffusion matrix and continuous convergence in control actions of approximating coefficients.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: extend these PDE-based continuity/robustness arguments to the case where the limiting diffusion is degenerate, so uniform ellipticity and the resulting strong regularity/uniqueness theory for HJB equations are no longer available."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08701875,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08701875
+    "literature_total_cost_usd": 0.0793835,
+    "total_cost_usd": 0.16640225
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387578519/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387578519_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4387578519_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

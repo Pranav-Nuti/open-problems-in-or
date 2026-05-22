@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 9,
+    "synthesis": "The open problem asks for a polynomial-time algorithm (for each fixed constant \\(\\Delta\\)) for ILPs \\(\\min\\{c^\\top x: Ax\\le b,\\ x\\in\\mathbb Z^n\\}\\) under the promise that \\(A\\) has full column rank and all \\(n\\times n\\) subdeterminants are bounded by \\(\\Delta\\). Beyond the totally unimodular case \\(\\Delta=1\\), the main algorithmic breakthrough remains the bimodular case \\(\\Delta=2\\): Artmann--Weismantel--Zenklusen give a strongly polynomial algorithm by reducing to parity-constrained TU problems and exploiting Seymour-type decompositions, building on structural reductions for bimodular matrices due to Veselov--Chirkov. This establishes that bounded subdeterminants can yield tractability, but only at \\(\\Delta=2\\) in full generality.\n\nThe source paper (N\u00e4gele--Santiago--Zenklusen) advances a different but closely related frontier: TU systems plus one congruency constraint \\(\\gamma^\\top x\\equiv r\\pmod m\\). For prime \\(m\\), such problems are equivalent (via standard transformations) to ILPs whose full-dimensional subdeterminants lie in \\(\\{0,\\pm m\\}\\), i.e., a structured \\(\\Delta\\)-modular setting with \\(\\Delta=m\\). Their randomized strongly polynomial feasibility algorithm for \\(m=3\\) (and more generally for prime \\(m\\) when all but at most two residues are allowed) relies on a decomposition lemma for TU polyhedra, flatness/proximity bounds, and reductions on base blocks to congruency-constrained submodular minimization (using N\u00e4gele--Sudakov--Zenklusen) and to exact-length circulation (using Camerini--Galbiati--Maffioli). This shows that congruency constraints can be handled efficiently in nontrivial cases beyond parity, but it still falls short of solving general \\(\\Delta\\)-modular ILPs.\n\nOn the broader \\(\\Delta\\)-modular question, additional partial progress exists under further structure assumptions. Fiorini--Joret--Weltge--Yuditsky give a polynomial-time algorithm for totally \\(\\Delta\\)-modular ILPs when each row has at most two nonzeros, via circulation-type methods with congruency/parity constraints. Complementary structural work (e.g., Lee--Paat--Stallknecht--Xu) develops proximity-style bounds for \\(\\Delta\\)-modular IPs that may be useful for future augmentation or decomposition algorithms. Overall, no general polynomial-time algorithm is known for fixed \\(\\Delta\\ge 3\\) in the full \\(\\Delta\\)-modular model, so the problem remains open; current techniques suggest promising directions via (i) reductions to TU plus a bounded number of congruency constraints, (ii) stronger proximity/flatness theorems for \\(\\Delta\\)-modular polyhedra, and (iii) identifying additional decompositions that generalize Seymour\u2019s framework beyond TU while preserving congruency-handling subroutines.",
+    "total_cost_usd": 0.1645035,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A Strongly Polynomial Algorithm for Bimodular Integer Linear Programming",
+        "bibtex": "@inproceedings{ArtmannWeismantelZenklusen2017Bimodular,\n  author = {Artmann, Sebastian and Weismantel, Robert and Zenklusen, Rico},\n  title = {A Strongly Polynomial Algorithm for Bimodular Integer Linear Programming},\n  booktitle = {Proceedings of the 49th Annual ACM Symposium on Theory of Computing (STOC '17)},\n  year = {2017},\n  pages = {1206--1219},\n  doi = {10.1145/3055399.3055473}\n}\n",
+        "source_url": "https://doi.org/10.1145/3055399.3055473",
+        "theorem_or_result": "Gives a strongly polynomial-time algorithm for ILPs whose full-rank constraint matrix has all full-dimensional subdeterminants bounded by \\(\\Delta=2\\) (bimodular). Uses reduction to parity-constrained TU problems and Seymour decomposition.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "This is the main positive result for the bounded-subdeterminant program when \\(\\Delta=2\\), and the starting point for attempts to extend to fixed \\(\\Delta>2\\). It also motivates studying TU systems plus one congruence constraint as a route to general \\(\\Delta\\)-modular ILPs."
+      },
+      {
+        "title": "Integer program with bimodular matrix",
+        "bibtex": "@article{VeselovChirkov2009Bimodular,\n  author = {Veselov, S. I. and Chirkov, A. J.},\n  title = {Integer program with bimodular matrix},\n  journal = {Discrete Optimization},\n  volume = {6},\n  number = {2},\n  pages = {220--222},\n  year = {2009},\n  doi = {10.1016/j.disopt.2008.12.002}\n}\n",
+        "source_url": "https://doi.org/10.1016/j.disopt.2008.12.002",
+        "theorem_or_result": "Shows structural properties and polynomial-time solvability for bimodular matrices; implies reductions of bimodular ILPs to parity-constrained TU formulations used later in \\(\\Delta=2\\) algorithms.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the key reduction underpinning the \\(\\Delta=2\\) case and highlights why extending beyond \\(\\Delta=2\\) is nontrivial (the reduction does not extend to \\(\\Delta>2\\))."
+      },
+      {
+        "title": "Integer programs with bounded subdeterminants and two nonzeros per row",
+        "bibtex": "@inproceedings{FioriniJoretWeltgeYuditsky2022TwoNonzeros,\n  author = {Fiorini, Samuel and Joret, Gwena{\\\"e}l and Weltge, Stefan and Yuditsky, Yelena},\n  title = {Integer programs with bounded subdeterminants and two nonzeros per row},\n  booktitle = {Proceedings of the 62nd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year = {2022},\n  pages = {13--24},\n  doi = {10.1109/FOCS52979.2021.00011}\n}\n",
+        "source_url": "https://doi.org/10.1109/FOCS52979.2021.00011",
+        "theorem_or_result": "Gives a polynomial-time algorithm for totally \\(\\Delta\\)-modular ILPs when each row has at most two nonzeros, via reductions to circulation-type problems with parity/congruency constraints.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Represents progress for \\(\\Delta\\)-bounded subdeterminants beyond \\(\\Delta=2\\) under additional sparsity structure, supporting the plausibility of polynomial-time algorithms for fixed \\(\\Delta\\) in broader settings."
+      },
+      {
+        "title": "Polynomial upper bounds on the number of differing columns of \\(\\Delta\\)-modular integer programs",
+        "bibtex": "@misc{LeePaatStallknechtXu2021DifferingColumns,\n  author = {Lee, Jon and Paat, Jochem and Stallknecht, Immanuel and Xu, Lijun},\n  title = {Polynomial upper bounds on the number of differing columns of $\\Delta$-modular integer programs},\n  year = {2021},\n  eprint = {2105.08160},\n  archivePrefix = {arXiv},\n  primaryClass = {math.OC},\n  url = {https://arxiv.org/abs/2105.08160}\n}\n",
+        "source_url": "https://arxiv.org/abs/2105.08160",
+        "theorem_or_result": "Develops structural/proximity-type bounds for \\(\\Delta\\)-modular integer programs, bounding how many columns can differ between certain solutions; contributes to understanding geometry/structure under bounded subdeterminants.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "While not an algorithmic solution, such proximity/structure results are typical ingredients in fixed-parameter or augmentation algorithms and may inform future polynomial-time approaches for fixed \\(\\Delta\\)."
+      },
+      {
+        "title": "Submodular Minimization Under Congruency Constraints",
+        "bibtex": "@article{NageleSudakovZenklusen2019SubmodularCongruency,\n  author = {N{\\\"a}gele, Martin and Sudakov, Benny and Zenklusen, Rico},\n  title = {Submodular Minimization Under Congruency Constraints},\n  journal = {Combinatorica},\n  volume = {39},\n  number = {6},\n  pages = {1351--1386},\n  year = {2019},\n  doi = {10.1007/s00493-019-3900-1}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00493-019-3900-1",
+        "theorem_or_result": "Provides algorithms for minimizing submodular functions under a congruency constraint \\(|S|\\equiv r\\pmod m\\) for constant prime power \\(m\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 8,
+        "connection": "Used as a key subroutine in N\u00e4gele--Santiago--Zenklusen to handle base-block TU matrices (transpose network matrices) under congruency constraints; illustrates how congruency constraints can be handled in special TU-structured settings, relevant to extending beyond \\(\\Delta=2\\)."
+      },
+      {
+        "title": "Random Pseudo-Polynomial Algorithms for Exact Matroid Problems",
+        "bibtex": "@article{CameriniGalbiatiMaffioli1992ExactMatroid,\n  author = {Camerini, Paolo M. and Galbiati, Giovanni and Maffioli, Francesco},\n  title = {Random Pseudo-Polynomial Algorithms for Exact Matroid Problems},\n  journal = {Journal of Algorithms},\n  volume = {13},\n  pages = {258--273},\n  year = {1992},\n  doi = {10.1016/0196-6774(92)90018-8}\n}\n",
+        "source_url": "https://doi.org/10.1016/0196-6774(92)90018-8",
+        "theorem_or_result": "Gives randomized pseudo-polynomial algorithms for exact matroid problems; includes an algorithmic approach to exact-length circulation (and related exact weight problems).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "N\u00e4gele--Santiago--Zenklusen reduce congruency-constrained circulation subproblems (arising from network-matrix TU blocks) to exact-length circulation, invoking this randomized machinery; this is part of the current best progress for modulus \\(m=3\\) feasibility."
+      },
+      {
+        "title": "A Strongly Polynomial Algorithm to Solve Combinatorial Linear Programs",
+        "bibtex": "@article{Tardos1986StronglyPolyLP,\n  author = {Tardos, {\\'E}va},\n  title = {A Strongly Polynomial Algorithm to Solve Combinatorial Linear Programs},\n  journal = {Operations Research},\n  volume = {34},\n  number = {2},\n  pages = {250--256},\n  year = {1986},\n  doi = {10.1287/opre.34.2.250}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.34.2.250",
+        "theorem_or_result": "Introduces a strongly polynomial algorithm for a broad class of linear programs with small coefficients (combinatorial LPs).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Serves as a foundational tool repeatedly used in bounded-subdeterminant and TU-congruency work to solve relaxations and optimize widths/projections in strongly polynomial time; underlies several structural lemmas in the source paper."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.12858475,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.12858475
+    "literature_total_cost_usd": 0.1645035,
+    "total_cost_usd": 0.29308825
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4386289171/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4386289171_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4386289171_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

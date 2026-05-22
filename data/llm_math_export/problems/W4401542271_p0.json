@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The enumeration problem asks for an explicit description of \\(\\mathcal B^*(n)\\), the inclusion-minimal balanced collections (excluding \\(\\{N\\}\\)). In the Bondareva--Shapley framework, each \\(\\mathcal B\\in\\mathcal B^*(n)\\) yields a single linear inequality \\(\\sum_{S\\in\\mathcal B}\\lambda_S v(S)\\le v(N)\\) that is necessary and sufficient (over all \\(\\mathcal B^*(n)\\)) for core nonemptiness. The 2025 paper \\(\\textit{On the set of balanced games}\\) leverages this to give a polyhedral description of the cone \\(BG(n)\\) of balanced games: minimal balanced collections are in bijection with facets of \\(BG(n)\\) (and similarly for the affine slice \\(BG_\\alpha(n)\\)), so enumerating \\(\\mathcal B^*(n)\\) is equivalent to enumerating all facet-defining inequalities of these polyhedra.\n\nDespite this strong geometric motivation, neither \\(\\textit{On the set of balanced games}\\) nor the earlier focused study \\(\\textit{Minimal balanced collections and their application to core stability and other topics of game theory}\\) provides a closed-form formula for \\(|\\mathcal B^*(n)|\\) or a complete classification of \\(\\mathcal B^*(n)\\) for general \\(n\\). Existing work instead develops structural properties (e.g., uniqueness of balancing weights for m.b.c., size bound \\(|\\mathcal B|\\le n\\), complement operation \\(\\mathcal B\\mapsto \\{N\\setminus S:S\\in\\mathcal B\\}\\), and how tight m.b.c. constraints determine effective coalitions) and polyhedral tools for facet analysis in related cones (e.g., totally balanced games). The state of the art therefore supports algorithmic/structural approaches but leaves the exact enumeration of \\(\\mathcal B^*(n)\\) as an open combinatorial problem.\n\nPromising directions suggested by the polyhedral viewpoint are: (i) treat \\(\\mathcal B^*(n)\\) as the set of circuits/minimal supports of positive solutions to \\(A\\lambda=\\mathbf 1\\) where \\(A\\) is the incidence matrix of coalitions vs. players, linking the problem to oriented matroids and circuit enumeration; (ii) exploit the facet-bijection to compute \\(\\mathcal B^*(n)\\) for moderate \\(n\\) via polyhedral software and then attempt pattern recognition/recurrences; and (iii) use symmetry under \\(S_n\\) and the complement operation to reduce the search space and classify m.b.c. up to isomorphism.",
+    "total_cost_usd": 0.0916545,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On the set of balanced games",
+        "bibtex": "@article{GarciaSegadorGrabischMiranda2025BalancedGames,\n  title        = {On the set of balanced games},\n  author       = {Garcia-Segador, Pedro and Grabisch, Michel and Miranda, Pedro},\n  year         = {2025},\n  journal      = {arXiv preprint},\n  eprint       = {2501.14341},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO},\n  url          = {https://arxiv.org/abs/2501.14341}\n}",
+        "source_url": "https://arxiv.org/abs/2501.14341",
+        "theorem_or_result": "Reformulates balancedness via minimal balanced collections \\(\\mathcal B\\in\\mathcal B^*(n)\\) and shows these collections are in bijection with facets of the balanced-game cone \\(BG(n)\\) and of the affine slice \\(BG_\\alpha(n)\\). For the nonnegative normalized polytope \\(BG^+(n)\\), vertices are exactly balanced \\(0\\!\\)-\\(1\\)-valued games; vertex enumeration reduces to counting families \\(\\mathcal D\\subseteq 2^N\\setminus\\{\\emptyset,N\\}\\) with nonempty intersection, yielding a recursion and identification with OEIS A051381.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "The open problem asks to enumerate minimal balanced collections \\(\\mathcal B^*(n)\\). This paper emphasizes that \\(\\mathcal B^*(n)\\) is finite, \\(|\\mathcal B|\\le n\\), and that each \\(\\mathcal B\\in\\mathcal B^*(n)\\) corresponds to a facet inequality \\(\\sum_{S\\in\\mathcal B}\\lambda_S v(S)\\le v(N)\\). It does not enumerate \\(\\mathcal B^*(n)\\) but provides structural context and shows why enumeration would give an explicit facet description of \\(BG(n)\\), \\(BG_\\alpha(n)\\), and \\(BG^+(n)\\)."
+      },
+      {
+        "title": "Minimal balanced collections and their application to core stability and other topics of game theory",
+        "bibtex": "@article{LaplaceMermoudGrabischSudholter2023MinimalBalancedCollections,\n  title   = {Minimal balanced collections and their application to core stability and other topics of game theory},\n  author  = {Laplace Mermoud, D. and Grabisch, M. and Sudh{\\\"o}lter, P.},\n  journal = {Discrete Applied Mathematics},\n  volume  = {341},\n  pages   = {60--81},\n  year    = {2023},\n  doi     = {},\n  url     = {https://www.sciencedirect.com/science/article/pii/S0166218X23003038}\n}",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0166218X23003038",
+        "theorem_or_result": "Develops theory of minimal balanced collections (m.b.c.), including their role in describing effective coalitions \\(E(v)\\) and tight Bondareva--Shapley inequalities; provides structural results and applications to core stability, but does not give a closed-form enumeration of all m.b.c. for general \\(n\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Directly studies minimal balanced collections, the objects to be enumerated in \\(\\mathcal B^*(n)\\), and clarifies how they arise as tight constraints. Likely contains classification results for special families and tools that could support enumeration algorithms."
+      },
+      {
+        "title": "Facets of the cone of totally balanced games",
+        "bibtex": "@article{KroupaStudeny2019FacetsTotallyBalanced,\n  title   = {Facets of the cone of totally balanced games},\n  author  = {Kroupa, Tom{\\'{a}}{\\v{s}} and Studen{\\'{y}}, Milan},\n  journal = {Mathematical Methods of Operations Research},\n  volume  = {90},\n  pages   = {271--300},\n  year    = {2019},\n  doi     = {10.1007/s00186-019-00674-5},\n  url     = {https://doi.org/10.1007/s00186-019-00674-5}\n}",
+        "source_url": "https://doi.org/10.1007/s00186-019-00674-5",
+        "theorem_or_result": "Studies facet structure of cones of totally balanced games (and related cones), giving polyhedral/combinatorial methods for identifying facets and extreme rays; connects to balancedness constraints though in a slightly different modeling convention in some literature.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Provides polyhedral techniques and facet-analysis methodology relevant because minimal balanced collections correspond to facets of \\(BG(n)\\). While focused on totally balanced games, its tools may help algorithmic enumeration or characterization of facet-defining inequalities arising from minimal balanced collections."
+      },
+      {
+        "title": "On balanced sets and cores",
+        "bibtex": "@article{Shapley1967BalancedSetsCores,\n  title   = {On balanced sets and cores},\n  author  = {Shapley, Lloyd S.},\n  journal = {Naval Research Logistics Quarterly},\n  volume  = {14},\n  number  = {4},\n  pages   = {453--460},\n  year    = {1967},\n  doi     = {10.1002/nav.3800140404},\n  url     = {https://doi.org/10.1002/nav.3800140404}\n}",
+        "source_url": "https://doi.org/10.1002/nav.3800140404",
+        "theorem_or_result": "Introduces balanced collections and the balancedness condition for nonemptiness of the core; establishes foundational properties of balanced sets/collections used in the Bondareva--Shapley theorem.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Original source of the definition and motivation for minimal balanced collections; provides baseline properties (existence of balancing weights, role in core nonemptiness) that underlie the enumeration problem."
+      },
+      {
+        "title": "Some applications of linear programming to the theory of cooperative games",
+        "bibtex": "@article{Bondareva1963LPcooperativeGames,\n  title   = {Some applications of linear programming to the theory of cooperative games},\n  author  = {Bondareva, O.},\n  journal = {Problemy Kibernetiki},\n  volume  = {10},\n  pages   = {119--139},\n  year    = {1963},\n  note    = {In Russian}\n}",
+        "source_url": "https://zbmath.org/?q=an:0121.32902",
+        "theorem_or_result": "Proves (in Russian) the linear-programming condition equivalent to nonemptiness of the core, later paired with Shapley\u2019s work as the Bondareva--Shapley theorem; introduces balancedness-type constraints.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Foundational motivation: minimal balanced collections are the minimal certificates needed to check balancedness via finitely many inequalities; enumeration would make the theorem computationally explicit."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06445075,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06445075
+    "literature_total_cost_usd": 0.0916545,
+    "total_cost_usd": 0.15610525
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401542271/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4401542271_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4401542271_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

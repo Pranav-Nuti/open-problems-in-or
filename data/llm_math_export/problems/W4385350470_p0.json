@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper of Blanchard\u2013Jacquillat\u2013Jaillet establishes the correct growth order \\(\\mathbb{E}[l_{\\mathrm{TRP}}]=\\Theta(n\\sqrt{n})\\) for i.i.d. points in \\(\\mathbb{R}^2\\) and provides matching (up to universal constants) distribution-dependent bounds expressed via an explicit integrand \\(g_f(x,y)= f(y)\\bigl(\\mathbf{1}_{f(y)<f(x)}+\\tfrac12\\mathbf{1}_{f(y)=f(x)}\\bigr)\\sqrt{f(x)}\\). Their constructive upper bound visits regions in decreasing density order and runs a (local) TSP-like tour within each region; the lower bound partitions space and uses k-TSP-type density/length tradeoffs to show no tour can beat \\(\\Theta(n\\sqrt{n})\\) scaling.\n\nWhat remains open is identification of the exact universal leading constant in \\(\\mathbb{E}[l_{\\mathrm{TRP}}]/(n\\sqrt{n})\\), and in particular whether it equals the Beardwood\u2013Halton\u2013Hammersley constant \\(\\beta_{\\mathrm{TSP}}\\) from the classical TSP limit theorem. The paper explicitly notes that tightening the TRP constant would require sharpening the constants in their k-TSP lower bounds (especially in regimes like \\(k=\\Omega(\\log n)\\)), suggesting that progress may hinge on a finer probabilistic-geometric analysis of near-optimal local tours and their interaction with density ordering.\n\nRelated work on minimum latency (e.g., Blum et al.; Goemans\u2013Kleinberg; Sitters) develops worst-case approximation algorithms and PTAS results in Euclidean settings, but does not address stochastic i.i.d. asymptotics or identify the TRP leading constant. Thus, as of the provided materials, the constant-matching question with \\(\\beta_{\\mathrm{TSP}}\\) remains open.",
+    "total_cost_usd": 0.0898485,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Probabilistic bounds on the k-Traveling Salesman Problem and the Traveling Repairman Problem",
+        "bibtex": "@article{BlanchardJacquillatJaillet2022Probabilistic,\n  title        = {Probabilistic bounds on the k-Traveling Salesman Problem and the Traveling Repairman Problem},\n  author       = {Blanchard, Mo{\\\"i}se and Jacquillat, Alexandre and Jaillet, Patrick},\n  year         = {2022},\n  journal      = {arXiv preprint arXiv:2211.11063},\n  eprint       = {2211.11063},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DM}\n}\n",
+        "source_url": "https://arxiv.org/abs/2211.11063",
+        "theorem_or_result": "Proves \u001b[math\u001d\\mathbb{E}[l_{\\mathrm{TRP}}]=\\Theta(n\\sqrt{n})\u001b[0m and gives distribution-dependent constant-factor bounds: \u001b[math\u001d c\\iint_{K\\times K} g_f(x,y)\\,dx\\,dy \\le \\liminf \\mathbb{E}[l_{\\mathrm{TRP}}]/(n\\sqrt{n}) \\le \\limsup \\mathbb{E}[l_{\\mathrm{TRP}}]/(n\\sqrt{n}) \\le C\\iint g_f\\u001b[0m, with universal \u001b[math\u001dc<C\u001b[0m. Leaves open whether the leading universal constant can be identified and whether it equals \u001b[math\u001d\\beta_{\\mathrm{TSP}}\\u001b[0m.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether the TRP leading constant matches the BHH TSP constant \u001b[math\u001d\\beta_{\\mathrm{TSP}}\\u001b[0m. It provides the current best constant-factor asymptotics and an explicit integrand \u001b[math\u001dg_f\\u001b[0m but does not determine the exact universal constant."
+      },
+      {
+        "title": "The shortest path through many points",
+        "bibtex": "@article{BeardwoodHaltonHammersley1959Shortest,\n  title   = {The shortest path through many points},\n  author  = {Beardwood, J. and Halton, J. H. and Hammersley, J. M.},\n  journal = {Mathematical Proceedings of the Cambridge Philosophical Society},\n  volume  = {55},\n  number  = {4},\n  pages   = {299--327},\n  year    = {1959}\n}\n",
+        "source_url": "https://doi.org/10.1017/S0305004100034095",
+        "theorem_or_result": "Establishes the Beardwood\u2013Halton\u2013Hammersley theorem: for i.i.d. points in \u001b[math\u001d\\mathbb{R}^2\u001b[0m with density \u001b[math\u001df\u001b[0m, \u001b[math\u001dl_{\\mathrm{TSP}}/\\sqrt{n} \\to \\beta_{\\mathrm{TSP}}\\int \\sqrt{f}\u001b[0m almost surely for a universal constant \u001b[math\u001d\\beta_{\\mathrm{TSP}}\\u001b[0m.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "The open problem asks whether the same universal constant \u001b[math\u001d\\beta_{\\mathrm{TSP}}\\u001b[0m governs the leading term of TRP latency under i.i.d. sampling; BHH provides the benchmark constant for TSP."
+      },
+      {
+        "title": "The minimum latency problem",
+        "bibtex": "@inproceedings{BlumChalasaniCoppersmithEtAl1994Minimum,\n  title     = {The minimum latency problem},\n  author    = {Blum, Avrim and Chalasani, Prabhakar and Coppersmith, Don and Pulleyblank, William R. and Raghavan, Prabhakar and Sudan, Madhu},\n  booktitle = {Proceedings of the Twenty-Sixth Annual ACM Symposium on Theory of Computing (STOC)},\n  pages     = {163--171},\n  year      = {1994}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/195058.195132",
+        "theorem_or_result": "Introduces the minimum latency (traveling repairman) problem in general metrics; proves NP-hardness via reduction from TSP and gives early constant-factor approximation ideas via reductions to related network design problems.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides foundational algorithmic/complexity context for TRP, but does not address probabilistic Euclidean asymptotics or the leading constant under i.i.d. sampling."
+      },
+      {
+        "title": "An improved approximation ratio for the minimum latency problem",
+        "bibtex": "@article{GoemansKleinberg1998Improved,\n  title   = {An improved approximation ratio for the minimum latency problem},\n  author  = {Goemans, Michel X. and Kleinberg, Jon},\n  journal = {Mathematical Programming},\n  volume  = {82},\n  number  = {1},\n  pages   = {111--124},\n  year    = {1998}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01585863",
+        "theorem_or_result": "Improves approximation guarantees for minimum latency in general metrics by refining reductions/LP-based methods, improving constants over earlier work.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Relevant as algorithmic background for TRP but orthogonal to the probabilistic Euclidean constant question posed here."
+      },
+      {
+        "title": "Polynomial time approximation schemes for the traveling repairman and other minimum latency problems",
+        "bibtex": "@inproceedings{Sitters2014PTAS,\n  title     = {Polynomial time approximation schemes for the traveling repairman and other minimum latency problems},\n  author    = {Sitters, Ren{\\'e}},\n  booktitle = {Proceedings of the Twenty-Fifth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  pages     = {604--616},\n  year      = {2014}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973402.46",
+        "theorem_or_result": "Gives PTAS results for Euclidean and related minimum latency problems (including traveling repairman) in worst-case settings, extending approximation techniques beyond constant factors.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Shows Euclidean TRP admits PTAS in worst-case, but does not determine stochastic i.i.d. asymptotic constants; still provides methodological background."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07207025,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07207025
+    "literature_total_cost_usd": 0.0898485,
+    "total_cost_usd": 0.16191875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385350470/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4385350470_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4385350470_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

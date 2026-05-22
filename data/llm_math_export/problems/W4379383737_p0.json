@@ -45,16 +45,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for an accelerated proximal bundle-type method for the hybrid convex composite optimization (HCCO) model \\(\\min_x \\phi(x)=f(x)+h(x)\\) under the hybrid subgradient condition \\(\\|f'(u)-f'(v)\\|\\le 2M_f+L_f\\|u-v\\|\\), assuming \\(\\mathrm{dom}\\,h\\) has finite diameter \\(D\\). Liang\u2013Monteiro (2023) provide a unified iteration-complexity analysis for a generic proximal bundle (GPB) framework (including one-cut, two-cut, and multi-cut updates) with complexity essentially \\(O((M_f^2+\\bar\\varepsilon L_f)\\,d_0^2/\\bar\\varepsilon^2)\\) (and a strong-convexity refinement when \\(\\mu>0\\)), which is optimal in the purely nonsmooth case \\(L_f=0\\) but not optimal when \\(L_f>0\\) and \\(D<\\infty\\).\n\nThe benchmark optimal rate on bounded domains is given by Lan\u2019s accelerated composite subgradient methodology, yielding \\(O(\\sqrt{L_f}D/\\sqrt{\\bar\\varepsilon}+M_f^2D^2/\\bar\\varepsilon^2)\\) and accompanied by matching lower bounds for the \\((L_f,M_f,D)\\)-parameterized class. Separately, the bundle-level line of work (Lemar{\\'e}chal\u2013Nemirovski\u2013Nesterov 1995; Lan 2015) shows that cutting-plane/bundle mechanisms can be made uniformly optimal over compact sets, achieving accelerated dependence on \\(L\\) without proximal regularization. On the proximal bundle side, optimal nonsmooth rates (including strong convexity refinements) have been established for several PB variants (e.g., Liang\u2013Monteiro 2021; D{\\'i}az\u2013Grimmer 2021), but these results do not incorporate the accelerated \\(\\sqrt{L_f}D/\\sqrt{\\bar\\varepsilon}\\) term in the hybrid regime.\n\nOverall, with the information available here (and no forward-citation evidence of a later solution), the problem remains open: there is not yet a proximal bundle method for HCCO on bounded domains whose proven iteration complexity matches \\(O(\\sqrt{L_f}D/\\sqrt{\\bar\\varepsilon}+M_f^2D^2/\\bar\\varepsilon^2)\\) up to constants/log factors. A promising direction is to hybridize GPB\u2019s serious/null-step and proximal stabilization machinery with bundle-level gap-reduction/level-set ideas that are known to yield acceleration on compact domains, while preserving the hybrid-model structure \\(f+h\\) and the oracle model implicit in \\(\\|f'(u)-f'(v)\\|\\le 2M_f+L_f\\|u-v\\|\\).",
+    "total_cost_usd": 0.09482725,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "An optimal method for stochastic composite optimization",
+        "bibtex": "@article{Lan2012Optimal,\n  author  = {Lan, Guanghui},\n  title   = {An optimal method for stochastic composite optimization},\n  journal = {Mathematical Programming},\n  year    = {2012},\n  volume  = {133},\n  number  = {1-2},\n  pages   = {365--397},\n  doi     = {10.1007/s10107-010-0424-2}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-010-0424-2",
+        "theorem_or_result": "Proposes an accelerated composite subgradient framework achieving (in the deterministic bounded-domain specialization) complexity \\(O(\\sqrt{L_f}D/\\sqrt{\\bar\\varepsilon}+M_f^2D^2/\\bar\\varepsilon^2)\\) for hybrid smooth+nonsmooth convex composite minimization over a compact domain, and argues optimality (via lower bounds) for the \\((L_f,M_f,D)\\)-parameterized class.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the target optimal rate and the lower-bound benchmark cited by Liang\u2013Monteiro; serves as the complexity yardstick that an accelerated proximal bundle method for HCCO with finite diameter \\(D\\) should match."
+      },
+      {
+        "title": "Bundle-level type methods uniformly optimal for smooth and nonsmooth convex optimization",
+        "bibtex": "@article{Lan2015BundleLevel,\n  author  = {Lan, Guanghui},\n  title   = {Bundle-level type methods uniformly optimal for smooth and nonsmooth convex optimization},\n  journal = {Mathematical Programming},\n  year    = {2015},\n  volume  = {149},\n  number  = {1-2},\n  pages   = {1--45},\n  doi     = {10.1007/s10107-014-0809-6}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-014-0809-6",
+        "theorem_or_result": "Develops bundle-level methods that are uniformly optimal across smooth and nonsmooth convex regimes over compact domains, attaining accelerated \\(O(\\sqrt{L}D/\\sqrt{\\varepsilon})\\) behavior in the smooth case while retaining nonsmooth optimality, using level-set/bundle models without proximal regularization.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Shows that bundle-type (cutting-plane) mechanisms can be made uniformly optimal on bounded domains; suggests design patterns (level control, gap reduction) that might be hybridized with proximal bundle (serious/null) schemes to reach the Lan (2012) optimal bound."
+      },
+      {
+        "title": "New variants of bundle methods",
+        "bibtex": "@article{Lemarechal1995NewVariants,\n  author  = {Lemar{\\'e}chal, Claude and Nemirovski, Arkadi and Nesterov, Yurii},\n  title   = {New variants of bundle methods},\n  journal = {Mathematical Programming},\n  year    = {1995},\n  volume  = {69},\n  number  = {1-3},\n  pages   = {111--147},\n  doi     = {10.1007/BF01585927}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01585927",
+        "theorem_or_result": "Introduces bundle-level method variants (including level and proximal stabilization ideas) and establishes complexity-type guarantees for convex nonsmooth minimization over compact sets, forming a foundation for later optimal bundle-level schemes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Historical origin of bundle-level acceleration ideas; relevant because accelerated rates on bounded domains were first achieved in this line, and the open problem asks for an accelerated proximal bundle analogue for HCCO."
+      },
+      {
+        "title": "A proximal bundle variant with optimal iteration-complexity for a large range of prox stepsizes",
+        "bibtex": "@article{LiangMonteiro2021RPB,\n  author  = {Liang, Jiaming and Monteiro, Renato D. C.},\n  title   = {A proximal bundle variant with optimal iteration-complexity for a large range of prox stepsizes},\n  journal = {SIAM Journal on Optimization},\n  year    = {2021},\n  volume  = {31},\n  number  = {4},\n  pages   = {2955--2986},\n  doi     = {10.1137/20M1342734}\n}\n",
+        "source_url": "https://doi.org/10.1137/20M1342734",
+        "theorem_or_result": "Analyzes a resolvent proximal bundle (RPB) method (multiple-cuts) for nonsmooth composite convex optimization (effectively \\(L_f=0\\)) and proves optimal \\(O(\\bar\\varepsilon^{-2})\\) iteration complexity for a broad range of prox stepsizes, with refined dependence on strong convexity \\(\\mu\\) up to logarithms.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Demonstrates that proximal bundle frameworks can be made iteration-optimal in the pure nonsmooth regime; serves as a stepping stone toward hybrid \\((M_f,L_f)\\) and accelerated \\(\\sqrt{L_f}/\\sqrt{\\bar\\varepsilon}\\) behavior sought in the open problem."
+      },
+      {
+        "title": "Optimal convergence rates for the proximal bundle method",
+        "bibtex": "@misc{DiazGrimmer2021OptimalRatesPB,\n  author       = {D{\\'i}az, Marcos and Grimmer, Benjamin},\n  title        = {Optimal convergence rates for the proximal bundle method},\n  year         = {2021},\n  howpublished = {arXiv preprint},\n  eprint       = {2105.07874},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2105.07874",
+        "theorem_or_result": "Establishes optimal (up to constants) convergence rates for a classical proximal bundle method in nonsmooth convex optimization, sharpening earlier \\(\\tilde O(\\bar\\varepsilon^{-1})\\) strong-convexity results and clarifying parameter choices for optimality.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Confirms that proximal bundle can be tuned to achieve optimal nonsmooth rates; highlights what is missing for the hybrid smooth+nonsmooth accelerated term \\(O(\\sqrt{L_f}D/\\sqrt{\\bar\\varepsilon})\\) in bounded-domain HCCO."
+      },
+      {
+        "title": "Rate of convergence of the bundle method",
+        "bibtex": "@article{DuRuszczynski2017Rate,\n  author  = {Du, Yingying and Ruszczy{\\'n}ski, Andrzej},\n  title   = {Rate of convergence of the bundle method},\n  journal = {Journal of Optimization Theory and Applications},\n  year    = {2017},\n  volume  = {173},\n  number  = {3},\n  pages   = {908--922},\n  doi     = {10.1007/s10957-017-1094-2}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10957-017-1094-2",
+        "theorem_or_result": "Provides convergence-rate analysis for (proximal) bundle methods, including strong convexity regimes and step-size choices, with bounds that were later tightened to optimality by subsequent work.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Part of the proximal bundle complexity lineage referenced by Liang\u2013Monteiro; useful for understanding stabilization mechanisms but does not deliver the accelerated \\(\\sqrt{L_f}/\\sqrt{\\bar\\varepsilon}\\) term for hybrid HCCO."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0719145,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0719145
+    "literature_total_cost_usd": 0.09482725,
+    "total_cost_usd": 0.16674175000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4379383737/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4379383737_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4379383737_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

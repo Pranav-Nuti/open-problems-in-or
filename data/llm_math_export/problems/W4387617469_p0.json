@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for a polynomial-time algorithm that, for laminar cut upper bounds \\(|T\\cap\\delta(S)|\\le b_S\\), achieves cost \\(c(T)\\le c(\\mathrm{OPT})\\) while allowing only a constant multiplicative violation \\(|T\\cap\\delta(S)|\\le \\beta b_S\\) for all \\(S\\in\\mathcal L\\). In the source paper by N\\\"agele and Zenklusen, the best positive results are quasi-polynomial-time \\((1,1+\\varepsilon)\\) algorithms for chain constraints and for laminar families of bounded width, obtained by a dynamic program that constructs a strengthened relaxation (\\(\\tau\\)-integral points) and then applies negatively correlated rounding plus a local alteration step to avoid any loss in objective value.\n\nFor general laminar families (unbounded width), the state of the art prior to this work is an iterative-relaxation approach of Bansal et al. that yields additive violations, and the hardness results of Olver and Zenklusen showing that substantially improving additive violations is unlikely. The source paper explicitly notes that it remains open whether \\(O(1)\\)-multiplicative violations are possible in polynomial time for laminar cut constraints. No forward-citation evidence was provided here, so there is currently no documented resolution beyond the quasi-polynomial bounded-width regime; the problem therefore remains open.\n\nPromising directions suggested by the source paper\u2019s techniques include: (i) finding a polynomial-time analogue of the \\(\\tau\\)-integrality DP (or an alternative stronger relaxation) that avoids the quasi-polynomial blow-up from enumerating connectivity patterns, and (ii) combining iterative relaxation with concentration-based rounding in a way that exploits laminar structure to control many overlapping cut constraints simultaneously. Any such approach must overcome the fundamental obstacle that edges can participate in \\(\\Theta(|\\mathcal L|)\\) constraints, making standard bounded-frequency methods ineffective.",
+    "total_cost_usd": 0.11739175,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "A New Dynamic Programming Approach for Spanning Trees with Chain Constraints and Beyond",
+        "bibtex": "@inproceedings{NZ19,\n  author    = {Martin N{\"a}gele and Rico Zenklusen},\n  title     = {A New Dynamic Programming Approach for Spanning Trees with Chain Constraints and Beyond},\n  booktitle = {Proceedings of the 30th Annual {ACM-SIAM} Symposium on Discrete Algorithms ({SODA})},\n  year      = {2019},\n  pages     = {1550--1569},\n  doi       = {10.1137/1.9781611975482.94},\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975482.94",
+        "theorem_or_result": "Introduces a dynamic-programming framework for spanning trees with cut constraints on chains and laminar families of bounded width, yielding quasi-polynomial-time \n(1,1+\\varepsilon)-approximations for MCCST and MLCST (bounded width), but leaving open whether there is a polynomial-time algorithm achieving constant-factor multiplicative violation for general laminar families.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "This is the source paper posing the open question: for laminar cut upper bounds, additive violations are known (\\(O(\\log n)\\)) and near-tight hardness exists for improving additive violation, but constant \\(O(1)\\) multiplicative violation in polynomial time remains open."
+      },
+      {
+        "title": "On generalizations of network design problems with degree bounds",
+        "bibtex": "@article{BKKNP13,\n  author  = {Nikhil Bansal and Rohit Khandekar and Jochen K{\"o}nemann and Viswanath Nagarajan and Britta Peis},\n  title   = {On generalizations of network design problems with degree bounds},\n  journal = {Mathematical Programming},\n  volume  = {141},\n  year    = {2013},\n  pages   = {479--506},\n  doi     = {10.1007/s10107-012-0537-8},\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-012-0537-8",
+        "theorem_or_result": "Gives iterative-relaxation methods for spanning trees with upper bounds on a family of edge sets; yields additive-violation guarantees depending on maximum constraint frequency per edge.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the iterative-relaxation baseline; for laminar cut constraints, edges can appear in many constraints, so these methods do not yield constant multiplicative violation."
+      },
+      {
+        "title": "Chain-Constrained Spanning Trees",
+        "bibtex": "@article{OZ18,\n  author  = {Neil Olver and Rico Zenklusen},\n  title   = {Chain-Constrained Spanning Trees},\n  journal = {Mathematical Programming},\n  volume  = {167},\n  number  = {2},\n  year    = {2018},\n  pages   = {293--314},\n  doi     = {10.1007/s10107-017-1126-7},\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-017-1126-7",
+        "theorem_or_result": "Studies chain cut constraints for spanning trees; gives algorithms and shows NP-hardness of exact feasibility; establishes strong limitations for improving additive violations (via later work).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Represents the chain special case and motivates the multiplicative-violation question; shows exact satisfaction is hard even for chains, so bicriteria notions are necessary."
+      },
+      {
+        "title": "Approximating min-cost chain-constrained spanning trees: A reduction from weighted to unweighted problems",
+        "bibtex": "@article{LS18,\n  author  = {Andr{\\'e} Linhares and Chaitanya Swamy},\n  title   = {Approximating min-cost chain-constrained spanning trees: A reduction from weighted to unweighted problems},\n  journal = {Mathematical Programming},\n  volume  = {172},\n  year    = {2018},\n  pages   = {17--34},\n  doi     = {10.1007/s10107-017-1150-7},\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-017-1150-7",
+        "theorem_or_result": "Gives polynomial-time bicriteria approximations for min-cost chain-constrained spanning trees (upper bounds), with constant-factor multiplicative violation but also a cost blow-up; introduces techniques to avoid objective loss in some settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Shows constant-factor multiplicative violation is achievable for chains (not general laminar families) but with weaker guarantees than desired; contrasts with the open laminar-family question."
+      },
+      {
+        "title": "Dependent Randomized Rounding via Exchange Properties of Combinatorial Structures",
+        "bibtex": "@inproceedings{CVZ10,\n  author    = {Chandra Chekuri and Jan Vondr{\\'a}k and Rico Zenklusen},\n  title     = {Dependent Randomized Rounding via Exchange Properties of Combinatorial Structures},\n  booktitle = {Proceedings of the 51st Annual {IEEE} Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2010},\n  pages     = {575--584},\n  doi       = {10.1109/FOCS.2010.60},\n}\n",
+        "source_url": "https://doi.org/10.1109/FOCS.2010.60",
+        "theorem_or_result": "Develops negatively correlated (swap) rounding for matroid base polytopes, giving Chernoff-type concentration for linear constraints while preserving marginals.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "A key rounding primitive used by N\u00e4gele\u2013Zenklusen to translate fractional solutions with large cut loads into near-multiplicative satisfaction; relevant to any attempt at constant-factor multiplicative violation."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09818375,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09818375
+    "literature_total_cost_usd": 0.11739175,
+    "total_cost_usd": 0.2155755
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387617469/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387617469_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4387617469_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

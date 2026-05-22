@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper formulates a fractional minimization prophet inequality for sequential procurement with monomial costs \\(\\sum_i c_i x_i^p\\) and ex post constraint \\(\\sum_i x_i=1\\). Offline, the convex program has a closed form \\(\\mathrm{OPT}(c,p)=(\\sum_i c_i^q)^{1/q}\\) with \\(q=-1/(p-1)\\), i.e., a negative power mean of the realized coefficients. Online, the paper resolves two regimes: for \u201cwell-behaved\u201d bounded distributions (invertible CDF with Lipschitz inverse), a multi-threshold policy achieves \\(\\mathrm{CR}=1+O(1/\\log n)\\); and with an in-house deterministic option, the worst-case competitive ratio over supports \\([\\ell,\\infty)\\) is exactly \\((1+(n-1)\\ell^{-1/(p-1)})^{p-1}\\), driven by long-shot distributions.\n\nWithout in-house production, the paper fully solves only the special case \\(p=2,n=2\\), obtaining \\(\\mathrm{CR}=\\tfrac14(\\sqrt{u/\\ell}+\\sqrt{\\ell/u})+\\tfrac12\\) via an explicit extremal distribution analysis under a mean constraint and harmonic-mean structure. For \\(p=2\\) it also derives a dynamic-program recursion for the optimal policy in terms of iterated harmonic means, and shows that unlike the classical (maximization, stopping) prophet inequality, the worst case does not reduce to \\(n=2\\) and the competitive ratio can be non-monotone in \\(n\\). These phenomena indicate that any closed-form \\(\\mathrm{CR}(\\mathcal D,p,n)\\) for bounded supports \\([\\ell,u]\\) will likely require new extremal arguments that handle both (i) the dependence of \\(\\mathbb E[\\mathrm{OPT}(C,p)]\\) on a negative power mean and (ii) the richer feasible set of fractional allocations.\n\nBeyond the source paper, the closest prior work on minimization prophet-type problems includes Prophet Secretary and hiring/coverage-style minimization prophet models. While these do not directly address convex fractional procurement, they highlight that minimization objectives often exhibit unboundedness without bounded supports and that feasibility constraints beyond stopping can fundamentally change extremal instances. Promising directions suggested by the source paper\u2019s numerics are to restrict attention to extremal distributions (point masses and long-shot/two-point laws) and to search for structural monotonicity/threshold properties in the worst-case sequence \\(D_1,\\dots,D_n\\) (e.g., early point masses followed by increasingly long-shot distributions), potentially enabling an analytic characterization for general \\(n\\) at least when \\(p=2\\), and then extending to general \\(p>1\\) using the negative power-mean form of \\(\\mathrm{OPT}(c,p)\\).",
+    "total_cost_usd": 0.08215549999999999,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Minimization Fractional Prophet Inequalities for Sequential Procurement",
+        "bibtex": "@article{QinVardiWierman_MinimizationFractionalProphetInequalities,\n  title={Minimization Fractional Prophet Inequalities for Sequential Procurement},\n  author={Qin, Junjie and Vardi, Shai and Wierman, Adam},\n  journal={Mathematics of Operations Research},\n  year={0000},\n  doi={10.1287/xxxx.0000.0000}\n}\n",
+        "source_url": "https://doi.org/10.1287/xxxx.0000.0000",
+        "theorem_or_result": "Introduces fractional minimization prophet inequalities with monomial costs \\(\\sum_i c_i x_i^p\\) under \\(\\sum_i x_i=1\\). Gives asymptotically optimal multi-threshold policy for well-behaved bounded distributions, exact competitive ratio with in-house production for arbitrary \\(p>1\\), and exact competitive ratio without in-house production only for \\(p=2,n=2\\): \\(\\tfrac14(\\sqrt{u/\\ell}+\\sqrt{\\ell/u})+\\tfrac12\\). Shows \\(n=2\\) is not worst-case for \\(p=2\\) and competitive ratio can be non-monotone in \\(n\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: determine \\(\\mathrm{CR}(\\mathcal D,p,n)\\) without in-house production for general \\(p>1\\), \\(n\\ge2\\), distributions supported on \\([\\ell,u]\\). Provides key structural lemmas: offline optimum equals \\((\\sum_i c_i^q)^{1/q}\\) with \\(q=-1/(p-1)\\), and for \\(p=2\\) the optimal online policy has a harmonic-mean recursion."
+      },
+      {
+        "title": "Prophet secretary",
+        "bibtex": "@inproceedings{EsfandiariEtAl_2015_ProphetSecretary,\n  title={Prophet Secretary},\n  author={Esfandiari, Hossein and Hajiaghayi, MohammadTaghi and Liaghat, Vahab and Monemizadeh, Morteza},\n  booktitle={Algorithms -- ESA 2015},\n  year={2015}\n}\n",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-662-48350-3_42",
+        "theorem_or_result": "Studies minimization-type prophet/secretary variants; establishes strong lower bounds for minimization prophet settings (including unboundedness when costs can be arbitrarily large and exponential dependence on \\(n\\) in certain models).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides baseline impossibility phenomena for minimization prophet inequalities (especially when \\(u\\to\\infty\\) or \\(p=1\\)), motivating why bounded support \\([\\ell,u]\\) and \\(p>1\\) are essential in the open problem."
+      },
+      {
+        "title": "Hiring secretaries over time: The benefit of concurrent employment",
+        "bibtex": "@article{DisserEtAl_2020_HiringSecretariesOverTime,\n  title={Hiring secretaries over time: The benefit of concurrent employment},\n  author={Disser, Yvonne and Fearnley, John and Gairing, Martin and G{\\\"o}bel, Oliver and Klimm, Max and Schmand, Daniel and Skopalik, Alexander and T{\\\"o}nnis, Anja},\n  journal={Mathematics of Operations Research},\n  year={2020},\n  volume={45},\n  number={1},\n  pages={323--352},\n  doi={10.1287/moor.2019.0993}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2019.0993",
+        "theorem_or_result": "Minimization prophet-style online decision problem with overlapping commitments; develops competitive algorithms and bounds in a setting that is not a pure stopping problem.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Closest minimization-prophet literature beyond the source paper; offers techniques for minimization objectives with feasibility constraints that are not simple stopping, potentially inspirational for extending beyond \\(p=2,n=2\\) without in-house production."
+      },
+      {
+        "title": "A survey of prophet inequalities in optimal stopping theory",
+        "bibtex": "@incollection{HillKertz_1992_SurveyProphetInequalities,\n  title={A survey of prophet inequalities in optimal stopping theory},\n  author={Hill, Theodore P. and Kertz, Robert P.},\n  booktitle={Contemporary Mathematics},\n  volume={125},\n  pages={191--207},\n  year={1992}\n}\n",
+        "source_url": "https://www.ams.org/books/conm/125/",
+        "theorem_or_result": "Survey of classical (maximization, stopping-rule) prophet inequalities, including extremal distribution constructions and the fact that worst-case ratios often reduce to \\(n=2\\) in classical settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "The source paper contrasts its setting with classical results (e.g., worst case not attained at \\(n=2\\)); this survey provides the classical extremal-method context that may guide attempts to characterize worst-case distributions for the fractional convex minimization setting."
+      },
+      {
+        "title": "Ratio comparisons of supremum and stop rule expectations",
+        "bibtex": "@article{HillKertz_1981_RatioComparisons,\n  title={Ratio comparisons of supremum and stop rule expectations},\n  author={Hill, Theodore P. and Kertz, Robert P.},\n  journal={Zeitschrift f{\\\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete},\n  year={1981},\n  volume={56},\n  number={2},\n  pages={283--285}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/BF00535498",
+        "theorem_or_result": "In classical prophet inequalities, shows worst-case competitive ratio can be realized with \\(n=2\\) and characterizes extremal distributions for that case.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Serves as a methodological foil: the open problem asks for closed-form \\(\\mathrm{CR}(\\mathcal D,p,n)\\) without in-house production, but the source paper shows the classical reduction-to-\\(n=2\\) fails for \\(p=2\\). Understanding why may require adapting (or proving impossibility of adapting) Hill\u2013Kertz extremal arguments to convex fractional costs."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.061685750000000004,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.061685750000000004
+    "literature_total_cost_usd": 0.08215549999999999,
+    "total_cost_usd": 0.14384125
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4381248347/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4381248347_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4381248347_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

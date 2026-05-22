@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "No forward-citation evidence was provided beyond the source paper itself, so there is currently no documented post-2023 work (in the supplied citation analysis) that closes the stated minimax gap for episodic finite-horizon tabular CTMDPs. The source paper establishes the first \\,\\(\\widetilde O(\\sqrt K)\\) worst-case regret guarantee for learning both transition probabilities \\,\\(p\\) and holding-time rates \\,\\(\\lambda\\) under horizon truncation, via CT-UCBVI and a value-iteration-based planning oracle. Its upper bound scales essentially like \\,\\(\\widetilde O(\\lambda_{\\max}^2 H^2 (H+1/\\lambda_{\\min})\\sqrt{SAK}(\\sqrt S+\\lambda_{\\max}H))\\), while its lower bound adapts discrete-time hard instances to show \\,\\(\\Omega(H\\sqrt{SAK})\\) in a regime where the depth \\,\\(d\\) fits within the expected number of jumps \\,\\(\\lambda_{\\max}H\\). The remaining gap is thus polynomial in \\,\\(S\\), \\,\\(H\\), and \\,\\(\\lambda_{\\max}\\), with an explicit extra \\,\\(\\sqrt S\\) factor traced to using \\,\\(\\ell_1\\) concentration for the full \\,\\(S\\)-dimensional transition vector.\n\nThe most promising direction, already suggested by analogy with discrete-time results, is to replace vector \\,\\(\\ell_1\\) confidence sets with value-function-dependent (variance-adaptive) confidence bounds, as in Bernstein-style UCBVI analyses, to avoid paying \\,\\(\\sqrt S\\) and to sharpen the \\,\\(H\\)-dependence. However, the continuous-time setting introduces two obstacles: (i) the number of decision epochs per episode is random and unbounded, and (ii) horizon truncation means some visits to \\,\\((x,a)\\) do not yield an observed next state, breaking standard counting (pigeonhole) arguments. Any improvement likely requires new concentration/optional-stopping arguments that control the cumulative effect of transition-estimation error weighted by remaining time \\,\\((H-t)^+\\), and a refined coupling between time-spent statistics \\,\\(T_k(x,a)\\) and observed jump counts \\,\\(N_{k,+}(x,a)\\). At present, based on the provided materials, the problem remains open.",
+    "total_cost_usd": 0.09523499999999999,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Square-root regret bounds for continuous-time episodic Markov decision processes",
+        "bibtex": "@article{GaoZhou2023SquareRootCTMDP,\n  title        = {Square-root regret bounds for continuous-time episodic Markov decision processes},\n  author       = {Gao, Xuefeng and Zhou, Xun Yu},\n  year         = {2023},\n  journal      = {arXiv preprint},\n  eprint       = {2210.00832},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG}\n}\n",
+        "source_url": "https://arxiv.org/abs/2210.00832",
+        "theorem_or_result": "Introduces CT-UCBVI for episodic finite-horizon tabular CTMDPs with unknown transition probabilities and holding-time rates. Proves worst-case regret upper bound \\,\\(\\widetilde O(\\lambda_{\\max}^2 H^2 (H+1/\\lambda_{\\min})\\sqrt{SAK}(\\sqrt S+\\lambda_{\\max}H))\\) (under a particular parameter choice) and a minimax lower bound of order \\,\\(\\Omega(H\\sqrt{SAK})\\) in a regime where the depth parameter \\,\\(d\\lesssim \\lambda_{\\max}H\\). Highlights an extra \\,\\(\\sqrt S\\) and worse \\,\\(H\\)-dependence in the upper bound relative to discrete-time tight results.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: close the gap between its upper bound and the lower bound by improving polynomial dependence on \\,\\(S\\), \\,\\(H\\), and \\,\\(\\lambda_{\\max}\\), ideally achieving \\,\\(\\widetilde O(H\\sqrt{SAK})\\) up to logs."
+      },
+      {
+        "title": "Minimax regret bounds for reinforcement learning",
+        "bibtex": "@inproceedings{AzarOsbandMunos2017Minimax,\n  title     = {Minimax Regret Bounds for Reinforcement Learning},\n  author    = {Azar, Mohammad Gheshlaghi and Osband, Ian and Munos, R{\\'e}mi},\n  booktitle = {Proceedings of the 34th International Conference on Machine Learning (ICML)},\n  year      = {2017}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v70/azar17a.html",
+        "theorem_or_result": "Develops UCBVI with Bernstein-style bonuses for episodic finite-horizon tabular discrete-time MDPs, achieving near-minimax regret \\,\\(\\widetilde O(H\\sqrt{SAK})\\) (plus lower-order terms) under stationary transitions, matching known lower bounds up to logs in appropriate regimes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the discrete-time benchmark technique (variance-adaptive bonuses and value-function-based confidence) that the CTMDP paper explicitly cites as the missing ingredient to remove the extra \\,\\(\\sqrt S\\) and improve \\,\\(H\\)-dependence in continuous time."
+      },
+      {
+        "title": "Episodic reinforcement learning in finite MDPs: Minimax lower bounds revisited",
+        "bibtex": "@inproceedings{DominguesMenardKaufmannValko2021MinimaxLower,\n  title     = {Episodic Reinforcement Learning in Finite {MDP}s: Minimax Lower Bounds Revisited},\n  author    = {Domingues, Olivier and M{\\'e}nard, Pierre and Kaufmann, Emilie and Valko, Michal},\n  booktitle = {Proceedings of Algorithmic Learning Theory (ALT)},\n  year      = {2021}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v132/domingues21a.html",
+        "theorem_or_result": "Establishes minimax regret lower bounds for episodic finite-horizon tabular discrete-time MDPs, including \\,\\(\\Omega(H\\sqrt{SAK})\\) scaling (up to logs) in relevant regimes, via hard instance constructions based on A-ary trees.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The CTMDP lower bound in the source paper adapts this discrete-time construction; it anchors what \u2018optimal\u2019 dependence on \\,\\(S\\), \\,\\(A\\), \\,\\(H\\) should look like and motivates closing the gap in continuous time."
+      },
+      {
+        "title": "Near-optimal regret bounds for reinforcement learning",
+        "bibtex": "@article{JakschOrtnerAuer2010UCRL2,\n  title   = {Near-optimal regret bounds for reinforcement learning},\n  author  = {Jaksch, Thomas and Ortner, Ronald and Auer, Peter},\n  journal = {Journal of Machine Learning Research},\n  volume  = {11},\n  number  = {Apr},\n  pages   = {1563--1600},\n  year    = {2010}\n}\n",
+        "source_url": "https://jmlr.org/papers/v11/jaksch10a.html",
+        "theorem_or_result": "Introduces UCRL2 for unknown MDPs with optimism over confidence sets and proves \\,\\(\\widetilde O(D S\\sqrt{AT})\\)-type regret bounds in communicating MDPs (average reward), establishing core tools (confidence sets, extended value iteration) used widely in regret analyses.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "CT-UCBVI borrows concentration tools (e.g., L1 confidence for transitions) and optimism methodology; improvements for CTMDPs may require sharper confidence/variance tools beyond the L1 vector bound that introduces the extra \\,\\(\\sqrt S\\)."
+      },
+      {
+        "title": "Exploration-exploitation in MDPs with options",
+        "bibtex": "@inproceedings{FruitLazaric2017Options,\n  title     = {Exploration-Exploitation in {MDP}s with Options},\n  author    = {Fruit, Ronald and Lazaric, Alessandro},\n  booktitle = {Proceedings of the 20th International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year      = {2017}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v54/fruit17a.html",
+        "theorem_or_result": "Studies exploration-exploitation for semi-Markov decision processes (SMDPs) with options in an infinite-horizon setting, adapting UCRL2-style optimism and obtaining \\,\\(\\widetilde O(\\sqrt n)\\) regret after \\,\\(n\\) decision steps.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides prior regret analysis for continuous-time/semi-Markov models but in infinite-horizon and step-based regret; techniques may inspire handling random holding times, though the episodic finite-horizon truncation issues in CTMDPs remain distinct."
+      },
+      {
+        "title": "Logarithmic regret bounds for continuous-time average-reward markov decision processes",
+        "bibtex": "@article{GaoZhou2022LogRegretCTMDP,\n  title        = {Logarithmic regret bounds for continuous-time average-reward markov decision processes},\n  author       = {Gao, Xuefeng and Zhou, Xun Yu},\n  year         = {2022},\n  journal      = {arXiv preprint},\n  eprint       = {2205.11168},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG}\n}\n",
+        "source_url": "https://arxiv.org/abs/2205.11168",
+        "theorem_or_result": "Derives instance-dependent (problem-dependent) logarithmic regret bounds for learning tabular CTMDPs in the infinite-horizon average-reward setting, leveraging continuous-time structure and stability/ergodicity conditions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Shows that sharper (instance-dependent) rates are possible in continuous time, but does not address the minimax episodic finite-horizon dependence on \\,\\(S\\), \\,\\(H\\), \\,\\(\\lambda_{\\max}\\); techniques might inform refined confidence bounds for rates/transition estimation."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07410900000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07410900000000001
+    "literature_total_cost_usd": 0.09523499999999999,
+    "total_cost_usd": 0.169344
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4407408247/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4407408247_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4407408247_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

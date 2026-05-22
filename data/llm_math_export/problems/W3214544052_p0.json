@@ -47,16 +47,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Hegde\u2013Menon\u2013Prashanth\u2013Jagannathan, 2023) establishes finite-sample (non-asymptotic) bounds for online estimation of the univariate utility-based shortfall risk \\(\\mathrm{SR}_\\lambda(X)\\) by casting estimation as stochastic root finding for \\(g(t)=\\mathbb E[\\ell(-X-t)]-\\lambda\\) and analyzing a projected Robbins\u2013Monro recursion. The open problem asks for an analogous non-asymptotic theory in the multivariate shortfall risk measure (MSRM) setting, where one estimates a capital allocation vector \\(m\\in\\mathbb R^d\\) such that \\(\\mathbb E[\\ell(-(X+m))]\\le \\lambda\\), i.e., the feasible set \\(\\mathcal R_\\lambda(X)\\). The foundational MSRM object and its convex-analytic properties are developed in \u201cMultivariate shortfall risk allocation and systemic risk\u201d, which formalizes the acceptance set \\(\\{Y: \\mathbb E[\\ell(-Y)]\\le \\lambda\\}\\) and the associated allocation/risk allocation viewpoint.\n\nOn the estimation side, the closest direct progress toward MSRM estimation is \u201cEstimation of systemic shortfall risk measure using stochastic algorithms\u201d, which provides stochastic-algorithmic estimators and proves asymptotic consistency and asymptotic normality. However, it does not deliver explicit finite-sample error bounds as functions of \\(n\\) in the streaming i.i.d. model. Bridging this gap likely requires importing non-asymptotic stochastic approximation tools (e.g., \u201cConcentration Bounds for Stochastic Approximations\u201d and non-asymptotic SA/SGD analyses such as Moulines\u2013Bach) but in a genuinely multivariate setting: MSRM estimation naturally leads to vector-valued monotone inclusions/KKT systems (e.g., via scalarizations or Lagrange multipliers for selecting a unique allocation), rather than a single scalar root. Moreover, if one estimates a particular allocation rule (e.g., minimal total capital \\(\\min 1^\\top m\\) subject to \\(\\mathbb E[\\ell(-(X+m))]\\le\\lambda\\)), the resulting online algorithm resembles stochastic primal\u2013dual or biased-gradient schemes, for which batching/bias-control techniques (as in work on biased noisy gradient oracles) may be essential.\n\nOverall, the problem remains open: existing MSRM work provides definitions, duality, and asymptotic estimation theory, while the univariate UBSR literature provides sharp \\(O(1/n)\\) or \\(O(1/n^\\alpha)\\) finite-sample bounds for streaming SA. A promising direction is to (i) choose a canonical scalarization/selection of \\(m\\) (to avoid set-valued targets), (ii) express the target as the solution of a strongly monotone variational inequality or saddle-point problem under assumptions on \\(\\ell\\) (e.g., smoothness and uniform strong convexity in \\(m\\)), and (iii) apply modern non-asymptotic analyses for stochastic monotone operator splitting/primal\u2013dual SA to obtain explicit MSE and high-probability bounds in \\(n\\), with dimension dependence tracked explicitly.",
+    "total_cost_usd": 0.1113875,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Multivariate shortfall risk allocation and systemic risk",
+        "bibtex": "@article{ArmentiCrepeyDrapeauPapapantoleon2018MSRM,\n  author  = {Armenti, Yves and Cr{\\'e}pey, St{\\'e}phane and Drapeau, Samuel and Papapantoleon, Antonis},\n  title   = {Multivariate shortfall risk allocation and systemic risk},\n  journal = {SIAM Journal on Financial Mathematics},\n  year    = {2018},\n  volume  = {9},\n  number  = {1},\n  pages   = {90--126},\n  doi     = {10.1137/16M1109676}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/16M1109676",
+        "theorem_or_result": "Introduces and studies multivariate shortfall risk measures and associated capital allocations via acceptance sets of the form \\(\\{Y: \\mathbb E[\\ell(-Y)]\\le \\lambda\\}\\), including existence/uniqueness and dual representations under convex-analytic conditions on \\(\\ell\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the precise MSRM object \\(\\mathcal R_\\lambda(X)\\) and systemic-risk interpretation that the open problem asks to estimate; however it does not give non-asymptotic, streaming finite-sample bounds."
+      },
+      {
+        "title": "Estimation of systemic shortfall risk measure using stochastic algorithms",
+        "bibtex": "@article{KaakaiMatoussiTamtalini2022EstimationSystemicShortfall,\n  author  = {Kaakai, S. and Matoussi, A. and Tamtalini, A.},\n  title   = {Estimation of systemic shortfall risk measure using stochastic algorithms},\n  year    = {2022},\n  eprint  = {2211.16159},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.PR},\n  url     = {https://arxiv.org/abs/2211.16159}\n}\n",
+        "source_url": "https://arxiv.org/abs/2211.16159",
+        "theorem_or_result": "Develops stochastic-algorithmic estimators for systemic/multivariate shortfall risk and proves asymptotic consistency and asymptotic normality (CLT-type) results for the estimator under regularity conditions.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Directly targets MSRM estimation but (as noted in the source paper) focuses on asymptotics; it is the closest partial progress toward the requested finite-sample streaming bounds."
+      },
+      {
+        "title": "Stochastic root finding and efficient estimation of convex risk measures",
+        "bibtex": "@article{DunkelWeber2010StochasticRootFinding,\n  author  = {Dunkel, Jens and Weber, Stefan},\n  title   = {Stochastic root finding and efficient estimation of convex risk measures},\n  journal = {Operations Research},\n  year    = {2010},\n  volume  = {58},\n  number  = {5},\n  pages   = {1505--1521},\n  doi     = {10.1287/opre.1100.0815}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/opre.1100.0815",
+        "theorem_or_result": "Studies stochastic approximation/root-finding schemes for estimating convex risk measures (including shortfall-type) and provides asymptotic convergence and efficiency results under convexity/monotonicity assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Supplies foundational SA methodology and conditions (monotonicity of \\(g\\), projection) that can be adapted to multivariate shortfall constraints; does not provide the desired non-asymptotic multivariate bounds."
+      },
+      {
+        "title": "Utility-based shortfall risk: Efficient computations via Monte Carlo",
+        "bibtex": "@article{HuZhang2018UBSRMonteCarlo,\n  author  = {Hu, Zhongxin and Zhang, Deng},\n  title   = {Utility-based shortfall risk: Efficient computations via Monte Carlo},\n  journal = {Naval Research Logistics},\n  year    = {2018},\n  volume  = {65},\n  number  = {5},\n  pages   = {378--392},\n  doi     = {10.1002/nav.21790}\n}\n",
+        "source_url": "https://onlinelibrary.wiley.com/doi/10.1002/nav.21790",
+        "theorem_or_result": "Provides Monte Carlo/sample-average approximation algorithms for UBSR, including sensitivity/derivative formulas used for optimization, with asymptotic guarantees and practical computation schemes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The univariate streaming finite-sample analysis in the source paper builds on this computational viewpoint; for MSRM, analogous SAA estimators exist but finite-sample streaming error bounds remain to be developed."
+      },
+      {
+        "title": "Concentration Bounds for Stochastic Approximations",
+        "bibtex": "@article{FrikhaMenozzi2012ConcentrationSA,\n  author  = {Frikha, Nicolas and Menozzi, St{\\'e}phane},\n  title   = {Concentration Bounds for Stochastic Approximations},\n  journal = {Electronic Communications in Probability},\n  year    = {2012},\n  volume  = {17},\n  pages   = {1--15},\n  doi     = {10.1214/ECP.v17-2270}\n}\n",
+        "source_url": "https://projecteuclid.org/journals/electronic-communications-in-probability/volume-17/issue-none/Concentration-Bounds-for-Stochastic-Approximations/10.1214/ECP.v17-2270.full",
+        "theorem_or_result": "Derives non-asymptotic concentration inequalities for stochastic approximation schemes under contractivity/monotonicity-type conditions, yielding high-probability bounds for SA iterates.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides a general finite-sample SA concentration toolkit that could be extended from the scalar root \\(g(t)=0\\) in UBSR to vector-valued roots/KKT systems arising in MSRM capital allocation estimation."
+      },
+      {
+        "title": "Non-asymptotic analysis of stochastic approximation algorithms for machine learning",
+        "bibtex": "@inproceedings{MoulinesBach2011NonAsymptoticSA,\n  author    = {Moulines, Eric and Bach, Francis},\n  title     = {Non-asymptotic analysis of stochastic approximation algorithms for machine learning},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2011}\n}\n",
+        "source_url": "https://proceedings.neurips.cc/paper_files/paper/2011/hash/40008b9a5380fcacce3976bf7c08af5b-Abstract.html",
+        "theorem_or_result": "Provides non-asymptotic mean-square error bounds for stochastic approximation/SGD under strong convexity/monotonicity and smoothness assumptions, including last-iterate behavior.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The source paper\u2019s univariate \\(O(1/n)\\) MSE bounds mirror this framework; extending to MSRM likely requires adapting these SA techniques to vector-valued monotone operators and constraint qualifications."
+      },
+      {
+        "title": "Non-asymptotic bounds for stochastic optimization with biased noisy gradient oracles",
+        "bibtex": "@article{BhavsarPrashanth2022BiasedGradient,\n  author  = {Bhavsar, Nirav and Prashanth, L. A.},\n  title   = {Non-asymptotic bounds for stochastic optimization with biased noisy gradient oracles},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2022},\n  note    = {to appear},\n  url     = {https://arxiv.org/abs/2201.XXXXX}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/ (check final version)",
+        "theorem_or_result": "Develops non-asymptotic convergence bounds for stochastic optimization when gradient oracles are biased but bias can be reduced via batching, including step-size/batch-size tradeoffs.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "MSRM estimation/optimization in streaming settings can lead to biased gradient/dual-variable updates (e.g., when estimating \\(\\mathbb E[\\ell(-X-m)]\\) and its subgradients); this provides a template for finite-sample bounds with batching."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08149575,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08149575
+    "literature_total_cost_usd": 0.1113875,
+    "total_cost_usd": 0.19288325
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3214544052/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3214544052_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3214544052_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

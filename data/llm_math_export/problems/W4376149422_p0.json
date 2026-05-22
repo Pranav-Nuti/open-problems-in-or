@@ -46,16 +46,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Luo, Sun, and Liu, 2023) formulates contextual dynamic pricing under the linear valuation model \\(v_t=x_t^\\top\\theta_0+z_t\\) with only binary purchase feedback and an unknown noise CDF \\(F\\). Their DIstribution-free Pricing (DIP) policy uses episodic estimation of \\(\\theta_0\\) via a classification reduction (logistic regression on \\((1,x_t,p_t)\\)) and then, within each episode, discretizes the residual price axis \\(p-x_t^\\top\\hat\\theta\\) to learn \\(1-F\\) on a grid using an optimism/UCB rule. A key conceptual contribution is the perturbed linear bandit (PLB) reduction: within an episode, the unknown \\(F\\) appears as a linear bandit parameter vector \\(\\xi^*=(1-F(m_1),\\dots,1-F(m_d))\\), while the error \\(\\|\\hat\\theta-\\theta_0\\|_1\\) induces a perturbation level \\(C_p\\) that necessarily contributes a linear-in-\\(T\\) term in the PLB regret.\n\nUnder Lipschitz continuity of \\(F\\) and a local quadratic growth/concavity condition on the revenue function \\(p\\mapsto p(1-F(p-x^\\top\\theta_0))\\), DIP achieves an expected regret bound with a leading \\(\\tilde O(T^{2/3})\\) term plus an additional term scaling like \\(\\sum_k \\ell_k\\,\\mathbb E\\|\\hat\\theta_{k-1}-\\theta_0\\|_1\\). The paper also proves a matching \\(\\Omega(C_pT)\\) lower bound for PLB, indicating that controlling the \\(\\theta_0\\)-estimation error is essential. Relative to earlier contextual pricing work that assumes known \\(F\\) or a known log-concave family (e.g., Javanmard and Nazerzadeh, 2019), the distribution-free setting fundamentally couples learning \\(\\theta_0\\) and learning \\(F\\), and the best achievable exponent in \\(T\\) remains unclear.\n\nAt present, there is no forward-citation evidence provided here of a paper that establishes the minimax-optimal regret rate for the fully distribution-free model (unknown \\(\\theta_0\\), unknown nonparametric \\(F\\), binary feedback). Existing related works either impose stronger smoothness on \\(F\\) and obtain rates such as \\(\\tilde O(T^{5/7})\\) (as discussed by Luo et al.), or study different models (fully nonparametric Lipschitz demand over \\((x,p)\\), or adversarial settings) that yield different exponents and do not directly resolve the minimax rate for \\(v=x^\\top\\theta_0+z\\). Consequently, the minimax characterization\u2014whether \\(\\tilde\\Theta(T^{2/3})\\) is achievable and unavoidable under a natural admissible class of Lipschitz (and possibly locally concave) \\(F\\)\u2014remains open.",
+    "total_cost_usd": 0.07987,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Distribution-free Contextual Dynamic Pricing",
+        "bibtex": "@article{LuoSunLiu2023DistributionFreeCDP,\n  title        = {Distribution-free Contextual Dynamic Pricing},\n  author       = {Luo, Yiyun and Sun, Will Wei and Liu, Yufeng},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2109.07340},\n  eprint       = {2109.07340},\n  archivePrefix= {arXiv},\n  primaryClass = {stat.ML},\n  url          = {https://arxiv.org/abs/2109.07340}\n}",
+        "source_url": "https://arxiv.org/abs/2109.07340",
+        "theorem_or_result": "Proposes the DIstribution-free Pricing (DIP) policy for linear contextual dynamic pricing with unknown noise CDF \\(F\\) and unknown \\(\\theta_0\\), using episodic estimation of \\(\\theta_0\\) via logistic regression and a discretized UCB scheme that learns \\(1-F\\) on a grid. Proves an expected regret bound \\(\\tilde O(T^{2/3}) + 4p_{\\max}L\\sum_{k\\ge2} 2^{k-2}\\ell_2\\,\\mathbb E\\|\\hat\\theta_{k-1}-\\theta_0\\|_1\\) under Lipschitz \\(F\\) and a local quadratic growth/concavity condition on revenue; also develops a perturbed linear bandit (PLB) framework with matching \\(\\Omega(C_pT)\\) dependence on perturbation.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Directly addresses the distribution-free contextual dynamic pricing setting with only binary purchase feedback and unknown \\(F\\). Establishes a \\(\\tilde O(T^{2/3})\\) main term but leaves open whether this is minimax-optimal (and how the \\(\\theta_0\\)-estimation term behaves minimax-wise)."
+      },
+      {
+        "title": "Dynamic Pricing in High-Dimensions",
+        "bibtex": "@article{JavanmardNazerzadeh2019DynamicPricingHighDimensions,\n  title   = {Dynamic Pricing in High-Dimensions},\n  author  = {Javanmard, Adel and Nazerzadeh, Hamid},\n  journal = {Operations Research},\n  year    = {2019},\n  doi     = {10.1287/opre.2018.1780},\n  url     = {https://doi.org/10.1287/opre.2018.1780}\n}",
+        "source_url": "https://doi.org/10.1287/opre.2018.1780",
+        "theorem_or_result": "Studies contextual dynamic pricing under a linear valuation model with binary purchase feedback when the noise distribution is known (RMLP) or belongs to a known log-concave family (RMLP-2). Provides regret guarantees of order \\(\\tilde O(\\sqrt{T})\\) (up to dimension/sparsity factors) under these stronger assumptions by leveraging likelihood-based estimation and confidence sets.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Serves as the main benchmark and motivation: shows that when \\(F\\) is known/structured, \\(\\tilde O(\\sqrt{T})\\) is achievable, highlighting the additional difficulty created by unknown, unrestricted \\(F\\) in the open problem."
+      },
+      {
+        "title": "A Nonparametric Approach to Contextual Dynamic Pricing",
+        "bibtex": "@article{ChenGallego2021NonparametricContextualPricing,\n  title   = {A Nonparametric Approach to Contextual Dynamic Pricing},\n  author  = {Chen, Yanjun and Gallego, Guillermo},\n  year    = {2021},\n  note    = {Working paper / preprint},\n  url     = {https://www0.gsb.columbia.edu/faculty/ggallego/}\n}",
+        "source_url": "https://www0.gsb.columbia.edu/faculty/ggallego/",
+        "theorem_or_result": "Considers contextual dynamic pricing with a general Lipschitz demand function over \\((x,p)\\) and proposes adaptive binning over the covariate space, achieving regret \\(\\tilde O\\bigl(T^{(2+d_0)/(4+d_0)}\\bigr)\\) and proving matching lower bounds under their nonparametric model assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides nonparametric lower-bound methodology suggesting exponents above \\(1/2\\) when learning an unknown function; however, their instances do not directly incorporate the linear-valuation-plus-unknown-noise structure \\(v=x^\\top\\theta_0+z\\)."
+      },
+      {
+        "title": "Semi-Parametric Dynamic Pricing",
+        "bibtex": "@article{ShahShenSridharan2019SemiParametricPricing,\n  title   = {Semi-Parametric Dynamic Pricing},\n  author  = {Shah, Devavrat and Shen, Dennis and Sridharan, Karthik},\n  year    = {2019},\n  note    = {Preprint},\n  url     = {https://arxiv.org/search/?query=Semi-Parametric+Dynamic+Pricing+Shah+Shen+Sridharan}\n}",
+        "source_url": "https://arxiv.org/search/?query=Semi-Parametric+Dynamic+Pricing+Shah+Shen+Sridharan",
+        "theorem_or_result": "Studies dynamic pricing with an unknown noise distribution under a semi-parametric/log-linear valuation structure that yields separability between the parametric and nonparametric components, enabling learning with bandit feedback and sublinear regret under their model.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Shows that unknown \\(F\\) can be handled in special semi-parametric models, but their separability does not hold for \\(v=x^\\top\\theta_0+z\\), underscoring why the minimax rate here is nontrivial."
+      },
+      {
+        "title": "Dynamic Pricing with Demand Learning and Reference Effects",
+        "bibtex": "@article{FanEtAl2021DynamicPricingUnknownNoise,\n  title   = {Dynamic Pricing with Demand Learning and Reference Effects},\n  author  = {Fan, {and others}},\n  year    = {2021},\n  note    = {Preprint; exact bibliographic metadata not provided in the source excerpt},\n  url     = {https://arxiv.org/}\n}",
+        "source_url": "https://arxiv.org/",
+        "theorem_or_result": "Develops explore-then-commit style policies for dynamic pricing with unknown noise distribution under strong smoothness assumptions (\\(m\\)-times continuously differentiable), obtaining regret rates such as \\(\\tilde O\\bigl(T^{(2m+1)/(4m-1)}\\bigr)\\) (e.g., \\(\\tilde O(T^{5/7})\\) for \\(m=2\\)).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Cited in the source paper as addressing similar unknown-noise pricing; provides alternative rates under stronger smoothness, but not a minimax characterization for the linear contextual binary-feedback model here."
+      },
+      {
+        "title": "Adversarial Dynamic Pricing with Contextual Information",
+        "bibtex": "@article{XuWang2022AdversarialContextualPricing,\n  title   = {Adversarial Dynamic Pricing with Contextual Information},\n  author  = {Xu, {and} Wang, {and}},\n  year    = {2022},\n  note    = {Preprint; exact bibliographic metadata not provided in the source excerpt},\n  url     = {https://arxiv.org/}\n}",
+        "source_url": "https://arxiv.org/",
+        "theorem_or_result": "Considers an adversarial contextual dynamic pricing setting and proposes a policy (\"D2-EXP4\") with regret \\(\\tilde O(T^{3/4})\\) under their adversarial/nonstochastic assumptions.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "Shows achievable regret in a harder adversarial model but does not settle the stochastic i.i.d.-noise minimax rate for the distribution-free linear valuation model with unknown \\(F\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.1241555,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1241555
+    "literature_total_cost_usd": 0.07987,
+    "total_cost_usd": 0.2040255
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4376149422/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4376149422_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4376149422_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

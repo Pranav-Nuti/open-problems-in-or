@@ -44,16 +44,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 6,
+    "difficulty": 7,
+    "synthesis": "No forward-citing papers were provided in the citation analysis, so there is currently no evidence (within the supplied materials) that the open problem has been solved. The source paper establishes that for fixed \\(p\\in(0,1]\\) and \\(r\\in(0,1)\\) (\\(\\gamma=1-r\\)), the recursive Markov dependence forces the average degree to be \\(\\Theta(\\log n)\\) and yields a Tur\\'an-type lower bound \\(\\alpha(G^r_{n,p})=\\Omega(n/\\log n)\\) w.h.p., while a first-moment argument gives only a linear upper bound \\(\\alpha(G^r_{n,p})\\le c(r)n\\) with \\(c(r)<1\\). The main gap is therefore to determine whether \\(\\alpha(G^r_{n,p})\\) is truly of order \\(n/\\log n\\) (as suggested by the average-degree heuristic) or whether the Markovian edge correlations permit substantially larger independent sets.\n\nTechnically, the paper reduces many questions to understanding the non-homogeneous Markov chain governing edges incident to a vertex, with marginal probabilities satisfying \\(p^i_j=p^i_{j-1}(1-\\gamma p^i_{j-1})\\). The concentration of the partial sums of this dependent Bernoulli sequence at scale \\(\\log n\\) is the key input for the \\(\\Omega(n/\\log n)\\) bound. Progress on the open problem likely requires sharper control of the probability that a given \\(k\\)-set is independent (beyond the current upper bound), or new structural/algorithmic constructions that exploit the decay in edge probabilities along the vertex ordering to build larger independent sets, potentially matching an \\(n/\\log n\\) upper bound.",
+    "total_cost_usd": 0.068047,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Large independent sets in recursive Markov random graphs",
+        "bibtex": "@article{GupteZhu2024LargeIndependentSets,\n  title        = {Large independent sets in recursive Markov random graphs},\n  author       = {Gupte, Akshay and Zhu, Yiran},\n  year         = {2024},\n  eprint       = {2207.04514},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO},\n  note         = {arXiv:2207.04514v4 (24 May 2024)}\n}\n",
+        "source_url": "https://arxiv.org/abs/2207.04514",
+        "theorem_or_result": "Introduces the recursive Markov random graph model \\(G^r_{n,p}\\) (with \\(\\gamma=1-r\\)) and proves w.h.p. a lower bound \\(\\alpha(G^r_{n,p}) \\ge \\frac{\\gamma}{2+\\varepsilon}\\,\\frac{n}{\\log n}\\) for any \\(\\varepsilon>0\\), plus an upper bound \\(\\alpha(G^r_{n,p}) \\le c(r)n\\) for an explicit \\(c(r)<1\\). Leaves open whether the true order is \\(\\Theta(n/\\log n)\\) or larger.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that formulates the open problem of determining the asymptotic order of \\(\\alpha(G^r_{n,p})\\) for fixed \\(p\\in(0,1]\\), \\(r\\in(0,1)\\). It provides the best-known bounds and highlights the gap between \\(\\Omega(n/\\log n)\\) and \\(O(n)\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0684775,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0684775
+    "literature_total_cost_usd": 0.068047,
+    "total_cost_usd": 0.1365245
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400583097/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400583097_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4400583097_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

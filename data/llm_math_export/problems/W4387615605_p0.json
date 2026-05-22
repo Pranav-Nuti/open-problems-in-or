@@ -48,16 +48,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The OBMRR model of Delong et al. generalizes classic online bipartite matching by allowing each offline vertex to be reused after a deterministic duration \\(d\\), equivalently enforcing that each resource is matched at most once in any length-\\(d\\) window. Because OBMRR reduces to non-reusable OBM when \\(d=|U|\\), the optimal \\(1-1/e\\) bound from RANKING and its vertex-weighted extension (Perturbed Greedy) remains an upper bound in that regime. The source paper gives the first integral (unit-inventory) algorithms beating the \\(1/2\\) greedy barrier: Periodic Reranking achieves about \\(0.589\\) via a reranking-every-\\(d\\)-steps variant of Perturbed Greedy analyzed through randomized dual fitting, and an OCR-based primal-dual method achieves \\(50/99\\approx 0.505\\) by extending online correlated selection to reusable resources.\n\nAt present, there is no evidence in the provided material that the open problem of achieving \\(1-1/e\\) for vertex-weighted OBMRR with deterministic \\(d\\) has been solved. The main technical obstacles highlighted by Delong et al. are (i) long-range dependencies created by reuse (a fixed ranking can force repeated use of the same resource across far-apart times), and (ii) the need for stronger, availability-aware negative correlation across rounds within distance \\(d-1\\). Their Periodic Reranking partially breaks these dependencies by resampling ranks on a period aligned with \\(d\\), but the analysis loses slack precisely in scenarios where a resource is unavailable at time \\(j\\) due to being used late in the previous period. Their OCR framework provides a modular way to inject negative correlation, but with a relatively small \\(\\gamma\\) parameter (\\(1/32\\)) leading only to a slight improvement over \\(1/2\\).\n\nPromising directions suggested by the surrounding literature are to strengthen the correlated-selection primitive and/or allow richer query structures. Subsequent work on improved OCS and multiway OCS indicates that better correlation guarantees are possible in non-reusable settings; translating these improvements to the reusable OCR setting could increase \\(\\gamma\\) and thus the competitive ratio of OCR-based primal-dual algorithms. Another direction is to develop new dual-fitting certificates that more tightly track availability windows (potentially beyond the two-period conditioning used in the Periodic Reranking analysis), aiming to close the gap between \\(0.589\\) and \\(1-1/e\\) or to prove a strictly smaller upper bound for integral OBMRR when \\(d\\) is finite.",
+    "total_cost_usd": 0.105539,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "An optimal algorithm for on-line bipartite matching",
+        "bibtex": "@inproceedings{KarpVaziraniVazirani1990,\n  author    = {Richard M. Karp and Umesh V. Vazirani and Vijay V. Vazirani},\n  title     = {An optimal algorithm for on-line bipartite matching},\n  booktitle = {Proceedings of the 22nd Annual ACM Symposium on Theory of Computing (STOC)},\n  year      = {1990}\n}",
+        "source_url": "https://doi.org/10.1145/100216.100262",
+        "theorem_or_result": "Introduces the RANKING algorithm for online bipartite matching with non-reusable offline vertices and proves the optimal randomized competitive ratio \\(1-1/e\\) against an oblivious adversary.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "OBMRR reduces to classic OBM when \\(d=|U|\\); thus \\(1-1/e\\) is an upper bound for OBMRR in that regime and the techniques (random ranking/negative correlation) motivate attempts to reach \\(1-1/e\\) with reusability."
+      },
+      {
+        "title": "Online vertex-weighted bipartite matching and single-bid budgeted allocations",
+        "bibtex": "@inproceedings{AggarwalGoelKarandeMehta2011,\n  author    = {Gagan Aggarwal and Gagan Goel and Chaitanya Karande and Aranyak Mehta},\n  title     = {Online vertex-weighted bipartite matching and single-bid budgeted allocations},\n  booktitle = {Proceedings of the 22nd Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2011}\n}",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973082.99",
+        "theorem_or_result": "Gives the Perturbed Greedy algorithm for vertex-weighted online bipartite matching with non-reusable offline vertices and achieves the optimal \\(1-1/e\\) competitive ratio.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "The Periodic Reranking algorithm in OBMRR is explicitly designed to reduce to Perturbed Greedy when \\(d=|U|\\); understanding the \\(1-1/e\\) analysis highlights what breaks under reusability and what must be recovered to reach \\(1-1/e\\)."
+      },
+      {
+        "title": "Randomized primal-dual analysis of ranking for online bipartite matching",
+        "bibtex": "@inproceedings{DevanurJainKleinberg2013,\n  author    = {Nikhil R. Devanur and Kamal Jain and Robert D. Kleinberg},\n  title     = {Randomized primal-dual analysis of ranking for online bipartite matching},\n  booktitle = {Proceedings of the 24th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2013}\n}",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973105.9",
+        "theorem_or_result": "Develops a randomized primal-dual (dual-fitting) analysis framework for RANKING, clarifying how to construct dual variables from random ranks to certify \\(1-1/e\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Delong et al. adapt this randomized primal-dual template to periodic reranking under reuse constraints; any attempt to reach \\(1-1/e\\) for OBMRR likely needs a sharper dual-fitting argument or new dual variables capturing availability windows."
+      },
+      {
+        "title": "Edge-weighted online bipartite matching",
+        "bibtex": "@inproceedings{FahrbachHuangTaoZadimoghaddam2020,\n  author    = {Matthew Fahrbach and Zhiyi Huang and Runzhou Tao and Morteza Zadimoghaddam},\n  title     = {Edge-weighted online bipartite matching},\n  booktitle = {2020 IEEE 61st Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2020}\n}",
+        "source_url": "https://doi.org/10.1109/FOCS46700.2020.00046",
+        "theorem_or_result": "Introduces the online correlated selection (OCS) technique to induce negative correlation in online matching decisions, enabling improved competitive ratios in edge-weighted settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Delong et al. extend OCS to reusable resources via Online Correlated Rental (OCR); further improvements to OCR/OCS parameters are a plausible route toward \\(1-1/e\\) for OBMRR."
+      },
+      {
+        "title": "Improved online correlated selection",
+        "bibtex": "@inproceedings{GaoHeHuangNieYuanZhong2022,\n  author    = {Runzhou Gao and Zhiyi He and Zhiyi Huang and Zhijian Nie and Binghui Yuan and Yufan Zhong},\n  title     = {Improved online correlated selection},\n  booktitle = {2021 IEEE 62nd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2022}\n}",
+        "source_url": "https://doi.org/10.1109/FOCS52979.2021.000125",
+        "theorem_or_result": "Improves guarantees/parameters for online correlated selection beyond the original OCS construction.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "If improved OCS parameters can be translated to the reusable-resource OCR setting, the resulting stronger negative-correlation guarantee \\(\\gamma\\) could improve the 0.505 bound and potentially approach \\(1-1/e\\)."
+      },
+      {
+        "title": "Multiway online correlated selection",
+        "bibtex": "@inproceedings{BlancCharikar2022,\n  author    = {Guy Blanc and Moses Charikar},\n  title     = {Multiway online correlated selection},\n  booktitle = {2021 IEEE 62nd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2022}\n}",
+        "source_url": "https://doi.org/10.1109/FOCS52979.2021.000124",
+        "theorem_or_result": "Extends online correlated selection to multiway choices, providing more flexible correlation structures than pairwise OCS.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 5,
+        "connection": "OBMRR algorithms may benefit from proposing more than two candidate resources per request; multiway correlated selection could be a building block for such extensions under reuse constraints."
+      },
+      {
+        "title": "Asymptotically optimal competitive ratio for online allocation of reusable resources",
+        "bibtex": "@inproceedings{GoyalIyengarUdwani2021,\n  author    = {Vineet Goyal and Garud Iyengar and Rajan Udwani},\n  title     = {Asymptotically optimal competitive ratio for online allocation of reusable resources},\n  booktitle = {Web and Internet Economics (WINE 2021), Lecture Notes in Computer Science},\n  year      = {2021}\n}",
+        "source_url": "https://link.springer.com/book/10.1007/978-3-030-94676-0",
+        "theorem_or_result": "Studies online allocation with reusable resources in the large-capacity/fractional regime and achieves asymptotically optimal \\(1-1/e\\)-type guarantees (with appropriate algorithms) under that model.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Shows \\(1-1/e\\) is achievable for reusable resources when capacities are large or allocations are fractional; highlights the integrality/unit-inventory barrier central to the OBMRR open problem."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08105825000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08105825000000001
+    "literature_total_cost_usd": 0.105539,
+    "total_cost_usd": 0.18659725
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387615605/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387615605_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4387615605_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

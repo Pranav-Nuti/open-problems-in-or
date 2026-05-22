@@ -47,16 +47,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The 2024 paper (Xing\u2013Ma\u2013Zheng) solves a finite-horizon mixed control/stopping problem with partial information when the drift is an \\(\\mathcal F_0\\)-measurable two-point random variable. After dualizing, the key obstacle is a two-dimensional free boundary \\(b(t,p)\\) in the dual variables \\((Y_t,P_t)\\), whose Volterra integral equation involves expectations under the joint law of \\((Y,P)\\). Their main advance is a dimension reduction: introducing the likelihood ratio \\(\\Phi=P/(1-P)\\) and a Girsanov change of measure \\(\\mathbb Q\\) under which \\(\\Phi\\) becomes a geometric Brownian motion and, crucially, the Radon\u2013Nikodym derivative satisfies \\(F_t=(1+\\Phi_t)/(1+\\varphi)=\\frac{d\\mathbb P}{d\\mathbb Q}\\big|_{\\mathcal F^S_t}\\). This identity allows them to rewrite the dual stopping problem so that one state variable becomes a parameter, yielding an integral equation (their (3.19)) with only Gaussian integrals and enabling fast backward recursion.\n\nIn the Wonham-filter setting with a hidden two-state Markov chain drift, the posterior \\(P_t\\) satisfies \\(dP_t=(\\lambda_l-(\\lambda_h+\\lambda_l)P_t)dt+\\Theta P_t(1-P_t)d\\widetilde B_t\\), and under an analogous \\(\\mathbb Q\\) the likelihood ratio \\(\\Phi_t\\) solves a logistic-type diffusion with additional drift \\((\\lambda_l-\\lambda_h\\Phi_t)(1+\\Phi_t)dt\\). The 2024 paper observes that the key Radon\u2013Nikodym identity fails, so their reduction cannot be applied directly; this remains open. Existing literature provides partial ingredients but not the missing transformation: Sass\u2013Haussmann (2004) and Chen\u2013Jeon\u2013Wong (2021) establish the correct separation/Wonham filtering framework and analyze mixed control/stopping free boundaries under hidden Markov drift, while Klein (2009) explains the original measure-change reduction in the Bayesian case. Works such as Ekstr\u00f6m\u2013Vaicenavicius (2016) and De Angelis (2020) contribute boundary regularity and monotonicity tools under partial information, and Detemple (2005) supplies the integral-equation/backward-recursion machinery once a tractable kernel is available.\n\nA promising direction suggested by these connections is to seek an alternative change of variables or enlargement of state that restores an explicit Radon\u2013Nikodym factorization (or otherwise yields a computable transition kernel) for the pair \\((Y_t,\\Phi_t)\\) under a suitable reference measure. Candidates include: (i) augmenting the state with the unnormalized filter (Zakai equation) so that likelihood ratios become linear functionals; (ii) exploiting affine/finite-dimensional structure of the two-state hidden Markov model to obtain semi-explicit transition densities for \\(\\Phi\\) (or for \\(\\log\\Phi\\)) and then embedding them into a Volterra equation; or (iii) deriving a coupled system of integral equations for boundary and certain conditional moments that closes due to the two-state nature. At present, however, no paper in the provided set resolves the dimension-reduction obstacle in the Wonham case, so the problem appears to remain open.",
+    "total_cost_usd": 0.10278975,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Investment timing under incomplete information",
+        "bibtex": "@article{DecampsMariottiVilleneuve2005,\n  author  = {D{\\'e}camps, Jean-Pierre and Mariotti, Thomas and Villeneuve, St{\\'e}phane},\n  title   = {Investment timing under incomplete information},\n  journal = {Mathematics of Operations Research},\n  year    = {2005},\n  volume  = {30},\n  number  = {2},\n  pages   = {472--500},\n  doi     = {10.1287/moor.1040.0121}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.1040.0121",
+        "theorem_or_result": "Derives Bayesian filtering for a two-point unknown drift and solves an optimal investment timing stopping problem under partial information; establishes the innovation process and posterior dynamics used widely in drift-uncertainty stopping.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the foundational filtering/optimal stopping framework that the 2024 paper builds on; highlights how posterior processes enter free-boundary problems under partial information, but does not address Wonham-filter Markov switching drift or the specific dimension-reduction identity sought."
+      },
+      {
+        "title": "Comment on \u201cInvestment Timing Under Incomplete Information\u201d",
+        "bibtex": "@article{Klein2009,\n  author  = {Klein, Michael},\n  title   = {Comment on ``Investment Timing Under Incomplete Information''},\n  journal = {Mathematics of Operations Research},\n  year    = {2009},\n  volume  = {34},\n  number  = {1},\n  pages   = {249--254},\n  doi     = {10.1287/moor.1080.0367}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.1080.0367",
+        "theorem_or_result": "Introduces a measure-change/dimension-reduction trick for drift-uncertainty optimal stopping, turning a two-dimensional free-boundary problem into a one-dimensional characterization by working with likelihood ratios under an auxiliary measure.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "This is the direct methodological ancestor of the 2024 paper\u2019s reduction via \\,\\(\\Phi=P/(1-P)\\) and a Girsanov change of measure; understanding why the Radon\u2013Nikodym identity fails in the Wonham case starts from Klein\u2019s construction."
+      },
+      {
+        "title": "Optimizing the terminal wealth under partial information: The drift process as a continuous time Markov chain",
+        "bibtex": "@article{SassHaussmann2004,\n  author  = {Sass, J{\\\"u}rgen and Haussmann, Ulrich G.},\n  title   = {Optimizing the terminal wealth under partial information: The drift process as a continuous time Markov chain},\n  journal = {Finance and Stochastics},\n  year    = {2004},\n  volume  = {8},\n  number  = {4},\n  pages   = {553--577},\n  doi     = {10.1007/s00780-004-0133-6}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00780-004-0133-6",
+        "theorem_or_result": "Formulates portfolio optimization with drift given by a hidden finite-state Markov chain and derives the Wonham filter dynamics for the posterior; establishes separation and HJB equations under partial information in this regime-switching setting.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the canonical Wonham-filter setting for hidden Markov drift uncertainty; it supplies the correct posterior SDE and control reduction, but does not deliver an integral-equation/dimension-reduction method for the mixed control/stopping free boundary."
+      },
+      {
+        "title": "Optimal retirement under partial information",
+        "bibtex": "@article{ChenJeonWong2021,\n  author  = {Chen, Kang X. and Jeon, Jaehoon and Wong, H. Y.},\n  title   = {Optimal retirement under partial information},\n  journal = {Mathematics of Operations Research},\n  year    = {2021},\n  volume  = {47},\n  number  = {3},\n  pages   = {1802--1832},\n  doi     = {10.1287/moor.2020.1094}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2020.1094",
+        "theorem_or_result": "Studies a mixed control/stopping retirement problem under partial information where the drift is a hidden two-state Markov chain (Wonham filter); derives the dual formulation and regularity/smooth-fit properties for the associated free boundary (for power utility).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "This is the closest existing work in the Wonham setting with a similar mixed control/stopping structure; it indicates what can be proved about the free boundary without the 2024 paper\u2019s dimension reduction, and is the natural starting point for extending the integral-equation approach."
+      },
+      {
+        "title": "Optimal liquidation of an asset under drift uncertainty",
+        "bibtex": "@article{EkstromVaicenavicius2016,\n  author  = {Ekstr{\\\"o}m, Erik and Vaicenavicius, Juozas},\n  title   = {Optimal liquidation of an asset under drift uncertainty},\n  journal = {SIAM Journal on Financial Mathematics},\n  year    = {2016},\n  volume  = {7},\n  number  = {1},\n  pages   = {357--381},\n  doi     = {10.1137/15M1010474}\n}\n",
+        "source_url": "https://doi.org/10.1137/15M1010474",
+        "theorem_or_result": "Analyzes an optimal stopping liquidation problem under drift uncertainty with partial information; develops structural properties of the value function and stopping boundary under filtering, emphasizing the role of the posterior as a state variable.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Offers techniques for proving monotonicity/continuity of stopping boundaries in partially observed models; while not a mixed control/stopping problem nor Wonham-specific reduction, it provides boundary-regularity tools relevant to the 2024 paper\u2019s desired extension."
+      },
+      {
+        "title": "Optimal dividends with partial information and stopping of a degenerate reflecting diffusion",
+        "bibtex": "@article{DeAngelis2020,\n  author  = {De Angelis, Tiziano},\n  title   = {Optimal dividends with partial information and stopping of a degenerate reflecting diffusion},\n  journal = {Finance and Stochastics},\n  year    = {2020},\n  volume  = {24},\n  number  = {1},\n  pages   = {71--123},\n  doi     = {10.1007/s00780-019-00405-7}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00780-019-00405-7",
+        "theorem_or_result": "Develops free-boundary regularity and continuity arguments for optimal stopping under partial information in a degenerate diffusion setting, using PDE/variational inequality techniques and careful boundary analysis.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The 2024 paper explicitly borrows continuity ideas from this work; similar arguments may be needed in the Wonham setting once a tractable characterization is proposed, even if the dimension reduction remains unresolved."
+      },
+      {
+        "title": "American-Style Derivatives: Valuation and Computation",
+        "bibtex": "@book{Detemple2005,\n  author    = {Detemple, J{\\'e}r{\\^o}me},\n  title     = {American-Style Derivatives: Valuation and Computation},\n  publisher = {Chapman and Hall/CRC},\n  year      = {2005}\n}\n",
+        "source_url": "https://www.routledge.com/American-Style-Derivatives-Valuation-and-Computation/Detemple/p/book/9781584884132",
+        "theorem_or_result": "Presents integral-equation (Volterra) characterizations of American-style optimal stopping boundaries and backward-recursion numerical schemes for solving them.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The 2024 paper\u2019s integral equation (a Volterra nonlinear equation) and backward recursion are based on this toolkit; any Wonham-filter extension that yields a similar integral equation would likely reuse these numerical methods."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.076517,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.076517
+    "literature_total_cost_usd": 0.10278975,
+    "total_cost_usd": 0.17930675000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408054337/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4408054337_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4408054337_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

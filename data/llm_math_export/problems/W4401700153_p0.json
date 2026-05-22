@@ -49,16 +49,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The provided source paper (Bria\u0144ski\u2013Kouteck\u00fd\u2013Kr\u00e1l\u2019\u2013Pek\u00e1rkov\u00e1\u2013Schr\u00f6der, 2023) makes substantial progress on row-operation-invariant structural characterizations, but for \\(\\ell_1\\)-type measures rather than \\(g_\\infty\\). It identifies matroid depth parameters of the column matroid \\(M(A)\\) that exactly capture the minimum primal and dual tree-depth achievable by row operations: \\(\\mathrm{td}^*_P(A)=\\mathrm{dd}(M(A))\\) and (building on earlier work) \\(\\mathrm{td}^*_D(A)=\\mathrm{c}^*\\mathrm{d}(M(A))\\). It then proves that bounded circuit \\(\\ell_1\\)-norm \\(c_1(A)\\) and bounded Graver \\(\\ell_1\\)-norm \\(g_1(A)\\) are functionally equivalent, yielding an if-and-only-if characterization of bounded \\(g_1(A)\\) in terms of existence of a row-equivalent matrix with bounded dual tree-depth and bounded entry complexity.\n\nFor the user\u2019s target invariant \\(g_\\infty(A)\\), the same paper explicitly states that an analogous structural characterization is not currently known and formulates it as an open problem. It also rules out naive candidates: even bounded incidence tree-depth does not imply bounded \\(g_\\infty(A)\\), via explicit families where a Graver element like \\((t-1,1,\\dots,1)\\) appears. Existing sufficient conditions (e.g., bounded primal tree-depth plus bounded entry complexity, as in Kouteck\u00fd\u2013Levin\u2013Onn) remain only one direction, and the matroidal depth parameters that fully explain row-equivalent primal/dual sparsification do not yet translate into necessary-and-sufficient conditions for bounded \\(g_\\infty\\).\n\nOverall, the state of the art suggests that any characterization of bounded \\(g_\\infty(A)\\) must go beyond depth/sparsity of row-equivalent forms and incorporate additional invariants controlling amplification of coefficients in Graver-minimal kernel vectors. Promising directions include relating \\(g_\\infty\\) to circuit \\(\\ell_\\infty\\)-complexity \\(c_\\infty(A)\\), imbalance/denominator parameters (e.g., \\(\\dot\\kappa_A\\)), or matroid invariants sensitive to coefficient growth rather than just support structure; however, no if-and-only-if theorem comparable to the \\(g_1\\) theory is currently available.",
+    "total_cost_usd": 0.0969395,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Characterization of matrices with bounded Graver bases and depth parameters and applications to integer programming",
+        "bibtex": "@article{BrianskiKouteckyKralPekarkovaSchroder2023GraverDepth,\n  author  = {Marcin Bria{\\'n}ski and Martin Kouteck{\\'y} and Daniel Kr{\\'a}l' and Krist{\\'y}na Pek{\\'a}rkov{\\'a} and Felix Schr{\\\"o}der},\n  title   = {Characterization of matrices with bounded Graver bases and depth parameters and applications to integer programming},\n  year    = {2023},\n  journal = {arXiv preprint},\n  eprint  = {2202.05299},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DM}\n}",
+        "source_url": "https://arxiv.org/abs/2202.05299",
+        "theorem_or_result": "Gives matroid-theoretic characterizations of when a matrix is row-equivalent to one of bounded primal tree-depth (via deletion-depth) or bounded dual tree-depth (via contraction*-depth), and proves functional equivalence between bounded circuit \\(\\ell_1\\)-norm \\(c_1(A)\\) and bounded Graver \\(\\ell_1\\)-norm \\(g_1(A)\\). It explicitly states that an analogous if-and-only-if characterization for bounded \\(g_\\infty(A)\\) is open.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses the sought row-operation-invariant structural characterizations, but only for \\(g_1\\) (and depth parameters). It formulates the open problem of characterizing bounded \\(g_\\infty\\), which is essentially the user\u2019s target (bounded Graver \\(\\ell_\\infty\\)-norm) and provides obstacles/counterexamples for naive depth-based characterizations."
+      },
+      {
+        "title": "Matrices of optimal tree-depth and row-invariant parameterized algorithm for integer programming",
+        "bibtex": "@inproceedings{ChanCooperKouteckyKralPekarkova2020OptimalTreedepth,\n  author    = {T. F. N. Chan and J. W. Cooper and Martin Kouteck{\\'y} and Daniel Kr{\\'a}l' and Krist{\\'y}na Pek{\\'a}rkov{\\'a}},\n  title     = {Matrices of optimal tree-depth and row-invariant parameterized algorithm for integer programming},\n  booktitle = {Proceedings of the 47th International Colloquium on Automata, Languages, and Programming (ICALP 2020)},\n  series    = {LIPIcs},\n  volume    = {168},\n  pages     = {26:1--26:19},\n  year      = {2020}\n}",
+        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2020/12407/",
+        "theorem_or_result": "Introduces/establishes row-invariant matroidal characterization of the minimum dual tree-depth among row-equivalent matrices: \\(\\mathrm{td}^*_D(A)=\\mathrm{c}^*\\mathrm{d}(M(A))\\), enabling row-invariant FPT algorithms for IP based on dual tree-depth.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the key template: row-equivalence invariants expressed via matroid depth parameters. While it does not characterize bounded \\(g_\\infty\\), it is foundational for any attempt to characterize bounded Graver norms under row operations."
+      },
+      {
+        "title": "Matrices of optimal tree-depth and a row-invariant parameterized algorithm for integer programming",
+        "bibtex": "@article{ChanCooperKouteckyKralPekarkova2022OptimalTreedepth,\n  author  = {T. F. Chan and J. W. Cooper and Martin Kouteck{\\'y} and Daniel Kr{\\'a}l' and Krist{\\'y}na Pek{\\'a}rkov{\\'a}},\n  title   = {Matrices of optimal tree-depth and a row-invariant parameterized algorithm for integer programming},\n  journal = {SIAM Journal on Computing},\n  volume  = {51},\n  number  = {3},\n  pages   = {664--700},\n  year    = {2022}\n}",
+        "source_url": "https://epubs.siam.org/doi/10.1137/20M1343290",
+        "theorem_or_result": "Journal version strengthening the ICALP'20 results on row-invariant dual tree-depth via contraction*-depth and algorithmic consequences for IP.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Same as the ICALP version; supplies detailed proofs and is the main reference for the matroidal invariant \\(\\mathrm{c}^*\\mathrm{d}\\) controlling optimal dual tree-depth under row operations."
+      },
+      {
+        "title": "A parameterized strongly polynomial algorithm for block structured integer programs",
+        "bibtex": "@inproceedings{KouteckyLevinOnn2018BlockStructured,\n  author    = {Martin Kouteck{\\'y} and Asaf Levin and Shmuel Onn},\n  title     = {A parameterized strongly polynomial algorithm for block structured integer programs},\n  booktitle = {Proceedings of the 45th International Colloquium on Automata, Languages, and Programming (ICALP 2018)},\n  series    = {LIPIcs},\n  volume    = {107},\n  pages     = {85:1--85:14},\n  year      = {2018}\n}",
+        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2018/9052/",
+        "theorem_or_result": "Shows that bounded primal tree-depth \\(\\mathrm{td}_P(A)\\) and bounded entry size imply a bound on \\(g_\\infty(A)\\), and bounded dual tree-depth implies a bound on \\(g_1(A)\\); provides FPT/strongly polynomial algorithms for IP in these regimes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Gives sufficient conditions for bounded \\(g_\\infty\\) (via primal tree-depth) but not necessary ones; serves as a baseline for what a full characterization of bounded \\(g_\\infty\\) should generalize beyond depth parameters."
+      },
+      {
+        "title": "Integer programming and incidence treedepth",
+        "bibtex": "@inproceedings{EibenGanianKnopOrdyniakPilipczukWrochna2019IncidenceTreedepth,\n  author    = {Eduard Eiben and Robert Ganian and Du{\\v{s}}an Knop and Sebastian Ordyniak and Micha{\\l} Pilipczuk and Micha{\\l} Wrochna},\n  title     = {Integer programming and incidence treedepth},\n  booktitle = {Integer Programming and Combinatorial Optimization (IPCO 2019)},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {11480},\n  pages     = {194--204},\n  year      = {2019}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-030-19212-9_16",
+        "theorem_or_result": "Studies IP parameterized by incidence treedepth; includes hardness phenomena and examples where small incidence treedepth does not control \\(g_\\infty\\) without further restrictions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides counterexample patterns and motivates that characterizing bounded \\(g_\\infty\\) cannot rely solely on incidence-depth-like sparsity measures, aligning with the open problem\u2019s difficulty."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.070609,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.070609
+    "literature_total_cost_usd": 0.0969395,
+    "total_cost_usd": 0.1675485
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401700153/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4401700153_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4401700153_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

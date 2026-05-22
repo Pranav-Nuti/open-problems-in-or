@@ -45,16 +45,104 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 10,
+    "synthesis": "The question asks for existence, for every >0, of a (behavior) strategy profile ^* that is an -equilibrium simultaneously for every initial state in a multiplayer stochastic game with finite actions, countable states, and bounded Borel payoff functions on the run space . The 2024 paper by Flesch and Solan places this as a long-standing open problem and develops a unifying approach based on a multiplayer extension of Martin's auxiliary-game method: for each player  and >0 they construct a bounded Martin function ^_:\\to\\mathbb{R} satisfying _i(h)-\\varepsilon\\le D_i^\\varepsilon(h)\\le v_i(h) and a local-to-global property: playing near-optimally in the induced one-shot games (D_i^\\varepsilon,h) yields global guarantees in every subgame.\n\nUsing this machinery, the strongest general positive results currently available fall short of a global Nash -equilibrium for all initial states. Flesch and Solan prove (i) existence of subgame -maxmin strategies for each player, (ii) existence of minmax -acceptable profiles ensuring \\mathbb{E}[f_i]\\ge v_i(h)-\\varepsilon in every subgame, (iii) existence of extensive-form correlated -equilibria, and (iv) existence of an -solvable subgame (some history  such that the subgame _h admits an -equilibrium). Item (iv) uses, in an essential way, deviation-detection techniques (cited as Alon et al.) to enforce incentives against deviations from nonstationary prescriptions.\n\nEarlier foundational work of Martin and of Maitra--Sudderth establishes determinacy/value existence for two-player zero-sum Borel-payoff stochastic games, which is the conceptual origin of the Martin-function decomposition into one-shot games. Subsequent partial progress toward multiplayer equilibrium existence proceeds by imposing structure: repeated games with tail-measurable payoffs (single state) admit -equilibria via a generalized Martin function, and special stochastic-game classes such as two-player absorbing games with tail payoffs or two-player finite-state games with shift-invariant payoffs also admit -equilibria. The remaining gap is precisely the full multiplayer, countable-state, Borel-payoff setting without additional regularity: current techniques can ensure individual rationality in all subgames and can find at least one subgame where an -equilibrium exists, but do not yet assemble these ingredients into a single strategy profile that is an -equilibrium for every initial state.",
+    "total_cost_usd": 0.0658595,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "The determinacy of Blackwell games",
+        "bibtex": "@article{Martin1998DeterminacyBlackwell,\n  author  = {Martin, Donald A.},\n  title   = {The determinacy of {Blackwell} games},\n  journal = {Journal of Symbolic Logic},\n  year    = {1998},\n  volume  = {63},\n  number  = {4},\n  pages   = {1565--1581}\n}\n",
+        "source_url": "https://doi.org/10.2307/2586667",
+        "theorem_or_result": "Proves determinacy for Blackwell games with Borel payoff sets, yielding existence of a value and optimal (or \u0000\u0000\u0000-approximate) strategies in two-player zero-sum stochastic games with Borel payoffs via reduction to auxiliary one-shot games (the Martin function approach).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the foundational determinacy/auxiliary-game technique that underlies essentially all known positive results for Borel-payoff stochastic games; however it is limited to two-player zero-sum settings and does not yield Nash \u0000-equilibria in general multiplayer games."
+      },
+      {
+        "title": "Finitely additive stochastic games with Borel measurable payoffs",
+        "bibtex": "@article{MaitraSudderth1998FinitelyAdditive,\n  author  = {Maitra, Ashok and Sudderth, William},\n  title   = {Finitely additive stochastic games with {Borel} measurable payoffs},\n  journal = {International Journal of Game Theory},\n  year    = {1998},\n  volume  = {27},\n  pages   = {257--267}\n}\n",
+        "source_url": "https://doi.org/10.1007/s001820050072",
+        "theorem_or_result": "Develops a finitely additive probability framework for stochastic games with Borel payoffs and establishes value/determinacy-type results for two-player zero-sum games, complementing Martin's approach.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Another cornerstone for handling Borel payoffs in stochastic games; informs later extensions (including Flesch--Solan) but does not resolve multiplayer \u0000-equilibrium existence."
+      },
+      {
+        "title": "Equilibrium in multiplayer repeated games with tail-measurable payoffs",
+        "bibtex": "@misc{AshkenaziGolanSolanVieilleTail,\n  author = {Ashkenazi-Golan, Rani and Solan, Eilon and Vieille, Nicolas},\n  title  = {Equilibrium in multiplayer repeated games with tail-measurable payoffs},\n  note   = {Manuscript; bibliographic details not provided in the prompt}\n}\n",
+        "source_url": "https://scholar.google.com/scholar?q=Equilibrium%20in%20multiplayer%20repeated%20games%20with%20tail-measurable%20payoffs%20Ashkenazi-Golan%20Solan%20Vieille",
+        "theorem_or_result": "Introduces a multiplayer generalization of the Martin function and uses it to prove existence of \u0000\u0000\u0000-equilibria in multiplayer repeated games (single state) with tail-measurable payoffs.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "Shows the Martin-function program can yield \u0000\u0000\u0000-equilibria beyond two-player zero-sum, but only in the repeated-game (no state dynamics) and tail-measurable payoff setting; it is a key stepping stone toward the full stochastic-game problem."
+      },
+      {
+        "title": "Equilibrium in two-player absorbing games with tail-measurable payoffs",
+        "bibtex": "@misc{AshkenaziGolanSolanVieilleAbsorbing,\n  author = {Ashkenazi-Golan, Rani and Solan, Eilon and Vieille, Nicolas},\n  title  = {Equilibrium in two-player absorbing games with tail-measurable payoffs},\n  note   = {Manuscript; bibliographic details not provided in the prompt}\n}\n",
+        "source_url": "https://scholar.google.com/scholar?q=Equilibrium%20in%20two-player%20absorbing%20games%20with%20tail-measurable%20payoffs%20Ashkenazi-Golan%20Solan%20Vieille",
+        "theorem_or_result": "Applies the generalized Martin-function method to establish \u0000\u0000\u0000-equilibrium existence in two-player absorbing games with tail-measurable payoffs.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Provides a positive result in a nontrivial stochastic-game subclass (absorbing structure) with general (tail) payoffs, indicating where equilibrium existence can be proved and what structural properties may be exploited."
+      },
+      {
+        "title": "Equilibrium in two-player stochastic games with shift-invariant payoffs",
+        "bibtex": "@misc{FleschSolanShiftInvariant,\n  author = {Flesch, J{\\'a}nos and Solan, Eilon},\n  title  = {Equilibrium in two-player stochastic games with shift-invariant payoffs},\n  note   = {Bibliographic details not provided in the prompt}\n}\n",
+        "source_url": "https://scholar.google.com/scholar?q=Equilibrium%20in%20two-player%20stochastic%20games%20with%20shift-invariant%20payoffs%20Flesch%20Solan",
+        "theorem_or_result": "Proves existence of \u0000\u0000\u0000-equilibria in two-player stochastic games with finite state space under shift-invariant payoff functions, using Martin-function ideas.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Establishes equilibrium existence for a broad class of non-discounted, non-average payoffs in a two-player finite-state setting; highlights that even for two players, additional payoff regularity (shift-invariance) can substitute for full Borel generality."
+      },
+      {
+        "title": "Detecting deviations in nonstationary strategies (Alon et al.)",
+        "bibtex": "@misc{AlonEtAlDeviationDetection,\n  author = {Alon, Noga and others},\n  title  = {Detecting deviations in nonstationary strategies},\n  note   = {Bibliographic details not provided in the prompt}\n}\n",
+        "source_url": "https://scholar.google.com/scholar?q=Alon%20et%20al.%20detect%20deviations%20nonstationary%20strategies",
+        "theorem_or_result": "Provides a probabilistic/algorithmic tool to detect deviations from prescribed nonstationary play with high confidence, enabling enforcement arguments in long-horizon dynamic games.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Used essentially in Flesch--Solan (2024) to prove existence of an \u0000\u0000\u0000-solvable subgame; such deviation-detection tools may be necessary for any attempt to build global \u0000\u0000\u0000-equilibria under Borel payoffs."
+      },
+      {
+        "title": "Stochastic games",
+        "bibtex": "@article{MertensNeyman1981StochasticGames,\n  author  = {Mertens, Jean-Fran{\\c{c}}ois and Neyman, Abraham},\n  title   = {Stochastic games},\n  journal = {International Journal of Game Theory},\n  year    = {1981},\n  volume  = {10},\n  pages   = {53--66}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF01769293",
+        "theorem_or_result": "Establishes existence of the value for two-player zero-sum stochastic games with finite state and action spaces under long-run average payoff, introducing influential dynamic programming and uniform value techniques.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Represents the classical equilibrium/value theory for special payoff functions; contrasts with the Borel-payoff setting where such methods fail and motivates the need for Martin-function/determinacy methods."
+      },
+      {
+        "title": "Stochastic Games with General Payoff Functions",
+        "bibtex": "@article{FleschSolan2024StochasticGamesGeneralPayoff,\n  author  = {Flesch, J{\\'a}nos and Solan, Eilon},\n  title   = {Stochastic Games with General Payoff Functions},\n  journal = {Mathematics of Operations Research},\n  year    = {2024},\n  volume  = {49},\n  number  = {3},\n  pages   = {1349--1371},\n  doi     = {10.1287/moor.2023.1385}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2023.1385",
+        "theorem_or_result": "For multiplayer stochastic games with finite actions, countable states, and bounded Borel payoffs, proves: (i) subgame \u0000\u0000\u0000-maxmin strategies for each player; (ii) minmax \u0000\u0000\u0000-acceptable profiles; (iii) existence of extensive-form correlated \u0000\u0000\u0000-equilibria; (iv) existence of an \u0000\u0000\u0000-solvable subgame (some history whose subgame admits an \u0000\u0000\u0000-equilibrium).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 10,
+        "connection": "Directly addresses the open problem by providing the strongest currently known general existence statements short of a global \u0000\u0000\u0000-equilibrium for every initial state; explicitly frames the full \u0000\u0000\u0000-equilibrium existence as open and gives a partial answer via \u0000\u0000\u0000-solvable subgames and correlated equilibria."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.079583,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.079583
+    "literature_total_cost_usd": 0.0658595,
+    "total_cost_usd": 0.1454425
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385873460/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4385873460_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4385873460_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

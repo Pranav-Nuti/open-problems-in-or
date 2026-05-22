@@ -47,16 +47,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for an exact, closed-form expression for the worst-case competitive ratio \\(\\mathrm{CR}(F,n)\\) in the minimization fractional prophet inequality with monomial costs \\(c_i x_i^p\\) (\\(p>1\\)), independent costs supported on \\([\\ell,u]\\), and no deterministic in-house option. In the source paper, the offline optimum admits the explicit form \\(\\mathrm{OPT}(c,p)=(\\sum_i c_i^q)^{1/q}\\) with \\(q=-1/(p-1)\\), i.e., a negative-power mean of the realized coefficients. This makes the ratio \\(\\mathbb{E}[\\mathrm{ALG}]/\\mathbb{E}[\\mathrm{OPT}]\\) a comparison between an online policy\u2019s induced power-mean-like functional and the expected negative-power mean of the random vector, and it explains why worst-case distributions tend to be extremal (two-point/\"long-shot\") in the analyses that are tractable.\n\nWhat is known does not yet yield the exact \\(\\mathrm{CR}(F,n)\\) for general \\(n\\ge 2\\) and \\(p>1\\) without in-house production. The source paper resolves special regimes: for \u201cwell-behaved\u201d distribution families (invertible CDF with Lipschitz inverse) a multi-threshold policy achieves \\(\\mathrm{CR}(F,n)=1+O(1/\\log n)\\), so the ratio tends to 1 as \\(n\\to\\infty\\). For unrestricted distributions with in-house production, the paper gives an exact formula \\(\\mathrm{CR}_{\\text{in-house}}(F,n)=(1+(n-1)\\ell^{-1/(p-1)})^{p-1}\\), proved via matching extremal-distribution upper and lower bounds. Without in-house production, the only exact closed form in the paper is for \\(n=p=2\\): \\(\\mathrm{CR}(F,2)=\\tfrac14(\\sqrt{u/\\ell}+\\sqrt{\\ell/u})+\\tfrac12\\), obtained by explicitly solving a nested optimization over distributions under moment constraints and showing the worst case is attained by a point mass at \\(\\sqrt{\\ell u}\\) for one seller and a two-point distribution for the other.\n\nThe broader prophet-inequality literature (Krengel--Sucheston; Hill--Kertz; Samuel-Cahn; Kleinberg--Weinberg; surveys such as Correa et al.) supplies techniques (thresholding, extremal instances, reductions) but does not directly extend to this minimization, fractional, nonlinear setting. In particular, the classical structural fact that the worst case is attained at \\(n=2\\) (Hill--Kertz) fails here: the source paper exhibits \\(p=2\\) examples where \\(n=3\\) yields a larger ratio than \\(n=2\\), and numerics suggest non-monotonic dependence on \\(n\\). The minimization-focused works cited (Esfandiari et al.; Disser et al.) underscore that minimization prophet variants can behave pathologically (e.g., unbounded ratios for linear costs or unbounded supports) and that non-stopping, coverage-like constraints require different tools. Overall, the exact closed-form \\(\\mathrm{CR}(F,n)\\) for bounded support \\([\\ell,u]\\) without in-house production remains open beyond the \\(n=p=2\\) case, with promising directions involving extremal-distribution characterizations (likely two-point/point-mass mixtures), dynamic-program structure of optimal causal policies, and identifying whether worst-case instances have a finite-support canonical form parameterized by \\((p,n,\\ell,u)\\).",
+    "total_cost_usd": 0.09199574999999999,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Prophet secretary",
+        "bibtex": "@inproceedings{Esfandiari2015ProphetSecretary,\n  title        = {Prophet Secretary},\n  author       = {Esfandiari, Hosein and Hajiaghayi, MohammadTaghi and Liaghat, Vahab S. and Monemizadeh, Morteza},\n  booktitle    = {Algorithms -- ESA 2015: 23rd Annual European Symposium, Patras, Greece, September 14--16, 2015, Proceedings},\n  year         = {2015}\n}\n",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-662-48350-3_42",
+        "theorem_or_result": "Introduces the prophet secretary model (random arrival order) and develops prophet-inequality style guarantees; also contains constructions relevant to minimization variants showing severe lower bounds/unboundedness in related settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The source paper cites this as one of very few works on minimization prophet inequalities; its negative results for minimization with linear costs (\u007fp=1\u007f) motivate restricting to \u007fp>1\u007f and/or bounded supports, and highlight why exact \u007f\\mathrm{CR}(F,n)\u007f is delicate without an in-house option."
+      },
+      {
+        "title": "Hiring secretaries over time: The benefit of concurrent employment",
+        "bibtex": "@article{Disser2020HiringSecretariesOverTime,\n  title        = {Hiring secretaries over time: The benefit of concurrent employment},\n  author       = {Disser, Yann and Fearnley, John and Gairing, Martin and G{\\\"o}bel, Oliver and Klimm, Max and Schmand, Daniel and Skopalik, Alexander and T{\\\"o}nnis, Anke},\n  journal      = {Mathematics of Operations Research},\n  volume       = {45},\n  number       = {1},\n  pages        = {323--352},\n  year         = {2020},\n  doi          = {10.1287/moor.2019.0993}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2019.0993",
+        "theorem_or_result": "Studies a minimization online decision problem with a coverage-type constraint over time (must keep at least one secretary employed), providing competitive analyses and structural insights distinct from stopping-time prophet inequalities.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Cited by the source paper as one of the only minimization-prophet-like works beyond stopping; while the constraint differs from \u007f\\sum x_i=1\u007f, techniques for minimization under sequential revelation and non-stopping structure may inform approaches to the open exact-ratio characterization without in-house production."
+      },
+      {
+        "title": "Ratio comparisons of supremum and stop rule expectations",
+        "bibtex": "@article{HillKertz1981bRatioComparisons,\n  title        = {Ratio comparisons of supremum and stop rule expectations},\n  author       = {Hill, Theodore P. and Kertz, Robert P.},\n  journal      = {Zeitschrift f{\\\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete},\n  volume       = {56},\n  number       = {2},\n  pages        = {283--285},\n  year         = {1981},\n  doi          = {10.1007/BF00535498}\n}\n",
+        "source_url": "https://doi.org/10.1007/BF00535498",
+        "theorem_or_result": "In the classical maximization prophet inequality with linear rewards, shows the worst-case ratio is attained with \u007fn=2\u007f, enabling exact computation of the optimal constant.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper contrasts its minimization/fractional/nonlinear setting with this classical structural reduction; understanding why the \u007fn=2\u007f reduction fails without in-house production is central to the open problem of exact \u007f\\mathrm{CR}(F,n)\u007f for general \u007fn,p\u007f."
+      },
+      {
+        "title": "On semiamarts, amarts, and processes with finite value",
+        "bibtex": "@incollection{KrengelSucheston1978Semiamarts,\n  title        = {On semiamarts, amarts, and processes with finite value},\n  author       = {Krengel, Ulrich and Sucheston, Louis},\n  booktitle    = {Probability on Banach Spaces},\n  series       = {Advances in Probability and Related Topics},\n  pages        = {197--266},\n  publisher    = {Dekker},\n  address      = {New York},\n  year         = {1978}\n}\n",
+        "source_url": "https://projecteuclid.org/euclid.lnms/1214435718",
+        "theorem_or_result": "Foundational development leading to the classical prophet inequality framework for optimal stopping with independent random variables.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides the conceptual origin of prophet inequalities; the open problem asks for an exact competitive ratio in a minimization, fractional-allocation, nonlinear analogue where classical stopping-time tools do not directly apply."
+      },
+      {
+        "title": "Comparison of threshold stop rules and maximum for independent nonnegative random variables",
+        "bibtex": "@article{SamuelCahn1984ComparisonThreshold,\n  title        = {Comparison of threshold stop rules and maximum for independent nonnegative random variables},\n  author       = {Samuel-Cahn, Esther},\n  journal      = {The Annals of Probability},\n  volume       = {12},\n  number       = {4},\n  pages        = {1213--1216},\n  year         = {1984},\n  doi          = {10.1214/aop/1176993142}\n}\n",
+        "source_url": "https://doi.org/10.1214/aop/1176993142",
+        "theorem_or_result": "Shows simple threshold rules achieve optimal constants in classical maximization prophet inequalities for independent nonnegative variables.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Highlights the role of thresholding policies in prophet inequalities; the source paper's asymptotically optimal multi-threshold policy for well-behaved distributions suggests searching for analogous structural policies that might yield exact \u007f\\mathrm{CR}(F,n)\u007f in the bounded-support minimization setting."
+      },
+      {
+        "title": "Matroid prophet inequalities",
+        "bibtex": "@inproceedings{KleinbergWeinberg2012Matroid,\n  title        = {Matroid prophet inequalities},\n  author       = {Kleinberg, Robert and Weinberg, S. Matthew},\n  booktitle    = {Proceedings of the 44th Annual ACM Symposium on Theory of Computing (STOC)},\n  year         = {2012},\n  pages        = {123--136},\n  doi          = {10.1145/2213977.2213995}\n}\n",
+        "source_url": "https://doi.org/10.1145/2213977.2213995",
+        "theorem_or_result": "Develops prophet inequalities under matroid constraints via threshold pricing; influential in algorithmic mechanism design and stochastic online selection.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Although maximization and integral, it exemplifies modern techniques (threshold pricing, ex-ante relaxations) that might be adapted to fractional minimization with convex costs, potentially helping to characterize worst-case distributions/policies for the open exact-ratio problem."
+      },
+      {
+        "title": "Recent developments in prophet inequalities",
+        "bibtex": "@article{CorreaEtAl2019RecentDevelopments,\n  title        = {Recent developments in prophet inequalities},\n  author       = {Correa, Jos{\\'e} and Foncea, Patricio and Hoeksma, Ruben and Oosterwijk, Thomas and Vredeveld, Tjark},\n  journal      = {SIGecom Exchanges},\n  volume       = {17},\n  number       = {1},\n  pages        = {61--70},\n  year         = {2019},\n  doi          = {10.1145/3331033.3331039}\n}\n",
+        "source_url": "https://doi.org/10.1145/3331033.3331039",
+        "theorem_or_result": "Survey of modern prophet inequality results and techniques (thresholds, posted prices, matroids, random arrivals).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Useful map of tools potentially adaptable to the minimization fractional setting; however, it does not directly resolve the exact competitive ratio without in-house production for monomial costs."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.020657349999999998,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.020657349999999998
+    "literature_total_cost_usd": 0.09199574999999999,
+    "total_cost_usd": 0.11265309999999998
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4379646686/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4379646686_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4379646686_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

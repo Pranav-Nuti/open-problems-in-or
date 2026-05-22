@@ -44,16 +44,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 9,
+    "synthesis": "The source paper (Liu, \\\"Risk sharing with Lambda value at risk\\\", 2023) solves the inf-convolution problem for multiple \\(\\Lambda\\mathrm{VaR}\\) (Definition (4)) in several regimes (all \\(\\Lambda_i\\) increasing, all decreasing, or general right-continuous \\(\\Lambda_i\\) under additional conditions). In these cases the inf-convolution reduces to an optimization over deterministic shifts \\(x_1,\\dots,x_{n-1}\\) of a composite \\(\\Lambda^{x_{n-1}}\\) (equations (7)/(9)/(14)), and under attainability/continuity assumptions it collapses further to a single \\(\\Lambda^*\\) via \\(\\Lambda^*(x)=\\sup_{\\sum x_i=x}\\big(\\sum_i \\Lambda_i(x_i)\\big)\\wedge 1\\), yielding \\(\\square_i \\Lambda_i\\mathrm{VaR}=\\Lambda^*\\mathrm{VaR}\\). Optimal allocations are explicit and have the familiar \u2018probability-space partition\u2019 structure known from VaR/RVaR risk sharing (Embrechts--Liu--Wang 2018).\n\nFor \\(\\Lambda\\mathrm{VaR}^+\\) (Definition (5)), Liu (2023) obtains a tractable characterization only when inf-convolving \\(\\Lambda\\mathrm{VaR}^+\\) with an SSD-consistent risk measure \\(\\rho\\) (Theorem 5). The resulting formula already involves a robust aggregation component: one optimizes over parameters \\((x,y)\\) and evaluates \\(\\rho\\big(X-F^{-1}_{x,y}(U_X)\\big)\\), where \\(F_{x,y}\\) splices the constraint \\(1-\\Lambda\\) into a distributional construction. The paper explicitly states that the inf-convolution of two (or more) \\(\\Lambda\\mathrm{VaR}^+\\) is beyond scope because it requires solving a dependence-uncertainty/robust risk aggregation problem with fixed marginals.\n\nAccordingly, the open problem remains unsolved in general: there is currently no explicit analogue of \\(\\Lambda^*\\) or a general optimal-allocation structure for \\(\\square_{i=1}^n \\Lambda_i\\mathrm{VaR}^+\\) when the \\(\\Lambda_i\\) are not all increasing (the increasing case collapses to \\(\\Lambda\\mathrm{VaR}\\)). Promising directions suggested by the existing literature are to (a) derive sharp upper/lower bounds for \\(\\square_i \\Lambda_i\\mathrm{VaR}^+\\) using quantile aggregation/convolution bounds under dependence uncertainty (e.g., Blanchet--Lam--Liu--Wang), and (b) identify special classes of \\(\\Lambda_i\\) (e.g., step functions, piecewise-constant tail constraints) where the robust aggregation problem becomes finite-dimensional and may admit explicit extremal couplings, paralleling known results for VaR aggregation (Wang--Wang; Jakobsons--Han--Wang).",
+    "total_cost_usd": 0.10003875000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Risk sharing with Lambda value at risk",
+        "bibtex": "@unpublished{Liu2023RiskSharingLambdaVaR,\n  author = {Liu, Peng},\n  title  = {Risk sharing with Lambda value at risk},\n  year   = {2023},\n  note   = {Working paper / preprint, dated December 1, 2023}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Develops explicit inf-convolution formulas and optimal allocations for multiple \\(\\Lambda\\mathrm{VaR}\\) under monotone \\(\\Lambda\\), and for \\(\\Lambda\\mathrm{VaR}^+\\) inf-convolved with an SSD-consistent risk measure. Explicitly identifies the inf-convolution of multiple \\(\\Lambda\\mathrm{VaR}^+\\) as open and relates it to robust risk aggregation under dependence uncertainty.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: characterizing \\(\\square_{i=1}^n \\Lambda_i\\mathrm{VaR}^+\\) and optimal allocations. It provides the closest available partial results (Theorem 5) for \\(\\Lambda\\mathrm{VaR}^+\\square \\rho\\) and explains the main obstacle: robust aggregation with fixed marginals and unknown dependence."
+      },
+      {
+        "title": "Risk Measures on P(R) and Value at Risk with Probability/Loss function",
+        "bibtex": "@article{FrittelliMaggisPeri2014RiskMeasures,\n  author  = {Frittelli, Marco and Maggis, Marco and Peri, Ilaria},\n  title   = {Risk Measures on P(R) and Value at Risk with Probability/Loss function},\n  journal = {Mathematical Finance},\n  year    = {2014},\n  volume  = {24},\n  number  = {3},\n  pages   = {442--463},\n  doi     = {10.1111/mafi.12038}\n}\n",
+        "source_url": "https://doi.org/10.1111/mafi.12038",
+        "theorem_or_result": "Introduces \\(\\Lambda\\mathrm{VaR}\\) and \\(\\Lambda\\mathrm{VaR}^+\\) (via probability/loss functions), studies their basic properties (monotonicity, quasi-convexity, cash-(sub)additivity issues), and motivates \\(\\Lambda\\)-dependent tail control beyond classical VaR.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the foundational definitions and properties of \\(\\Lambda\\mathrm{VaR}^+\\) used in the open problem; clarifies when \\(\\Lambda\\mathrm{VaR}=\\Lambda\\mathrm{VaR}^+\\) (e.g., increasing \\(\\Lambda\\)) and why \\(\\Lambda\\mathrm{VaR}^+\\) is tail-sensitive for decreasing \\(\\Lambda\\)."
+      },
+      {
+        "title": "An axiomatization of \u039b-quantiles",
+        "bibtex": "@article{BelliniPeri2022Axiomatization,\n  author  = {Bellini, Fabio and Peri, Ilaria},\n  title   = {An axiomatization of {\\L}ambda-quantiles},\n  journal = {SIAM Journal on Financial Mathematics},\n  year    = {2022},\n  volume  = {13},\n  number  = {1},\n  pages   = {26--38},\n  doi     = {10.1137/20M1366120}\n}\n",
+        "source_url": "https://doi.org/10.1137/20M1366120",
+        "theorem_or_result": "Axiomatizes \\(\\Lambda\\)-quantiles and compares alternative definitions; proves equivalences and separation results (e.g., when \\(\\Lambda\\mathrm{VaR}=\\Lambda\\mathrm{VaR}^+\\)), and studies properties for increasing \\(\\Lambda\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Helps delineate regimes where the open problem collapses to the already-solved \\(\\Lambda\\mathrm{VaR}\\) inf-convolution (e.g., increasing \\(\\Lambda_i\\)), and highlights subtleties of \\(\\Lambda\\mathrm{VaR}^+\\) for non-increasing \\(\\Lambda\\)."
+      },
+      {
+        "title": "Quantile-based risk sharing",
+        "bibtex": "@article{EmbrechtsLiuWang2018QuantileBased,\n  author  = {Embrechts, Paul and Liu, Haoxiang and Wang, Ruodu},\n  title   = {Quantile-based risk sharing},\n  journal = {Operations Research},\n  year    = {2018},\n  volume  = {66},\n  number  = {4},\n  pages   = {936--949},\n  doi     = {10.1287/opre.2018.1722}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2018.1722",
+        "theorem_or_result": "Derives analytical inf-convolution formulas and optimal allocations for quantile-based risk measures including VaR and RVaR; shows optimal allocations can be chosen via probability-space partitions and provides explicit expressions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Serves as the template for inf-convolution techniques used by Liu (2023) for \\(\\Lambda\\mathrm{VaR}\\). For \\(\\Lambda\\mathrm{VaR}^+\\), it provides the closest analogous results for VaR-type functionals and highlights where dependence-uncertainty/robust aggregation enters."
+      },
+      {
+        "title": "Inf-convolution, optimal allocations, and model uncertainty for tail risk measures",
+        "bibtex": "@article{LiuMaoWangWei2022InfConvolution,\n  author  = {Liu, Fang and Mao, Tianyi and Wang, Ruodu and Wei, Ludger},\n  title   = {Inf-convolution, optimal allocations, and model uncertainty for tail risk measures},\n  journal = {Mathematics of Operations Research},\n  year    = {2022},\n  volume  = {47},\n  number  = {3},\n  pages   = {2494--2519},\n  doi     = {10.1287/moor.2021.1205}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2021.1205",
+        "theorem_or_result": "Studies inf-convolution and optimal allocations for tail risk measures (including VaR-type) under model uncertainty; develops techniques using tail-distribution invariance and robust aggregation bounds.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Provides methodological tools (tail risk measures, dependence uncertainty) that Liu (2023) leverages in Theorem 5 for \\(\\Lambda\\mathrm{VaR}^+\\square \\rho\\). These tools are likely needed to tackle multiple \\(\\Lambda\\mathrm{VaR}^+\\) where robust aggregation is central."
+      },
+      {
+        "title": "Cash-subadditive risk measures without quasi-convexity",
+        "bibtex": "@misc{HanWangWangXia2021CashSubadditive,\n  author       = {Han, X. and Wang, Q. and Wang, Ruodu and Xia, J.},\n  title        = {Cash-subadditive risk measures without quasi-convexity},\n  year         = {2021},\n  note         = {arXiv preprint},\n  eprint       = {2110.12198},\n  archivePrefix= {arXiv}\n}\n",
+        "source_url": "https://arxiv.org/abs/2110.12198",
+        "theorem_or_result": "Develops representations and structural results for cash-subadditive (non-cash-additive) risk measures, including \\(\\Lambda\\mathrm{VaR}\\)-type functionals, and links them to VaR-based representations.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Supports the \\(\\Lambda\\mathrm{VaR}\\) side of the theory and provides representation tools (used in Liu (2023), Proposition 3) that may help reduce \\(\\Lambda\\mathrm{VaR}^+\\) problems to quantile aggregation/robust bounds in special cases."
+      },
+      {
+        "title": "Convolution bounds on quantile aggregation",
+        "bibtex": "@misc{BlanchetLamLiuWang2023ConvolutionBounds,\n  author       = {Blanchet, Jose and Lam, Henry and Liu, Ying and Wang, Ruodu},\n  title        = {Convolution bounds on quantile aggregation},\n  year         = {2023},\n  note         = {arXiv preprint},\n  eprint       = {2007.09320},\n  archivePrefix= {arXiv}\n}\n",
+        "source_url": "https://arxiv.org/abs/2007.09320",
+        "theorem_or_result": "Provides sharp bounds and methods for quantile aggregation under dependence uncertainty (convolution/Fr\u00e9chet-type bounds), relevant to robust VaR aggregation problems.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Liu (2023) notes that multiple \\(\\Lambda\\mathrm{VaR}^+\\) inf-convolution entails robust aggregation with fixed marginals and unknown dependence. Quantile aggregation bounds are a key ingredient for any tractable characterization or bounds for \\(\\square_i \\Lambda_i\\mathrm{VaR}^+\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07168350000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07168350000000001
+    "literature_total_cost_usd": 0.10003875000000001,
+    "total_cost_usd": 0.17172225000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391994328/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4391994328_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4391994328_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

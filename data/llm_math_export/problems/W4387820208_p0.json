@@ -47,16 +47,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks whether, for independent stages with continuous MHR marginals \\(D_1,\\dots,D_m\\), the number of extra buyers \\(c\\) needed so that stagewise VCG matches the optimal dynamic revenue can be made sublinear in \\(n\\), uniformly over all such MHR distributions. The source paper (Liu--Psomas) establishes linear upper and lower bounds in more general settings: with correlated stages and MHR marginals, competition complexity is between \\((e-1)n\\) and \\(3n\\); with independent stages and \\(m-1\\) MHR plus one merely regular stage, the same linear bounds hold. Their proofs combine (i) upper bounds on \\(\\mathrm{OPT}[X,n,m]\\) via social welfare and via a dynamic extension of the Cai--Devanur--Weinberg duality framework, and (ii) new inequalities for MHR order statistics, notably \\(\\mathbb{E}[X_{2:4n}]\\ge \\mathbb{E}[X_{1:n}]\\), which yields the \\(3n\\) upper bound.\n\nHowever, the fully independent, all-stages-MHR case remains unresolved: the paper\u2019s linear lower bound construction for exact competition complexity uses either ex-ante IR features or introduces one regular (non-MHR) stage, and thus does not rule out \\(c(n)=o(n)\\) when every stage is MHR and stages are independent. Progress likely requires either (a) a sharper, independence-specific upper bound on \\(\\mathrm{OPT}[X,n,m]\\) that is strictly below the welfare benchmark by an amount that stagewise VCG can cover with fewer than \\(\\Theta(n)\\) extra buyers, or (b) a new lower-bound construction showing that even under independence and MHR, \\(\\mathrm{OPT}\\) can exceed stagewise VCG by a linear-in-\\(n\\) gap that cannot be closed with sublinear additional competition. At present, based on the provided materials, the problem should be regarded as open.",
+    "total_cost_usd": 0.108304,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On the Competition Complexity of Dynamic Mechanism Design",
+        "bibtex": "@misc{LiuPsomas2017CompetitionComplexityDynamic,\n  author       = {Siqi Liu and Christos-Alexandros Psomas},\n  title        = {On the Competition Complexity of Dynamic Mechanism Design},\n  year         = {2017},\n  eprint       = {1709.07955},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  note         = {arXiv:1709.07955v2},\n  url          = {https://arxiv.org/abs/1709.07955}\n}\n",
+        "source_url": "https://arxiv.org/abs/1709.07955",
+        "theorem_or_result": "Introduces and studies competition complexity for dynamic auctions. For continuous MHR stage marginals, proves linear upper bound (at most \\(3n\\)) and linear lower bound (at least \\((e-1)n\\)) for correlated stages; for independent stages with \\(m-1\\) MHR and one regular stage, same bounds. Leaves open whether competition complexity can be sublinear when all \\(m\\) stages are independent and MHR.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether there exists \\(c(n)=o(n)\\) such that stagewise VCG with \\(n+c(n)\\) buyers matches \\(\\mathrm{OPT}[X,n,m]\\) for every choice of independent continuous MHR stage distributions."
+      },
+      {
+        "title": "Auctions Versus Negotiations",
+        "bibtex": "@article{BulowKlemperer1996Auctions,\n  author  = {Bulow, Jeremy and Klemperer, Paul},\n  title   = {Auctions Versus Negotiations},\n  journal = {American Economic Review},\n  year    = {1996},\n  volume  = {86},\n  number  = {1},\n  pages   = {180--194}\n}\n",
+        "source_url": "https://www.aeaweb.org/articles?id=10.1257/aer.86.1.180",
+        "theorem_or_result": "Bulow--Klemperer theorem: for a single-item auction with \\(n\\) i.i.d. buyers from a regular distribution, Vickrey with \\(n+1\\) buyers yields revenue at least the optimal (Myerson) auction with \\(n\\) buyers.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides the static benchmark and key ingredient used in Liu--Psomas to relate VCG revenue (second order statistic) to optimal revenue; motivates seeking small extra competition in dynamic settings."
+      },
+      {
+        "title": "Optimal Auction Design",
+        "bibtex": "@article{Myerson1981OptimalAuctionDesign,\n  author  = {Myerson, Roger B.},\n  title   = {Optimal Auction Design},\n  journal = {Mathematics of Operations Research},\n  year    = {1981},\n  volume  = {6},\n  number  = {1},\n  pages   = {58--73}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.6.1.58",
+        "theorem_or_result": "Characterizes revenue-optimal single-item auctions via virtual values; establishes the Myerson auction and the concept of regularity.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Underpins the comparison between VCG revenue and optimal revenue stage-by-stage (via virtual values) and is used in Liu--Psomas duality/virtual welfare benchmarks."
+      },
+      {
+        "title": "On the Complexity of Dynamic Mechanism Design",
+        "bibtex": "@inproceedings{PapadimitriouPierrakosPsomasRubinstein2016ComplexityDynamic,\n  author    = {Papadimitriou, Christos and Pierrakos, George and Psomas, Christos{-}Alexandros and Rubinstein, Aviad},\n  title     = {On the Complexity of Dynamic Mechanism Design},\n  booktitle = {Proceedings of the 27th Annual {ACM-SIAM} Symposium on Discrete Algorithms (SODA)},\n  year      = {2016},\n  pages     = {1458--1475}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611974331.ch101",
+        "theorem_or_result": "Shows NP-hardness of computing optimal deterministic dynamic mechanisms even for two stages and one buyer; exhibits strong separations between adaptive and non-adaptive dynamic mechanisms and examples where dynamic mechanisms greatly outperform stagewise optimal static auctions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides motivating examples (used by Liu--Psomas) showing that without tail assumptions, stagewise auctions can be far from dynamic OPT, suggesting why competition complexity may need to be large in general."
+      },
+      {
+        "title": "Sequential Mechanisms with Ex-Post Participation Guarantees",
+        "bibtex": "@inproceedings{AshlagiDaskalakisHaghpanah2016SequentialExPost,\n  author    = {Ashlagi, Itai and Daskalakis, Constantinos and Haghpanah, Nima},\n  title     = {Sequential Mechanisms with Ex-Post Participation Guarantees},\n  booktitle = {Proceedings of the 2016 ACM Conference on Economics and Computation (EC)},\n  year      = {2016}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/2940716.2940760",
+        "theorem_or_result": "Characterizes optimal ex-post IR, periodic IC mechanisms for independent-stage sequential auctions; shows existence of optimal mechanisms with zero stage utility except possibly the last, and provides approximation mechanisms for single-buyer settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies structural understanding of dynamic OPT under ex-post IR and independent stages, which is central to bounding OPT and comparing to stagewise VCG in the MHR setting."
+      },
+      {
+        "title": "A Duality Based Unified Approach to Bayesian Mechanism Design",
+        "bibtex": "@inproceedings{CaiDevanurWeinberg2016DualityBayesian,\n  author    = {Cai, Yang and Devanur, Nikhil R. and Weinberg, S. Matthew},\n  title     = {A Duality Based Unified Approach to Bayesian Mechanism Design},\n  booktitle = {Proceedings of the 48th Annual ACM Symposium on Theory of Computing (STOC)},\n  year      = {2016}\n}\n",
+        "source_url": "https://dl.acm.org/doi/10.1145/2897518.2897552",
+        "theorem_or_result": "Develops a strong duality framework for Bayesian mechanism design that yields upper bounds on optimal revenue via virtual welfare benchmarks; unifies several approximation results.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Liu--Psomas extend this duality framework to dynamic settings to upper bound \\(\\mathrm{OPT}[X,n,m]\\) for independent stages, a key step in analyzing competition complexity."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.089299,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.089299
+    "literature_total_cost_usd": 0.108304,
+    "total_cost_usd": 0.197603
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387820208/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387820208_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4387820208_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

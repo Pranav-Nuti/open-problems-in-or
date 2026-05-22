@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Chen--Na--Kolar, 2023) establishes upper bounds for several constant-parameter accelerated stochastic methods under the growth condition \\(\\mathbb{E}\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\). It shows that NAM and iDAM+ admit accelerated linear bias decay only for \\(\\delta<1\\), and RMM only for \\(\\delta<1/4\\), whereas DAM+ can be tuned to achieve an accelerated bias contraction \\(1-\\Theta(1/\\sqrt{\\kappa})\\) for all \\(\\delta\\ge 0\\). The paper explicitly notes that these are sufficient conditions and leaves open whether the small-\\(\\delta\\) requirements for NAM/RMM/iDAM+ are necessary, i.e., whether there are sharp impossibility thresholds \\(\\delta_0\\) beyond which no constant-parameter tuning can guarantee acceleration uniformly over \\(f\\in \\mathcal{F}(m,L)\\) and growth-condition oracles.\n\nRelated works provide partial evidence toward such impossibility results but do not resolve the sharp \\(\\delta\\)-threshold question in the growth-condition model. Counterexample-style papers on momentum in stochastic optimization (e.g., Kidambi--Netrapalli--Jain--Kakade, 2018; Liu--Belkin, 2020) show that heavy-ball/Nesterov-type momentum can fail to accelerate SGD on least-squares-type instances, consistent with the observation that least squares can induce \\(\\delta\\gtrsim 1\\). These results motivate the conjecture that for NAM (and likely iDAM+) acceleration is impossible once \\(\\delta\\) exceeds a constant, but they do not provide a sharp necessary condition stated directly in terms of \\(\\delta\\) under the growth condition.\n\nOn the algorithmic side, RMM (Cyrus--Hu--Van Scoy--Lessard, 2018) and iDAM+-type methods (Cohen--Diakonikolas--Orecchia, 2018) supply the method definitions and analysis frameworks (IQC/dissipativity and duality-gap viewpoints) used in later growth-condition analyses, while least-squares acceleration results (Jain--Kakade--Kidambi--Netrapalli--Sidford, 2018) illustrate that acceleration is achievable with more tailored schemes even when classical momentum fails. Overall, the state of the art suggests the open problem remains unsolved: sharp lower bounds on \\(\\delta\\) for acceleration of NAM/RMM/iDAM+ under constant parameters and the growth condition are not currently established, and developing such impossibility results (likely via carefully constructed quadratic instances and oracle noise matching the growth condition) is a clear next direction.",
+    "total_cost_usd": 0.11924850000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Convergence Analysis of Accelerated Stochastic Gradient Descent under the Growth Condition",
+        "bibtex": "@article{ChenNaKolar2023GrowthAccel,\n  title        = {Convergence Analysis of Accelerated Stochastic Gradient Descent under the Growth Condition},\n  author       = {Chen, You-Lin and Na, Sen and Kolar, Mladen},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2006.06782},\n  eprint       = {2006.06782},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2006.06782",
+        "theorem_or_result": "Provides upper bounds for accelerated stochastic methods under the growth condition \\(\\mathbb{E}\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\), showing acceleration for NAM/iDAM+ only when \\(\\delta<1\\) (and for RMM when \\(\\delta<1/4\\)), while DAM+ accelerates for all \\(\\delta\\ge 0\\). Explicitly notes absence of lower-bound/impossibility results on \\(\\delta\\) thresholds.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "This is the originating paper that formulates the need for sharp necessary conditions on \\(\\delta\\) for acceleration and explicitly leaves lower-bound analyses for NAM/RMM/iDAM+ as open."
+      },
+      {
+        "title": "Accelerating SGD with Momentum for Over-Parameterized Learning",
+        "bibtex": "@inproceedings{LiuBelkin2020MomentumOverparam,\n  title     = {Accelerating {SGD} with Momentum for Over-Parameterized Learning},\n  author    = {Liu, Chaoyue and Belkin, Mikhail},\n  booktitle = {International Conference on Learning Representations (ICLR)},\n  year      = {2020}\n}\n",
+        "source_url": "https://openreview.net/forum?id=r1gixp4FPH",
+        "theorem_or_result": "Constructs least-squares/over-parameterized settings where classical momentum/Nesterov-type acceleration does not improve over SGD, highlighting fragility of momentum under multiplicative/noise models beyond bounded-variance assumptions.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Supports the plausibility of impossibility thresholds for NAM-like methods when multiplicative noise is large (e.g., least-squares induces \\(\\delta\\gtrsim 1\\)), but does not provide a sharp lower bound in terms of \\(\\delta\\) for the growth condition model."
+      },
+      {
+        "title": "On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization",
+        "bibtex": "@inproceedings{KidambiNetrapalliJainKakade2018InsufficiencyMomentum,\n  title     = {On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization},\n  author    = {Kidambi, Rahul and Netrapalli, Praneeth and Jain, Prateek and Kakade, Sham},\n  booktitle = {Information Theory and Applications Workshop (ITA)},\n  year      = {2018},\n  doi       = {10.1109/ITA.2018.8503173}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/8503173",
+        "theorem_or_result": "Shows that standard momentum schemes (heavy-ball/Nesterov variants) can fail to accelerate SGD on certain stochastic problems, giving counterexamples that separate deterministic acceleration from stochastic behavior.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "Provides lower-bound-style counterexamples for momentum acceleration, motivating impossibility results; however, it is not phrased as a sharp \\(\\delta\\)-threshold under the growth condition and does not directly yield necessary conditions for NAM/RMM/iDAM+ with constant parameters."
+      },
+      {
+        "title": "A Robust Accelerated Optimization Algorithm for Strongly Convex Functions",
+        "bibtex": "@inproceedings{CyrusHuVanScoyLessard2018RMM,\n  title     = {A Robust Accelerated Optimization Algorithm for Strongly Convex Functions},\n  author    = {Cyrus, Sina and Hu, Bin and Van Scoy, Benjamin and Lessard, Laurent},\n  booktitle = {2018 Annual American Control Conference (ACC)},\n  year      = {2018},\n  pages     = {1376--1381},\n  publisher = {IEEE},\n  doi       = {10.23919/ACC.2018.8430824}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/8430824",
+        "theorem_or_result": "Introduces the robust momentum method (RMM) and analyzes deterministic convergence; empirically studies robustness to certain multiplicative noise models.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Defines one of the target algorithms (RMM) for which sharp necessary \\(\\delta\\) thresholds are sought; does not provide impossibility/lower bounds under the growth condition."
+      },
+      {
+        "title": "On the convergence of Nesterov\u2019s accelerated gradient method in stochastic settings",
+        "bibtex": "@inproceedings{AssranRabbat2020StochasticNAM,\n  title     = {On the convergence of Nesterov\u2019s accelerated gradient method in stochastic settings},\n  author    = {Assran, Maher and Rabbat, Michael},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2020}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v119/assran20a.html",
+        "theorem_or_result": "Studies stochastic Nesterov acceleration under bounded-variance-type assumptions and characterizes convergence behavior in stochastic regimes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides baseline stochastic NAM analysis under OUBV-like assumptions; does not address growth-condition \\(\\delta\\) thresholds or impossibility results."
+      },
+      {
+        "title": "On Acceleration with Noise-Corrupted Gradients",
+        "bibtex": "@inproceedings{CohenDiakonikolasOrecchia2018NoiseCorrupted,\n  title     = {On Acceleration with Noise-Corrupted Gradients},\n  author    = {Cohen, Michael and Diakonikolas, Jelani and Orecchia, Lorenzo},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2018}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v80/cohen18a.html",
+        "theorem_or_result": "Develops acceleration schemes and analyses under noise-corrupted gradients, highlighting limits and trade-offs between acceleration and noise.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides conceptual and technical background for acceleration under stochastic noise and includes iDAM+-related ideas, but does not give sharp \\(\\delta\\)-threshold impossibility results under the growth condition."
+      },
+      {
+        "title": "Accelerating Stochastic Gradient Descent for Least Squares Regression",
+        "bibtex": "@inproceedings{JainKakadeKidambiNetrapalliSidford2018AccelLS,\n  title     = {Accelerating Stochastic Gradient Descent for Least Squares Regression},\n  author    = {Jain, Prateek and Kakade, Sham and Kidambi, Rahul and Netrapalli, Praneeth and Sidford, Aaron},\n  booktitle = {Conference on Learning Theory (COLT)},\n  year      = {2018}\n}\n",
+        "source_url": "http://proceedings.mlr.press/v75/jain18a.html",
+        "theorem_or_result": "Shows accelerated rates for least-squares regression via specialized acceleration/variance-reduction style methods, contrasting with failures of classical momentum.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Demonstrates that acceleration is possible for least squares but typically requires methods beyond NAM/HB; helps contextualize why impossibility thresholds for NAM/RMM/iDAM+ under growth condition are plausible."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0932225,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0932225
+    "literature_total_cost_usd": 0.11924850000000001,
+    "total_cost_usd": 0.21247100000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389389242/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389389242_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4389389242_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

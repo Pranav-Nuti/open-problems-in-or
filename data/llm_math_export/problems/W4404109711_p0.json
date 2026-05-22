@@ -47,16 +47,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper proves almost-sure nonconvergence of last-iterate mixed strategies in competitive \\(2\\times 2\\) games under optimal \\(O(\\sqrt{T})\\)-regret learning when strategies are mean-based and monotonic (and for several algorithmic relaxations such as optimistic/adaptive-step OMD reduced to this setting). The mechanism is a fluctuation-sensitivity property forced by optimal regret: \\(t^{-1/2}\\)-scale empirical fluctuations in realized opponent actions occur infinitely often and, via mean-based monotone response maps, induce \\(\\Omega(1)\\) deviations in the learner\u2019s mixed action infinitely often, precluding almost-sure convergence.\n\nThe open problem asks whether monotonicity can be dropped entirely while retaining the divergence conclusion for mean-based optimal no-regret strategies with realization-only feedback. The paper provides partial evidence (Section 3.5) but does not resolve the general case; no forward-citation data were provided here, so the present state cannot be updated beyond the source\u2019s conjecture.\n\nA promising direction is to characterize which regularity properties weaker than monotonicity (e.g., bounded variation, approximate monotonicity on \\(t^{-1/2}\\) scales, or stability/Lipschitz conditions implied by regret optimality) suffice to transfer fluctuation-sensitivity into last-iterate oscillation. Another direction is to construct a counterexample: a non-monotone mean-based \\(O(\\sqrt{T})\\)-regret strategy pair whose last iterates converge almost surely, which would require carefully canceling the inevitable empirical fluctuations without sacrificing worst-case regret guarantees.",
+    "total_cost_usd": 0.0350105,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On the Impossibility of Convergence of Mixed Strategies with Optimal No-Regret Learning",
+        "bibtex": "@article{MuthukumarPhadeSahai2022Impossibility,\n  title        = {On the Impossibility of Convergence of Mixed Strategies with Optimal No-Regret Learning},\n  author       = {Muthukumar, Vidya and Phade, Soham and Sahai, Anant},\n  year         = {2022},\n  journal      = {arXiv preprint arXiv:2012.02125},\n  eprint       = {2012.02125},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}",
+        "source_url": "https://arxiv.org/abs/2012.02125",
+        "theorem_or_result": "Shows that in competitive \\(2\\times 2\\) games, if both players use optimal \\(O(\\sqrt{T})\\)-regret strategies that are mean-based and monotonic (and in several relaxed variants including optimistic/adaptive-step OMD), then the last-iterate mixed strategies \\((P_t,Q_t)\\) cannot converge almost surely to the (unique completely mixed) Nash equilibrium; provides partial evidence that monotonicity may be removable.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: whether the monotonicity assumption can be removed while still proving almost-sure divergence of last-iterate mixed strategies under optimal no-regret learning with realization-only feedback."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09855825000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09855825000000001
+    "literature_total_cost_usd": 0.0350105,
+    "total_cost_usd": 0.13356875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404109711/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4404109711_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4404109711_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

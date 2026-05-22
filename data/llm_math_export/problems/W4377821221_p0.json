@@ -45,16 +45,113 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "No forward-citation evidence was provided beyond the 2020 source paper, so there is currently no identified later work that resolves the integrality-gap question for the specific time-indexed LP relaxation for bipartite AND/OR precedence. In the source paper, the authors obtain \\((2\\Delta)\\) and \\((2\\Delta+\\varepsilon)\\) approximation guarantees via random \\(\\alpha\\)-point rounding (with different \\(\\alpha\\) for jobs in \\(A\\) and \\(B\\)), but they explicitly state that it is unclear whether these analyses are tight, i.e. whether the underlying time-indexed/interval-indexed LP has integrality gap matching \\(\\Theta(\\Delta)\\) or perhaps a smaller constant independent of \\(\\Delta\\).\n\nRelated foundational work on time-indexed LPs and \\(\\alpha\\)-point scheduling for \\(1\\mid prec\\mid \\sum w_j C_j\\) with AND-precedence constraints (Hall\u2013Shmoys\u2013Wein; Hall\u2013Schulz\u2013Shmoys\u2013Wein; Schulz; Schulz\u2013Skutella) supplies the main analytical toolkit, including the use of non-uniform randomization over \\(\\beta\\) to control \\(1/\\beta\\) terms. For special cases such as min-sum set cover (Feige\u2013Lov\\'asz\u2013Tetali), LP-based methods are known to be tight up to constant factors (notably the factor 4 barrier for MSSC), suggesting that tightness questions for richer precedence structures are subtle.\n\nThe source paper also demonstrates that other natural LP formulations (linear-ordering and completion-time formulations, even strengthened with additional valid inequalities) can have integrality gaps linear in \\(n\\) even when \\(\\Delta=2\\) and \\(E_{\\wedge}=\\emptyset\\). This underscores that the time-indexed LP is the most promising relaxation in the OR-precedence setting, and that proving a sharp integrality-gap bound for it likely requires either explicit gap instances tailored to the \\(\\alpha\\)-point rounding analysis or new structural inequalities/rounding arguments that exploit the bipartite \\(A\\uplus B\\) AND/OR form.",
+    "total_cost_usd": 0.11082575,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Approximation Algorithms and LP Relaxations for Scheduling Problems Related to Min-Sum Set Cover",
+        "bibtex": "@misc{HappachSchulz2020ApproxLP,\n  author       = {Felix Happach and Andreas S. Schulz},\n  title        = {Approximation Algorithms and {LP} Relaxations for Scheduling Problems Related to Min-Sum Set Cover},\n  year         = {2020},\n  eprint       = {2001.07011},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  url          = {https://arxiv.org/abs/2001.07011}\n}",
+        "source_url": "https://arxiv.org/abs/2001.07011",
+        "theorem_or_result": "Introduces the bipartite AND/OR single-machine problem \\(1\\mid ao\\text{-}prec=A\\uplus B\\mid \\sum_j w_j C_j\\), proposes time-indexed and interval-indexed LP relaxations, and gives \\((2\\Delta)\\)-approximation for \\(p_j\\in\\{0,1\\}\\) and \\((2\\Delta+\\varepsilon)\\)-approximation for general \\(p_j\\) via random \\(\\alpha\\)-point rounding with different \\(\\alpha\\) for \\(A\\) and \\(B\\). It explicitly notes that tight integrality-gap bounds for the time-indexed LP analysis are unclear.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that formulates the open question: determine the true worst-case integrality gap of the time-indexed LP (Sousa\u2013Wolsey style with added OR constraints) for bipartite AND/OR precedence, and whether the \\(2\\Delta\\) (or \\(2\\Delta+\\varepsilon\\)) analysis is tight."
+      },
+      {
+        "title": "Approximating min-sum set cover",
+        "bibtex": "@inproceedings{FeigeLovaszTetali2002Approximating,\n  author    = {Uriel Feige and L{\\'a}szl{\\'o} Lov{\\'a}sz and Prasad Tetali},\n  title     = {Approximating min-sum set cover},\n  booktitle = {Approximation Algorithms for Combinatorial Optimization},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {2462},\n  year      = {2002},\n  publisher = {Springer}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/3-540-45753-4_9",
+        "theorem_or_result": "Gives a 4-approximation for min-sum set cover using a time-indexed LP and a primal-dual style analysis; establishes the LP as a natural relaxation for min-sum covering objectives.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "MSSC is a special case of the bipartite OR part of the AND/OR scheduling model (with \\(p_a=1, w_b=1, p_b=0, w_a=0\\)). The time-indexed LP techniques and \\(\\alpha\\)-point style reasoning motivate the LP under study, but do not resolve its integrality gap for the richer AND/OR precedence structure."
+      },
+      {
+        "title": "Approximating min sum set cover",
+        "bibtex": "@article{FeigeLovaszTetali2004Approximating,\n  author  = {Uriel Feige and L{\\'a}szl{\\'o} Lov{\\'a}sz and Prasad Tetali},\n  title   = {Approximating min sum set cover},\n  journal = {Algorithmica},\n  volume  = {40},\n  number  = {4},\n  pages   = {219--234},\n  year    = {2004}\n}",
+        "source_url": "https://link.springer.com/article/10.1007/s00453-004-1090-5",
+        "theorem_or_result": "Journal version: 4-approximation for MSSC and hardness of improving the factor below 4; clarifies the LP-based analysis and tightness for MSSC.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides a benchmark where the natural time-indexed LP and rounding analysis is essentially tight (factor 4) for MSSC. This informs expectations about tightness of \\(\\alpha\\)-point analyses, but does not directly bound the integrality gap for bipartite AND/OR scheduling with \\(\\Delta\\) and AND arcs."
+      },
+      {
+        "title": "Scheduling to minimize average completion time: Off-line and on-line algorithms",
+        "bibtex": "@inproceedings{HallShmoysWein1996Scheduling,\n  author    = {Leslie A. Hall and David B. Shmoys and Joel Wein},\n  title     = {Scheduling to minimize average completion time: Off-line and on-line algorithms},\n  booktitle = {Proceedings of the 7th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {1996},\n  pages     = {142--151},\n  publisher = {SIAM}\n}",
+        "source_url": "https://dl.acm.org/doi/10.5555/313852.314001",
+        "theorem_or_result": "Introduces \\(\\alpha\\)-point scheduling from time-indexed LPs for precedence-constrained single-machine \\(\\sum w_j C_j\\), obtaining constant-factor approximations (notably \\(4+\\varepsilon\\) in early forms) for AND-precedence constraints.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "The Happach\u2013Schulz rounding for AND/OR constraints is an adaptation of this \\(\\alpha\\)-point framework. Understanding integrality gaps for the AND/OR time-indexed LP builds on the same LP machinery developed here."
+      },
+      {
+        "title": "Scheduling to minimize average completion time: Off-line and on-line approximation algorithms",
+        "bibtex": "@article{HallSchulzShmoysWein1997Scheduling,\n  author  = {Leslie A. Hall and Andreas S. Schulz and David B. Shmoys and Joel Wein},\n  title   = {Scheduling to minimize average completion time: Off-line and on-line approximation algorithms},\n  journal = {Mathematics of Operations Research},\n  volume  = {22},\n  number  = {3},\n  pages   = {513--544},\n  year    = {1997}\n}",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.22.3.513",
+        "theorem_or_result": "Develops LP-based \\(\\alpha\\)-point rounding for \\(1\\mid prec\\mid \\sum w_j C_j\\) with AND-precedence constraints, giving \\(4\\)-type guarantees and foundational analysis tools for time-indexed/interval-indexed relaxations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Serves as the canonical reference for time-indexed LP relaxations and \\(\\alpha\\)-point rounding in \\(\\sum w_j C_j\\) scheduling. The open problem asks for the integrality gap of an analogous LP once OR-precedence constraints are added in the bipartite AND/OR structure."
+      },
+      {
+        "title": "Scheduling to minimize total weighted completion time: Performance guarantees of LP-based heuristics and lower bounds",
+        "bibtex": "@inproceedings{Schulz1996Scheduling,\n  author    = {Andreas S. Schulz},\n  title     = {Scheduling to minimize total weighted completion time: Performance guarantees of {LP}-based heuristics and lower bounds},\n  booktitle = {Integer Programming and Combinatorial Optimization (IPCO)},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {1084},\n  year      = {1996},\n  pages     = {301--315},\n  publisher = {Springer}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/3-540-61310-2_24",
+        "theorem_or_result": "Establishes performance guarantees for LP-based list scheduling for \\(\\sum w_j C_j\\) under AND-precedence constraints and develops lower-bound techniques for LP relaxations in scheduling.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides foundational LP-gap/rounding analysis techniques for \\(\\sum w_j C_j\\) scheduling that underpin later \\(\\alpha\\)-point methods; relevant as methodological background for analyzing the integrality gap of the AND/OR time-indexed LP."
+      },
+      {
+        "title": "Random-based scheduling: New approximations and LP lower bounds",
+        "bibtex": "@inproceedings{SchulzSkutella1997RandomBased,\n  author    = {Andreas S. Schulz and Martin Skutella},\n  title     = {Random-based scheduling: New approximations and {LP} lower bounds},\n  booktitle = {Randomization and Approximation Techniques in Computer Science (RANDOM)},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {1269},\n  year      = {1997},\n  pages     = {119--133},\n  publisher = {Springer}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/BFb0024751",
+        "theorem_or_result": "Develops randomized \\(\\alpha\\)-point scheduling analyses and LP lower bounds for single-machine scheduling variants, including techniques to control \\(1/\\beta\\) terms via non-uniform distributions over \\(\\beta\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Happach\u2013Schulz use the same idea (density \\(f(\\beta)=2\\beta\\)) to cancel \\(1/\\beta\\) blowups in expected completion times. These techniques are central to any attempt to sharpen the integrality-gap bound for the AND/OR time-indexed LP."
+      },
+      {
+        "title": "Precedence-constrained min sum set cover",
+        "bibtex": "@inproceedings{McClintockMestreWirth2017PrecedenceConstrained,\n  author    = {J. McClintock and J. Mestre and A. Wirth},\n  title     = {Precedence-constrained min sum set cover},\n  booktitle = {International Symposium on Algorithms and Computation (ISAAC)},\n  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},\n  volume    = {92},\n  year      = {2017},\n  pages     = {55:1--55:12},\n  publisher = {Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik}\n}",
+        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2017/8224/",
+        "theorem_or_result": "Studies MSSC with AND-precedence constraints on the elements/vertices; gives a \\(4\\sqrt{|V|}\\)-approximation and discusses hardness via the planted dense subgraph conjecture.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "This is a related AND+OR-flavored covering/scheduling setting. It motivates parameterizations (e.g. by \\(\\Delta\\)) and suggests that strong lower bounds may depend on conjectures. It does not directly bound the integrality gap of the specific time-indexed LP for bipartite AND/OR scheduling."
+      },
+      {
+        "title": "Scheduling AND/OR-networks on identical parallel machines",
+        "bibtex": "@inproceedings{ErlebachKaaabMoehring2003Scheduling,\n  author    = {Thomas Erlebach and Volker K{\\\"a}{\\\"a}b and Rolf H. M{\\\"o}hring},\n  title     = {Scheduling {AND/OR}-networks on identical parallel machines},\n  booktitle = {Approximation and Online Algorithms (WAOA)},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {2909},\n  year      = {2003},\n  pages     = {123--136},\n  publisher = {Springer}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-540-24677-0_10",
+        "theorem_or_result": "Shows strong inapproximability for scheduling with general AND/OR precedence structures (multiple layers), and gives simple approximation bounds for some variants.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "Provides hardness context: once general AND/OR precedence is allowed, constant-factor approximations may be impossible. The open problem focuses on the restricted bipartite AND/OR structure \\(A\\uplus B\\) and the integrality gap of a specific time-indexed LP in that setting."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0703185,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0703185
+    "literature_total_cost_usd": 0.11082575,
+    "total_cost_usd": 0.18114425
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4377821221/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4377821221_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4377821221_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

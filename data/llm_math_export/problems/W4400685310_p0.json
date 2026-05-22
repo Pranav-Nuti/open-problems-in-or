@@ -45,16 +45,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 9,
+    "synthesis": "No forward-citation block was provided, so the review is grounded in the original paper\u2019s framing and the classical robust MDP literature it cites. The Grand-Cl\\'ement\u2013Petrik paper establishes that the main obstruction to an LP-like convex formulation is the nonconvex/nonconcave nature of the robust Bellman map \\(v\\mapsto T(v)_s\\) under rectangular uncertainty, even though \\(T\\) is a monotone \\(\\ell_\\infty\\)-contraction and minimax duality holds. Their key contribution is an approximate convex formulation: they introduce an entropically regularized robust Bellman operator \\(\\tilde T\\) and, after an exponential change of variables, obtain polynomial-size convex (often conic) programs for common uncertainty sets (polyhedral, ellipsoidal, relative-entropy), with solutions converging to the true robust solution as the regularization parameter tends to zero.\n\nRelative to the open problem as stated here\u2014an exact, polynomial-size convex reformulation of the original discounted rectangular RMDP without regularization\u2014these results are best viewed as evidence of \u201chidden convexity\u201d in nearby regularized models rather than a complete solution. The foundational works of Iyengar (sa-rectangular) and Nilim\u2013El Ghaoui (robust control with uncertain transitions) provide the contraction/fixed-point characterizations and tractable inner minimizations that any exact convex program would need to encode, while Wiesemann\u2013Kuhn\u2013Sim extend the tractable theory to s-rectangular sets and establish strong minimax duality. However, none of these works provide an exact convex feasible-set description for \\(v\\ge T(v)\\) (or an equivalent occupancy-measure formulation) in the general rectangular case.\n\nAt present, the problem therefore remains open in full generality. Promising directions suggested by the existing literature include: (i) identifying special classes of uncertainty sets \\(\\mathcal U_{sa}\\) for which \\(v\\mapsto \\min_{p\\in\\mathcal U_{sa}} p^\\top v\\) admits a conic representable epigraph that interacts benignly with the outer \\(\\max_a\\); (ii) exploiting alternative variables (e.g., robust occupancy measures or state-action potentials) that might convexify the max\u2013min coupling; and (iii) understanding whether exact convexity is possible only with exponentially large coefficients/encodings (as in some stochastic-game formulations), which would clarify the limits of polynomial-size convex representability.",
+    "total_cost_usd": 0.05363925,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Robust Dynamic Programming",
+        "bibtex": "@article{Iyengar2005RobustDP,\n  title={Robust Dynamic Programming},\n  author={Iyengar, Garud N.},\n  journal={Operations Research},\n  volume={53},\n  number={2},\n  pages={257--280},\n  year={2005},\n  doi={10.1287/opre.1050.0238}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.1050.0238",
+        "theorem_or_result": "Introduces discounted robust MDPs with sa-rectangular uncertainty and proves that the robust Bellman operator is a monotone \\,\\(\\ell_\\infty\\)-contraction with an optimal stationary deterministic policy; provides robust value iteration and discusses obstacles to LP-like formulations (nonconvexity).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Defines the classical sa-rectangular model and robust Bellman operator \\(T\\) that the desired exact convex program would need to encode; also documents why naive LP generalizations fail, motivating the open problem."
+      },
+      {
+        "title": "Robust control of Markov decision processes with uncertain transition matrices",
+        "bibtex": "@article{NilimElGhaoui2005RobustControl,\n  title={Robust control of {M}arkov decision processes with uncertain transition matrices},\n  author={Nilim, Arnab and El Ghaoui, Laurent},\n  journal={Operations Research},\n  volume={53},\n  number={5},\n  pages={780--798},\n  year={2005},\n  doi={10.1287/opre.1050.0216}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.1050.0216",
+        "theorem_or_result": "Develops robust MDPs with (sa-)rectangular uncertainty, establishes contraction and dynamic programming, and gives tractable inner minimizations for common uncertainty sets; includes a contraction-lemma style characterization of fixed points.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Provides foundational DP characterizations that any convex reformulation would leverage (e.g., fixed-point inequalities), and highlights that tractability comes from rectangularity but not necessarily convex representability of \\(\\{v\\ge T(v)\\}\\)."
+      },
+      {
+        "title": "Robust Markov Decision Processes",
+        "bibtex": "@article{WiesemannKuhnSim2013RobustMDP,\n  title={Robust {M}arkov Decision Processes},\n  author={Wiesemann, Wolfram and Kuhn, Daniel and Sim, Melvyn},\n  journal={Operations Research},\n  volume={61},\n  number={3},\n  pages={512--528},\n  year={2013},\n  doi={10.1287/opre.2013.1190}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2013.1190",
+        "theorem_or_result": "Introduces s-rectangular uncertainty for RMDPs, proves strong minimax duality and existence of optimal stationary policies, and provides solution methods via robust dynamic programming; shows non-rectangular evaluation is NP-hard.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Extends the open problem\u2019s scope to s-rectangular sets and supplies minimax/duality structure that suggests hidden convexity, yet does not yield a polynomial-size exact convex program."
+      },
+      {
+        "title": "Robust control and model misspecification",
+        "bibtex": "@article{HansenSargent2013RobustControl,\n  title={Robust control and model misspecification},\n  author={Hansen, Lars Peter and Sargent, Thomas J. and Wang, Neng and Turmuhambetova, Jingyi},\n  journal={Management Science},\n  year={2013},\n  doi={10.1287/mnsc.1120.1621}\n}\n",
+        "source_url": "https://doi.org/10.1287/mnsc.1120.1621",
+        "theorem_or_result": "Studies robust control with relative-entropy (multiplier) preferences leading to risk-sensitive/entropy-regularized Bellman equations that are convex after exponential transformations in certain formulations.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Conceptually related to the Grand-Cl\u00e9ment\u2013Petrik approach: entropic regularization plus exponential change of variables can reveal convexity, but this does not provide an exact reformulation of the unregularized rectangular RMDP."
+      },
+      {
+        "title": "Linearly-solvable Markov decision problems",
+        "bibtex": "@article{Todorov2006LSMDP,\n  title={Linearly-solvable {M}arkov decision problems},\n  author={Todorov, Emanuel},\n  journal={Neural Computation},\n  volume={18},\n  number={6},\n  pages={1283--1312},\n  year={2006},\n  doi={10.1162/neco.2006.18.6.1283}\n}\n",
+        "source_url": "https://doi.org/10.1162/neco.2006.18.6.1283",
+        "theorem_or_result": "Shows that adding KL control costs yields Bellman equations solvable via an exponential transform, leading to convex/linear formulations in transformed variables for certain MDP classes.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Provides the prototype for the entropic-regularization and exponential change-of-variables trick used by Grand-Cl\u00e9ment\u2013Petrik to obtain convex programs, but again only for a regularized (not exact robust) objective."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08218525,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08218525
+    "literature_total_cost_usd": 0.05363925,
+    "total_cost_usd": 0.13582450000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400685310/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400685310_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4400685310_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

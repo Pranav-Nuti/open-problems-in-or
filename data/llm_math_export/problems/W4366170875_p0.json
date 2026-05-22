@@ -46,16 +46,77 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "No forward-citation corpus was provided, so the only directly grounded reference is the source paper itself and the key background works it cites. In the source paper, the finite third moment assumption \\(\\mathbb{E}[D^3]<\\infty\\) is used primarily in Lemma 10, where a Stein/CLT rate bound for Lipschitz test functions controls \\(\\mathbb{E}[\\max(0,\\gamma_t-\\sum D_k)]\\) uniformly and yields a quantitative separation \\(\\mu-r^*\\ge \\Omega(1)\\). The authors explicitly state that combining arguments from an earlier version (finite second moment but unbounded support) with the present bounded-support treatment should, in principle, yield asymptotic optimality under \\(\\mathbb{E}[D^2]<\\infty\\), leaving the minimal assumption open.\n\nFrom the queueing representation \\(I_\\infty^r\\stackrel{d}{=}\\sup_{k\\ge 0}(kr-\\sum_{i=1}^k D_i)\\), existence of \\(\\mathbb{E}[I_\\infty^r]\\) for \\(r<\\mu\\) already holds under \\(\\mathbb{E}[D^2]<\\infty\\) (and even weaker conditions in some GI/GI/1 settings), but the proof of asymptotic optimality needs more: a uniform, quantitative lower bound on the holding cost incurred when the pipeline average approaches \\(\\mu\\). Promising routes to weaken moments are (i) truncation of demands to recover a Berry--Esseen-type bound with an error controlled by \\(\\mathbb{E}[D^2\\mathbf{1}_{\\{D>M\\}}]\\) (requiring only second moment), (ii) replacing the Stein bound with a Lindeberg-Feller CLT plus explicit smoothing inequalities tailored to the convex function \\(x\\mapsto \\max(0,x+y)\\), or (iii) using renewal/ladder-epoch techniques to bound \\(\\mathbb{E}[\\max(0,\\gamma_t-\\sum D_k)]\\) without CLT rates. At present, with no later papers analyzed, the minimal-moment question remains open in this review.",
+    "total_cost_usd": 0.06566174999999999,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Asymptotic Optimality of Constant-Order Policies for Lost Sales Inventory Models with Large Lead Times",
+        "bibtex": "@article{GoldbergKatzRogozhnikovLuSharmaSquillante2018,\n  title        = {Asymptotic Optimality of Constant-Order Policies for Lost Sales Inventory Models with Large Lead Times},\n  author       = {Goldberg, David A. and Katz-Rogozhnikov, Dmitriy A. and Lu, Yingdong and Sharma, Mayank and Squillante, Mark S.},\n  year         = {2018},\n  journal      = {arXiv preprint},\n  eprint       = {1211.4063},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/1211.4063}\n}",
+        "source_url": "https://arxiv.org/abs/1211.4063",
+        "theorem_or_result": "Proves that the stationarized constant-order policy \\(\\pi_z\\) is asymptotically optimal as lead time \\(L\\to\\infty\\) under the assumption \\(\\mathbb{E}[D^3]<\\infty\\), and notes that finite third moment is used mainly to apply a Berry--Esseen/Stein-type CLT rate in bounding \\(r^*\\) away from \\(\\mu\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open question: weaken the moment assumptions (ideally to \\(\\mathbb{E}[D^2]<\\infty\\) or less) while retaining asymptotic optimality of \\(\\pi_z\\)."
+      },
+      {
+        "title": "Asymptotic optimality of order-up-to policies in lost sales inventory systems",
+        "bibtex": "@article{HuhJanakiramanMuckstadtRusmevichientong2009,\n  title   = {Asymptotic optimality of order-up-to policies in lost sales inventory systems},\n  author  = {Huh, T. and Janakiraman, G. and Muckstadt, J. and Rusmevichientong, P.},\n  journal = {Management Science},\n  year    = {2009}\n}",
+        "source_url": "https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1080.0943",
+        "theorem_or_result": "Establishes asymptotic optimality of order-up-to (base-stock) policies in a regime where the lost-sales penalty dominates holding cost (a different scaling than large lead time).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides a contrasting asymptotic regime and techniques; does not address minimal moment assumptions for large-\\(L\\) constant-order optimality but informs what assumptions are typical in lost-sales asymptotics."
+      },
+      {
+        "title": "On the structure of lost-sales inventory models",
+        "bibtex": "@article{Zipkin2008Structure,\n  title   = {On the structure of lost-sales inventory models},\n  author  = {Zipkin, Paul},\n  journal = {Operations Research},\n  year    = {2008}\n}",
+        "source_url": "https://pubsonline.informs.org/doi/abs/10.1287/opre.1080.0560",
+        "theorem_or_result": "Shows structural properties of optimal policies and (in particular) existence of an optimal policy with bounded order quantities (e.g., never ordering above a newsvendor quantile \\(Q\\)).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "The source paper relies on this bounded-order property (Lemma 5) to build lower bounds; any weakening of moment assumptions likely still needs such structural control."
+      },
+      {
+        "title": "Applied Probability and Queues",
+        "bibtex": "@book{Asmussen2003,\n  title     = {Applied Probability and Queues},\n  author    = {Asmussen, S{\\o}ren},\n  publisher = {Springer},\n  year      = {2003},\n  edition   = {2}\n}",
+        "source_url": "https://link.springer.com/book/10.1007/b97236",
+        "theorem_or_result": "Standard reference for GI/GI/1 and GI/D/1 queue waiting-time representations, ladder epochs/heights, and moment/tail conditions for stationary waiting times.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "The constant-order policy analysis reduces to GI/D/1 waiting time \\(I_\\infty^r\\); minimal integrability for \\(\\mathbb{E}[I_\\infty^r]\\) and related bounds is central to weakening assumptions."
+      },
+      {
+        "title": "Stein\u2019s method for normal approximation",
+        "bibtex": "@incollection{ChenShao2005,\n  title     = {Stein's method for normal approximation},\n  author    = {Chen, Louis H. Y. and Shao, Qi-Man},\n  booktitle = {An Introduction to Stein's Method},\n  year      = {2005}\n}",
+        "source_url": "https://doi.org/10.1142/9789812709812_0001",
+        "theorem_or_result": "Provides Stein-type bounds for CLT approximations; the source paper uses a Lipschitz test-function bound requiring \\(\\mathbb{E}|X|^3<\\infty\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Identifies exactly where the third moment enters (Theorem 11 in the source paper). To weaken assumptions one needs alternative approximations (e.g., truncation + Lindeberg, self-normalized CLT, or stable-law methods) that require less than third moment."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0548205,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0548205
+    "literature_total_cost_usd": 0.06566174999999999,
+    "total_cost_usd": 0.12048224999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4366170875/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4366170875_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4366170875_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }
