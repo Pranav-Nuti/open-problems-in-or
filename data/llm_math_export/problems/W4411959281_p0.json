@@ -46,16 +46,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper by Diao--Dai--Zhang develops a variational-analysis framework for stability of the KKT solution mapping \\(S_{\\mathrm{KKT}}\\) for Nash equilibrium problems with canonical perturbations. In particular, it introduces the I-property on the cone \\(K(I_1,I_2)\\) (a nondegeneracy/second-order-type condition expressed via the mixed Hessians \\(\\nabla^2_{x_k x_i}L_k\\)) and proves that SMFCQ together with the I-property implies isolated calmness of \\(S_{\\mathrm{KKT}}\\) at \\((\\bar p,\\bar x,\\bar\\lambda)\\) (Theorem 5.1). The paper explicitly leaves open whether the converse holds, noting that in the single-player NLP case the analogous condition becomes necessary (essentially reducing to SOSC under SONC).\n\nAmong the limited forward-citing material provided here, the SLCP method paper for GNEPs studies algorithmic convergence and uses stability notions such as semistability/strong regularity characterized by uniqueness of mixed linear complementarity problems. While these notions are related to isolated solution behavior of KKT/complementarity systems, no necessity result is established that would force the I-property (or an equivalent second-order condition on \\(K(I_1,I_2)\\)) from isolated calmness.\n\nGiven the current evidence, the implication \\(\\text{isolated calmness of }S_{\\mathrm{KKT}}\\Rightarrow\\text{I-property}\\) remains open for general NEPs with canonical perturbations. Progress likely requires either (i) constructing a counterexample where \\(S_{\\mathrm{KKT}}\\) is isolated calm but the quadratic form degenerates on a nonzero \\(y\\in K(I_1,I_2)\\), or (ii) proving that isolated calmness enforces a suitable second-order growth/metric regularity property of the linearized generalized equation (5.2) that collapses to the I-property in the NEP setting.",
+    "total_cost_usd": 0.180082,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Stability for Nash Equilibrium Problems",
+        "bibtex": "@article{DiaoDaiZhang2024StabilityNEP,\n  title        = {Stability for Nash Equilibrium Problems},\n  author       = {Diao, Ruoyu and Dai, Yu-Hong and Zhang, Liwei},\n  journal      = {Mathematics of Operations Research},\n  year         = {2024},\n  doi          = {10.1287/moor.2024.0609},\n  note         = {Author accepted manuscript; also available as arXiv:2405.11266v2 (2025)}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2024.0609",
+        "theorem_or_result": "Introduces the I-property (Definition 5.1) as a sufficient condition (together with SMFCQ) for isolated calmness of the KKT solution mapping \\(S_{\\mathrm{KKT}}\\) for NEPs with canonical perturbations (Theorem 5.1), and explicitly poses as an open question whether the I-property is also necessary for isolated calmness (Conclusions).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper formulating the implication in question. It proves the forward direction (I-property \\(+\\) SMFCQ \\(\\Rightarrow\\) isolated calmness) but leaves open the reverse implication (isolated calmness \\(\\Rightarrow\\) I-property), which is exactly the problem to be characterized."
+      },
+      {
+        "title": "A sequential linear complementarity problem method for generalized Nash equilibrium problems",
+        "bibtex": "@misc{UnknownSLCPGNEP,\n  title        = {A sequential linear complementarity problem method for generalized Nash equilibrium problems},\n  author       = {Unknown},\n  note         = {Metadata (authors/year/venue/doi) not provided in the forward-citation analysis block}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proposes an SLCP (sequential linear complementarity problem) method for GNEPs and proves: (a) global convergence under an (\\(\\alpha,\\beta\\))-monotonicity condition ensuring descent of a merit function \\(\\Phi_\\rho\\) (Theorem 1) and solvability of linearized complementarity subproblems (Theorem 2), and (b) local quadratic/superlinear convergence under stability/regularity assumptions (semistability/hemistability/strong regularity) characterized via uniqueness of solutions to certain mixed LCPs (Theorems 8\u201310).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks whether isolated calmness of the KKT solution mapping \\(S_{\\mathrm{KKT}}\\) for a (canonical-perturbed) NEP implies the I-property (a second-order condition on the critical cone \\(K(I_1,I_2)\\)). This paper does not address that implication. It studies algorithmic convergence for (generalized) Nash equilibrium KKT systems, using different regularity notions (semistability, hemistability, strong regularity) and an (\\(\\alpha,\\beta\\))-monotonicity condition. While these notions are related to Lipschitz stability/isolated solution behavior of KKT systems, the paper neither defines the I-property nor proves it is necessary for isolated calmness; instead it provides sufficient conditions for convergence and characterizations of semistability/strong regularity via mixed LCP uniqueness, which are adjacent to (but not the same as) the I-property condition in the open problem."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11237100000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11237100000000001
+    "literature_total_cost_usd": 0.180082,
+    "total_cost_usd": 0.292453
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411959281/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411959281_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411959281_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "Okuno (2024) proves that, under strict complementarity at a KKT point \\(x^*\\), MFCQ, and a uniform enhanced SOSC over the (possibly non-singleton) multiplier set \\(\\Lambda(x^*)\\), there is a unique smooth primal-dual central path \\(w(\\mu)=(x(\\mu),Y(\\mu),z(\\mu))\\) for \\(\\mu\\in(0,\\bar\\mu)\\) converging to the distinguished limit \\(w_a=(x^*,Y_a,z_a)\\), where \\((Y_a,z_a)\\) is the analytic center of \\(\\Lambda(x^*)\\). A key asymptotic refinement is the first-order expansion \\(x(\\mu)=x^*+\\mu\\xi^*+o(\\mu)\\), where \\(\\xi^*\\) is characterized as the unique \\(\\Delta x\\)-component of a linear system obtained by formally differentiating a symmetric BKKT system at \\(w_a\\). This establishes convergence of the scaled displacement \\((x(\\mu)-x^*)/\\mu\\to\\xi^*\\).\n\nThe remaining open issue is whether the tangential derivative \\(\\dot x(\\mu)\\) itself converges to the same vector \\(\\xi^*\\) as \\(\\mu\\downarrow 0\\). In nonlinear programming, Wright and Orban (2002) prove the analogous statement for degenerate problems by differentiating the barrier KKT system and showing the derivative remains bounded and converges to the solution of the limiting linearized system. For linear SDP, Sturm and Zhang (2001) provide sensitivity/derivative results for central solutions under strict complementarity, complementing earlier analytic-center convergence results (Luo--Sturm--Zhang 1998). These works suggest a plausible route for NSDP: obtain uniform control of the inverse of the Jacobian of the differentiated BKKT mapping along \\(w(\\mu)\\) and pass to the limit \\(\\mu\\to 0\\), but the nonlinear matrix constraint introduces the sigma-term curvature and multiplier-set geometry that complicate such uniform estimates.\n\nAt present, no forward-citing literature was provided that resolves Okuno\u2019s conjecture, and the available references mainly supply templates and partial analogues (NLP and linear SDP). Thus the problem appears still open: proving \\(\\dot x(\\mu)\\to\\xi^*\\) likely requires strengthening the asymptotic expansion from \\(x(\\mu)=x^*+\\mu\\xi^*+o(\\mu)\\) to a differentiability-at-the-boundary statement for \\(x(\\cdot)\\) at \\(\\mu=0\\), e.g., showing \\(x(\\mu)=x^*+\\mu\\xi^*+o(\\mu)\\) with an error term whose quotient by \\(\\mu\\) is differentiable or at least has vanishing derivative, or establishing that \\(\\dot w(\\mu)\\) solves a uniformly well-conditioned linear system \\(A(w(\\mu))\\dot w(\\mu)=(0,2I,0)\\) whose coefficients converge suitably to the limiting system defining \\(\\xi^*\\).",
+    "total_cost_usd": 0.13255899999999998,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Analysis of the primal-dual central path for nonlinear semidefinite optimization without the nondegeneracy condition",
+        "bibtex": "@article{Okuno2024CentralPathNSDP,\n  author  = {Takayuki Okuno},\n  title   = {Analysis of the primal-dual central path for nonlinear semidefinite optimization without the nondegeneracy condition},\n  year    = {2024},\n  journal = {arXiv preprint},\n  eprint  = {2210.00838},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/2210.00838",
+        "theorem_or_result": "Establishes existence and uniqueness of a smooth primal-dual central path for NSDP under strict complementarity, ESOSC, and MFCQ without nondegeneracy; proves convergence of the path to the KKT point and to the analytic center of the multiplier set, and shows \n\\[\\lim_{\\mu\\downarrow 0}\\frac{x(\\mu)-x^*}{\\mu}=\\xi^*\\]\nwhere \\(\\xi^*\\) is the unique \\(\\Delta x\\)-component of a linearized derivative system at the limit triplet \\(w_a\\); conjectures tangential derivative convergence \\(\\dot x(\\mu)\\to \\xi^*\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper posing the open problem: it proves scaled displacement convergence to \\(\\xi^*\\) but leaves open whether the actual derivative \\(\\dot x(\\mu)\\) converges to the same limit as \\(\\mu\\to 0^+\\)."
+      },
+      {
+        "title": "Properties of the log-barrier function on degenerate nonlinear programs",
+        "bibtex": "@article{WrightOrban2002LogBarrierDegenerate,\n  author  = {Wright, Stephen J. and Orban, Dominique},\n  title   = {Properties of the log-barrier function on degenerate nonlinear programs},\n  journal = {Mathematics of Operations Research},\n  year    = {2002},\n  volume  = {27},\n  number  = {3},\n  pages   = {585--613}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/abs/10.1287/moor.27.3.585.312",
+        "theorem_or_result": "For nonlinear programming without LICQ, analyzes log-barrier trajectories and proves (under suitable second-order/regularity assumptions) convergence of the tangential derivative of the central path to the solution of the formally differentiated KKT system (e.g., their Theorem 12).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the closest known analogue in standard nonlinear programming: a template for proving \\(\\dot x(\\mu)\\to \\xi^*\\) by differentiating the barrier KKT system and controlling the Jacobian inverse as \\(\\mu\\downarrow 0\\). Okuno explicitly cites this as the corresponding result to be generalized to NSDP."
+      },
+      {
+        "title": "On sensitivity of central solutions in semidefinite programming",
+        "bibtex": "@article{SturmZhang2001SensitivityCentralSDP,\n  author  = {Sturm, Jos F. and Zhang, Shuzhong},\n  title   = {On sensitivity of central solutions in semidefinite programming},\n  journal = {Mathematical Programming},\n  year    = {2001},\n  volume  = {90},\n  number  = {2},\n  pages   = {205--227}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s101070000196",
+        "theorem_or_result": "Studies sensitivity of primal-dual central solutions in linear SDP; establishes differentiability properties and convergence of derivatives of the central path under strict complementarity and related regularity assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Gives linear-SDP precedent for derivative convergence of the central path; suggests that with appropriate regularity one can control the derivative \\(\\dot w(\\mu)\\) as \\(\\mu\\downarrow 0\\), but does not cover nonlinear \\(G(x)\\) or multiplier nonuniqueness."
+      },
+      {
+        "title": "Superlinear convergence of a symmetric primal-dual path following algorithm for semidefinite programming",
+        "bibtex": "@article{LuoSturmZhang1998SuperlinearSDP,\n  author  = {Luo, Zhi-Quan and Sturm, Jos F. and Zhang, Shuzhong},\n  title   = {Superlinear convergence of a symmetric primal-dual path following algorithm for semidefinite programming},\n  journal = {SIAM Journal on Optimization},\n  year    = {1998},\n  volume  = {8},\n  number  = {1},\n  pages   = {59--81}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/S1052623496305400",
+        "theorem_or_result": "Under strict complementarity for linear SDP, shows primal-dual central path converges to the analytic center and establishes strong local properties used to prove superlinear convergence of path-following methods.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Background on analytic-center limits and local behavior of SDP central paths; informs the NSDP setting where Okuno proves convergence to the analytic center of the multiplier set."
+      },
+      {
+        "title": "Local and superlinear convergence of a primal-dual interior point method for nonlinear semidefinite programming",
+        "bibtex": "@article{YamashitaYabe2012LocalSuperlinearNSDP,\n  author  = {Yamashita, Hiroshi and Yabe, Hiroshi},\n  title   = {Local and superlinear convergence of a primal-dual interior point method for nonlinear semidefinite programming},\n  journal = {Mathematical Programming},\n  year    = {2012},\n  volume  = {132},\n  number  = {1-2},\n  pages   = {1--30}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-010-0427-7",
+        "theorem_or_result": "Under strict complementarity, SOSC, and nondegeneracy, proves nonsingularity of the Jacobian of an equation system equivalent to BKKT conditions, yielding existence/uniqueness of a smooth central path via the implicit function theorem and local superlinear convergence of a PDIPM.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Represents the prior NSDP central-path theory with nondegeneracy; Okuno removes nondegeneracy but still assumes strict complementarity. Techniques about Jacobian nonsingularity and implicit-function-based differentiability are relevant to studying \\(\\dot x(\\mu)\\) limits."
+      },
+      {
+        "title": "A primal\u2013dual interior point method for nonlinear semidefinite programming",
+        "bibtex": "@article{YamashitaYabeHarada2012PDIPMNSDP,\n  author  = {Yamashita, Hiroshi and Yabe, Hiroshi and Harada, Kazuhiro},\n  title   = {A primal--dual interior point method for nonlinear semidefinite programming},\n  journal = {Mathematical Programming},\n  year    = {2012},\n  volume  = {135},\n  number  = {1-2},\n  pages   = {89--121}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-011-0449-2",
+        "theorem_or_result": "Develops a primal-dual interior-point framework for NSDP based on perturbed KKT systems and scaling; provides algorithmic context and local analysis under regularity assumptions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Algorithmic motivation for central-path analysis and the differentiated BKKT system; informs why tangential derivative behavior matters for Newton systems and step computation."
+      },
+      {
+        "title": "On the convergence of the central path in semidefinite optimization",
+        "bibtex": "@article{HalickaDeKlerkRoos2002CentralPathConvergenceSDP,\n  author  = {Halick{\\'a}, M. and de Klerk, E. and Roos, C.},\n  title   = {On the convergence of the central path in semidefinite optimization},\n  journal = {SIAM Journal on Optimization},\n  year    = {2002},\n  volume  = {12},\n  number  = {4},\n  pages   = {1090--1099}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/S1052623400376560",
+        "theorem_or_result": "Shows convergence of the central path in linear SDP even without strict complementarity using curve selection/algebraic geometry tools; discusses possible non-analytic-center limits when strict complementarity fails.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Background on what can go wrong without strict complementarity; Okuno notes strict complementarity is crucial for his \\(\\mu=\\Theta(\\|x(\\mu)-x^*\\|)\\) estimate, which would likely also be needed to control \\(\\dot x(\\mu)\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11210500000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11210500000000001
+    "literature_total_cost_usd": 0.13255899999999998,
+    "total_cost_usd": 0.244664
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411957271/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411957271_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411957271_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

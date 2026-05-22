@@ -45,16 +45,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The membership problem for robust-to-linear-dynamics linear programs asks, given rational \\(A,b,G,z\\), whether the entire forward orbit \\(G^k z\\) remains in the rational polyhedron \\(P=\\{x:Ax\\le b\\}\\), i.e., whether \\(AG^k z\\le b\\) for all \\(k\\ge 0\\). Ahmadi and G\\\"unl\\\"uk show this problem is NP-hard and highlight that decidability is known in low dimension (via results on the semialgebraic orbit problem) but is open in general, even for a single halfspace constraint. This places the question at the interface of invariant-set computation, linear recurrence decision problems, and logic/number theory.\n\nThe strongest partial positive result comes from work on the semialgebraic orbit problem, which yields decidability when \\(n\\le 3\\). Beyond low dimension, the landscape is shaped by classic decision problems for linear dynamical systems and linear recurrences: Skolem-type questions (zero-testing) and positivity/ultimate-positivity problems for linear recurrence sequences are closely related to checking inequalities of the form \\(a^T G^k z\\le b\\). Recent work on positivity refines what is decidable in these recurrence settings and may provide routes to decidable subclasses (e.g., restrictions on eigenstructure, diagonalizability, or sign patterns).\n\nAt the same time, undecidability results for matrix semigroups (multiple matrices) underscore a sharp boundary: allowing time-varying/uncertain linear dynamics can make membership undecidable, suggesting that any general decidability proof for the single-matrix case must exploit commutativity and the rigid algebraic structure of powers \\(G^k\\). Promising directions include reducing halfspace invariance to decidable fragments of the theory of real algebraic numbers under spectral restrictions, extending low-dimensional semialgebraic-orbit techniques to higher dimensions, and clarifying the precise relationship to Skolem-Pisot/positivity problems for the scalar sequences \\(a_i^T G^k z-b_i\\).",
+    "total_cost_usd": 0.10124625,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "The semialgebraic orbit problem",
+        "bibtex": "@inproceedings{AlmagorOuaknineWorrell2019SemialgebraicOrbit,\n  author    = {Almagor, Shaull and Ouaknine, Jo{\"e}l and Worrell, James},\n  title     = {The Semialgebraic Orbit Problem},\n  booktitle = {Proceedings of the 46th International Colloquium on Automata, Languages, and Programming (ICALP 2019)},\n  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},\n  year      = {2019},\n  doi       = {10.4230/LIPIcs.ICALP.2019.6}\n}",
+        "source_url": "https://doi.org/10.4230/LIPIcs.ICALP.2019.6",
+        "theorem_or_result": "Proves decidability of the semialgebraic orbit problem for linear dynamical systems, yielding (as noted in the source paper) decidability of R-LD-LP feasible-set membership when the state dimension satisfies \\(n\\le 3\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "Membership \\(z\\in S\\) is an invariance question for the orbit \\(\\{G^k z\\}\\) relative to a polyhedron \\(P\\). The semialgebraic orbit framework decides whether an orbit hits/avoids semialgebraic sets; in low dimension this implies decidability of whether all iterates remain in \\(P\\)."
+      },
+      {
+        "title": "What\u2019s Decidable About Discrete Linear Dynamical Systems?",
+        "bibtex": "@incollection{KarimovKelmendiOuaknineWorrell2022DecidableDLDS,\n  author    = {Karimov, T. and Kelmendi, E. and Ouaknine, J. and Worrell, J.},\n  title     = {What{'}s Decidable About Discrete Linear Dynamical Systems?},\n  booktitle = {Automated Technology for Verification and Analysis},\n  publisher = {Springer Nature Switzerland},\n  year      = {2022}\n}",
+        "source_url": "https://link.springer.com/chapter/10.1007/978-3-031-22308-2_2",
+        "theorem_or_result": "Survey/chapter organizing decidability frontiers for discrete linear dynamical systems, including orbit, reachability, and positivity problems closely connected to invariance and constraint satisfaction along \\(G^k z\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Places the membership question \\(AG^k z\\le b\\ \\forall k\\) among classic decision problems for linear recurrences and linear dynamical systems, clarifying which algebraic/number-theoretic obstacles (e.g., Skolem-type problems) block general decidability results."
+      },
+      {
+        "title": "The power of positivity",
+        "bibtex": "@inproceedings{KarimovKelmendiNieuwveldOuaknineWorrell2023PowerPositivity,\n  author    = {Karimov, T. and Kelmendi, E. and Nieuwveld, J. and Ouaknine, J. and Worrell, J.},\n  title     = {The Power of Positivity},\n  booktitle = {Proceedings of the 38th Annual ACM/IEEE Symposium on Logic in Computer Science (LICS 2023)},\n  year      = {2023},\n  doi       = {10.1109/LICS56636.2023.10175758}\n}",
+        "source_url": "https://doi.org/10.1109/LICS56636.2023.10175758",
+        "theorem_or_result": "Develops decidability/complexity results for positivity properties of linear recurrence sequences and related linear dynamical systems questions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Inequalities \\(a_i^T G^k z\\le b_i\\) can be rewritten as sign/positivity constraints on linear recurrence sequences derived from \\(G\\). Positivity results inform special cases where membership might be decidable or reducible to known decidable fragments."
+      },
+      {
+        "title": "The presence of a zero in an integer linear recurrent sequence is NP-hard to decide",
+        "bibtex": "@article{BlondelPortier2002ZeroLRS,\n  author  = {Blondel, Vincent D. and Portier, Nicolas},\n  title   = {The Presence of a Zero in an Integer Linear Recurrent Sequence is {NP}-Hard to Decide},\n  journal = {Linear Algebra and its Applications},\n  year    = {2002},\n  volume  = {351},\n  pages   = {91--98}\n}",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0024379501006377",
+        "theorem_or_result": "Shows NP-hardness of deciding whether a linear recurrence sequence hits zero, a Skolem-type decision problem.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Ahmadi--G\u00fcnl\u00fck reduce R-LD-LP membership hardness from a related NP-hard problem; Skolem-type problems are also cited as structurally connected to halfspace invariance and membership in \\(S\\)."
+      },
+      {
+        "title": "Improved matrix pair undecidability results",
+        "bibtex": "@article{HalavaHirvensalo2007MatrixPairUndecidability,\n  author  = {Halava, Vesa and Hirvensalo, Mika},\n  title   = {Improved Matrix Pair Undecidability Results},\n  journal = {Acta Informatica},\n  year    = {2007},\n  volume  = {44},\n  pages   = {191--205}\n}",
+        "source_url": "https://link.springer.com/article/10.1007/s00236-007-0041-2",
+        "theorem_or_result": "Strengthens undecidability results for problems about products of two matrices (matrix semigroups).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "While the open problem concerns a single matrix \\(G\\), undecidability for multiple matrices underlies the contrast drawn in the source paper: membership becomes undecidable for uncertain/time-varying dynamics, suggesting that proving decidability for the single-matrix case may require delicate number theory."
+      },
+      {
+        "title": "A survey of computational complexity results in systems and control",
+        "bibtex": "@article{BlondelTsitsiklis2000SurveyComplexityControl,\n  author  = {Blondel, Vincent D. and Tsitsiklis, John N.},\n  title   = {A Survey of Computational Complexity Results in Systems and Control},\n  journal = {Automatica},\n  year    = {2000},\n  volume  = {36},\n  number  = {9},\n  pages   = {1249--1274}\n}",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0005109800000509",
+        "theorem_or_result": "Survey of complexity/decidability results for control and dynamical systems problems, including spectral radius and joint spectral radius questions.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides context for why algorithmic questions about linear dynamics with rational data can be hard or undecidable, and situates the membership problem among known complexity barriers."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07593950000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07593950000000001
+    "literature_total_cost_usd": 0.10124625,
+    "total_cost_usd": 0.17718575
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2800787305/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2800787305_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W2800787305_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

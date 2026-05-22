@@ -44,16 +44,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "No forward-citation analysis was provided, so the only citable item here is the source paper itself. The open problem asks for an equilibrium-preserving reduction of general two-player zero-sum games to the cone-leveled/bilinear class studied in the paper, where equilibria correspond to primal-dual solutions of conic programs.\n\nWithin the source framework, cone-leveled sets are intersections of cones with level sets of positive functionals, and bases of cones yield compactness in reflexive Banach spaces. The paper shows that for such games with bilinear payoff \\(u(x,y)=\\langle y,Ax\\rangle\\), minimax and Nash equilibria can be computed via conic linear programming duality, and it develops an \u201calmost equivalence\u201d between minimax and strong duality with a sharp fair-game pathology.\n\nBecause no subsequent literature is supplied, there is currently no evidence in the provided materials that the characterization problem has been solved. The problem therefore remains open based on the given data, and progress would likely require identifying invariants of equilibrium structure under strategy-space embeddings and positive-homogeneous reparametrizations that map general convex strategy sets into cone slices while preserving saddle-point inequalities.",
+    "total_cost_usd": 0.0792155,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "On the Equivalence of Zero-Sum Games and Conic Programs",
+        "bibtex": "@article{Dimou2026Equivalence,\n  author  = {Nikos Dimou},\n  title   = {On the Equivalence of Zero-Sum Games and Conic Programs},\n  year    = {2026},\n  journal = {arXiv preprint},\n  eprint  = {2302.03066v5},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.OC},\n}\n",
+        "source_url": "https://arxiv.org/abs/2302.03066",
+        "theorem_or_result": "Introduces cone-leveled strategy sets in reflexive Banach spaces and proves that for bilinear-payoff games with such strategy sets, minimax and Nash equilibria can be obtained via associated conic linear programs; conversely, minimax implies strong duality except for a game-dependent fair-value pathology.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that formulates the open question (Section 7) asking when an arbitrary zero-sum game is equilibrium-equivalent to one with cone-leveled strategy sets and bilinear payoff, motivating the desired characterization."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.084567,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.084567
+    "literature_total_cost_usd": 0.0792155,
+    "total_cost_usd": 0.1637825
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7143448186/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7143448186_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7143448186_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

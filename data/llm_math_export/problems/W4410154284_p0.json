@@ -45,16 +45,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The forward-citation evidence provided contains only one citing work, which develops and analyzes the competitiveness concept for congested assignments without post-specific lower bounds. In that baseline model, competitiveness is defined by a no-envy/no-profitable-virtual-move condition comparing an agent\u2019s realized allocation \\((a,s_a)\\) to \\((x,\\max\\{s_x,1\\})\\), thereby assigning an effective congestion of 1 to empty posts. This device is central to ruling out degenerate envy-free outcomes where everyone piles onto a single post while leaving others empty.\n\nHowever, once feasibility imposes lower bounds \\(\\underline s_a>0\\), the interpretation of \\(\\max\\{s_x,1\\}\\) breaks: posts cannot be left empty, and agents may be forced into unanimously disliked posts to meet \\(\\underline s_a\\). The citing paper explicitly flags this as an open question and does not propose a replacement competitive comparison or equilibrium-like condition that internalizes the mandatory minimum occupancies. Therefore, based on the provided forward-citation analysis, the problem of defining and justifying competitive fairness under lower congestion bounds remains open.",
+    "total_cost_usd": 0.11858874999999999,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Assignments for Congestion-Averse Agents: Seeking Competitive and Envy-Free Solutions",
+        "bibtex": "@misc{Unknown_AssignmentsForCongestionAverseAgentsSeekingCompetitiveAndEnvyFreeSolutions,\n  title        = {Assignments for Congestion-Averse Agents: Seeking Competitive and Envy-Free Solutions},\n  author       = {},\n  year         = {},\n  note         = {Forward-citation metadata incomplete in provided analysis (authors/year/venue/doi not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper defines deterministic competitiveness for anonymous congestion as: an assignment \n- is competitive iff for all posts \n- for all agents \n- \n\nIt proves that if a competitive assignment exists then it is essentially unique in congestion and welfare, efficient (under mild conditions), and implies the paper\u2019s ex ante guarantee (top-\\(n\\)-fairness): see Proposition 3. It also proves that with vNM utilities there always exists a unique competitive fractional congestion profile \\(\\sigma^c\\) (up to posts with \\(\\sigma_a^c\\le 1\\)), implementable by a lottery over deterministic assignments that round \\(\\sigma^c\\) up/down and are approximately competitive/fair/efficient: Lemmas 1\u20132 and Theorem 1.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "The open problem asks to define and justify a notion of competitive fairness when posts have lower bounds \\(\\underline s_a>0\\) (forced population). This citing paper does not provide such a definition; instead it explicitly flags this as an open question in its concluding section: with lower bounds, \u201cit is not clear what the definition of competitiveness should be\u201d and asks how to treat posts that must be populated though unanimously disliked. The paper\u2019s existing competitiveness definition uses the comparison \\((x, s_x\\vee 1)\\) for empty posts, which relies on the possibility of leaving a post empty; this device does not directly extend to mandatory minimum occupancies. Thus the paper supplies background, motivation, and baseline results (uniqueness/efficiency of competitiveness without bounds; existence/uniqueness of fractional competitive congestion) that any extension to lower bounds would need to reconcile with feasibility constraints."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.06223875000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.06223875000000001
+    "literature_total_cost_usd": 0.11858874999999999,
+    "total_cost_usd": 0.1808275
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410154284/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4410154284_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4410154284_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

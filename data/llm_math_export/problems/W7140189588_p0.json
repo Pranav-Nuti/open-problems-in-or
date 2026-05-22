@@ -45,16 +45,86 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Alcantara\u2013Takeda, 2025) develops a detailed theory of smoothing families \\(\\{v_\\mu\\}\\) for the lower-level value function \\(v(x)=\\min_{y\\in Y} g(x,y)\\) in the fixed-feasible-set case, including both approximation \\(v_\\mu\\to v\\) and gradient consistency \\(\\limsup \\nabla v_\\mu(x)\\subseteq \\partial v(\\bar x)\\). Two constructions are analyzed: quadratic regularization (effective when \\(g(x,\\cdot)\\) is convex) and entropic regularization (requiring only Lipschitz continuity, with additional integrability/dominating-function hypotheses for unbounded \\(Y\\)). The analysis relies on Danskin-type subdifferential formulas (extended to noncompact \\(Y\\) under uniform level-boundedness) and on careful control of minimizers/weights as \\(\\mu\\downarrow 0\\).\n\nFor \\(x\\)-dependent feasible sets \\(Y(x)\\), the paper explicitly identifies the extension as an open direction: one must smooth not only \\(g\\) but also the feasible-set mapping, typically via penalization of constraint violations combined with quadratic regularization. While Liu et al. (2023) propose a preliminary quadratic-regularization-plus-penalization approach, the key missing pieces remain (i) proving that the induced \\(v_\\mu\\) is a smoothing family in the sense \\(v_\\mu(x)\\to v(x)\\) as \\((x,\\mu)\\to(\\bar x,0)\\), and (ii) establishing gradient consistency relative to the Clarke subdifferential of the true value function with moving constraints. Related smoothing work (e.g., Xu et al., 2024) targets KKT solution mappings rather than value functions, and thus does not directly resolve the value-function gradient-consistency question.\n\nOverall, the problem remains open: existing smoothing/gradient-consistency results are well-developed for fixed \\(Y\\), but a general, verifiable set of conditions and a concrete construction guaranteeing both approximation and gradient consistency for \\(v(x)=\\min_{y\\in Y(x)} g(x,y)\\) has not yet been established. Promising directions include imposing regularity on the graph of \\(Y(\\cdot)\\) (e.g., Lipschitz/Aubin property of the feasible-set mapping), using exact/epi-penalties that preserve value-function epi-convergence, and deriving a Danskin-type formula for \\(x\\mapsto \\min_{y\\in Y(x)} g(x,y)\\) compatible with Clarke calculus so that cluster points of \\(\\nabla v_\\mu\\) can be shown to lie in \\(\\partial v\\).",
+    "total_cost_usd": 0.1021125,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Theoretical smoothing frameworks for nonsmooth simple bilevel problems",
+        "bibtex": "@article{AlcantaraTakeda2025SmoothingBilevel,\n  title        = {Theoretical smoothing frameworks for nonsmooth simple bilevel problems},\n  author       = {Alcantara, Jan Harold and Takeda, Akiko},\n  year         = {2025},\n  journal      = {arXiv preprint arXiv:2401.17852v2},\n  eprint       = {2401.17852},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2401.17852}\n}",
+        "source_url": "https://arxiv.org/abs/2401.17852",
+        "theorem_or_result": "Develops two smoothing constructions (quadratic and entropic regularization) for the lower-level value function \\(v(x)=\\min_{y\\in Y} g(x,y)\\) with fixed \\(Y\\), and proves both approximation (\\(v_\\mu\\to v\\)) and gradient consistency (cluster points of \\(\\nabla v_\\mu\\) lie in \\(\\partial v\\)) under verifiable assumptions (e.g., uniform level-boundedness, weak concavity/convexity, partial subdifferential formula).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that explicitly leaves open the extension to \\(x\\)-dependent feasible sets \\(Y(x)\\), suggesting quadratic regularization plus penalization as a candidate but not proving smoothing/gradient consistency in that setting."
+      },
+      {
+        "title": "Value-function-based sequential minimization for bi-level optimization",
+        "bibtex": "@article{LiuLiuZengZhangZhang2023ValueFunctionSequential,\n  title   = {Value-function-based sequential minimization for bi-level optimization},\n  author  = {Liu, Risheng and Liu, Xuan and Zeng, Shangzhi and Zhang, Jin and Zhang, Yixuan},\n  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  year    = {2023},\n  volume  = {45},\n  pages   = {15930--15948}\n}",
+        "source_url": "https://ieeexplore.ieee.org/document/10007962",
+        "theorem_or_result": "Studies value-function-based algorithms for bilevel optimization and notes differentiability of quadratically regularized value functions; proposes a preliminary quadratic-regularization combined with penalization approach for cases with \\(x\\)-dependent lower-level constraints.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "Cited by the source paper as a preliminary approach for \\(Y(x)\\) via quadratic regularization + penalization, but without establishing the specific smoothing-family limit \\(v_\\mu\\to v\\) and gradient consistency for the induced approximation of \\(v(x)=\\min_{y\\in Y(x)} g(x,y)\\)."
+      },
+      {
+        "title": "Enhanced barrier-smoothing technique for bilevel optimization with nonsmooth mappings",
+        "bibtex": "@article{XuDaiLiuWang2024EnhancedBarrierSmoothing,\n  title        = {Enhanced barrier-smoothing technique for bilevel optimization with nonsmooth mappings},\n  author       = {Xu, Mengwei and Dai, Yu-Hong and Liu, Xin-Wei and Wang, Bo},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2408.09661},\n  eprint       = {2408.09661},\n  archivePrefix= {arXiv},\n  url          = {https://arxiv.org/abs/2408.09661}\n}",
+        "source_url": "https://arxiv.org/abs/2408.09661",
+        "theorem_or_result": "Constructs smoothing functions for the KKT solution mapping of lower-level problems with inequality constraints (differentiable in the lower-level variable) and analyzes gradient consistency for the smoothed KKT mapping.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "Addresses smoothing/gradient-consistency issues for KKT-based reformulations with constraints, offering tools potentially adaptable to \\(x\\)-dependent feasible sets, but it does not directly provide smoothing/gradient consistency for the lower-level value function \\(v(x)=\\min_{y\\in Y(x)} g(x,y)\\)."
+      },
+      {
+        "title": "On solving simple bilevel programs with a nonconvex lower level program",
+        "bibtex": "@article{LinXuYe2014SimpleBilevel,\n  title   = {On solving simple bilevel programs with a nonconvex lower level program},\n  author  = {Lin, Gui-Hua and Xu, Mengwei and Ye, Jane J.},\n  journal = {Mathematical Programming},\n  year    = {2014},\n  volume  = {144},\n  pages   = {277--305},\n  doi     = {10.1007/s10107-013-0669-5},\n  url     = {https://doi.org/10.1007/s10107-013-0669-5}\n}",
+        "source_url": "https://doi.org/10.1007/s10107-013-0669-5",
+        "theorem_or_result": "Introduces and analyzes entropic regularization smoothing of the lower-level value function for fixed compact \\(Y\\) and smooth \\(g\\), proving approximation and gradient consistency; develops smoothing projected gradient methods for the value-function reformulation.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the foundational entropic smoothing/gradient-consistency template that the source paper generalizes to nonsmooth \\(g\\); however it does not treat \\(x\\)-dependent feasible sets \\(Y(x)\\)."
+      },
+      {
+        "title": "Solving min-max problems and linear semi-infinite programs",
+        "bibtex": "@article{FangWu1996EntropicMinMax,\n  title   = {Solving min-max problems and linear semi-infinite programs},\n  author  = {Fang, Shu-Cherng and Wu, Soon-Yi},\n  journal = {Computers \\& Mathematics with Applications},\n  year    = {1996},\n  volume  = {32},\n  number  = {6},\n  pages   = {87--93},\n  doi     = {10.1016/0898-1221(96)00114-9},\n  url     = {https://doi.org/10.1016/0898-1221(96)00114-9}\n}",
+        "source_url": "https://doi.org/10.1016/0898-1221(96)00114-9",
+        "theorem_or_result": "Develops entropic regularization (log-sum-exp / integral) smoothing for max/min-max value functions and establishes approximation properties underpinning later bilevel value-function smoothing methods.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Supplies the classical entropic smoothing estimates used in the source paper; potentially extendable to \\(x\\)-dependent feasible sets if one can control the \\(x\\)-variation of the integration domain."
+      },
+      {
+        "title": "Difference of convex algorithms for bilevel programs with applications in hyperparameter selection",
+        "bibtex": "@article{YeYuanZengZhang2023DCBilevel,\n  title   = {Difference of convex algorithms for bilevel programs with applications in hyperparameter selection},\n  author  = {Ye, Jane J. and Yuan, Xiaoming and Zeng, Shangzhi and Zhang, Jin},\n  journal = {Mathematical Programming},\n  year    = {2023},\n  volume  = {198},\n  pages   = {1583--1616},\n  doi     = {10.1007/s10107-022-01884-0},\n  url     = {https://doi.org/10.1007/s10107-022-01884-0}\n}",
+        "source_url": "https://doi.org/10.1007/s10107-022-01884-0",
+        "theorem_or_result": "Develops DC algorithms for bilevel programs via value-function reformulations and analyzes stationarity notions and constraint qualifications for perturbed value-function constraints \\(g(x,y)-v(x)\\le \\epsilon\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Provides variational-analytic tools (stationarity/CQs for value-function reformulations) that any smoothing/gradient-consistency extension to \\(Y(x)\\) would need to interface with, but does not construct smoothing families for \\(x\\)-dependent \\(Y(x)\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07758625000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07758625000000001
+    "literature_total_cost_usd": 0.1021125,
+    "total_cost_usd": 0.17969875000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7140189588/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7140189588_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7140189588_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

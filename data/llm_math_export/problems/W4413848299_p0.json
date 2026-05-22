@@ -46,16 +46,95 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 9,
+    "synthesis": "The source paper (Chen\u2013Tao\u2013Verschae, 2021) establishes a surprisingly sharp subexponential PTAS landscape for \\(P\\|\\|\\sum_i C_i^q\\) with fixed \\(q>1\\). Building on the existence of PTASs going back to Alon\u2013Azar\u2013Woeginger\u2013Yadid, it introduces a new rounding/structural lemma: grouping job sizes into \\((1+\\sqrt{\\varepsilon})\\)-bands and imposing an ordering on machines allows a Taylor-expansion argument in which the linear term cancels, yielding a \\(2^{\\tilde O(\\sqrt{1/\\varepsilon})}+n^{O(1)}\\) PTAS (AL2) when \\(m\\) is polynomial in \\(1/\\varepsilon\\). It also gives complementary regimes: a DP-based PTAS with time \\((1/\\varepsilon)^{O(m)}+n^{O(1)}\\) for \\(m=O(\\sqrt{1/\\varepsilon})\\) (AL1), and a Karmarkar\u2013Karp/configuration-LP inspired approach giving polynomial dependence on \\(1/\\varepsilon\\) once \\(m\\) is large enough (e.g., \\(m=\\Omega((1/\\varepsilon)\\log^2(1/\\varepsilon))\\), AL3).\n\nOn the lower-bound side, the paper proves an ETH-based barrier matching the \\(2^{\\tilde O(\\sqrt{1/\\varepsilon})}\\) upper bound in the critical regime \\(m=\\Theta(\\sqrt{1/\\varepsilon})\\). The reduction uses new number-theoretic constructions (unique adjacent sums and linked unique sums, inspired by Sidon/Salem\u2013Spencer sets) to keep the target load \\(Q\\) nearly linear in the SAT size while preserving an \\(\\Theta(n)\\) objective gap via cancellation in \\(\\sum_i (Q+\\Delta_i)^q\\). However, the reduction inherently ties \\(m\\) to \\(\\tilde\\Theta(n)\\), which corresponds to \\(m=\\tilde\\Theta(\\sqrt{1/\\varepsilon})\\) under the choice of \\(\\varepsilon\\) used to amplify the gap; as the authors note, it does not extend to \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for \\(\\theta>1/2\\) because the PTAS slack \\(\\varepsilon\\cdot mQ^q\\) becomes too large relative to the gap.\n\nConsequently, the intermediate regime \\(m=\\Theta((1/\\varepsilon)^\\theta)\\) for fixed \\(\\theta\\in(1/2,1]\\) remains open: neither matching ETH lower bounds nor improved PTAS running times are known from the provided material. Promising directions suggested by the surrounding literature include adapting sparsification techniques (developed for makespan PTASs) to \\(\\ell_q\\)-objectives, and leveraging norm-structured rounding ideas from more general minimum-norm load balancing work, to either (i) design PTASs with running time \\(2^{\\tilde O((1/\\varepsilon)^{1-\\theta})}\\) or similar interpolations, or (ii) craft new gap-preserving reductions whose objective separation scales with \\(m\\) so that ETH lower bounds remain meaningful when \\(m\\) grows faster than \\(\\sqrt{1/\\varepsilon}\\).",
+    "total_cost_usd": 0.16667525,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Approximation schemes for scheduling",
+        "bibtex": "@inproceedings{AlonAzarWoegingerYadid1997ApproxSchemesScheduling,\n  author    = {Noga Alon and Yossi Azar and Gerhard J. Woeginger and Tami Yadid},\n  title     = {Approximation schemes for scheduling},\n  booktitle = {Proceedings of the 8th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {1997},\n  pages     = {493--500}\n}\n",
+        "source_url": "https://dl.acm.org/doi/proceedings/10.5555/314161",
+        "theorem_or_result": "Introduces early PTAS techniques for scheduling on identical machines, including objectives such as minimizing \\(\\sum_i C_i^q\\) for fixed \\(q>1\\), with very large (doubly-exponential in \\(1/\\varepsilon\\)) dependence on \\(1/\\varepsilon\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Baseline PTAS existence for \\(P\\|\\|\\sum_i C_i^q\\) that the Chen\u2013Tao\u2013Verschae paper improves upon; sets historical context for seeking tight \\(\\varepsilon\\)-dependence."
+      },
+      {
+        "title": "Approximation schemes for scheduling on parallel machines",
+        "bibtex": "@article{AlonAzarWoegingerYadid1998ApproxSchemesParallel,\n  author  = {Noga Alon and Yossi Azar and Gerhard J. Woeginger and Tami Yadid},\n  title   = {Approximation schemes for scheduling on parallel machines},\n  journal = {Journal of Scheduling},\n  volume  = {1},\n  number  = {1},\n  pages   = {55--66},\n  year    = {1998}\n}\n",
+        "source_url": "https://link.springer.com/article/10.1023/A:1009606818261",
+        "theorem_or_result": "Journal version developing PTAS machinery for identical-machine scheduling; includes rounding/grouping and structural normalization (e.g., scaling so total size equals \\(m\\) and loads lie in a bounded interval) used as preprocessing in later work.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 7,
+        "connection": "Provides the preprocessing lemma (well-structured instances) used in the source paper and underlies many PTAS running-time analyses in the intermediate-machine regime."
+      },
+      {
+        "title": "On the optimality of approximation schemes for the classical scheduling problem",
+        "bibtex": "@inproceedings{ChenJansenZhang2014OptimalityPTASScheduling,\n  author    = {Lin Chen and Klaus Jansen and Guochuan Zhang},\n  title     = {On the optimality of approximation schemes for the classical scheduling problem},\n  booktitle = {Proceedings of the 25th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2014},\n  pages     = {657--668}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973402.49",
+        "theorem_or_result": "Shows ETH-based lower bounds for PTAS running times for \\(P\\|\\|C_{\\max}\\), essentially ruling out \\(2^{o(1/\\varepsilon)}\\) dependence; develops fine-grained reduction techniques for scheduling PTAS lower bounds.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Key comparator: makespan has exponential-in-\\(1/\\varepsilon\\) lower bounds, while \\(\\ell_q\\)-norm admits subexponential PTAS; techniques and limitations inform attempts to extend lower bounds to other \\(m\\) regimes."
+      },
+      {
+        "title": "Closing the gap for makespan scheduling via sparsification techniques",
+        "bibtex": "@article{JansenKleinVerschae2020ClosingGapMakespan,\n  author  = {Klaus Jansen and Kim Klein and Jos{\\'e} Verschae},\n  title   = {Closing the gap for makespan scheduling via sparsification techniques},\n  journal = {Mathematics of Operations Research},\n  volume  = {45},\n  number  = {4},\n  pages   = {1371--1392},\n  year    = {2020},\n  doi     = {}\n}\n",
+        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.2019.1024",
+        "theorem_or_result": "Develops sparsification and rounding frameworks yielding near-optimal PTAS/EPTAS running times for makespan on identical machines, with improved dependence on \\(1/\\varepsilon\\) and structural reductions to smaller instances.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Methodological backdrop: sparsification/rounding ideas that might be adaptable to \\(\\sum_i C_i^q\\) to handle intermediate \\(m\\) regimes; also cited in the source paper as part of the recent running-time improvements landscape."
+      },
+      {
+        "title": "Bounding the running time of algorithms for scheduling and packing problems",
+        "bibtex": "@article{JansenLandLand2016BoundingRunningTime,\n  author  = {Klaus Jansen and Florian Land and Katrin Land},\n  title   = {Bounding the running time of algorithms for scheduling and packing problems},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume  = {30},\n  number  = {1},\n  pages   = {343--366},\n  year    = {2016},\n  doi     = {10.1137/140998393}\n}\n",
+        "source_url": "https://epubs.siam.org/doi/10.1137/140998393",
+        "theorem_or_result": "Studies running-time bounds for approximation schemes in scheduling/packing, giving general techniques to bound state spaces and dependencies on \\(1/\\varepsilon\\) and other parameters.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Provides general fine-grained PTAS running-time analysis tools relevant when trying to interpolate between regimes of \\(m\\) and \\(\\varepsilon\\)."
+      },
+      {
+        "title": "An efficient approximation scheme for the one-dimensional bin-packing problem",
+        "bibtex": "@inproceedings{KarmarkarKarp1982BinPackingPTAS,\n  author    = {Narendra Karmarkar and Richard M. Karp},\n  title     = {An efficient approximation scheme for the one-dimensional bin-packing problem},\n  booktitle = {Proceedings of the 23rd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {1982},\n  pages     = {312--320},\n  doi       = {10.1109/SFCS.1982.74}\n}\n",
+        "source_url": "https://ieeexplore.ieee.org/document/4568378",
+        "theorem_or_result": "Classic PTAS for bin packing using configuration LP and rounding; yields additive-error control and iterative rounding ideas.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 5,
+        "connection": "Underlies the source paper\u2019s algorithmic regime for large \\(m\\) (their AL3 adapts Karmarkar\u2013Karp style methods) and suggests avenues for polynomial-in-\\(1/\\varepsilon\\) time when \\(m\\) is sufficiently large."
+      },
+      {
+        "title": "Minimum-norm load balancing is (almost) as easy as minimizing makespan",
+        "bibtex": "@inproceedings{IbrahimpurSwamy2021MinimumNormLoadBalancing,\n  author    = {Saeed Ibrahimpur and Chaitanya Swamy},\n  title     = {Minimum-norm load balancing is (almost) as easy as minimizing makespan},\n  booktitle = {Proceedings of the 48th International Colloquium on Automata, Languages, and Programming (ICALP)},\n  year      = {2021},\n  pages     = {81:1--81:20}\n}\n",
+        "source_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2021.81",
+        "theorem_or_result": "Gives approximation algorithms for minimum-norm load balancing under general norms, relating them to makespan minimization up to small losses; develops norm-aware rounding/structural arguments.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "Although not a direct PTAS running-time result for \\(\\sum_i C_i^q\\), it provides structural and algorithmic tools for norm objectives that may help bridge intermediate \\(m\\) regimes."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11690700000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11690700000000001
+    "literature_total_cost_usd": 0.16667525,
+    "total_cost_usd": 0.28358225000000004
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413848299/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4413848299_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4413848299_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -45,16 +45,59 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The conjectured converse (Conjecture 3.3 in Luner--Grimmer) asks for a tight equivalence between two phenomena for fixed-step gradient descent on the smooth convex class \\(\\mathcal F_{L,D}\\): (i) the last-iterate worst-case objective gap and gradient norm are exactly the Huber-attained expressions (C1)/(C2), and (ii) no nondegenerate averaging \\(x_\\sigma\\) can strictly improve the corresponding minimax guarantee. Luner--Grimmer prove the forward direction: if (C1) (resp. (C2)) holds, then \\(\\sigma^{\\mathrm{last}}\\) uniquely minimizes the worst-case objective gap (resp. gradient norm) over all \\(\\sigma\\in\\Delta_{N+1}\\), using the fact that the Huber function is affine over the convex hull of iterates and makes any nontrivial convex combination strictly worse.\n\nForward-citing work to date does not resolve the converse in general, but it expands the catalog of stepsize schedules for which (C1)/(C2)-type equalities are now known to hold tightly, thereby strengthening the empirical alignment observed in Luner--Grimmer\u2019s Figure 1. In particular, \"Relaxed proximal point algorithm: Tight complexity bounds and acceleration without momentum\" proves tight last-iterate bounds for gradient descent under the silver stepsize schedule, establishing the exact (C1)/(C2) forms (depending only on \\(\\sum h_i\\)) for that family. \"Accelerated objective gap and gradient norm convergence for gradient descent via long steps\" similarly provides tight last-iterate guarantees for certain recursively defined long-step schedules and exhibits explicit extremal quadratic/Huber-type instances; it also notes that averaging can be strictly worse for those schedules, consistent with the \u2018no averaging benefit\u2019 side when last-iterate bounds are tight. \"Composing optimized stepsize schedules for gradient descent\" develops compositional machinery to build stepsize schedules with certifiable tight last-iterate guarantees, offering a pathway to systematically generate further instances where (C1)/(C2) hold.\n\nThe main gap remains: a general proof (or counterexample) that whenever the last-iterate worst-case deviates from (C1) or (C2), there must exist a nondegenerate \\(\\sigma\\) with strictly smaller minimax objective gap or gradient norm than the Huber-based expressions. Promising directions suggested by the existing PEP-based framework include: (a) analyzing the joint minimax problem \\(\\min_{\\sigma\\in\\Delta_{N+1}}\\max_{f\\in\\mathcal F_{L,D}}\\) via SDP duality to relate optimal \\(\\sigma\\) to slackness of the last-iterate dual certificate; and (b) leveraging the composability/inductive constructions for stepsizes to reduce the converse to verifying a finite set of extremal patterns. At present, however, no forward citation provides a full converse characterization, so the problem remains open.",
+    "total_cost_usd": 0.31543435,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Relaxed proximal point algorithm: Tight complexity bounds and acceleration without momentum",
+        "bibtex": "@article{WangMaYangZhou2025RPPA,\n  title        = {Relaxed proximal point algorithm: Tight complexity bounds and acceleration without momentum},\n  author       = {Wang, Bofan and Ma, Shiqian and Yang, Junfeng and Zhou, Danqing},\n  year         = {2025},\n  doi          = {10.1287/ijoo.2025.0075},\n  journal      = {INFORMS Journal on Optimization}\n}\n",
+        "source_url": "https://doi.org/10.1287/ijoo.2025.0075",
+        "theorem_or_result": "The paper proves tight worst-case convergence bounds for the relaxed proximal point algorithm (RPPA), and as a byproduct proves [LG24, Conjecture 3.2] for gradient descent (GD) with the silver stepsize schedule \\(\\pi^{(m)}\\) (with \\(N=2^m-1\\)): for any convex \\(L\\)-smooth \\(h\\), \\[h(x_N)-h(x^\\star)\\le \\frac{L\\|x_0-x^\\star\\|^2}{4\\rho^m-2}=\\frac{L\\|x_0-x^\\star\\|^2}{2(2\\sum_{i=0}^{N-1}\\alpha_i+1)},\\qquad \\|\\nabla h(x_N)\\|\\le \\frac{L\\|x_0-x^\\star\\|}{\\rho^m}=\\frac{L\\|x_0-x^\\star\\|}{\\sum_{i=0}^{N-1}\\alpha_i+1},\\] and both bounds are tight (Theorem 5.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for a converse characterization: for fixed GD stepsizes \\(h\\), the last iterate is worst-case optimal among all averages iff the last-iterate worst-case equals the explicit formulas (C1)/(C2). This paper does not study averaging schemes \\(x_\\sigma\\) at all, nor does it prove any \u2018if and only if\u2019 link between tight last-iterate bounds and impossibility of improvement by averaging. However, it is relevant because it establishes additional instances where the last-iterate worst-case bounds take the exact (C1)/(C2)-type form (depending only on \\(\\sum h_i\\)), notably proving tightness for the silver stepsize schedule conjectured in [LG24]. These results support the \u2018only if\u2019 direction\u2019s plausibility by expanding the class of stepsizes for which (C1)/(C2)-style equalities hold, but they do not address the converse implication about existence of improving nondegenerate averages when (C1)/(C2) fail."
+      },
+      {
+        "title": "Accelerated objective gap and gradient norm convergence for gradient descent via long steps",
+        "bibtex": "@article{GrimmerShuWang2024LongSteps,\n  title        = {Accelerated objective gap and gradient norm convergence for gradient descent via long steps},\n  author       = {Grimmer, Benjamin and Shu, Kevin and Wang, Alex L.},\n  year         = {2024},\n  doi          = {10.1287/ijoo.2024.0057},\n  journal      = {INFORMS Journal on Optimization}\n}\n",
+        "source_url": "https://doi.org/10.1287/ijoo.2024.0057",
+        "theorem_or_result": "For specific long-stepsize schedules \\,\\(h^{(k)}_{\\mathrm{left}}\\) and \\,\\(h^{(k)}_{\\mathrm{right}}\\) (and their concatenation), the paper proves tight last-iterate worst-case guarantees for L-smooth convex minimization after \\,\\(N=2^k-1\\) (or \\,\\(2^{k+1}-2\\)) steps:\n- (Gradient-norm from function gap) With \\,\\(h=h^{(k)}_{\\mathrm{left}}\\): \\(\\tfrac12\\|\\nabla f(x_N)\\|^2 \\le \\tfrac{L(f(x_0)-f(x^\\star))}{r_k}\\).\n- (Objective gap from distance) With \\,\\(h=h^{(k)}_{\\mathrm{right}}\\): \\(f(x_N)-f(x^\\star) \\le \\tfrac{L}{2}\\,\\tfrac{\\|x_0-x^\\star\\|^2}{r_k}\\).\nHere \\(r_k = 2\\sum_{i=0}^{N-1} h_i + 1 = \\prod_{i=0}^{N-1}(1-h_i)^{-2}\\) and \\(r_k \\asymp N^{\\log_2(\\varrho)}\\) with \\(\\varrho=1+\\sqrt2\\). The bounds are claimed tight (attained) on a quadratic and on a Huber-type function.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for a converse characterization: if the last-iterate worst-case is not exactly the (C1)/(C2) expressions \\(LD^2/(4\\sum h_i+2)\\) and \\(LD/(\\sum h_i+1)\\), then some nontrivial averaging \\(x_\\sigma\\) should strictly improve the worst-case guarantee. This paper does not prove that converse in general. However, it provides evidence in a particular direction for certain long-stepsize schedules: it constructs explicit worst-case functions (quadratic and Huber) that attain the paper\u2019s last-iterate bounds, and it states (Remark 2) that for these stepsizes, reporting an average \\(\\sum \\sigma_i x_i\\) instead of \\(x_N\\) strictly worsens worst-case performance. That is consistent with the \u2018no averaging benefit\u2019 side of the conjectured equivalence, but only for these specific schedules and without establishing the (C1)/(C2) exact worst-case characterizations for arbitrary \\(h\\) or the full converse implication."
+      },
+      {
+        "title": "Composing optimized stepsize schedules for gradient descent",
+        "bibtex": "@article{CombettesEtAl2024Composable,\n  title        = {Composing optimized stepsize schedules for gradient descent},\n  author       = {Combettes, Patrick L. and others},\n  year         = {2024},\n  doi          = {10.1287/moor.2024.0764},\n  journal      = {Mathematics of Operations Research}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2024.0764",
+        "theorem_or_result": "Develops a theory of \u201ccomposable\u201d fixed stepsize schedules for gradient descent on smooth convex functions. In particular, it defines f-composable schedules (tight final objective-gap guarantee) and g-composable schedules (tight final gradient-norm guarantee) characterized by the equalities \\(\\eta=\\frac{1}{1+2\\sum_{i=0}^{n-1}h_i}=\\prod_{i=0}^{n-1}(h_i-1)^2\\), and proves inductive composition theorems (Theorems 1\u20133) showing that certain join operations on schedules preserve f-/g-/s-composability with explicitly computable new rates. It then constructs optimized basic schedules (OBS-F/OBS-G) conjectured minimax-optimal for minimizing \\(f(x_n)-f(x^\\star)\\) or \\(\\|\\nabla f(x_n)\\|\\) at the last iterate.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem concerns when averaging \\(x_\\sigma=\\sum_j\\sigma_j x_j\\) can strictly improve the worst-case guarantee over the last iterate \\(x_N\\), and conjectures an equivalence with whether the last-iterate worst-case equals the closed forms (C1)/(C2). This citing paper does not study averaging over iterates at all; it studies how to choose fixed stepsizes \\(h\\) to optimize last-iterate performance and gives tight certificates/worst-case instances (quadratic/Huber) for certain structured schedules. Indirectly, it provides tools to identify stepsize schedules for which last-iterate bounds are tight and witnessed by specific extremal functions, which is adjacent to verifying conditions like (C1)/(C2), but it does not address the converse \u2018if not (C1)/(C2) then averaging helps\u2019 characterization."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.09504599999999999,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.09504599999999999
+    "literature_total_cost_usd": 0.31543435,
+    "total_cost_usd": 0.41048034999999994
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4413077228/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4413077228_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4413077228_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

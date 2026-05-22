@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "Hua\u2013Qu (2025) obtain an explicit order bound for exactness of Lasserre\u2019s hierarchy in the zero-dimensional (finite complex variety) setting by imposing a geometric \u201cno solutions at infinity\u201d condition on \\(g_1^\\infty,\\dots,g_n^\\infty\\). This condition implies that the homogenizations \\(\\bar g_1,\\dots,\\bar g_n\\) form a regular sequence and, crucially, that \\(g_1,\\dots,g_n\\) form an \\(H\\)-basis, letting one control truncation degrees in ideal representations and hence bound the relaxation order \\(d\\) purely in terms of input degrees.\n\nThe open problem asks for comparable explicit bounds when one assumes only that \\(\\bar g_1,\\dots,\\bar g_n\\) is a regular sequence, allowing solutions at infinity and potential failure of the \\(H\\)-basis property. The only forward-citing work provided, \u201cAn effective positivstellensatz over the rational numbers for finite semialgebraic sets,\u201d gives explicit degree bounds for SOS/Positivstellensatz certificates on finite semialgebraic sets, but its bounds require that the equality generators form a graded basis (a degree-compatibility condition closely aligned with having an \\(H\\)-basis). It therefore does not yet bridge the gap from regular-sequence-only hypotheses to effective truncation bounds.\n\nAt present, the main gap is to replace the \\(H\\)-basis/graded-basis input by invariants implied by regular sequences with possible roots at infinity, e.g., Castelnuovo\u2013Mumford regularity of the homogenized ideal, degrees of a border basis, or bounds derived from syzygies of a complete intersection with embedded components at infinity. Promising directions include deriving degree-controlled normal form reductions modulo \\(\\langle g_1,\\dots,g_n\\rangle\\) using regularity and saturation with respect to \\(x_0\\), and translating those into explicit truncation bounds for \\(I(g)_{2d}\\) in the SOS certificate for \\(f-f^*\\).",
+    "total_cost_usd": 0.23741025,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "An effective positivstellensatz over the rational numbers for finite semialgebraic sets",
+        "bibtex": "@article{EffectivePositivstellensatzFiniteSemialgebraicSets,\n  title        = {An effective positivstellensatz over the rational numbers for finite semialgebraic sets},\n  author       = {},\n  year         = {\\n  },\n  note         = {Metadata (authors/year/venue/DOI) not provided in the citation analysis block.},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves an effective Putinar/Parrilo-type Positivstellensatz for finite semialgebraic sets with explicit degree bounds in terms of a monomial basis degree (regularity) when the equality ideal has a graded basis. Concretely (Theorem A / Theorems 2.7 & 3.2): for a finite set \n\\[S=\\{x\\in\\mathbb R^n: g_i(x)\\ge 0,\\ h_j(x)=0\\},\\quad I=(h)\\ \\text{zero-dimensional},\\]\nif either (i) \\(f>0\\) on \\(S\\), or (ii) \\(f\\ge 0\\) on \\(S\\) and \\((I:f)+(f)=(1)\\), then\n\\[f=\\sum_{k=1}^D \\omega_{0,k}q_{0,k}^2+\\sum_{i=1}^r\\Big(\\sum_{k=1}^D\\omega_{i,k}q_{i,k}^2\\Big)g_i+\\sum_{j=1}^s p_j h_j,\\]\nwith \\(\\omega_{i,k}\\in K_{\\ge0}\\), \\(q_{i,k}\\in\\langle B\\rangle_K\\) (\\(B\\) a monomial basis of \\(K[x]/I\\), \\(|B|=D\\)). If moreover \\(h\\) is a graded basis of \\(I\\), then\n\\[\\deg(p_jh_j)\\le \\max\\{\\deg(f),\\ \\deg(g_i)+2\\deg(B):1\\le i\\le r\\}.\\]\nAs an optimization corollary (Cor. 1.1): for \\(f^*=\\min_S f\\), if \\((I:f-f^*)+(f-f^*)=(1)\\) and \\(h\\) is a graded basis, then Lasserre/SoS exactness holds for\n\\[r\\ge \\tfrac12\\max\\{\\deg(f),\\ 2\\deg(B)+\\deg(g_1),\\dots,2\\deg(B)+\\deg(g_r)\\}.\\]",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks for an explicit degree/order bound for exactness of Lasserre\u2019s hierarchy over a finite complex variety assuming only that the homogenizations \\(\\bar g_1,\\dots,\\bar g_n\\) form a regular sequence, without the \u201cno solutions at infinity\u201d condition used in Hua\u2013Qu to get an \\(H\\)-basis/graded-basis property. This citing paper provides explicit degree bounds for exactness/finite convergence on finite semialgebraic sets, but the bounds require that the equality generators \\(h\\) form a graded basis of the zero-dimensional ideal \\(I\\) (equivalently, a strong degree-compatibility property akin to having an \\(H\\)-basis). Regular-sequence of homogenizations alone does not imply the graded-basis property, and the paper does not show how to derive a graded basis (or comparable truncation control) from the regular-sequence hypothesis when solutions at infinity exist. Thus it does not resolve the asked-for bound under only regular-sequence assumptions, but it gives closely related effective bounds in the stronger graded-basis setting and explicitly discusses Hua\u2013Qu\u2019s \u2018no root at infinity\u2019 hypothesis as a route to graded bases."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07161000000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07161000000000001
+    "literature_total_cost_usd": 0.23741025,
+    "total_cost_usd": 0.30902025
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411879499/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411879499_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411879499_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

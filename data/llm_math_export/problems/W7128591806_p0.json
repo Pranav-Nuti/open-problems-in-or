@@ -47,16 +47,68 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Bei\u2013Li\u2013Luo) reframes welfare guarantees for DRF-like mechanisms via the fair-ratio benchmark, comparing a mechanism\u2019s social welfare to the best social welfare achievable among allocations that already satisfy the hard fairness constraints SI and EF. Within this benchmark they define the price of strategyproofness \\(\\mathrm{PoSP}_{\\mathrm{SW}}(m)\\), i.e., the best worst-case fair-ratio achievable by mechanisms satisfying SI, EF, PO, and SP. For \\(m=3\\) they prove only coarse bounds \\(2 \\le \\mathrm{PoSP}_{\\mathrm{SW}}(3) \\le 3\\), leaving the exact value open.\n\nTechnically, their lower-bound approach adapts the classic framework of Parkes\u2013Procaccia\u2013Shah (which established strong welfare limitations under truthfulness/fairness for DRF-type settings) but must additionally respect SI and EF in the benchmark optimum. For \\(m\\ge 4\\) they show the price equals \\(m\\), while for \\(m=3\\) the construction yields only a factor-2 lower bound. No forward-citation evidence was provided here, so there is currently no identified subsequent paper closing the gap to 3 or proving tightness at 2.\n\nThus, based on the available record, determining the exact \\(\\mathrm{PoSP}_{\\mathrm{SW}}(3)\\) remains open. Promising directions include either (i) strengthening the lower bound beyond 2 by refining the envy-freeness-preserving adversarial instances used in the \\(m\\ge 4\\) case to work with only three resources, or (ii) designing an explicit SI+EF+PO+SP mechanism with fair-ratio strictly below 3 (ideally matching a new lower bound), potentially by extending the two-resource hybrid ideas (switching between different truthful fair mechanisms based on instance structure) to three resources.",
+    "total_cost_usd": 0.10980725000000001,
+    "citations_analyzed": 0,
+    "sources": [
+      {
+        "title": "Fair and Efficient Multi-Resource Allocation for Cloud Computing: Beyond Dominant Resource Fairness",
+        "bibtex": "@misc{BeiLiLuo2022FairEfficientMultiResource,\n  title        = {Fair and Efficient Multi-Resource Allocation for Cloud Computing: Beyond Dominant Resource Fairness},\n  author       = {Bei, Xiaohui and Li, Zihao and Luo, Junjie},\n  year         = {2022},\n  eprint       = {2210.05237},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/2210.05237}\n}\n",
+        "source_url": "https://arxiv.org/abs/2210.05237",
+        "theorem_or_result": "Introduces the fair-ratio benchmark \\,\\(\\mathrm{FR}_{\\mathrm{SW}}\\) comparing a mechanism\u2019s social welfare to the optimal social welfare among allocations satisfying SI and EF, and defines the price of strategyproofness \\(\\mathrm{PoSP}_{\\mathrm{SW}}(m)\\) under SI, EF, PO, SP. Proves for \\(m=3\\) that \\(2 \\le \\mathrm{PoSP}_{\\mathrm{SW}}(3) \\le 3\\), leaving the exact value open.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 10,
+        "connection": "This is the source paper that formulates the open problem: determine the exact \\(\\mathrm{PoSP}_{\\mathrm{SW}}(3)\\) for 3-resource Leontief multi-resource allocation under SI, EF, PO, SP, closing the gap between the proven bounds 2 and 3."
+      },
+      {
+        "title": "Beyond dominant resource fairness: Extensions, limitations, and indivisibilities",
+        "bibtex": "@article{ParkesProcacciaShah2015BeyondDRF,\n  title   = {Beyond dominant resource fairness: Extensions, limitations, and indivisibilities},\n  author  = {Parkes, David C. and Procaccia, Ariel D. and Shah, Nisarg},\n  journal = {ACM Transactions on Economics and Computation},\n  volume  = {3},\n  number  = {1},\n  pages   = {1--22},\n  year    = {2015},\n  doi     = {10.1145/2723872},\n  url     = {https://doi.org/10.1145/2723872}\n}\n",
+        "source_url": "https://doi.org/10.1145/2723872",
+        "theorem_or_result": "Shows strong impossibility/approximation limits for social welfare under incentive or fairness constraints in multi-resource allocation with Leontief preferences, motivating alternative benchmarks beyond classic approximation to the unconstrained optimum.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 9,
+        "connection": "Provides the foundational lower-bound framework that Bei\u2013Li\u2013Luo adapt when proving lower bounds on \\(\\mathrm{PoSP}_{\\mathrm{SW}}(m)\\) and in particular when establishing that for \\(m=3\\) the price of strategyproofness is at least 2 (and at most 3)."
+      },
+      {
+        "title": "Dominant resource fairness: Fair allocation of multiple resource types",
+        "bibtex": "@inproceedings{GhodsiZahariaHindmanKonwinskiShenkerStoica2011DRF,\n  title     = {Dominant resource fairness: Fair allocation of multiple resource types},\n  author    = {Ghodsi, Ali and Zaharia, Matei and Hindman, Benjamin and Konwinski, Andy and Shenker, Scott and Stoica, Ion},\n  booktitle = {Proceedings of the 8th USENIX Conference on Networked Systems Design and Implementation (NSDI)},\n  year      = {2011},\n  pages     = {323--336},\n  url       = {https://www.usenix.org/conference/nsdi11/technical-sessions/presentation/ghodsi}\n}\n",
+        "source_url": "https://www.usenix.org/conference/nsdi11/technical-sessions/presentation/ghodsi",
+        "theorem_or_result": "Introduces DRF, a strategyproof, envy-free, share-incentive, Pareto-optimal mechanism for Leontief multi-resource allocation by equalizing dominant shares.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 8,
+        "connection": "Sets the baseline mechanism satisfying SI, EF, PO, SP whose welfare performance (under fair-ratio) is compared against optimal fair allocations; the open problem concerns the best possible fair-ratio achievable under the same axioms for \\(m=3\\)."
+      },
+      {
+        "title": "Fair and Efficient Allocations with Limited Demands",
+        "bibtex": "@inproceedings{NarayanaKash2021LimitedDemands,\n  title     = {Fair and Efficient Allocations with Limited Demands},\n  author    = {Narayana, Siddharth and Kash, Ian A.},\n  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},\n  year      = {2021},\n  url       = {https://ojs.aaai.org/index.php/AAAI/article/view/16733}\n}\n",
+        "source_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16733",
+        "theorem_or_result": "Studies fair and efficient allocations under limited demands, extending multi-resource fairness analysis beyond the unbounded Leontief model and exploring algorithmic/axiomatic trade-offs.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 6,
+        "connection": "Related in spirit (fairness\u2013efficiency tradeoffs under constraints), but does not resolve the exact \\(\\mathrm{PoSP}_{\\mathrm{SW}}(3)\\) in the original unbounded Leontief setting; may offer techniques for bounding welfare under additional constraints."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.10503849999999999,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.10503849999999999
+    "literature_total_cost_usd": 0.10980725000000001,
+    "total_cost_usd": 0.21484575
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7128591806/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7128591806_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7128591806_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 9,
+    "synthesis": "The open problem asks whether strict equilibrium strategies for continuous-time portfolio choice under rank-dependent utility (RDU)\u2014defined via conditional quantiles and a probability weighting function\u2014can be genuinely non-deterministic (progressively measurable and not a deterministic function of time) in an incomplete Brownian market with constant coefficients. The source paper (Wei\u2013Xia\u2013Zhao, 2024) develops a detailed theory for deterministic strict equilibrium strategies (DSES): in the time-invariant weighting case, equilibria (when they exist) are essentially unique and characterized by an autonomous singular ODE for the future integrated variance \\,\\(\\Pi(t)=\\int_t^T\\|\\pi(s)^\\top\\sigma\\|^2ds\\); in the time-varying weighting case (mainly \\(\\gamma\\le 0\\)), non-zero DSES correspond to positive solutions of a nonlinear singular ODE (with possible multiplicity), and the paper provides forward-shooting methods and an \u201coptimal equilibrium\u201d selection criterion among DSES. The authors explicitly note that they do not know whether any non-deterministic equilibrium exists.\n\nAmong the provided forward citations, the only analyzed citing work studies a different time-inconsistent preference (random risk aversion aggregated via certainty equivalents) and likewise focuses on deterministic equilibria characterized by an ODE. While it reinforces that spike-variation equilibrium conditions often collapse to low-dimensional ODEs under homotheticity and deterministic coefficients, it does not treat quantile-based RDU functionals nor the key difficulty here: the dependence of \\(J(t,x;\\pi)\\) on the conditional law of \\(X_T^\\pi\\) given \\(\\mathcal F_t\\), which becomes substantially more complex for stochastic \\(\\pi\\) in incomplete markets.\n\nOverall, based on the source paper and the limited forward-citation evidence supplied, there is currently no known existence or nonexistence theorem for non-deterministic strict equilibrium strategies under RDU in the stated setting. Progress appears to require new techniques to handle conditional quantiles under progressively measurable controls\u2014potentially via conditional distribution dynamics, mean-field/measure-valued control formulations, or identifying structural conditions under which any SES must collapse to a deterministic feedback (or proving counterexamples by constructing stochastic equilibria).",
+    "total_cost_usd": 0.145628,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Equilibrium Investment with Random Risk Aversion:(Non-) uniqueness, Optimality, and Comparative Statics",
+        "bibtex": "@misc{,\n  title={Equilibrium Investment with Random Risk Aversion:(Non-) uniqueness, Optimality, and Comparative Statics},\n  author={},\n  note={Forward-citation metadata incomplete in provided analysis (no year/venue/URL/DOI).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In a Black\u2013Scholes market with deterministic coefficients and an objective given by an average of CRRA certainty equivalents over a random risk aversion parameter \\(R\\), the paper characterizes all deterministic equilibrium strategies \\(\\bar\\pi(t)=(\\sigma^\\top(t))^{-1}a(t)\\) by the condition \\(a(t)=h(v(t))\\lambda(t)\\), where \\(v(t)=\\int_t^T |a(s)|^2ds\\), \\(\\lambda(t)=\\sigma(t)^{-1}\\mu(t)\\), and \\(h(x)=\\frac{\\tilde\\E[e^{-\\frac12 R x}]}{\\tilde\\E[R e^{-\\frac12 R x}]}\\). Equivalently \\(v\\) solves the ODE \\(v'(t)=-h(v(t))^2|\\lambda(t)|^2\\), \\(v(T)=0\\), yielding closed-form existence/uniqueness/multiplicity results for deterministic equilibria depending on \\(\\tilde\\E[R]\\) and \\(H(\\infty)=\\int_0^\\infty h(x)^{-2}dx\\) (Theorem 3.2), and an optimal-selection criterion among multiple deterministic equilibria when \\(\\tilde\\E[R]=\\infty\\) (Theorem 4.4).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether there exist non-deterministic (progressively measurable, genuinely random) strict equilibrium strategies for a *rank-dependent utility* (RDU) functional defined via conditional quantiles and probability weighting \\(w(t,\\cdot)\\). This citing paper instead studies a different time-inconsistent preference: an average of CRRA certainty equivalents over a random risk aversion distribution (RRA). It restricts attention to deterministic candidate equilibria \\(\\Pi_d\\) and provides a complete characterization within that class; it does not analyze existence/nonexistence of non-deterministic equilibria, nor does it treat RDU/quantile-based objectives. Methodologically, it uses the same spike-variation equilibrium notion and derives equilibrium conditions/ODEs for deterministic equilibria, which is only indirectly relevant as a technique template for equilibrium characterization, not as a resolution of the RDU non-deterministic equilibrium existence question."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0821765,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0821765
+    "literature_total_cost_usd": 0.145628,
+    "total_cost_usd": 0.22780450000000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7127637708/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7127637708_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7127637708_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

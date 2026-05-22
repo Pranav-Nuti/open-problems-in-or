@@ -45,16 +45,68 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "In Ma--Fattahi (2025), the robust matrix sensing objective \\(f_{\\ell_1}\\) under Gaussian measurements and outlier noise exhibits a striking nonsmooth landscape: in the statistically relevant regime \\(\\max\\{d_1,d_2\\}r \\lesssim m \\lesssim \\max\\{d_1,d_2\\}k\\) with \\(p<1/2\\), rank-balanced true solutions are Clarke critical yet strict saddles, admitting directions with quadratic decrease \\(f(W_\\star+\\gamma v)-f(W_\\star)\\le -c\\gamma^2\\). This directly motivates the open dynamical question: can the deterministic subgradient method \\(W_{t+1}=W_t-\\eta_t g_t\\), \\(g_t\\in\\partial f_{\\ell_1}(W_t)\\), nevertheless converge to such strict saddles (as observed empirically and in related convergence results), or must it almost surely avoid them as in smooth strict-saddle theory.\n\nAmong the forward citations provided, the closest technical parallel is \"Certifying optimality in nonconvex robust PCA\", which proves an analogous geometric phenomenon for the fully observed robust PCA objective \\(\\|XY^\\top-M\\|_1\\): true solutions are Clarke critical and become strict saddles when overparameterized \\((k>r)\\), with explicit descent directions tied to \\(\\ker(X_\\star)\\) and \\(\\ker(Y_\\star)\\). However, it likewise does not establish (or refute) saddle-escaping for deterministic subgradient dynamics in the strict-saddle regime, reinforcing that the dynamical question remains unresolved even in closely related \\(\\ell_1\\) factorizations.\n\nThe remaining citations are largely contextual: work on implicit regularization and perturbed gradient methods addresses strict-saddle escape in smooth settings, while matrix-LASSO/RIP results give benign-landscape and convergence guarantees for smooth or proximal algorithms under RIP. None of these directly answer whether nonsmooth strict saddles at the ground truth are attracting or repelling for deterministic subgradient methods. Consequently, based on the supplied forward-citation set, the problem appears to remain open; promising directions include adapting \"active strict saddle\" frameworks for nonsmooth functions to the specific Clarke geometry at true solutions in robust sensing, or constructing explicit subgradient selections/stepsize schedules that yield attraction to (or avoidance of) these strict saddles.",
+    "total_cost_usd": 0.43976625,
+    "citations_analyzed": 6,
+    "sources": [
+      {
+        "title": "Certifying optimality in nonconvex robust PCA",
+        "bibtex": "@article{CertifyingOptimalityNonconvexRobustPCA,\n  title        = {Certifying optimality in nonconvex robust PCA},\n  author       = {},\n  year         = {\\noop{0000}},\n  note         = {Metadata (authors/year/venue/URL) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For factorized robust PCA with full observations under the low-rank-plus-sparse model \\(M=L+S\\) (\\(L\\) rank \\(r\\), \\(\\mu\\)-incoherent; support of \\(S\\) i.i.d. Bernoulli\\((p)\\)), consider \\(f(X,Y)=\\|XY^\\top-M\\|_1\\) with search rank \\(k\\ge r\\) and the set \\(\\mathcal L=\\{(X,Y):XY^\\top=L,\\ \\mathrm{rank}(X)=\\mathrm{rank}(Y)=r\\}\\). Theorem 1: with high probability (under \\(p\\lesssim 1/\\log(mn)\\) and \\(r\\lesssim \\sqrt{\\min\\{m,n\\}/(\\mu\\log^2(mn))}\\)), every \\((X_\\star,Y_\\star)\\in\\mathcal L\\) is a Clarke critical point; moreover it is a local minimum when \\(k=r\\) and a strict saddle point when \\(k>r\\). Theorem 3 further shows sharp growth (hence local linear convergence of subgradient methods) when \\(k=r\\). Theorem 4 (for \\(k>r\\) and \\(S\\neq 0\\)) constructs a direction \\((H,K)\\) with \\(\\|H\\|_F^2+\\|K\\|_F^2=1\\) and \\(t_0>0\\) such that \\(f(X_\\star+tH,Y_\\star+tK)=f(X_\\star,Y_\\star)-\\gamma t^2\\) for all \\(t\\in[0,t_0]\\), where \\(\\gamma=\\tfrac12\\|P_XP_Y\\|_{\\mathrm{op}}>0\\) and \\(P_X,P_Y\\) project onto \\(\\ker(X_\\star),\\ker(Y_\\star)\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether (deterministic) subgradient methods escape strict saddles at the ground-truth factorization for robust \\(\\ell_1\\) low-rank recovery (in robust matrix sensing), or whether such strict saddles can attract the dynamics. This paper studies a closely related nonsmooth \\(\\ell_1\\) factorized objective but in robust PCA (fully observed with sparse entrywise corruptions), not Gaussian linear measurements. It rigorously establishes the same geometric phenomenon highlighted in the open problem: when overparameterized (\\(k>r\\)), true solutions are Clarke critical yet strict saddles with explicit quadratic-decrease directions (Theorem 4). However, it does not analyze the subgradient method\u2019s global/measure-zero avoidance properties near these strict saddles, nor prove (or disprove) almost-sure saddle-escaping; in fact it explicitly states that understanding why subgradient methods still converge to such strict saddles remains open. Thus it provides strong supporting landscape/geometry results and local convergence in the \\(k=r\\) regime, but no resolution of saddle-escaping for subgradient dynamics in the \\(k>r\\) strict-saddle regime, and it is in a different observation model than robust matrix sensing."
+      },
+      {
+        "title": "Low solution rank of the matrix LASSO under RIP with consequences for rank-constrained algorithms: AD McRae",
+        "bibtex": "@article{McRae2025MatrixLASSO,\n  title        = {Low solution rank of the matrix LASSO under RIP with consequences for rank-constrained algorithms: AD McRae},\n  author       = {},\n  journal      = {Mathematical Programming},\n  year         = {2025},\n  doi          = {10.1007/s10107-025-02236-x},\n  url          = {https://doi.org/10.1007/s10107-025-02236-x}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-025-02236-x",
+        "theorem_or_result": "Main results (under matrix 2-RIP and small noise):\n- Theorem 1: For matrix LASSO \n\\[\\min_M \\tfrac12\\|y-\\mathcal A(M)\\|_2^2+\\lambda\\|M\\|_*\\]\nif \\(\\mathcal A\\) has \\((2r_*,\\delta_*)\\)-RIP and \\(\\delta_*+\\|\\mathcal A^*(\\xi)\\|_{\\mathrm{op}}/\\lambda\\le 1/16\\), then the LASSO solution \\(M\\) is unique and \\(\\mathrm{rank}(M)\\le (1+25(\\delta_*+\\|\\mathcal A^*(\\xi)\\|_{\\mathrm{op}}/\\lambda)^2)r_*\\le 1.1\\,r_*\\).\n- Theorem 2: A rank-\\(r\\) projected proximal-gradient / thresholding iteration converges linearly to this unique LASSO solution from any rank-\\(\\le r\\) initialization when \\(\\mathcal A\\) has \\((2r,\\delta)\\)-RIP with \\(\\delta<1/3\\).\n- Theorem 3: For the smooth BurerMonteiro factorization of the nuclear-norm-regularized least-squares objective, every second-order critical point is globally optimal and yields the unique LASSO solution (under the same RIP conditions).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns whether (deterministic) subgradient methods escape strict saddles for a *nonsmooth robust \\(\\ell_1\\)* loss in overparameterized BurerMonteiro matrix sensing, where the *true solution can be a strict saddle yet empirically attracts subgradient iterates*. This paper does not study the \\(\\ell_1\\) data-fit objective, outlier corruption, or subgradient dynamics near strict saddles. Instead it analyzes a different estimator: nuclear-norm-regularized *least squares* (matrix LASSO) under \\(\\ell_2\\)-RIP, proving low rank/uniqueness and benign landscape for a *smooth* factored formulation, plus linear convergence of a projected proximal-gradient method. These results are conceptually related (landscape/algorithmic guarantees for low-rank recovery under RIP) but do not address saddle-escaping vs attraction for subgradient methods on the robust \\(\\ell_1\\) objective where nonsmooth strict saddles occur at the ground truth."
+      },
+      {
+        "title": "Understanding the Implicit Regularization of Gradient Descent in Over-parameterized Models",
+        "bibtex": "@article{ImplicitRegularizationOverparameterizedModels,\n  title        = {Understanding the Implicit Regularization of Gradient Descent in Over-parameterized Models},\n  author       = {},\n  year         = {\\noop{0000}},\n  note         = {Metadata (authors/year/venue/URL) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "From the provided excerpt only: the paper proposes Infinitesimally Perturbed Gradient Descent (IPGD) and claims theoretical guarantees that IPGD converges to second-order stationary points within an implicit low-dimensional region in over-parameterized matrix sensing, by ensuring (i) initialization near the implicit region, (ii) escape from strict saddle points via infinitesimal perturbations, and (iii) small deviation from the implicit region. No explicit theorem statement is available in the excerpt.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns whether (deterministic or stochastic) subgradient methods on a nonsmooth robust \\(\\ell_1\\) low-rank matrix sensing objective can escape strict saddles (in particular, strict saddles that coincide with true solutions) or can converge to them with positive probability. The citing paper (as far as the excerpt shows) studies smooth gradient descent dynamics and perturbed GD in over-parameterized models, focusing on implicit regularization and saddle escape for GD/PGD, and introduces a modified perturbed GD (IPGD) to control deviation from a low-dimensional manifold. It does not address nonsmooth \\(\\ell_1\\) objectives, Clarke criticality, or subgradient dynamics, nor the specific phenomenon of true solutions being strict saddles in robust sensing."
+      },
+      {
+        "title": "Landscape and complexity for classes of nonconvex optimization problems",
+        "bibtex": "@phdthesis{LandscapeComplexityNonconvexOptimization,\n  title        = {Landscape and complexity for classes of nonconvex optimization problems},\n  author       = {},\n  school       = {\\noop{Unknown}},\n  year         = {\\noop{0000}},\n  note         = {Metadata (author/year/school/URL) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "From the provided excerpt (front matter + table of contents + intro), no specific theorem about subgradient methods on the robust \\(\\ell_1\\) Burer--Monteiro matrix sensing objective is identifiable. The thesis appears to develop (i) landscape analyses for several smooth factored matrix problems (matrix completion/sensing, linear networks, matrix square-root approximation) and (ii) complexity guarantees for Newton-type methods in (smooth) nonlinear least squares, but no stated result on saddle-escaping of (deterministic) subgradient methods for nonsmooth robust matrix sensing is present in the supplied pages.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns whether (deterministic/stochastic) subgradient methods escape strict saddles in a nonsmooth robust \\(\\ell_1\\) low-rank matrix sensing formulation where true solutions can be Clarke-critical strict saddles. The thesis title/contents suggest it studies nonconvex landscape geometry and algorithmic complexity, mainly for smooth objectives (least squares, matrix square-root approximation) and generic first/second-order methods. However, based on the provided 10 pages, there is no evidence it addresses nonsmooth subgradient dynamics, Clarke criticality, or robust \\(\\ell_1\\) matrix sensing with outliers. At best, it provides general background on landscape analysis for factored matrix sensing/completion and on complexity of optimization algorithms, which is tangentially relevant but does not resolve or directly advance the saddle-escaping question for subgradient methods."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.097083,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.097083
+    "literature_total_cost_usd": 0.43976625,
+    "total_cost_usd": 0.5368492500000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412612512/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4412612512_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4412612512_p0",
+    "citations_analyzed": 6,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

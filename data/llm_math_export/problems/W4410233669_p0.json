@@ -45,16 +45,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "In the finite-state ergodic Markovian setting of Cohen--Zell, the paper itself constructs asymptotic Nash equilibria (of order \\(C/\\sqrt n\\)) from solutions of the ergodic MFG system and from the ergodic master equation, and proves propagation of chaos for the induced \\(n\\)-player dynamics. However, it explicitly leaves open the harder question of whether *exact* Markovian Nash equilibria \\(\\alpha^{(n)}\\) of the \\(n\\)-player ergodic game must converge, as \\(n\\to\\infty\\), to the MFG equilibrium (e.g. convergence of invariant empirical measures and values \\(\\varrho_n\\to\\varrho\\)).\n\nThe most directly relevant forward-citing progress is the development of uniform-in-time quantitative propagation-of-chaos estimates for mean-field interacting jump processes under exponential stability of the limiting nonlinear Kolmogorov equation. Applied to the master-equation-derived feedback controls, these results strengthen the approximation theory by giving \\(O(1/n)\\) weak error bounds uniformly over \\(t\\ge 0\\) for test functionals of the empirical measure. This provides a key ingredient one would likely need in any attempt to upgrade approximate equilibria results to statements about exact equilibria, but it does not yet control the selection/structure of exact Nash equilibria.\n\nOther cited work (e.g. turnpike results in LQG \\(N\\)-player games) addresses different asymptotic regimes (long horizon rather than many players) and different information structures (open-loop rather than Markovian closed-loop). Overall, the convergence of exact Markovian Nash equilibria to the ergodic MFG equilibrium in finite-state jump games remains open, with the main obstacles tied to feedback effects and potential non-uniqueness/multiple mean-field limits in ergodic closed-loop settings.",
+    "total_cost_usd": 0.54179055,
+    "citations_analyzed": 7,
+    "sources": [
+      {
+        "title": "Uniform-in-time convergence rates to a nonlinear Markov chain for mean-field interacting jump processes",
+        "bibtex": "@article{CohenHuffman2025UniformInTimeNonlinearMarkovChain,\n  title={Uniform-in-time convergence rates to a nonlinear Markov chain for mean-field interacting jump processes},\n  author={Cohen, Asaf and Huffman, ???},\n  journal={SIAM Journal on Mathematical Analysis},\n  year={2025},\n  doi={10.1137/25M1737845},\n}\n",
+        "source_url": "https://doi.org/10.1137/25M1737845",
+        "theorem_or_result": "Main quantitative limit theorem (Theorem 2.7): for an N-particle mean-field interacting continuous-time jump process on a finite state space with rates \\(\\alpha(\\mu)\\), assuming \\(\\alpha\\) is Lipschitz with Lipschitz functional derivative (\\(\\alpha\\in\\) (D-Lip)) and the limiting nonlinear Kolmogorov equation \\(\\dot m(t;\\mu)=m(t;\\mu)\\alpha(m(t;\\mu))\\) is exponentially stable with suitable Lipschitz regularity of \\(\\delta m/\\delta m\\) (assumption (Erg)), then for any test function \\(\\Phi\\in\\) (D-Lip) and i.i.d. initial data with law \\(\\mu_0\\),\n\\[\\sup_{t\\ge 0}\\big|\\mathbb E[\\Phi(\\mu_t^N)]-\\Phi(m(t;\\mu_0))\\big|\\le \\frac{C}{N}.\\]\nMoreover, they give checkable sufficient conditions for (Erg) via a linearized stability condition (Lin-Erg) and apply the result to N-player ergodic finite-state MFG dynamics under master-equation-derived feedback controls, yielding uniform-in-time weak convergence of the empirical measure to the mean-field law at rate \\(1/N\\) (Theorem 5.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for convergence of exact Markovian Nash equilibria of the finite-n ergodic game to the mean field equilibrium (e.g., convergence of equilibrium empirical measures and values). This paper does not analyze sequences of exact Nash equilibria \\(\\alpha^{(n)}\\) nor prove that every exact equilibrium converges to the MFG equilibrium. Instead it proves a strong, uniform-in-time propagation-of-chaos/mean-field limit with rate \\(1/N\\) for interacting jump processes whose rates depend on the empirical measure, under exponential ergodicity of the limiting nonlinear Markov chain. In Section 5.2 it applies this to the specific closed-loop dynamics induced when players use feedback controls constructed from the ergodic MFG master equation (as in Cohen\u2013Zell), thereby strengthening prior results for these approximate equilibria by giving uniform-in-time convergence of the induced empirical measure process to the mean-field law. Thus it provides a key tool/partial progress toward the convergence question, but only for MFG-derived (approximate) equilibrium controls, not for arbitrary exact Nash equilibria."
+      },
+      {
+        "title": "Turnpike properties in linear quadratic Gaussian N-player differential games",
+        "bibtex": "@article{UnknownTurnpikeLQGNPlayer,\n  title={Turnpike properties in linear quadratic Gaussian N-player differential games},\n  author={Unknown},\n  journal={Unknown},\n  year={????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In an open-loop linear\u2013quadratic\u2013Gaussian (LQG) N-player stochastic differential game, the paper proves a turnpike estimate comparing the finite-horizon Nash equilibrium \\((X_T^i,\\alpha_T^i)\\) to the ergodic-game Nash equilibrium \\((X^i,\\alpha^i)\\): there exist constants \\(K_e(N),\\lambda_e(N)>0\\) (independent of \\(t,T\\)) such that for all \\(t\\in[0,T]\\),\n\\[\\sup_{i\\in[N]}\\mathbb E\\big[\\|X_T^i(t)-X^i(t)\\|^2+\\|\\alpha_T^i(t)-\\alpha^i(t)\\|^2\\big]\\le K_e(N)\\big(e^{-\\lambda_e(N)t}+e^{-\\lambda_e(N)(T-t)}\\big).\\]\nUnder additional uniform-in-\\(N\\) structural assumptions, there exist \\(K_e,\\lambda_e>0\\) independent of \\(t,T,N\\) such that\n\\[\\sup_N\\frac1N\\mathbb E\\big[\\|X_T(t)-X(t)\\|^2+\\|\\alpha_T(t)-\\alpha(t)\\|^2\\big]\\le K_e\\big(e^{-\\lambda_e t}+e^{-\\lambda_e (T-t)}\\big).\\]\nIt also proves exponential convergence of the finite-horizon Riccati/FBS-ODE system to the associated algebraic (ergodic) system and convergence of time-averaged values: \\(\\lim_{T\\to\\infty}\\frac1T V_T^i(0,x)=c_i\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for convergence, as \\(n\\to\\infty\\), of exact Nash equilibria in finite-state ergodic Markovian (closed-loop) games to the mean field game (MFG) equilibrium/master-equation solution. This paper does not study the mean-field limit \\(N\\to\\infty\\) nor finite-state Markov jump dynamics, and it works with continuous-state LQG diffusions and open-loop (private-filtration) equilibria. Its main convergence is a long-horizon turnpike: finite-horizon equilibria converge to the ergodic \\(N\\)-player equilibrium as \\(T\\to\\infty\\), with some estimates uniform in \\(N\\). Thus it does not resolve convergence of exact \\(n\\)-player ergodic equilibria to an MFG equilibrium as \\(n\\to\\infty\\). Indirectly, the uniform-in-\\(N\\) stability/turnpike estimates and techniques for coupled HJB\u2013FP systems may be useful tools toward controlling large-\\(n\\) behavior, but they address a different asymptotic regime (\\(T\\to\\infty\\) rather than \\(n\\to\\infty\\))."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.11153275,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.11153275
+    "literature_total_cost_usd": 0.54179055,
+    "total_cost_usd": 0.6533232999999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410233669/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4410233669_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4410233669_p0",
+    "citations_analyzed": 7,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

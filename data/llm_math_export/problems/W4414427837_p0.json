@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 9,
+    "difficulty": 9,
+    "synthesis": "The exact matching problem of Papadimitriou\u2013Yannakakis asks for a perfect matching with exactly \\(k\\) red edges in a red/blue-colored bipartite graph \\(G=(A,B;E)\\). As emphasized in Cs\u00e1ji\u2013Kir\u00e1ly\u2013Takazawa\u2013Yokoi (2024), this problem remains a central derandomization challenge: randomized polynomial-time algorithms are known (via the isolation lemma/Tutte matrix style techniques), but a deterministic polynomial-time algorithm is still not known in general.\n\nThe 2024 paper uses exact matching as a hardness yardstick for \u201cpopular near-maximum(-weight)\u201d matching: Theorem 4 shows that a deterministic polynomial-time algorithm for the one-sided popular near-maximum-weight matching problem (even with weights in \\(\\{0,1\\}\\) and weak orders) would imply a deterministic polynomial-time algorithm for exact matching. Thus, their tractability results for popular maximum-weight/maximum-utility solutions (Theorems 1\u20133) are complemented by evidence that moving from \u201coptimal\u201d to \u201cnear-optimal\u201d popularity constraints runs into the same barrier as exact matching.\n\nAmong the forward citations provided, \u201cMax-Utility Matchings with Popularity via Critical Vertices\u201d develops deterministic polynomial-time algorithms and polyhedral formulations for several popularity-with-utility variants (popular critical matchings, popular max-utility matchings). While methodologically adjacent (it also leverages structure of popular matchings and criticality), it does not address the red/blue exact-count constraint and does not yield a deterministic algorithm for exact matching. Consequently, based on the available forward-citation evidence, the exact matching problem remains open, and progress continues to be indirect\u2014either by reductions showing that new deterministic algorithms would derandomize exact matching, or by developing deterministic algorithms for neighboring constrained-popularity problems that carefully avoid exact-count constraints.",
+    "total_cost_usd": 0.29552075,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Max-Utility Matchings with Popularity via Critical Vertices",
+        "bibtex": "@article{UNKNOWN2025maxutility,\n  title        = {Max-Utility Matchings with Popularity via Critical Vertices},\n  author       = {},\n  journal      = {Algorithmica},\n  year         = {2025},\n  doi          = {10.1007/s00453-025-01347-3},\n  url          = {https://doi.org/10.1007/s00453-025-01347-3}\n}",
+        "source_url": "https://doi.org/10.1007/s00453-025-01347-3",
+        "theorem_or_result": "The paper proves existence and gives polynomial-time algorithms for popularity notions in bipartite matching with strict preferences and edge utilities. In particular: (i) for any critical set \\(C\\subseteq A\\cup B\\), a popular critical matching exists and a max-size (and min-size) popular critical matching can be computed in \\(O(m+|C|m)\\) time (Theorem 1); (ii) for any utility function \\(f:E\\to\\mathbb{Q}\\), a popular max-utility matching exists and can be computed in polynomial time (Theorem 2); (iii) the popular max-critical matching polytope admits a compact extended formulation (Theorem 3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a deterministic polynomial-time algorithm for the exact matching problem: given a red/blue-colored bipartite graph and \\(k\\), decide if there is a perfect matching with exactly \\(k\\) red edges. This paper studies a different framework (popular matchings under preferences, critical vertices, and utilities) and provides deterministic polytime algorithms there. However, nothing in the provided excerpt indicates a reduction that would yield a deterministic polytime algorithm for exact matching, nor does it address counting red edges in perfect matchings. At best, the paper supplies algorithmic/LP machinery for certain constrained popularity/utility matching problems, which is conceptually adjacent to the original paper\u2019s theme but does not resolve exact matching."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.07986125,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.07986125
+    "literature_total_cost_usd": 0.29552075,
+    "total_cost_usd": 0.375382
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414427837/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4414427837_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4414427837_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

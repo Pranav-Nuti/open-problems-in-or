@@ -46,16 +46,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The heavy-traffic staffing question for Hawkes/GI/1 queues in the near-critical self-excitation regime \\(m\\uparrow 1\\) (so \\(\\lambda=\\lambda_0/(1-m)\\to\\infty\\) with fixed \\(\\lambda_0\\)) remains open in the forward-citation set provided. The most directly relevant progress is the development of a rigorous steady-state framework for Hawkes/GI/1: using the cluster (branching) representation of Hawkes processes, one can construct the stationary workload via a Loynes-type supremum representation \\(W_\\infty(\\mu)=\\sup_{s\\ge 0} R^{\\leftarrow}(0,s)\\), prove polynomial and exponential moment bounds by domination with an auxiliary \\(M/GI/1\\) queue built from cluster departure times, and establish exponential ergodicity via a semi-synchronous coupling that explicitly tracks the Hawkes \u201cmemory\u201d \\(N_0(t)\\). These results justify steady-state simulation/optimization and provide structural identities useful for staffing.\n\nA key identity derived in this line of work is a gradient representation for the steady-state mean workload \\(w(\\mu)=\\mathbb{E}[W_\\infty(\\mu)]\\): under stability and light-tail assumptions, \\(w'(\\mu)=-\\mathbb{E}[X_\\infty(\\mu)]\\), where \\(X_\\infty(\\mu)\\) is the stationary observed busy-period age. This connects staffing optimization \\(h_0 w(\\mu)+c(\\mu)\\) to the steady-state busy-period functional and enables stochastic-gradient methods. Numerically, in the regime \\(m\\uparrow 1\\) with fixed \\(\\lambda_0\\), the reported optimizers \\(\\mu_H^*\\) exhibit \\((\\mu_H^* - \\lambda)/\\sqrt{\\lambda}\\) increasing with \\(\\lambda\\), indicating that the classical square-root safety staffing \\(\\mu^* = \\lambda + O(\\sqrt{\\lambda})\\) can fail when the growth in \\(\\lambda\\) is driven by self-excitation rather than by scaling up exogenous arrivals.\n\nWhat is missing is a heavy-traffic limit theorem and associated steady-state approximation in the near-critical Hawkes regime that would yield the correct order of \\(\\mu^* - \\lambda\\) and a limiting optimization problem. One plausible direction is that near-critical Hawkes input induces long memory/slowly decaying correlations in the netput process, potentially leading to nonstandard (non-Markovian) reflected limits; in that case, tools for reflected diffusions with memory (e.g., fractional drift) could become relevant for characterizing stationary performance. Establishing such a limit and then optimizing the limiting objective would be the natural route to a rigorous staffing asymptotic.",
+    "total_cost_usd": 0.1804775,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Time-Varying Single-Server Queues with State-Dependent Hawkes Arrivals",
+        "bibtex": "@article{ChenHong2023HawkesGI1Ergodicity,\n  title        = {Steady-State Analysis and Online Learning for Queues with Hawkes Arrivals},\n  author       = {Chen, Xinyun and Hong, Guiyu},\n  year         = {2023},\n  eprint       = {2311.02577},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  url          = {https://arxiv.org/abs/2311.02577}\n}\n",
+        "source_url": "https://arxiv.org/abs/2311.02577",
+        "theorem_or_result": "The paper proves steady-state moment bounds and exponential ergodicity for Hawkes/GI/1 queues under light-tail assumptions, and derives a gradient representation for the staffing objective: if \\(w(\\mu)=\\mathbb{E}[W_\\infty(\\mu)]\\), then \\(w'(\\mu)=-\\mathbb{E}[X_\\infty(\\mu)]\\), where \\(X_\\infty(\\mu)\\) is the steady-state observed busy-period age. It also provides numerical experiments showing that in a regime where \\(\\lambda=\\lambda_0/(1-m)\\to\\infty\\) via \\(m\\uparrow 1\\) (fixed \\(\\lambda_0\\)), the ratio \\((\\mu_H^*-\\lambda)/\\sqrt{\\lambda}\\) increases with \\(\\lambda\\), suggesting failure of square-root staffing for Hawkes/GI/1.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the correct heavy-traffic staffing asymptotics for Hawkes/GI/1 when \\(\\lambda\\) grows due to strong self-excitation (e.g. \\(m\\uparrow 1\\)). This paper does not derive an asymptotic characterization of \\(\\mu^*\\) or the scaling of \\(\\mu^*-\\lambda\\) as \\(\\lambda\\to\\infty\\). However, it contributes (i) rigorous steady-state control (finite exponential moments, exponential convergence) that can justify simulation/optimization and potentially underpin heavy-traffic limits, and (ii) explicit numerical evidence (Table 2) that \\(\\mu_H^*-\\lambda\\) grows faster than \\(O(\\sqrt{\\lambda})\\) in the \\(m\\uparrow 1\\) regime, aligning with the open problem\u2019s conjecture. The paper explicitly states that theoretical justification and identification of the correct asymptotic rule are left for future work."
+      },
+      {
+        "title": "Stationary distribution and exponential ergodicity of a reflected diffusion with fractional drift",
+        "bibtex": "@article{UnknownYearReflectedFractionalDrift,\n  title   = {Stationary distribution and exponential ergodicity of a reflected diffusion with fractional drift},\n  author  = {Unknown},\n  year    = {\\{\\} },\n  note    = {Metadata (authors/year/doi) not provided in the forward-citation summary.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "From the title/abstract only: the paper studies a one-dimensional reflected diffusion on \\([0,\\infty)\\) with a fractional (memory/long-range dependent) drift term, proves exponential ergodicity, and gives an explicit characterization of the stationary distribution (described as a sub-\u2026 likely a subordinator-based representation).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for heavy-traffic staffing asymptotics for Hawkes/GI/1 queues as \\(\\lambda\\to\\infty\\) (e.g., \\(m\\uparrow 1\\)), which typically requires identifying the correct heavy-traffic diffusion (or other) limit for the workload and then optimizing \\(h_0\\,\\mathbb{E}[W_\\infty(\\mu)]+c(\\mu)\\). A reflected diffusion with fractional drift could be relevant if the Hawkes-driven workload, under near-critical self-excitation, converges to a reflected process with non-Markovian/fractional drift; then this paper\u2019s stationary distribution and ergodicity results could help approximate \\(\\mathbb{E}[W_\\infty(\\mu)]\\) and thus staffing. However, based only on the abstract, there is no explicit link to Hawkes queues, no staffing optimization, and no stated scaling for \\(\\mu^*-\\lambda\\)."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.08474725,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.08474725
+    "literature_total_cost_usd": 0.1804775,
+    "total_cost_usd": 0.26522475
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7148364054/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7148364054_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W7148364054_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

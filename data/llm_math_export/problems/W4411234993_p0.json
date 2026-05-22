@@ -46,16 +46,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The Liu--Lin--Xu paper (arXiv:2502.17770v2; extended arXiv:2307.07605) establishes a lower oracle-complexity bound for Algorithm Class 1 (ORACLE1 access to \\(\\nabla f_0(x)\\), \\(Ax\\), \\(A^\\top z\\), and \\(\\mathrm{prox}_{\\eta g}(x)\\)) on Problem Class 1: there exist instances requiring \\(\\Omega(\\kappa([\\bar A;A])\\,L_f\\,\\Delta F_0\\,\\varepsilon^{-2})\\) oracle calls to reach an \\(\\varepsilon\\)-stationary point. The hard instance is built by splitting a tridiagonal Toeplitz constraint operator \\(H\\) into two parts: one part remains as explicit affine constraints \\(Ax=0\\), while the other is encoded into a nonsmooth term \\(g(x)=\\beta\\sum_{i\\in\\mathcal M}\\|x_i-x_{i+1}\\|_1\\). This construction forces a slow expansion of support in the iterates (a \u201czero-respecting\u201d phenomenon), yielding the \\(\\kappa([\\bar A;A])\\) dependence and showing that nonsmooth regularization can make the affinely constrained problem strictly harder than the smooth case even when \\(\\mathrm{prox}_{\\eta g}\\) is available.\n\nAmong the limited forward-citation evidence provided here, two augmented-Lagrangian-type works offer only partial progress toward the open tightness question for Algorithm Class 1. The linearized augmented Lagrangian method paper proves \\(O(\\varepsilon^{-2})\\) complexity for smooth nonconvex equality-constrained problems and, in the affine case, obtains a condition-number dependence \\(\\kappa_A^2\\) (with \\(\\kappa_A=\\|A\\|/\\sigma_{\\min}(A)\\)), explicitly suggesting that acceleration/extrapolation might reduce this to \\(\\kappa_A\\). The proximal augmented Lagrangian method paper establishes finite \\(\\varepsilon\\)-KKT termination for problems with proximable terms and nonlinear constraints but does not provide worst-case oracle complexity estimates comparable to \\(\\tilde O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\).\n\nAs of the provided citation set, no paper resolves whether an Algorithm Class 1 method can match the Liu--Lin--Xu lower bound up to logarithmic factors for all instances in Problem Class 1. The best-known near-optimality result in the Liu--Lin--Xu line is for Algorithm Class 2 (splitting reformulation with ORACLE2), where an inexact proximal-gradient-type method achieves \\(\\tilde O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) under additional assumptions (e.g., full row rank of \\([\\bar A;A]\\) and Lipschitz \\(\\bar g\\)). Bridging the gap for Algorithm Class 1 likely requires new acceleration mechanisms that exploit \\(\\mathrm{prox}_{\\eta g}\\) while controlling feasibility \\(\\|Ax+b\\|\\) without incurring extra \\(\\kappa\\) factors, or alternatively a refined lower bound showing that ORACLE1 intrinsically cannot attain the \\(\\kappa([\\bar A;A])\\) scaling in the worst case.",
+    "total_cost_usd": 0.30159535000000004,
+    "citations_analyzed": 3,
+    "sources": [
+      {
+        "title": "Complexity of a linearized augmented Lagrangian method for nonconvex minimization with nonlinear equality constraints",
+        "bibtex": "@article{UnknownComplexityLinearizedALMNonconvexNonlinearEq,\n  title        = {Complexity of a linearized augmented Lagrangian method for nonconvex minimization with nonlinear equality constraints},\n  author       = {Unknown},\n  year         = {\\{\\} },\n  note         = {Forward-citation metadata incomplete in provided analysis (authors/year/venue/DOI not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proposes a Linearized Augmented Lagrangian (L-AL) method for smooth nonconvex problems with nonlinear equality constraints \\(\\min_x f(x)\\ \\text{s.t. }F(x)=0\\). Under local smoothness and LICQ-type assumptions plus a dynamic regularization rule, it proves global convergence to KKT points and an iteration complexity of \\(K=O(\\sqrt{\\rho}\\,\\varepsilon^{-2})\\) Jacobian evaluations to obtain an \\(\\varepsilon\\)-first-order solution (Theorem 3). In the affine-constraint special case \\(F(x)=Ax-b\\) with full row rank \\(A\\), it derives \\(K=O(\\kappa_A^2 L_f (\\bar P-\\underline P)\\,\\varepsilon^{-2})\\) matrix\u2013vector multiplications with \\(A,A^T\\), where \\(\\kappa_A=\\|A\\|/\\sigma_{\\min}(A)\\) (Corollary 1), and notes that achieving \\(\\kappa_A\\) dependence may require acceleration/extrapolation (Remark 6).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for an Algorithm Class 1 method (oracle: \\(\\nabla f_0(x),Ax,A^Tz,\\mathrm{prox}_{\\eta g}(x)\\)) for affinely constrained composite nonconvex problems \\(f_0+g\\) with \\(g(x)=\\bar g(\\bar A x+\\bar b)\\), matching the lower bound \\(\\tilde O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\). This citing paper studies a different setting: smooth objective \\(f\\) and (generally nonlinear) equality constraints \\(F(x)=0\\), with no nonsmooth composite term \\(g\\) and no proximal-oracle model. Its complexity is measured in Jacobian evaluations and, in the affine case, yields \\(\\kappa_A^2\\) dependence rather than the desired \\(\\kappa([\\bar A;A])\\) (and it explicitly conjectures that extrapolation might reduce \\(\\kappa_A^2\\) to \\(\\kappa_A\\)). Thus it does not resolve the tightness question for Algorithm Class 1, but provides related augmented-Lagrangian/linearization techniques and a complexity result in a neighboring (smooth) constrained model."
+      },
+      {
+        "title": "A proximal augmented Lagrangian method for nonconvex optimization with equality and inequality constraints",
+        "bibtex": "@article{UnknownProximalALMNonconvexEqIneq,\n  title        = {A proximal augmented Lagrangian method for nonconvex optimization with equality and inequality constraints},\n  author       = {Unknown},\n  year         = {\\{\\} },\n  note         = {Forward-citation metadata incomplete in provided analysis (authors/year/venue/DOI not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proposes an inexact proximal augmented Lagrangian method (P-BALM) for nonconvex problems with equality/inequality constraints and a proximable convex term. Under Assumptions I\u2013II (including existence of an initial feasible point), Theorem 3.1 shows finite termination at an \\(\\varepsilon\\)-KKT point: for any \\(\\varepsilon>\\tau\\), after finitely many outer iterations there exists \\((x,\\lambda,\\mu)\\) with \\(\\|x-\\mathrm{prox}_{f_2}(x-\\nabla_x L(x,\\lambda,\\mu))\\|_\\infty\\le \\varepsilon\\), \\(\\|h(x)\\|_\\infty\\le \\varepsilon\\), \\(\\|\\max\\{0,g(x)\\}\\|_\\infty\\le \\varepsilon\\), and approximate complementarity (via \\(E_k\\)).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a tight (up to logs) oracle complexity upper bound \\(\\tilde O(\\kappa([\\bar A;A])L_f\\Delta F_0\\varepsilon^{-2})\\) for Algorithm Class 1 (oracle access to \\(\\nabla f_0\\), \\(Ax\\), \\(A^\\top z\\), \\(\\mathrm{prox}_{\\eta g}\\)) on affinely constrained composite nonconvex problems. This paper studies (proximal) augmented Lagrangian methods for a broader nonlinear-constraint model and proves finite \\(\\varepsilon\\)-KKT termination, but it does not provide a worst-case oracle/iteration complexity bound in terms of \\(L_f,\\Delta F_0,\\kappa([\\bar A;A])\\) and \\(\\varepsilon\\), nor does it specialize to the Algorithm Class 1 oracle model or match the \\(\\varepsilon^{-2}\\) lower bound. The authors explicitly list \u201cdevelopment of iteration complexity estimates\u201d as future work."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0870975,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0870975
+    "literature_total_cost_usd": 0.30159535000000004,
+    "total_cost_usd": 0.38869285000000003
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4411234993/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4411234993_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4411234993_p0",
+    "citations_analyzed": 3,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

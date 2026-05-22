@@ -46,16 +46,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "In De Angelis\u2013Gensbittel\u2013Villeneuve (2025), the asymmetric-endowment equilibrium for \n\na) poorer firm using a pure control (the classical reflection-at-\\(a_0\\) dividend policy \\(\\xi^0\\)) and \n\nb) richer firm using a pure feedback strategy \\(\\Psi^*\\) that depends on the opponent\u2019s dividend path via the induced state \\(X^*\\),\n\nis constructed by solving a coupled free-boundary/variational system in \\((x,z)\\)-coordinates with \\(z=y-x\\). The paper explicitly leaves open the reversed-role configuration: an equilibrium in which the richer firm commits to a control (i.e., a strategy independent of the opponent\u2019s dividend path) while the poorer firm uses a (possibly randomized) strategy reacting to the richer firm\u2019s dividends.\n\nThe only forward-citing work provided, \u201cSplitting infinity: a de Finetti game with state-dependent profit rates and singular control for diffusions,\u201d develops verification and construction methods for Markovian Nash equilibria in a different class of de Finetti-type games where both players exert singular control on a single common diffusion. While its techniques (verification for singular-control equilibria, handling reflection/local-time type controls) are conceptually adjacent, it does not engage with the two-dimensional asymmetric dividend-competition structure, the duopoly-to-monopoly switching payoff \\(\\hat v\\), or the strategy/control asymmetry central to the open problem.\n\nGiven the current forward-citation evidence, there is no published resolution of the role-reversal equilibrium question. Progress likely requires either (i) a new fixed-point/verification framework for equilibria mixing open-loop singular controls with feedback strategies in two-dimensional state spaces with absorption and regime-switching continuation values, or (ii) a counterexample showing nonexistence under the paper\u2019s admissibility/control-inducing requirements. At present, the problem should be regarded as open.",
+    "total_cost_usd": 0.27964475,
+    "citations_analyzed": 3,
+    "sources": [
+      {
+        "title": "Splitting infinity: a de Finetti game with state-dependent profit rates and singular control for diffusions",
+        "bibtex": "@article{Unknown_SplittingInfinityDeFinettiGame,\n  title        = {Splitting infinity: a de Finetti game with state-dependent profit rates and singular control for diffusions},\n  author       = {},\n  year         = {\\noop{????}},\n  note         = {Forward-citation metadata incomplete (authors/year/venue/DOI not provided in the citation analysis).}\n}\n",
+        "source_url": "Unknown (not provided in forward-citation analysis)",
+        "theorem_or_result": "The paper proves existence and verification of symmetric global Markovian Nash equilibria for a two-player de Finetti-type extraction game where both players apply singular control to a common one-dimensional diffusion absorbed at 0. In particular, under Assumptions 1\u20132 it constructs threshold-type equilibria where each player uses the same state-dependent extraction rate \\(\\lambda_b^*(x)\\) (and possibly skew-point local-time control at finitely many discontinuities of a profit rate \\(g\\)), yielding an equilibrium value \\(V_b\\) given by (11) for \\(g\\equiv 1\\) and by (19) for general \\(g\\). It also exhibits a bang-bang equilibrium with reflection at \\(\\ell\\) and initial jumps to \\(\\ell\\) in a special profit-rate case (Theorem 5.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns an asymmetric two-firm dividend competition model with separate reserve processes \\((X_t,Y_t)\\) driven by a common Brownian motion, with duopoly-to-monopoly switching at default, and an equilibrium concept based on (possibly randomized) feedback strategies where one player may use a strategy depending on the opponent\u2019s past dividends while the other uses an open-loop control. The citing paper studies a different game: both players control a single common state process \\(X_t\\) (resource level) via Markov (state-feedback) singular controls (rates, jumps, local-time/skew points). It does not address asymmetric initial endowments, separate states, default-triggered regime switching, or the mixed control/strategy role reversal in the sense of De Angelis\u2013Gensbittel\u2013Villeneuve. Thus it neither proves nor disproves existence of an equilibrium where the richer firm uses a control and the poorer firm uses a strategy in the dividend-competition model. At most, it provides techniques (verification for singular-control Nash equilibria; handling simultaneous jumps/local time; Markov perfect equilibrium construction) that could be conceptually relevant."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.1122695,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.1122695
+    "literature_total_cost_usd": 0.27964475,
+    "total_cost_usd": 0.39191425
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414449781/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4414449781_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4414449781_p0",
+    "citations_analyzed": 3,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

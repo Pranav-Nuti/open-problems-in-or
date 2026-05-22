@@ -46,16 +46,50 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "The source paper (Giannakopoulos--Grosz--Melissourgos, 2025) develops a general black-box theorem (via \\((\\lambda,\\beta,\\mu)\\)-separability) that yields polynomial expected convergence of exact local search under \\(\\phi\\)-smooth independent perturbations, and it instantiates this for exact PNE computation in congestion games only under structural restrictions (notably \\(B\\)-restrained games and certain compact network congestion games). The open problem asks whether such polynomial smoothed convergence extends to unrestricted congestion games under the same perturbation models (general explicit latencies, bounded-degree polynomials, and step functions with perturbed jump sizes).\n\nForward-citation evidence currently provides strong progress only for approximate equilibria: Giannakopoulos (EC 2024) proves a smoothed FPTAS in which \\((1+\\varepsilon)\\)-improving dynamics reach a \\((1+\\varepsilon)\\)-approximate PNE in expected strongly polynomially many steps, with bounds polynomial in \\(\\phi\\), the input size, and \\(1/\\varepsilon\\), and covering precisely the three latency representations considered in the open problem. However, the dependence on \\(1/\\varepsilon\\) leaves open the exact case \\(\\varepsilon=0\\), where arbitrarily small potential drops could in principle lead to superpolynomial paths.\n\nA separate line of work on smoothed local search lower bounds (e.g., superpolynomial smoothed complexity for 3-FLIP Max-Cut) indicates that even under i.i.d. continuous perturbations, improvement dynamics for some PLS problems can admit superpolynomial-length improving sequences. While not directly transferable to Rosenthal-potential better responses in congestion games, it motivates investigating whether unrestricted congestion games admit analogous constructions, or whether additional structure (like bounded \\(B\\) in the source paper) is necessary and essentially tight for polynomial smoothed convergence of exact better-response dynamics.",
+    "total_cost_usd": 0.5371457,
+    "citations_analyzed": 7,
+    "sources": [
+      {
+        "title": "A smoothed FPTAS for equilibria in congestion games",
+        "bibtex": "@inproceedings{Giannakopoulos2024SmoothedFPTAS,\n  author    = {Yiannis Giannakopoulos},\n  title     = {A Smoothed {FPTAS} for Equilibria in Congestion Games},\n  booktitle = {Proceedings of the 25th {ACM} Conference on Economics and Computation (EC)},\n  year      = {2024},\n  pages     = {401--413},\n  doi       = {10.1145/3670865.3673615},\n  url       = {https://doi.org/10.1145/3670865.3673615}\n}",
+        "source_url": "https://doi.org/10.1145/3670865.3673615",
+        "theorem_or_result": "The paper proves smoothed strongly polynomial convergence of approximate better-response dynamics: in a \\(\\phi\\)-smooth congestion game (independent perturbations with densities \\(\\le \\phi\\)), any sequence of \\((1+\\varepsilon)\\)-improving moves reaches a \\((1+\\varepsilon)\\)-approximate pure Nash equilibrium after an expected number of steps polynomial in \\(1/\\varepsilon\\), \\(\\phi\\), and the input size. Concretely, for general congestion games with costs \\(c_r(\\ell)\\in[0,1]\\) i.i.d. \\(\\phi\\)-smooth, \\(\\mathbb{E}[T]=\\tilde O(\\varepsilon^{-1}\\phi n^2 m^3)\\); for step-function costs with total \\(d\\) breakpoints, \\(\\mathbb{E}[T]=\\tilde O(\\varepsilon^{-1}\\phi n m d^2)\\); for polynomial costs of constant degree \\(d\\) with perturbed nonzero coefficients, \\(\\mathbb{E}[T]=\\tilde O(\\varepsilon^{-1}\\phi n^{d+1} m^3)\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks for the smoothed complexity of reaching an exact PNE via (exact) better-response dynamics in unrestricted congestion games under several perturbation models (general, polynomial, step-function). This paper does not settle the exact-PNE question, but gives strong partial progress: it establishes polynomial (in \\(\\phi\\) and input size) expected convergence time for \\((1+\\varepsilon)\\)-better-response dynamics to a \\((1+\\varepsilon)\\)-approximate PNE, and it covers the same three perturbation/representation models (general costs perturbed per load, step-function jump sizes perturbed with adversarial breakpoints, and polynomial costs with perturbed coefficients). Thus it resolves the smoothed complexity for approximate equilibria, showing that the exponential worst-case behavior is fragile under smoothing, but leaves open whether \\(\\varepsilon=0\\) (exact improvements / exact PNE) also yields smoothed polynomial convergence or whether a superpolynomial lower bound persists."
+      },
+      {
+        "title": "Superpolynomial smoothed complexity of 3-FLIP in Local Max-Cut",
+        "bibtex": "@misc{UnknownSuperpoly3Flip,\n  title        = {Superpolynomial smoothed complexity of 3-FLIP in Local Max-Cut},\n  note         = {Bibliographic metadata not provided in the forward-citation analysis block (authors/year/venue/doi missing).}\n}",
+        "source_url": "",
+        "theorem_or_result": "They prove a superpolynomial smoothed lower bound for local search in Max-Cut with 3-vertex moves. In particular (Theorem 1.1), for all n there exist graphs G with O(n) vertices such that if edge weights are drawn i.i.d. uniformly from an interval [a,b] and the initial cut is uniform random, then with high probability there exist executions of the 3-FLIP algorithm from this initial cut that take \\(2^{\\Omega(\\sqrt n)}\\) improving steps. They also give a worst-case (non-smoothed) exponential lower bound for 1-FLIP (Theorem 1.2): graphs of max degree 4 with an initial cut from which the unique improving 1-FLIP execution to a local optimum has length \\(\\Omega(2^n)\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether better-response dynamics in (unrestricted) congestion games has polynomial smoothed complexity under standard perturbation models, or whether superpolynomial lower bounds occur. This paper does not study congestion games or Rosenthal potential directly; it studies local search for Max-Cut (a different PLS problem) under smoothed edge-weight perturbations. However, Max-Cut local optima correspond to pure Nash equilibria of party-affiliation / cut games (a special class of potential games), so the paper provides evidence that smoothed analysis can still allow superpolynomial improvement paths for certain local-search neighborhoods (3-FLIP). It suggests that, analogously, in potential games one may need structural restrictions (e.g., neighborhood/pivot rules) to obtain polynomial smoothed convergence, but it neither proves nor refutes polynomial smoothed convergence for better responses in general congestion games under the latency-perturbation models stated."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.12766775,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.12766775
+    "literature_total_cost_usd": 0.5371457,
+    "total_cost_usd": 0.6648134499999999
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414408152/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4414408152_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4414408152_p0",
+    "citations_analyzed": 7,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }

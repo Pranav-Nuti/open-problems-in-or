@@ -47,16 +47,41 @@
     "model": null,
     "total_cost_usd": 0.0
   },
-  "literature_review": null,
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper introduces distorted optimal transport on \\(\\mathbb R\\) with objective \\(\\mathbb E_h[c(X,Y)]\\), where \\(\\mathbb E_h\\) is a Choquet (distorted) expectation. It establishes weak duality for super-linear expectations and proves strong duality only for affine costs, emphasizing that nonlinearity of \\(\\mathbb E_h\\) breaks the usual separability and makes the standard Kantorovich dual \\(\\sup_{\\varphi+\\psi\\le c}(\\mathbb E_h[\\varphi(X)]+\\mathbb E_h[\\psi(Y)])\\) hard to justify beyond trivial cases.\n\nAmong the limited forward-citation evidence provided, the only citing work develops a different nonlinear OT variant (quadratic-form OT) under linear expectation. Its relevance is mainly methodological: it notes that a specific quadratic-form OT objective can be rewritten as a distorted OT objective for a particular distortion, hinting that some nonlinear OT problems may admit distortion representations. However, it does not develop a duality theory for distorted expectations nor provide conditions on \\(h\\) and \\(c\\) ensuring strong duality.\n\nGiven the current citation set, there is no known resolution of strong duality beyond affine costs. Promising directions suggested by the source paper\u2019s techniques include exploiting robust representations of \\(\\mathbb E_h\\) (as inf/sup of linear expectations when \\(h\\) is convex/concave) to derive min\u2013max formulations, and identifying cost classes for which the Choquet integral interacts well with \\(c\\)-transforms (e.g. monotone sub/supermodular costs on \\(\\mathbb R\\), or costs inducing comonotone additivity). Establishing strong duality likely requires additional structural assumptions ensuring an interchange of \\(\\inf\\) over couplings and \\(\\sup\\) over representing measures/potentials, or a modified dual problem adapted to the non-additivity of \\(\\mathbb E_h\\).",
+    "total_cost_usd": 0.18350675,
+    "citations_analyzed": 3,
+    "sources": [
+      {
+        "title": "Quadratic-form optimal transport: R. Wang, Z. Zhang",
+        "bibtex": "@article{WangZhang2025QuadraticFormOT,\n  title        = {Quadratic-form optimal transport},\n  author       = {Wang, R. and Zhang, Z.},\n  journal      = {Mathematical Programming},\n  year         = {2025},\n  doi          = {10.1007/s10107-025-02282-5},\n  url          = {https://doi.org/10.1007/s10107-025-02282-5}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-025-02282-5",
+        "theorem_or_result": "The paper develops \u201cquadratic-form optimal transport\u201d (QOT): for marginals \\(\\mu,\\nu\\) it minimizes \\(\\iint c(x,y,x',y')\\,d\\pi(x,y)d\\pi(x',y')\\) over couplings \\(\\pi\\in\\Pi(\\mu,\\nu)\\). It proves existence of minimizers under l.s.c. costs (Proposition 4.4), gives sufficient conditions for convexity of the QOT objective when \\(c\\) is a bounded continuous positive definite kernel (Proposition 4.1), and provides explicit minimizers (comonotone/antimonotone, V-transport, diamond transport) for several classes of 4-variate costs, e.g. for the rectangular cost \\(c(x,y,x',y')=|(x-x')(y-y')|\\) the unique minimizer is the diamond transport (Theorem 6.2).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns strong Kantorovich-type duality for *distorted* optimal transport with Choquet (distorted) expectation \\(\\mathbb E_h\\) and 2-variate cost \\(c(x,y)\\). This citing paper studies a different nonlinear OT variant (QOT) where the objective is quadratic in the coupling \\(\\pi\\) (linear in \\(\\pi\\otimes\\pi\\)) and uses the standard linear expectation. It does not address Choquet/distorted expectations, nor does it establish a dual formulation of the form \\(\\sup_{\\varphi+\\psi\\le c}(\\mathbb E_h[\\varphi(X)]+\\mathbb E_h[\\psi(Y)])\\). The only direct link is a remark (Example 5.5(iii)) observing that for a particular QOT cost involving \\(\\max\\{|X-Y|,|X'-Y'|\\}\\), the resulting QOT objective can be written as a distorted OT objective with distortion \\(\\eta(t)=1-(1-t)^2\\) applied to the classic cost \\(\\tilde c(x,y)=|x-y|\\); however no duality theory is developed from this observation."
+      }
+    ]
+  },
   "costs": {
     "extractor_total_cost_usd": 0.0634865,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0,
-    "total_cost_usd": 0.0634865
+    "literature_total_cost_usd": 0.18350675,
+    "total_cost_usd": 0.24699325
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4412630514/problems.json",
     "verification_source": null,
-    "literature_source": null
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4412630514_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4412630514_p0",
+    "citations_analyzed": 3,
+    "is_open": true,
+    "model": "gpt-5.2"
   }
 }
