@@ -352,6 +352,89 @@
       return String(value).split("{").join("").split("}").join("");
     }
 
+    function _bibtexYearIsValid(yearRaw) {
+      const year = _cleanBibtexText(yearRaw).trim();
+      if (!year) {
+        return false;
+      }
+      return /^\d{4}$/.test(year);
+    }
+
+    function _bibtexAuthorsAreValid(authorRaw) {
+      const author = _cleanBibtexText(authorRaw).trim();
+      if (!author) {
+        return false;
+      }
+      return author !== "{}";
+    }
+
+    function _bibtexProseIsReliable(bibtex) {
+      if (!bibtex || !String(bibtex).trim()) {
+        return false;
+      }
+      const authorRaw = _extractBibtexField(bibtex, "author");
+      const yearRaw = _extractBibtexField(bibtex, "year");
+      const titleRaw = _extractBibtexField(bibtex, "title");
+      if (!_bibtexAuthorsAreValid(authorRaw)) {
+        return false;
+      }
+      if (!_bibtexYearIsValid(yearRaw)) {
+        return false;
+      }
+      return Boolean(_cleanBibtexText(titleRaw).trim());
+    }
+
+    function _normalizeDoiUrl(doiOrUrl) {
+      const raw = String(doiOrUrl || "").trim();
+      if (!raw) {
+        return "";
+      }
+      const low = raw.toLowerCase();
+      if (low.startsWith("http://") || low.startsWith("https://")) {
+        return raw;
+      }
+      if (low.startsWith("doi:")) {
+        return `https://doi.org/${raw.slice(4).trim()}`;
+      }
+      return `https://doi.org/${raw}`;
+    }
+
+    function _citationUrl(source) {
+      const direct = String(source?.source_url || "").trim();
+      if (direct) {
+        return direct;
+      }
+      const doi = _extractBibtexField(source?.bibtex || "", "doi");
+      if (!doi) {
+        return "";
+      }
+      return _normalizeDoiUrl(doi);
+    }
+
+    function _citationYear(source) {
+      const yearRaw = _extractBibtexField(source?.bibtex || "", "year");
+      if (_bibtexYearIsValid(yearRaw)) {
+        return _cleanBibtexText(yearRaw).trim();
+      }
+      const pubYear = source?.publication_year;
+      if (pubYear == null) {
+        return "";
+      }
+      const year = String(pubYear).trim();
+      if (/^\d{4}$/.test(year)) {
+        return year;
+      }
+      return "";
+    }
+
+    function _citationTitle(source) {
+      const title = String(source?.title || "").trim();
+      if (title) {
+        return title;
+      }
+      return _cleanBibtexText(_extractBibtexField(source?.bibtex || "", "title")).trim();
+    }
+
     function formatCitationFromBibtex(bibtex) {
       const authorRaw = _extractBibtexField(bibtex, "author");
       const titleRaw = _extractBibtexField(bibtex, "title");
@@ -365,7 +448,7 @@
         .join(", ");
       const titlePart = _cleanBibtexText(titleRaw);
       const venuePart = _cleanBibtexText(venueRaw);
-      const yearPart = _cleanBibtexText(yearRaw);
+      const yearPart = _bibtexYearIsValid(yearRaw) ? _cleanBibtexText(yearRaw).trim() : "";
 
       if (!authorPart && !titlePart && !venuePart && !yearPart) {
         return "Citation unavailable";
@@ -385,6 +468,23 @@
         chunks.push(venuePart);
       }
       return `${chunks.join(". ")}.`;
+    }
+
+    function formatCitationHtml(source) {
+      const bibtex = source?.bibtex || "";
+      if (_bibtexProseIsReliable(bibtex)) {
+        return escapeHtml(formatCitationFromBibtex(bibtex));
+      }
+      const title = _citationTitle(source) || "Untitled";
+      const url = _citationUrl(source);
+      const year = _citationYear(source);
+      let html = url
+        ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+        : escapeHtml(title);
+      if (year) {
+        html += ` <span class="citation-year">(${escapeHtml(year)})</span>`;
+      }
+      return html;
     }
 
     function _parseAuthorListFromBibtex(bibtex) {
@@ -471,8 +571,8 @@
       container.innerHTML = synthesisBlock + review.sources.map((source, idx) => `
         <div class="lit-source-card math-content">
           <div class="lit-source-heading">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
-          <p><strong>Citation</strong><br><span>${escapeHtml(formatCitationFromBibtex(source.bibtex))}</span></p>
-          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button">Copy BibTeX</button>
+          <p><strong>Citation</strong><br><span>${formatCitationHtml(source)}</span></p>
+          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button" ${source.bibtex ? "" : "hidden"}>Copy BibTeX</button>
           <p><strong>Theorem / result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
           <p><strong>Connection</strong><br><span>${escapeHtml(source.connection || "")}</span></p>
         </div>
