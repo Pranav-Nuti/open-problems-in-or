@@ -49,91 +49,37 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
+    "importance": 6,
     "difficulty": 7,
-    "synthesis": "No forward-citation evidence is provided beyond the 2024 source paper, so the convexity/monotonicity question remains open as stated. The source paper develops an exact finite-dimensional LP \\((LP)_{n,p}\\) for \\(\\gamma_n^*(p)\\) and a continuous relaxation \\((CLP)_p\\) for \\(\\gamma_\\infty^*(p)\\), proving monotonicity in the horizon \\(n\\) but only conjecturing that \\(\\gamma_n^*(p)\\) and \\(\\gamma_\\infty^*(p)\\) are decreasing and convex in \\(p\\). It establishes sharp structure for large \\(p\\): for \\(p\\ge p^*\\approx 0.594\\), \\(\\gamma_\\infty^*(p)=p^{p/(1-p)}\\) with an optimal threshold policy that waits until time \\(p^{1/(1-p)}\\) and then offers to the current best-so-far.\n\nExisting classical SP-UA analyses (Smith 1975; Tamaki 1991) clarify how acceptance uncertainty changes optimal stopping rules, and Smith\u2019s asymptotic \\(k=1\\) success probability yields the upper bound \\(\\gamma_\\infty^*(p)\\le p^{p/(1-p)}\\). For small \\(p\\), the best known universal upper bound comes from prophet-inequality impossibility results (Hill\u2013Kertz 1982; Kertz 1986), giving \\(\\gamma_\\infty^*(p)\\le 1/\\beta\\approx 0.745\\); the source paper conjectures this bound is tight as \\(p\\to 0\\). Methodologically, LP/continuous-LP approaches in secretary problems (Buchbinder\u2013Jain\u2013Singh 2014; Chan\u2013Chen\u2013Jiang 2014) and sample-driven stopping (Correa et al. 2024) provide tools that may be adapted to study parameter dependence in \\(p\\), but no published proof of convexity/monotonicity in \\(p\\) is currently identified.",
-    "total_cost_usd": 0.12072375,
-    "citations_analyzed": 0,
+    "synthesis": "The open problem from Perez-Salazar, Singh, and Toriello asks for structural properties of the optimal robust ratio \\(\\gamma_n^*(p)\\) (and its limit \\(\\gamma_\\infty^*(p)\\)) as a function of the homogeneous acceptance probability \\(p\\): specifically, whether it is decreasing and convex on \\((0,1]\\). In the source paper, \\(\\gamma_n^*(p)\\) is characterized exactly by a linear program derived from an MDP polyhedral description of all Markovian policies, and \\(\\gamma_\\infty^*(p)\\) is approximated by a continuous LP. The paper proves several sharp bounds and identifies an exact optimal policy for \\(p\\ge p^*\\approx 0.594\\), where \\(\\gamma_\\infty^*(p)=p^{p/(1-p)}\\), but it only reports empirical evidence (via solving \\((LP)_{n,p}\\) numerically) that \\(\\gamma_n^*(p)\\) appears convex and decreasing; no proof is given.\n\nAmong the forward citations provided, only \u201cProphets Inequalities with Uncertain Acceptance\u201d is available and it is not directly about the robust-ratio secretary objective. It develops structural reductions for prophet inequalities with uncertain acceptance by absorbing acceptance into realized values \\(Z_i=X_iA_i\\), and it discusses that some uncertain-acceptance performance measures can exhibit non-monotone behavior as acceptance probabilities vary. While this does not resolve convexity/monotonicity of \\(\\gamma_n^*(p)\\), it suggests that proving monotonicity may require exploiting the specific normalization by \\(1-(1-p)^k\\) and the LP structure in the secretary setting, rather than relying on generic \u201cmore acceptance helps\u201d intuition.\n\nGiven the current citation set, there is no known solving paper establishing convexity and monotonicity of \\(\\gamma_n^*(p)\\) or \\(\\gamma_\\infty^*(p)\\). The problem therefore remains open. Promising directions include sensitivity/parametric analysis of \\((LP)_{n,p}\\) and \\((CLP)_p\\) with respect to \\(p\\), potentially via dual formulations (where \\(p\\) enters both feasibility and objective normalization) and envelope theorems for piecewise-linear concave value functions; another direction is to attempt to prove monotonicity/convexity first for the continuous relaxation \\(\\gamma_\\infty^*(p)\\) and then transfer to finite \\(n\\) using the quantitative approximation bound \\(|\\gamma_n^* - \\gamma_\\infty^*|\\le O((\\log n)^2/(p\\sqrt n))\\) from the source paper.",
+    "total_cost_usd": 0.50191575,
+    "citations_analyzed": 8,
     "sources": [
       {
-        "title": "A secretary problem with uncertain employment",
-        "bibtex": "@article{Smith1975SecretaryUncertainEmployment,\n  author = {Smith, M. H.},\n  title = {A secretary problem with uncertain employment},\n  journal = {Journal of Applied Probability},\n  year = {1975}\n}\n",
-        "source_url": "https://doi.org/10.2307/3212868",
-        "theorem_or_result": "Studies SP-UA with objective of selecting the best candidate; derives asymptotic success probability \\(p^{1/(1-p)}\\) and corresponding optimal policy structure.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides the \\(k=1\\) benchmark and the upper bound \\(\\gamma_\\infty^*(p)\\le p^{p/(1-p)}\\) used in the source paper; informs how \\(\\gamma_n^*(p)\\) might vary with \\(p\\)."
-      },
-      {
-        "title": "A secretary problem with uncertain employment and best choice of available candidates",
-        "bibtex": "@article{Tamaki1991SecretaryUncertainEmployment,\n  author = {Tamaki, Mitsushi},\n  title = {A secretary problem with uncertain employment and best choice of available candidates},\n  journal = {Operations Research},\n  year = {1991}\n}\n",
-        "source_url": "https://pubsonline.informs.org/doi/10.1287/opre.39.2.274",
-        "theorem_or_result": "Analyzes SP-UA under the objective of selecting the best candidate among those who would accept; provides optimal stopping rules (two models of observability).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Contrasts with the robust-ratio objective; helps contextualize how changing \\(p\\) affects optimal stopping thresholds and may suggest monotonicity/convexity phenomena."
-      },
-      {
-        "title": "Comparisons of stop rule and supremum expectations of iid random variables",
-        "bibtex": "@article{HillKertz1982StopRuleSupremum,\n  author = {Hill, Theodore P. and Kertz, Robert P.},\n  title = {Comparisons of stop rule and supremum expectations of iid random variables},\n  journal = {The Annals of Probability},\n  year = {1982}\n}\n",
-        "source_url": "https://projecteuclid.org/journals/annals-of-probability/volume-10/issue-2/Comparisons-of-stop-rule-and-supremum-expectations-of-iid/10.1214/aop/1176993932.full",
-        "theorem_or_result": "Establishes worst-case gap between prophet and optimal stopping for i.i.d. sequences; introduces constants leading to \\(\\beta\\approx 1.34\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Used in the source paper to upper bound \\(\\gamma_\\infty^*(p)\\le 1/\\beta\\); relates robust ratio behavior as \\(p\\to 0\\) and motivates conjectured limit and shape properties."
-      },
-      {
-        "title": "Stop rule and supremum expectations of iid random variables: a complete comparison by conjugate duality",
-        "bibtex": "@article{Kertz1986StopRuleSupremumDuality,\n  author = {Kertz, Robert P.},\n  title = {Stop rule and supremum expectations of iid random variables: a complete comparison by conjugate duality},\n  journal = {Journal of Multivariate Analysis},\n  year = {1986}\n}\n",
-        "source_url": "https://doi.org/10.1016/0047-259X(86)90008-6",
-        "theorem_or_result": "Characterizes the optimal prophet-inequality constant \\(\\beta\\) via conjugate duality and an integral equation; yields tight bound \\(1/\\beta\\approx 0.745\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides the constant \\(1/\\beta\\) appearing in the upper bound for \\(\\gamma_\\infty^*(p)\\) and informs limiting behavior in \\(p\\)."
-      },
-      {
-        "title": "Secretary problems via linear programming",
-        "bibtex": "@article{BuchbinderJainSingh2014SecretaryLP,\n  author = {Buchbinder, Niv and Jain, Kamal and Singh, Mohit},\n  title = {Secretary problems via linear programming},\n  journal = {Mathematics of Operations Research},\n  year = {2014},\n  doi = {10.1287/moor.2013.0611}\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.2013.0611",
-        "theorem_or_result": "Introduces LP formulations for secretary-type problems and derives optimal/approximate policies via primal-dual reasoning.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Methodological precursor to the MDP-to-LP derivation in the source paper; relevant for understanding structural properties that might imply monotonicity/convexity in parameters."
-      },
-      {
-        "title": "Revealing optimal thresholds for generalized secretary problem via continuous lp: impacts on online k-item auction and bipartite k-matching with random arrival order",
-        "bibtex": "@inproceedings{ChanChenJiang2014ContinuousLPSecretary,\n  author = {Chan, T. H. Hubert and Chen, Fei and Jiang, Shaofeng H.-C.},\n  title = {Revealing optimal thresholds for generalized secretary problem via continuous LP: impacts on online k-item auction and bipartite k-matching with random arrival order},\n  booktitle = {Proceedings of the Twenty-Sixth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2014}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973402.86",
-        "theorem_or_result": "Develops continuous LP limits for generalized secretary problems and extracts optimal threshold structures.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Provides techniques for passing from finite \\((LP)_{n,p}\\) to continuous relaxations and analyzing parameter dependence, potentially useful for proving convexity/monotonicity in \\(p\\)."
-      },
-      {
-        "title": "Sample-driven optimal stopping: From the secretary problem to the iid prophet inequality",
-        "bibtex": "@article{CorreaCristiEpsteinSoto2024SampleDriven,\n  author = {Correa, Jose and Cristi, Andres and Epstein, Boris and Soto, Jose A.},\n  title = {Sample-driven optimal stopping: From the secretary problem to the iid prophet inequality},\n  journal = {Mathematics of Operations Research},\n  year = {2024},\n  doi = {10.1287/moor.2022.0126}\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.2022.0126",
-        "theorem_or_result": "Studies secretary/optimal stopping with independent sampling; derives continuous LP characterizations and shows performance limits approaching prophet-inequality constants.",
+        "title": "Prophets Inequalities with Uncertain Acceptance",
+        "bibtex": "@article{ProphetsInequalitiesUncertainAcceptance,\n  title        = {Prophets Inequalities with Uncertain Acceptance},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata (authors/year/venue/doi) not provided in the forward-citation analysis block.},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies prophet inequalities with uncertain acceptance (PI-UA), where each option has value \\(X_i\\) and acceptance indicator \\(A_i\\). Key structural result (Theorem 3.1): for \\(Z_i:=X_iA_i\\), the optimal online value in PI-UA equals the optimal online value in the classical prophet inequality instance \\((Z_1,\\dots,Z_n)\\), i.e. \\(DP(Y_1,\\dots,Y_n)=ON(Z_1,\\dots,Z_n)\\). It also proves a bound for scaled Bernoulli prophet instances (Theorem 4.2): if \\(X_i=\\lambda_i\\mathrm{Ber}(p_i)\\) with fixed \\(\\lambda_i\\ge 0\\), \\(p_i\\in(0,1)\\), then \\(ON(\\mathcal I)/OPT(\\mathcal I)\\ge \\tfrac12-\\min_i p_i\\), tight and achievable by a single-threshold algorithm.",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "The source paper conjectures \\(\\lim_{p\\to 0}\\gamma_\\infty^*(p)=1/\\beta\\) and notes similarity to independent-sampling models; methods may help analyze shape (convexity/monotonicity) in sampling/acceptance parameters."
+        "relevance_score": 3,
+        "connection": "The open problem concerns the secretary problem with uncertain acceptance (SP-UA) and asks whether the optimal robust ratio \\(\\gamma_n^*(p)\\) (a worst-case-over-\\(k\\) probability ratio normalized by \\(1-(1-p)^k\\)) is convex and decreasing in the homogeneous acceptance probability \\(p\\). This paper instead analyzes expected-value competitive ratios in a prophet-inequality model with uncertain acceptance, with generally heterogeneous \\(p_i\\) and distributional values. It does not define or study \\(\\gamma_n^*(p)\\), nor does it prove convexity/monotonicity in \\(p\\) for the secretary robust-ratio objective. The only tangential link is conceptual: it highlights that some performance measures in uncertain-acceptance online selection can exhibit non-monotonic behavior in acceptance likelihood (Section 6.2), which suggests monotonicity/convexity questions can be subtle, but it provides no direct result for \\(\\gamma_n^*(p)\\)."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.099995,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.12072375,
-    "total_cost_usd": 0.22071875000000002
+    "literature_total_cost_usd": 0.50191575,
+    "total_cost_usd": 0.60191075
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3216294154/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3216294154_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3216294154_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3216294154_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 8,
     "is_open": true,
     "model": "gpt-5.2"
   }

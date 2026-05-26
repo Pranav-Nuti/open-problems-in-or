@@ -51,89 +51,53 @@
     "model": "gpt-5.2",
     "importance": 8,
     "difficulty": 8,
-    "synthesis": "The open problem asks for an OTD-based algorithm for long-horizon nonlinear dynamic programs that is globally convergent from arbitrary initialization to a KKT point, including explicit subproblem parameterization, composition, and a globalization mechanism. The paper \"A Fast Temporal Decomposition Procedure for Long-horizon Nonlinear Dynamic Programming\" provides such an algorithm (FOTD) by embedding overlapping temporal decomposition into an SQP framework. The key design choice is to apply OTD not to the original nonlinear subproblems solved to optimality (as in the overlapping Schwarz scheme), but to the linear-quadratic dynamic program that represents the SQP/Newton step. Subproblems are posed on extended intervals with overlap \\(b\\), with a terminal quadratic penalty \\(\\mu\\) to ensure well-posedness, and are solved in parallel; their exclusive parts are composed to form an inexact Newton direction.\n\nGlobalization is achieved via a differentiable exact augmented Lagrangian merit function \\(\\mathcal L_\\eta(z,\\lambda)\\) and an Armijo line search. Using exponential decay of sensitivity for dynamic programs, the inexact Newton direction produced by OTD is shown to satisfy a relative error bound \\(\\|(\\tilde\\Delta z-\\Delta z,\\tilde\\Delta\\lambda-\\Delta\\lambda)\\|\\le C\\rho^b\\|(\\Delta z,\\Delta\\lambda)\\|\\). With \\(b\\) large enough (so \\(\\delta=C\\rho^b\\) is small) and penalty parameters \\(\\eta_1,\\eta_2\\) chosen to make the direction a descent direction for \\(\\mathcal L_\\eta\\), global convergence to stationarity of the KKT system follows, hence convergence to a KKT point under standard constraint qualification and second-order conditions. Locally, the method accepts unit steps and achieves uniform linear convergence with rate \\(C\\rho^b\\), matching the earlier local theory for the overlapping Schwarz method while avoiding repeated nonlinear subproblem solves.\n\nThe broader literature supplies the two pillars used in this solution: (i) exponential decay of primal-dual sensitivity in nonlinear dynamic programming, which explains why overlap controls interface inconsistency; and (ii) globally convergent SQP/Newton globalization mechanisms based on exact differentiable augmented Lagrangians or related merit/filter strategies. Remaining gaps are largely practical/engineering rather than theoretical: reducing the need for separate Hessian-modification and subproblem factorizations, extending the theory cleanly to inequality constraints and active-set identification, and exploring trust-region or filter globalizations within the same OTD-inexact-Newton framework.",
-    "total_cost_usd": 0.1391495,
-    "citations_analyzed": 0,
+    "synthesis": "The open problem posed in the introduction of Na\u2013Anitescu\u2013Kolar asks for an overlapping temporal decomposition (OTD) method that is globally convergent for long-horizon nonlinear equality-constrained dynamic programs, i.e., converges from arbitrary initialization to a KKT point while coordinating overlapping subproblem solves so that knot compatibility is enforced in the limit. This is solved by the paper \u201cA Fast Temporal Decomposition Procedure for Long-horizon Nonlinear Dynamic Programming\u201d, which introduces FOTD: an SQP framework using the differentiable exact augmented Lagrangian \\(L_\\eta(z,\\lambda)\\) as a merit function and Armijo line search, while approximating each SQP Newton system via OTD on linear-quadratic subproblems over extended intervals with overlap \\(b\\). The key technical step is proving that the OTD-approximated Newton direction remains a descent direction for \\(L_\\eta\\) when \\(b\\) and penalty parameters are chosen so the relative direction error \\(\\delta\\) is small (with \\(\\delta\\sim C\\rho^b\\)), yielding global convergence of the KKT residual \\(\\|\\nabla L(z^\\tau,\\lambda^\\tau)\\|\\to 0\\).\n\nThis development builds on earlier OTD/Schwarz work that established exponential decay of sensitivity and local linear contraction but lacked a globalization mechanism. In particular, \u201cOn the convergence of overlapping Schwarz decomposition for nonlinear optimal control\u201d proves uniform local linear convergence of a nonlinear overlapping Schwarz iteration (solving nonlinear subproblems to optimality) under sensitivity-decay assumptions, while also highlighting that naive composition can fail globally because KKT compatibility across knots need not hold. The sensitivity foundation is provided by \u201cExponential decay in the sensitivity analysis of nonlinear dynamic programming\u201d, which shows that primal-dual perturbation effects decay like \\(C\\rho^{\\text{distance}}\\) under reduced-Hessian lower bounds, controllability, and boundedness; FOTD leverages this to bound the OTD truncation error in the Newton direction by \\(C\\rho^b\\).\n\nRelated strands include truncation/online methods such as \u201cSuperconvergence of online optimization for model predictive control\u201d, which uses similar decay-of-sensitivity structure to prove exponential interior accuracy for one-Newton-step receding-horizon schemes, albeit only locally and without OTD composition. Linear-quadratic precursors such as \u201cExponentially accurate temporal decomposition for long-horizon linear-quadratic dynamic optimization\u201d justify overlap-driven exponential accuracy in convex LQ settings and align with the fact that FOTD\u2019s decomposed subproblems are linear-quadratic Newton systems. Application-driven Schwarz decompositions (e.g., minimum lap-time problems) and general SQP globalization analyses (e.g., stochastic SQP with augmented-Lagrangian merit functions) provide complementary evidence and tools, but the general globally convergent OTD-based algorithmic template for nonlinear dynamic programs is now provided by FOTD.",
+    "total_cost_usd": 0.32827095,
+    "citations_analyzed": 5,
     "sources": [
       {
-        "title": "A Fast Temporal Decomposition Procedure for Long-horizon Nonlinear Dynamic Programming",
-        "bibtex": "@article{NaAnitescuKolar2023FOTD,\n  title        = {A Fast Temporal Decomposition Procedure for Long-horizon Nonlinear Dynamic Programming},\n  author       = {Na, Sen and Anitescu, Mihai and Kolar, Mladen},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2107.11560},\n  eprint       = {2107.11560},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
-        "source_url": "https://arxiv.org/abs/2107.11560",
-        "theorem_or_result": "Introduces FOTD: an SQP method with an exact augmented Lagrangian merit function and an overlapping temporal decomposition (OTD) approximation of the Newton system. Proves global convergence to KKT points under reduced-Hessian lower bound, controllability, boundedness, and compactness assumptions, with overlap size \\(b\\) and penalty parameters chosen so the inexact direction remains a descent direction. Establishes local acceptance of unit steps and uniform local linear convergence with rate \\(C\\rho^b\\).",
-        "relevance_category": "SOLUTION",
-        "relevance_score": 10,
-        "connection": "Directly answers the open problem by providing an OTD-based algorithm (FOTD) with a globalization mechanism (exact augmented Lagrangian + Armijo line search) and a proof of global convergence to KKT points for long-horizon nonlinear dynamic programs."
-      },
-      {
-        "title": "On the convergence of overlapping Schwarz decomposition for nonlinear optimal control",
-        "bibtex": "@article{NaShinAnitescuZavala2022Schwarz,\n  title   = {On the convergence of overlapping Schwarz decomposition for nonlinear optimal control},\n  author  = {Na, Sen and Shin, Sangwoo and Anitescu, Mihai and Zavala, Victor M.},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2022},\n  doi     = {10.1109/TAC.2022.3194087}\n}\n",
-        "source_url": "https://doi.org/10.1109/TAC.2022.3194087",
-        "theorem_or_result": "Analyzes an overlapping Schwarz (OTD-style) scheme for nonlinear optimal control: subproblems on extended intervals are solved to optimality and composed on exclusive parts. Proves uniform local linear convergence with rate \\((C\\rho^b)^\\tau\\) under controllability and boundedness-type assumptions, but does not provide a global convergence guarantee.",
+        "title": "Optimization and Control for Scalable Modeling and Inference in Dynamical Systems",
+        "bibtex": "@phdthesis{UnknownYearOSDThesis,\\n  title  = {Optimization and Control for Scalable Modeling and Inference in Dynamical Systems},\\n  author = {Unknown},\\n  school = {Unknown},\\n  year   = {????},\\n  url    = {\\n  }\\n}",
+        "source_url": "",
+        "theorem_or_result": "Chapter 5 develops a continuous-time overlapping Schwarz decomposition (OSD) method for linear-quadratic optimal control with time-inhomogeneous linear dynamics, formulated via Pontryagin\u2019s Minimum Principle. The main theoretical claim (as summarized in the abstract/intro) is a convergence guarantee for the Schwarz iteration based on an exponential decay of sensitivity (EDS) property of the associated Hamiltonian system, yielding explicit convergence constants and showing faster convergence with larger overlap size.",
         "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Provides the key local convergence theory and motivates why a globalization mechanism is needed; FOTD builds on this by embedding OTD into SQP with a merit-function line search to obtain global convergence."
+        "relevance_score": 6,
+        "connection": "The open problem asks for an OTD-based globally convergent algorithm for general nonlinear, nonconvex, equality-constrained discrete-time dynamic programs, including a globalization mechanism guaranteeing convergence to a KKT point from arbitrary initialization.\n\nThis dissertation does not provide such a general algorithm. Its closest connection is Chapter 5, which studies an overlapping Schwarz/temporal decomposition scheme (continuous-time, optimize-then-discretize) and proves convergence for a restricted class: linear-quadratic control problems (LQ) with time-varying linear dynamics. This is analogous in spirit to OTD/FOTD methods and supports the idea that overlap plus EDS can yield contraction/convergence, but it does not address nonlinear dynamics/costs, discrete-time KKT systems, or global convergence mechanisms (merit/line search/trust region) for nonconvex problems."
       },
       {
-        "title": "Exponential decay in the sensitivity analysis of nonlinear dynamic programming",
-        "bibtex": "@article{NaAnitescu2020SensitivityDecay,\n  title   = {Exponential decay in the sensitivity analysis of nonlinear dynamic programming},\n  author  = {Na, Sen and Anitescu, Mihai},\n  journal = {SIAM Journal on Optimization},\n  volume  = {30},\n  number  = {2},\n  pages   = {1527--1554},\n  year    = {2020},\n  doi     = {10.1137/19M1265065}\n}\n",
-        "source_url": "https://doi.org/10.1137/19M1265065",
-        "theorem_or_result": "Establishes exponential decay of primal-dual sensitivity for nonlinear dynamic programs under reduced-Hessian positivity, controllability, and boundedness assumptions: perturbations at a stage affect optimal primal/dual variables at distant stages by at most \\(C\\rho^{\\text{distance}}\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Supplies the mathematical mechanism that makes OTD viable: overlap \\(b\\) yields exponentially small interface error \\(O(\\rho^b)\\), enabling both the Schwarz local rate and FOTD\u2019s inexact-Newton error bound used in global convergence."
+        "title": "Schwarz decomposition for parallel minimum lap-time problems: evaluating against ADMM",
+        "bibtex": "@article{Unknown2024SchwarzLapTime,\\n  title   = {Schwarz decomposition for parallel minimum lap-time problems: evaluating against ADMM},\\n  author  = {Unknown},\\n  journal = {Optimization and Control Applications and Methods},\\n  year    = {2024},\\n  doi     = {10.1080/00423114.2024.2407175},\\n  url     = {https://doi.org/10.1080/00423114.2024.2407175}\\n}",
+        "source_url": "https://doi.org/10.1080/00423114.2024.2407175",
+        "theorem_or_result": "From the title/abstract only: the paper proposes and evaluates a Schwarz (overlapping domain/time) decomposition method for solving a parallelized Minimum Lap-Time optimal control problem, and compares its performance against ADMM. No theorem-level global convergence guarantee to a KKT point for general nonlinear dynamic programs is stated in the available abstract.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for an OTD-based algorithm with a globalization mechanism and a proof of global convergence to a KKT point for general long-horizon nonlinear dynamic programs. A Schwarz decomposition is conceptually close to overlapping temporal decomposition (both use overlapping subdomains/subintervals and interface consistency). If the paper formulates MLTP as a long-horizon nonlinear OCP and uses overlapping subproblems with interface variables, it may provide a concrete instantiation of OTD/Schwarz ideas and empirical evidence versus ADMM. However, based on the title/abstract alone, there is no indication of a globally convergent scheme (merit/line-search/trust-region) or a general convergence proof; it appears primarily algorithmic/experimental for a specific application class (MLTP)."
       },
       {
-        "title": "Exponentially accurate temporal decomposition for long-horizon linear-quadratic dynamic optimization",
-        "bibtex": "@article{XuAnitescu2018LQOTD,\n  title   = {Exponentially accurate temporal decomposition for long-horizon linear-quadratic dynamic optimization},\n  author  = {Xu, Wenqing and Anitescu, Mihai},\n  journal = {SIAM Journal on Optimization},\n  volume  = {28},\n  number  = {3},\n  pages   = {2541--2573},\n  year    = {2018},\n  doi     = {10.1137/16M1081993}\n}\n",
-        "source_url": "https://doi.org/10.1137/16M1081993",
-        "theorem_or_result": "For long-horizon linear-quadratic (convex) dynamic optimization, analyzes OTD and proves exponentially accurate recovery of the full-horizon solution from subproblem solutions: stagewise error bounded by \\(C\\rho^b\\) under controllability and boundedness conditions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides foundational OTD theory in the convex LQ setting that inspired later nonlinear Schwarz/FOTD developments; clarifies how overlap controls truncation/interface error."
-      },
-      {
-        "title": "Superconvergence of online optimization for model predictive control",
-        "bibtex": "@article{NaAnitescu2023SuperconvergenceMPC,\n  title   = {Superconvergence of online optimization for model predictive control},\n  author  = {Na, Sen and Anitescu, Mihai},\n  journal = {IEEE Transactions on Automatic Control},\n  volume  = {68},\n  number  = {3},\n  pages   = {1383--1398},\n  year    = {2023},\n  doi     = {10.1109/TAC.2022.3223323}\n}\n",
-        "source_url": "https://doi.org/10.1109/TAC.2022.3223323",
-        "theorem_or_result": "Studies online optimization/MPC and proves superconvergence properties leveraging decay of sensitivity and structured KKT systems; provides technical tools on KKT inverse decay and perturbation propagation in dynamic optimization.",
+        "title": "Asymptotic convergence rate and statistical inference for stochastic sequential quadratic programming",
+        "bibtex": "@article{UnknownYearStoSQPInference,\\n  title   = {Asymptotic convergence rate and statistical inference for stochastic sequential quadratic programming},\\n  author  = {Unknown},\\n  journal = {Unknown},\\n  year    = {????}\\n}",
+        "source_url": "",
+        "theorem_or_result": "For stochastic equality-constrained nonlinear programs \\(\\min_x \\mathbb{E}[f(x;\\xi)]\\) s.t. \\(c(x)=0\\), the paper analyzes an adaptive inexact stochastic SQP (AI-StoSQP) method that uses single-sample stochastic gradients/Hessians, randomized sketch-and-project linear solvers for the SQP KKT system, and a random stepsize \\(\\bar\\alpha_t\\in[\\beta_t,\\beta_t+\\chi_t]\\). Under standard smoothness/constraint qualification/bounded-moment assumptions and stepsize conditions, it proves: (i) almost sure convergence of the KKT residual \\(\\|\\nabla L(x_t,\\lambda_t)\\|\\to 0\\) (Theorem 3.7); (ii) local last-iterate rate \\(\\|(x_t-x^*,\\lambda_t-\\lambda^*)\\|=O(\\sqrt{\\beta_t\\log(1/\\beta_t)})+O(\\chi_t/\\beta_t)\\) assuming convergence to a strict local solution (Theorem 4.8/4.14); and (iii) asymptotic normality \\(\\beta_t^{-1/2}(x_t-x^*,\\lambda_t-\\lambda_t^*)\\Rightarrow \\mathcal N(0,\\Xi^*)\\) with a Berry\u2013Esseen bound and a computable covariance estimator (Theorems 4.11, Lemma 4.12).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "Supplies technical lemmas (e.g., decay structure of KKT inverse) used in analyzing truncated-horizon Newton steps and local error recursions, closely aligned with OTD-based algorithm analysis."
-      },
-      {
-        "title": "Scalable nonlinear programming via exact differentiable penalty functions and trust-region newton methods",
-        "bibtex": "@article{ZavalaAnitescu2014ExactPenaltyTR,\n  title   = {Scalable nonlinear programming via exact differentiable penalty functions and trust-region newton methods},\n  author  = {Zavala, Victor M. and Anitescu, Mihai},\n  journal = {SIAM Journal on Optimization},\n  volume  = {24},\n  number  = {1},\n  pages   = {528--558},\n  year    = {2014},\n  doi     = {10.1137/120888181}\n}\n",
-        "source_url": "https://doi.org/10.1137/120888181",
-        "theorem_or_result": "Develops scalable nonlinear programming methods using exact differentiable penalty/augmented Lagrangian constructions and trust-region Newton steps, with global convergence guarantees under standard assumptions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides broader optimization context and justification for using differentiable exact augmented Lagrangian merit functions (as in FOTD) to globalize Newton/SQP-type methods while retaining good local behavior."
-      },
-      {
-        "title": "Line search filter methods for nonlinear programming: Motivation and global convergence",
-        "bibtex": "@article{WachterBiegler2005FilterGlobal,\n  title   = {Line search filter methods for nonlinear programming: Motivation and global convergence},\n  author  = {W{\\\"a}chter, Andreas and Biegler, Lorenz T.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {16},\n  number  = {1},\n  pages   = {1--31},\n  year    = {2005},\n  doi     = {10.1137/S1052623403426556}\n}\n",
-        "source_url": "https://doi.org/10.1137/S1052623403426556",
-        "theorem_or_result": "Establishes global convergence of filter line-search methods for nonlinear programming, foundational for modern large-scale NLP solvers such as IPOPT.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Represents an alternative globalization mechanism (filter) to the merit-function line search used in FOTD; relevant when considering other globally convergent coordinators for decomposed SQP methods."
+        "relevance_score": 3,
+        "connection": "The open problem asks for an OTD-based (overlapping temporal decomposition) algorithm for long-horizon nonlinear dynamic programs with a globalization mechanism guaranteeing convergence to a KKT point from arbitrary initialization. This paper does not address temporal decomposition, dynamic-program structure, or parallel subproblem composition/compatibility at overlaps. Instead, it provides globalization and convergence theory for a (stochastic) SQP framework for general equality-constrained nonlinear programs, using an augmented-Lagrangian merit function to prove almost sure KKT-residual convergence and giving local rate/CLT results. These results could serve as theoretical tools if one were to build an OTD coordinator that uses SQP/merit-function globalization on the full KKT system or on interface variables, but no such OTD algorithm is designed or analyzed here."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.107576,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1391495,
-    "total_cost_usd": 0.24672550000000001
+    "literature_total_cost_usd": 0.32827095,
+    "total_cost_usd": 0.43584695
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3186007706/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3186007706_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3186007706_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3186007706_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 5,
     "is_open": true,
     "model": "gpt-5.2"
   }

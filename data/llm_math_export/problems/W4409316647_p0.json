@@ -52,89 +52,35 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The open problem asks whether, for \\(n\\ge 1\\) and \\(k\\ge 3\\), there exists a discounted \\(n\\)-state \\(k\\)-action MDP whose policy-improvement DAG (PI-DAG) contains a Hamiltonian directed path, i.e., a policy-iteration trajectory that visits all \\(k^n\\) deterministic stationary policies exactly once via successive policy-improvement steps. The source paper establishes that such Hamiltonian behavior is possible in the 2-state setting for every \\(k\\ge 2\\) (Proposition 2), by explicitly constructing a 2-state \\(k\\)-action discounted MDP and a switching rule that forces PI to traverse all \\(k^2\\) policies. This generalizes the earlier 2-action Hamiltonian construction of Melekopoglou and Condon to multi-action MDPs, but only for \\(n=2\\).\n\nFor \\(n\\ge 3\\) and \\(k\\ge 3\\), no Hamiltonian construction is currently known from the provided material. The strongest general lower bounds on PI trajectory length for multi-action MDPs remain far from \\(k^n\\): Ashutosh et al. give instances with paths of length \\(\\Omega(k^{n/2})\\). On the upper-bound side, a substantial literature (e.g., Mansour--Singh and Scherrer, and later improvements such as Gupta--Kalyanakrishnan) studies how switching rules constrain the maximum possible number of improvements, but these do not resolve whether the PI-DAG of some MDP can realize a full Hamiltonian path when \\(k\\ge 3\\).\n\nA notable contrast is provided by deterministic transitions (DMDPs): Post--Ye show strong polynomiality for a max-gain simplex variant, and the source paper proves exponential-but-sub-\\(k^n\\) upper bounds for all PI variants on DMDPs using a graph-theoretic analysis of cycles/path-cycles. These results suggest that any Hamiltonian phenomenon for \\(k\\ge 3\\) must exploit stochasticity in transitions, as already seen in the 2-state construction. The main gap is therefore to either (i) build an explicit \\(n\\ge 3\\), \\(k\\ge 3\\) stochastic MDP whose PI-DAG admits a Hamiltonian path (perhaps starting with \\(n=k=3\\)), or (ii) prove a structural obstruction showing that Hamiltonian PI paths cannot exist once \\(k\\ge 3\\) and \\(n\\ge 3\\).",
-    "total_cost_usd": 0.1164975,
-    "citations_analyzed": 0,
+    "synthesis": "The open problem asks whether for every \\(n\\ge 1\\) and \\(k\\ge 3\\) there exists a discounted MDP whose policy-improvement DAG (PI-DAG) contains a Hamiltonian directed path, i.e., a strictly improving sequence that visits all \\(k^n\\) deterministic stationary policies exactly once. In the source paper, Goenka et al. explicitly resolve the \\(n=2\\) case positively: Proposition 2 constructs, for each \\(k\\ge 2\\), a 2-state \\(k\\)-action discounted MDP together with a policy-iteration switching rule whose trajectory visits all \\(k^2\\) policies, giving a Hamiltonian PI-DAG path in that special case.\n\nFor \\(n\\ge 3\\) and \\(k\\ge 3\\), the existence of Hamiltonian PI-DAG paths remains open in the material provided. The source paper emphasizes that known lower bounds for multi-action MDPs are far from \\(k^n\\): the best cited lower bound for \\(k\\ge 3\\) is \\(\\Omega(k^{n/2})\\) iterations (from earlier work), and it even arises from deterministic MDP constructions, suggesting that substantially stronger lower-bound constructions are needed in the stochastic setting. The forward-citing work titled \u201cAn improved lower bound on the length of locally-improving policy sequences in MDPs with large action sets\u201d indicates progress on extending these lower bounds when \\(k\\) is large, but without its explicit bound it is unclear whether it approaches the Hamiltonian target \\(k^n\\) or remains exponentially smaller.\n\nOverall, the state of the art is: Hamiltonian PI-DAG paths are known to exist for \\(n=2\\) and all \\(k\\), while for \\(n\\ge 3\\), \\(k\\ge 3\\) the main gap is constructing near-Hamiltonian (or Hamiltonian) monotone policy sequences under local improvement constraints. Promising directions include extending the 2-state Hamiltonian construction to 3 states (as suggested by the source paper), and leveraging large-action-set lower-bound techniques to engineer PI-DAG paths that systematically enumerate policies while maintaining strict improvement at each step.",
+    "total_cost_usd": 0.10644899999999999,
+    "citations_analyzed": 1,
     "sources": [
       {
-        "title": "Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs",
-        "bibtex": "@article{GoenkaEtAl2023UpperBoundsPI,\n  title        = {Upper Bounds for All and Max-Gain Policy Iteration Algorithms on Deterministic MDPs},\n  author       = {Goenka, Ritesh and Gupta, Eashan and Khyalia, Sushil and Agarwal, Pratyush and Wajid, Mulinti Shaik and Kalyanakrishnan, Shivaram},\n  year         = {2023},\n  journal      = {arXiv preprint},\n  eprint       = {2211.15602},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DM},\n  url          = {https://arxiv.org/abs/2211.15602}\n}\n",
-        "source_url": "https://arxiv.org/abs/2211.15602",
-        "theorem_or_result": "Formulates the PI-DAG viewpoint and poses the open question of whether, for \n\\(n\\ge 1\\) and \\(k\\ge 3\\), there exists a discounted \\(n\\)-state \\(k\\)-action MDP whose PI-DAG contains a Hamiltonian directed path visiting all \\(k^n\\) deterministic stationary policies exactly once via policy-improvement steps. Proves existence for \\(n=2\\) and all \\(k\\ge 2\\) (Proposition 2), and gives upper bounds for deterministic MDPs.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "This is the source paper that states the open problem and provides the only known Hamiltonian construction in the 2-state case; it motivates the extension to \\(n\\ge 3\\), \\(k\\ge 3\\)."
-      },
-      {
-        "title": "On the complexity of the policy improvement algorithm for Markov decision processes",
-        "bibtex": "@article{MelekopoglouCondon1994ComplexityPI,\n  title   = {On the complexity of the policy improvement algorithm for Markov decision processes},\n  author  = {Melekopoglou, Mary and Condon, Anne},\n  journal = {ORSA Journal on Computing},\n  volume  = {6},\n  number  = {2},\n  pages   = {188--192},\n  year    = {1994}\n}\n",
-        "source_url": "https://pubsonline.informs.org/journal/ijoc",
-        "theorem_or_result": "Constructs an \\(n\\)-state, 2-action discounted MDP and a policy-iteration switching rule whose trajectory visits all \\(2^n\\) policies, i.e., a Hamiltonian path exists in the PI-DAG for \\(k=2\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Shows Hamiltonian PI paths are possible in the binary-action case, motivating the open question for \\(k\\ge 3\\)."
-      },
-      {
-        "title": "Lower bounds for policy iteration on multi-action MDPs",
-        "bibtex": "@inproceedings{AshutoshEtAl2020LowerBoundsPI,\n  title     = {Lower bounds for policy iteration on multi-action {MDPs}},\n  author    = {Ashutosh, Kumar and Consul, Sarthak and Dedhia, Bhishma and Khirwadkar, Parthasarathi and Shah, Sahil and Kalyanakrishnan, Shivaram},\n  booktitle = {2020 59th IEEE Conference on Decision and Control (CDC)},\n  year      = {2020},\n  pages     = {1744--1749}\n}\n",
-        "source_url": "https://ieeexplore.ieee.org/document/9304450",
-        "theorem_or_result": "Gives exponential lower bounds for policy iteration on multi-action MDPs, constructing instances whose PI-DAG contains directed paths of length \\(\\Omega(k^{n/2})\\).",
+        "title": "An improved lower bound on the length of locally-improving policy sequences in MDPs with large action sets",
+        "bibtex": "@article{UnknownImprovedLowerBoundLocallyImproving,\n  title  = {An improved lower bound on the length of locally-improving policy sequences in MDPs with large action sets},\n  author = {},\n  year   = {\\n.d.},\n  note   = {Metadata incomplete in provided forward-citation analysis (authors/year/venue/doi not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "From the title/abstract only: the paper proves an improved lower bound on the maximum possible length of a locally-improving policy sequence in discounted MDPs when the action set is large (i.e., \n\\[\\max_M \\max_{\\text{locally-improving sequences }\\pi_0\\prec\\pi_1\\prec\\cdots} \\; \\text{length}\\]\n grows at least as some explicit function of \\(|S|=n\\) and \\(|A|=k\\), improving prior bounds). The exact bound and construction are not available from the provided material.",
         "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Provides the best-known general lower bound for \\(k\\ge 3\\), far from Hamiltonian length \\(k^n\\), and highlights the gap the open problem targets."
-      },
-      {
-        "title": "On the complexity of policy iteration",
-        "bibtex": "@inproceedings{MansourSingh1999ComplexityPI,\n  title     = {On the complexity of policy iteration},\n  author    = {Mansour, Yishay and Singh, Satinder},\n  booktitle = {Proceedings of the Fifteenth Conference on Uncertainty in Artificial Intelligence (UAI'99)},\n  year      = {1999},\n  pages     = {401--408},\n  publisher = {Morgan Kaufmann}\n}\n",
-        "source_url": "https://dl.acm.org/doi/proceedings/10.5555/2073796",
-        "theorem_or_result": "Provides upper bounds on iterations for variants of Howard's policy iteration and randomized switching rules, including bounds of order \\(O(k^n/n)\\) for Howard's PI with arbitrary action selection.",
-        "relevance_category": "BACKGROUND",
         "relevance_score": 6,
-        "connection": "Gives baseline worst-case upper bounds for PI trajectories in general MDPs, framing how extreme Hamiltonian-length paths would be."
-      },
-      {
-        "title": "The simplex method is strongly polynomial for deterministic Markov decision processes",
-        "bibtex": "@article{PostYe2015SimplexDMDP,\n  title   = {The simplex method is strongly polynomial for deterministic {Markov} decision processes},\n  author  = {Post, Ian and Ye, Yinyu},\n  journal = {Mathematics of Operations Research},\n  volume  = {40},\n  number  = {4},\n  pages   = {859--868},\n  year    = {2015}\n}\n",
-        "source_url": "https://pubsonline.informs.org/doi/10.1287/moor.2014.0700",
-        "theorem_or_result": "Shows the max-gain simplex (single-switch PI) rule is strongly polynomial on deterministic MDPs by analyzing cycle creation/destruction in the induced graph.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "While about deterministic transitions (DMDPs), it develops cycle-based structural tools that influence later PI-DAG/path analyses and contrasts with the stochastic MDP Hamiltonian-path question."
-      },
-      {
-        "title": "Improved and generalized upper bounds on the complexity of policy iteration",
-        "bibtex": "@inproceedings{Scherrer2013ImprovedPIBounds,\n  title     = {Improved and generalized upper bounds on the complexity of policy iteration},\n  author    = {Scherrer, Bruno},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume    = {26},\n  year      = {2013},\n  pages     = {386--394},\n  publisher = {Curran Associates, Inc.}\n}\n",
-        "source_url": "https://proceedings.neurips.cc/paper/2013/hash/0f49c89d1e7298bb9930789c8ed59d48-Abstract.html",
-        "theorem_or_result": "Derives improved upper bounds on the number of iterations of policy iteration under various switching rules, extending earlier analyses and relating PI to simplex-like pivot rules.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides general upper-bound techniques and context for how long PI trajectories can be, relevant when comparing to potential Hamiltonian-length constructions."
-      },
-      {
-        "title": "Improved strong worst-case upper bounds for MDP planning",
-        "bibtex": "@inproceedings{GuptaKalyanakrishnan2017ImprovedUpperBounds,\n  title     = {Improved strong worst-case upper bounds for {MDP} planning},\n  author    = {Gupta, Anchit and Kalyanakrishnan, Shivaram},\n  booktitle = {Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence (IJCAI'17)},\n  year      = {2017},\n  pages     = {1788--1794},\n  publisher = {AAAI Press}\n}\n",
-        "source_url": "https://www.ijcai.org/proceedings/2017/0248",
-        "theorem_or_result": "Gives improved worst-case upper bounds (in terms of \\(n,k\\)) for certain deterministic PI variants for MDP planning, using batch-switching ideas.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Represents progress on bounding PI trajectory lengths; Hamiltonian PI paths would match the trivial \\(k^n\\) bound, so improved upper bounds constrain which variants could realize Hamiltonian paths."
+        "connection": "The open problem asks whether, for \\(n\\ge 1\\) and \\(k\\ge 3\\), there exists an MDP whose policy-improvement DAG contains a Hamiltonian directed path visiting all \\(k^n\\) policies exactly once via improvement steps. A lower bound on the length of locally-improving policy sequences is directly relevant: any Hamiltonian path would imply a lower bound of \\(k^n\\). If this paper\u2019s improved lower bound approaches \\(k^n\\) (or proves \\(\\Omega(k^n)\\)), it would constitute partial progress toward existence of Hamiltonian PI paths; if it remains substantially smaller (e.g., exponential but \\(<k^n\\)), it still strengthens evidence about how long PI trajectories can be. However, with only title/abstract, it is not possible to tell whether the bound reaches \\(k^n\\) or constructs near-Hamiltonian PI-DAG paths."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.09048025,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1164975,
-    "total_cost_usd": 0.20697775000000002
+    "literature_total_cost_usd": 0.10644899999999999,
+    "total_cost_usd": 0.19692925
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4409316647/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4409316647_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4409316647_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4409316647_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 1,
     "is_open": true,
     "model": "gpt-5.2"
   }

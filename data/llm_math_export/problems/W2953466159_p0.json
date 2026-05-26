@@ -48,87 +48,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 9,
-    "difficulty": 8,
-    "synthesis": "The open problem asks for a polynomial-time algorithm (in fully variable dimensions) that computes at least one competitive utility profile/allocation for divisible chores with additive strictly negative utilities and strictly negative budgets. Br\\^anzei and Sandomirskiy show that when either the number of agents or chores is fixed, one can enumerate all competitive utility profiles by (i) enumerating a rich family of consumption graphs encoding faces of the Pareto frontier via maximal weighted welfare (MWW) graphs, (ii) deriving a candidate utility profile from a graph using explicit path-product formulas, and (iii) certifying competitiveness and recovering an allocation/prices via a max-flow test. Their work highlights that chores equilibria correspond to critical points of Nash social welfare on the Pareto frontier (non-convex, potentially disconnected), unlike the convex Eisenberg--Gale structure for goods.\n\nFor the fully variable case, exact polynomial-time computation of even one equilibrium remains unresolved in the additive, finite-disutility model. Subsequent work has made progress mainly on approximation and on broader models: Boodaghians--Chaudhury--Mehta give polynomial-time algorithms for approximate competitive equilibria for chores, while Chaudhury--Garg--McGlaughlin--Mehta develop combinatorial methods and hardness results in related settings and show NP-hardness of existence when infinite disutilities are permitted. Path-following methods (e.g., Lemke--Howson-type) for mixed manna provide additional algorithmic tools but currently do not yield a proven polynomial-time exact algorithm for additive chores with arbitrary \\(n,m\\). The main gap is thus an exact, dimension-polynomial algorithm that avoids enumerating exponentially many faces/utility profiles yet provably finds one competitive equilibrium.",
-    "total_cost_usd": 0.1112755,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Competitive division of a mixed manna",
-        "bibtex": "@article{BogomolnaiaMoulinSandomirskiyYanovskaya2017MixedManna,\n  title        = {Competitive division of a mixed manna},\n  author       = {Bogomolnaia, Anna and Moulin, Herve and Sandomirskiy, Fedor and Yanovskaya, Elena},\n  journal      = {Econometrica},\n  year         = {2017},\n  volume       = {85},\n  number       = {},\n  pages        = {1847--1871}\n}\n",
-        "source_url": "https://doi.org/10.3982/ECTA13060",
-        "theorem_or_result": "Introduces and studies the competitive rule for mixed manna (goods and bads), proving existence and characterizing competitive allocations for chores as critical points of Nash social welfare on the feasible utility set; establishes fairness (envy-freeness) and efficiency (Pareto optimality) properties.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the foundational equilibrium concept and geometric characterization (critical points of Nash product on the Pareto frontier) that motivates why computing a competitive equilibrium for chores is non-convex and algorithmically challenging."
-      },
-      {
-        "title": "Dividing bads under additive utilities",
-        "bibtex": "@article{BogomolnaiaMoulinSandomirskiyYanovskaya2019Bads,\n  title        = {Dividing bads under additive utilities},\n  author       = {Bogomolnaia, A. and Moulin, H. and Sandomirskiy, F. and Yanovskaya, E.},\n  journal      = {Social Choice and Welfare},\n  year         = {2019},\n  volume       = {52},\n  pages        = {395--417}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s00355-018-1141-8",
-        "theorem_or_result": "Studies competitive division for purely bads with additive utilities; analyzes structure of equilibria (including multiplicity) and provides insights for the two-agent case; shows exponential number of competitive utility profiles can occur when both n and m vary.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Gives key structural properties and lower bounds that frame the open complexity question for variable n and m, and motivates the need for algorithms that find at least one equilibrium without enumerating all profiles."
-      },
-      {
-        "title": "Market equilibria in polynomial time for fixed number of goods or agents",
-        "bibtex": "@inproceedings{DevanurKannan2008FixedGoodsAgents,\n  title        = {Market equilibria in polynomial time for fixed number of goods or agents},\n  author       = {Devanur, Nikhil R. and Kannan, Ravi},\n  booktitle    = {49th Annual IEEE Symposium on Foundations of Computer Science (FOCS)},\n  year         = {2008},\n  pages        = {45--53}\n}\n",
-        "source_url": "https://doi.org/10.1109/FOCS.2008.10",
-        "theorem_or_result": "Gives polynomial-time algorithms for computing market equilibria when the number of goods or agents is fixed, using cell enumeration techniques to handle potentially disconnected equilibrium sets.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides a precedent for fixed-parameter tractability in non-convex/disconnected equilibrium settings and highlights the gap for fully variable dimensions, analogous to the chores equilibrium computation problem."
-      },
-      {
-        "title": "Competitive allocation of a mixed manna",
-        "bibtex": "@inproceedings{ChaudhuryGargMcGlaughlinMehta2021MixedManna,\n  title        = {Competitive allocation of a mixed manna},\n  author       = {Chaudhury, Bhaskar Ray and Garg, Jugal and McGlaughlin, Peter and Mehta, Ruta},\n  booktitle    = {Proceedings of the 2021 ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year         = {2021},\n  pages        = {1405--1424},\n  publisher    = {SIAM}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611976465.84",
-        "theorem_or_result": "Proposes a Lemke\u2013Howson-type path-following algorithm for computing competitive allocations in mixed manna problems under separable piecewise-linear concave utilities; demonstrates practical performance.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Suggests algorithmic approaches (pivoting/path-following) that might be adapted to additive chores, though it does not yield a proven polynomial-time algorithm for the exact additive-chores case with variable n,m."
-      },
-      {
-        "title": "Polynomial time algorithms to find an approximate competitive equilibrium for chores",
-        "bibtex": "@inproceedings{BoodaghiansChaudhuryMehta2022ApproxCEChores,\n  title        = {Polynomial time algorithms to find an approximate competitive equilibrium for chores},\n  author       = {Boodaghians, Shant and Chaudhury, Bhaskar Ray and Mehta, Ruta},\n  booktitle    = {Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year         = {2022},\n  pages        = {2285--2302},\n  publisher    = {SIAM}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611977073.90",
-        "theorem_or_result": "Designs polynomial-time algorithms for computing approximate competitive equilibria for chores (relaxations of exact CE) under additive disutilities, providing provable approximation guarantees.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 8,
-        "connection": "Gives the strongest known polynomial-time guarantees in the fully variable (n,m) regime, but for approximation rather than exact computation of a competitive utility profile/allocation."
-      },
-      {
-        "title": "Competitive equilibrium with chores: Combinatorial algorithm and hardness",
-        "bibtex": "@article{ChaudhuryGargMcGlaughlinMehta2022CEChoresHardness,\n  title        = {Competitive equilibrium with chores: Combinatorial algorithm and hardness},\n  author       = {Chaudhury, Bhaskar Ray and Garg, Jugal and McGlaughlin, Peter and Mehta, Ruta},\n  journal      = {arXiv preprint arXiv:2205.11363},\n  year         = {2022},\n  eprint       = {2205.11363},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2205.11363",
-        "theorem_or_result": "Develops combinatorial algorithms and hardness results for competitive equilibrium with chores in broader models; establishes computational barriers and identifies tractable/approximable regimes.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Clarifies complexity landscape around chores equilibria and provides algorithmic ideas, but does not resolve exact polynomial-time computation for additive chores with finite disutilities when both n and m vary."
-      },
-      {
-        "title": "On the existence of competitive equilibrium with chores",
-        "bibtex": "@inproceedings{ChaudhuryGargMcGlaughlinMehta2022ExistenceCEChores,\n  title        = {On the existence of competitive equilibrium with chores},\n  author       = {Chaudhury, Bhaskar Ray and Garg, Jugal and McGlaughlin, Peter and Mehta, Ruta},\n  booktitle    = {13th Innovations in Theoretical Computer Science Conference (ITCS 2022)},\n  year         = {2022},\n  publisher    = {Schloss Dagstuhl--Leibniz-Zentrum f{\\\"u}r Informatik}\n}\n",
-        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2022/15618/",
-        "theorem_or_result": "Shows that when agents may have infinite disutilities, competitive equilibrium may fail to exist and deciding existence is NP-hard.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Demonstrates that extending the model (allowing infinite disutilities) makes even existence hard, underscoring why the exact polynomial-time computation question is delicate; however the open problem here assumes strictly negative finite values where existence holds."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.08883875,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1112755,
-    "total_cost_usd": 0.20011425
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08883875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2953466159/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2953466159_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W2953466159_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W2953466159_p0",

@@ -52,71 +52,80 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper\u2019s margin-based generalization bounds (Theorems 4\u20135) hinge on a vector-contraction step: bounding the scalar Rademacher complexity of the composed class \\(\\{x\\mapsto \\ell^{\\gamma}_{\\mathrm{SPO}}(f(x),c)\\}\\) by a Lipschitz constant times a multivariate Rademacher complexity \\(\\widehat{\\mathfrak R}_n(\\mathcal H)=\\mathbb E\\sup_{f\\in\\mathcal H}\\frac1n\\sum_i \\sigma_i^\\top f(x_i)\\). They explicitly restrict to the \\(\\ell_2\\) setting because the most general available contraction lemma they know is Maurer\u2019s 2016 inequality, which is Hilbertian in nature. The open problem asks for an extension to a general norm \\(\\|\\cdot\\|\\) (e.g., \\(\\ell_q\\)), ideally yielding \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\le C(\\|\\cdot\\|)L\\,\\widehat{\\mathfrak R}_n(\\mathcal H)\\) or a closely related complexity with an explicit constant.\n\nAs of the information provided here (no forward-citation analyses were supplied), there is no identified paper that resolves this extension in full generality. The natural mathematical pathway is through empirical process theory in Banach spaces: for a general norm, the right constant \\(C(\\|\\cdot\\|)\\) typically depends on geometric parameters of the normed space (or its dual), such as type-2 constants, 2-smoothness/uniform smoothness, or related KhintchineKahane inequalities. Classical references by LedouxTalagrand and Pisier develop the machinery that would be used to derive such norm-dependent contraction/comparison results, and they suggest that for \\(\\ell_q\\) norms one should expect constants scaling like \\(\\sqrt{q-1}\\) (for \\(q\\ge2\\)) or dimension-dependent behavior when the space lacks type 2.\n\nConsequently, the problem remains open in the sense articulated by the source paper: a clean, general-purpose vector-contraction inequality for empirical Rademacher complexity under arbitrary norms, with explicit constants usable in learning-theoretic bounds like Theorem 4, is not currently pinned down by the provided citation set. Promising directions include proving contraction under assumptions such as uniform smoothness of the dual norm, or restricting to norm families (e.g., \\(\\ell_q\\), group norms, Schatten norms) where sharp type/smoothness constants are known, thereby yielding explicit \\(C(\\|\\cdot\\|)\\) suitable for predict-then-optimize generalization analyses.",
-    "total_cost_usd": 0.050688750000000005,
-    "citations_analyzed": 0,
+    "synthesis": "In the NeurIPS 2019 SPO generalization paper, the margin-based bounds for strongly convex feasible regions hinge on showing that the \\(\\gamma\\)-margin SPO loss is Lipschitz in the dual norm \\(\\|\\cdot\\|_*\\) (Theorem 3), and then converting this Lipschitz property into a Rademacher complexity bound via Maurer\u2019s vector-contraction inequality. The authors explicitly restrict the final contraction step to the \\(\\ell_2\\) setting (Theorem 4) because the most general available vector contraction tool they cite (Maurer 2016) is Euclidean; they note only partial analogues for \\(\\ell_\\infty\\) and leave general norms (including \\(\\ell_q\\)) open.\n\nThe forward-citing literature provided here does not resolve this contraction question. Instead, multiple subsequent predict-then-optimize and learning-to-optimize works (e.g., Integrated conditional estimation-optimization; Decision-focused learning with directional gradients; End-to-end learning to warm-start for real-time quadratic optimization; Risk bounds and calibration for a smart predict-then-optimize method) continue to formulate Lipschitzness and stability in \\(\\ell_2\\) precisely so that Maurer\u2019s \\(\\ell_2\\) vector contraction can be applied. This pattern reinforces that a norm-dependent contraction inequality \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\le C(\\|\\cdot\\|)L\\,\\widehat{\\mathfrak R}_n(\\mathcal H)\\) would have immediate impact by allowing analyses to align with the natural geometry of the decision/parameter spaces.\n\nOn the tools side, work on uniform convexity/smoothness of norm balls (Local and global uniform convexity conditions) suggests a plausible route: in Banach-space language, contraction constants typically depend on type/cotype or uniform smoothness parameters of \\((\\mathbb R^d,\\|\\cdot\\|)\\) and its dual. However, none of the cited papers actually prove a Maurer-style vector contraction inequality for general norms or provide explicit constants for \\(\\ell_q\\) beyond the known special cases. Thus, based on the provided forward citations, the problem remains open; promising directions include leveraging Banach-space type/smoothness (especially for \\(\\ell_q\\), Schatten-\\(q\\), and group norms) to obtain explicit \\(C(\\|\\cdot\\|)\\) and identifying the right multivariate complexity notion that matches \\(\\|\\cdot\\|\\) and \\(\\|\\cdot\\|_*\\).",
+    "total_cost_usd": 3.9366617500000003,
+    "citations_analyzed": 74,
     "sources": [
       {
-        "title": "A vector-contraction inequality for Rademacher complexities",
-        "bibtex": "@inproceedings{Maurer2016VectorContraction,\n  author    = {Andreas Maurer},\n  title     = {A vector-contraction inequality for Rademacher complexities},\n  booktitle = {International Conference on Algorithmic Learning Theory (ALT)},\n  year      = {2016},\n  publisher = {Springer},\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-319-46379-7_1",
-        "theorem_or_result": "Proves a general vector-contraction inequality for Lipschitz maps \u0000\\(\\phi:\\mathbb R^d\\to\\mathbb R\\) when Lipschitzness is measured in \\(\\ell_2\\), bounding \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\) by a constant times \\(L\\) times a multivariate Rademacher complexity of \\(\\mathcal H\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the specific contraction tool cited as [17] in the source paper and is the baseline that the open problem asks to extend from \\(\\ell_2\\) to general norms."
-      },
-      {
-        "title": "Probability in Banach Spaces: Isoperimetry and Processes",
-        "bibtex": "@book{LedouxTalagrand1991ProbabilityBanach,\n  author    = {Michel Ledoux and Michel Talagrand},\n  title     = {Probability in Banach Spaces: Isoperimetry and Processes},\n  publisher = {Springer},\n  year      = {1991},\n}\n",
-        "source_url": "https://link.springer.com/book/10.1007/978-3-642-20212-4",
-        "theorem_or_result": "Develops majorizing measure/generic chaining and comparison inequalities for Rademacher/Gaussian processes indexed by subsets of Banach spaces, including type/cotype and Khintchine\u0013Kahane inequalities that control vector-valued Rademacher sums under general norms.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "General-norm vector contraction is closely tied to Banach-space geometry (type 2, smoothness, martingale type). This monograph provides the foundational tools typically used to obtain norm-dependent constants \\(C(\\|\\cdot\\|)\\)."
-      },
-      {
-        "title": "Factorization of linear operators and geometry of Banach spaces",
-        "bibtex": "@book{Pisier1986Factorization,\n  author    = {Gilles Pisier},\n  title     = {Factorization of linear operators and geometry of Banach spaces},\n  publisher = {American Mathematical Society},\n  year      = {1986},\n}\n",
-        "source_url": "https://bookstore.ams.org/cbms-60",
-        "theorem_or_result": "Relates bounds on Rademacher/Gaussian averages in Banach spaces to geometric parameters such as type/cotype and 2-smoothness, yielding dimension-dependent constants for \\(\\ell_q\\) spaces (e.g., \\(\\sqrt{q-1}\\) for \\(q\\ge2\\)).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "A plausible route to \\(C(\\|\\cdot\\|)\\) for general norms is via type-2 or smoothness constants of the dual space; Pisier's results are standard references for such constants, especially for \\(\\ell_q\\) norms."
-      },
-      {
-        "title": "A new look at independence",
-        "bibtex": "@article{Talagrand1996NewLook,\n  author  = {Michel Talagrand},\n  title   = {A new look at independence},\n  journal = {The Annals of Probability},\n  year    = {1996},\n}\n",
-        "source_url": "https://projecteuclid.org/journals/annals-of-probability/volume-24/issue-1/A-new-look-at-independence/10.1214/aop/1042644705.full",
-        "theorem_or_result": "Introduces sharp inequalities for suprema of empirical processes and decoupling/comparison techniques that often underlie contraction and symmetrization arguments beyond Hilbert spaces.",
-        "relevance_category": "BACKGROUND",
+        "title": "Integrated conditional estimation-optimization",
+        "bibtex": "@article{ICEO2023,\n  title={Integrated conditional estimation-optimization},\n  doi={10.1287/opre.2023.0427},\n  journal={Operations Research},\n  year={2023}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2023.0427",
+        "theorem_or_result": "The paper proves a finite-sample generalization bound for its integrated conditional estimation-optimization (ICEO) method by combining (a) Lipschitzness of a regularized optimization oracle and (b) Maurer\u2019s (2016) \nvector contraction inequality\n for \n\\(\\ell_2\\)-Lipschitz maps. Concretely, under Assumption 3 (\\(c(\\cdot)\\) is \\(L_c\\)-Lipschitz in \\(w\\) and \\(\\phi\\) is 1-strongly convex), Proposition 2 shows \\(w_\\rho\\) is \\((L_c/\\rho)\\)-Lipschitz in \\(p\\) (in \\(\\ell_2\\)), implying \\(c\\circ w_\\rho\\) is \\((L_c^2/\\rho)\\)-Lipschitz. Then Theorem 3 states that for any \\(\\delta\\in(0,1]\\) and \\(\\rho_n>0\\), with prob. \\(\\ge 1-\\delta\\), for all \\(f\\in\\mathcal H\\):\n\\[\nR(w_{\\rho_n}\\circ f)\\le \\widehat R_n(w_{\\rho_n}\\circ f)+\\sqrt{2}\\,\\frac{L_c^2}{\\rho_n}\\,R_n(\\mathcal H)+\\bar c\\sqrt{\\frac{\\log(1/\\delta)}{2n}}.\n\\]\nThe step bounding \\(R_n(c\\circ w_{\\rho_n}\\circ\\mathcal H)\\) by \\(\\sqrt{2}(L_c^2/\\rho_n)R_n(\\mathcal H)\\) explicitly invokes Maurer (2016), which is an \\(\\ell_2\\)-based vector contraction result.",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 6,
-        "connection": "General-norm contraction may require refined comparison/decoupling beyond the Hilbertian case; Talagrand's techniques are frequently used in modern empirical process theory for Banach-valued classes."
+        "connection": "The open problem asks for a vector-contraction inequality for empirical Rademacher complexity when \\(\\phi\\) is Lipschitz w.r.t. a general norm \\(\\|\\cdot\\|\\) on \\(\\mathbb R^d\\), extending Maurer (2016) beyond \\(\\ell_2\\) (and some \\(\\ell_\\infty\\) cases). This paper does not develop such a general-norm contraction inequality; instead it stays within the \\(\\ell_2\\) framework precisely to apply Maurer (2016). It even notes (Assumption 3.A) that \\(c(\\cdot)\\) is Lipschitz in output measured by \\(\\|\\cdot\\|_2\\), and then applies Maurer\u2019s \\(\\ell_2\\)-based contraction to relate the scalar Rademacher complexity of the composed loss class \\(c\\circ w_\\rho\\circ\\mathcal H\\) to the multivariate Rademacher complexity of \\(\\mathcal H\\). Thus the paper provides additional motivation and an application context where a general-norm contraction would be useful (since decisions are measured in a generic norm \\(\\|\\cdot\\|\\) but outputs are forced into \\(\\ell_2\\) to use existing tools), but it does not resolve the open problem nor extend the inequality to general norms \\(\\ell_q\\), etc."
       },
       {
-        "title": "Understanding Machine Learning: From Theory to Algorithms",
-        "bibtex": "@book{ShalevShwartzBenDavid2014UML,\n  author    = {Shai Shalev-Shwartz and Shai Ben-David},\n  title     = {Understanding Machine Learning: From Theory to Algorithms},\n  publisher = {Cambridge University Press},\n  year      = {2014},\n}\n",
-        "source_url": "https://www.cambridge.org/highereducation/books/understanding-machine-learning/3059695661405B05D3B8E6B2E8D7E5E2",
-        "theorem_or_result": "Textbook treatment of Rademacher complexity, contraction for scalar Lipschitz maps, and multiclass/margin bounds; provides standard symmetrization and contraction templates.",
+        "title": "Decision-focused learning with directional gradients",
+        "bibtex": "@article{DirectionalGradients,\n  title={Decision-focused learning with directional gradients},\n  year={2023}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves uniform approximation/generalization bounds for its perturbation-gradient surrogate losses in predict-then-optimize. In particular (Theorem 3.4), under boundedness and a Lipschitz log-conditional density assumption, for any step size h with 0<h<1/L, with probability at least 1-\\delta\\),\n\\[\n\\sup_{f\\in\\mathcal F}\\Big|\\frac1n\\sum_{i=1}^n \\hat\\ell_h^b(f(X_i),Y_i)-\\mathbb E[\\ell(f(X),Y)]\\Big| \\lesssim BLh + \\frac{B^2}{h}\\,\\mathfrak R_n(\\mathcal F) + B\\sqrt{\\tfrac{\\log(1/\\delta)}{n}},\n\\]\nwhere \\(\\mathfrak R_n(\\mathcal F)=\\mathbb E[\\sup_{f\\in\\mathcal F}\\frac1n\\sum_{i=1}^n \\sigma_i^\\top f(X_i)]\\) is the multivariate Rademacher complexity. They obtain excess-regret bounds (Theorem 3.8) such as \\(\\mathrm{ERegret}(\\hat f_h)\\lesssim \\sqrt{B^3L\\mathfrak R_n(\\mathcal F)}+\\sqrt{B/n}\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for a vector-contraction inequality for empirical Rademacher complexity under general norms \\(\\|\\cdot\\|\\) (beyond \\(\\ell_2\\), \\(\\ell_\\infty\\)). This paper explicitly uses Maurer (2016) vector contraction to control the Rademacher complexity of a composed class arising from a Lipschitz surrogate loss (see proof of Theorem 3.4), but it does so with the Euclidean norm \\(\\|\\cdot\\|_2\\): Assumption 1.1 bounds \\(\\|z\\|_2\\), Lemma 2.1 gives Lipschitzness in \\(\\|\\cdot\\|_2\\), and the contraction step yields a factor \\(\\propto (B/h)\\mathfrak R_n(\\mathcal F)\\). The paper does not develop a contraction inequality for a general norm \\(\\|\\cdot\\|\\) nor identify an explicit constant \\(C(\\|\\cdot\\|)\\) for \\(\\ell_q\\) norms. Still, it provides a concrete application context where such a general-norm contraction would immediately extend their bounds (e.g., if decisions are bounded in a non-Euclidean norm or if one wants Lipschitzness w.r.t. \\(\\|\\cdot\\|_q\\))."
+      },
+      {
+        "title": "Local and global uniform convexity conditions",
+        "bibtex": "@incollection{UniformConvexityConditions,\n  title={Local and global uniform convexity conditions},\n  doi={10.1007/978-3-032-03844-9_4},\n  booktitle={...},\n  year={2023}\n}\n",
+        "source_url": "https://doi.org/10.1007/978-3-032-03844-9_4",
+        "theorem_or_result": "The paper develops quantitative equivalences between uniform convexity/smoothness of norm balls (and their gauges/support functions) and scaling inequalities. In particular, for a centrally symmetric convex body (norm ball) \\(C\\subset\\mathbb R^m\\) and \\(p\\ge2\\), \\(q\\in(1,2]\\) with \\(1/p+1/q=1\\), Theorem 4.1 shows equivalence between: (i) \\((\\alpha,p)\\)-uniform convexity of \\(C\\) (modulus \\(\\delta_{\\|\\cdot\\|_C}(\\varepsilon)\\ge \\alpha\\varepsilon^p\\)); (ii) a global scaling inequality \\(\\langle d, y-x\\rangle\\ge \\alpha\\|d\\|_{C^\\circ}\\,\\|y-x\\|_C^p\\) for \\(y\\in\\partial C\\), \\(d\\in N_C(y)\\); and (iii) uniform smoothness of the power of the support function \\(\\sigma_C^q\\): there exists \\(c\\) such that \\(\\sigma_C^q\\) is \\((c,q)\\)-uniformly smooth w.r.t. \\(\\|\\cdot\\|_{C^\\circ}\\). Theorem 5.1 gives local analogues at a boundary point/direction. Section 6.2 uses these to bound Rademacher complexity of low-norm linear predictors when the regularizer ball is uniformly convex.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for a vector-contraction inequality for empirical Rademacher complexity under a general norm \\(\\|\\cdot\\|\\) for \\(L\\)-Lipschitz \\(\\phi:\\mathbb R^d\\to\\mathbb R\\). This paper does not prove such a contraction inequality. Instead it studies geometric/functional properties of general norm balls (uniform convexity/smoothness, duality, scaling inequalities) and derives a (scalar) Rademacher complexity bound for low-norm linear classes (Theorem 6.5) via Banach-space type. These results are potentially relevant tools because vector-contraction constants for general norms often depend on type/cotype or smoothness of the underlying Banach space; the paper supplies quantitative links between uniform convexity/smoothness and Rademacher type, but it does not address contraction for composing \\(\\phi\\) with vector-valued classes \\(\\mathcal H\\) nor provide a bound of the form \\(\\widehat{\\mathfrak R}_n(\\phi\\circ\\mathcal H)\\le C(\\|\\cdot\\|)L\\widehat{\\mathfrak R}_n(\\mathcal H)\\)."
+      },
+      {
+        "title": "Risk bounds and calibration for a smart predict-then-optimize method",
+        "bibtex": "@article{SPOPlusCalibration,\n  title={Risk bounds and calibration for a smart predict-then-optimize method},\n  year={2020}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper\u2019s main theoretical results are calibration/risk bounds for the SPO+ surrogate loss in predict-then-optimize. For a bounded polyhedral feasible set \\(S\\), it proves a uniform lower bound on the SPO+ calibration function of the form \\(\\hat\\delta_{\\ell_{\\mathrm{SPO}+}}(\\epsilon) \\ge c\\,\\min\\{\\epsilon^2,\\epsilon\\}\\) over a restricted distribution class (Theorem 3.1), yielding an excess SPO risk rate \\(O(n^{-1/4})\\) when combined with a generalization bound (Corollary 3.1). For \\(S\\) a level set of a \\(\\mu\\)-strongly convex and \\(L\\)-smooth function with respect to a norm \\(\\|\\cdot\\|_A\\), it proves linear calibration \\(\\hat\\delta_{\\ell_{\\mathrm{SPO}+}}(\\epsilon)\\ge c'\\,\\epsilon\\) (Theorem 4.1), yielding an excess SPO risk rate \\(O(n^{-1/2})\\) (Corollary 4.1).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "While it does not solve the general-norm vector contraction question, it provides the standard scalar contraction lemma and proof patterns that one would try to generalize to vector-valued settings."
+        "relevance_score": 3,
+        "connection": "The open problem asks for a vector-contraction inequality for empirical Rademacher complexity under general norms \\(\\|\\cdot\\|\\), extending Maurer (2016) beyond \\(\\ell_2\\). This paper does not develop new vector-contraction inequalities. It explicitly relies on Maurer\u2019s \\(\\ell_2\\)-based vector contraction to derive generalization/sample-complexity bounds for SPO+ (see discussion before Corollary 3.1 and Appendix A). While the paper uses generic norms and dual norms in its optimization/calibration analysis (e.g., Assumption 4.1 with a norm \\(\\|\\cdot\\|_A\\)), it does not translate Lipschitzness under a general norm into Rademacher complexity bounds via a new contraction tool. Thus it provides motivation and an application context where such a general-norm contraction inequality would be useful, but it does not resolve the open problem."
+      },
+      {
+        "title": "End-to-end learning to warm-start for real-time quadratic optimization",
+        "bibtex": "@article{WarmStartDR,\n  title={End-to-end learning to warm-start for real-time quadratic optimization},\n  year={2021}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Assuming the Douglas\u2013Rachford (DR) operator family \\(T_\\theta\\) is contractive in \\(\\ell_2\\), i.e. \\(\\|T_\\theta(z)-T_\\theta(w)\\|_2\\le \\beta_\\theta\\|z-w\\|_2\\) with \\(\\beta:=\\max_{\\theta\\in\\Theta}\\beta_\\theta\\in(0,1)\\), they prove a generalization bound for end-to-end learned warm-starts: with probability \\(\\ge 1-\\delta\\), for all networks \\(h_W\\in\\mathcal H\\) satisfying \\(\\mathrm{dist}_{\\mathrm{fix}\\,T_\\theta}(h_W(\\theta))\\le B\\),\n\\[\nR^k(h_W)\\le \\widehat R^k(h_W)+2\\beta^k\\Big(2\\sqrt2\\,\\mathrm{erad}(\\mathcal H)+\\frac{3B\\log(2/\\delta)}{2N}\\Big),\n\\]\nwhere \\(R^k\\) is expected fixed-point residual after \\(k\\) DR iterations and \\(\\mathrm{erad}(\\mathcal H)\\) is multivariate empirical Rademacher complexity of the warm-start network class. The proof uses Maurer (2016, Cor. 4) vector-contraction in \\(\\ell_2\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for vector-contraction inequalities for empirical Rademacher complexity under general norms \\(\\|\\cdot\\|\\) (e.g. \\(\\ell_q\\)), extending Maurer\u2019s \\(\\ell_2\\) result. This paper does not extend contraction to other norms; instead it applies Maurer (2016) in \\(\\ell_2\\) to bound a Rademacher term arising in a learning-to-warm-start analysis. The only Lipschitz/contraction property used is \\(2\\beta^k\\)-Lipschitzness of \\(\\ell_\\theta\\circ T_\\theta^k\\) in \\(\\|\\cdot\\|_2\\), followed by Maurer\u2019s \\(\\ell_2\\) vector contraction. Thus it provides motivation and an application context where a general-norm contraction inequality would be useful, but it does not develop such an inequality."
+      },
+      {
+        "title": "On learning latent models with multi-instance weak supervision",
+        "bibtex": "@article{MultiInstanceWeakSupervision,\n  title={On learning latent models with multi-instance weak supervision},\n  year={2022}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves Rademacher-style generalization/error bounds for multi-instance partial-label learning under semantic loss and its top-k approximation. In particular, for a single classifier and known transition \\(\\sigma\\) that is 1- and \\(M\\)-unambiguous, with probability \\(\\ge 1-\\delta\\):\n\\[\nR_{01}(f) \\le \\Phi\\Big((k+1)\\big(\\widehat R^k_P(f;\\sigma;T_P) + 2\\sqrt{k}M^{3/2} R_{Mm_P}(F) + \\sqrt{\\tfrac{\\log(1/\\delta)}{2m_P}}\\big)\\Big),\n\\]\nwhere \\(R_{Mm_P}(F)\\) is a (vector-valued) Rademacher complexity of the scoring class \\(F\\) (Def. 8) and \\(\\Phi\\) is increasing with \\(\\lim_{t\\to 0}\\Phi(t)/t=1\\) (Theorem 2). Analogous bounds are given for multiple classifiers (Theorem 4) and for unknown transitions under an unambiguous transition space (Theorem 5).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a vector-contraction inequality for empirical Rademacher complexity for Lipschitz maps \\(\\phi:\\mathbb R^d\\to\\mathbb R\\) under general norms \\(\\|\\cdot\\|\\), extending known \\(\\ell_2\\) vector contraction results. This paper does use a contraction lemma (citing Cortes et al. 2016) to bound the Rademacher complexity of a composed loss class arising from semantic loss/top-\\(k\\) WMC, but:\n- the contraction lemma employed is explicitly \\(\\ell_2\\)-based (Lipschitz w.r.t. \\(\\|\\cdot\\|_2\\)) and yields bounds in terms of an \\(\\ell_2\\)-type vector Rademacher complexity;\n- there is no development of contraction inequalities for general norms (e.g., \\(\\ell_q\\) with \\(q\\ne 2,\\infty\\)), nor an explicit constant \\(C(\\|\\cdot\\|)\\) depending on an arbitrary norm.\nThus it does not solve the stated open problem. At best, it is tangentially relevant as an application context where such generalized vector-contraction tools could tighten or generalize their Rademacher bounds for semantic loss under alternative norm/Lipschitz structures."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.039355749999999995,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.050688750000000005,
-    "total_cost_usd": 0.0900445
+    "literature_total_cost_usd": 3.9366617500000003,
+    "total_cost_usd": 3.9760175
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2947637889/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2947637889_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W2947637889_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W2947637889_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 74,
     "is_open": true,
     "model": "gpt-5.2"
   }

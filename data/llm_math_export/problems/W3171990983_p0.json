@@ -52,71 +52,89 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 7,
-    "synthesis": "The open problem asks whether the classical \\\\(1-1/e\\\\) selectability for rank-1 (\"choose at most one\") contention resolution in random order\u2014known under independent activeness\u2014extends to the substantially more delicate setting where activeness indicators satisfy strong negative correlation bounds for both \\\\(b=0\\\\) and \\\\(b=1\\\\). In the source paper, negative correlation arises naturally from dependent rounding (Gandhi--Khuller--Parthasarathy--Srinivasan), and the authors show that when the algorithm may choose the order (an ordered CRS), sorting by weight achieves \\\\(1-1/e\\\\) in expectation even though per-element guarantees can fail for correlation-agnostic schemes. They explicitly leave open whether random order can still guarantee \\\\(1-1/e\\\\) per element.\n\nPrior work of Lee and Singla establishes \\\\(1-1/e\\\\)-selectable random-order/online contention resolution for rank-1 matroids under independence, via ex-ante prophet inequalities, while Adamczyk and W\\l{}odarczyk develop broader random-order CRS theory with constant factors. These results do not directly apply under negative correlation, and the source paper provides evidence of a barrier: under certain negatively correlated constructions, any scheme that ignores correlation structure can degrade to \\\\(1/2\\\\)-selectability for individual elements. At present (given no forward-citation evidence supplied), there is no documented resolution of whether a \\\\(1-1/e\\\\)-selectable random-order CRS exists under the stated negative correlation property; the problem therefore appears to remain open.\n\nPromising directions include: (i) extending ex-ante prophet inequality techniques to distributions with negative dependence (possibly requiring new martingale or correlation-gap style bounds tailored to random arrival), (ii) identifying additional structural assumptions beyond (pairwise-to-setwise) negative correlation that are satisfied by dependent rounding outputs and are sufficient for \\\\(1-1/e\\\\) in random order, or (iii) proving an impossibility result by constructing a negatively correlated family (respecting the \\\\(b\\in\\{0,1\\}\\\\) inequalities) that forces any random-order stopping rule to lose a constant factor below \\\\(1-1/e\\\\).",
-    "total_cost_usd": 0.058968,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper (Brubach\u2013Grammel\u2013Ma\u2013Srinivasan) isolates a sharp gap between ordered and random-order contention resolution for the rank-1 (star) constraint when the activeness indicators \\((Z_e)\\) are not independent but satisfy the strong setwise negative-correlation property \\(\\Pr[\\wedge_{e\\in S}(Z_e=b)]\\le\\prod_{e\\in S}\\Pr[Z_e=b]\\) for \\(b\\in\\{0,1\\}\\). In their unit-patience bipartite matching application, dependent rounding (GKPS) produces exactly this kind of negative correlation among the \\(Z_e\\) incident to a vertex. They prove that if the algorithm may choose the processing order (e.g., sort by weights), then the expected value on a star is minimized by the independent case, yielding a \\((1-1/e)\\)-balanced ordered CRS under negative correlation. However, they explicitly leave open whether the same \\((1-1/e)\\) factor is achievable when the order is a uniformly random permutation.\n\nSubsequent and related works largely continue to use \\((1-1/e)\\)-selectable rank-1 random-order CRSs as a black box in the independent-activation model (e.g., in probe-commit/probing variants of online stochastic matching), without extending the analysis to negatively correlated \\(Z\\). At the same time, work on alternative negative-dependence models for online contention resolution (e.g., random-element/batch models in revenue management) shows that negative dependence can fundamentally change achievable selectability constants, suggesting that the open problem may require either new robust analyses (showing independence is worst-case under the stated negative correlation) or explicit counterexamples tailored to random order.\n\nA different line on two-stage stochastic matching develops star contention resolution under negative dependence (negative cylinder dependence/negative association) but typically under additional structure on marginals or without the random-order requirement. Overall, as of the cited forward literature, there is no paper establishing a \\((1-1/e)\\)-selectable random-order CRS for rank-1 matroids under the full strong negative-correlation property for arbitrary marginals with \\(\\sum_e z_e\\le 1\\); the best-known \\((1-1/e)\\) guarantee under negative correlation remains in the ordered (chosen-order) model, while random-order \\((1-1/e)\\) is only proved under independence.",
+    "total_cost_usd": 2.53492225,
+    "citations_analyzed": 29,
     "sources": [
       {
-        "title": "Optimal online contention resolution schemes via ex-ante prophet inequalities",
-        "bibtex": "@inproceedings{LeeSingla2018OptimalOnlineCRS,\n  title        = {Optimal online contention resolution schemes via ex-ante prophet inequalities},\n  author       = {Lee, E. and Singla, S.},\n  booktitle    = {26th Annual European Symposium on Algorithms (ESA 2018)},\n  year         = {2018}\n}\n",
-        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2018/9494/",
-        "theorem_or_result": "Introduces and analyzes random-order/online contention resolution schemes and shows a \\\\(1-1/e\\\\)-selectable random-order CRS for rank-1 matroids under independent activeness, via an ex-ante prophet inequality framework.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the baseline \\\\(1-1/e\\\\) guarantee in the independent case and the conceptual framework (ex-ante prophet inequalities) that the open problem asks to extend to negatively correlated activeness."
-      },
-      {
-        "title": "Random order contention resolution schemes",
-        "bibtex": "@inproceedings{AdamczykWlodarczyk2018RandomOrderCRS,\n  title        = {Random order contention resolution schemes},\n  author       = {Adamczyk, M. and W{\\l}odarczyk, M.},\n  booktitle    = {2018 IEEE 59th Annual Symposium on Foundations of Computer Science (FOCS)},\n  year         = {2018},\n  publisher    = {IEEE}\n}\n",
-        "source_url": "https://ieeexplore.ieee.org/document/8555076",
-        "theorem_or_result": "Develops general theory of random-order contention resolution schemes, primarily for matroid-type constraints, giving constant-factor selectability guarantees in random order.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Supplies general random-order CRS machinery and benchmarks; helps situate what is known beyond rank-1 and highlights where correlation assumptions enter."
-      },
-      {
-        "title": "Dependent rounding and its applications to approximation algorithms",
-        "bibtex": "@article{GandhiKhullerParthasarathySrinivasan2006DependentRounding,\n  title   = {Dependent rounding and its applications to approximation algorithms},\n  author  = {Gandhi, R. and Khuller, S. and Parthasarathy, S. and Srinivasan, A.},\n  journal = {Journal of the ACM},\n  volume  = {53},\n  number  = {3},\n  pages   = {324--360},\n  year    = {2006}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/1147954.1147956",
-        "theorem_or_result": "Introduces dependent rounding with negative correlation properties: for rounded indicators \\\\(Z_e\\\\), joint events of the form \\\\(\\wedge_{e\\in S}(Z_e=b)\\\\) are upper-bounded by the product of marginals.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "This is the canonical source of the negative correlation property assumed in the open problem; it motivates why such correlations arise and what inequalities are available."
-      },
-      {
-        "title": "Attenuate locally, win globally: Attenuation-based frameworks for online stochastic matching with timeouts",
-        "bibtex": "@article{BrubachSankararamanSrinivasanXu2020Attenuate,\n  title   = {Attenuate locally, win globally: Attenuation-based frameworks for online stochastic matching with timeouts},\n  author  = {Brubach, Brian and Sankararaman, K. A. and Srinivasan, Aravind and Xu, Pan},\n  journal = {Algorithmica},\n  volume  = {82},\n  number  = {1},\n  pages   = {64--87},\n  year    = {2020}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s00453-019-00615-8",
-        "theorem_or_result": "Develops attenuation-based frameworks for online/offline stochastic matching with timeouts, yielding contention-resolution-like guarantees under certain models.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "Provides techniques (attenuation, random-order analysis) that influence the 2022 paper and may be adaptable when studying rank-1 random-order CRS under correlation."
-      },
-      {
-        "title": "Improved Guarantees for Offline Stochastic Matching via new Ordered Contention Resolution Schemes",
-        "bibtex": "@inproceedings{BrubachGrammelMaSrinivasan2021ImprovedGuarantees,\n  title     = {Improved Guarantees for Offline Stochastic Matching via new Ordered Contention Resolution Schemes},\n  author    = {Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume    = {34},\n  year      = {2021},\n  eprint    = {2106.06892},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS}\n}\n",
-        "source_url": "https://arxiv.org/abs/2106.06892",
-        "theorem_or_result": "Gives a \\\\(1-1/e\\\\)-selectable ordered CRS for rank-1 matroids under the negative correlation property when the algorithm may choose the order; leaves open whether the same is possible in random order.",
-        "relevance_category": "BACKGROUND",
+        "title": "Improved guarantees for offline stochastic matching via new ordered contention resolution schemes",
+        "bibtex": "@article{BrubachGrammelMaSrinivasan2022ImprovedOfflineStochasticMatching,\n  title        = {Improved guarantees for offline stochastic matching via new ordered contention resolution schemes},\n  author       = {Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind},\n  journal      = {Mathematics of Operations Research},\n  year         = {2022},\n  doi          = {10.1287/moor.2022.0256},\n  url          = {https://doi.org/10.1287/moor.2022.0256}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2022.0256",
+        "theorem_or_result": "The paper proves existence of a \\((1-1/e)\\)-balanced ordered contention resolution scheme for rank-1 matroids under the negative correlation property \\(\\Pr[\\wedge_{e\\in S}(Z_e=b)]\\le \\prod_{e\\in S}\\Pr[Z_e=b]\\) (for \\(b\\in\\{0,1\\}\\)), but only when the algorithm may choose the processing order (not uniformly random). Concretely, for a star (rank-1) with marginals \\(z_e\\) satisfying \\(\\sum_e z_e\\le 1\\) and negatively correlated \\((Z_e)\\), probing/accepting edges in decreasing weight order achieves expected value at least \\((1-1/e)\\sum_e w_e z_e\\) (Lemmas 7\u20139 / Theorem 2 specialized to a star), which via the Lee\u2013Singla equivalence implies a \\((1-1/e)\\)-balanced ordered CRS under negative correlation with chosen order.",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 9,
-        "connection": "This is the originating paper that formulates the open question: extend \\\\(1-1/e\\\\) selectability from ordered (chosen order) to random-order under negative correlation."
+        "connection": "The open problem asks for a \\((1-1/e)\\)-selectable random-order CRS for rank-1 matroids under the stated negative correlation. This paper explicitly notes this remains open (Subsection 1.2: \u201cTo our knowledge, it remains open whether a \\((1-1/e)\\)-balanced Random-order Contention Resolution Scheme is possible under property (2)\u201d). What it does provide is: (i) a \\((1-1/e)\\)-balanced ordered (not random-order) CRS under negative correlation, relying on the ability to choose the order (e.g., sort by weights), and (ii) a \\((1-1/e)\\)-balanced random-order CRS for rank-1 only in the independent-activity setting (Corollary 6), not under negative correlation. Thus it makes strong partial progress but does not resolve the random-order/negative-correlation combination."
+      },
+      {
+        "title": "Online contention resolution schemes for network revenue management and combinatorial auctions",
+        "bibtex": "@article{OnlineCRSNetworkRevenueManagementCombinatorialAuctions,\n  title        = {Online contention resolution schemes for network revenue management and combinatorial auctions},\n  author       = {Unknown},\n  year         = {0},\n  note         = {Metadata not provided in citation analysis; please supply authors/year/venue for a complete BibTeX entry.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves tight bounds for \u201crandom-element\u201d online contention resolution under L-bounded products: (i) for adversarial order (OCRS), no random-element OCRS can be better than \\(1/(1+L)\\)-selectable when \\(L\\) is a prime power (Theorem 2.3 / Corollary 2.4), and it gives a \\(1/(1+L)\\)-selectable random-element OCRS (Theorem 3.3). (ii) For random-order arrivals (RCRS), it gives an \\(\\alpha\\)-selectable random-element RCRS with \\(\\alpha>1/(1+L)\\) for all \\(L\\ge2\\) (Theorem 4.3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks whether there exists a \\((1-1/e)\\)-selectable random-order CRS for a rank-1 matroid (choose at most one element) when activeness indicators satisfy a strong negative-correlation condition for both \\(b=0\\) and \\(b=1\\). This paper studies a different negative-dependence model (\u201crandom-element\u201d: elements partitioned into batches and at most one element per batch becomes active) and focuses on online/secretary-style feasibility structures such as L-bounded hypergraph matching. It does not analyze rank-1 matroids under the paper\u2019s negative-correlation assumption, nor does it establish a \\(1-1/e\\) guarantee in that setting. However, it is relevant because it highlights that certain forms of negative correlation (random-element/batching) can strictly worsen achievable selectability guarantees compared to the independent case, and it provides techniques (exact selection, inclusion\u2013exclusion improvements, Schur-concavity) that might inform attempts on the rank-1 negatively correlated random-order CRS question."
+      },
+      {
+        "title": "Optimal Rounding for Two-Stage Bipartite Matching",
+        "bibtex": "@inproceedings{OptimalRoundingTwoStageBipartiteMatching,\n  title        = {Optimal Rounding for Two-Stage Bipartite Matching},\n  author       = {Unknown},\n  booktitle    = {Proceedings of the Symposium on Discrete Algorithms / related SIAM proceedings},\n  year         = {0},\n  doi          = {10.1137/1.9781611978971.209},\n  url          = {https://doi.org/10.1137/1.9781611978971.209},\n  note         = {Metadata not provided in citation analysis; please supply authors/year/venue for a complete BibTeX entry.}\n}\n",
+        "source_url": "https://doi.org/10.1137/1.9781611978971.209",
+        "theorem_or_result": "The paper proves tight rounding/approximation factors for two-stage bipartite matching using negative dependence from dependent rounding. In particular, it establishes a monotone star-graph contention resolution scheme (Lemma 5.3): for a star (rank-1 constraint) with fractional weights \\(y_i\\) (\\(\\sum_i y_i\\le 1\\)) and NCD Bernoulli activeness \\(A_i\\) satisfying \\(\\Pr[A_i=1]\\ge 1-c(1-y_i)\\) for \\(c=2\\sqrt2-2\\), there exists a monotone CRS selecting at most one active index with \\(\\Pr[i\\text{ selected}]=c\\,y_i\\). It also shows dependent rounding induces negative association of offline-node availabilities (Lemma 3.1).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether there is a \\((1-1/e)\\)-selectable random-order CRS for a rank-1 matroid under a strong negative correlation condition on activeness \\((Z_e)\\) (negative cylinder-type bounds for both \\(b=0\\) and \\(b=1\\)), with only marginals \\(z_e\\) and \\(\\sum z_e\\le 1\\). This paper does not analyze random-order CRSs for rank-1 matroids with those marginals; instead it constructs (existentially, via LP duality) a monotone CRS for stars under a different set of assumptions: (i) the activeness variables satisfy negative cylinder dependence (a consequence of NA), and (ii) their marginals are lower bounded by \\(1-c(1-y_i)\\), which is much stronger/structured than arbitrary given marginals \\(z_i\\). The achieved selectability constant in Lemma 5.3 is \\(c=2\\sqrt2-2\\approx0.828\\), which is larger than \\(1-1/e\\approx0.632\\), but it applies to this restricted marginal regime and does not address random-order arrival. Thus it provides partial progress/related techniques (negative dependence + star CRS existence) but does not resolve the open problem as stated."
+      },
+      {
+        "title": "Prophet matching meets probing with commitment",
+        "bibtex": "@article{ProphetMatchingMeetsProbingWithCommitment,\n  title        = {Prophet matching meets probing with commitment},\n  author       = {Unknown},\n  year         = {0},\n  eprint       = {2102.04325},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS},\n  url          = {https://arxiv.org/abs/2102.04325},\n  note         = {Metadata not provided in citation analysis; please supply authors/year for a complete BibTeX entry.}\n}\n",
+        "source_url": "https://arxiv.org/abs/2102.04325",
+        "theorem_or_result": "The paper proves a (1-1/e)-competitive algorithm for online stochastic bipartite matching with probing and commitment under random-order arrivals (Theorem 2.3 / Algorithm 10). The analysis uses a (1-1/e)-selectable random-order contention resolution scheme for a rank-1 matroid due to Lee and Singla (Theorem 4.3), applied to each offline vertex u with independent activations of incident edges: each edge e=(u,v) is committed independently with probability \\(z_e=p_e x_e\\) and then accepted with probability at least \\((1-1/e)z_e\\) under random order.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether there exists a \\((1-1/e)\\)-selectable random-order CRS for a rank-1 matroid when the activeness indicators \\((Z_e)\\) are only assumed to satisfy a strong negative-correlation condition (for both \\(b=0\\) and \\(b=1\\)). This paper does not address negatively correlated activeness; throughout, edge states/commitment events are independent Bernoulli. The \\((1-1/e)\\)-selectable RCRS it uses (Lee\u2013Singla) is analyzed for the standard independent model \\(R(z)\\) where each element is included independently with probability \\(z_i\\). Thus it provides evidence/technique in the independent case but does not resolve whether the same guarantee holds under the stated negative correlation model."
+      },
+      {
+        "title": "Approximation Algorithms for Action-Reward Query-Commit Matching",
+        "bibtex": "@article{ApproximationAlgorithmsActionRewardQueryCommitMatching,\n  title        = {Approximation Algorithms for Action-Reward Query-Commit Matching},\n  author       = {Unknown},\n  year         = {0},\n  note         = {Metadata not provided in citation analysis; please supply authors/year/venue for a complete BibTeX entry.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper designs random-order contention-resolution\u2013type rounding tools for stochastic query-commit matching with patience constraints. In particular, it defines a patience random-order contention resolution scheme (P-RCRS) for a star (rank-1) constraint with independent Bernoulli \u201csuggestions\u201d \n\\(X_i\\sim\\mathrm{Ber}(x_i)\\) and independent Bernoulli \u201cstates\u201d \\(P_i\\sim\\mathrm{Ber}(p_i)\\), under feasibility \\(\\sum_i x_i\\le \\ell\\), \\(\\sum_i p_i x_i\\le 1\\), and proves (Theorem 3.4) existence of an \\(\\alpha\\)-selectable P-RCRS with \\(\\alpha=1-1/e\\) when \\(\\ell\\in\\{1,\\infty\\}\\), and \\(\\alpha=\\tfrac1{27}(19-67/e^3)\\approx 0.5801\\) for any finite \\(2\\le \\ell<\\infty\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether there is a \\((1-1/e)\\)-selectable random-order contention resolution scheme for a rank-1 matroid when activeness indicators \\((Z_e)\\) satisfy a strong negative-correlation condition for both \\(b=0\\) and \\(b=1\\). This paper\u2019s star-graph rounding subroutine (P-RCRS) is a rank-1 random-order CRS variant, but it assumes the relevant randomness is generated from independent Bernoulli variables (suggestions and states) and then uses attenuation to guarantee selectability. It does not analyze or guarantee \\((1-1/e)\\)-selectability under the paper\u2019s negative-correlation model for \\((Z_e)\\); in fact, its reduction to \\(|A|=1\\) and its proofs rely on independence/product structure (e.g., Poisson regime arguments, Bennett\u2019s inequality). Thus it provides related techniques and partial progress for independent inputs, but does not resolve the negatively correlated-activeness open problem."
+      },
+      {
+        "title": "An Improved Mechanism for Pricing Ride-Hailing Fares",
+        "bibtex": "@article{ImprovedMechanismPricingRideHailingFares,\n  title        = {An Improved Mechanism for Pricing Ride-Hailing Fares},\n  author       = {Unknown},\n  year         = {0},\n  note         = {Metadata not provided in citation analysis; please supply authors/year/venue for a complete BibTeX entry.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper designs random-order rounding/CRS procedures for matchings and transversal matroids under independent activeness. In particular, for the rank-1 (single-item) case with independent activeness indicators \n\na) Algorithm 1 (random order via i.i.d. Exp(1) arrival times plus a time- and marginal-dependent coin flip) selects each element \n\n- with unconditional probability \n\n\\[\\Pr[\\text{select }u]=(1-1/e)\\,p_u\\]\\nprovided \\(\\sum_u p_u\\le 1\\), and hence with conditional probability \\(1-1/e\\) given \\(u\\) is active.\n\nb) For bipartite matchings, Algorithm 2 rounds a fractional matching \\((p_{u,v})\\) to a matching such that for every edge \\(e=\\{u,v\\}\\),\n\\[\\Pr[e\\in M]=(1-1/e)\\,p_{u,v}.\\]\nThey further claim a \\((1-e^{-k})/k\\)-balanced CRS for the intersection of \\(k\\) transversal matroids (Theorem 1.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether there exists a \\((1-1/e)\\)-selectable random-order CRS for a rank-1 matroid when activeness indicators are negatively correlated in the strong sense \\(\\Pr[\\wedge_{e\\in S}(Z_e=b)]\\le\\prod_{e\\in S}\\Pr[Z_e=b]\\) for \\(b\\in\\{0,1\\}\\). This paper achieves the \\((1-1/e)\\) factor for the rank-1 case (and more general matching/transversal settings) only under an independence model for activeness: it explicitly uses that each element is active independently with probability \\(p_u\\) in the analysis of Lemma 4.1/Theorem 4.3 (and similarly for edges in Lemma 4.4/Theorem 4.6). The negative-correlation setting is not analyzed, and the proof relies on product-form probabilities and memorylessness that do not directly extend to merely negatively correlated \\(Z\\). Thus it does not resolve the open problem, but it provides a candidate algorithmic template (random order + marginal-dependent dumping/coin flips) that might be adaptable if one can reprove the key blocking probability bounds under negative correlation."
+      },
+      {
+        "title": "Online bipartite matching in the probe-commit model",
+        "bibtex": "@article{OnlineBipartiteMatchingProbeCommitModel,\n  title        = {Online bipartite matching in the probe-commit model},\n  author       = {Unknown},\n  journal      = {Mathematical Programming},\n  year         = {2024},\n  doi          = {10.1007/s10107-024-02184-y},\n  url          = {https://doi.org/10.1007/s10107-024-02184-y},\n  note         = {Metadata not provided in citation analysis; please supply authors for a complete BibTeX entry.}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-024-02184-y",
+        "theorem_or_result": "The paper proves that in the probe-commit model for online stochastic bipartite matching with known independently distributed (known i.d.) arrivals and random-order arrivals, there exists a \n\\((1-1/e)\\)-competitive algorithm against the offline adaptive benchmark (Corollary 5.6). The algorithm reduces to applying an existing \\((1-1/e)\\)-selectable random-order contention resolution scheme (RCRS) for a 1-uniform matroid (Lee\u2013Singla 2018) to independent proposal indicators \\(Z_{u,i}\\) with marginals \\(z_{u,i}\\) satisfying \\(\\sum_i z_{u,i}\\le 1\\) for each offline vertex \\(u\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether there is a \\((1-1/e)\\)-selectable random-order CRS for a rank-1 matroid when the activeness indicators \\((Z_e)\\) satisfy a strong negative-correlation condition (for both \\(b=0\\) and \\(b=1\\)). This paper does not study negatively correlated activeness; throughout, edge/activeness variables are independent Bernoulli, and the CRS reduction in \u00a75 relies on independence of the proposal indicators \\((Z_{u,i})\\) for fixed \\(u\\). Thus it does not resolve existence under negative correlation.\n\nHowever, it is related in that it explicitly reduces a random-order online probing/matching algorithm to the need for a \\((1-1/e)\\)-selectable RCRS for a 1-uniform matroid, and it uses the known Lee\u2013Singla RCRS (which is designed for independent activations). This clarifies where such a CRS is needed and why independence matters, but it does not extend the guarantee to negatively correlated activations."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.0425565,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.058968,
-    "total_cost_usd": 0.10152449999999999
+    "literature_total_cost_usd": 2.53492225,
+    "total_cost_usd": 2.57747875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3171990983/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3171990983_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3171990983_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3171990983_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 29,
     "is_open": true,
     "model": "gpt-5.2"
   }

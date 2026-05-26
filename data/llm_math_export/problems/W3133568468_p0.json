@@ -51,71 +51,35 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The open problem originates in Caragiannis, Kanellopoulos, and Kyropoulou (EC 2021), which develops a linear-programming/ellipsoid framework for computing interim envy-free (iEF) lotteries in matching instances while optimizing several efficiency objectives. In particular, they show polynomial-time solvability for maximizing expected utilitarian welfare, expected egalitarian welfare, and expected log-Nash welfare by solving the dual LP with a separation oracle reducible to a novel combinatorial problem (maximum edge-pair-weighted perfect bipartite matching, 2EBM), itself solvable in polynomial time via Cruse\u2019s decomposition theorem for centrosymmetric doubly stochastic matrices.\n\nHowever, the paper explicitly notes that maximizing expected average Nash welfare \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\) under iEF is not captured by their log-Nash approach: while \\(\\mathrm{avN}(\\mu)\\) and \\(\\lgN(\\mu)\\) are equivalent objectives for deterministic matchings (monotone transforms), the equivalence breaks under expectation over lotteries. Thus the known polynomial-time algorithms do not resolve the stated objective, and no forward-citation evidence was provided indicating a later solution. Related literatures on random assignment (e.g., probabilistic serial) and deterministic maximum Nash welfare motivate the objective but do not address interim envy constraints or the nonlinearity of \\(\\mathbb{E}[\\mathrm{avN}]\\). At present, the most promising directions appear to be: (i) new convex/concave reformulations or approximation schemes for \\(\\mathbb{E}[\\exp((1/n)\\sum_i \\ln v_i(\\mu(i)))]\\) under iEF constraints, (ii) complexity classification (e.g., NP-hardness via reductions exploiting the expectation-of-geometric-mean structure), or (iii) alternative algorithmic paradigms beyond ellipsoid+separation, potentially leveraging correlation gap/inequalities or restricting to structured valuation classes.",
-    "total_cost_usd": 0.06316625,
-    "citations_analyzed": 0,
+    "synthesis": "The EC\u201921 paper of Caragiannis, Kanellopoulos, and Kyropoulou introduces interim envy-freeness (iEF) for lotteries over allocations and gives polynomial-time algorithms for matching instances to compute iEF lotteries maximizing expected utilitarian welfare, egalitarian welfare, and expected log-Nash welfare (equivalently, expected \\(\\sum_i \\ln v_i(\\mu(i))\\)). Their approach formulates iEF as a linear program over matchings and solves it via the ellipsoid method on the dual, using a separation oracle reducible to a novel combinatorial problem (maximum edge-pair-weighted bipartite perfect matching, 2EBM) solvable in polynomial time via Cruse\u2019s decomposition of centrosymmetric doubly stochastic matrices.\n\nHowever, the paper explicitly notes that maximizing expected average Nash welfare \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\), where \\(\\mathrm{avN}(\\mu)=(\\prod_i v_i(\\mu(i)))^{1/n}\\), is not equivalent to maximizing expected log-Nash welfare for lotteries, and leaves the former as an open problem. The only forward citation provided here (\u201cOptimally interpolating between ex-ante fairness and welfare\u201d) offers a generic distribution-mixing framework under total-variation constraints to a fair prior, but does not address iEF feasibility or the nonlinearity of \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\) under iEF constraints. Thus, with the current evidence, the computational status of iEF-constrained maximization of expected average Nash welfare in matching instances remains open.",
+    "total_cost_usd": 0.13754475,
+    "citations_analyzed": 2,
     "sources": [
       {
-        "title": "On Interim Envy-Free Allocation Lotteries",
-        "bibtex": "@inproceedings{CaragiannisKK2021iEF,\n  author = {Ioannis Caragiannis and Panagiotis Kanellopoulos and Maria Kyropoulou},\n  title = {On Interim Envy-Free Allocation Lotteries},\n  booktitle = {Proceedings of the 22nd ACM Conference on Economics and Computation (EC '21)},\n  year = {2021},\n  publisher = {ACM},\n  doi = {10.1145/3465456.3467648}\n}",
-        "source_url": "https://doi.org/10.1145/3465456.3467648",
-        "theorem_or_result": "Introduces interim envy-freeness (iEF) for lotteries over allocations and gives polynomial-time algorithms (via LP duality + ellipsoid + a separation oracle based on a new 2-edge-pair-weighted bipartite matching problem) to compute iEF lotteries maximizing expected utilitarian welfare, egalitarian welfare, and expected log-Nash welfare in matching instances; explicitly leaves open maximizing expected average Nash welfare under iEF.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that formulates the open problem: while expected log-Nash welfare can be optimized under iEF in matching instances, optimizing expected average Nash welfare \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\) is stated as elusive because \\(\\mathbb{E}[\\lgN(\\mu)]\\) and \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\) are no longer equivalent for lotteries."
-      },
-      {
-        "title": "A New Solution to the Random Assignment Problem",
-        "bibtex": "@article{BogomolnaiaMoulin2001PS,\n  author = {Anna Bogomolnaia and Herv{\\'e} Moulin},\n  title = {A New Solution to the Random Assignment Problem},\n  journal = {Journal of Economic Theory},\n  year = {2001},\n  volume = {100},\n  number = {2},\n  pages = {295--328}\n}",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S002205310092732X",
-        "theorem_or_result": "Introduces the probabilistic serial rule for random assignment, a canonical approach to computing fractional (ex-ante) fair and efficient random allocations in one-item-per-agent settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Provides foundational context for random assignment/matching with fairness constraints, though it targets ex-ante notions rather than interim envy-freeness and does not address maximizing expected Nash welfare under iEF."
-      },
-      {
-        "title": "The Unreasonable Fairness of Maximum Nash Welfare",
-        "bibtex": "@article{CaragiannisKMPPSW2019UnreasonableMNW,\n  author = {Ioannis Caragiannis and David Kurokawa and Herv{\\'e} Moulin and Ariel D. Procaccia and Nisarg Shah and Junxing Wang},\n  title = {The Unreasonable Fairness of Maximum Nash Welfare},\n  journal = {ACM Transactions on Economics and Computation},\n  year = {2019},\n  volume = {7},\n  number = {3},\n  pages = {12:1--12:32}\n}",
-        "source_url": "https://dl.acm.org/doi/10.1145/3355902",
-        "theorem_or_result": "Studies maximum Nash welfare (MNW) allocations for indivisible goods, establishing strong fairness/efficiency guarantees and algorithmic results for deterministic allocations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Gives background on Nash welfare optimization in deterministic fair division; highlights why Nash-type objectives are central, but does not treat lotteries or interim envy-freeness."
-      },
-      {
-        "title": "The Price of Fairness",
-        "bibtex": "@article{BertsimasFT2011PriceFairness,\n  author = {Dimitris Bertsimas and Vivek F. Farias and Nikolaos Trichakis},\n  title = {The Price of Fairness},\n  journal = {Operations Research},\n  year = {2011},\n  volume = {59},\n  number = {1},\n  pages = {17--31}\n}",
-        "source_url": "https://pubsonline.informs.org/doi/10.1287/opre.1100.0865",
-        "theorem_or_result": "Introduces and analyzes the price of fairness framework quantifying efficiency loss due to fairness constraints.",
-        "relevance_category": "BACKGROUND",
+        "title": "Optimally interpolating between ex-ante fairness and welfare",
+        "bibtex": "@article{unknown2024optimally,\n  title        = {Optimally interpolating between ex-ante fairness and welfare},\n  author       = {},\n  year         = {2024},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue/URL/DOI not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper defines a general \u201cfair-to-welfare interpolation\u201d (FWI) problem: given a solution space \\(S\\), welfare function \\(V:S\\to\\mathbb{R}_{\\ge 0}\\), a \u201cfair prior\u201d distribution \\(p^f\\in\\Delta(S)\\) (sample access), and \\(\\alpha\\in(0,1)\\), maximize expected welfare subject to total-variation proximity to the fair prior: \\[\\max_{p\\in\\Delta(S)} V(p) \\ \\text{s.t.}\\ \\mathrm{TV}(p,p^f)\\le \\alpha.\\] They give two algorithms. (1) \\(\\varepsilon\\)-MIX (Theorem 3.1): with \\(O(1/\\varepsilon^2)\\) samples from \\(p^f\\) and a welfare mechanism \\(M_\\lambda\\) producing \\(A\\) with \\(V(A)\\ge \\lambda V(\\mathrm{OPT})\\), the output distribution \\(p^\\varepsilon\\) satisfies \\(\\mathrm{TV}(p^\\varepsilon,p^f)\\le \\alpha\\) and \\(V(p^\\varepsilon)\\ge \\lambda(1-\\varepsilon) V(p^{\\mathrm{OPT}})\\), where \\(p^{\\mathrm{OPT}}\\) is the optimal solution to the TV-constrained problem. (2) SIMPLE-MIX (Theorem 4.1): the mixture \\(p^s=\\alpha\\delta_A+(1-\\alpha)p^f\\) satisfies \\(\\mathrm{TV}(p^s,p^f)\\le \\alpha\\) and \\(V(p^s)\\ge \\min\\{\\lambda,\\alpha\\lambda+(1-\\alpha)^2\\}V(p^{\\mathrm{OPT}}).\\)",
+        "relevance_category": "RELATED_TOOL",
         "relevance_score": 4,
-        "connection": "The source paper analyzes the price of iEF for several welfare objectives; this paper is background for that efficiency-vs-fairness lens, not directly for the algorithmic open problem."
-      },
-      {
-        "title": "On Bayesian Implementable Allocations",
-        "bibtex": "@article{PalfreySrivastava1987BayesianImplementable,\n  author = {Thomas R. Palfrey and Sanjay Srivastava},\n  title = {On Bayesian Implementable Allocations},\n  journal = {The Review of Economic Studies},\n  year = {1987},\n  volume = {54},\n  number = {2},\n  pages = {193--208}\n}",
-        "source_url": "https://www.jstor.org/stable/2297563",
-        "theorem_or_result": "Early work defining interim notions of incentive/fairness constraints in Bayesian settings; introduces interim envy-freeness terminology in a different context with fixed lotteries.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 4,
-        "connection": "Historical origin of the iEF concept; provides conceptual grounding but not algorithmic tools for maximizing expected Nash welfare under iEF in matching instances."
+        "connection": "The open problem asks to compute an interim envy-free (iEF) lottery over perfect matchings that maximizes \\(\\mathbb{E}[\\mathrm{avN}(\\mu)]\\). This paper does not study interim envy-freeness, nor does it optimize over the iEF-feasible region. Instead it optimizes welfare subject to a total-variation-distance constraint to a given ex-ante fair prior distribution. Thus it does not provide an algorithm or complexity result for maximizing expected average Nash welfare under iEF constraints. At best, it offers a generic mixing/sampling framework that could be used if one had (i) a prior distribution that is already iEF and (ii) a way to ensure the output remains iEF under mixing\u2014something not addressed here (mixing with a welfare-maximizing matching will generally break iEF)."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.045857,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.06316625,
-    "total_cost_usd": 0.10902324999999999
+    "literature_total_cost_usd": 0.13754475,
+    "total_cost_usd": 0.18340175
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3133568468/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3133568468_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3133568468_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3133568468_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

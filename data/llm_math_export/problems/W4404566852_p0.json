@@ -50,73 +50,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 8,
-    "synthesis": "The exact master route ratio \\(\\rho^*\\) (with depot) for the a priori TSP remains unresolved. The current state of the art is due to Blauth, Neuwohner, Puhlmann & Vygen (\"Improved guarantees for the A Priori TSP\"), who formalize \\(\\rho^*\\) as the worst-case gap between the best master route solution \\(\\min_{\\varnothing\\ne S\\subseteq V}\\mathrm{MR}(S)\\) and the optimal a priori tour cost \\(\\mathrm{OPT}=\\min_T\\mathbb{E}[c(T[A])]\\). They prove nearly matching bounds \\(\\frac{1}{1-e^{-1/2}}<\\rho^*<2.6\\) (numerically \\(<2.584\\) via a dual-feasible solution to a carefully aggregated LP), and they conjecture the exact value \\(\\rho^*=\\frac{1}{1-e^{-1/2}}\\). Their lower bound is given by a clustered-metric construction where each of \\(n\\) groups contains \\(m\\) co-located customers with tiny activation probability \\(1/(2m)\\), so that the best master route chooses only the depot (expected cost \\(n\\)) while \\(\\mathrm{OPT}\\) scales like the expected number of active groups \\(\\approx n(1-e^{-1/2})\\).\n\nHistorically, the master-route framework originates in the constant-factor approximation of Shmoys & Talwar, whose analysis implies the coarse universal upper bound \\(\\rho^*\\le 3\\) (with depot, and via conditioning also without). The 2025 work improves this by reducing general instances to \\(\\varepsilon\\)-normalized ones (uniform tiny activation outside the depot) and then encoding the metric along an optimal a priori tour via aggregated variables \\(C_k\\) (expected contribution of edges spanning \\(k\\) hops) satisfying triangle inequalities. The key technical advance is a finite LP (after bucketing and further interval aggregation) that upper-bounds the best master route cost over all subsets \\(S\\), enabling a numerical certificate below 2.6.\n\nAt present, the main gap is closing the interval \\(\\big(\\frac{1}{1-e^{-1/2}},2.6\\big)\\) and proving (or refuting) that the clustered lower-bound family is extremal. Promising directions suggested by the 2025 approach include: (i) sharpening the LP relaxation/aggregation to eliminate numerical slack and potentially converge to \\(\\frac{1}{1-e^{-1/2}}\\); (ii) proving structural theorems that reduce worst cases to highly symmetric normalized instances (beyond what is already shown) and then solving the resulting limiting optimization problem analytically; and (iii) exploring whether low-activity regimes (small \\(\\sum_v p(v)\\)) can ever yield a larger \\(\\rho^*\\) than the high-activity clustered construction, a question explicitly left open in the discussion.",
-    "total_cost_usd": 0.1124165,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Improved guarantees for the A Priori TSP",
-        "bibtex": "@article{BlauthNeuwohnerPuhlmannVygen2025Improved,\n  author  = {Blauth, Jannis and Neuwohner, Meike and Puhlmann, Luise and Vygen, Jens},\n  title   = {Improved guarantees for the {A} Priori {TSP}},\n  journal = {Mathematics of Operations Research},\n  year    = {2025},\n  volume  = {50},\n  number  = {4},\n  pages   = {2909--2940},\n  doi     = {10.1287/moor.2023.0322},\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.2023.0322",
-        "theorem_or_result": "Defines the master route ratio \\(\\rho^*\\) (with depot) and proves \\(\\frac{1}{1-e^{-1/2}}<\\rho^*<2.6\\). Provides a matching-style lower-bound construction approaching \\(\\frac{1}{1-e^{-1/2}}\\) and an LP-based upper bound \\(2.584\\) (hence <2.6). Conjectures \\(\\rho^*=\\frac{1}{1-e^{-1/2}}\\).",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem of determining the exact master route ratio with depot and specifically whether \\(\\rho^*=\\frac{1}{1-e^{-1/2}}\\). It provides the current best known bounds and the conjectured exact value."
-      },
-      {
-        "title": "A constant approximation algorithm for the a priori traveling salesman problem",
-        "bibtex": "@inproceedings{ShmoysTalwar2008AprioriTSP,\n  author    = {Shmoys, David and Talwar, Kunal},\n  title     = {A constant approximation algorithm for the a priori traveling salesman problem},\n  booktitle = {Integer Programming and Combinatorial Optimization (IPCO)},\n  year      = {2008},\n  pages     = {331--343},\n  publisher = {Springer},\n  doi       = {10.1007/978-3-540-68891-4_23},\n}\n",
-        "source_url": "https://doi.org/10.1007/978-3-540-68891-4_23",
-        "theorem_or_result": "Introduces the randomized sampling master-route framework for a priori TSP and proves a constant-factor approximation (4 randomized, 8 deterministic as stated in the source paper), with an analysis implying an upper bound \\(\\rho^*\\le 3\\) for the master route ratio (with depot and, via conditioning, without depot).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the baseline master-route analysis that yields the classical upper bound \\(\\rho^*\\le 3\\), against which later work (including the 2025 paper) improves and which motivates determining the exact worst-case master route ratio."
-      },
-      {
-        "title": "Deterministic sampling algorithms for network design",
-        "bibtex": "@article{vanZuylen2011DeterministicSampling,\n  author  = {van Zuylen, Anke},\n  title   = {Deterministic sampling algorithms for network design},\n  journal = {Algorithmica},\n  year    = {2011},\n  volume  = {60},\n  number  = {1},\n  pages   = {110--151},\n  doi     = {10.1007/s00453-009-9344-x},\n}\n",
-        "source_url": "https://doi.org/10.1007/s00453-009-9344-x",
-        "theorem_or_result": "Develops deterministic sampling/conditional-expectation techniques; as specialized/analyzed in the 2025 paper, yields a deterministic \\((2+\\alpha\\rho)\\)-approximation for a priori TSP with depot given master route ratio \\(\\rho\\) and a TSP algorithm bounded relative to the subtour LP.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "While not determining \\(\\rho^*\\), it shows why tightening \\(\\rho^*\\) matters: improved bounds on \\(\\rho^*\\) translate directly into improved deterministic approximation guarantees for a priori TSP."
-      },
-      {
-        "title": "A priori solution of a traveling salesman problem in which a random subset of the customers are visited",
-        "bibtex": "@article{Jaillet1988AprioriTSP,\n  author  = {Jaillet, Patrick},\n  title   = {A priori solution of a traveling salesman problem in which a random subset of the customers are visited},\n  journal = {Operations Research},\n  year    = {1988},\n  volume  = {36},\n  number  = {6},\n  pages   = {929--936},\n  doi     = {10.1287/opre.36.6.929},\n}\n",
-        "source_url": "https://doi.org/10.1287/opre.36.6.929",
-        "theorem_or_result": "Early foundational formulation and analysis of the probabilistic/a priori TSP model with random active subsets, establishing the problem setting studied by later approximation work.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Gives original context for the a priori TSP objective \\(\\mathbb{E}[c(T[A])]\\) and motivates master-route-type heuristics whose worst-case ratio \\(\\rho^*\\) is being pinned down."
-      },
-      {
-        "title": "A priori optimization",
-        "bibtex": "@article{BertsimasJailletOdoni1990AprioriOptimization,\n  author  = {Bertsimas, Dimitris J. and Jaillet, Patrick and Odoni, Amedeo R.},\n  title   = {A priori optimization},\n  journal = {Operations Research},\n  year    = {1990},\n  volume  = {38},\n  number  = {6},\n  pages   = {1019--1033},\n  doi     = {10.1287/opre.38.6.1019},\n}\n",
-        "source_url": "https://doi.org/10.1287/opre.38.6.1019",
-        "theorem_or_result": "Introduces and studies the broader framework of a priori optimization problems, including probabilistic routing problems, providing structural context for a priori TSP and related approximation approaches.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Places the master-route ratio question within the general a priori optimization paradigm and helps interpret \\(\\rho^*\\) as a limitation of a widely used sampling-and-extend methodology."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.25107809999999997,
+    "citations_analyzed": 2,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.08571675000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1124165,
-    "total_cost_usd": 0.19813325
+    "literature_total_cost_usd": 0.25107809999999997,
+    "total_cost_usd": 0.33679485
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404566852/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4404566852_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4404566852_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4404566852_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

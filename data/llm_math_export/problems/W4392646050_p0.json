@@ -50,37 +50,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 6,
-    "difficulty": 7,
-    "synthesis": "No forward-citation data were provided, so the review is grounded in the original paper and its cited foundations. The open technical point is to verify Assumption 4 (a summability condition on successive smooth-truncation levels) for the practically convenient schedule \\(M_m=\\gamma_m^{-\\beta}\\) with \\(\\beta\\in(0,1/2)\\). The paper proves this schedule works for policy evaluation (a single-variable stochastic approximation) but leaves open establishing the required uniform summability bound for the coupled policy-gradient recursion.\n\nThe most relevant surrounding literature consists of classical risk-sensitive control for exponential criteria (multiplicative Poisson equation, twisted kernels, Perron--Frobenius/spectral characterizations), and simulation-based optimization/stochastic approximation techniques for Markov reward processes with regenerative structure. A promising direction is to derive an explicit uniform rate for \\(\\sup_\\theta(\\Lambda_\\theta-\\Lambda^{(M)}_\\theta)\\) (or for \\(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta\\)) in terms of \\(M\\), using exponential tail bounds for regeneration times under the twisted kernel and the specific smooth Taylor-type truncation used in \\(G^{(M)}\\). Such a rate would reduce Assumption 4 to a checkable series condition tied to \\(M_m=\\gamma_m^{-\\beta}\\) and typical stepsizes \\(\\gamma_m\\asymp m^{-a}\\).",
-    "total_cost_usd": 0.08843625000000001,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "A Policy Gradient Algorithm for the Risk-Sensitive Exponential Cost MDP",
-        "bibtex": "@article{Moharrami2022RiskSensitivePG,\\n  title        = {A Policy Gradient Algorithm for the Risk-Sensitive Exponential Cost MDP},\\n  author       = {Moharrami, M. and Murthy, Y. and Roy, A. and Srikant, R.},\\n  year         = {2022},\\n  journal      = {arXiv preprint arXiv:2202.04157v2},\\n  eprint       = {2202.04157v2},\\n  archivePrefix= {arXiv},\\n  primaryClass = {eess.SY},\\n  url          = {https://arxiv.org/abs/2202.04157}\\n}",
-        "source_url": "https://arxiv.org/abs/2202.04157",
-        "theorem_or_result": "Introduces smooth truncations \\(G^{(M)}\\) of the regenerative exponential functional \\(H(\\theta,\\Lambda)\\), proves uniform approximation of \\(\\Lambda_\\theta\\) and \\(\\nabla_\\theta\\Lambda_\\theta\\), and establishes convergence of a trajectory-based policy-gradient scheme under a varying-truncation summability condition \\(\\sum_m \\sup_\\theta(\\Lambda^{(M_{m+1})}_\\theta-\\Lambda^{(M_m)}_\\theta)<\\infty\\). Leaves open verifying that the practical schedule \\(M_m=\\gamma_m^{-\\beta}\\) satisfies this condition.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source of the open problem: the convergence theorem (Theorem 1(ii)) requires Assumption 4 (summability of truncation-induced objective changes). The paper proves the analogous \\(M_m=\\gamma_m^{-\\beta}\\) schedule works for policy evaluation (Proposition 1) but not for the coupled policy-gradient scheme, and explicitly states as an open question to show \\(\\gamma_m^{-\\beta}\\) meets Assumption 4 in the optimization setting."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 1.6657116,
+    "citations_analyzed": 24,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.0935165,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08843625000000001,
-    "total_cost_usd": 0.18195275
+    "literature_total_cost_usd": 1.6657116,
+    "total_cost_usd": 1.7592281
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4392646050/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4392646050_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4392646050_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4392646050_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 24,
     "is_open": true,
     "model": "gpt-5.2"
   }

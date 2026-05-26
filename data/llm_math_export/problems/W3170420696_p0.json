@@ -49,73 +49,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 6,
-    "difficulty": 7,
-    "synthesis": "The open problem is posed in Aprile\u2013Conforti\u2013Di Summa, which introduces natural binarizations and a rank parameter \\(\\mathrm{rk}_B(\\alpha)\\) capturing how many sequential convexifications on the binary variables of a fixed binarization \\(B\\) are needed to eliminate vertices with \\(\\alpha<x<\\alpha+1\\). For the two canonical simplex binarizations of \\(x\\in\\{0,\\dots,d\\}\\)\u2014the unary \\(B_U(d)\\) and full \\(B_F(d)\\)\u2014the paper gives closed forms: \\(\\mathrm{rk}_{B_U(d)}(\\alpha_1,\\dots,\\alpha_\\ell)=\\ell\\) for distinct \\(\\alpha_j\\), while \\(\\mathrm{rk}_{B_F(d)}(\\alpha_1,\\dots,\\alpha_\\ell)=d-\\min_j\\alpha_j\\), implying \\(B_U(d)\\) dominates \\(B_F(d)\\) under this criterion. The rank is formulated as a set covering problem over indicator vectors of \\(\\alpha\\)-edges in the skeleton of \\(B\\), so for simplex-isomorphic binarizations (complete skeleton on \\(d+1\\) vertices) the question becomes a combinatorial optimization problem over how the \\(x\\)-labels \\(0,1,\\dots,d\\) are assigned to the simplex vertices and how the corresponding \\(y\\in[0,1]^d\\) coordinates determine edge indicator vectors.\n\nBeyond this source, the closest foundational work is Dash\u2013G{\"u}nl{\"u}k\u2013Hildebrand on binary extended formulations and unimodular binarizations, which evaluates binarizations via split closures rather than sequential convexification rank. Balas\u2019 disjunctive programming results underlie the sequential convexification procedure and justify interpreting ranks as minimum hitting/set-cover numbers. Earlier computational/theoretical motivation for comparing binarizations via disjunctions appears in Owen\u2013Mehrotra (limitations of binary expansions) and Bonami\u2013Margot (cut generation through binarization).\n\nNo forward-citation evidence was provided, and within the supplied material the simplex-isomorphic optimality of \\(B_U(d)\\) is explicitly left open. Thus the problem remains open: it asks whether any other natural binarization polytope combinatorially equivalent to a simplex can yield strictly smaller \\(\\mathrm{rk}_B(\\alpha)\\) than unary for some \\(\\alpha\\). Promising directions suggested by the source paper\u2019s framework include: (i) classifying all natural simplex-isomorphic binarizations up to affine/unimodular transformations and understanding how edge indicator vectors can vary; (ii) translating the rank comparison into extremal set-cover bounds for complete graphs with edge labels induced by \\(y\\)-patterns; and (iii) searching for counterexamples via small \\(d\\) enumeration of simplex vertices in \\([0,1]^d\\) with integer \\(x\\)-labels and computing the induced set-cover ranks.",
-    "total_cost_usd": 0.08086225,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Binary extended formulations and sequential convexification",
-        "bibtex": "@misc{AprileConfortiDiSumma2021BinaryExtendedFormulations,\n  title        = {Binary extended formulations and sequential convexification},\n  author       = {Aprile, Manuel and Conforti, Michele and Di Summa, Marco},\n  year         = {2021},\n  eprint       = {2106.00354},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2106.00354}\n}",
-        "source_url": "https://arxiv.org/abs/2106.00354",
-        "theorem_or_result": "Introduces natural binarizations and defines the rank parameter \\(\\mathrm{rk}_B(\\alpha)\\) measuring the minimum number of sequential convexifications on the binary variables needed to enforce integrality-separation for \\(x\\) between \\(\\alpha\\) and \\(\\alpha+1\\). Computes closed forms for unary \\(B_U(d)\\) and full \\(B_F(d)\\), proving \\(\\mathrm{rk}_{B_F(d)}(\\alpha_1,\\dots,\\alpha_\\ell)\\ge \\mathrm{rk}_{B_U(d)}(\\alpha_1,\\dots,\\alpha_\\ell)\\) for distinct \\(\\alpha_j\\). Leaves open whether \\(B_U(d)\\) is optimal among natural simplex-isomorphic binarizations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that formulates the open problem: among natural binarizations \\(B\\subseteq\\mathbb R\\times[0,1]^d\\) that are combinatorially equivalent to a \\(d\\)-simplex, decide whether unary \\(B_U(d)\\) minimizes \\(\\mathrm{rk}_B(\\alpha)\\) for all \\(\\alpha\\in\\{0,\\dots,d-1\\}\\)."
-      },
-      {
-        "title": "Binary extended formulations of polyhedral mixed-integer sets",
-        "bibtex": "@article{DashGunlukHildebrand2018BinaryExtendedFormulations,\n  title   = {Binary extended formulations of polyhedral mixed-integer sets},\n  author  = {Dash, Sanjeeb and G{\"u}nl{\"u}k, Oktay and Hildebrand, Robert},\n  journal = {Mathematical Programming},\n  volume  = {170},\n  number  = {1},\n  pages   = {207--236},\n  year    = {2018},\n  doi     = {10.1007/s10107-017-1215-2},\n  url     = {https://doi.org/10.1007/s10107-017-1215-2}\n}",
-        "source_url": "https://doi.org/10.1007/s10107-017-1215-2",
-        "theorem_or_result": "Develops a theory of binary extended formulations for mixed-integer sets; introduces and studies unimodular binarizations and shows their optimality with respect to split closures; provides structural results on how binarizations interact with split disjunctions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the main prior framework for comparing binarizations (via split closure) and motivates studying alternative criteria (like sequential-convexification rank). While not addressing simplex-isomorphic optimality, it supplies tools/definitions (binarizations, natural/integral/exact, unimodularity) that constrain the class of candidate simplex binarizations."
-      },
-      {
-        "title": "Disjunctive programming: Properties of the convex hull of feasible points",
-        "bibtex": "@article{Balas1998DisjunctiveProgramming,\n  title   = {Disjunctive programming: Properties of the convex hull of feasible points},\n  author  = {Balas, Egon},\n  journal = {Discrete Applied Mathematics},\n  volume  = {89},\n  number  = {1--3},\n  pages   = {3--44},\n  year    = {1998},\n  doi     = {10.1016/S0166-218X(98)00136-5},\n  url     = {https://doi.org/10.1016/S0166-218X(98)00136-5}\n}",
-        "source_url": "https://doi.org/10.1016/S0166-218X(98)00136-5",
-        "theorem_or_result": "Establishes sequential convexification (iterated convex hull of faces induced by binary disjunctions) and its convergence for polytopes in \\([0,1]^h\\times\\mathbb R^{n-h}\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Sequential convexification is the underlying procedure used to define \\(\\mathrm{rk}_B(\\alpha)\\); Balas' theorem justifies interpreting rank as a minimum hitting/set-cover problem over fractional vertices."
-      },
-      {
-        "title": "On the value of binary expansions for general mixed-integer linear programs",
-        "bibtex": "@article{OwenMehrotra2002ValueBinaryExpansions,\n  title   = {On the value of binary expansions for general mixed-integer linear programs},\n  author  = {Owen, Jonathan H. and Mehrotra, Sanjay},\n  journal = {Operations Research},\n  volume  = {50},\n  number  = {5},\n  pages   = {810--819},\n  year    = {2002},\n  doi     = {10.1287/opre.50.5.810.358},\n  url     = {https://doi.org/10.1287/opre.50.5.810.358}\n}",
-        "source_url": "https://doi.org/10.1287/opre.50.5.810.358",
-        "theorem_or_result": "Analyzes binary expansion (logarithmic) reformulations in MILP; shows limitations of convexification/branching on binary expansion variables for tightening the original integer variable range.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides earlier evidence that different binarizations behave differently under disjunction-based tightening; contrasts with unary/full and motivates rank comparisons across binarizations, though not specific to simplex-isomorphic binarizations."
-      },
-      {
-        "title": "Cut generation through binarization",
-        "bibtex": "@article{BonamiMargot2015CutGenerationBinarization,\n  title   = {Cut generation through binarization},\n  author  = {Bonami, Pierre and Margot, Fran{\u007f}ois},\n  journal = {Mathematical Programming},\n  volume  = {154},\n  number  = {1},\n  pages   = {197--223},\n  year    = {2015},\n  doi     = {10.1007/s10107-014-0826-6},\n  url     = {https://doi.org/10.1007/s10107-014-0826-6}\n}",
-        "source_url": "https://doi.org/10.1007/s10107-014-0826-6",
-        "theorem_or_result": "Studies generating cutting planes via binarization-based extended formulations and disjunctions; analyzes strength and practical aspects of binarization in cut generation.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Contextual background on why binarization choice matters for disjunction-based strengthening; complements the rank viewpoint though does not address simplex-isomorphic optimality."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.03360175,
+    "citations_analyzed": 1,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.059734499999999996,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08086225,
-    "total_cost_usd": 0.14059675
+    "literature_total_cost_usd": 0.03360175,
+    "total_cost_usd": 0.09333625
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3170420696/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3170420696_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3170420696_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3170420696_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 1,
     "is_open": true,
     "model": "gpt-5.2"
   }

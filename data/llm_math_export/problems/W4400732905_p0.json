@@ -48,90 +48,45 @@
     "method": "forward_citation_review",
     "model": "gpt-5.2",
     "importance": 7,
-    "difficulty": 8,
-    "synthesis": "The open problem, highlighted in Remark 2.12 of Cheng\u2013Jaimungal, asks for an analogue of the classical Abelian limit linking discounted and average criteria when the performance functional is a time-consistent distributional dynamic risk measure built by nesting state-dependent law-invariant convex one-step risk mappings \\(\\sigma_{t,x}\\). Existing risk-averse MDP theory (notably Ruszczy\u0144ski\u2019s risk transition mapping framework and subsequent extensions) provides discounted dynamic programming principles and existence of optimal Markov policies under compactness/continuity assumptions, but does not establish what happens as \\(\\gamma\\uparrow 1\\) nor whether a scaled limit \\((1-\\gamma)\\inf \\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) matches an average-risk optimal value.\n\nPartial progress exists in the direction of defining and analyzing average-type risk criteria for nested risk measures. In particular, Shen\u2013Stannat\u2013Obermayer study risk-sensitive Markov control processes and include an average dynamic risk measure formulation with corresponding optimality equations under strong regularity assumptions, indicating that an average-risk Bellman/Poisson equation is plausible in the nested-risk setting. Work on recursive/iterated coherent risk measures (e.g., Chu\u2013Zhang; B\u00e4uerle\u2013Glauner) further develops infinite-horizon dynamic programming and, in some cases, long-run criteria, but stops short of proving a discount-to-one limit theorem, especially in the distributional DRM setting with state-dependent \\(\\sigma_{t,x}\\).\n\nA promising direction is to develop Abelian/Tauberian theorems for the nonlinear (generally non-affine) Bellman operators \\(S_t\\) induced by \\(\\sigma_{t,x}\\), potentially via ergodicity/unichain assumptions and a nonlinear Perron\u2013Frobenius or additive eigenvalue approach (risk-sensitive control suggests such structures). Risk-neutral modern treatments of Blackwell/average optimality reductions (e.g., Grand-Cl\u00e9ment\u2013Petrik) may provide templates, but new arguments are needed because the nested risk criterion breaks linearity and may require additional properties (e.g., positive homogeneity/coherency, or specific Kusuoka/spectral forms) to obtain a well-defined average-risk constant and a bias function solving a risk-averse Poisson equation.",
-    "total_cost_usd": 0.11278750000000001,
-    "citations_analyzed": 0,
+    "difficulty": 9,
+    "synthesis": "The source paper (Cheng\u2013Jaimungal) constructs discounted infinite-horizon distributional DRMs \\(\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) by nesting state-dependent law-invariant convex risk measures \\(\\sigma_{t,x}\\) applied to regular conditional laws of \\(C_t+\\gamma\\,\\text{future}\\). Under weak continuity of the transition kernel and lower semicontinuity/Fatou-type regularity of \\(\\sigma_{t,x}\\), it establishes finite- and infinite-horizon DPPs and existence of optimal Markov policies for each fixed \\(\\gamma<1\\). It also explicitly highlights that, unlike the risk-neutral case, an Abelian/Tauberian link between the \\(\\gamma\\uparrow 1\\) discounted problem (possibly scaled by \\(1-\\gamma\\)) and an average-cost/average-risk criterion is not known in this nonlinear, time-consistent risk setting.\n\nPrior work by Ruszczy\u0144ski provides the canonical recursive risk-averse dynamic programming framework via risk transition mappings, while B\u00e4uerle\u2013Glauner develop related discounted DPP theory for recursive risk measures and conditions for deterministic optimal actions. These works clarify that time consistency alone yields a Bellman recursion but does not supply the linear structure used in classical proofs of discount-to-average equivalence (e.g., additive Poisson equations and affine contraction arguments). On the average-criterion side, Shen\u2013Stannat\u2013Obermayer treat risk-sensitive Markov control processes including average dynamic risk measures under strong regularity (e.g., strong Feller-type) assumptions, thereby offering candidate definitions of \\(\\mathrm{Avg}(C)\\) in a time-consistent risk-averse framework; however, they do not prove that \\((1-\\gamma)\\inf\\varsigma^{X,\\gamma}_{0,\\infty}(C)\\) converges to that average criterion as \\(\\gamma\\uparrow 1\\), nor do they address the distributional/state-dependent \\(\\sigma_{t,x}\\) formulation.\n\nRecent forward citations focus on robust/time-consistent recursion and finite-horizon robust RL with nested distortion risks; they provide tools for recursion and worst-case quantile calculations but do not engage with infinite-horizon \\(\\gamma\\uparrow 1\\) asymptotics. Overall, the discount-to-one versus average-risk equivalence remains open for the distributional DRM setting. Promising directions include: (i) imposing stationarity and ergodicity/unichain conditions plus additional structure on \\(\\sigma\\) (e.g., coherent/spectral forms admitting dual representations) to derive an additive eigenvalue problem \\(h+\\lambda=\\mathcal{T}h\\) for a nonlinear Bellman operator \\(\\mathcal{T}\\); (ii) developing nonlinear Tauberian theorems for nested risk operators, possibly via subadditivity/positive homogeneity and span seminorm contractions; and (iii) identifying counterexamples where nonlinearity breaks the Abelian limit, to delineate the sharp assumptions needed.",
+    "total_cost_usd": 0.26429025,
+    "citations_analyzed": 2,
     "sources": [
       {
-        "title": "Risk-averse dynamic programming for Markov decision processes",
-        "bibtex": "@article{Ruszczynski2010RiskAverseDP,\n  author  = {Andrzej Ruszczy{\\'n}ski},\n  title   = {Risk-averse dynamic programming for Markov decision processes},\n  journal = {Mathematical Programming},\n  year    = {2010},\n  volume  = {125},\n  pages   = {235--261}\n}\n",
-        "source_url": "https://doi.org/10.1007/s10107-010-0393-3",
-        "theorem_or_result": "Introduces risk transition mappings and a time-consistent nested risk criterion for discounted MDPs; establishes finite-horizon and infinite-horizon discounted dynamic programming equations and existence of optimal Markov policies under suitable continuity/compactness assumptions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the foundational discounted risk-averse DPP framework that Cheng\u2013Jaimungal generalize distributionally; however it does not establish a \n\\(\\gamma\\uparrow 1\\) limit theorem linking discounted risk value to an average-risk criterion."
+        "title": "Uncertainty propagation and dynamic robust risk measures",
+        "bibtex": "@article{UncertaintyPropagationDynamicRobustRiskMeasures,\n  title={Uncertainty propagation and dynamic robust risk measures},\n  author={},\n  journal={Mathematics of Operations Research},\n  year={2023},\n  doi={10.1287/moor.2023.0267}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2023.0267",
+        "theorem_or_result": "The paper develops a finite-horizon framework of dynamic uncertainty sets \\(u=\\{u_t\\}\\) and associated dynamic robust risk measures \\(R^{u,\\rho}\\) defined by one-step robustification \\(R^{u,\\rho}_{t,s}(X_{t+1:s})=\\operatorname*{ess\\,sup}\\{\\rho_t(Y):Y\\in u_{t+1}(X_{t+1:s})\\}\\). Its main structural theorem (Theorem 5) gives a recursive representation: \\(R\\) is weak recursive iff there exists a static uncertainty set \\(u^{\\varsigma}\\) such that for all \\(t\\),\n\\[R_{t,T}(X_{t+1:T})=R^{u^{\\varsigma}}_t\\bigl(Y_{t+1}+R^{u^{\\varsigma}}_{t+1}(Y_{t+2}+\\cdots+R^{u^{\\varsigma}}_{T-1}(Y_T)\\cdots)\\bigr),\\]\nwith \\(Y_t=X_t-R^{u^{\\varsigma}}_t(0)\\); and if additionally normalised then this yields strong time-consistency (a robust analogue of the Cheridito\u2013Delbaen\u2013Kupper recursion).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns the \\(\\gamma\\uparrow 1\\) (discount-to-one) limit of infinite-horizon discounted, distributional, law-invariant convex dynamic risk measures in risk-averse MDPs and its relationship to an average-cost/average-risk criterion. This citing paper is finite-horizon and focuses on axiomatic/time-consistency and recursive representations of robust dynamic risk measures built from uncertainty sets; it does not study Markov decision processes, stationary control, infinite-horizon limits, or any Abelian/Tauberian link between discounted and average criteria. At most, its recursion/time-consistency results could be used as technical tools when defining well-posed dynamic risk criteria under model uncertainty, but it provides no results about \\((1-\\gamma)\\varsigma^{X,\\gamma}_{0,\\infty}\\) as \\(\\gamma\\uparrow 1\\) or average optimality."
       },
       {
-        "title": "Risk-sensitive Markov control processes",
-        "bibtex": "@article{ShenStannatObermayer2013RiskSensitive,\n  author  = {Ying Shen and Wilhelm Stannat and Klaus Obermayer},\n  title   = {Risk-sensitive Markov control processes},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {2013},\n  volume  = {51},\n  pages   = {3652--3672}\n}\n",
-        "source_url": "https://doi.org/10.1137/120897836",
-        "theorem_or_result": "Studies risk-sensitive control with dynamic risk measures, including an average dynamic risk measure formulation, and derives corresponding optimality equations under strong regularity (e.g., strong Feller-type) assumptions.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Directly relevant because it treats an average-risk (non-discounted) counterpart for nested risk criteria; suggests what an average optimality equation might look like, but does not prove equivalence with the scaled discounted criterion as \\(\\gamma\\uparrow 1\\) in the distributional DRM setting."
-      },
-      {
-        "title": "Markov decision processes with iterated coherent risk measures",
-        "bibtex": "@article{ChuZhang2014IteratedCoherent,\n  author  = {Shuai Chu and Yu Zhang},\n  title   = {Markov decision processes with iterated coherent risk measures},\n  journal = {International Journal of Control},\n  year    = {2014},\n  volume  = {88},\n  pages   = {2286--2293}\n}\n",
-        "source_url": "https://doi.org/10.1080/00207179.2014.999574",
-        "theorem_or_result": "Develops infinite-horizon dynamic programming for MDPs under iterated coherent (time-consistent) risk measures, allowing randomized policies and unbounded costs under additional assumptions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides another discounted infinite-horizon risk-averse DPP baseline; does not address the \\(\\gamma\\uparrow 1\\) limit or average optimality equivalence, but its operator-theoretic setup is a natural starting point for Abelian/Tauberian analyses."
-      },
-      {
-        "title": "Markov decision processes with recursive risk measures",
-        "bibtex": "@article{BaeuerleGlauner2022RecursiveRisk,\n  author  = {Nicole B{\\\"a}uerle and Andreas Glauner},\n  title   = {Markov decision processes with recursive risk measures},\n  journal = {European Journal of Operational Research},\n  year    = {2022},\n  volume  = {296},\n  pages   = {953--966}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.ejor.2021.04.030",
-        "theorem_or_result": "Establishes discounted and (under additional structure) long-run criteria for MDPs with recursive (nested) risk measures, including existence of optimal policies and dynamic programming under unbounded costs.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Represents progress toward understanding non-discounted/long-run formulations for recursive risk; useful for formulating an average-risk objective compatible with time consistency, but does not settle the discount-to-one limit equivalence in the distributional DRM framework."
-      },
-      {
-        "title": "Erratum to: Risk-averse dynamic programming for Markov decision processes",
-        "bibtex": "@article{Ruszczynski2014Erratum,\n  author  = {Andrzej Ruszczy{\\'n}ski},\n  title   = {Erratum to: Risk-averse dynamic programming for Markov decision processes},\n  journal = {Mathematical Programming},\n  year    = {2014},\n  volume  = {145},\n  pages   = {601--604}\n}\n",
-        "source_url": "https://doi.org/10.1007/s10107-014-0758-1",
-        "theorem_or_result": "Clarifies and corrects assumptions/results in the 2010 risk-averse dynamic programming framework, including technical conditions for the infinite-horizon discounted case.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 4,
-        "connection": "Ensures the discounted theory is on solid footing before attempting \\(\\gamma\\uparrow 1\\) asymptotics; does not address average optimality equivalence."
-      },
-      {
-        "title": "Distribution-invariant risk measures, information, and dynamic consistency",
-        "bibtex": "@article{Weber2006DistributionInvariant,\n  author  = {Stefan Weber},\n  title   = {Distribution-invariant risk measures, information, and dynamic consistency},\n  journal = {Mathematical Finance},\n  year    = {2006},\n  volume  = {16},\n  pages   = {419--441}\n}\n",
-        "source_url": "https://doi.org/10.1111/j.1467-9965.2006.00274.x",
-        "theorem_or_result": "Develops distribution-invariant (law-invariant) dynamic risk measures and analyzes dynamic consistency from an information/distributional perspective.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Conceptual precursor to Cheng\u2013Jaimungal\u2019s distributional DRM construction; informs what kinds of time-consistent law-invariant DRMs might admit long-run limits, but does not treat MDP average optimality or discount-to-one limits."
-      },
-      {
-        "title": "Reducing Blackwell and average optimality to discounted MDPs via the Blackwell discount factor",
-        "bibtex": "@misc{GrandClementPetrik2023Blackwell,\n  author       = {Julien Grand-Cl{\\'e}ment and Marek Petrik},\n  title        = {Reducing Blackwell and average optimality to discounted MDPs via the Blackwell discount factor},\n  year         = {2023},\n  eprint       = {2302.00036},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.LG}\n}\n",
-        "source_url": "https://arxiv.org/abs/2302.00036",
-        "theorem_or_result": "Provides reductions connecting average-cost and Blackwell optimality to discounted MDPs via a Blackwell discount factor in the risk-neutral setting, with algorithmic implications.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "While risk-neutral, it supplies modern Abelian/Tauberian-style techniques and structural conditions for discount-to-one/average equivalences that could inspire analogous results for risk-averse nested risk criteria."
+        "title": "Robust reinforcement learning with dynamic distortion risk measures",
+        "bibtex": "@article{RobustRLWithDynamicDistortionRiskMeasures,\n  title={Robust reinforcement learning with dynamic distortion risk measures},\n  author={},\n  journal={SIAM Journal on Optimization},\n  year={2024},\n  doi={10.1137/24M1699802}\n}\n",
+        "source_url": "https://doi.org/10.1137/24M1699802",
+        "theorem_or_result": "The paper develops a finite-horizon (\n0T<\\infty\\)) robust risk-aware RL framework for strongly time-consistent dynamic risk measures built by nesting one-step conditional robust distortion risk measures. Key technical results include explicit characterizations of the worst-case conditional quantile in a conditional 2-Wasserstein ball: for uncertainty set \\(\\{Z^\\varphi: \\|\\breve F_t-\\breve F_{\\varphi,t}\\|_2\\le \\epsilon_s\\}\\), \\(\\breve F^*_{\\varphi,t}(\\cdot\\mid s,a)=\\big(\\breve F_{\\theta,t}(\\cdot\\mid s,a)+\\gamma_s(\\cdot)/(2\\lambda^*)\\big)^{\\uparrow}\\) with \\(\\|\\breve F^*_{\\varphi,t}-\\breve F_{\\theta,t}\\|_2=\\epsilon_s\\) (Thm 3.2); and with additional moment constraints (Eq. (2.2b)) an explicit affine-in-\\(\\breve F_{\\theta,t}\\) formula for \\(\\breve F^*_{\\varphi,t}\\) (Thm 3.5), plus a deterministic policy-gradient formula for the resulting robust dynamic objective (Thm 3.6).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns the \\(\\gamma\\uparrow 1\\) discount-to-one limit and its equivalence (after scaling) to an average-cost/average-risk criterion for infinite-horizon risk-averse MDPs under distributional dynamic risk measures. This citing paper does not study infinite-horizon discounted criteria, does not analyze \\(\\gamma\\uparrow 1\\) limits, and does not define or relate to an average-risk optimality notion. Its \\(\\gamma\\) denotes a distortion function (not the discount factor), and the setting is episodic finite-horizon RL with nested one-step conditional (robust) distortion risk measures. Thus it does not resolve the discount-to-average equivalence question; at most it provides related methodology (quantile/Wasserstein robustification, time-consistent nesting) that could be ingredients in a future average-risk analysis."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.09235974999999999,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11278750000000001,
-    "total_cost_usd": 0.20514725
+    "literature_total_cost_usd": 0.26429025,
+    "total_cost_usd": 0.35665
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400732905/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400732905_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4400732905_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4400732905_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

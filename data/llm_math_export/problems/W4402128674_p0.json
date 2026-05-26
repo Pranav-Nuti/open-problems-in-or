@@ -50,80 +50,44 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The open question in Igarashi\u2013Meunier concerns the gap between (i) strong prime-power existence theorems for envy-free feasible contiguous multi-divisions obtained by \\(q-1\\) long knives under very general preference/choice-function models, and (ii) known impossibility phenomena when \\(q\\) is not a prime power for general (possibly non-hungry) choice functions. The paper\u2019s Theorem 1 shows that for \\(m\\le q\\le n\\) and \\(q\\) a prime power, one can always find an envy-free feasible contiguous multi-division using \\(q-1\\) long knives (indeed in a stronger \u201cgroup-birthday\u201d form), via a configuration-space/test-map scheme on the chessboard complex \\(\\Delta_{2q-1,q}\\) and Volovikov\u2019s equivariant Borsuk\u2013Ulam-type theorem combined with Gale\u2019s averaging trick. This establishes that within the long-knife restriction, prime-power \\(q\\) is sufficient for existence even without monotonicity or additivity assumptions.\n\nOn the negative side, the broader literature (notably Avvakumov\u2013Karasev and Panina\u2013\u017divaljevi\u0107, building on the same equivariant-topological framework) shows that for non-prime-power \\(q\\) there are cake-cutting instances with choice functions for which envy-free divisions fail to exist. These counterexamples demonstrate a genuine topological obstruction once one allows sufficiently pathological preferences, and they explain why Volovikov-based proofs cannot extend beyond prime powers. However, these constructions do not immediately translate to standard \u201cnatural\u201d valuation models (e.g., additive, absolutely continuous, monotone/Lipschitz), and Igarashi\u2013Meunier explicitly leave open whether one can realize a nonexistence instance for envy-free feasible contiguous long-knife multi-divisions using such valuations.\n\nAlgorithmically, Deng\u2013Qi\u2013Saberi provide an FPTAS for approximate envy-free divisions in the classical one-layer, three-agent setting with monotone Lipschitz valuations; Igarashi\u2013Meunier extend this style of monotonicity-exploiting search to a two-layer setting with one short and one long knife (Theorem 3). These results suggest that for several standard valuation classes, envy-free (or approximately envy-free) divisions are robustly attainable under structured knife models, reinforcing the plausibility that valuation-based counterexamples\u2014if they exist\u2014may require carefully engineered non-additive or non-monotone features. At present, with no forward-citation evidence of a valuation-based impossibility construction, the problem remains open: either one must build explicit valuations that defeat all long-knife feasible contiguous allocations, or prove a general existence theorem for a broad valuation class that bypasses the prime-power barrier known for choice functions.",
-    "total_cost_usd": 0.10709825,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper proves a strong positive result for the long-knives model under very general (choice-function) preferences: when \\(q\\) is a prime power and \\(m\\le q\\le n\\), there exists an envy-free feasible contiguous multi-division obtainable with \\(q-1\\) long knives (Theorem 1). The proof encodes long-knife feasible divisions and assignments in the chessboard complex \\(\\Delta_{2q-1,q}\\) and applies Volovikov\u2019s equivariant Borsuk\u2013Ulam type theorem, together with Gale\u2019s averaging trick and a flow/rounding lemma, to force a point where the aggregated preference vector hits the barycenter \\((1/q,\\dots,1/q)\\). For \\(m=2,q=3\\) the paper also gives an existence theorem with one short and one long knife under monotone/hungry preferences and an FPTAS for \\(\\varepsilon\\)-envy-free solutions under monotone Lipschitz valuations.\n\nThe open problem highlighted in the concluding remarks concerns the gap between the choice-function impossibility for non\u2013prime-power \\(q\\) and the valuation-function setting: known counterexamples for choice functions (when \\(q\\) is not a prime power) do not automatically yield counterexamples for additive/continuous/Lipschitz valuations. At present, the forward-citation set provided does not contain a paper resolving this gap. Adjacent work on multi-layered cakes establishes proportional (rather than envy-free) feasible contiguous allocations under additive absolutely-continuous valuations, often using cutting primitives beyond long knives (e.g., a pair-of-knives model), suggesting that long-knife restrictions may be the true bottleneck. On the algorithmic side, reductions from approximate envy-free cake cutting with monotone preferences to approximate root-finding for monotone switching functions indicate a possible route to efficient approximation schemes if the multilayer long-knife constraints can be expressed in a suitably monotone fixed-point/root framework.\n\nOverall, with the information available here, the problem remains open: no explicit \u2018natural valuation\u2019 counterexample to envy-free long-knife multi-divisions is identified, nor is there a theorem guaranteeing existence for broad valuation classes when \\(q\\) is not a prime power. Promising directions include (i) attempting to adapt non\u2013prime-power obstruction constructions from choice functions to additive absolutely-continuous valuations while preserving feasibility/non-overlap across layers, and (ii) formulating the long-knife envy-free conditions as a continuous (possibly piecewise-linear) equivariant map problem or as a monotone root-finding instance to leverage algorithmic/topological machinery beyond Volovikov\u2019s prime-power regime.",
+    "total_cost_usd": 0.7968061500000001,
+    "citations_analyzed": 11,
     "sources": [
       {
-        "title": "Envy-Free Division of Multi-Layered Cakes",
-        "bibtex": "@article{IgarashiMeunier2022Multilayer,\n  title={Envy-Free Division of Multi-Layered Cakes},\n  author={Igarashi, Ayumi and Meunier, Fr\\'ed\\'eric},\n  year={2022},\n  journal={arXiv preprint arXiv:2106.02262},\n  eprint={2106.02262},\n  archivePrefix={arXiv},\n  primaryClass={cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2106.02262",
-        "theorem_or_result": "Proves existence of envy-free feasible contiguous multi-divisions using \\(q-1\\) long knives when \\(q\\) is a prime power (under closed preferences), and shows nonexistence for non-prime-power \\(q\\) under general choice functions via known counterexamples; explicitly leaves open whether counterexamples exist for natural valuation functions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that formulates the open question: whether, under natural valuation models (as opposed to arbitrary choice functions), there are instances with no envy-free feasible contiguous multi-division obtainable by \\(q-1\\) long knives."
+        "title": "Fair Division of Multi-layered Cakes",
+        "bibtex": "@misc{UnknownFairDivisionMultiLayeredCakes,\n  title        = {Fair Division of Multi-layered Cakes},\n  author       = {Unknown},\n  note         = {Metadata (authors/year/venue) not provided in citation analysis block.},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves existence/computation results for feasible contiguous proportional (and in one case exact) multi-allocations under additive absolutely-continuous valuations: - Theorem 1: for any 2-layer cake and 2 agents, there exists an exact complete feasible multi-allocation (not necessarily contiguous). - Theorem 3: for 3 layers and 3 agents, there exists a proportional complete multi-allocation that is feasible and contiguous. - Theorem 5: for 3 layers and any number of agents \\(n\\ge 3\\), there exists a proportional complete multi-allocation that is feasible and contiguous. - Theorems 7\u20138: for \\(m=2^a\\cdot 3\\) layers (\\(a\\in\\mathbb Z_+\\)) and \\(n\\ge m\\), there exists a proportional complete multi-allocation that is feasible and contiguous, with a recursive procedure based on majority switching points and merging diagonal pieces.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for \u2018natural\u2019 valuation counterexamples showing that envy-free feasible contiguous multi-divisions obtained using \\(q-1\\) long knives may fail to exist (or a proof they always exist) under a natural valuation model. This paper does not study envy-freeness under the long-knives restriction, nor does it construct impossibility instances. Instead it develops algorithms/existence proofs for proportional (and one exact) allocations using diagonal-piece cuts and a new \u2018pair of knives\u2019 moving-knife model. These techniques are adjacent to the long-knife framework (the author notes a pair of knives generalizes a long knife when one knife is at an endpoint), but they do not address whether envy-free allocations exist when all layers are cut at common \\(t_1,\\dots,t_{q-1}\\) and bundles pick one interval per layer with non-overlap. Hence it neither resolves nor directly advances the counterexample question, except by providing alternative cutting primitives and existence results in a different fairness notion (proportionality)."
       },
       {
-        "title": "Envy-free division using mapping degree",
-        "bibtex": "@article{AvvakumovKarasev2020EnvyFree,\n  title={Envy-free division using mapping degree},\n  author={Avvakumov, Sergey and Karasev, Roman},\n  journal={Mathematika},\n  volume={67},\n  number={1},\n  pages={36--53},\n  year={2020},\n  doi={10.1112/mtk.12013}\n}\n",
-        "source_url": "https://doi.org/10.1112/mtk.12013",
-        "theorem_or_result": "Establishes existence of envy-free cake divisions for \\(n\\) a prime power without hunger assumptions using mapping degree; also provides nonexistence phenomena for non-prime-power \\(n\\) in the choice-function setting.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "Provides the prime-power barrier and the type of counterexamples (for choice functions) that motivate asking whether similar impossibility can be realized by natural valuation functions in the multilayer/long-knife model."
-      },
-      {
-        "title": "Splitting necklaces, with constraints",
-        "bibtex": "@article{JojicPaninaZivaljevic2021Necklaces,\n  title={Splitting necklaces, with constraints},\n  author={Joji{\\'c}, Du{\\v{s}}ko and Panina, Gaiane and {\\v{Z}}ivaljevi{\\'c}, Rade},\n  journal={SIAM Journal on Discrete Mathematics},\n  volume={35},\n  number={2},\n  pages={1268--1286},\n  year={2021},\n  doi={10.1137/20M1368218}\n}\n",
-        "source_url": "https://doi.org/10.1137/20M1368218",
-        "theorem_or_result": "Applies Volovikov-type equivariant topology and configuration-space methods to constrained fair division (necklace splitting), giving tools and templates for prime-power existence results.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Methodological precursor: the multilayer long-knife existence proof uses the same Volovikov framework; understanding its limits helps assess whether valuation-based counterexamples might exist beyond prime powers."
-      },
-      {
-        "title": "Envy-free division via configuration spaces",
-        "bibtex": "@article{PaninaZivaljevic2021EnvyFree,\n  title={Envy-free division via configuration spaces},\n  author={Panina, Gaiane and {\\v{Z}}ivaljevi{\\'c}, Rade T.},\n  year={2021},\n  journal={arXiv preprint arXiv:2102.06886},\n  eprint={2102.06886},\n  archivePrefix={arXiv}\n}\n",
-        "source_url": "https://arxiv.org/abs/2102.06886",
-        "theorem_or_result": "Develops configuration-space/test-map schemes for envy-free division with non-hungry preferences, refining Volovikov-based approaches and discussing failures for non-prime-power group actions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Clarifies the topological obstruction landscape underlying the long-knife model and why non-prime-power cases admit choice-function counterexamples; informs attempts to translate such obstructions to valuation models."
-      },
-      {
-        "title": "Fair division of time: Multi-layered cake cutting",
-        "bibtex": "@inproceedings{HosseiniIgarashiSearns2020Multilayer,\n  title={Fair division of time: Multi-layered cake cutting},\n  author={Hosseini, Hadi and Igarashi, Ayumi and Searns, Andrew},\n  booktitle={Proceedings of the 29th International Joint Conference on Artificial Intelligence (IJCAI)},\n  year={2020}\n}\n",
-        "source_url": "https://www.ijcai.org/proceedings/2020/26",
-        "theorem_or_result": "Introduces the multi-layered cake model with non-overlap feasibility; proves existence of envy-free feasible divisions when contiguity is relaxed and resolves small cases (e.g., \\(m=2,n=2\\)) with long knives; leaves open contiguous feasible envy-free existence for \\(m=2,n=3\\) and more generally.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Original formulation of the multilayer feasibility constraint and the long-knife restriction; the open problem asks for valuation-based impossibility instances for envy-free feasible contiguous long-knife divisions."
-      },
-      {
-        "title": "Algorithmic solutions for envy-free cake cutting",
-        "bibtex": "@article{DengQiSaberi2012EnvyFree,\n  title={Algorithmic solutions for envy-free cake cutting},\n  author={Deng, Xiaotie and Qi, Qi and Saberi, Amin},\n  journal={Operations Research},\n  volume={60},\n  number={6},\n  pages={1461--1476},\n  year={2012},\n  doi={10.1287/opre.1120.1093}\n}\n",
-        "source_url": "https://doi.org/10.1287/opre.1120.1093",
-        "theorem_or_result": "Gives an FPTAS for \\(\\varepsilon\\)-envy-free contiguous cake cutting for three agents with monotone Lipschitz valuations; establishes computational hardness for more general preference representations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Algorithmic baseline extended in the source paper to two-layer settings; relevant for understanding what 'natural' valuation classes (monotone, Lipschitz, additive) support constructive envy-free divisions under knife restrictions."
+        "title": "Computing approximate roots of monotone functions",
+        "bibtex": "@misc{UnknownComputingApproximateRootsMonotone,\n  title        = {Computing approximate roots of monotone functions},\n  author       = {Unknown},\n  note         = {Metadata (authors/year/venue) not provided in citation analysis block.},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves query-complexity bounds for computing an \\(\\varepsilon\\)-root of a Lipschitz, Miranda/positive-switching function \\(f:[a,b]\\to\\mathbb R^d\\) under monotonicity assumptions. In particular:\n- For \\(d=2\\), if either a single diagonal monotonicity condition holds (e.g. \\(f_1\\) increasing in \\(x_1\\)) or a single ex-diagonal condition holds (e.g. \\(f_1\\) decreasing in \\(x_2\\)), then an \\(\\varepsilon\\)-root can be found with \\(O(\\log^2(L/\\varepsilon))\\) value-oracle evaluations (Theorems 1.3/1.4).\n- For fixed \\(d\\ge 2\\), if all \\(d^2-d\\) ex-diagonal conditions hold (\\(f_i\\) decreasing in \\(x_j\\) for all \\(i\\ne j\\)), then an \\(\\varepsilon\\)-root can be found with \\(O(\\log^{\\lceil(d+1)/2\\rceil}(L/\\varepsilon))\\) evaluations (Theorem 1.6).\nIt also gives lower bounds showing exponential-in-digits behavior without sufficient monotonicity (Propositions 1.2, 1.5, 1.7), and a reduction from approximate group envy-free cake cutting with monotone preferences to approximate root finding (Theorem 1.9).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for natural valuation counterexamples (or impossibility) for envy-free multi-divisions of multi-layered cakes restricted to contiguous feasible allocations produced by \\(q-1\\) long knives. This paper does not study multi-layered cakes, long-knife feasibility/non-overlap constraints across layers, or existence/nonexistence of exact envy-free allocations under such geometric restrictions. Its cake-cutting application concerns a standard one-layer interval cake and (group) envy-freeness, and only in an approximate sense (\\(r\\)-near envy-free), via a reduction to finding approximate roots of certain monotone/switching functions. Thus it provides algorithmic/root-finding tools and complexity insights that might be useful if the multilayer-long-knife problem can be encoded as a Miranda-type root problem with suitable monotonicity, but it neither constructs valuation counterexamples nor proves existence for the long-knife multilayer model."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.08181250000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.10709825,
-    "total_cost_usd": 0.18891075000000002
+    "literature_total_cost_usd": 0.7968061500000001,
+    "total_cost_usd": 0.8786186500000002
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4402128674/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4402128674_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4402128674_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4402128674_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 11,
     "is_open": true,
     "model": "gpt-5.2"
   }

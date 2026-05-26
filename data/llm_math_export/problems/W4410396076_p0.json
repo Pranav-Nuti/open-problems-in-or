@@ -47,27 +47,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
-    "difficulty": 9,
-    "synthesis": "No forward-citation analyses were provided, so I cannot select specific 5\u201310 papers with verified relevance categories/scores, nor can I determine from the supplied citation set whether the fixed-deadline hard-EDF network fluid limit problem has been solved. Based on the problem\u2019s technical nature\u2014measure-valued state descriptors, nonpreemptive EDF, reneging at deadline, and network routing with fixed lead times\u2014it remains a challenging open direction closely related to fluid limits for EDF queues with abandonment and to measure-valued fluid models for multiclass priority networks.\n\nA plausible route to a solution is to adapt measure-valued fluid limit techniques used for single-station EDF with reneging and for multiclass generalized Jackson networks, but with a key new coupling: under fixed deadlines, the lead-time measure transported along routes is not \u201crefreshed\u201d at each station, so the downstream stations see a nontrivial, history-dependent lead-time distribution determined by upstream waiting and service. Establishing tightness and identifying limits likely requires a network-level transport equation for the lead-time measures, together with a characterization of EDF service as a Skorokhod-type reflection/minimality condition ensuring that service is allocated to the smallest deadlines while reneging removes mass at lead time 0.\n\nPromising directions include: (i) proving uniqueness of the deterministic fluid model via monotonicity and a network mapping that is Lipschitz in appropriate measure norms; (ii) using time-change arguments to express each station\u2019s queue as a functional of cumulative arrivals with their original deadlines and the station\u2019s cumulative service; and (iii) handling routing by tracking deadline \u201clabels\u201d through the network, possibly via measure-valued pushforward operators induced by the routing matrix and service completion processes. A complete theorem would combine (a) an FLLN for primitive processes, (b) tightness of the measure-valued queue-content processes, and (c) identification/uniqueness of the fluid equations, yielding convergence of the full state (queues, idleness, reneging, and departures).",
-    "total_cost_usd": 0.00914725,
-    "citations_analyzed": 0,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.011142599999999999,
+    "citations_analyzed": 2,
     "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.06842324999999999,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.00914725,
-    "total_cost_usd": 0.07757049999999999
+    "literature_total_cost_usd": 0.011142599999999999,
+    "total_cost_usd": 0.07956585
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4410396076/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4410396076_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4410396076_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4410396076_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

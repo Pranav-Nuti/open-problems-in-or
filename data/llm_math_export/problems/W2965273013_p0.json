@@ -50,37 +50,37 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
+    "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper defines thrifty and modest equilibria for linear Fisher markets with both buyer utility caps \\((c_i)\\) and seller earning caps \\((d_j)\\). It shows that, unlike the cases with only one type of cap, equilibria may fail to exist and the equilibrium set can be non-convex, ruling out a direct convex-program characterization. A key sufficient condition is the money-clearing inequality \\(\\sum_{i\\in \\hat B} m_i \\le \\sum_{j\\in N(\\hat B)} d_j\\) for all buyer subsets \\(\\hat B\\), under which existence is guaranteed and approximate equilibria can be computed via an FPTAS (by perturbing utilities and using a descending-price/flow-feasibility framework).\n\nFor exact computation under money clearing, the paper provides (i) a finite-time descending-price algorithm yielding membership in \\(\\mathrm{PLS}\\), and (ii) an LCP formulation plus Lemke-style path-following with carefully engineered positive lower bounds (using a min-price equilibrium of the utility-caps-only market to separate zero-price goods), yielding membership in \\(\\mathrm{PPAD}\\). However, these results do not resolve the general decision problem: given arbitrary integer data \\((u_{ij},m_i,c_i,d_j)\\), decide whether any thrifty and modest equilibrium exists. The paper explicitly identifies this as a future direction, and no forward-citation evidence was provided here to indicate a later resolution. Accordingly, based on the supplied materials, the decision problem remains open beyond special cases (e.g., money-clearing markets, or constant numbers of buyers/goods).",
-    "total_cost_usd": 0.08599325000000001,
-    "citations_analyzed": 0,
+    "synthesis": "The open problem from Garg\u2013Hoefer\u2013Mehlhorn asks for a decision procedure for existence of a thrifty and modest equilibrium in linear Fisher markets with both buyer utility caps \\(c_i\\) (budget-additive satiation) and seller earning caps \\(d_j\\). The source paper establishes that equilibrium existence is not guaranteed in general, and identifies the money-clearing condition \\(\\sum_{i\\in \\hat B} m_i \\le \\sum_{j\\in N(\\hat B)} d_j\\) as a sufficient (but not necessary) condition for existence. It further shows nonconvexity of the equilibrium set, provides an FPTAS for approximate equilibria in money-clearing markets via perturbation and a descending-price method, and places exact equilibrium computation (under money clearing) in \\(\\mathrm{PPAD}\\cap\\mathrm{PLS}\\), with polynomial-time solvability when the number of buyers or goods is constant.\n\nAmong the forward citations provided, the thesis \u201cNash Welfare, Valuated Matroids, and Gross Substitues\u201d contributes related algorithmic tools (auction algorithms for approximate equilibria under weak gross substitutes and spending-restricted variants, including capped utilities in budget-SPLC form). However, it does not resolve the core existence/decidability question for the combined earning+utility cap Fisher model with the specific thrifty/modest equilibrium notion. Consequently, based on the available citation set, the decision problem remains open beyond the sufficient money-clearing regime, and no complete characterization or hardness result is identified here.\n\nPromising directions suggested by the source paper\u2019s techniques include: (i) seeking a necessary-and-sufficient combinatorial condition generalizing money clearing to incorporate utility caps, (ii) proving hardness (e.g., NP-hardness) of existence when money clearing fails, potentially via reductions that exploit nonconvexity and zero-price components, and (iii) leveraging the LCP/Lemke framework to derive certificates of nonexistence or to separate equilibrium from spurious LCP solutions without assuming money clearing.",
+    "total_cost_usd": 0.7585801999999999,
+    "citations_analyzed": 11,
     "sources": [
       {
-        "title": "Satiation in Fisher Markets and Approximation of Nash Social Welfare",
-        "bibtex": "@article{GargHoeferMehlhorn2019Satiation,\n  title        = {Satiation in Fisher Markets and Approximation of Nash Social Welfare},\n  author       = {Garg, Jugal and Hoefer, Martin and Mehlhorn, Kurt},\n  year         = {2019},\n  journal      = {arXiv preprint arXiv:1707.04428},\n  eprint       = {1707.04428},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
-        "source_url": "https://arxiv.org/abs/1707.04428",
-        "theorem_or_result": "Introduces Fisher markets with both earning caps \\((d_j)\\) and utility caps \\((c_i)\\), defines thrifty and modest equilibria, shows existence is not guaranteed in general, and proves money-clearing is sufficient for existence. Gives an FPTAS for approximate equilibria in money-clearing markets and places exact equilibrium computation in \\(\\mathrm{PPAD}\\cap\\mathrm{PLS}\\). Leaves open deciding existence beyond the money-clearing sufficient condition.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem: characterize/decide existence of thrifty and modest equilibria when both earning and utility limits are present, without restricting to money-clearing markets."
+        "title": "Nash Welfare, Valuated Matroids, and Gross Substitues",
+        "bibtex": "@phdthesis{Unknown_NashWelfareValuatedMatroidsGrossSubstitues,\n  title        = {Nash Welfare, Valuated Matroids, and Gross Substitues},\n  author       = {},\n  year         = {},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The thesis develops auction algorithms for computing approximate equilibria in exchange/Fisher markets under weak gross substitutes (WGS) demands, and applies them to spending-restricted equilibria and Nash social welfare approximations. In particular, it gives an auction algorithm that computes a 4\\varepsilon\\)-approximate market equilibrium for exchange markets with WGS demand oracles (Theorem 2.3.1), and a modified auction algorithm that computes a \\(4\\varepsilon\\)-approximate spending-restricted (SR) equilibrium for Fisher markets with WGS demands (Theorem 3.1.3), with implementations for budget-SPLC (capped) utilities (Theorem 3.2.3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for deciding existence of a thrifty and modest equilibrium in a linear Fisher market with both buyer utility caps \\(c_i\\) (satiation) and seller earning caps \\(d_j\\), i.e., a Fisher market with both utility limits and earning limits. This thesis does not study that equilibrium concept or the decision problem. It treats (i) exchange markets and Fisher markets under WGS demands, (ii) spending-restricted equilibria (a different model: caps on spending per good of the form \\(\\min\\{1,1/p_j\\}\\)), and (iii) capped utilities in the budget-SPLC setting but without seller earning caps \\(d_j\\) and without the specific \"modest supply\"/Walras-law conditions of earning-limited markets. Thus it does not resolve existence/decidability for the earning+utility limited Fisher model; at best it provides algorithmic techniques (auction-style price adjustment, handling of utility caps in SR/Gale-demand formulations) that might be adaptable."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.09235625,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08599325000000001,
-    "total_cost_usd": 0.1783495
+    "literature_total_cost_usd": 0.7585801999999999,
+    "total_cost_usd": 0.85093645
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W2965273013/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W2965273013_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W2965273013_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W2965273013_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 11,
     "is_open": true,
     "model": "gpt-5.2"
   }

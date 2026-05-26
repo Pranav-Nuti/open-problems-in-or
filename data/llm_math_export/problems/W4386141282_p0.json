@@ -49,71 +49,53 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper of Flesch\u2013Laraki\u2013Perchet extends Blackwell approachability to generalized quitting (absorbing) games and isolates three nested geometric conditions (1)\u2013(3) built from the absorbing-game expression \\(\\frac{g+g^\\star}{1+p^\\star}\\) inspired by Laraki\u2019s explicit asymptotic-value formulas. They prove a one-sided characterization: Condition (1) is sufficient for weak approachability (via calibrated strategies), while failure of Condition (3) implies weak excludability. In Big-Match type I these conditions collapse to Blackwell\u2019s classical condition, yielding weak determinacy; in Big-Match type II, however, the conditions separate and do not provide a full characterization.\n\nFor Big-Match type II, the paper gives a clean characterization of uniform approachability (Condition (1) \\(\\Leftrightarrow\\) a Blackwell condition with constraints ensuring all quitting payoffs lie in \\(C\\)), but also constructs examples showing uniform determinacy fails and that Conditions (1)/(2) are not necessary and Condition (3) is not sufficient for weak approachability. They outline a continuous-time/differential-game approach in special cases (notably when player 2 has a single non-quitting action) reminiscent of Vieille\u2019s differential-game method for weak approachability in classical repeated games, but they do not establish a general value/determinacy theorem in the absorbing setting.\n\nAs of the information provided here (and consistent with the paper\u2019s conclusion), weak determinacy for convex target sets in Big-Match games of type II remains open: no general theorem proves that every closed convex \\(C\\) is either weakly approachable by player 1 or weakly excludable by player 2, and no counterexample is known that is neither weakly approachable nor weakly excludable in this class.",
-    "total_cost_usd": 0.07721525,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper of Flesch\u2013Laraki\u2013Perchet (2016) formulates the weak determinacy question for convex targets in generalized quitting games and analyzes it via three nested geometric conditions (1)\u2013(3) built from mixed actions and nonnegative measures capturing \u201cinfinitesimal\u201d absorption perturbations. Their main theorem shows: Condition (1) is sufficient for weak approachability (in expectation, horizon-dependent strategies), while failure of Condition (3) implies weak excludability. In Big-Match type I these conditions collapse to Blackwell\u2019s classical condition, yielding weak determinacy for all closed convex sets. In Big-Match type II, however, the conditions separate: (1)\u2013(2) characterize uniform approachability but are not necessary for weak approachability, and Condition (3) is not sufficient. The paper provides explicit counterexamples (e.g., Examples 16\u201317) demonstrating this gap and explicitly leaves weak determinacy for type II open.\n\nSubsequent work summarized in Ragel\u2019s thesis (\u201cApproachability and constant payoff in stochastic games\u201d) develops the approachability side further for absorbing games: it proves that a max\u2013min\u2013inf\u2013sup criterion (Condition S, in the sense of Flesch\u2013Laraki\u2013Perchet) is sufficient for weak approachability in general absorbing games, and in Big-Match games (including type II) it is equivalent to weak approachability via block strategies. This yields more constructive sufficient conditions and strategy templates but still does not establish the desired dichotomy for every convex target set in Big-Match type II.\n\nOther related developments (time-dependent Blackwell approachability; equilibrium existence in positive recursive absorbing games) provide techniques for handling time-varying evaluations or absorption-structure constraints, but they do not resolve the approachability-vs-excludability dichotomy for vector-payoff Big-Match type II. At present, no paper among the provided forward citations proves weak determinacy for all closed convex targets in Big-Match type II, nor provides a definitive counterexample of a convex set that is neither weakly approachable nor weakly excludable in that class. The problem therefore remains open and appears to require either (i) a new necessary-and-sufficient characterization of weak approachability in type II (possibly via an auxiliary differential game with a proven value), or (ii) an explicit type II counterexample exhibiting genuine weak indeterminacy.",
+    "total_cost_usd": 0.26271875,
+    "citations_analyzed": 3,
     "sources": [
       {
-        "title": "Approachability of convex sets in generalized quitting games",
-        "bibtex": "@article{FleschLarakiPerchet2016Approachability,\n  title        = {Approachability of convex sets in generalized quitting games},\n  author       = {Flesch, J{\\'a}nos and Laraki, Rida and Perchet, Vianney},\n  year         = {2016},\n  eprint       = {1609.08870},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/1609.08870}\n}\n",
-        "source_url": "https://arxiv.org/abs/1609.08870",
-        "theorem_or_result": "Introduces three nested geometric conditions (1)\u2013(3) for weak approachability in generalized quitting games; proves Condition (1) is sufficient and Condition (3) is necessary (failure implies weak excludability). Shows weak determinacy holds for Big-Match type I but leaves weak determinacy for Big-Match type II open; provides examples where conditions separate in type II.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper formulating the open problem: whether every closed convex target set in Big-Match type II is either weakly approachable by player 1 or weakly excludable by player 2. It provides partial conditions and counterexamples for uniform determinacy, but not for weak determinacy in type II."
-      },
-      {
-        "title": "An analog of the minimax theorem for vector payoffs",
-        "bibtex": "@article{Blackwell1956Analog,\n  title   = {An analog of the minimax theorem for vector payoffs},\n  author  = {Blackwell, David},\n  journal = {Pacific Journal of Mathematics},\n  volume  = {6},\n  pages   = {1--8},\n  year    = {1956},\n  url     = {https://projecteuclid.org/journals/pacific-journal-of-mathematics/volume-6/issue-1/An-analog-of-the-minimax-theorem-for-vector-payoffs/pjm/1103043776.full}\n}\n",
-        "source_url": "https://projecteuclid.org/journals/pacific-journal-of-mathematics/volume-6/issue-1/An-analog-of-the-minimax-theorem-for-vector-payoffs/pjm/1103043776.full",
-        "theorem_or_result": "Establishes (uniform) determinacy and a geometric characterization for approachability of closed convex sets in repeated games without absorption: \\,\\(\\max_{y\\in\\Delta(J)}\\min_{x\\in\\Delta(I)} d_C(g(x,y))=0\\) iff \\(C\\) approachable.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the classical benchmark (Blackwell condition) that fully resolves determinacy in non-absorbing repeated games; the Big-Match type II question asks whether an analogous weak determinacy holds despite absorption controlled by player 2."
-      },
-      {
-        "title": "Weak approachability",
-        "bibtex": "@article{Vieille1992Weak,\n  title   = {Weak approachability},\n  author  = {Vieille, Nicolas},\n  journal = {Mathematics of Operations Research},\n  volume  = {17},\n  number  = {4},\n  pages   = {781--791},\n  year    = {1992},\n  url     = {https://www.jstor.org/stable/3689717}\n}\n",
-        "source_url": "https://www.jstor.org/stable/3689717",
-        "theorem_or_result": "Proves weak determinacy for general (possibly nonconvex) target sets in classical repeated games by linking weak approachability to the value of an auxiliary differential game.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "The source paper adapts Vieille-style differential game ideas to Big-Match type II; a full resolution of weak determinacy in type II is expected to require analogous differential game/value-existence techniques in an absorbing setting."
-      },
-      {
-        "title": "Explicit formulas for repeated games with absorbing states",
-        "bibtex": "@article{Laraki2010Explicit,\n  title   = {Explicit formulas for repeated games with absorbing states},\n  author  = {Laraki, Rida},\n  journal = {International Journal of Game Theory},\n  volume  = {39},\n  number  = {1},\n  pages   = {53--69},\n  year    = {2010},\n  doi     = {10.1007/s00182-009-0188-5},\n  url     = {https://doi.org/10.1007/s00182-009-0188-5}\n}\n",
-        "source_url": "https://doi.org/10.1007/s00182-009-0188-5",
-        "theorem_or_result": "Gives explicit formulas for the asymptotic value in absorbing games using perturbations by measures over actions, motivating expressions of the form \\(\\frac{g+g^\\star}{1+p^\\star}\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Conditions (1)\u2013(3) in the source paper are inspired by Laraki\u2019s measure-perturbation formula for absorbing games; these expressions underpin the candidate geometric criteria for weak approachability/excludability in Big-Match type II."
-      },
-      {
-        "title": "The big match",
-        "bibtex": "@article{BlackwellFerguson1968Big,\n  title   = {The big match},\n  author  = {Blackwell, David and Ferguson, Thomas S.},\n  journal = {The Annals of Mathematical Statistics},\n  volume  = {39},\n  number  = {1},\n  pages   = {159--163},\n  year    = {1968},\n  doi     = {10.1214/aoms/1177698516},\n  url     = {https://doi.org/10.1214/aoms/1177698516}\n}\n",
-        "source_url": "https://doi.org/10.1214/aoms/1177698516",
-        "theorem_or_result": "Studies the Big-Match absorbing game; establishes value/uniform guarantees in scalar-payoff settings and foundational techniques for absorbing games.",
-        "relevance_category": "BACKGROUND",
+        "title": "Approachability and constant payoff in stochastic games",
+        "bibtex": "@phdthesis{RagelApproachabilityConstantPayoff,\n  title  = {Approachability and constant payoff in stochastic games},\n  author = {Ragel, {Unknown}},\n  year   = {n/a},\n  note   = {PhD thesis; includes results on weak approachability in absorbing games and Big-Match games}\n}\n",
+        "source_url": "n/a",
+        "theorem_or_result": "The thesis (summarizing Ragel\u2019s MOR paper \u201cWeak Approachability of Convex Sets in Absorbing Games\u201d) proves: for any finite absorbing game with vector payoffs [57], if a closed convex target set [67] satisfies Condition S of Flesch\u2013Laraki\u2013Perchet (a max\u2013min\u2013inf\u2013sup condition over [67]x[67]y[67] and nonnegative measures [67]\\alpha\\in M(I),\\beta\\in M(J)[67]), then [67]C[67] is weakly E-approachable by Player 1 (Theorem 70). It also shows that in Big-Match games (type I or II), [67]C[67] satisfies Condition S iff [67]C[67] is weakly E-approachable using block strategies (Theorem 90).",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 6,
-        "connection": "Big-Match type II is a central absorbing-game model; although scalar-value theory is well developed, the vector-payoff weak determinacy for convex sets remains unresolved."
+        "connection": "The open problem asks for weak determinacy for convex sets in Big-Match type II: for every convex [67]C[67], either Player 1 can weakly approach [67]C[67] (in expectation, finite horizon) or Player 2 can weakly exclude it. Ragel\u2019s results do not establish such a dichotomy. They provide a sufficient condition (Condition S) for weak E-approachability in the broader class of absorbing games, and relate Condition S to weak E-approachability with block strategies in Big-Match games (including type II). The thesis explicitly states that \u201cclassical weak determinacy remains an open problem for Big-Match games of type II,\u201d so it neither proves determinacy nor constructs a counterexample. Thus it is partial progress: it strengthens the approachability side (sufficient conditions/strategy constructions) but does not settle whether every convex set is either weakly approachable or weakly excludable in type II."
+      },
+      {
+        "title": "Time-Dependent Blackwell Approachability and Application to Absorbing Games",
+        "bibtex": "@article{TimeDependentBlackwellApproachability,\n  title  = {Time-Dependent Blackwell Approachability and Application to Absorbing Games},\n  author = {Unknown},\n  year   = {n/a}\n}\n",
+        "source_url": "n/a",
+        "theorem_or_result": "The paper extends Blackwell approachability to a time-dependent setting: given a closed convex cone target set \\(C\\subset\\mathbb{R}^d\\), a sequence of inner products \\(\\langle\\cdot,\\cdot\\rangle^{(t)}\\) with nonincreasing norms, and time-varying outcome functions \\(\\rho_t\\), if Blackwell\u2019s condition holds then the generalized Blackwell algorithm guarantees for all \\(T\\ge1\\)\n\\[\n\\min_{c\\in C}\\Big\\|\\frac1T\\sum_{t=1}^T r_t-c\\Big\\|_{(T)}\\le \\frac1T\\sqrt{\\sum_{t=1}^T\\|r_t\\|_{(t)}^2}.\n\\]\nIt applies this to scalar-payoff absorbing games to construct \\(\\varepsilon\\)-uniformly optimal strategies and reprove existence of the uniform value in absorbing games with compact action sets.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for weak determinacy (either weak approachability or weak excludability for every closed convex \\(C\\)) in Big-Match type II games with vector payoffs. This paper does not address Big-Match type II vector-payoff weak determinacy. Its game-theoretic application concerns scalar-payoff absorbing games and constructs \\(\\varepsilon\\)-uniformly optimal strategies via an auxiliary 2D approachability problem. While the time-dependent approachability framework could be a useful technique for analyzing approachability in absorbing/quitting games, the paper neither proves determinacy for convex targets in Big-Match II nor provides a counterexample."
+      },
+      {
+        "title": "Undiscounted Equilibrium in Positive Recursive Absorbing Games with Non-Rectangular Absorption Structure",
+        "bibtex": "@article{UndiscountedEquilibriumPositiveRecursiveAbsorbing,\n  title  = {Undiscounted Equilibrium in Positive Recursive Absorbing Games with Non-Rectangular Absorption Structure},\n  author = {Unknown},\n  year   = {n/a}\n}\n",
+        "source_url": "n/a",
+        "theorem_or_result": "Theorem 2.8: Every positive recursive absorbing game that has no rectangular connected component of nonabsorbing action profiles admits an undiscounted equilibrium payoff (indeed a uniform equilibrium payoff).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns weak determinacy (approachability vs excludability) for convex target sets in two-player zero-sum Big-Match type II games with vector payoffs. This paper studies existence of undiscounted (uniform) equilibrium payoffs in multiplayer non-zero-sum positive recursive absorbing games, using a dynamical-system/finite-orbit construction based on the absorption-structure graph and joint exits. It does not address approachability/excludability, convex target sets, or the two-player zero-sum Big-Match II determinacy question. At most, its techniques about absorption structure and block strategies might be adaptable as tools in absorbing-game analysis, but no direct implication for weak determinacy is provided."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.06568975,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.07721525,
-    "total_cost_usd": 0.142905
+    "literature_total_cost_usd": 0.26271875,
+    "total_cost_usd": 0.3284085
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4386141282/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4386141282_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4386141282_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4386141282_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 3,
     "is_open": true,
     "model": "gpt-5.2"
   }

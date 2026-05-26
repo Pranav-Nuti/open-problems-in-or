@@ -51,89 +51,53 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper (Chen--Na--Kolar, 2023) establishes upper bounds for several constant-parameter accelerated stochastic methods under the growth condition \\(\\mathbb{E}\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\). It shows that NAM and iDAM+ admit accelerated linear bias decay only for \\(\\delta<1\\), and RMM only for \\(\\delta<1/4\\), whereas DAM+ can be tuned to achieve an accelerated bias contraction \\(1-\\Theta(1/\\sqrt{\\kappa})\\) for all \\(\\delta\\ge 0\\). The paper explicitly notes that these are sufficient conditions and leaves open whether the small-\\(\\delta\\) requirements for NAM/RMM/iDAM+ are necessary, i.e., whether there are sharp impossibility thresholds \\(\\delta_0\\) beyond which no constant-parameter tuning can guarantee acceleration uniformly over \\(f\\in \\mathcal{F}(m,L)\\) and growth-condition oracles.\n\nRelated works provide partial evidence toward such impossibility results but do not resolve the sharp \\(\\delta\\)-threshold question in the growth-condition model. Counterexample-style papers on momentum in stochastic optimization (e.g., Kidambi--Netrapalli--Jain--Kakade, 2018; Liu--Belkin, 2020) show that heavy-ball/Nesterov-type momentum can fail to accelerate SGD on least-squares-type instances, consistent with the observation that least squares can induce \\(\\delta\\gtrsim 1\\). These results motivate the conjecture that for NAM (and likely iDAM+) acceleration is impossible once \\(\\delta\\) exceeds a constant, but they do not provide a sharp necessary condition stated directly in terms of \\(\\delta\\) under the growth condition.\n\nOn the algorithmic side, RMM (Cyrus--Hu--Van Scoy--Lessard, 2018) and iDAM+-type methods (Cohen--Diakonikolas--Orecchia, 2018) supply the method definitions and analysis frameworks (IQC/dissipativity and duality-gap viewpoints) used in later growth-condition analyses, while least-squares acceleration results (Jain--Kakade--Kidambi--Netrapalli--Sidford, 2018) illustrate that acceleration is achievable with more tailored schemes even when classical momentum fails. Overall, the state of the art suggests the open problem remains unsolved: sharp lower bounds on \\(\\delta\\) for acceleration of NAM/RMM/iDAM+ under constant parameters and the growth condition are not currently established, and developing such impossibility results (likely via carefully constructed quadratic instances and oracle noise matching the growth condition) is a clear next direction.",
-    "total_cost_usd": 0.11924850000000001,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper (Chen\u2013Na\u2013Kolar, 2023) frames acceleration under the growth condition \\(\\mathbb E\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\) as a bias\u2013variance tradeoff in a unified recursion of the form \\(\\mathbb E V_{k+1}\\le (1-c_1(\\delta)/\\sqrt\\kappa)\\,\\mathbb E V_k + c_2(\\delta)\\sigma^2\\). For constant parameters, it proves *sufficient* \\(\\delta\\)-regimes for accelerated linear bias decay: NAM and iDAM+ accelerate only for \\(\\delta<1\\), RMM for \\(\\delta<1/4\\), while DAM+ can be tuned to accelerate for all \\(\\delta\\ge 0\\). The paper explicitly notes that these \\(\\delta\\)-restrictions are not known to be necessary and calls for lower-bound/impossibility results.\n\nAmong the forward-citing works provided, none resolves the requested sharp necessary conditions. The Markovian-noise paper establishes acceleration and lower bounds in a different model (Markov dependence plus almost-sure strong-growth and batching), while the interpolation/strong-growth estimating-sequences paper is about upper bounds and flags a bug for standard momentum forms. The RAAS work shows acceleration for an adaptive method under bounded-moment oracle assumptions, again not addressing impossibility thresholds for constant-parameter NAM/RMM/iDAM+.\n\nTherefore, based on the supplied forward-citation set, the problem of proving sharp lower bounds on the multiplicative-noise threshold \\(\\delta\\) that precludes accelerated bias decay for NAM, RMM, and iDAM+ under the (in-expectation) growth condition remains open. Promising directions suggested by the source paper\u2019s discussion include constructing hard strongly convex instances (e.g., least-squares-type quadratics with large effective \\(\\delta\\)) and proving that for \\(\\delta\\) above a method-dependent constant, the best achievable uniform contraction reverts to \\(1-\\Theta(1/\\kappa)\\) for any fixed-parameter momentum tuning.",
+    "total_cost_usd": 0.51053625,
+    "citations_analyzed": 8,
     "sources": [
       {
-        "title": "Convergence Analysis of Accelerated Stochastic Gradient Descent under the Growth Condition",
-        "bibtex": "@article{ChenNaKolar2023GrowthAccel,\n  title        = {Convergence Analysis of Accelerated Stochastic Gradient Descent under the Growth Condition},\n  author       = {Chen, You-Lin and Na, Sen and Kolar, Mladen},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2006.06782},\n  eprint       = {2006.06782},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
-        "source_url": "https://arxiv.org/abs/2006.06782",
-        "theorem_or_result": "Provides upper bounds for accelerated stochastic methods under the growth condition \\(\\mathbb{E}\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\), showing acceleration for NAM/iDAM+ only when \\(\\delta<1\\) (and for RMM when \\(\\delta<1/4\\)), while DAM+ accelerates for all \\(\\delta\\ge 0\\). Explicitly notes absence of lower-bound/impossibility results on \\(\\delta\\) thresholds.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "This is the originating paper that formulates the need for sharp necessary conditions on \\(\\delta\\) for acceleration and explicitly leaves lower-bound analyses for NAM/RMM/iDAM+ as open."
-      },
-      {
-        "title": "Accelerating SGD with Momentum for Over-Parameterized Learning",
-        "bibtex": "@inproceedings{LiuBelkin2020MomentumOverparam,\n  title     = {Accelerating {SGD} with Momentum for Over-Parameterized Learning},\n  author    = {Liu, Chaoyue and Belkin, Mikhail},\n  booktitle = {International Conference on Learning Representations (ICLR)},\n  year      = {2020}\n}\n",
-        "source_url": "https://openreview.net/forum?id=r1gixp4FPH",
-        "theorem_or_result": "Constructs least-squares/over-parameterized settings where classical momentum/Nesterov-type acceleration does not improve over SGD, highlighting fragility of momentum under multiplicative/noise models beyond bounded-variance assumptions.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Supports the plausibility of impossibility thresholds for NAM-like methods when multiplicative noise is large (e.g., least-squares induces \\(\\delta\\gtrsim 1\\)), but does not provide a sharp lower bound in terms of \\(\\delta\\) for the growth condition model."
-      },
-      {
-        "title": "On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization",
-        "bibtex": "@inproceedings{KidambiNetrapalliJainKakade2018InsufficiencyMomentum,\n  title     = {On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization},\n  author    = {Kidambi, Rahul and Netrapalli, Praneeth and Jain, Prateek and Kakade, Sham},\n  booktitle = {Information Theory and Applications Workshop (ITA)},\n  year      = {2018},\n  doi       = {10.1109/ITA.2018.8503173}\n}\n",
-        "source_url": "https://ieeexplore.ieee.org/document/8503173",
-        "theorem_or_result": "Shows that standard momentum schemes (heavy-ball/Nesterov variants) can fail to accelerate SGD on certain stochastic problems, giving counterexamples that separate deterministic acceleration from stochastic behavior.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Provides lower-bound-style counterexamples for momentum acceleration, motivating impossibility results; however, it is not phrased as a sharp \\(\\delta\\)-threshold under the growth condition and does not directly yield necessary conditions for NAM/RMM/iDAM+ with constant parameters."
-      },
-      {
-        "title": "A Robust Accelerated Optimization Algorithm for Strongly Convex Functions",
-        "bibtex": "@inproceedings{CyrusHuVanScoyLessard2018RMM,\n  title     = {A Robust Accelerated Optimization Algorithm for Strongly Convex Functions},\n  author    = {Cyrus, Sina and Hu, Bin and Van Scoy, Benjamin and Lessard, Laurent},\n  booktitle = {2018 Annual American Control Conference (ACC)},\n  year      = {2018},\n  pages     = {1376--1381},\n  publisher = {IEEE},\n  doi       = {10.23919/ACC.2018.8430824}\n}\n",
-        "source_url": "https://ieeexplore.ieee.org/document/8430824",
-        "theorem_or_result": "Introduces the robust momentum method (RMM) and analyzes deterministic convergence; empirically studies robustness to certain multiplicative noise models.",
+        "title": "First order methods with markovian noise: from acceleration to variational inequalities",
+        "bibtex": "@misc{UnknownFirstOrderMarkovianNoise,\n  title={First order methods with markovian noise: from acceleration to variational inequalities},\n  author={Unknown},\n  note={Metadata not provided in the forward-citation analysis block (year/authors/venue/doi unknown)}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In the Markovian-noise setting (uniformly geometrically ergodic chain with mixing time \\(\\tau\\)) and an almost-sure \u201cgrowth/strong growth\u201d bound \\(\\|\\nabla F(x,z)-\\nabla f(x)\\|^2\\le \\sigma^2+\\delta^2\\|\\nabla f(x)\\|^2\\), the paper analyzes a randomized-batching Nesterov-type accelerated SGD (Algorithm 1) and proves a linear convergence bound of the form\n\\[\n\\mathbb E\\big[\\|x_N-x^*\\|^2 + \\tfrac{6}{\\mu}(f(x_N^f)-f(x^*))\\big]\n\\le \\exp\\Big(-\\tfrac{N}{3}\\sqrt{p^2\\mu\\alpha}\\Big)\\,\\mathcal E_0\n+ \\tfrac{p}{\\mu^{3/2}\\sqrt{\\alpha}}\\big(\\delta^2\\tau b^{-1}+\\sigma^2\\tau^2 b^{-2}\\big),\n\\]\nfor suitable constant parameters \\(p,\\alpha\\) and batching parameters \\(b,M,B\\) (Theorem 1), yielding oracle complexity \\(\\tilde O\\big(\\tau[(1+\\delta^2)\\sqrt{L/\\mu}\\log(1/\\varepsilon)+\\sigma^2/(\\mu^2\\varepsilon)]\\big)\\) (Corollary 1). It also gives Markovian lower bounds \\(\\Omega(\\tau\\sqrt{L/\\mu}\\log(1/\\varepsilon)+\\tau\\sigma^2/(\\mu^2\\varepsilon))\\) under these assumptions (Theorem 2).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "Defines one of the target algorithms (RMM) for which sharp necessary \\(\\delta\\) thresholds are sought; does not provide impossibility/lower bounds under the growth condition."
+        "relevance_score": 4,
+        "connection": "The open problem asks for sharp necessary conditions (lower bounds/impossibility thresholds) on the multiplicative noise level \\(\\delta\\) under the (expectation) growth condition for *acceleration* of specific constant-parameter momentum methods (NAM, RMM, iDAM+), i.e., when accelerated bias decay \\(\\exp(-k/c\\sqrt\\kappa)\\) is impossible beyond some \\(\\delta_0\\).\n\nThis paper does not establish such a \\(\\delta\\)-threshold impossibility result for NAM/RMM/iDAM+ under the growth condition. Instead it studies a different noise model (Markovian dependence) and assumes an almost-sure bound \\(\\|\\nabla F-\\nabla f\\|^2\\le \\sigma^2+\\delta^2\\|\\nabla f\\|^2\\) (stronger than the open problem\u2019s conditional second-moment bound), and it achieves acceleration via *randomized batching* (not the plain constant-batch NAM/RMM/iDAM+). Its lower bounds concern unavoidable dependence on mixing time \\(\\tau\\) and on the multiplicative parameter in this Markov/strong-growth model, but they do not rule out acceleration for large \\(\\delta\\) in the i.i.d. growth-condition setting nor provide sharp necessary conditions for the three methods named in the open problem."
       },
       {
-        "title": "On the convergence of Nesterov\u2019s accelerated gradient method in stochastic settings",
-        "bibtex": "@inproceedings{AssranRabbat2020StochasticNAM,\n  title     = {On the convergence of Nesterov\u2019s accelerated gradient method in stochastic settings},\n  author    = {Assran, Maher and Rabbat, Michael},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2020}\n}\n",
-        "source_url": "http://proceedings.mlr.press/v119/assran20a.html",
-        "theorem_or_result": "Studies stochastic Nesterov acceleration under bounded-variance-type assumptions and characterizes convergence behavior in stochastic regimes.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides baseline stochastic NAM analysis under OUBV-like assumptions; does not address growth-condition \\(\\delta\\) thresholds or impossibility results."
+        "title": "Faster convergence of stochastic accelerated gradient descent under interpolation",
+        "bibtex": "@misc{UnknownFasterConvergenceStochasticAGDInterpolation,\n  title={Faster convergence of stochastic accelerated gradient descent under interpolation},\n  author={Unknown},\n  note={Metadata not provided in the forward-citation analysis block (year/authors/venue/doi unknown)}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proposes an estimating-sequences analysis for a generalized stochastic AGD scheme (Eq. (5)) and claims (but later retracts for standard momentum S-AGD) accelerated rates under strong growth: if a primal update satisfies the expected progress condition \\(\\mathbb{E}[f(w_{k+1})]\\le f(y_k)-\\tfrac{\\eta_k}{2}\\|\\nabla f(y_k)\\|^2\\) and \\(f\\) is \\(L\\)-smooth and \\(\\mu\\)-strongly convex, then for the generalized scheme \\(\\mathbb{E}[f(w_{k+1})]-f(w^*)\\le \\prod_{i=0}^k(1-\\sqrt{\\eta_i\\mu})\\,(f(w_0)-f(w^*)+\\tfrac{\\mu}{2}\\|w_0-w^*\\|^2)\\). Specializing with \\(\\eta=1/(\\rho L)\\) under strong growth \\(\\mathbb{E}\\|\\nabla f(w,z)\\|^2\\le \\rho\\|\\nabla f(w)\\|^2\\) yields a claimed linear rate \\((1-\\sqrt{\\mu/(\\rho L)})^{k}\\) for Eq. (5), but the paper explicitly states this does not hold for standard stochastic AGD/momentum (Eq. (6)) due to a bug.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for sharp necessary conditions (lower bounds/impossibility thresholds) on multiplicative noise \\(\\delta\\) under the growth condition for acceleration of specific momentum/accelerated methods (NAM, RMM, iDAM+). This paper is about sufficient conditions and upper-bound rates under the strong growth condition (a special case of the growth condition with \\(\\sigma^2=0\\) and \\(\\delta=\\rho-1\\) in spirit), and it does not provide any lower bounds or impossibility thresholds. Moreover, the main claimed improvement (dependence \\(\\sqrt{\\rho}\\) rather than \\(\\rho\\)) for standard stochastic Nesterov/momentum is explicitly invalidated by the authors\u2019 bug note; they even suggest a possible lower bound might show \\(\\rho\\) is tight. Thus it does not resolve the threshold question, but it is tangentially relevant as it highlights the difficulty of improving dependence on multiplicative noise and points toward the need for lower bounds."
       },
       {
-        "title": "On Acceleration with Noise-Corrupted Gradients",
-        "bibtex": "@inproceedings{CohenDiakonikolasOrecchia2018NoiseCorrupted,\n  title     = {On Acceleration with Noise-Corrupted Gradients},\n  author    = {Cohen, Michael and Diakonikolas, Jelani and Orecchia, Lorenzo},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2018}\n}\n",
-        "source_url": "http://proceedings.mlr.press/v80/cohen18a.html",
-        "theorem_or_result": "Develops acceleration schemes and analyses under noise-corrupted gradients, highlighting limits and trade-offs between acceleration and noise.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides conceptual and technical background for acceleration under stochastic noise and includes iDAM+-related ideas, but does not give sharp \\(\\delta\\)-threshold impossibility results under the growth condition."
-      },
-      {
-        "title": "Accelerating Stochastic Gradient Descent for Least Squares Regression",
-        "bibtex": "@inproceedings{JainKakadeKidambiNetrapalliSidford2018AccelLS,\n  title     = {Accelerating Stochastic Gradient Descent for Least Squares Regression},\n  author    = {Jain, Prateek and Kakade, Sham and Kidambi, Rahul and Netrapalli, Praneeth and Sidford, Aaron},\n  booktitle = {Conference on Learning Theory (COLT)},\n  year      = {2018}\n}\n",
-        "source_url": "http://proceedings.mlr.press/v75/jain18a.html",
-        "theorem_or_result": "Shows accelerated rates for least-squares regression via specialized acceleration/variance-reduction style methods, contrasting with failures of classical momentum.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Demonstrates that acceleration is possible for least squares but typically requires methods beyond NAM/HB; helps contextualize why impossibility thresholds for NAM/RMM/iDAM+ under growth condition are plausible."
+        "title": "Robust Accelerated Adaptive Search: High-Probability Complexity Bounds under Bounded-Moment Stochastic Oracles",
+        "bibtex": "@misc{UnknownRAASBoundedMomentOracles,\n  title={Robust Accelerated Adaptive Search: High-Probability Complexity Bounds under Bounded-Moment Stochastic Oracles},\n  author={Unknown},\n  note={Metadata not provided in the forward-citation analysis block (year/authors/venue/doi unknown)}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proposes RAAS, a stochastic accelerated adaptive step-search method using both a stochastic first-order oracle (SFO) and a stochastic zeroth-order oracle (SZO), and proves high-probability stopping-time complexity bounds under finite-moment oracle assumptions. In the strongly convex case (Assumption 6), for any target accuracy \n\\(\\varepsilon>\\varepsilon'_\\varphi\\), Theorem 2 shows \\(\\mathbb P\\{T_\\varepsilon\\le t\\}\\ge 1-\\text{(poly/exponential tail)}\\) provided \n\\[t=O\\!\\left(\\frac{1}{C_\\kappa(\\hat p-1/2)}\\log\\frac{\\Phi_0}{\\varepsilon}\\right),\\qquad C_\\kappa=-\\ln\\bigl(1-(1-\\vartheta)\\sqrt{2\\theta\\mu\\bar\\gamma}\\bigr),\\]\nwith \\(\\bar\\gamma=\\Theta(1/L)\\) so \\(C_\\kappa=\\Theta(\\kappa^{-1/2})\\), yielding an accelerated order \\(T_\\varepsilon=O(\\sqrt\\kappa\\log(\\Phi_0/\\varepsilon))\\) down to a noise-determined floor \\(\\varepsilon'_\\varphi>0\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for sharp necessary conditions (lower bounds/impossibility thresholds) on the multiplicative noise parameter \\(\\delta\\) in the growth condition \\(\\mathbb E\\|\\varepsilon(x)\\|^2\\le \\delta\\|\\nabla f(x)\\|^2+\\sigma^2\\) that preclude accelerated linear bias decay for fixed-parameter momentum methods (NAM/RMM/iDAM+). This paper does not study the growth-condition model nor the same algorithms: its SFO assumptions bound absolute gradient estimation error moments (e.g., \\(\\mathbb E_t\\|G_t-\\nabla\\varphi(\\hat y_t)\\|^2\\le \\epsilon_g^2\\)) and allow bias/heavy tails, and it uses an adaptive step-search with extra SZO queries and tunable momentum intervention \\(\\vartheta\\). It provides sufficient conditions for RAAS to achieve accelerated \\(O(\\sqrt\\kappa\\log(1/\\varepsilon))\\) stopping-time complexity above a noise floor, but it does not derive impossibility results or lower bounds on \\(\\delta\\) for NAM/RMM/iDAM+ under the growth condition."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.0932225,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11924850000000001,
-    "total_cost_usd": 0.21247100000000002
+    "literature_total_cost_usd": 0.51053625,
+    "total_cost_usd": 0.60375875
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389389242/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389389242_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4389389242_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4389389242_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 8,
     "is_open": true,
     "model": "gpt-5.2"
   }

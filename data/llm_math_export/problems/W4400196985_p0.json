@@ -49,73 +49,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 8,
-    "synthesis": "The source paper (Ramachandran--Shu--Wang, 2024) formulates CONVEX: given a coordinate pattern \\(S\\subseteq[n]\\times[n]\\), decide whether the coordinate projection \\(\\pi_S(\\mathrm{SO}(n))\\) is convex. It establishes several sharp positive and negative results that delimit the landscape: every 2-dimensional linear image of \\(\\mathrm{SO}(n)\\) is convex (via a topological connectedness argument using \\(\\pi_1(\\mathrm{SO}(n))\\cong\\mathbb{Z}/2\\mathbb{Z}\\)), the projection onto strictly upper-triangular coordinates is convex, and these are maximal in the sense that there exist 3-dimensional linear images that are nonconvex and any linear map of rank \\(>\\binom{n}{2}\\) yields a nonconvex image (by Sard-type dimension arguments). These results show that convexity depends delicately on the combinatorics of \\(S\\), beyond simple dimension counting.\n\nAt present there is no forward-citation evidence of a complexity-theoretic resolution, and the problem remains open. The paper itself notes a nearby NP-hard pattern problem: deciding whether \\(S\\) can be permuted (rows/columns independently, and possibly transposed) into an upper-triangular pattern is NP-hard (cf. Fertin--Rusu--Vialette, 2015). This suggests a plausible reduction route: encode such permutation-pattern constraints into convexity/nonconvexity of \\(\\pi_S(\\mathrm{SO}(n))\\), leveraging the fact that upper-triangular-type patterns yield convex images (strictly upper triangular) while certain small augmentations can force nonconvexity (e.g., by creating a 3D image containing a circular slice). Structural obstructions from Fiedler (2009) about submatrices of orthogonal matrices (e.g., rectangles with \\(a+b>n\\)) provide additional necessary nonconvexity triggers that could serve as gadgets.\n\nA complementary viewpoint comes from the semidefinite description of \\(\\mathrm{conv}(\\mathrm{SO}(n))\\) (Saunderson--Parrilo--Willsky, 2015), which realizes \\(\\mathrm{SO}(n)\\) as a quadratic image of a sphere via the spin representation. This connects CONVEX to quadratic convexity questions on spheres and may offer a pathway to reductions by representing coordinate projections as collections of quadratic forms. However, no known results currently translate this into an NP-hardness proof for deciding convexity of \\(\\pi_S(\\mathrm{SO}(n))\\), and even membership of CONVEX in NP is unclear due to the lack of succinct certificates of convexity.",
-    "total_cost_usd": 0.086289,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Hidden convexity, optimization, and algorithms on rotation matrices",
-        "bibtex": "@article{ramachandran2024hidden,\n  title        = {Hidden convexity, optimization, and algorithms on rotation matrices},\n  author       = {Ramachandran, Akshay and Shu, Kevin and Wang, Alex L.},\n  year         = {2024},\n  journal      = {arXiv preprint},\n  eprint       = {2304.08596},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  note         = {v2 posted 2024-04-29}\n}\n",
-        "source_url": "https://arxiv.org/abs/2304.08596",
-        "theorem_or_result": "Introduces the decision problem CONVEX for coordinate projections \\(\\pi_S(\\mathrm{SO}(n))\\) and conjectures NP-hardness; proves several maximal convexity results: all 2D linear images are convex, the strictly upper-triangular coordinate projection is convex, and any linear map of rank \\(>\\binom{n}{2}\\) yields a nonconvex image.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "This is the source paper posing the NP-hardness question and providing structural obstructions (e.g., nonconvexity for some 3D images and for rank \\(>\\binom{n}{2}\\)) that frame what an NP-hardness reduction would need to exploit."
-      },
-      {
-        "title": "Obtaining a triangular matrix by independent row-column permutations",
-        "bibtex": "@inproceedings{fertin2015obtaining,\n  title     = {Obtaining a triangular matrix by independent row-column permutations},\n  author    = {Fertin, Guillaume and Rusu, Ioan and Vialette, St{\\'e}phane},\n  booktitle = {Algorithms and Computation (ISAAC 2015)},\n  year      = {2015},\n  pages     = {165--175},\n  publisher = {Springer}\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-662-48971-0_15",
-        "theorem_or_result": "Studies the computational complexity of deciding whether a 0-1 pattern can be made triangular by independent row/column permutations; establishes NP-hardness for related pattern-recognition/permutation problems.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "The source paper notes that deciding whether a coordinate set \\(S\\) is (up to permutations/transposition) a subset of the upper-triangular pattern is NP-hard; such pattern NP-hardness may serve as a gadget in reductions for CONVEX."
-      },
-      {
-        "title": "Suborthogonality and orthocentricity of matrices",
-        "bibtex": "@article{fiedler2009suborthogonality,\n  title   = {Suborthogonality and orthocentricity of matrices},\n  author  = {Fiedler, Miroslav},\n  journal = {Linear Algebra and its Applications},\n  volume  = {430},\n  number  = {1},\n  pages   = {296--307},\n  year    = {2009},\n  doi     = {}\n}\n",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0024379508003630",
-        "theorem_or_result": "Gives structural constraints on submatrices of orthogonal matrices; in particular, if \\(R\\) is an \\(a\\times b\\) submatrix of \\(U\\in O(n)\\) with \\(a+b>n\\), then \\(\\|R\\|_{op}=1\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides a necessary obstruction for convexity of coordinate projections: if \\(S\\) contains an \\(a\\times b\\) rectangle with \\(a+b>n\\), then \\(\\pi_S(\\mathrm{SO}(n))\\) cannot be convex (as used in the source paper)."
-      },
-      {
-        "title": "Doubly stochastic matrices and the diagonal of a rotation matrix",
-        "bibtex": "@article{horn1954doubly,\n  title   = {Doubly stochastic matrices and the diagonal of a rotation matrix},\n  author  = {Horn, Alfred},\n  journal = {American Journal of Mathematics},\n  volume  = {76},\n  number  = {3},\n  pages   = {620--630},\n  year    = {1954},\n  doi     = {}\n}\n",
-        "source_url": "https://www.jstor.org/stable/2372705",
-        "theorem_or_result": "Characterizes \\(\\mathrm{diag}(\\mathrm{SO}(n))\\) as the parity polytope \\(\\mathrm{PP}_n\\), hence a polyhedral convex set.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "A canonical example of a convex coordinate projection of \\(\\mathrm{SO}(n)\\); helps delineate which coordinate patterns yield convex images and suggests that convexity can be subtle and pattern-dependent."
-      },
-      {
-        "title": "Semidefinite descriptions of the convex hull of rotation matrices",
-        "bibtex": "@article{saunderson2015semidefinite,\n  title   = {Semidefinite descriptions of the convex hull of rotation matrices},\n  author  = {Saunderson, James and Parrilo, Pablo A. and Willsky, Alan S.},\n  journal = {SIAM Journal on Optimization},\n  volume  = {25},\n  number  = {3},\n  pages   = {1314--1343},\n  year    = {2015},\n  doi     = {10.1137/140975569}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/140975569",
-        "theorem_or_result": "Provides an LMI (spectrahedral) description of \\(\\mathrm{conv}(\\mathrm{SO}(n))\\) via the spin representation; shows exponential size is needed for equivariant representations and connects to topology of \\(\\mathrm{SO}(n)\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Underpins the convex-relaxation viewpoint in the source paper and supplies the spin/quadratic-map framework that may be useful for encoding combinatorial hardness into coordinate projections."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.2485945,
+    "citations_analyzed": 8,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.061845000000000004,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.086289,
-    "total_cost_usd": 0.14813400000000002
+    "literature_total_cost_usd": 0.2485945,
+    "total_cost_usd": 0.3104395
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4400196985/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4400196985_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4400196985_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4400196985_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 8,
     "is_open": true,
     "model": "gpt-5.2"
   }

@@ -54,71 +54,71 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 7,
-    "synthesis": "The source paper initiates the study of fairness guarantees at pure Nash equilibria (PNE) of no-money allocation mechanisms under additive valuations. For two agents and EFX, it shows a striking separation between the non-strategic and strategic-at-equilibrium settings: while any EFX allocation can be as bad as \\(2/3\\)-MMS (and this is tight), mechanisms whose PNE always exist and whose every PNE outcome is EFX must yield strictly better MMS guarantees at equilibrium. Concretely, it proves a universal constant \\(\\alpha>2/3\\) such that every such equilibrium outcome is \\(\\alpha\\)-MMS (Theorem 4.7), and even obtains full MMS for the special case of four goods (Theorem 4.5). Moreover, for the specific Plaut--Roughgarden Mod-Cut&Choose mechanism, every PNE outcome is MMS (hence EFX), despite the mechanism\u2019s non-strategic output failing to be close to MMS in general.\n\nThe open problem asks to determine the optimal worst-case constant \\(\\alpha^*\\) for the MMS guarantee enjoyed by EFX equilibrium outcomes across the entire class of mechanisms with guaranteed PNE existence and EFX-at-equilibrium. At present, the literature grounded in these works provides: (i) a lower bound strictly exceeding \\(2/3\\) for all numbers of goods, (ii) an upper bound of 1 (trivial) and evidence that \\(\\alpha^*=1\\) holds for certain mechanisms (Mod-Cut&Choose) and for all mechanisms when \\(|M|=4\\), but (iii) no tight characterization for general \\(|M|\\). Progress likely requires either constructing a mechanism/instance pair showing an equilibrium EFX outcome with MMS ratio bounded away from 1 (to prove \\(\\alpha^*<1\\)), or proving a structural theorem that EFX plus equilibrium constraints force MMS for all \\(|M|\\) (to prove \\(\\alpha^*=1\\)).",
-    "total_cost_usd": 0.0978705,
-    "citations_analyzed": 0,
+    "synthesis": "The open problem asks for the tight universal constant \\(\\alpha^*\\) such that, for every two-agent additive instance and every mechanism whose pure Nash equilibria (PNE) always exist and whose every PNE outcome is EFX with respect to the true valuations, every equilibrium allocation is \\(\\alpha^*\\)-MMS for both agents. In the non-strategic setting, EFX alone only implies \\(2/3\\)-MMS and this is tight (Theorem 2.6 in the source paper, via Amanatidis et al. 2018). The source paper shows that imposing the strategic equilibrium requirement strengthens the MMS guarantee beyond what EFX alone provides.\n\nConcretely, the source paper proves three key partial results. First, for the specific Plaut--Roughgarden Mod-Cut&Choose mechanism, PNE always exist and every PNE outcome is MMS (hence EFX for \\(n=2\\)) (Theorem 4.3). Second, for the entire class of mechanisms with guaranteed PNE existence and universal EFX-at-PNE, when \\(|M|=4\\) every PNE outcome must be MMS (Theorem 4.5), already separating equilibrium EFX from arbitrary EFX allocations. Third, for general \\(|M|\\), every such mechanism guarantees \\(\\alpha\\)-MMS at every PNE for some universal constant \\(\\alpha>2/3\\) (Theorem 4.7), but the proof is non-quantitative about the best possible \\(\\alpha\\) and does not settle whether \\(\\alpha^*=1\\).\n\nThe forward-citing literature provided here does not resolve the tight value of \\(\\alpha^*\\). The two surveys (\"Fair division of indivisible goods: Recent progress and open questions\" and \"Algorithmic fair allocation of indivisible items: A survey and new questions\") contextualize the question among EFX/MMS and strategic equilibrium research but do not improve bounds. Related incentive frameworks (\"Fair shares: Feasibility, domination, and incentives\") and work in different strategic models (\"Fair Division with Interdependent Values\") indicate alternative ways to obtain MMS-like guarantees under incentives, but they do not address the stringent requirement that every PNE be EFX in the independent additive model. Thus, determining whether \\(\\alpha^*=1\\) or finding the optimal \\(\\alpha^*<1\\) remains open; promising directions include constructing explicit counterexamples (mechanisms/instances) that force an EFX PNE below MMS, or strengthening the structural arguments in Theorem 4.7 to yield an explicit tight constant.",
+    "total_cost_usd": 1.503033,
+    "citations_analyzed": 23,
     "sources": [
       {
-        "title": "Allocating indivisible goods to strategic agents: Pure Nash equilibria and fairness",
-        "bibtex": "@article{AmanatidisBirmpasFuscoLazosLeonardiReiffenhauser2023StrategicFairDivisionPNE,\n  title        = {Allocating Indivisible Goods to Strategic Agents: Pure Nash Equilibria and Fairness},\n  author       = {Amanatidis, Georgios and Birmpas, Georgios and Fusco, Federico and Lazos, Philip and Leonardi, Stefano and Reiffenhauser, Rebecca},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2109.08644},\n  eprint       = {2109.08644},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/2109.08644}\n}\n",
-        "source_url": "https://arxiv.org/abs/2109.08644",
-        "theorem_or_result": "Introduces the strategic fair-division model without money and studies mechanisms whose pure Nash equilibria (PNE) always exist and are fair w.r.t. true additive valuations. For two agents, proves: (i) Mod-Cut&Choose has PNE and every PNE outcome is MMS (hence EFX); (ii) for any mechanism whose PNE always exist and are always EFX, every PNE outcome is \\(\\alpha\\)-MMS for some universal \\(\\alpha>2/3\\) (Theorem 4.7), and for \\(|M|=4\\) the guarantee is 1 (Theorem 4.5). Leaves open the tight constant \\(\\alpha^*\\) for general \\(|M|\\).",
+        "title": "Fair division of indivisible goods: Recent progress and open questions",
+        "bibtex": "@article{AmanatidisAzizBirmpasFilosRatsikasLiMoulinVoudourisWu2023RecentProgress,\n  title   = {Fair division of indivisible goods: Recent progress and open questions},\n  author  = {Amanatidis, Georgios and Aziz, Haris and Birmpas, Georgios and Filos-Ratsikas, Aris and Li, Bo and Moulin, Herv{\\'e} and Voudouris, Alexandros A. and Wu, Xiaowei},\n  journal = {Artificial Intelligence},\n  year    = {2023},\n  volume  = {322},\n  pages   = {103965}\n}",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0004370223000905",
+        "theorem_or_result": "This paper is a survey and does not prove new theorems about the maximin-share (MMS) guarantee of EFX pure Nash equilibria (PNE) mechanisms for two agents. The only directly relevant content is a summary of prior work: it cites Amanatidis et al. [2021b] on mechanisms with always-existing PNE whose equilibrium outcomes are EF1, and it poses an open question about whether stronger guarantees than EF1 are possible at PNE (Open Problem 10).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem: determine the tight worst-case MMS approximation guarantee \\(\\alpha^*\\) for EFX PNE outcomes of mechanisms with guaranteed PNE existence and EFX-at-equilibrium for two additive agents. It establishes a lower bound \\(\\alpha^*>2/3\\) but not the optimal value."
+        "relevance_score": 3,
+        "connection": "The open problem asks for the tight worst-case MMS approximation factor \\(\\alpha^*\\) guaranteed at every PNE of any mechanism whose PNE always exist and are always EFX (for two additive agents). This survey does not analyze EFX-at-PNE mechanisms or derive any MMS lower/upper bounds for such equilibria. It only provides background on EFX and MMS notions and briefly discusses strategic agents, noting that equilibrium analysis has been done for Round-Robin (yielding EF1 at equilibrium) and asking whether stronger-than-EF1 equilibrium guarantees exist. Thus it neither resolves nor makes partial progress on determining \\(\\alpha^*\\)."
       },
       {
-        "title": "Almost Envy-Freeness with General Valuations",
-        "bibtex": "@article{PlautRoughgarden2020AlmostEnvyFreeness,\n  title   = {Almost Envy-Freeness with General Valuations},\n  author  = {Plaut, Benjamin and Roughgarden, Tim},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume  = {34},\n  number  = {2},\n  pages   = {1039--1068},\n  year    = {2020},\n  doi     = {10.1137/19M124397X},\n  url     = {https://doi.org/10.1137/19M124397X}\n}\n",
-        "source_url": "https://doi.org/10.1137/19M124397X",
-        "theorem_or_result": "Gives Mod-Cut&Choose for two agents, producing EFX allocations (and approximate EFX for general valuations). Shows algorithmic existence/computation of EFX for two agents in the non-strategic setting.",
+        "title": "Algorithmic fair allocation of indivisible items: A survey and new questions",
+        "bibtex": "@article{AzizWalsh2023SurveyNewQuestions,\n  title   = {Algorithmic fair allocation of indivisible items: A survey and new questions},\n  author  = {Aziz, Haris and Walsh, Toby},\n  journal = {ACM SIGecom Exchanges},\n  year    = {2023},\n  doi     = {10.1145/3572885.3572887}\n}",
+        "source_url": "https://doi.org/10.1145/3572885.3572887",
+        "theorem_or_result": "This paper is a survey; it does not prove a new theorem resolving the open problem. It summarizes known results on EFX, MMS, and strategic behavior in allocation mechanisms, including that for two agents Divide-and-Choose returns an allocation that is MMS and EFX (under appropriate tie-breaking/leximin++), and it cites Amanatidis et al. (2021b) for the result that Round-Robin PNE outcomes are EF1 w.r.t. true values.",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the baseline EFX algorithm that the source paper studies as a mechanism under strategic bidding; its equilibrium behavior (MMS at PNE) motivates the open question about the best universal MMS guarantee for EFX PNE outcomes across all such mechanisms."
+        "relevance_score": 3,
+        "connection": "The open problem asks for the tight worst-case MMS approximation \\,\\(\\alpha^*\\) guaranteed by EFX allocations that arise as pure Nash equilibria of mechanisms whose PNE always exist and are always EFX. This survey does not analyze MMS guarantees of EFX-PNE mechanisms, nor does it provide bounds or constructions for \\,\\(\\alpha^*\\). It only provides context: (i) relationships between EFX and MMS in non-strategic settings (e.g., Divide-and-Choose for two agents yields MMS+EFX), and (ii) mentions a related strategic-PNE fairness line (PNE of Round-Robin are EF1), but not EFX nor MMS-at-PNE guarantees."
       },
       {
-        "title": "Comparing approximate relaxations of envy-freeness",
-        "bibtex": "@inproceedings{AmanatidisBirmpasMarkakis2018ComparingApproxEF,\n  title     = {Comparing Approximate Relaxations of Envy-Freeness},\n  author    = {Amanatidis, Georgios and Birmpas, Georgios and Markakis, Evangelos},\n  booktitle = {Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI)},\n  year      = {2018},\n  pages     = {42--48},\n  url       = {https://www.ijcai.org/proceedings/2018/6}\n}\n",
-        "source_url": "https://www.ijcai.org/proceedings/2018/6",
-        "theorem_or_result": "For additive valuations, relates approximate EF1/EFX to MMS. In particular, for two agents proves any EFX allocation is \\(2/3\\)-MMS and this bound is tight (Proposition 3.3).",
+        "title": "Fair shares: Feasibility, domination, and incentives",
+        "bibtex": "@article{BabaioffFeige2023FairShares,\n  title   = {Fair shares: Feasibility, domination, and incentives},\n  author  = {Babaioff, Moshe and Feige, Uriel},\n  journal = {Mathematics of Operations Research},\n  year    = {2023},\n  doi     = {10.1287/moor.2022.0257}\n}",
+        "source_url": "https://doi.org/10.1287/moor.2022.0257",
+        "theorem_or_result": "The paper develops a framework of feasible shares and self-maximizing (truthful-in-guarantee) shares for fair division of indivisible goods. For additive valuations it proves (among other results) that there is no SM-dominant feasible share (Theorem 1), and it constructs feasible, self-maximizing, polynomial-time computable shares that approximately dominate MMS: for general n a share that is \\(\\frac{2n}{3n-1}\\)-dominating, for \\(n\\le 4\\) a \\(\\frac45\\)-dominating share, and for two agents a PTAS share that is \\((1-\\varepsilon)\\)-dominating (Theorem 3 / Theorem 5 / Theorem 6).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Supplies the non-strategic baseline: EFX \\(\\Rightarrow\\) \\(2/3\\)-MMS (tight). The open problem asks how much stronger the MMS guarantee becomes when restricting to EFX allocations that arise as PNE outcomes of mechanisms with guaranteed PNE existence and EFX-at-equilibrium."
+        "relevance_score": 3,
+        "connection": "The open problem asks for the tight worst-case MMS approximation \\(\\alpha^*\\) guaranteed by EFX allocations that arise as pure Nash equilibria of mechanisms whose PNE always exist and are always EFX (two additive agents). This paper does not study EFX, mechanisms, or Nash equilibria of allocation mechanisms; instead it studies share guarantees (feasible shares, self-maximization) and approximation to MMS. It only mentions that feasible shares imply equilibrium guarantees in a generic sense (Proposition 1), but it does not analyze EFX-PNE allocations nor derive an \\(\\alpha^*\\) bound for them. Hence it does not resolve the EFX-PNE MMS-guarantee question, though it provides related MMS-approximation tools and context."
       },
       {
-        "title": "Truthful Allocation Mechanisms without Payments: Characterization and Implications on Fairness",
-        "bibtex": "@inproceedings{AmanatidisBirmpasChristodoulouMarkakis2017TruthfulNoPayments,\n  title     = {Truthful Allocation Mechanisms without Payments: Characterization and Implications on Fairness},\n  author    = {Amanatidis, Georgios and Birmpas, Georgios and Christodoulou, George and Markakis, Evangelos},\n  booktitle = {Proceedings of the 2017 ACM Conference on Economics and Computation (EC)},\n  year      = {2017},\n  pages     = {545--562},\n  doi       = {10.1145/3033274.3085125},\n  url       = {https://doi.org/10.1145/3033274.3085125}\n}\n",
-        "source_url": "https://doi.org/10.1145/3033274.3085125",
-        "theorem_or_result": "Shows strong impossibility results for truthful mechanisms without money: even for two agents, truthfulness is incompatible with nontrivial fairness notions (e.g., EF1/EFX) beyond small numbers of goods.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Motivates focusing on equilibrium (PNE) rather than truthfulness. The open problem concerns equilibrium fairness guarantees (MMS) under the additional requirement that all PNE outcomes are EFX and PNE always exist."
+        "title": "Fair Division with Interdependent Values",
+        "bibtex": "@misc{FairDivisionInterdependentValues,\n  title        = {Fair Division with Interdependent Values},\n  author       = {Unknown},\n  year         = {\\noop{????}},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation analysis block}\n}",
+        "source_url": "",
+        "theorem_or_result": "Theorem 3.1: For two agents with equal entitlements and general monotone interdependent valuations, there exists a (guessing) mechanism such that for every signal vector there exists a PNE whose outcome is MMS and EFX for one agent (the cutter) and EF for the other (the chooser) w.r.t. the true signals. Additionally, Lemma 3.4 shows in that equilibrium the cutter gets at least her MMS and the allocation is EFX for her.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for the tight worst-case MMS approximation guarantee \\(\\alpha^*\\) enjoyed by EFX allocations that arise at PNE of mechanisms where (i) a PNE always exists and (ii) every PNE outcome is EFX (w.r.t. true additive values) for two agents. This paper does not study that guarantee. Its main positive result for \\(n=2\\) gives existence of at least one fair PNE (not that all PNE are fair), and the equilibrium outcome is only partially EFX (EFX for the cutter, merely EF for the chooser). Moreover, the setting is interdependent values and general monotone valuations, not the independent additive setting of the open problem. The paper\u2019s negative results (Theorem 6.1) show impossibility of mechanisms where all equilibria are MMS/EF1-fair in the interdependent model, but do not address mechanisms with all equilibria EFX nor the MMS level of EFX equilibria in the independent additive model."
       },
       {
-        "title": "The unreasonable fairness of maximum Nash welfare",
-        "bibtex": "@article{CaragiannisKurokawaMoulinProcacciaShahWang2019UnreasonableFairnessMNW,\n  title   = {The Unreasonable Fairness of Maximum Nash Welfare},\n  author  = {Caragiannis, Ioannis and Kurokawa, David and Moulin, Herve and Procaccia, Ariel D. and Shah, Nisarg and Wang, Junxing},\n  journal = {ACM Transactions on Economics and Computation},\n  volume  = {7},\n  number  = {3},\n  pages   = {12:1--12:32},\n  year    = {2019},\n  doi     = {10.1145/3355902},\n  url     = {https://doi.org/10.1145/3355902}\n}\n",
-        "source_url": "https://doi.org/10.1145/3355902",
-        "theorem_or_result": "Develops strong fairness properties of maximum Nash welfare allocations; establishes implications among fairness notions including that for two agents MMS implies EFX (via PMMS/GMMS connections).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides structural relationships between MMS and EFX used in the source paper (e.g., for two agents MMS \\(\\Rightarrow\\) EFX). Helps interpret the open problem as quantifying how close EFX-at-equilibrium outcomes must be to MMS."
+        "title": "On Truthful Mechanisms without Pareto-efficiency: Characterizations and Fairness",
+        "bibtex": "@misc{TruthfulMechanismsWithoutParetoEfficiency,\n  title        = {On Truthful Mechanisms without Pareto-efficiency: Characterizations and Fairness},\n  author       = {Unknown},\n  year         = {\\noop{????}},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation analysis block}\n}",
+        "source_url": "",
+        "theorem_or_result": "The paper proves a characterization: for any permutations-closed class of strict monotone preferences (including strict additive valuations), a deterministic mechanism that is strategy-proof (truthful in dominant strategies), non-bossy, and neutral is a serial-quota mechanism (agents pick up to fixed quotas in a fixed order), even without Pareto-efficiency and even allowing disposal of goods (Theorem 1 / Application 1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns the MMS guarantee of EFX allocations that arise at pure Nash equilibria of mechanisms whose PNE always exist and are always EFX (two agents, additive valuations). This paper studies a different incentive notion (dominant-strategy truthfulness) and different fairness targets (MMS and EF1), and it does not analyze EFX or pure Nash equilibria. Hence it does not determine the constant \\(\\alpha^*\\) for EFX-PNE mechanisms. Indirectly, it provides structural tools (serial-quota characterization under truthfulness+non-bossy+neutral) and shows strong MMS impossibilities for such truthful mechanisms, which may inform comparisons with equilibrium-based (PNE) approaches."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.077336,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0978705,
-    "total_cost_usd": 0.1752065
+    "literature_total_cost_usd": 1.503033,
+    "total_cost_usd": 1.5803690000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389193896/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389193896_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4389193896_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4389193896_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 23,
     "is_open": true,
     "model": "gpt-5.2"
   }

@@ -48,37 +48,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 6,
-    "difficulty": 7,
-    "synthesis": "The forward-citation list provided is empty, so there is currently no evidence from the supplied citation analysis that the intermediate-regime large-deviation bounds have been resolved in later work. The source paper establishes exponential upper bounds with speed \\(t^{1/(1+\\alpha)}\\) only for the outer regimes \\(\\lambda<\\lambda_-(\\alpha)\\) and \\(\\lambda>\\lambda_+(\\alpha)\\), leaving a gap that contains the fluid-limit threshold \\((1+\\alpha)^{1/(1+\\alpha)}\\).\n\nWithin the source paper, the gap is attributed to coarse combinatorial path counting; an appendix sketches a multiscale refinement that numerically shrinks \\(\\lambda_\\pm(\\alpha)\\) (illustrated for \\(\\alpha=1\\)) but does not reach the threshold. The open problem is to develop sharper large-deviation techniques (e.g., change-of-measure, martingale methods, or sample-path LDP for state-dependent Bernoulli increments) that yield strictly positive rate functions \\(c_\\pm(\\lambda)\\) throughout \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\), ideally matching the conjectured behavior suggested by simulations.",
-    "total_cost_usd": 0.05372325,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Polynomial Voting Rules",
-        "bibtex": "@article{TangYao2024PolynomialVotingRules,\n  title        = {Polynomial Voting Rules},\n  author       = {Tang, Wenpin and Yao, David D.},\n  year         = {2024},\n  journal      = {arXiv preprint},\n  eprint       = {2206.10105},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n}\n",
-        "source_url": "https://arxiv.org/abs/2206.10105",
-        "theorem_or_result": "Introduces the stake-volume Markov chain \\((N_t)\\) with transition \\(N_{t+1}=N_t+1\\) w.p. \\(N_t^{-\\alpha}\\) and proves large-deviation upper bounds with exponent \\(t^{1/(1+\\alpha)}\\) in the outer regimes \\(\\lambda<\\lambda_-(\\alpha)\\) and \\(\\lambda>\\lambda_+(\\alpha)\\), using the rate function \\(f_\\alpha(\\lambda)=(1+\\alpha)\\lambda\\log\\lambda-(1+\\alpha)\\lambda+\\lambda^{-\\alpha}\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem: extend the exponential large-deviation bounds for \\(N_t\\) to the intermediate deviation regime \\(\\lambda\\in(\\lambda_-(\\alpha),\\lambda_+(\\alpha))\\), ideally up to the fluid-limit threshold \\((1+\\alpha)^{1/(1+\\alpha)}\\)."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.10546725000000001,
+    "citations_analyzed": 2,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.057564500000000005,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.05372325,
-    "total_cost_usd": 0.11128775
+    "literature_total_cost_usd": 0.10546725000000001,
+    "total_cost_usd": 0.16303175000000003
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391601457/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4391601457_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4391601457_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4391601457_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

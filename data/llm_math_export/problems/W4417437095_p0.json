@@ -53,67 +53,31 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper (Brandt\u2013Greger\u2013Segal-Halevi\u2013Suksompong, 2025) introduces Leontief (ratio-based) utilities on the simplex \\(\\Delta^m\\) and shows that, unlike \\(\\ell_1\\) or \\(\\ell_\\infty\\) distance-based models, there is a uniquely attractive aggregation rule: the Nash product rule \\(\\mathrm{NASH}(P)\\in\\arg\\max_{q\\in\\Delta^m}\\prod_i u_i(q)\\). They prove \\(\\mathrm{NASH}\\) is continuous, satisfies core fair share (a weak \\(\\alpha\\)-core style blocking condition), and\u2014crucially\u2014obeys group-strategyproofness. Their main characterization (Theorem 3) states that \\(\\mathrm{NASH}\\) is the only continuous mechanism satisfying group-strategyproofness and core fair share.\n\nThe open problem asks whether group-strategyproofness can be weakened to (individual) strategyproofness while retaining the same uniqueness conclusion. The source paper itself indicates that group-strategyproofness is used at a specific point in the proof (their Lemma 9), and it proves that for the refined Leximin-Leontief domain, strategyproofness does suffice (Theorem 4). This suggests that the obstacle is tied to indifferences inherent in plain Leontief utilities: coalitional deviations may be needed to pin down the outcome when individual deviations do not move utilities strictly.\n\nRelated literature provides partial structural support but no resolution. Brandt et al. (2025) (donor coordination) supplies the key decomposition/critical-alternative machinery and the uniqueness/single-valuedness of Nash-welfare maximizers for Leontief utilities that underlies the characterization, but it does not address whether individual strategyproofness plus core fair share forces the same decomposition invariants. Work on core notions in participatory budgeting and fair mixing (Fain et al., 2016; Aziz et al., 2020) motivates core-based fairness and its connection to Nash welfare, while older economic design results for Leontief preferences (Nicol\u00f2, 2004) illustrate the special incentive structure of Leontief domains in low dimensions. Techniques from one-dimensional single-peaked characterizations (Jennings et al., 2024) may be suggestive, but the multi-dimensional simplex setting with Leontief indifferences appears to require new arguments or a counterexample. At present, absent forward-citation evidence of a solution, the implication \u2018continuous + strategyproof + core fair share \\(\\Rightarrow\\) \\(f\\equiv\\mathrm{NASH}\\)\u2019 should be regarded as open.",
-    "total_cost_usd": 0.21735700000000002,
+    "synthesis": "In Brandt, Greger, Segal-Halevi, and Suksompong (2025), the Nash product rule \\(\\mathrm{NASH}\\) for Leontief utilities on the simplex \\(\\Delta^m\\) is shown to satisfy continuity, group-strategyproofness, and a core-based fairness notion (core fair share). Moreover, their Theorem 3 provides a sharp characterization: \\(\\mathrm{NASH}\\) is the unique continuous mechanism satisfying group-strategyproofness and core fair share. The open problem asks whether group-strategyproofness is actually necessary in this characterization, i.e., whether continuity + (individual) strategyproofness + core fair share already force \\(\\mathrm{NASH}\\).\n\nThe paper itself indicates that the proof of Theorem 3 uses group-strategyproofness only at a specific step (Lemma 9), suggesting the axiom might be weakenable, but it remains unresolved for plain Leontief utilities. A closely related positive result is established for the refined Leximin-Leontief preference extension: Theorem 4 shows that for Leximin-Leontief preferences, continuity + strategyproofness + core fair share do characterize \\(\\mathrm{NASH}\\). This strengthens the plausibility that the Leontief case might also admit such a weakening, but the refinement changes the incentive constraints, so it does not settle the original question.\n\nThe only forward-citing item provided here is a general survey on divisible voting, which (based on the limited information available) does not contribute a proof or counterexample. Thus, with the current citation set, the problem remains open: no known paper among the provided forward citations resolves whether individual strategyproofness suffices for the Leontief-utility characterization under core fair share and continuity.",
+    "total_cost_usd": 0.1933995,
     "citations_analyzed": 2,
     "sources": [
       {
-        "title": "Coordinating charitable donations with Leontief preferences",
-        "bibtex": "@article{BrandtGregerSegalHaleviSuksompong2025Donations,\n  author  = {Brandt, Felix and Greger, Matthias and Segal-Halevi, Erel and Suksompong, Warut},\n  title   = {Coordinating charitable donations with {Leontief} preferences},\n  journal = {Journal of Economic Theory},\n  year    = {2025},\n  volume  = {230},\n  pages   = {106096},\n  doi     = {10.1016/j.jet.2025.106096}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.jet.2025.106096",
-        "theorem_or_result": "Introduces and analyzes the equilibrium distribution rule (EDR), which for Leontief utilities coincides with maximizing Nash welfare; proves uniqueness of the Nash-welfare-maximizing allocation and establishes strong incentive properties (including group-strategyproofness in their model) and core-like stability/no-profitable-redistribution guarantees.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 10,
-        "connection": "Provides the main technical foundation used by the source paper to prove that the Nash product rule is continuous, single-valued, group-strategyproof, and satisfies a core-type fairness property. While it does not address whether group-strategyproofness can be weakened to strategyproofness in the budget-aggregation characterization, it supplies the equilibrium/decomposition lemmas (critical alternatives, decompositions) that any attempt to remove group-strategyproofness must grapple with."
-      },
-      {
-        "title": "Fair mixing: the case of dichotomous preferences",
-        "bibtex": "@article{AzizBogomolnaiaMoulin2020FairMixing,\n  author  = {Aziz, Haris and Bogomolnaia, Anna and Moulin, Herv{\\'e}},\n  title   = {Fair mixing: the case of dichotomous preferences},\n  journal = {ACM Transactions on Economics and Computation},\n  year    = {2020},\n  volume  = {8},\n  number  = {4},\n  pages   = {18:1--18:27}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3415172",
-        "theorem_or_result": "Studies core-type fairness for mixing/lotteries under dichotomous preferences; shows existence and properties of Nash-welfare-type outcomes and links to core notions (including core fair share variants) in probabilistic/fair-mixing settings.",
+        "title": "Voting in Divisible Settings: A Survey",
+        "bibtex": "@misc{VotingDivisibleSurvey,\n  title        = {Voting in Divisible Settings: A Survey},\n  author       = {},\n  note         = {Survey; bibliographic details unavailable in provided citation analysis},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Based on the provided title and partial abstract only (no PDF), no specific theorem/result about characterizing the Nash product rule under (group-)strategyproofness and core-fair-share for Leontief utilities on \\,\\(\\Delta^m\\) can be identified.",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "The source paper\u2019s core-fair-share definition is adapted from the fair-mixing/participatory-budgeting literature; this paper provides background on why Nash-welfare maximization is naturally connected to core-type fairness. It does not address strategyproofness vs group-strategyproofness for Leontief peaks, but informs the fairness side of the characterization question."
-      },
-      {
-        "title": "The core of the participatory budgeting problem",
-        "bibtex": "@inproceedings{FainGoelMunagala2016CorePB,\n  author    = {Fain, Brett and Goel, Ashish and Munagala, Kamesh},\n  title     = {The core of the participatory budgeting problem},\n  booktitle = {Proceedings of the 12th International Conference on Web and Internet Economics (WINE)},\n  year      = {2016},\n  pages     = {384--399}\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-319-48749-6_28",
-        "theorem_or_result": "Introduces and studies core concepts for participatory budgeting/public decision problems; establishes existence/structure results for core outcomes and motivates core-based fairness as protection against coalitional deviations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides foundational motivation for core-based fairness (core fair share) used in the source paper\u2019s characterization. It does not treat incentive compatibility for peak-based Leontief utilities, but frames why core-type constraints are central in budget aggregation and why coalitional blocking is the relevant fairness benchmark."
-      },
-      {
-        "title": "Efficiency and truthfulness with Leontief preferences. A note on two-agent, two-good economies",
-        "bibtex": "@article{Nicolo2004Leontief,\n  author  = {Nicol{\\`o}, Antonio},\n  title   = {Efficiency and truthfulness with {Leontief} preferences. {A} note on two-agent, two-good economies},\n  journal = {Review of Economic Design},\n  year    = {2004},\n  volume  = {8},\n  number  = {4},\n  pages   = {373--382}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s10058-004-0091-8",
-        "theorem_or_result": "Analyzes incentive and efficiency properties in small economies with Leontief preferences; highlights special structure of Leontief utilities for truthful/efficient allocation rules in low-dimensional settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Gives early economic-design context for why Leontief preferences can admit stronger incentive properties than smooth/strictly convex domains. While not about budget aggregation on a simplex nor core fair share, it supports the plausibility that Nash-type rules have distinctive incentive features under Leontief structure."
-      },
-      {
-        "title": "New characterizations of strategy-proofness under single-peakedness",
-        "bibtex": "@article{JenningsLarakiPuppeVarloot2024SinglePeaked,\n  author  = {Jennings, A. B. and Laraki, Rida and Puppe, Clemens and Varloot, E. M.},\n  title   = {New characterizations of strategy-proofness under single-peakedness},\n  journal = {Mathematical Programming},\n  year    = {2024},\n  volume  = {203},\n  number  = {1--2},\n  pages   = {207--238}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s10107-023-01974-0",
-        "theorem_or_result": "Provides new characterizations of strategyproofness in single-peaked domains, refining classical results and clarifying when continuity/proportionality pin down specific median/phantom rules.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 4,
-        "connection": "Although focused on the one-dimensional (two-alternative) case, it is conceptually relevant because the source paper draws analogies between generalized median rules and Nash-type rules; techniques about weakening group-strategyproofness to strategyproofness in refined domains may inspire approaches for the multi-dimensional Leontief setting, but it does not directly resolve the open problem."
+        "relevance_score": 3,
+        "connection": "The open problem asks whether strategyproofness (individual) plus continuity and core-fair-share already forces the Nash product rule, i.e., whether group-strategyproofness is dispensable in an existing characterization. A survey titled \u201cVoting in Divisible Settings\u201d is plausibly related at a high level (divisible goods/budgets, aggregation rules, strategyproofness and fairness notions), and it may summarize known characterizations or open questions in this area. However, from the title and incomplete abstract alone, there is no evidence it proves the desired implication or provides partial progress (e.g., counterexamples, additional axioms, or special-case characterizations)."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.08014475000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.21735700000000002,
-    "total_cost_usd": 0.29750175
+    "literature_total_cost_usd": 0.1933995,
+    "total_cost_usd": 0.27354425000000004
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417437095/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4417437095_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4417437095_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4417437095_p0",

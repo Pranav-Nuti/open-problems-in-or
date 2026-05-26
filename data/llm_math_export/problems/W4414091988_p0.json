@@ -48,78 +48,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 7,
-    "synthesis": "The all-norms question for correlation clustering on unweighted complete signed graphs is answered constructively by \"Simultaneously Approximating All \\(\\ell_p\\)-norms in Correlation Clustering\", which produces a single clustering \\(\\mathcal C\\) with \\(\\|y_{\\mathcal C}\\|_p\\le \\alpha\\,\\mathrm{OPT}_p\\) for every \\(p\\in[1,\\infty]\\). The proof builds a single semimetric (an adjusted version of the earlier correlation metric) whose fractional disagreement cost is within a universal constant of \\(\\mathrm{OPT}_p\\) for every \\(p\\), and then applies the KMZ ball-growing rounding scheme, which is independent of \\(p\\). This establishes existence of an all-norms constant-factor clustering, but via a fairly intricate algorithmic construction and charging analysis.\n\nEarlier work by Davies\u2013Moseley\u2013Newman on the \\(\\ell_\\infty\\) (min\u2013max) objective introduced the correlation metric, a Jaccard-type distance based on overlap of positive neighborhoods, and showed it has bounded fractional cost for \\(p=\\infty\\); this metric is the structural seed for the all-norms result. The KMZ framework (\"Correlation clustering with local objectives\") supplies the key rounding lemma: given any (approximate) semimetric with controlled fractional costs, the same rounding procedure yields a clustering with controlled per-vertex disagreements, hence controlled \\(\\ell_p\\) norms. Conceptually, this reduces the all-norms existence question to the existence of a single semimetric that simultaneously upper-bounds the relevant fractional objectives.\n\nAs posed in the source paper\u2019s conclusion, the remaining open aspect is not whether such a clustering exists (it does), but whether there is a substantially simpler, non-algorithmic existential proof\u2014e.g., one that avoids constructing an adjusted metric and the detailed per-vertex charging needed to show \\(p\\)-uniform bounds. Promising directions suggested by the current proofs include: (i) identifying an intrinsic structural certificate (perhaps via bad-triangle duality or a majorization argument on disagreement vectors) that implies simultaneous \\(\\ell_p\\) control; or (ii) proving that an appropriately chosen distribution over simple clusterings (e.g., Pivot-like) contains a single clustering achieving all-norms guarantees, via probabilistic method and concentration/union bounds tailored to all \\(p\\).",
-    "total_cost_usd": 0.08613325,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Simultaneously Approximating All \u2113p-norms in Correlation Clustering",
-        "bibtex": "@article{DaviesMoseleyNewman2024AllNormsCC,\n  author  = {Davies, Sami and Moseley, Benjamin and Newman, Heather},\n  title   = {Simultaneously Approximating All \\ell_p-norms in Correlation Clustering},\n  year    = {2024},\n  journal = {arXiv preprint},\n  eprint  = {2308.01534},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.DS}\n}\n",
-        "source_url": "https://arxiv.org/abs/2308.01534",
-        "theorem_or_result": "Gives a single clustering that is an \\(O(1)\\)-approximation simultaneously for all \\(\\ell_p\\)-norm objectives \\(p\\in[1,\\infty]\\) on unweighted complete signed graphs, via an adjusted correlation metric fed into KMZ rounding.",
-        "relevance_category": "SOLUTION",
-        "relevance_score": 10,
-        "connection": "Directly establishes existence (constructively) of a universal constant-factor all-norms approximation clustering; the open problem asks for a simpler existential proof than this algorithmic construction."
-      },
-      {
-        "title": "Correlation clustering with local objectives",
-        "bibtex": "@inproceedings{KalhanMakarychevZhou2019LocalCC,\n  author    = {Kalhan, Sanchit and Makarychev, Konstantin and Zhou, Timothy},\n  title     = {Correlation clustering with local objectives},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year      = {2019}\n}\n",
-        "source_url": "https://proceedings.neurips.cc/paper/2019/hash/6b180037abbebea991d8b1232f8a8ca9-Abstract.html",
-        "theorem_or_result": "Introduces an LP/convex relaxation for \\(\\ell_p\\)-norm disagreement objectives and a ball-growing rounding algorithm (KMZ rounding) giving a constant-factor approximation (not universal across \\(p\\) because the relaxation depends on \\(p\\)).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Provides the rounding framework used by the all-norms algorithm; any existential proof may still leverage the idea that a single semimetric can be rounded into a clustering with controlled per-vertex disagreements."
-      },
-      {
-        "title": "Fast Combinatorial Algorithms for Min Max Correlation Clustering",
-        "bibtex": "@inproceedings{DaviesMoseleyNewman2023MinMaxCC,\n  author    = {Davies, Sami and Moseley, Benjamin and Newman, Heather},\n  title     = {Fast Combinatorial Algorithms for Min Max Correlation Clustering},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year      = {2023},\n  publisher = {PMLR}\n}\n",
-        "source_url": "https://proceedings.mlr.press/v202/davies23a.html",
-        "theorem_or_result": "Defines the correlation metric \\(d\\) (Jaccard-style distance on positive neighborhoods) and shows it is a semimetric with \\(O(1)\\) fractional cost for the \\(\\ell_\\infty\\) (min-max) objective; combined with KMZ rounding yields a constant-factor approximation for \\(\\ell_\\infty\\) without solving an LP.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Supplies the key structural object (correlation metric) that later gets adjusted to handle all \\(p\\); suggests a route to simpler existence proofs via semimetric constructions rather than LPs."
-      },
-      {
-        "title": "Local Guarantees in Graph Cuts and Clustering",
-        "bibtex": "@inproceedings{CharikarGuptaSchwartz2017LocalGuarantees,\n  author    = {Charikar, Moses and Gupta, Neha and Schwartz, Roy},\n  title     = {Local Guarantees in Graph Cuts and Clustering},\n  booktitle = {Integer Programming and Combinatorial Optimization (IPCO)},\n  year      = {2017},\n  publisher = {Springer},\n  doi       = {10.1007/978-3-319-59250-3_12}\n}\n",
-        "source_url": "https://doi.org/10.1007/978-3-319-59250-3_12",
-        "theorem_or_result": "Studies local (per-vertex) guarantees for cut/clustering objectives including correlation clustering; develops relaxations/rounding giving constant-factor approximations for local disagreement measures.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Early work motivating per-vertex disagreement vectors and local/fairness objectives that are endpoints of the all-norms spectrum (especially \\(p=\\infty\\))."
-      },
-      {
-        "title": "Aggregating inconsistent information: ranking and clustering",
-        "bibtex": "@article{AilonCharikarNewman2008Aggregating,\n  author  = {Ailon, Nir and Charikar, Moses and Newman, Alantha},\n  title   = {Aggregating inconsistent information: ranking and clustering},\n  journal = {Journal of the ACM},\n  year    = {2008},\n  volume  = {55},\n  number  = {5}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/1411509.1411513",
-        "theorem_or_result": "Introduces the Pivot algorithm and a 3-approximation in expectation for \\(\\ell_1\\) correlation clustering on complete graphs.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Represents the \\(p=1\\) endpoint; highlights that optimizing one norm (\\(\\ell_1\\)) alone can be arbitrarily bad for other norms, motivating the all-norms question."
-      },
-      {
-        "title": "All-norm approximation algorithms",
-        "bibtex": "@article{AzarEpsteinRichterWoeginger2004AllNorm,\n  author  = {Azar, Yossi and Epstein, Leah and Richter, Yossi and Woeginger, Gerhard J.},\n  title   = {All-norm approximation algorithms},\n  journal = {Journal of Algorithms},\n  year    = {2004},\n  volume  = {52},\n  number  = {2},\n  pages   = {120--133}\n}\n",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0196677404000376",
-        "theorem_or_result": "Introduces the all-norms objective in approximation algorithms and gives constant-factor all-norms approximations for load balancing variants.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides conceptual and technical precedent for simultaneous \\(\\ell_p\\) approximation; may inspire non-algorithmic existence arguments via majorization or norm-monotonicity techniques."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.06476575,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08613325,
-    "total_cost_usd": 0.150899
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.06476575
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4414091988/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4414091988_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4414091988_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4414091988_p0",

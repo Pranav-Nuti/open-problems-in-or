@@ -50,35 +50,44 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The conjectured inequality is equivalent to nonnegativity of \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\), where \\(\\mathrm{Work}_{\\mathrm{service}}\\) is the sum of residual service times across busy servers. In Li--Goldberg (2023), this covariance appears as the only obstruction term in an exact identity for \\(\\mathbb E[L(\\infty)]\\) derived from workload drift arguments (building on Hokstad and later Lyapunov-based analyses). Proving the covariance is nonnegative would immediately yield a clean Kingman-type upper bound for the mean queue length in M/GI/n.\n\nNo forward-citation evidence was provided, so there is currently no documented resolution in the supplied corpus. The problem remains open as stated; progress likely requires establishing positive association/association-type properties for the stationary residual-service vector under FCFS, or developing a coupling/monotonicity argument that shows that larger numbers in service stochastically increase total residual work in service.",
-    "total_cost_usd": 0.1420265,
-    "citations_analyzed": 0,
+    "synthesis": "In Li--Goldberg (arXiv:1706.04628v3), the covariance inequality \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\) is posed as Conjecture 1 because it would remove the negative correction term in their drift identity (Theorem 9) and yield the clean bound \\(\\mathbb E[L(\\infty)]\\le \\tfrac12\\mathbb E[(S\\mu_S)^2]\\,\\rho/(1-\\rho)\\) for \\(M/GI/n\\). The conjecture concerns the steady-state joint distribution of the vector of residual service times \\((R_1(\\infty),\\dots,R_n(\\infty))\\), specifically the mixed moment \\(\\mathbb E[\\sum_j \\mathbf 1\\{R_j>0\\}\\,\\sum_j R_j]\\), and asks for a positive-association type statement under FCFS with Poisson arrivals and \\(\\mathbb E[S^2]<\\infty\\).\n\nThe limited forward-citation evidence provided does not contain a proof or counterexample. The most relevant forward-citing work, \u201cA new -scaling bound for multiserver queues via a leave-one-out technique,\u201d develops a BAR-based decomposition for steady-state means in \\(GI/GI/n\\) and introduces leave-one-out couplings to control boundary terms that are explicitly interpreted as covariance-like corrections between indicators of boundary events (e.g. emptiness) and residual service quantities. While this does not establish a sign for \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}},\\mathrm{Work}_{\\mathrm{service}})\\), it suggests a plausible strategy: represent \\(\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}\\,\\mathrm{Work}_{\\mathrm{service}}]\\) via a BAR/Poisson equation and attempt to show that the relevant boundary term is nonnegative (or asymptotically negligible) using conditional independence/monotonicity arguments.\n\n\u201cNovel Lower Bounds on M/G/k Scheduling\u201d is methodologically related through its BAR/drift analysis of workload-type processes and explicit moment calculations in surrogate models, but it does not engage with FCFS many-server residual-service vectors or positive correlation properties. Overall, based on the provided citation set, the conjectured covariance inequality appears to remain open; progress seems to be primarily methodological (BAR decompositions and couplings) rather than a direct resolution. Promising directions include exploiting association/positive dependence results for FCFS queues (e.g. via Palm calculus and monotone couplings) to show that conditioning on more busy servers stochastically increases the residual workload in service, or proving the inequality under additional structural assumptions on \\(S\\) (e.g. decreasing hazard rate, log-convex tails) and then extending by approximation.",
+    "total_cost_usd": 0.5263478500000001,
+    "citations_analyzed": 6,
     "sources": [
       {
-        "title": "Simple and explicit bounds for multi-server queues with universal 1/(1-rho) scaling",
-        "bibtex": "@article{LiGoldberg2023SimpleExplicitBounds,\n  title        = {Simple and explicit bounds for multi-server queues with universal 1/(1-rho) scaling},\n  author       = {Li, Yuan and Goldberg, David A.},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:1706.04628v3},\n  eprint       = {1706.04628},\n  archivePrefix= {arXiv},\n  primaryClass = {math.PR},\n  url          = {https://arxiv.org/abs/1706.04628}\n}\n",
-        "source_url": "https://arxiv.org/abs/1706.04628",
-        "theorem_or_result": "Derives identity \\(\\mathbb E[L(\\infty)] = \\tfrac12\\mathbb E[(S\\mu_S)^2]\\,\\tfrac{\\rho}{1-\\rho} + \\frac{\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}]\\,\\mathbb E[\\mathrm{Work}_{\\mathrm{service}}]-\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}\\,\\mathrm{Work}_{\\mathrm{service}}]}{n(1-\\rho)\\mathbb E[S]}\\) for M/GI/n under technical assumptions, motivating the conjectured nonnegative covariance \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}},\\mathrm{Work}_{\\mathrm{service}})\\ge 0\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "This is the source of the open problem: proving \\(\\mathbb E[\\mathrm{Num}_{\\mathrm{service}}]\\,\\mathbb E[\\mathrm{Work}_{\\mathrm{service}}]\\le \\mathbb E[\\mathrm{Num}_{\\mathrm{service}}\\,\\mathrm{Work}_{\\mathrm{service}}]\\) would make the covariance term nonnegative and yield a clean Kingman-like bound for \\(\\mathbb E[L(\\infty)]\\) in M/GI/n."
+        "title": "A new -scaling bound for multiserver queues via a leave-one-out technique",
+        "bibtex": "@article{Unknown_NewScalingBoundLeaveOneOut,\n  title        = {A new -scaling bound for multiserver queues via a leave-one-out technique},\n  author       = {},\n  year         = {\\noop{????}},\n  note         = {Forward-citation metadata incomplete in provided analysis (authors/year/venue/doi not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves new universal steady-state mean queue-length bounds of order \\(O(1/(1-\\rho))\\) for the FCFS \\(GI/GI/n\\) queue (via a modified system), e.g. for \\(M/GI/n\\): \\(E_\\pi[Q]\\le R_s^{\\max}/(1-\\rho)\\) under light-tail/non-lattice/positive Harris recurrence assumptions, using BAR and a leave-one-out coupling to control boundary \u201ccovariance\u201d terms.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks to prove \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\) in steady state for FCFS \\(M/GI/n\\). This paper does not study \\(\\mathrm{Num}_{\\mathrm{service}}\\) or \\(\\mathrm{Work}_{\\mathrm{service}}\\) directly, nor does it establish a nonnegative covariance between them. It does, however, derive BAR-based decompositions for \\(E_\\pi[Q]\\) involving boundary terms \\(\\Gamma_{s,j}=E_s[\\mathbf 1\\{Q=0\\}\\,\\mu R_{s,j}]-(1-\\rho)E_\\pi[\\mu R_{s,j}]\\), which it heuristically interprets as covariance-like quantities between \\(\\mathbf 1\\{Q=0\\}\\) and residual service times, and then bounds them via a leave-one-out asymptotic-independence argument. These techniques may be adaptable to analyze correlations between service occupancy and in-service workload, but no such covariance inequality is proved here."
+      },
+      {
+        "title": "Novel Lower Bounds on M/G/k Scheduling",
+        "bibtex": "@article{Unknown_NovelLowerBoundsMGkScheduling,\n  title        = {Novel Lower Bounds on M/G/k Scheduling},\n  author       = {},\n  year         = {\\noop{????}},\n  note         = {Forward-citation metadata incomplete in provided analysis (authors/year/venue/doi not given).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces the Increasing Speed Queue (ISQ-k), a single-server variable-speed model, and proves workload/relevant-work lower bounds for M/G/k queues under arbitrary (possibly preemptive) scheduling policies. Key statements include: - Proposition 6.1 / Theorem 4.3: for any arrival/job-size sample path, the total work in any k-server system is lower bounded by the total work in ISQ-k; hence in steady state, for Poisson arrivals, \\(\\mathbb E[W^{M/G/k}]\\ge \\mathbb E[W^{ISQ-k}]\\). - Theorems 6.26.3: the mean SRPT-relevant work \\(\\mathbb E[W_x]\\) in M/G/k under any policy is lower bounded by that in auxiliary Sep-ISQ-k and (for some recycling stream) Rec-ISQ-k. - Propositions 8.3 and 10.3: explicit formulas for \\(\\mathbb E[W^{ISQ-2}]\\) and \\(\\mathbb E[W^{ISQ-k}]\\) via a BAR/drift method with differential-equation-derived test functions (DiffeDrift).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a nonnegative covariance inequality between the steady-state number in service and the total residual workload in service in an FCFS M/GI/n queue: \\(\\mathrm{Cov}(\\mathrm{Num}_{\\mathrm{service}}(\\infty),\\mathrm{Work}_{\\mathrm{service}}(\\infty))\\ge 0\\). This paper does not study FCFS M/GI/n steady-state joint distributions of (busy servers, residual service workload), nor does it address covariance/association properties. Its main objects are (i) mean response time lower bounds under arbitrary scheduling in M/G/k, (ii) SRPT-relevant work integrals (WINE), and (iii) total work in system (sum of remaining job sizes) in a variable-speed single-server surrogate. While it develops BAR/drift techniques for variable-rate workload processes that could be conceptually useful in analyzing moments of workload-like quantities, it provides no result implying \\(\\mathbb E[\\mathrm{Num}]\\,\\mathbb E[\\mathrm{Work}]\\le \\mathbb E[\\mathrm{Num}\\cdot\\mathrm{Work}]\\) for FCFS M/GI/n, and it does not even define \\(\\mathrm{Num}_{\\mathrm{service}}\\) and \\(\\mathrm{Work}_{\\mathrm{service}}\\) in the many-server FCFS sense."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.14633500000000002,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1420265,
-    "total_cost_usd": 0.28836150000000005
+    "literature_total_cost_usd": 0.5263478500000001,
+    "total_cost_usd": 0.67268285
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4393423947/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4393423947_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4393423947_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4393423947_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 6,
     "is_open": true,
     "model": "gpt-5.2"
   }

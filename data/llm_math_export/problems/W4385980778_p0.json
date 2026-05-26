@@ -51,98 +51,98 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The open problem asks whether the balance factor of random-order online contention resolution for matchings can be improved beyond \\(0.456\\) when the input fractional point is restricted from the degree relaxation \\(P(G)\\) to the exact matching polytope \\(\\mathrm{MP}(G)\\), i.e., additionally satisfying Edmonds\u2019 odd-set constraints. In the source paper, Pollner\u2013Roghani\u2013Saberi\u2013Wajc design a contention-aware attenuation function and analyze contributions from events \\(R_0(e)\\) and \\(R_1(e)\\) (zero or one realized neighbor before \\(e\\)) to obtain \\(0.45\\) in general graphs and \\(0.456\\) in bipartite graphs for inputs \\(x\\in P(G)\\). Their discussion explicitly highlights that all known RO-OCRS analyses (including theirs) operate over \\(P(G)\\), and they pose exploiting \\(\\mathrm{MP}(G)\\) as a natural next step.\n\nFrom the broader CRS literature, Edmonds\u2019 polyhedral description of \\(\\mathrm{MP}(G)\\) provides the structural strengthening that could potentially be leveraged online. In the offline setting, Bruggmann\u2013Zenklusen give a \\(0.4762\\)-balanced monotone CRS for bipartite matchings using a polyhedral viewpoint that explicitly uses the full matching polytope description, demonstrating that odd-set constraints can be algorithmically useful for contention resolution. However, this does not translate directly to the random-order online edge-arrival model: online schemes must make irrevocable accept/reject decisions without knowing future activations, and existing attenuation-based RO-OCRS analyses are largely local (neighborhood-based) and do not obviously exploit global odd-set constraints.\n\nAt present, there is no cited work resolving whether \\(c^*>0.456\\) is achievable for RO-OCRS when \\(x\\in\\mathrm{MP}(G)\\). The most promising direction suggested by the source paper is to develop an online rounding/attenuation strategy whose analysis can incorporate odd-set constraints to rule out the tight local obstructions (e.g., the 3-edge path example that makes \\(\\tfrac12(1-e^{-2})\\) tight under certain attenuations). Another plausible avenue is to adapt polyhedral/dual-fitting ideas from offline CRS over \\(\\mathrm{MP}(G)\\) to the random-order online model, potentially via maintaining a fractional dual certificate for violated odd sets as edges arrive. Establishing either an improved lower bound (a scheme with \\(c>0.456\\)) or a matching upper bound (showing \\(c^*\\le 0.456\\) even over \\(\\mathrm{MP}(G)\\)) remains open.",
-    "total_cost_usd": 0.09400825,
-    "citations_analyzed": 0,
+    "synthesis": "In Pollner\u2013Roghani\u2013Saberi\u2013Wajc (2022), the state of the art for random-order online contention resolution for matchings under independent edge activations is a \\(0.45\\)-balanced RO-OCRS for general graphs and \\(0.456\\)-balanced for bipartite graphs, analyzed for inputs \\(x\\in P(G)\\) (degree constraints only). The paper explicitly raises the stronger question of whether restricting inputs to the exact matching polytope \\(\\mathrm{MP}(G)\\)\u2014i.e., additionally enforcing Edmonds\u2019 odd-set constraints\u2014permits a better balance factor, asking in particular whether one can beat \\(0.456\\) in this more structured setting.\n\nThe forward-citing literature summarized here does not resolve that question. The most directly relevant progress is indirect: \u201cTowards an Optimal Contention\u201d improves constants for offline CRSs for matchings (exceeding \\(0.5\\) in bipartite graphs and approaching the Karp\u2013Sipser barrier \\(\\approx 0.544\\) in a sparse regime for general graphs), but it neither operates online in random order nor leverages odd-set constraints. \u201cStationary Online Contention Resolution Schemes\u201d develops a principled framework for permutation-invariant (stationary) OCRSs and proves constants \\(1/3\\) (general graphs) and \\(\\approx 0.382\\) (bipartite) within that restricted class, suggesting that any improvement beyond \\(0.456\\) will require non-stationary behavior and/or new uses of polyhedral structure.\n\nSeveral related-tool papers (on online dependent rounding, SOCS, and probe-commit/configuration-LP approaches) demonstrate that stronger per-edge guarantees are achievable in other online matching models by combining richer rounding primitives (negative dependence, type decompositions, configuration LPs) with local contention resolution. However, none of these works provides a random-order edge-arrival OCRS with \\(\\Pr[e\\in I]\\ge c x_e\\) for all \\(x\\in\\mathrm{MP}(G)\\), nor do they quantify how odd-set constraints might be exploited to surpass the \\(0.456\\) barrier. Thus, based on the provided forward citations, the problem remains open; a promising direction is to design RO-OCRSs whose acceptance/attenuation decisions depend on odd-set structure (e.g., via laminar odd-cut decompositions or blossom-based online certificates) rather than only local degree slack, potentially bridging the gap between online constants (\\(\\approx 0.456\\)) and offline benchmarks (\\(>0.5\\)).",
+    "total_cost_usd": 1.5296357999999999,
+    "citations_analyzed": 17,
     "sources": [
       {
-        "title": "Maximum matching and a polyhedron with {0,1}-vertices",
-        "bibtex": "@article{Edmonds1965MaximumMatchingPolyhedron,\n  author  = {Edmonds, Jack},\n  title   = {Maximum matching and a polyhedron with {0,1}-vertices},\n  journal = {Journal of Research of the National Bureau of Standards B},\n  year    = {1965}\n}\n",
-        "source_url": "https://doi.org/10.6028/jres.069B.013",
-        "theorem_or_result": "Characterizes the exact matching polytope \\(\\mathrm{MP}(G)\\) by adding odd-set constraints \\(\\sum_{e\\subseteq S} x_e \\le (|S|-1)/2\\) for all odd \\(S\\subseteq V\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Defines the stronger feasible region \\(x\\in\\mathrm{MP}(G)\\) that the open problem asks to exploit for improving the RO-OCRS balance factor beyond \\(0.456\\)."
-      },
-      {
-        "title": "Submodular function maximization via the multilinear relaxation and contention resolution schemes",
-        "bibtex": "@article{ChekuriVondrakZenklusen2014CRS,\n  author  = {Chekuri, Chandra and Vondr{\\'a}k, Jan and Zenklusen, Rico},\n  title   = {Submodular function maximization via the multilinear relaxation and contention resolution schemes},\n  journal = {SIAM Journal on Computing},\n  year    = {2014}\n}\n",
-        "source_url": "https://doi.org/10.1137/120889909",
-        "theorem_or_result": "Introduces contention resolution schemes (CRS) and shows (non-constructively) that a correlation gap lower bound implies existence of a \\(c\\)-balanced CRS via LP duality.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides the foundational CRS framework and the correlation-gap/CRS equivalence that underlies the RO-OCRS objective \\(\\Pr[e\\in I]\\ge c x_e\\)."
-      },
-      {
-        "title": "Online contention resolution schemes",
-        "bibtex": "@inproceedings{FeldmanSvenssonZenklusen2016OnlineCRS,\n  author    = {Feldman, Moran and Svensson, Ola and Zenklusen, Rico},\n  title     = {Online contention resolution schemes},\n  booktitle = {Proceedings of the 27th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2016}\n}\n",
-        "source_url": "https://doi.org/10.1137/1.9781611974331.ch71",
-        "theorem_or_result": "Defines online CRS (OCRS) and develops general techniques for online contention resolution under matroid-type constraints.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Establishes the online model and benchmarks that RO-OCRS for matchings refine; relevant for understanding what improvements are possible when strengthening the input polytope to \\(\\mathrm{MP}(G)\\)."
-      },
-      {
-        "title": "Optimal online contention resolution schemes via ex-ante prophet inequalities",
-        "bibtex": "@inproceedings{LeeSingla2018ExAnteProphetOCRS,\n  author    = {Lee, Euiwoong and Singla, Sahil},\n  title     = {Optimal online contention resolution schemes via ex-ante prophet inequalities},\n  booktitle = {Proceedings of the 26th Annual European Symposium on Algorithms (ESA)},\n  year      = {2018}\n}\n",
-        "source_url": "https://doi.org/10.4230/LIPIcs.ESA.2018.57",
-        "theorem_or_result": "Develops optimal OCRS for certain structures (e.g., stars) and connects OCRS design to ex-ante prophet inequalities; yields attenuation-style schemes used as baselines in later matching RO-OCRS work.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Pollner et al. build directly on the attenuation approach and analysis style; understanding these techniques is important when asking whether odd-set constraints can enable better attenuation or different rounding."
-      },
-      {
-        "title": "Understanding the correlation gap for matchings",
-        "bibtex": "@inproceedings{GuruganeshLee2018CorrelationGapMatching,\n  author    = {Guruganesh, Guru and Lee, Euiwoong},\n  title     = {Understanding the correlation gap for matchings},\n  booktitle = {Proceedings of the 37th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS)},\n  year      = {2018}\n}\n",
-        "source_url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2018.32",
-        "theorem_or_result": "Studies the correlation gap for matchings and provides bounds/techniques that relate independent rounding to achievable matching value.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Gives prior correlation-gap lower bounds for the degree relaxation \\(P(G)\\); serves as baseline when asking whether restricting to \\(\\mathrm{MP}(G)\\) can improve the best possible \\(c\\)."
-      },
-      {
-        "title": "An optimal monotone contention resolution scheme for bipartite matchings via a polyhedral viewpoint",
-        "bibtex": "@article{BruggmannZenklusen2020OptimalMonotoneCRSBipartite,\n  author  = {Bruggmann, Simon and Zenklusen, Rico},\n  title   = {An optimal monotone contention resolution scheme for bipartite matchings via a polyhedral viewpoint},\n  journal = {Mathematical Programming},\n  year    = {2020}\n}\n",
-        "source_url": "https://doi.org/10.1007/s10107-020-01526-0",
-        "theorem_or_result": "Gives a \\(0.4762\\)-balanced monotone (offline) CRS for bipartite matchings using a polyhedral approach that leverages the full (exponential) matching polytope description.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Shows that exploiting the exact matching polytope (odd-set constraints) can improve CRS guarantees in the offline setting; suggests that restricting inputs to \\(\\mathrm{MP}(G)\\) may allow RO-OCRS to beat \\(0.456\\), but does not provide an online random-order scheme."
-      },
-      {
-        "title": "Improved guarantees for offline stochastic matching via new ordered contention resolution schemes",
-        "bibtex": "@inproceedings{BrubachGrammelMaSrinivasan2021OfflineStochasticMatchingOCRS,\n  author    = {Brubach, Brian and Grammel, Nathaniel and Ma, Will and Srinivasan, Aravind},\n  title     = {Improved guarantees for offline stochastic matching via new ordered contention resolution schemes},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year      = {2021}\n}\n",
-        "source_url": "https://papers.nips.cc/paper_files/paper/2021",
-        "theorem_or_result": "Develops improved ordered/online-style contention resolution for (stochastic) matching, achieving the then-best RO-OCRS-style bound \\(\\tfrac12(1-e^{-2})\\approx 0.4323\\) for edge-arrival RO-OCRS baselines and \\(0.382\\) for patience-constrained stochastic RO-OCRS.",
+        "title": "Towards an Optimal Contention",
+        "bibtex": "@article{TowardsAnOptimalContention,\n  title        = {Towards an Optimal Contention},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper gives improved contention resolution schemes (CRSs) for matchings under independent edge sampling from a fractional matching. In particular:\n- For bipartite graphs and any fractional matching satisfying only vertex constraints \\(\\sum_{e\\ni v} x_e\\le 1\\), it constructs an offline (non-monotone) CRS with \\(\\Pr[e\\in M\\mid e\\in R(x)]\\ge 0.509\\) for all edges \\(e\\) (Theorem 2 / Theorem 5).\n- For general graphs, assuming \\(\\|x\\|_\\infty\\le \\varepsilon\\) and \\(\\sum_{e\\ni v}x_e=1\\) for all \\(v\\), it gives a CRS with balance \\(\\gamma-f(\\varepsilon)\\) where \\(\\gamma=2(1-\\lambda)-\\lambda^2\\approx 0.544\\) and \\(\\lambda=e^{-\\lambda}\\) (Theorem 1 / Theorem 3).",
         "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 8,
-        "connection": "Immediate predecessor to Pollner et al.; establishes the \\(0.432\\) barrier for attenuation analyses over \\(P(G)\\) and motivates seeking improvements\u2014potentially by using stronger input structure such as \\(\\mathrm{MP}(G)\\)."
+        "connection": "The open problem asks for a random-order online OCRS with balance \\(c>0.456\\) when the input \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., includes odd-set constraints), and more generally the best achievable \\(c^*\\) in that setting.\n\nThis paper is primarily about offline CRSs (not online, not random-order online), and it does not exploit the odd-set constraints of \\(\\mathrm{MP}(G)\\); in fact it states its results assuming only the degree constraints \\(\\sum_{e\\ni v}x_e\\le 1\\), which is a superset of \\(\\mathrm{MP}(G)\\). Therefore it does not resolve the online question nor determine \\(c^*\\) for RO-OCRS on \\(\\mathrm{MP}(G)\\).\n\nHowever, it is strongly relevant as partial progress/upper-envelope context: it shows that offline balancedness can exceed 0.5 (0.509 for bipartite) and can approach the Karp\u2013Sipser barrier \\(\\approx 0.544\\) for general graphs under \\(\\|x\\|_\\infty\\to 0\\). These results sharpen the landscape in which the RO-OCRS-for-\\(\\mathrm{MP}(G)\\) problem sits, and they suggest that any online scheme is inherently weaker (they emphasize separations between offline and random-order online factors for bipartite matchings)."
       },
       {
-        "title": "Improved Online Contention Resolution for Matchings and Applications to the Gig Economy",
-        "bibtex": "@article{PollnerRoghaniSaberiWajc2022ImprovedROOCRS,\n  author  = {Pollner, Tristan and Roghani, Mohammad and Saberi, Amin and Wajc, David},\n  title   = {Improved Online Contention Resolution for Matchings and Applications to the Gig Economy},\n  year    = {2022},\n  journal = {arXiv preprint arXiv:2205.08667},\n  eprint  = {2205.08667}\n}\n",
-        "source_url": "https://arxiv.org/abs/2205.08667",
-        "theorem_or_result": "Constructs a polytime random-order online contention resolution scheme for matchings with balance \\(0.45\\) in general graphs and \\(0.456\\) in bipartite graphs for inputs \\(x\\in P(G)\\), via a contention-aware attenuation function.",
+        "title": "Online dependent rounding schemes for bipartite matchings, with applications",
+        "bibtex": "@inproceedings{OnlineDependentRoundingBipartiteMatchings,\n  title        = {Online dependent rounding schemes for bipartite matchings, with applications},\n  author       = {},\n  year         = {\\n},\n  doi          = {10.1137/1.9781611978322.100},\n  url          = {https://doi.org/10.1137/1.9781611978322.100}\n}\n",
+        "source_url": "https://doi.org/10.1137/1.9781611978322.100",
+        "theorem_or_result": "The paper introduces online dependent rounding schemes (ODRSes) for online bipartite matchings/b-matchings with per-edge guarantee \\(\\Pr[e\\in M]\\ge \\alpha x_e\\). Main theorem (Theorem 1.2 / 3.9\u20133.10): there exists a (polytime, up to \\(\\gamma\\)) bipartite matching ODRS with rounding ratio \\(\\alpha\\approx 0.652\\) (and \\(0.646\\) for b-matchings), breaking the \\(1-1/e\\) barrier for unrestricted fractional matchings \\(x\\in P(G)\\) in the one-sided online-vertex-arrival model.",
         "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem: whether restricting inputs to the exact matching polytope \\(\\mathrm{MP}(G)\\) enables a balance factor strictly larger than \\(0.456\\)."
+        "relevance_score": 7,
+        "connection": "The open problem asks for a random-order online contention resolution scheme (RO-OCRS) for general (not necessarily bipartite) matchings with balance factor \\(c>0.456\\) when the input \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., includes odd-set constraints). This paper studies a different online rounding model (ODRS) for bipartite graphs under adversarial one-sided vertex arrivals, and it targets unrestricted fractional matchings \\(x\\in P(G)\\) (degree constraints only). It achieves a much larger constant (0.652) but does not address random-order edge arrivals, does not handle general graphs/nonbipartite matchings, and does not exploit/require \\(x\\in \\mathrm{MP}(G)\\) with odd-set constraints. Thus it does not solve the stated RO-OCRS-for-\\(\\mathrm{MP}(G)\\) problem, but it provides partial progress in the broader landscape of online rounding/CRS for matchings by introducing new techniques (grouping + offline CRS, negative dependence) that might inspire improved RO-OCRS analyses."
+      },
+      {
+        "title": "Stationary Online Contention Resolution Schemes",
+        "bibtex": "@article{StationaryOnlineContentionResolutionSchemes,\n  title        = {Stationary Online Contention Resolution Schemes},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces stationary OCRSs (S-OCRSs) and gives explicit selectability guarantees for several feasibility systems. For matchings in general graphs (i.e., the degree-bounded relaxation), it proves existence of a \\(1/3\\)-selectable S-OCRS (Theorem 1). For bipartite matchings (where \\(P(G)=\\mathrm{MP}(G)\\)), it proves an \\(\\alpha^*\\)-selectable S-OCRS with \\(\\alpha^*=(3-\\sqrt5)/2\\approx0.382\\), and shows this is optimal within the stationary class (Theorem 2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether one can beat \\(0.456\\) for random-order OCRSs when the input \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\) (non-bipartite, with odd-set constraints). This paper does not analyze the \\(\\mathrm{MP}(G)\\) setting for general graphs; its matching results for non-bipartite graphs assume only the degree constraints \\(x\\in P(G)\\) and achieve \\(1/3\\), far below \\(0.456\\). It does obtain \\(\\approx0.382\\) for bipartite matchings, but bipartite graphs already satisfy \\(\\mathrm{MP}(G)=P(G)\\) and the constant is still below \\(0.456\\). Thus it does not resolve the question of improving beyond \\(0.456\\) for \\(x\\in\\mathrm{MP}(G)\\) in general graphs; it provides related techniques (stationary/maximum-entropy/Gibbs) and partial progress in special environments."
+      },
+      {
+        "title": "Prophet matching in the probe-commit model",
+        "bibtex": "@inproceedings{ProphetMatchingProbeCommit,\n  title        = {Prophet matching in the probe-commit model},\n  author       = {},\n  year         = {\\n},\n  doi          = {10.4230/LIPIcs.APPROX/RANDOM.2022.46},\n  url          = {https://doi.org/10.4230/LIPIcs.APPROX/RANDOM.2022.46}\n}\n",
+        "source_url": "https://doi.org/10.4230/LIPIcs.APPROX/RANDOM.2022.46",
+        "theorem_or_result": "The paper gives online algorithms for bipartite stochastic matching in the probe-commit model with downward-closed probing constraints, achieving competitive ratios against the offline adaptive benchmark: (i) \n\\[\\mathbb{E}[w(M(\\pi))] \\ge \\tfrac12\\,\\mathrm{OPT}(H_{\\mathrm{typ}},(D_i)_{i=1}^n)\\]\nfor adversarial arrival order \\(\\pi\\) (Theorem 1), and (ii)\n\\[\\mathbb{E}[w(M)] \\ge (1-1/e)\\,\\mathrm{OPT}(H_{\\mathrm{typ}},(D_i)_{i=1}^n)\\]\nfor uniformly random arrival order (Theorem 3). The analysis uses a configuration LP (LP-config / LP-config-id) and applies rank-1 matroid online/random-order contention resolution schemes to resolve conflicts at each offline vertex.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a random-order online contention resolution scheme (RO-OCRS) for matchings that is \\(c\\)-balanced for all graphs when the fractional input \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\), and in particular whether one can beat \\(0.456\\).\n\nThis paper does not study OCRS for the matching polytope \\(\\mathrm{MP}(G)\\) nor does it give a \\(c\\)-balanced RO-OCRS guarantee of the form \\(\\Pr[e\\in I]\\ge c x_e\\) for arbitrary fractional \\(x\\in\\mathrm{MP}(G)\\). Instead it studies stochastic probing/prophet matching with commitment, where the algorithm first solves a different LP (a configuration LP capturing probing strategies) and then uses contention resolution only as a subroutine to choose among multiple edges that \u201ccommit\u201d to the same offline vertex. The contention resolution used is essentially rank-1 matroid RCRS/OCRS (yielding factors \\(1-1/e\\) in random order and \\(1/2\\) in adversarial order) applied per offline vertex, not a global OCRS for matchings with input \\(x\\in\\mathrm{MP}(G)\\).\n\nThus the paper is at most indirectly relevant: it leverages random-order contention resolution ideas and achieves a \\(1-1/e\\) factor in a different stochastic matching model, but it does not improve the balance factor for RO-OCRS on \\(\\mathrm{MP}(G)\\) beyond \\(0.456\\) or address that question."
+      },
+      {
+        "title": "Stochastic online correlated selection",
+        "bibtex": "@article{StochasticOnlineCorrelatedSelection,\n  title        = {Stochastic online correlated selection},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces Stochastic Online Correlated Selection (SOCS) and a type-decomposition reduction from general fractional allocations to one-way/two-way surrogate types, and designs improved two-way SOCS/OCS algorithms for several online matching/allocation problems. For unweighted/vertex-weighted online stochastic matching it proves an optimal two-way SOCS convergence rate \\(g(y)=(1+y)e^{-2y}\\) (Theorem 5) and derives improved competitive ratios (e.g. 0.69 non-IID, 0.705 random-order). It does not study random-order online contention resolution schemes for edges with independent activations \\(x_e\\) in general graphs nor balance factors for inputs \\(x\\in \\mathrm{MP}(G)\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a random-order online contention resolution scheme (RO-OCRS) for matchings in an undirected graph where edges arrive in random order and are independently activated with probabilities \\(x_e\\), with \\(x\\) restricted to the exact matching polytope \\(\\mathrm{MP}(G)\\), and seeks a balance factor \\(c>0.456\\). This paper instead considers SOCS/OCS frameworks for stochastic online matching/AdWords/Display Ads with vertex arrivals and fractional allocations \\(\\mu^t\\), using type decomposition to reduce to two-way instances and proving convergence-rate bounds. While conceptually related (online rounding with negative correlation), it does not address RO-OCRS for edge arrivals, does not exploit Edmonds\u2019 odd-set constraints, and does not provide a \\(c\\)-balanced OCRS guarantee of the form \\(\\Pr[e\\in I]\\ge c x_e\\) for all edges under \\(x\\in \\mathrm{MP}(G)\\). Thus it offers at most indirect techniques (negative correlation, two-way reductions) rather than progress on the stated \\(c^*\\) question."
+      },
+      {
+        "title": "Approximation Algorithms for Action-Reward Query-Commit Matching",
+        "bibtex": "@article{ApproximationAlgorithmsActionRewardQueryCommitMatching,\n  title        = {Approximation Algorithms for Action-Reward Query-Commit Matching},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata (authors/year/venue) not provided in the forward-citation block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies action-reward query-commit matching with patience constraints on bipartite graphs. Its main result (Theorem 1.1) gives polynomial-time policies achieving approximation ratios ",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a random-order online contention resolution scheme (RO-OCRS) for matchings with balance factor exceeding 0.456 when the fractional input lies in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., includes odd-set constraints). This paper does not study OCRS for \\(\\mathrm{MP}(G)\\) or use odd-set constraints; instead it studies stochastic/query-commit matching with patience constraints and develops a different rounding framework (configuration LP + a patience random-order contention resolution subroutine on star graphs) to approximate an optimal adaptive policy. While it uses the language of random-order contention resolution and provides selection guarantees (e.g., \\(1-1/e\\) or \\(\\approx 0.5801\\)) for its P-RCRS subproblem, these guarantees apply to a different model (query-commit with success probabilities and patience) and do not translate directly into a \\(c\\)-balanced RO-OCRS for \\(\\mathrm{MP}(G)\\). Thus it offers potentially relevant techniques (random-order contention resolution analysis, attenuation, configuration LP rounding) but does not resolve the stated OCRS balance-factor question for \\(\\mathrm{MP}(G)\\)."
+      },
+      {
+        "title": "Limitations of stochastic selection problems with pairwise independent priors",
+        "bibtex": "@inproceedings{LimitationsPairwiseIndependentPriors,\n  title        = {Limitations of stochastic selection problems with pairwise independent priors},\n  author       = {},\n  year         = {\\n},\n  doi          = {10.1145/3618260.3649718},\n  url          = {https://doi.org/10.1145/3618260.3649718}\n}\n",
+        "source_url": "https://doi.org/10.1145/3618260.3649718",
+        "theorem_or_result": "The paper proves tight bounds for contention resolution and prophet inequalities on matroids under pairwise-independent (not fully independent) stochastic inputs. In particular:\n- (Theorem 5.4) For any matroid of rank \\(r\\), there exists a \\(\\tfrac{1}{4r}\\)-balanced online contention resolution scheme against the almighty adversary for any pairwise-independent active-set distribution with marginals in the matroid polytope.\n- (Theorem 5.1) For the full linear matroid \\(\\mathbb{F}_q^d\\times[d]\\), no pairwise-independent offline CRS can be \\((c+1)/d\\)-balanced when \\(q^{c-1}\\ge d\\); in particular no \\(3/d\\)-balanced scheme for \\(q\\ge d\\).\n- (Theorem 6.2) No \\(\\omega(1/\\log r)\\)-competitive prophet inequality exists for pairwise-independent priors on certain binary matroids (even vs oblivious adversary), while (Theorem 6.9) an \\(\\Omega(1/\\log r)\\)-competitive algorithm exists for all matroids vs almighty adversary.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for improving the balance factor of random-order online contention resolution schemes for matchings when the fractional point \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\) (i.e., under independent activations with probabilities \\(x_e\\) and random arrival order). This paper does not study matchings under independent Bernoulli activations; instead it studies matroids under pairwise-independent (correlated) priors, and its positive/negative results are about how much balance/competitiveness is possible under that weaker independence assumption.\n\nThus it neither provides a RO-OCRS for matchings with \\(c>0.456\\) on \\(\\mathrm{MP}(G)\\) nor addresses the effect of adding Edmonds' odd-set constraints. At most, it is tangentially relevant as it develops CRS/OCRS techniques and impossibility constructions in a different stochastic model, which could inform proof techniques but does not advance the specific constant \\(0.456\\) barrier for matchings in the independent-activation, random-order model."
+      },
+      {
+        "title": "Online bipartite matching in the probe-commit model",
+        "bibtex": "@article{OnlineBipartiteMatchingProbeCommit,\n  title        = {Online bipartite matching in the probe-commit model},\n  author       = {},\n  year         = {\\n},\n  doi          = {10.1007/s10107-024-02184-y},\n  url          = {https://doi.org/10.1007/s10107-024-02184-y}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-024-02184-y",
+        "theorem_or_result": "The paper studies online bipartite matching in the probe-commit model and proves optimal competitive ratios against an offline adaptive probing benchmark in several settings. In particular, for known independently distributed (i.d.) instances with random-order arrivals, it gives a polynomial-time algorithm with competitive ratio \\(1-1/e\\) (Corollary 5.6), using a new configuration LP (LP-config) and a reduction to a \\((1-1/e)\\)-selectable random-order contention resolution scheme (RCRS) for a 1-uniform matroid. It also proves a \\(1/e\\) ratio for edge-weighted worst-case instances with random-order arrivals (Theorem 6.3) and \\((1-1/e)\\) for certain vertex-weighted worst-case instances under rankability (Theorem 7.7).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for improving the balance factor \\(c\\) of a random-order online contention resolution scheme (RO-OCRS) for matchings when the fractional input \\(x\\) lies in the exact matching polytope \\(\\mathrm{MP}(G)\\), i.e., exploiting odd-set constraints to beat \\(0.456\\). This paper does not study RO-OCRS for the matching polytope nor contention resolution for general graphs under \\(x\\in\\mathrm{MP}(G)\\). Instead, it uses contention resolution only as a subroutine for a different stochastic/probing matching model, and specifically reduces to contention resolution for a 1-uniform matroid on each offline vertex\u2019s incident proposals (a per-vertex capacity-1 constraint), not to the matching polytope constraints (including odd-set constraints). Thus it neither resolves nor directly advances the stated OCRS-for-\\(\\mathrm{MP}(G)\\) question, though it provides related LP/configuration and CRS-based techniques in online matching contexts."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.066031,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.09400825,
-    "total_cost_usd": 0.16003925000000002
+    "literature_total_cost_usd": 1.5296357999999999,
+    "total_cost_usd": 1.5956667999999998
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4385980778/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4385980778_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4385980778_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4385980778_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 17,
     "is_open": true,
     "model": "gpt-5.2"
   }

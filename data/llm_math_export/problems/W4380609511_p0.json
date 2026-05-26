@@ -49,99 +49,45 @@
     "method": "forward_citation_review",
     "model": "gpt-5.2",
     "importance": 8,
-    "difficulty": 8,
-    "synthesis": "The multistage stochastic program \\(\\varphi_K\\) in Reiman\u2013Wan\u2013Wang (2021) arises as a transformed version of the earlier lower-bound program \\(\\inf_{\\alpha\\ge 0}\\{b\\cdot\\alpha+\\Phi_K(\\alpha)\\}+b\\cdot\\mathbb{E}[\\bar D]\\) of Reiman\u2013Wang (2012). The 2021 paper shows how to remove the problematic infimum over \\(\\alpha\\) by shifting variables, yielding a finite optimal solution to \\(\\varphi_K\\) and enabling policy parameters (inventory-position and backlog targets) to be recomputed as the state changes. It also proposes a finite-support truncation \\(D^k\\wedge M\\) leading to a finite-dimensional scenario-tree LP approximation \\(\\varphi_{K,M}\\), and proves uniform approximation plus Lipschitz stability of optimal solutions with constants independent of the scenario-tree size. This stability is crucial for their stochastic tracking arguments and diffusion-scale asymptotic optimality.\n\nFrom the algorithmic perspective, prior ATO work on two-stage SPs (Dogru\u2013Reiman\u2013Wang 2010; Dogru\u2013Reiman\u2013Wang 2017) demonstrates that substantial computational gains are possible by exploiting BOM structure (e.g., W and M systems) to derive decompositions and region-based characterizations of optimal allocations. Complementary computational work aimed at industrial-scale ATO optimization (van Jaarsveld\u2013Scheller-Wolf 2015) and structure identification (Zipkin 2016) suggests that scalable formulations often hinge on recognizing special constraint patterns and separability. On the general multistage SP side, the standard stochastic programming toolbox (Shapiro\u2013Dentcheva\u2013Ruszczy\u0144ski 2009) provides decomposition and sampling-based methods (nested Benders, SDDP) that are natural candidates to replace naive scenario-tree LPs when \\(K\\) is large and re-optimization is frequent.\n\nOverall, there is no definitive, generally accepted computationally efficient (polynomial-time or provably scalable) algorithm specialized to the general ATO multistage program \\(\\varphi_K\\) with arbitrary BOM \\(A\\) and general demand distributions; the problem remains open as stated. The most promising directions combine (i) distributional approximation/truncation with error control (as in \\(\\varphi_{K,M}\\)), (ii) decomposition across stages and/or components using dual variables and BOM-induced sparsity, and (iii) reuse/warm-start across repeated solves in time, potentially via cutting-plane value-function approximations (SDDP-style) tailored to the last-stage LP \\(\\varphi_0\\) and its dual structure.",
-    "total_cost_usd": 0.16711974999999998,
-    "citations_analyzed": 0,
+    "difficulty": 9,
+    "synthesis": "The multistage stochastic program \\(\\varphi_K\\) in Reiman--Wan--Wang (2021) is a diffusion-scale lower bound and a parameter generator for their asymptotically optimal ATO control. The open computational issue is that naive scenario-tree LP formulations of \\(\\varphi_K\\) scale poorly with the number of stages \\(K\\), lead-time lengths, and demand support. Among the forward citations provided, the most directly relevant work is the paper on asymptotically optimal energy consumption and inventory control in a make-to-stock system, which contributes technical ingredients toward computation: it shows an equivalent SP formulation with finite optimizers, proposes demand-truncation leading to finite-dimensional LP approximations, proves uniform convergence of the approximations to the original value functions, and establishes Lipschitz/stability of the unique optimal solution with constants independent of truncation size. These results support repeated re-optimization by ensuring that approximate solutions behave regularly as inputs change.\n\nHowever, the truncation approach still relies on scenario-tree LPs and does not by itself yield a fundamentally reduced-complexity algorithm for general \\(K\\) and general BOM matrices \\(A\\). The other citing paper provided is an online-learning result for a different single-item lost-sales model and does not contribute to solving \\(\\varphi_K\\). Based on the limited forward-citation set supplied here, the problem of designing substantially more computationally efficient general-purpose solvers for the \\((K+1)\\)-stage ATO stochastic program remains open; promising directions suggested by the source paper include exploiting BOM-induced structure for decomposition/rounding and reducing effective stage count when lead-time differences are small fractions of the longest lead time.",
+    "total_cost_usd": 0.6588841,
+    "citations_analyzed": 9,
     "sources": [
       {
-        "title": "A stochastic program based lower bound for assemble-to-order inventory systems",
-        "bibtex": "@article{ReimanWang2012,\n  author  = {Reiman, Martin I. and Wang, Qiong},\n  title   = {A stochastic program based lower bound for assemble-to-order inventory systems},\n  journal = {Operations Research Letters},\n  year    = {2012},\n  doi     = {10.1016/j.orl.2012.01.004}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.orl.2012.01.004",
-        "theorem_or_result": "Introduces the multistage stochastic-program lower bound \\(\\inf_{\\alpha\\ge 0}\\{b\\cdot\\alpha+\\Phi_K(\\alpha)\\}+b\\cdot\\mathbb{E}[\\bar D]\\) for continuous-review ATO systems and proves it is a lower bound on the long-run average cost.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "This is the precursor SP formulation; computationally efficient methods for repeatedly solving the transformed SP \\(\\varphi_K\\) build on this lower-bound construction and its scenario-tree structure."
-      },
-      {
-        "title": "Asymptotically optimal inventory control for assemble-to-order systems with identical lead times",
-        "bibtex": "@article{ReimanWang2015,\n  author  = {Reiman, Martin I. and Wang, Qiong},\n  title   = {Asymptotically optimal inventory control for assemble-to-order systems with identical lead times},\n  journal = {Operations Research},\n  year    = {2015},\n  doi     = {10.1287/opre.2015.1364}\n}\n",
-        "source_url": "https://doi.org/10.1287/opre.2015.1364",
-        "theorem_or_result": "Develops an SP-based policy and proves diffusion-scale asymptotic optimality for ATO systems with identical lead times, using a two-stage SP and tracking/backlog-target ideas.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Motivates repeated solution of (multi)stage SPs for control; highlights that computational tractability is crucial even in the two-stage case, and suggests structural exploitation and approximations."
-      },
-      {
-        "title": "A stochastic programming based inventory policy for assemble-to-order systems with application to the W model",
-        "bibtex": "@article{DogruReimanWang2010,\n  author  = {Dogru, M. K. and Reiman, Martin I. and Wang, Qiong},\n  title   = {A stochastic programming based inventory policy for assemble-to-order systems with application to the {W} model},\n  journal = {Operations Research},\n  year    = {2010},\n  doi     = {10.1287/opre.1090.0739}\n}\n",
-        "source_url": "https://doi.org/10.1287/opre.1090.0739",
-        "theorem_or_result": "Studies a two-stage stochastic program for the W-system and derives an implementable SP-based inventory policy; demonstrates performance and discusses structural properties enabling computation in special BOMs.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 7,
-        "connection": "Provides early evidence that exploiting BOM structure can make SPs solvable in special cases; suggests decomposition/structure-aware algorithms as a path to computational efficiency."
-      },
-      {
-        "title": "Assemble-to-order inventory management via stochastic programming: Chained BOMs and the M-system",
-        "bibtex": "@article{DogruReimanWang2017,\n  author  = {Dogru, M. K. and Reiman, Martin I. and Wang, Qiong},\n  title   = {Assemble-to-order inventory management via stochastic programming: Chained {BOMs} and the {M}-system},\n  journal = {Production and Operations Management},\n  year    = {2017},\n  doi     = {10.1111/poms.12637}\n}\n",
-        "source_url": "https://doi.org/10.1111/poms.12637",
-        "theorem_or_result": "Analyzes SP formulations for chained BOM (M-system), deriving structural results and computational approaches tailored to that BOM; connects optimal allocation regions to SP solutions.",
+        "title": "Asymptotically optimal energy consumption and inventory control in a make-to-stock manufacturing system",
+        "bibtex": "@article{ReimanWanWang2021ATO,\n  title        = {Asymptotically Optimal Inventory Control for Assemble-to-Order Systems},\n  author       = {Reiman, Martin I. and Wan, Haohua and Wang, Qiong},\n  year         = {2021},\n  eprint       = {1809.08271},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
+        "source_url": "https://arxiv.org/abs/1809.08271",
+        "theorem_or_result": "The paper reformulates the multistage stochastic program lower bound for general deterministic lead times into an equivalent SP with finite optimal solutions (their (13)), proves boundedness of optimal stage decisions (Theorem 1) and equality of the lower bound value (Theorem 2: \\(\\bar C=\\varphi_K + b\\cdot \\mathbb E[\\bar D]\\)). For computation/stability, it proposes a finite-dimensional LP approximation by truncating demands \\(D^k\\) to \\(D_M^k=D^k\\wedge M\\) (SP (92)) and shows uniform convergence \\(\\varphi_{k,M}\\to \\varphi_k\\) as \\(M\\to\\infty\\) (Theorem 5). It further proves that the unique optimal solution of the approximating LP is Lipschitz in inputs with a constant independent of the scenario-tree size \\(M\\) (Theorem 6: \\(\\|y^*_{k,M,a}-y^*_{k,M,b}\\|_\\infty\\le \\kappa(\\|x_a-x_b\\|_\\infty+\\sum_{\\ell=k+1}^K\\|y^\\ell_a-y^\\ell_b\\|_\\infty)\\)).",
         "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 8,
-        "connection": "Demonstrates that BOM-induced structure can reduce SP complexity; offers templates for extending structure-exploiting algorithms beyond two-stage to multistage settings."
+        "connection": "The open problem asks for computationally efficient methods to solve the general \\((K+1)\\)-stage SP defining \\(\\varphi_K\\) with reduced complexity vs naive scenario trees, suitable for repeated re-optimization. This paper does not provide a new fast algorithm that avoids scenario-tree growth; in fact its LP approximation (93) is essentially a scenario-tree LP for truncated demands. However, it makes partial progress by (i) giving an equivalent SP (13) whose optimizers are finite (enabling repeated re-optimization conceptually), (ii) providing a controllable-accuracy approximation scheme via truncation \\(M\\) with uniform error control (Theorem 5), and (iii) establishing strong stability/Lipschitz properties of the approximating LP\u2019s unique optimizer with constants independent of problem size (Theorem 6), which is a key ingredient for designing iterative/online methods and for justifying less frequent re-solves. The paper itself explicitly states that developing computationally efficient solvers for general multistage SPs is beyond its scope."
       },
       {
-        "title": "Optimization of industrial-scale assemble-to-order systems",
-        "bibtex": "@article{vanJaarsveldSchellerWolf2015,\n  author  = {van Jaarsveld, Wim and Scheller-Wolf, Alan},\n  title   = {Optimization of industrial-scale assemble-to-order systems},\n  journal = {INFORMS Journal on Computing},\n  year    = {2015},\n  doi     = {10.1287/ijoc.2015.0642}\n}\n",
-        "source_url": "https://doi.org/10.1287/ijoc.2015.0642",
-        "theorem_or_result": "Develops computational optimization methods for large ATO systems, emphasizing scalable formulations and algorithmic techniques suitable for industrial-scale instances.",
+        "title": "Blessing of Order Crossover for Inventory Systems",
+        "bibtex": "@article{BlessingOrderCrossover,\n  title  = {Blessing of Order Crossover for Inventory Systems},\n  author = {Unknown},\n  year   = {Unknown}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies a single-item periodic-review lost-sales inventory system with lead time \\(L\\) and uncertain supply \\(s(q,Z)\\), with unknown i.i.d. demand \\(D_t\\) and supply noise \\(Z_t\\). It proposes an online learning algorithm (Algorithm 1) that learns an approximately optimal constant-order quantity \\(q^*\\) from censored observations and proves a finite-horizon regret bound (Theorem 1): for \\(K=\\sqrt{T}\\) grid points and \\(\\gamma_n=2^{-n}\\), \\(\\mathrm{Regret}_T\\le \\kappa\\,\\kappa_2\\,(L+\\sqrt{T})\\log T\\), where regret is measured against the optimal constant-order policy\u2019s long-run average cost.",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Directly relevant to computational efficiency for ATO optimization; while not targeting the exact multistage SP \\(\\varphi_K\\), it provides scalable algorithmic ideas (decomposition/approximation) that can be adapted for repeated re-optimization."
-      },
-      {
-        "title": "Some specially structured assemble-to-order systems",
-        "bibtex": "@article{Zipkin2016,\n  author  = {Zipkin, Paul},\n  title   = {Some specially structured assemble-to-order systems},\n  journal = {Operations Research Letters},\n  year    = {2016},\n  doi     = {10.1016/j.orl.2015.10.010}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.orl.2015.10.010",
-        "theorem_or_result": "Identifies special ATO structures that admit simplifications and sharper analysis, often enabling reduced-dimensional optimization or closed-form characterizations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Highlights structural regimes where the multistage SP may simplify (fewer effective stages/constraints), guiding algorithm design that exploits BOM/lead-time structure."
-      },
-      {
-        "title": "A primal-dual framework for decomposition and rounding methods in ATO systems",
-        "bibtex": "@misc{DeValvePekecWei2017,\n  author = {DeValve, L. and Pekec, A. and Wei, Y.},\n  title  = {A primal-dual framework for decomposition and rounding methods in {ATO} systems},\n  year   = {2017}\n}\n",
-        "source_url": "https://arxiv.org/search/?query=primal-dual+framework+decomposition+rounding+ATO+DeValve+Pekec+Wei&searchtype=all",
-        "theorem_or_result": "Proposes a primal-dual decomposition/rounding framework for ATO optimization problems, aiming at scalable computation and implementable integer solutions.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "Suggests decomposition strategies that could be integrated with multistage SP solution (e.g., stagewise decomposition, Lagrangian relaxation) to reduce scenario-tree complexity and support repeated re-optimization."
-      },
-      {
-        "title": "Lectures on Stochastic Programming: Modeling and Theory",
-        "bibtex": "@book{ShapiroDentchevaRuszczynski2009,\n  author    = {Shapiro, Alexander and Dentcheva, Darinka and Ruszczy{\\'n}ski, Andrzej},\n  title     = {Lectures on Stochastic Programming: Modeling and Theory},\n  publisher = {SIAM},\n  year      = {2009},\n  doi       = {10.1137/1.9780898718751}\n}\n",
-        "source_url": "https://doi.org/10.1137/1.9780898718751",
-        "theorem_or_result": "Comprehensive theory of multistage stochastic programming, including scenario-tree formulations, decomposition methods (e.g., nested Benders/SDDP), and convergence guarantees.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides the main algorithmic toolbox (SDDP, decomposition, sampling-based approximations) for solving multistage SPs like \\(\\varphi_K\\) more efficiently than naive scenario trees, especially under repeated re-optimization."
+        "relevance_score": 3,
+        "connection": "The open problem asks for computationally efficient methods to solve a \\((K+1)\\)-stage stochastic program \\(\\varphi_K\\) arising in multi-component, multi-product assemble-to-order (ATO) systems with multiple distinct lead times and general bill-of-materials matrix \\(A\\), suitable for repeated re-optimization. This citing paper does not address multistage stochastic programming for ATO, nor does it propose algorithms for evaluating/optimizing \\(\\varphi_K\\) or its scenario-tree LP. Instead it develops an online learning/regret-minimization method for a different model class: single-product lost-sales with uncertain supply, focusing on learning a constant-order heuristic. While it shares themes of lead times, curse of dimensionality, and computational intractability of optimal control, it does not provide algorithms to compute the multistage value functions \\(\\varphi_k\\) or to reduce scenario-tree complexity in the ATO stochastic program."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.02935485,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.16711974999999998,
-    "total_cost_usd": 0.19647459999999997
+    "literature_total_cost_usd": 0.6588841,
+    "total_cost_usd": 0.68823895
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4380609511/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4380609511_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4380609511_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4380609511_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 9,
     "is_open": true,
     "model": "gpt-5.2"
   }

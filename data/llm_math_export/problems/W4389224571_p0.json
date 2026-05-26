@@ -52,89 +52,53 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The open problem asks whether the lattice width \\(w(P(A,b))\\) of a full-dimensional lattice-free polyhedron with integral data can be bounded by a function of \\(\\Delta_n(A)\\) alone, independent of the dimension \\(n\\). The source paper establishes a strong facet-direction bound: for lattice-free \\(P(A,b)\\) with integral \\(b\\) and facet-defining rows, some row \\(a\\) of \\(A\\) satisfies \\(w_a(P(A,b)) < \\frac{4n+2}{9}\\,\\Delta_n(A)-1\\). This is obtained by linking flatness to proximity via a refined spindle-walking argument and a low-dimensional volume estimate (notably a planar inequality for polygons \\(Q\\) with \\(\\tau Q\\subseteq Q^\\circ\\)). The resulting bound is linear in both \\(n\\) and \\(\\Delta_n(A)\\), but does not remove the dependence on \\(n\\).\n\nDimension-independent progress is known only under additional structure. In particular, work on lattice width and Hilbert bases shows that for certain classes of lattice-free polyhedra (e.g., simplices and special pyramids) one can bound width using determinant-type parameters, and the source paper itself proves that when all full minors lie in \\(\\{0,\\pm k,\\pm 2k\\}\\) one gets \\(w_a(P)\\le \\Delta_n(A)-2\\), independent of \\(n\\). Related structural results for bimodular matrices (\\(\\Delta_n(A)\\le 2\\)) provide strong proximity/edge properties that feed into such dimension-free bounds in small-determinant regimes.\n\nIn contrast, the best general flatness bounds without arithmetic parameters remain purely dimension-dependent (currently \\(O^*(n^{4/3})\\) via asymptotic convex geometry). Earlier determinant-driven bounds (e.g., depending on the least common multiple of full minors) still retain dimension dependence and can be exponentially worse than a bound in terms of \\(\\Delta_n(A)\\) alone. Overall, no general mechanism is currently known to control the minimal lattice width direction using only \\(\\Delta_n(A)\\) without either paying a factor depending on \\(n\\) or imposing extra modular/structural hypotheses on the minors. Promising directions suggested by existing work include: (i) extending the dimension-free arguments from the \\(\\{0,\\pm k,\\pm 2k\\}\\) setting to broader minor spectra via refined Graver/Hilbert-basis height control, and (ii) developing new transference principles that convert determinant bounds into short lattice directions without invoking global flatness constants that scale with \\(n\\).",
-    "total_cost_usd": 0.08818775,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper (Celaya\u2013Kuhlmann\u2013Paat\u2013Weismantel) frames the question of whether the lattice width \\(w(P(A,b))\\) of a full-dimensional lattice-free polyhedron \\(P(A,b)=\\{x:Ax\\le b\\}\\) with integral right-hand side can be bounded by a function of \\(\\Delta_n(A)\\) alone, independent of the dimension \\(n\\). Their main flatness advance is Theorem 4, which shows the existence of a facet normal (a row \\(a\\) of \\(A\\)) with facet width \\(w_a(P(A,b)) < \\frac{4n+2}{9}\\,\\Delta_n(A)-1\\) under mild nonredundancy assumptions. This is obtained by linking flatness to a proximity parameter \\(\\pi(A)\\) and proving refined proximity bounds (Theorem 5) in terms of \\(\\Delta_\\alpha(A)\\), using Minkowski\u2019s theorem and a planar polygon area lower bound for sets satisfying \\(\\tau Q\\subseteq Q^\\circ\\).\n\nDespite these improvements, the bound still scales linearly with \\(n\\), and the determinant-only (dimension-free) bound remains open in general. The paper identifies regimes where dimension-free behavior does hold: for matrices whose \\(n\\times n\\) minors lie in \\(\\{0,\\pm k,\\pm 2k\\}\\) one gets facet-width \\(\\le \\Delta_n(A)-2\\) (Theorem 6), extending earlier results for strictly \\(\\Delta\\)-modular matrices. It also points to classes such as simplices and special pyramids (via prior work) where width can be controlled by \\(\\Delta_n(A)\\).\n\nThe forward-citing works provided here are adjacent rather than resolving the width question. They develop determinant-parameterized structure and algorithms for bounded-subdeterminant matrices (e.g., threshold phenomena for \\(\\ell_\\infty\\)-SVP and strongly polynomial algorithms for structured totally \\(\\Delta\\)-modular IPs), which may offer tools to control geometric complexity (faces, decompositions) in terms of \\(\\Delta\\). However, none establishes a bound of the form \\(w(P(A,b))\\le f(\\Delta_n(A))\\) independent of \\(n\\), so the problem remains open.",
+    "total_cost_usd": 0.33693275,
+    "citations_analyzed": 7,
     "sources": [
       {
-        "title": "On lattice width of lattice-free polyhedra and height of Hilbert bases",
-        "bibtex": "@article{HenkKuhlmannWeismantel2022,\n  author = {Henk, Martin and Kuhlmann, Stefan and Weismantel, Robert},\n  title = {On lattice width of lattice-free polyhedra and height of Hilbert bases},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume = {36},\n  number = {3},\n  pages = {1918--1942},\n  year = {2022}\n}\n",
-        "source_url": "http://dx.doi.org/10.1137/21M139935X",
-        "theorem_or_result": "For several structured classes of lattice-free polyhedra (including simplices and special pyramids), the lattice width can be bounded in terms of determinant-type parameters; the paper develops bounds relating lattice width/facet width to Hilbert basis height and subdeterminants, giving dimension-independent bounds in certain modular/bimodular settings.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Directly addresses when width bounds can depend on determinant/minor data rather than dimension; provides positive results for special classes, highlighting what is known toward bounding width by \u001b\\(\\Delta_n(A)\\) alone and where additional structure is needed."
-      },
-      {
-        "title": "On integer programming with bounded determinants",
-        "bibtex": "@article{GribanovVeselov2016,\n  author = {Gribanov, Dmitry and Veselov, Sergey},\n  title = {On integer programming with bounded determinants},\n  journal = {Optimization Letters},\n  volume = {10},\n  pages = {1169--1177},\n  year = {2016}\n}\n",
-        "source_url": "https://doi.org/10.1007/s11590-015-0932-1",
-        "theorem_or_result": "Establishes flatness/lattice-width-type bounds for lattice-free polyhedra in terms of the dimension and the least common multiple of all full-rank minors (a determinant-based arithmetic parameter), yielding bounds linear in dimension but potentially exponential in \\(\\Delta_n(A)\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides an earlier determinant-driven width bound, but it depends on an arithmetic refinement (lcm of minors) rather than only \\(\\Delta_n(A)\\); serves as a baseline for the open question of removing dimension dependence and reducing to \\(\\Delta_n(A)\\) alone."
-      },
-      {
-        "title": "Integer programming with bimodular matrix",
-        "bibtex": "@article{VeselovChirkov2009,\n  author = {Veselov, Sergey and Chirkov, Alexander},\n  title = {Integer programming with bimodular matrix},\n  journal = {Discrete Optimization},\n  volume = {6},\n  pages = {220--222},\n  year = {2009},\n  doi = {10.1016/j.disopt.2008.12.002}\n}\n",
-        "source_url": "http://dx.doi.org/10.1016/j.disopt.2008.12.002",
-        "theorem_or_result": "Develops structural/proximity properties for integer programs with bimodular constraint matrices (\\(\\Delta_n(A)\\le 2\\)), including strong proximity along edges between fractional vertices and integer points.",
+        "title": "Totally -Modular IPs with Two Non-zeros in Most Rows",
+        "bibtex": "@inproceedings{UnknownTotallyModularTwoNonzeros,\n  title = {Totally -Modular IPs with Two Non-zeros in Most Rows},\n  booktitle = {Integer Programming and Combinatorial Optimization},\n  doi = {10.1007/978-3-031-93112-3_26},\n  url = {https://doi.org/10.1007/978-3-031-93112-3_26}\n}",
+        "source_url": "https://doi.org/10.1007/978-3-031-93112-3_26",
+        "theorem_or_result": "The paper proves algorithmic tractability for a structured class of totally \\(\\Delta\\)-modular integer programs: if \\(M=\\begin{bmatrix}A & B\\\\ W & D\\end{bmatrix}\\in\\mathbb Z^{m\\times n}\\) is totally \\(\\Delta\\)-modular, \\(A\\) has at most two nonzeros per row, and the block sizes \\(m_2,n_2\\le k\\) are constant, then Problem 2 (and via reduction Problem 3) can be solved in strongly polynomial time (Theorem 4). A key structural ingredient is that for \\(A\\in\\{0,\\pm1\\}^{m\\times n}\\) with two nonzeros per row viewed as a signed-graph incidence matrix, and a weight vector \\(w\\), the maximum alternating weight of a tree \\(\\mathrm{alt}(S,w)\\) satisfies \\(\\mathrm{alt}(S,w)\\le \\Delta\\big(\\begin{bmatrix}A\\\\ w^\\top\\end{bmatrix}\\big)\\) (Proposition 11), enabling a bounded-adhesion tree-decomposition when subdeterminants are bounded (Theorem 16).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Underpins dimension-independent bounds in the special case \\(\\Delta_n(A)\\le 2\\), which is evidence toward bounding width by a function of \\(\\Delta_n(A)\\) alone, at least for small determinants."
+        "relevance_score": 3,
+        "connection": "The open problem asks for a dimension-free upper bound on the lattice width \\(w(P(A,b))\\) of lattice-free polyhedra \\(P(A,b)=\\{x:Ax\\le b\\}\\) in terms of \\(\\Delta_n(A)\\) only. This paper does not study lattice-free polyhedra or lattice width/flatness bounds directly, nor does it provide a bound of the form \\(w(P(A,b))\\le f(\\Delta_n(A))\\). Instead it is algorithmic work on integer programs with bounded subdeterminants, using proximity bounds (Cook\u2013Gerards\u2013Schrijver\u2013Tardos and improvements) and new graph-structural decompositions for matrices with (mostly) two nonzeros per row. These techniques are adjacent to the broader theme of proximity/flatness for bounded-minor matrices, but they do not resolve (or explicitly advance) the specific lattice-width question posed."
       },
       {
-        "title": "Distances between nonsymmetric convex bodies and the MM*-estimate",
-        "bibtex": "@article{Rudelson2000,\n  author = {Rudelson, Mark},\n  title = {Distances between nonsymmetric convex bodies and the {MM}*-estimate},\n  journal = {Positivity},\n  volume = {4},\n  number = {2},\n  pages = {161--178},\n  year = {2000}\n}\n",
-        "source_url": "https://doi.org/10.1023/A:1009872600475",
-        "theorem_or_result": "Provides asymptotic geometric analysis tools (MM* estimate) that yield the best-known general flatness bound \\(O^*(n^{4/3})\\) for lattice-free convex bodies.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Represents the state-of-the-art dimension-dependent flatness bound; contrasts with the desired determinant-only bound and indicates the geometric barrier when no arithmetic structure is assumed."
+        "title": "On matrices over a polynomial ring with restricted subdeterminants",
+        "bibtex": "@inproceedings{UnknownPolynomialRingRestrictedSubdeterminants,\n  title = {On matrices over a polynomial ring with restricted subdeterminants},\n  booktitle = {Integer Programming and Combinatorial Optimization},\n  doi = {10.1007/978-3-031-59835-7_4},\n  url = {https://doi.org/10.1007/978-3-031-59835-7_4}\n}",
+        "source_url": "https://doi.org/10.1007/978-3-031-59835-7_4",
+        "theorem_or_result": "The paper develops structural results for integral/polynomial matrices with restricted subdeterminants. In particular:\n- Lemma 2: for finite S \\(\\subseteq \\mathbb Z[x]\\), the set \\(F(S)\\) of determinants of forbidden minors is finite and \\(\\max_{f\\in F(S)}|f|\\le 2\\,(\\max_{s\\in S}|s|)^2\\).\n- Theorem 1 (rank-1 parametric decomposition): if \\(M=T+xuv^\\top\\in\\mathbb Z[x]^{m\\times n}\\) is totally \\(S\\)-modular, then \\(T\\) is totally \\(S(0)\\)-modular.\n- Theorems 2\u20133: for specific finite sets \\(S(a)=\\pm\\{0,1,a,a+1,2a+1\\}\\) or \\(\\pm\\{0,a,a+1,2a+1\\}\\), recognition of totally \\(S(a)\\)-modular matrices and ILP with such constraint matrices are solvable in polynomial time (for all but finitely many exceptional \\(a\\)).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a dimension-free bound on lattice width \\(w(P(A,b))\\) of lattice-free polyhedra in terms of \\(\\Delta_n(A)\\) only. This paper studies matrices with *all* subdeterminants restricted to a finite set \\(S\\) (or polynomial analogues), yielding finiteness/structure and algorithmic results for such matrix classes. It does not address lattice-free polyhedra widths, flatness constants, or provide bounds of \\(w(P(A,b))\\) in terms of \\(\\Delta_n(A)\\). At most, it is tangentially related because both lines of work use determinant/minor parameters (\\(\\Delta\\)) to control integer-programming behavior."
       },
       {
-        "title": "Integer programming with a fixed number of variables",
-        "bibtex": "@article{Lenstra1983,\n  author = {Lenstra, Hendrik W.},\n  title = {Integer programming with a fixed number of variables},\n  journal = {Mathematics of Operations Research},\n  volume = {8},\n  number = {4},\n  pages = {538--548},\n  year = {1983}\n}\n",
-        "source_url": "https://www.jstor.org/stable/3689347",
-        "theorem_or_result": "Introduces the fixed-dimension polynomial-time algorithm for integer programming, relying on flatness/lattice-width bounds depending on dimension.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 4,
-        "connection": "Motivates why improving flatness bounds in terms of input parameters (like \\(\\Delta_n(A)\\)) could lead to refined complexity analyses beyond fixed dimension."
-      },
-      {
-        "title": "Enumerating integer points in polytopes with bounded subdeterminants",
-        "bibtex": "@article{JiangBasu2022,\n  author = {Jiang, Honghao and Basu, Amitabh},\n  title = {Enumerating integer points in polytopes with bounded subdeterminants},\n  journal = {SIAM Journal on Discrete Mathematics},\n  volume = {36},\n  number = {1},\n  pages = {449--460},\n  year = {2022},\n  doi = {10.1137/21M139935X}\n}\n",
-        "source_url": "http://dx.doi.org/10.1137/21M139935X",
-        "theorem_or_result": "Gives algorithms for enumerating integer points in polytopes when subdeterminants are bounded, leveraging determinant structure to control combinatorial complexity.",
+        "title": "A Threshold Phenomenon for the Shortest Lattice Vector Problem in the Infinity Norm",
+        "bibtex": "@misc{UnknownThresholdSVPInfinity,\n  title = {A Threshold Phenomenon for the Shortest Lattice Vector Problem in the Infinity Norm},\n  url = {https://example.com}\n}",
+        "source_url": "https://example.com",
+        "theorem_or_result": "The paper proves a determinant-parameterized threshold phenomenon for the shortest lattice vector problem in the infinity norm for lattices of the form \\(A\\mathbb Z^n\\) with \\(A\\in\\mathbb Z^{m\\times n}\\) full column rank and \\(\\Delta:=\\Delta_n(A)\\). Defining \\(f(\\Delta):=\\max\\{n: \\|Az\\|_\\infty\\ge 2\\ \\forall z\\in\\mathbb Z^n\\setminus\\{0\\}\\ \\text{for some \\(\\Delta\\)-modular }A\\}\\), they show \\(f(\\Delta)\\) is finite and satisfy\n- \\(\\Delta-1\\le f(\\Delta)\\le \\lfloor(\\Delta-1)/2\\rfloor(\\Delta-1)+\\mathbf 1_{2\\mathbb Z}(\\Delta)\\).\nConsequently, if \\(n\\ge \\lfloor(\\Delta-1)/2\\rfloor(\\Delta-1)+\\mathbf 1_{2\\mathbb Z}(\\Delta)+1\\), then either one can find \\(z^*\\in\\mathbb Z^n\\setminus\\{0\\}\\) with \\(\\|Az^*\\|_\\infty=1\\) or certify \\(\\Delta_n(A)>\\Delta\\); this yields an FPT algorithm for \\(\\min_{z\\ne 0}\\|Az\\|_\\infty\\) parameterized by \\(\\Delta\\).",
         "relevance_category": "RELATED_TOOL",
         "relevance_score": 6,
-        "connection": "Algorithmic work suggesting that bounded-minor regimes allow stronger structural control; while not directly proving determinant-only width bounds, it supports the broader program of parameterizing complexity/geometry by subdeterminants."
-      },
-      {
-        "title": "Proximity and flatness bounds for linear integer optimization",
-        "bibtex": "@misc{CelayaKuhlmannPaatWeismantel2022,\n  author = {Celaya, Marcel and Kuhlmann, Stefan and Paat, Joseph and Weismantel, Robert},\n  title = {Proximity and flatness bounds for linear integer optimization},\n  year = {2022},\n  eprint = {2211.14941},\n  archivePrefix = {arXiv},\n  primaryClass = {math.OC}\n}\n",
-        "source_url": "https://arxiv.org/abs/2211.14941",
-        "theorem_or_result": "Proves a facet-direction width bound for lattice-free \\(P(A,b)\\) with integral \\(b\\): there exists a row \\(a\\) of \\(A\\) with \\(w_a(P(A,b)) < \\frac{4n+2}{9}\\,\\Delta_n(A)-1\\). Also gives dimension-independent bounds in special cases where full minors lie in \\(\\{0,\\pm k,\\pm 2k\\}\\).",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 10,
-        "connection": "This is the source paper formulating the open question; it provides the best current bound in terms of \\(n\\) and \\(\\Delta_n(A)\\), and shows determinant-only (dimension-free) bounds for special structured minor patterns, but leaves the general determinant-only bound open."
+        "connection": "The open problem asks whether the lattice width \\(w(P(A,b))\\) of a full-dimensional lattice-free polyhedron \\(P(A,b)=\\{x:Ax\\le b\\}\\) can be bounded by a function of \\(\\Delta_n(A)\\) alone, independent of dimension \\(n\\). This paper does not address lattice-free polyhedra or lattice width directly, and it does not prove any bound of the form \\(w(P(A,b))\\le f(\\Delta_n(A))\\). However, it develops determinant-only structural results for \\(\\Delta\\)-modular matrices and derives polyhedral consequences (e.g., integer-hull vertices lie on faces of dimension \\(\\le F(\\Delta)\\)). Such threshold/face-dimension phenomena are conceptually related to flatness/width questions and may provide tools toward bounding geometric complexity of integer-feasible regions in terms of \\(\\Delta\\), but no explicit width bound for lattice-free sets is obtained here."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.060313750000000006,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08818775,
-    "total_cost_usd": 0.1485015
+    "literature_total_cost_usd": 0.33693275,
+    "total_cost_usd": 0.3972465
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389224571/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389224571_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4389224571_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4389224571_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 7,
     "is_open": true,
     "model": "gpt-5.2"
   }

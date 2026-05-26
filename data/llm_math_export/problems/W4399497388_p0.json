@@ -49,27 +49,37 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 8,
-    "synthesis": "The open problem asks for a classification, up to relabeling equivalence, of stable serial knockout competitions (SKCs) on \n\\(n=2^k\\) players for \\(k\\ge 4\\), and in particular whether the algebraic construction based on \\(\\mathrm{GF}(2^k)\\) given by Lambers\u2013Pendavingh\u2013Spieksma is essentially the unique stable SKC for \\(n>8\\). The original paper establishes existence for all powers of two and proves uniqueness only in the smallest nontrivial case \\(n=8\\), via a connection to the Fano plane; for \\(n=16,32\\) it provides explicit stable schedules but does not address uniqueness. With no forward-citation data provided here, there is currently no evidence in this record of a later paper resolving the uniqueness/classification question for \\(n\\ge 16\\).\n\nFrom the perspective of design theory, stability imposes that for each round \\(i\\) every unordered pair \\(\\{x,x'\\}\\) appears exactly \\(c_i=2^{i-1}\\) times among the \\(n-1\\) brackets as a pair that can meet in round \\(i\\). This can be reinterpreted as a highly regular decomposition of the complete graph \\(K_n\\) into \\(n-1\\) edge-labeled ultrametrics (coming from rooted balanced binary trees), with prescribed pair-counts at each distance level. The \\(\\mathrm{GF}(2^k)\\) construction realizes this regularity using the additive structure of the vector space \\((\\mathbb{F}_2)^k\\), suggesting links to affine geometries, spreads, and orthogonal arrays; these connections are natural avenues for classification.\n\nKey gaps remain: (1) determining the full automorphism group of the algebraic SKC and identifying invariants that distinguish inequivalent SKCs; (2) either proving rigidity (uniqueness up to relabeling) for all \\(k\\ge 4\\) or constructing explicit counterexamples (inequivalent stable SKCs) starting at \\(n=16\\); and (3) developing a general equivalence theory, potentially via translation to known objects in finite geometry (e.g., resolvable designs or decompositions of \\(K_{2^k}\\) into hierarchical partitions). Computational classification for \\(n=16\\) (using canonical labeling of the multiset of trees under \\(S_n\\)) together with theoretical constraints from design/finite-geometry may be the most promising near-term approach.",
-    "total_cost_usd": 0.022352749999999998,
-    "citations_analyzed": 0,
-    "sources": []
+    "importance": 6,
+    "difficulty": 7,
+    "synthesis": "The defining constraint for a stable SKC on \\(n=2^k\\) players is that for each round \\(i\\in\\{1,\\dots,k\\}\\) and each unordered pair \\(\\{x,x'\\}\\), the number of brackets \\(T\\) in the family \\(\\mathcal T\\) with \\(v_T(x,x')=i\\) is constant (necessarily \\(c_i=2^{i-1}\\) when \\(|\\mathcal T|=n-1\\)). Lambers\u2013Pendavingh\u2013Spieksma construct such families for all \\(2^k\\) using algebra over \\(\\mathrm{GF}(2^k)\\), and they prove uniqueness up to relabeling only in the smallest nontrivial case \\(n=8\\) (via the Fano plane). The open problem asks whether this algebraic construction is essentially the only one for \\(n>8\\), e.g. \\(n=16\\), or whether inequivalent stable SKCs exist.\n\nAmong the forward citations provided, the only citing work is an operations-research survey that briefly summarizes the existence result and its Galois-field connection but does not contribute new structural, classification, or nonisomorphism results for stable SKCs. Consequently, based on the available forward-citation evidence, the classification/uniqueness question for \\(n=2^k>8\\) remains open. Promising directions suggested by the original paper\u2019s viewpoint include translating stability into incidence/association-scheme language on pairs of players (where \\(v_T\\) induces a hierarchy of partitions by \u201cround of possible meeting\u201d), analyzing automorphism groups of the \\(\\mathrm{GF}(2^k)\\)-constructed SKC, and searching for alternative constructions via difference sets, orthogonal arrays, or other finite-geometry designs that could yield inequivalent SKCs for \\(n=16\\) or prove rigidity.",
+    "total_cost_usd": 0.10568425000000001,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "Tournament design: A review from an operational research perspective",
+        "bibtex": "@article{Unknown_TournamentDesignReview,\n  title        = {Tournament design: A review from an operational research perspective},\n  author       = {},\n  year         = {\\{\\}},\n  doi          = {\\{\\}},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "This paper is a survey/review and does not prove new classification theorems about stable serial knockout competitions. Its only direct statement relevant to the open problem is an expository summary of Lambers et al. (2024): stable serial knockout competitions (serial SKO with \\,n-1\\, subtournaments) can be constructed for \\,n=2^k\\, so that each pair of players can meet equally often in each round, using a connection to Galois fields.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a classification/uniqueness result: whether every stable SKC on \\,n=2^k>8\\, is equivalent to the \\,\\mathrm{GF}(2^k)\\,-based construction (e.g. for \\,n=16\\,). This citing paper does not address uniqueness or inequivalence, does not analyze automorphisms/equivalence classes of stable SKCs, and does not provide new constructions beyond citing Lambers et al. (2024). It therefore provides background context and a pointer to the original construction but no progress on classification."
+      }
+    ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.05043675,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.022352749999999998,
-    "total_cost_usd": 0.07278950000000001
+    "literature_total_cost_usd": 0.10568425000000001,
+    "total_cost_usd": 0.156121
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4399497388/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4399497388_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4399497388_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4399497388_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 1,
     "is_open": true,
     "model": "gpt-5.2"
   }
