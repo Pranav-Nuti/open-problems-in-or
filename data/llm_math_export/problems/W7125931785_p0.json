@@ -49,87 +49,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
-    "difficulty": 9,
-    "synthesis": "The source paper proves that, under finite-support disturbances and stabilizability/detectability (Assumption 2), the dynamic regret of scenario-tree SMPC decays exponentially in the prediction horizon \\(W\\): \\(J^{(W)}-J^\\star \\le \\mathrm{poly}(T,\\|w_{-1}\\|,D)\\,\\rho^W\\). Remark 5 explicitly flags the missing piece for practice: the true disturbance law \\(\\mathbb P\\) is unknown, so SMPC is implemented with a nominal conditional law \\(\\widehat{\\mathbb P}\\) or an ambiguity set \\(\\mathcal P\\), and one would like bounds on \\(J^{(W)}_{\\mathbb P}-J^\\star_{\\mathbb P}\\) that degrade gracefully with distribution mismatch.\n\nAmong closely related works, the strongest distributional-robustness results for MPC currently concern stability/trajectory bounds rather than regret. In particular, \"On the Inherent Distributional Robustness of Stochastic and Nominal Model Predictive Control\" provides Wasserstein-distance-based bounds showing that closed-loop behavior changes continuously with the disturbance distribution, aligning with the robustness direction suggested in the source paper. Companion papers by McAllister and Rawlings develop the stochastic stability foundations (existence/measurability and stochastic asymptotic stability) and robustness comparisons between nominal and stochastic MPC. On the regret side, perturbation-based dynamic regret analyses for predictive control in linear time-varying systems (e.g., \"Perturbation-based regret analysis of predictive control in linear time varying systems\") supply the methodological template used by the source paper (KKT sensitivity decay), while online-control-with-predictions works relate performance loss to prediction error.\n\nOverall, a full solution appears to remain open: existing distributionally robust MPC papers do not yet provide a bound of the form \\(J^{(W)}_{\\mathbb P}-J^\\star_{\\mathbb P}\\le \\text{(terms)}\\cdot \\rho^W + \\text{(terms depending on }d(\\mathbb P,\\widehat{\\mathbb P})\\text{)}\\). A promising direction is to combine (i) the source paper\u2019s scenario-tree KKT perturbation machinery (probability-scaled norms and exponential decay on tree-structured KKT systems) with (ii) Wasserstein-robust stability/continuity estimates that control how the truncated-horizon objective and its gradients change under distributional perturbations. This would likely require new Lipschitz-in-distribution bounds for the conditional expectation operators appearing in the truncated problems, and a careful separation of (a) truncation error (handled by \\(\\rho^W\\)) and (b) distributional-modeling error (handled by the ambiguity radius).",
-    "total_cost_usd": 0.1211735,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "On the Inherent Distributional Robustness of Stochastic and Nominal Model Predictive Control",
-        "bibtex": "@article{McAllisterRawlings2024InherentDR,\n  author  = {R. D. McAllister and J. B. Rawlings},\n  title   = {On the Inherent Distributional Robustness of Stochastic and Nominal Model Predictive Control},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2024},\n  doi     = {10.1109/TAC.2023.3273420}\n}\n",
-        "source_url": "https://doi.org/10.1109/TAC.2023.3273420",
-        "theorem_or_result": "Establishes distributional robustness (stability/trajectory bounds) for nominal and stochastic MPC under Wasserstein ambiguity: closed-loop state bounds depend on the Wasserstein distance between the true and nominal disturbance distributions.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 8,
-        "connection": "Provides the closest existing distributionally robust SMPC guarantee in the same spirit as Remark 5 of the source paper, but it addresses stability/robustness rather than dynamic regret (performance gap to the \\,\\(\\mathbb P\\)-optimal policy)."
-      },
-      {
-        "title": "The Stochastic Robustness of Nominal and Stochastic Model Predictive Control",
-        "bibtex": "@article{McAllisterRawlings2023StochRobust,\n  author  = {R. D. McAllister and J. B. Rawlings},\n  title   = {The Stochastic Robustness of Nominal and Stochastic Model Predictive Control},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2023},\n  doi     = {10.1109/TAC.2022.3226712}\n}\n",
-        "source_url": "https://doi.org/10.1109/TAC.2022.3226712",
-        "theorem_or_result": "Analyzes robustness properties of nominal vs stochastic MPC, including how closed-loop behavior changes under stochastic disturbances; develops stochastic robustness notions and bounds.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Supplies technical stability/robustness machinery that a dynamic-regret-under-ambiguity analysis would likely need, but does not provide regret bounds relative to the \\,\\(\\mathbb P\\)-optimal policy."
-      },
-      {
-        "title": "Nonlinear Stochastic Model Predictive Control: Existence, Measurability, and Stochastic Asymptotic Stability",
-        "bibtex": "@article{McAllisterRawlings2023NonlinearSMPC,\n  author  = {R. D. McAllister and J. B. Rawlings},\n  title   = {Nonlinear Stochastic Model Predictive Control: Existence, Measurability, and Stochastic Asymptotic Stability},\n  journal = {IEEE Transactions on Automatic Control},\n  year    = {2023},\n  doi     = {10.1109/TAC.2022.3157131}\n}\n",
-        "source_url": "https://doi.org/10.1109/TAC.2022.3157131",
-        "theorem_or_result": "Provides foundational results for nonlinear SMPC: existence/measurability of policies and stochastic asymptotic stability in expectation under standard MPC assumptions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Gives stability foundations for SMPC beyond the linear-quadratic setting of the source paper; could be combined with distributional robustness ideas, but does not treat regret."
-      },
-      {
-        "title": "Perturbation-based regret analysis of predictive control in linear time varying systems",
-        "bibtex": "@inproceedings{LinEtAl2021PerturbationRegretMPC,\n  author    = {Y. Lin and Y. Hu and G. Shi and H. Sun and G. Qu and A. Wierman},\n  title     = {Perturbation-based regret analysis of predictive control in linear time varying systems},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2021}\n}\n",
-        "source_url": "https://proceedings.neurips.cc/paper/2021",
-        "theorem_or_result": "Proves exponential decay of dynamic regret in prediction horizon for deterministic/time-varying linear quadratic MPC via perturbation analysis of KKT systems.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Methodological precursor to the source paper's scenario-tree KKT perturbation analysis; suggests a route to regret bounds when the model is misspecified, but does not incorporate distributional ambiguity in expectations."
-      },
-      {
-        "title": "Online optimal control with linear dynamics and predictions: Algorithms and regret analysis",
-        "bibtex": "@inproceedings{LiChenLi2019OnlineControlPredictions,\n  author    = {Y. Li and X. Chen and N. Li},\n  title     = {Online optimal control with linear dynamics and predictions: Algorithms and regret analysis},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2019}\n}\n",
-        "source_url": "https://proceedings.neurips.cc/paper/2019",
-        "theorem_or_result": "Develops online control algorithms with predictions and provides regret bounds relative to a dynamic benchmark; introduces techniques for handling prediction errors in linear systems.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Although not distributionally robust SMPC, it provides regret-analysis tools under imperfect forecasts that could be adapted to ambiguity in conditional disturbance laws."
-      },
-      {
-        "title": "The power of predictions in online control",
-        "bibtex": "@inproceedings{YuEtAl2020PowerPredictions,\n  author    = {C. Yu and G. Shi and S. J. Chung and Y. Yue and A. Wierman},\n  title     = {The power of predictions in online control},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2020}\n}\n",
-        "source_url": "https://proceedings.neurips.cc/paper/2020",
-        "theorem_or_result": "Studies online control with predictions, quantifying how prediction quality affects performance; provides competitive/regret-style guarantees.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Offers a complementary framework to relate performance loss to prediction/estimation error, potentially translatable to distributional mismatch in SMPC."
-      },
-      {
-        "title": "Input-to-state stability of robust receding horizon control with an expected value cost",
-        "bibtex": "@article{GoulartKerrigan2008ISSRHC,\n  author  = {P. J. Goulart and E. C. Kerrigan},\n  title   = {Input-to-state stability of robust receding horizon control with an expected value cost},\n  journal = {Automatica},\n  year    = {2008},\n  volume  = {44},\n  number  = {4},\n  pages   = {1171--1174},\n  doi     = {10.1016/j.automatica.2007.08.009}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.automatica.2007.08.009",
-        "theorem_or_result": "Establishes ISS-type stability for robust receding horizon control using expected-value costs via affine disturbance feedback parameterizations (additive uncertainty).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Early stability analysis for stochastic/robust MPC with expected costs; relevant as a stability ingredient but does not address dynamic regret nor distributional ambiguity sets."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.09876825,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1211735,
-    "total_cost_usd": 0.21994175
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.09876825
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7125931785/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7125931785_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W7125931785_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W7125931785_p0",

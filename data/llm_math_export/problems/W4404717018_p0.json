@@ -50,82 +50,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
-    "difficulty": 8,
-    "synthesis": "The source paper of Ezra, Feldman, Gravin, and Tang (2020) establishes a sharp separation between what is achievable information-theoretically and what is currently known to be efficiently implementable for secretary matching under edge arrivals in general graphs. Their Algorithm 2 achieves the optimal-looking constant \\(1/4\\) by controlling, for each time \\(t\\), the conditional acceptance probability of the last-arriving edge \\(e_t\\) given that \\(e_t\\) lies in the current maximum-weight matching \\(\\mu_t^*\\). The acceptance probability is \\(\\alpha_t/x_t\\), where \\(x_t\\) is the conditional probability that both endpoints of \\(e_t\\) are still available. The analysis uses a union-bound style availability lower bound \\(x_t \\ge 1-2\\sum_{i<t} \\alpha_i/i\\) and chooses \\(\\alpha_t\\) via the recurrence \\(\\alpha_t = 1-2\\sum_{i<t} \\alpha_i/i\\) after an exploration phase, yielding \\(\\mathbb{E}[w(\\mu)] \\ge (1/4)\\,\\mathrm{OPT}\\). The bottleneck is computational: evaluating \\(x_t\\) appears to require reasoning about the algorithm\u2019s behavior on many possible subsets \\(E_{t-1}\\), which the authors do not know how to do in polynomial time.\n\nPrior polynomial-time guarantees for edge-arrival secretary matching in general graphs are weaker, notably the \\(1/(2e)\\) bound of Kesselheim, Radke, T\u00f6nnis, and V\u00f6cking (2013), obtained via reductions to related arrival models. Related prophet-inequality work (e.g., Gravin and Wang 2019 for bipartite matching and Ezra et al. 2020 for general graphs) develops OCRS-inspired, often non-adaptive or threshold-based policies where availability probabilities can be bounded without instance-dependent conditional computations; these techniques motivate the information-theoretic secretary policy but do not directly yield a \\(1/4\\) polynomial-time secretary algorithm.\n\nAs of the evidence available here (no forward-citation analyses provided), the specific open problem remains unresolved: there is no known polynomial-time online algorithm for edge-arrival secretary matching in general graphs that achieves the \\(1/4\\) competitive ratio of the information-theoretic Algorithm 2. Promising directions suggested by the surrounding literature include finding a surrogate for \\(x_t\\) that is efficiently estimable online (e.g., via pessimistic bounds, non-adaptive acceptance schedules, or coupling to OCRS-style contention resolution), or designing a different algorithm whose acceptance probabilities depend only on time \\(t\\) and local information yet can be analyzed to match \\(1/4\\).",
-    "total_cost_usd": 0.08544550000000001,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Secretary Matching with General Arrivals",
-        "bibtex": "@article{EzraFeldmanGravinTang2020SecretaryMatchingGeneralArrivals,\n  title        = {Secretary Matching with General Arrivals},\n  author       = {Ezra, Tomer and Feldman, Michal and Gravin, Nick and Tang, Zhihao Gavin},\n  year         = {2020},\n  journal      = {arXiv preprint arXiv:2011.01559},\n  eprint       = {2011.01559},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.DS}\n}\n",
-        "source_url": "https://arxiv.org/abs/2011.01559",
-        "theorem_or_result": "Gives an information-theoretic 1/4-competitive algorithm for weighted matching in general graphs under uniformly random edge arrivals (Algorithm 2), but notes it is unclear how to implement in polynomial time because it requires computing conditional availability probabilities \\(x_t\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that poses the open problem: derandomize/implement the 1/4-competitive edge-arrival policy in polynomial time (or design a different poly-time 1/4-competitive algorithm)."
-      },
-      {
-        "title": "An optimal online algorithm for weighted bipartite matching and extensions to combinatorial auctions",
-        "bibtex": "@inproceedings{KesselheimRadkeToennisVoecking2013OptimalOnlineWeightedBipartiteMatching,\n  title     = {An optimal online algorithm for weighted bipartite matching and extensions to combinatorial auctions},\n  author    = {Kesselheim, Thomas and Radke, Klaus and T{\"o}nnis, Andreas and V{\"o}cking, Berthold},\n  booktitle = {European Symposium on Algorithms (ESA)},\n  year      = {2013}\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-642-40450-4_50",
-        "theorem_or_result": "Establishes a \\(1/(2e)\\)-competitive algorithm for secretary matching in general graphs under edge arrivals via a reduction to vertex arrivals in hypergraphs; also proves tight \\(1/e\\) for 1-sided bipartite vertex-arrival secretary matching.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides the prior best polynomial-time guarantee for edge-arrival secretary matching (\\(1/(2e)\\)), which the open problem seeks to improve to \\(1/4\\) with a poly-time algorithm."
-      },
-      {
-        "title": "Prophet inequality for bipartite matching: Merits of being simple and non adaptive",
-        "bibtex": "@inproceedings{GravinWang2019ProphetInequalityBipartiteMatching,\n  title     = {Prophet inequality for bipartite matching: Merits of being simple and non adaptive},\n  author    = {Gravin, Nikolai and Wang, Hongao},\n  booktitle = {Proceedings of the 2019 ACM Conference on Economics and Computation (EC)},\n  year      = {2019}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3328526.3329585",
-        "theorem_or_result": "Studies edge-arrival prophet inequalities for bipartite matching; gives a simple non-adaptive \\(1/3\\)-competitive algorithm and an upper bound of \\(4/9\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Conceptually related: prophet-inequality techniques (e.g., OCRS-style control of acceptance probabilities) inspire the information-theoretic edge-arrival secretary algorithm; may suggest implementable threshold policies."
-      },
-      {
-        "title": "Online stochastic max-weight matching: Prophet inequality for vertex and edge arrival models",
-        "bibtex": "@inproceedings{EzraFeldmanGravinTang2020OnlineStochasticMaxWeightMatching,\n  title     = {Online stochastic max-weight matching: Prophet inequality for vertex and edge arrival models},\n  author    = {Ezra, Tomer and Feldman, Michal and Gravin, Nick and Tang, Zhihao Gavin},\n  booktitle = {Proceedings of the 21st ACM Conference on Economics and Computation (EC)},\n  year      = {2020}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399520",
-        "theorem_or_result": "Gives prophet-inequality algorithms for max-weight matching under vertex and edge arrivals in general graphs, including an OCRS-style approach achieving competitive ratio about 0.337 for edge arrivals.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides the prophet-inequality counterpart and technical toolkit (OCRS, availability via union bounds) that the secretary edge-arrival algorithm adapts; may offer ideas for efficient implementation via non-adaptive policies."
-      },
-      {
-        "title": "Algorithms for secretary problems on graphs and hypergraphs",
-        "bibtex": "@inproceedings{KorulaPal2009AlgorithmsSecretaryProblemsGraphsHypergraphs,\n  title     = {Algorithms for secretary problems on graphs and hypergraphs},\n  author    = {Korula, Nitish and P{\\'a}l, Martin},\n  booktitle = {International Colloquium on Automata, Languages, and Programming (ICALP)},\n  year      = {2009}\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-642-02930-1_42",
-        "theorem_or_result": "Introduces secretary problems on graphs/hypergraphs; gives early constant-factor algorithms for matching variants and hypergraph secretary matching with degree/size dependence.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Foundational for secretary matching under various arrival models; the edge-arrival model in the open problem is a central case in this line."
-      },
-      {
-        "title": "Combinatorial secretary problems with ordinal information",
-        "bibtex": "@inproceedings{HoeferKodric2017CombinatorialSecretaryOrdinalInformation,\n  title     = {Combinatorial secretary problems with ordinal information},\n  author    = {Hoefer, Martin and Kodric, Bojana},\n  booktitle = {International Colloquium on Automata, Languages, and Programming (ICALP)},\n  year      = {2017}\n}\n",
-        "source_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2017.133",
-        "theorem_or_result": "Studies secretary problems when only ordinal comparisons are observed; gives constant-competitive algorithms for several constraints including matching under vertex arrivals.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 4,
-        "connection": "Not directly solving edge-arrival poly-time 1/4, but relevant as it shows implementable greedy/ordinal surrogates and highlights gaps between information-theoretic and efficiently implementable policies."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.045491250000000004,
+    "citations_analyzed": 2,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.060429250000000004,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08544550000000001,
-    "total_cost_usd": 0.14587475
+    "literature_total_cost_usd": 0.045491250000000004,
+    "total_cost_usd": 0.1059205
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4404717018/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4404717018_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4404717018_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4404717018_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

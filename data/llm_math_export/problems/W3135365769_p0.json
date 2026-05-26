@@ -51,35 +51,62 @@
     "model": "gpt-5.2",
     "importance": 8,
     "difficulty": 8,
-    "synthesis": "No forward-citation set was provided, so the state of the art must be inferred from the source paper itself and its internal related-work pointers. The paper introduces the AnyPrice share (APS) benchmark for agents with arbitrary entitlements and additive valuations, proves APS is well-defined via equivalent price-based and fractional-packing definitions, and establishes existence and polynomial-time computation of allocations guaranteeing every agent at least \\(3/5\\) of her APS (and a stronger entitlement-dependent factor \\(1/(2-b_i)\\) for larger entitlements). For equal entitlements, it shows a stronger \\(\\ge 2/3\\) APS guarantee (via Greedy-EFX analysis) and discusses separations between APS, MMS, pessimistic share, and truncated proportional share.\n\nThe open problem asks for the optimal universal constant \\(\\alpha^\\star\\in(0,1)\\) such that an \\(\\alpha^\\star\\)-APS allocation always exists for additive valuations and arbitrary entitlements, together with matching upper bounds and (ideally) a polynomial-time algorithm. From the source paper, the best known general lower bound is \\(\\alpha\\ge 3/5\\), while impossibility of exact \\(\\alpha=1\\) holds already for equal entitlements when \\(n\\ge 3\\). The paper also notes a separate upper bound phenomenon inherited from MMS: there are instances where no allocation can give every agent more than \\(39/40\\) of her MMS, which also limits APS guarantees since \\(\\mathrm{APS}\\ge \\mathrm{MMS}\\). Closing the gap between \\(3/5\\) and the best possible upper bound remains open, and likely requires either new structural understanding of APS (e.g., sharper relations to MMS/TPS or new rounding/market-based arguments) or explicit hard instances that separate APS from achievable allocations.",
-    "total_cost_usd": 0.103691,
-    "citations_analyzed": 0,
+    "synthesis": "The AnyPrice Share (APS) benchmark of Babaioff\u2013Ezra\u2013Feige is defined for each agent \\(i\\) with entitlement \\(b_i\\) as \\(\\mathrm{APS}_i=\\min_{p\\in P}\\max\\{v_i(S):\\sum_{j\\in S}p_j\\le b_i\\}\\), equivalently as the largest \\(z\\) for which there exists a distribution over bundles of value at least \\(z\\) where each item appears with total probability at most \\(b_i\\). For additive valuations, the source paper proves a universal constant guarantee: there is always a polynomial-time computable allocation giving every agent at least \\(3/5\\) of her APS (and in fact \\(\\max\\{3/5,1/(2-b_i)\\}\\) depending on entitlement). It also shows exact \\(\\alpha=1\\) is impossible for \\(n\\ge 3\\) even under equal entitlements, so the central question is to pin down the optimal universal constant \\(\\alpha^\\star\\in(0,1)\\) for additive valuations and arbitrary entitlements.\n\nSubsequent work in the provided forward citations does not close this gap. \"Weighted fairness notions for indivisible items revisited\" consolidates the state of the art: it reiterates the \\(3/5\\) lower bound and points to an impossibility barrier inherited from maximin-share (MMS) lower bounds, namely that no \\(\\alpha\\)-APS allocation exists for any \\(\\alpha>39/40\\) (via instances where no allocation gives everyone more than \\(39/40\\) of MMS, and \\(\\mathrm{APS}\\ge \\mathrm{MMS}\\)). Its main new APS-related contribution is restricted-domain: for binary additive valuations, the weighted egalitarian (WEG) rule is APS-fair (achieves \\(\\alpha=1\\) for APS). A separate line, \"Almost (Weighted) Proportional Allocations for Indivisible Chores**\", studies chores and shows WPROPX implies a factor-2 approximation to a chore-analog of APS; while not directly improving goods-APS constants, it suggests that price-based and proportionality-up-to-one-item techniques can yield APS-type guarantees in other manna models.\n\nOverall, based on the cited literature here, the optimal constant \\(\\alpha^\\star\\) for additive valuations and arbitrary entitlements remains open: the best universal lower bound is \\(3/5\\) (with better entitlement-dependent guarantees), and the best stated universal upper bound is \\(39/40\\) (inherited from MMS impossibility for equal entitlements, hence applying to APS as well). Narrowing the gap likely requires either (i) new impossibility constructions tailored to APS (not just MMS), or (ii) improved algorithms/rounding arguments that exploit the APS dual (distributional) characterization beyond the current bidding-game analysis.",
+    "total_cost_usd": 2.02423795,
+    "citations_analyzed": 19,
     "sources": [
       {
-        "title": "Fair-Share Allocations for Agents with Arbitrary Entitlements",
-        "bibtex": "@article{BabaioffEzraFeige2021APS,\n  title        = {Fair-Share Allocations for Agents with Arbitrary Entitlements},\n  author       = {Babaioff, Moshe and Ezra, Tomer and Feige, Uriel},\n  year         = {2021},\n  journal      = {arXiv preprint arXiv:2103.04304},\n  eprint       = {2103.04304},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT},\n  url          = {https://arxiv.org/abs/2103.04304}\n}\n",
-        "source_url": "https://arxiv.org/abs/2103.04304",
-        "theorem_or_result": "Introduces AnyPrice share (APS) for arbitrary entitlements and proves existence of polynomial-time computable \\,\\(3/5\\)-APS allocations for additive valuations (and \\,\\(\\max\\{3/5,1/(2-b_i)\\}\\) entitlement-dependent guarantees). Shows exact \\,\\(1\\)-APS is impossible in general for \\,\\(n\\ge 3\\).",
+        "title": "Weighted fairness notions for indivisible items revisited",
+        "bibtex": "@article{WeightedFairnessRevisited2024,\n  title  = {Weighted fairness notions for indivisible items revisited},\n  year   = {2024},\n  doi    = {10.1145/3665799}\n}\n",
+        "source_url": "https://doi.org/10.1145/3665799",
+        "theorem_or_result": "The paper does not improve the known universal constant for APS with additive valuations. It reiterates the existence of a \\(3/5\\)-APS allocation (from Babaioff et al. 2021b) and cites the upper bound that no \\(\\alpha\\)-APS allocation exists for any \\(\\alpha>39/40\\) (from Feige et al. 2021). It also proves that the weighted egalitarian (WEG) rule yields APS-fairness in the restricted domain of binary additive valuations (Corollary B.5): with binary valuations, every WEG allocation gives each agent value at least \\(\\lfloor w_i\\,|Z_i|\\rfloor\\), hence is APS-fair and OMMS-fair.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the optimal worst-case approximation factor \\(\\alpha^\\star\\) for guaranteeing each agent a constant fraction of her AnyPrice share (APS) under additive valuations and arbitrary entitlements. This paper is about weighted fairness notions and includes APS as one benchmark, but it does not derive new lower bounds (algorithms) or new impossibility bounds for \\(\\alpha\\)-APS in the general additive setting. Its only direct APS-related new contribution is for a special case (binary additive valuations), where it shows WEG allocations are APS-fair (i.e., achieve \\(\\alpha=1\\) for APS) in that restricted domain. For general additive valuations, it merely summarizes the state of the art: \\(3/5\\) achievable and \\(>39/40\\) impossible."
+      },
+      {
+        "title": "Almost (Weighted) Proportional Allocations for Indivisible Chores\u2731\u2731",
+        "bibtex": "@inproceedings{AlmostWeightedProportionalChores2022,\n  title     = {Almost (Weighted) Proportional Allocations for Indivisible Chores**},\n  year      = {2022},\n  doi       = {10.1145/3485447.3512057}\n}\n",
+        "source_url": "https://doi.org/10.1145/3485447.3512057",
+        "theorem_or_result": "For additive chore costs with arbitrary obligation shares \\((s_i)\\), the paper proves existence and polynomial-time computability of weighted proportionality up to any item (WPROPX) allocations, and shows that any WPROPX allocation is a 2-approximation to the chore-version of AnyPrice Share (APS): for every agent \\(i\\), \\(c_i(X_i)\\le 2\\,\\mathrm{APS}_i\\) (Theorem 4.2 via Lemma 4.3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 4,
+        "connection": "The open problem asks for the optimal constant \\(\\alpha^\\star\\) guaranteeing \\(v_i(A_i)\\ge \\alpha^\\star\\,\\mathrm{APS}_i\\) for additive valuations over indivisible goods with arbitrary entitlements. This paper studies indivisible chores (cost minimization) and a different fairness notion (PROPX/WPROPX), then derives a 2-approximation to a chore-adapted APS benchmark. It does not improve the best-known constant for APS allocations for goods (e.g., \\(3/5\\) in Babaioff\u2013Ezra\u2013Feige) nor provide upper bounds for \\(\\alpha^\\star\\) in the goods setting. Its main relevance is as a related technique/implication: WPROPX \\(\\Rightarrow\\) 2-APS for chores, giving a constant-factor APS guarantee (factor 2) but in the opposite-sign utility model and with a different APS definition (max\u2013min form for chores)."
+      },
+      {
+        "title": "Fair division of indivisible goods: Recent progress and open questions",
+        "bibtex": "@article{RecentProgressOpenQuestionsSurvey,\n  title  = {Fair division of indivisible goods: Recent progress and open questions}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "This paper is a survey and does not prove new approximation guarantees for AnyPrice share (APS). It summarizes known results, including that for additive valuations with arbitrary entitlements there is a polynomial-time algorithm guaranteeing a \n3/5\n-fraction of each agent's APS (citing Babaioff et al. 2021b).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that formulates APS and explicitly leaves open the optimal worst-case constant \\,\\(\\alpha^\\star\\) for additive valuations (both equal and arbitrary entitlements), providing the current best general lower bound \\,\\(\\alpha\\ge 3/5\\) and motivating the need for matching upper bounds or improved algorithms."
+        "relevance_score": 3,
+        "connection": "The open problem asks for the optimal worst-case constant \\(\\alpha^\\star\\) such that an \\(\\alpha^\\star\\)-APS allocation always exists for additive valuations and arbitrary entitlements, ideally with matching upper/lower bounds and an algorithm. The citing paper does not address this optimization question; it only provides context and a literature overview, restating the known \\(3/5\\) guarantee and related weighted-fairness notions (WEF1, WMMS, etc.). No improved lower bound, upper bound, or impossibility for APS is established here."
+      },
+      {
+        "title": "Fair division of indivisible goods: A survey",
+        "bibtex": "@article{FairDivisionSurvey,\n  title  = {Fair division of indivisible goods: A survey}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "This paper is a survey and does not prove new approximation guarantees for AnyPrice share (APS). It summarizes known results in discrete fair division with additive valuations, including the result of Babaioff et al. [2021b] that for arbitrary entitlements there is a polynomial-time computable allocation giving each agent at least \\(3/5\\) of her APS.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for the optimal constant \\(\\alpha^\\star\\) guaranteeing an \\(\\alpha\\)-APS allocation for all additive instances with arbitrary entitlements, and ideally matching upper/lower bounds and algorithms. The citing paper does not improve the \\(3/5\\) guarantee, provide impossibility examples tightening the upper bound, or otherwise analyze \\(\\alpha^\\star\\). It only provides contextual background by describing APS and citing the \\(3/5\\)-APS existence/algorithm result from the original APS paper."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.1066555,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.103691,
-    "total_cost_usd": 0.2103465
+    "literature_total_cost_usd": 2.02423795,
+    "total_cost_usd": 2.13089345
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3135365769/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3135365769_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3135365769_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3135365769_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 19,
     "is_open": true,
     "model": "gpt-5.2"
   }

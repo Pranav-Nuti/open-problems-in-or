@@ -49,80 +49,35 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper (Schoot Uiterkamp, 2023) introduces \\((a,b)\\)-majorization and proves strong uniform-in-\\((a,b)\\) characterizations: among compact convex sets, admitting a least \\((a,b)\\)-majorized element for every \\(a>0\\) and \\(b\\) is equivalent to being a base polyhedron \\(B(f)\\) of a submodular function; analogous uniform statements for weak sub/super and weak absolute majorization yield (super/sub)modular and bisubmodular polyhedra. These results rely on separable convex minimization over base polyhedra (via exchange/greedy structure) and on reductions to max-function test families for \\((a,b)\\)-majorization.\n\nThe open problem asks for a structural/combinatorial characterization when \\(a\\) and \\(b\\) are fixed (especially \\(b=0\\)). Existing literature provides ingredients but not a complete answer: Veinott\u2019s d-majorization (the \\((a,0)\\) case) and classical majorization theory (Marshall\u2013Olkin\u2013Arnold) offer alternative characterizations (e.g., via convex tests or stochastic-matrix formulations) that might be adapted to fixed \\(a\\). On the feasible-set side, work on least-majorization phenomena for generalized polymatroids (Tamir) and the broader submodular-optimization toolkit (Fujishige) suggest that for fixed parameters the class of sets admitting a least element may be substantially larger and may depend delicately on how \\(C\\) intersects level sets of \\(x(N)\\) and on exchange directions available in \\(C\\).\n\nAt present, there is no forward-citation evidence of a solved characterization for fixed \\((a,b)\\); the problem appears open. Promising directions include: (i) deriving necessary and sufficient conditions in terms of the normal fan/face lattice of \\(C\\) relative to the family of separable convex objectives \\(\\sum_i a_i\\phi((x_i+b_i)/a_i)\\); (ii) specializing to polyhedra with known exchange properties (e.g., generalized polymatroids, jump systems) to see when a fixed \\((a,b)\\) least element exists; and (iii) for \\(b=0\\), exploiting the d-majorization viewpoint to express \\((a,0)\\)-majorization via a weighted doubly stochastic order, potentially yielding a characterization in terms of invariance/monotonicity of \\(C\\) under the corresponding averaging operations.",
-    "total_cost_usd": 0.0952175,
-    "citations_analyzed": 0,
+    "synthesis": "The 2023 paper by Schoot Uiterkamp characterizes, for compact convex feasible sets, when least \\((a,b)\\)-majorized elements exist uniformly for all scalings \\(a>0\\) and shifts \\(b\\): this happens exactly for base polyhedra of submodular functions (and analogously for weaker majorization notions and other polyhedra). The open problem asks for an analogous characterization when \\((a,b)\\) is fixed (not universal), especially for the scaled-only case \\(b=0\\). The source paper explicitly leaves this as a limitation and future direction.\n\nAmong the forward citations provided, the INFORMS Journal on Computing article on symmetric separable convex RAPs with disjoint-interval bounds gives partial progress in a different direction: it shows that a least-majorization-type \u201creduction property\u201d (existence of a single solution optimal for all convex \\(\\varphi\\)) can fail once the feasible region departs from the convex/base-polyhedron setting (here via nonconvex disjoint-interval constraints), while still providing structural monotonicity and exact algorithms for certain structured cases. This supports the view that any fixed-\\((a,b)\\) characterization will likely need to impose strong structural restrictions on \\(C\\) (e.g., convexity plus exchange properties) and may bifurcate sharply between convex polymatroidal sets (where least elements are induced by quadratic minimization) and more general/nonconvex RAP feasible regions (where simultaneous optimality can fail).\n\nAt present, based on the limited forward-citation evidence supplied, there is no identified paper that resolves the fixed-\\((a,b)\\) characterization problem. Promising directions suggested by the source paper\u2019s techniques include: (i) specializing the greedy/Edmonds-style arguments used for the universal quantification over \\(a,b\\) to a single pair \\((a,b)\\), potentially yielding a characterization in terms of a single submodular function or a single chain of tight inequalities; and (ii) relating fixed-\\(a\\) (with \\(b=0\\)) to weighted versions of discrete convexity/M-convexity and to parametric quadratic minimization over candidate polyhedra. Counterexamples from nonconvex RAP variants indicate that convexity (or hole-freeness plus discrete exchange) is likely essential for any clean structural characterization.",
+    "total_cost_usd": 0.170408,
+    "citations_analyzed": 2,
     "sources": [
       {
-        "title": "A characterization of simultaneous optimization, majorization, and (bi)submodular polyhedra",
-        "bibtex": "@article{SchootUiterkamp2023Characterization,\n  title        = {A characterization of simultaneous optimization, majorization, and (bi)submodular polyhedra},\n  author       = {Schoot Uiterkamp, Martijn H. H.},\n  year         = {2023},\n  journal      = {arXiv preprint arXiv:2201.06596},\n  eprint       = {2201.06596},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
-        "source_url": "https://arxiv.org/abs/2201.06596",
-        "theorem_or_result": "Introduces \n\\((a,b)\\)-majorization and proves that among compact convex sets, having least \n\\((a,b)\\)-majorized elements for all \na>0,b\\) characterizes base polyhedra; analogous characterizations for weak sub/super and weak absolute majorization yield (super/sub)modular and bisubmodular polyhedra.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the limitation: it characterizes existence uniformly over all \n\\(a,b\\), but does not characterize existence for a fixed given \n\\(a,b\\) (notably \n\\(b=0\\))."
-      },
-      {
-        "title": "Least d-majorized network flows with inventory and statistical applications",
-        "bibtex": "@article{Veinott1971LeastDMajorized,\n  title   = {Least d-majorized network flows with inventory and statistical applications},\n  author  = {Veinott, Arthur F.},\n  year    = {1971},\n  journal = {Management Science},\n  volume  = {17},\n  number  = {9},\n  pages   = {547--567}\n}\n",
-        "source_url": "https://doi.org/10.1287/mnsc.17.9.547",
-        "theorem_or_result": "Introduces d-majorization (equivalent to \n\\((d,0)\\)-majorization) and studies least d-majorized flows in network settings, linking majorization-type orders to convex separable objectives.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides the closest classical antecedent for the fixed-scaling case \n\\(b=0\\): understanding when least \n\\((a,0)\\)-majorized elements exist may build on Veinott's d-majorization framework."
-      },
-      {
-        "title": "Least majorized elements and generalized polymatroids",
-        "bibtex": "@article{Tamir1995LeastMajorized,\n  title   = {Least majorized elements and generalized polymatroids},\n  author  = {Tamir, Arie},\n  year    = {1995},\n  journal = {Mathematics of Operations Research},\n  volume  = {20},\n  number  = {3},\n  pages   = {583--589}\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.20.3.583",
-        "theorem_or_result": "Shows existence/structure of least (classical) weakly sub- and supermajorized elements for bounded generalized polymatroids, extending least-majorization phenomena beyond base polyhedra for weaker orders.",
-        "relevance_category": "BACKGROUND",
+        "title": "Symmetric separable convex resource allocation problems with structured disjoint interval bound constraints",
+        "bibtex": "@article{SymmetricSeparableConvexRAPDisjointIntervals,\n  title        = {Symmetric separable convex resource allocation problems with structured disjoint interval bound constraints},\n  journal      = {INFORMS Journal on Computing},\n  doi          = {10.1287/ijoc.2023.0263},\n  year         = {2023}\n}\n",
+        "source_url": "https://doi.org/10.1287/ijoc.2023.0263",
+        "theorem_or_result": "For the resource allocation problem with symmetric separable convex objective \\(\\sum_{i\\in N}\\varphi(x_i+b_i)\\) and disjoint interval bound constraints \\(x_i\\in\\bigcup_{j\\in M}[l_{i,j},u_{i,j}]\\) under four structured cases (F1,L1), (F1,L2), (F2,L1), (F2,L2), the paper proves existence of an optimal solution whose chosen interval indices are monotone (Lemma 2: there exists an optimum \\(x^*\\) with \\(j(x^*,i)\\le j(x^*,k)\\) for \\(i<k\\)), and gives an exact algorithm (Algorithm 3) that solves these cases in time \\(O\\!\\left(\\binom{n+m-2}{m-2}(n\\log n+nF)\\right)\\), where \\(F\\) is the cost of evaluating \\(\\varphi\\) (Theorem 1). It also shows by counterexample that the \u2018reduction property\u2019 (existence of a single solution optimal for all convex \\(\\varphi\\)) fails for RAP with semi-continuous/disjoint constraints (Section 3 counterexample).",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 6,
-        "connection": "Suggests that for fixed \n\\((a,b)\\) and weaker notions, feasible sets broader than base polyhedra can admit least elements; may inform partial characterizations for fixed parameters."
-      },
-      {
-        "title": "Simultaneous optimization via approximate majorization for concave profits or convex costs",
-        "bibtex": "@article{GoelMeyerson2006Simultaneous,\n  title   = {Simultaneous optimization via approximate majorization for concave profits or convex costs},\n  author  = {Goel, Ashish and Meyerson, Adam},\n  year    = {2006},\n  journal = {Algorithmica},\n  volume  = {44},\n  pages   = {301--323}\n}\n",
-        "source_url": "https://doi.org/10.1007/s00453-005-1197-4",
-        "theorem_or_result": "Develops approximate simultaneous optimization guarantees using approximate majorization, giving algorithms that approximately optimize families of separable convex/concave objectives.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "If exact least \n\\((a,b)\\)-majorized elements for fixed \n\\((a,b)\\) are hard to characterize, this work motivates studying approximate variants parameterized by \n\\((a,b)\\)."
-      },
-      {
-        "title": "Inequalities: Theory of Majorization and Its Applications",
-        "bibtex": "@book{MarshallOlkinArnold2011Majorization,\n  title     = {Inequalities: Theory of Majorization and Its Applications},\n  author    = {Marshall, Albert W. and Olkin, Ingram and Arnold, Barry C.},\n  year      = {2011},\n  edition   = {2},\n  publisher = {Springer},\n  address   = {New York, NY}\n}\n",
-        "source_url": "https://link.springer.com/book/10.1007/978-0-387-68276-1",
-        "theorem_or_result": "Comprehensive reference on majorization, Schur-convexity, and equivalent characterizations (convex separable tests, doubly stochastic matrices, etc.).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Provides foundational tools for analyzing \n\\((a,b)\\)-majorization for fixed parameters, e.g., via reduction to max-function tests and potential matrix characterizations in special cases."
-      },
-      {
-        "title": "Submodular Functions and Optimization",
-        "bibtex": "@book{Fujishige2005Submodular,\n  title     = {Submodular Functions and Optimization},\n  author    = {Fujishige, Satoru},\n  year      = {2005},\n  edition   = {2},\n  publisher = {Elsevier},\n  address   = {Amsterdam}\n}\n",
-        "source_url": "https://www.sciencedirect.com/book/9780444520869/submodular-functions-and-optimization",
-        "theorem_or_result": "Standard reference on submodular functions, base polyhedra, greedy/extreme point structure, and separable convex minimization over base polyhedra.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Any structural characterization for fixed \n\\((a,b)\\) likely uses base-polyhedron machinery (exchange properties, separable convex minimization) developed here."
+        "connection": "The open problem asks for a structural characterization of when a feasible set \\(C\\subseteq\\mathbb R^n\\) admits a least \\((a,b)\\)-majorized element for fixed \\(a>0\\), \\(b\\) (especially \\(b=0\\)). This paper studies a different but related setting: feasible sets given by a resource hyperplane \\(\\sum_i x_i=R\\) intersected with nonconvex \u2018disjoint interval\u2019 constraints, and objectives \\(\\sum_i\\varphi(x_i+b_i)\\) with a common convex \\(\\varphi\\) (i.e., symmetric separable convex). It leverages known results that for simple RAP with box constraints, an optimizer of the quadratic objective is simultaneously optimal for all convex \\(\\varphi\\) (a least-majorization phenomenon), but then proves this simultaneous-optimality fails once the feasible set becomes nonconvex (disjoint intervals). Thus it provides (i) a concrete counterexample showing nonexistence of a least-majorized element in a natural nonconvex class, and (ii) algorithmic/structural monotonicity properties (Lemma 2) for optimal solutions in certain structured nonconvex sets. However, it does not characterize, for fixed \\((a,b)\\), which general sets \\(C\\) admit a least \\((a,b)\\)-majorized element; nor does it treat general scalings \\(a\\) (weights) in the objective family."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.0785015,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0952175,
-    "total_cost_usd": 0.173719
+    "literature_total_cost_usd": 0.170408,
+    "total_cost_usd": 0.2489095
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4391954556/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4391954556_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4391954556_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4391954556_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

@@ -51,37 +51,27 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 7,
-    "synthesis": "The source paper introduces a capacity-partitioned multi-type FCFS system with type-based probabilistic routing and derives closed-form objectives for expected waiting time and expected sojourn time via Pollaczek\u2013Khinchine under service-time scaling by capacity. For the assignment-only problem with fixed partition, it establishes a geometric characterization: optimal routing corresponds to separating points \\((\\mathbb E[S_i],\\mathbb E[S_i^2])\\) by lines (two queues) or convex polygons (multiple queues), yielding efficient enumeration algorithms (Theorems 1 and 4), and extends this to the sojourn-time objective (Theorem 8).\n\nFor the joint partition-and-assignment problem under the moment monotonicity condition (Assumption 1: \\(\\mathbb E[S_i^2]/\\mathbb E[S_i]\\) nondecreasing in \\(\\mathbb E[S_i]\\)), the paper proves a stronger structural result for expected waiting time: there exists an optimal solution that deterministically assigns types to queues in consecutive blocks ordered by service rate (Theorems 3 and 6). However, for expected sojourn time the analogous joint-optimization structural theorem is not proved; the authors explicitly conjecture that the same consecutive-service-rate optimality should hold and report numerical evidence. Thus, the open problem remains to prove (or disprove) existence of an optimal consecutive-block assignment for the joint sojourn-time minimization under Assumption 1.",
-    "total_cost_usd": 0.10201275,
-    "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Optimal Partition for a Multi-Type Queueing System",
-        "bibtex": "@article{CaoHeWangFeng2025OptimalPartition,\n  title        = {Optimal Partition for a Multi-Type Queueing System},\n  author       = {Cao, Shengyu and He, Simai and Wang, Zizhuo and Feng, Yifan},\n  year         = {2025},\n  journal      = {Submitted to Mathematics of Operations Research},\n  eprint       = {2111.14104},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2111.14104}\n}\n",
-        "source_url": "https://arxiv.org/abs/2111.14104",
-        "theorem_or_result": "Formulates the multi-type FCFS capacity-partition and type-based routing problem and proves consecutive-service-rate optimality for the joint partition-and-assignment problem when minimizing expected waiting time under Assumption 1 (moment monotonicity). For expected sojourn time, proves analogous geometric structure for fixed partition (Theorem 8) and states as an explicit open conjecture that under Assumption 1 the joint sojourn-time problem also admits an optimal consecutive-service-rate (block) assignment.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that poses the open problem: extend the consecutive-service-rate optimality (proved for waiting time in Theorem 6 under Assumption 1) to the expected sojourn time objective under the same moment monotonicity condition. It provides the model, notation, and partial structural results (Theorem 8) needed to attack the conjecture."
-      }
-    ]
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.00805525,
+    "citations_analyzed": 1,
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.1097285,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.10201275,
-    "total_cost_usd": 0.21174125
+    "literature_total_cost_usd": 0.00805525,
+    "total_cost_usd": 0.11778375
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4226364838/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4226364838_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4226364838_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4226364838_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 1,
     "is_open": true,
     "model": "gpt-5.2"
   }

@@ -49,35 +49,35 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "No forward-citation analysis was provided, so the only citable item here is the source paper itself. The open problem asks for an equilibrium-preserving reduction of general two-player zero-sum games to the cone-leveled/bilinear class studied in the paper, where equilibria correspond to primal-dual solutions of conic programs.\n\nWithin the source framework, cone-leveled sets are intersections of cones with level sets of positive functionals, and bases of cones yield compactness in reflexive Banach spaces. The paper shows that for such games with bilinear payoff \\(u(x,y)=\\langle y,Ax\\rangle\\), minimax and Nash equilibria can be computed via conic linear programming duality, and it develops an \u201calmost equivalence\u201d between minimax and strong duality with a sharp fair-game pathology.\n\nBecause no subsequent literature is supplied, there is currently no evidence in the provided materials that the characterization problem has been solved. The problem therefore remains open based on the given data, and progress would likely require identifying invariants of equilibrium structure under strategy-space embeddings and positive-homogeneous reparametrizations that map general convex strategy sets into cone slices while preserving saddle-point inequalities.",
-    "total_cost_usd": 0.0792155,
-    "citations_analyzed": 0,
+    "synthesis": "Dimou\u2019s framework isolates a broad class of zero-sum games\u2014those with cone-leveled strategy sets and bilinear payoff \\,\\(u(x,y)=\\langle y,Ax\\rangle\\)\u2014for which equilibria and values can be computed via associated conic linear programs, and conversely shows an \u201calmost equivalence\u201d between minimax and strong duality in reflexive Banach spaces. The open problem asks for a characterization of when an arbitrary zero-sum game \\(G=(S,T,u)\\) is equilibrium-equivalent (via strategy identifications preserving saddle inequalities) to such a cone-leveled bilinear game \\(\\widetilde G\\), thereby enabling conic-programming machinery to solve the original game without changing its equilibrium structure.\n\nThe only forward-citing work provided here makes partial progress in a major subclass: semidefinite programming. It constructs, under verifiable constraint qualifications (strong optimality or strict unboundedness), an equilibrium-preserving reduction from an SDP pair to a zero-sum semidefinite game whose strategy sets are density matrices (bases of the PSD cone) and whose payoff is bilinear. This aligns closely with Dimou\u2019s cone-base setting and demonstrates that, at least for SDPs, one can build explicit equivalence mappings that allow recovery of primal/dual solutions or certificates from game equilibria.\n\nHowever, the general characterization problem remains open: beyond specific conic-programming-derived games (LP/SDP and variants), there is no known necessary-and-sufficient condition describing exactly which general Banach-space games admit an equilibrium-equivalent embedding into the cone-leveled bilinear class. Promising directions suggested by Dimou\u2019s paper include identifying invariants of equilibrium structure preserved under positive-homogeneous rescalings and cone-base normalizations, and developing criteria that recognize when a game\u2019s payoff and feasible strategy geometry can be represented (possibly after lifting) as linear images of cone slices (bases or cone-leveled sets), as in moment/SOS liftings for polynomial games.",
+    "total_cost_usd": 0.1338785,
+    "citations_analyzed": 1,
     "sources": [
       {
-        "title": "On the Equivalence of Zero-Sum Games and Conic Programs",
-        "bibtex": "@article{Dimou2026Equivalence,\n  author  = {Nikos Dimou},\n  title   = {On the Equivalence of Zero-Sum Games and Conic Programs},\n  year    = {2026},\n  journal = {arXiv preprint},\n  eprint  = {2302.03066v5},\n  archivePrefix = {arXiv},\n  primaryClass  = {math.OC},\n}\n",
-        "source_url": "https://arxiv.org/abs/2302.03066",
-        "theorem_or_result": "Introduces cone-leveled strategy sets in reflexive Banach spaces and proves that for bilinear-payoff games with such strategy sets, minimax and Nash equilibria can be obtained via associated conic linear programs; conversely, minimax implies strong duality except for a game-dependent fair-value pathology.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper that formulates the open question (Section 7) asking when an arbitrary zero-sum game is equilibrium-equivalent to one with cone-leveled strategy sets and bilinear payoff, motivating the desired characterization."
+        "title": "On the equivalence of semidefinite programming and zero-sum semidefinite games",
+        "bibtex": "@article{IckstadtTheobaldTsigaridas_equivSDPgames,\n  title        = {On the equivalence of semidefinite programming and zero-sum semidefinite games},\n  author       = {Ickstadt, C. and Theobald, T. and Tsigaridas, E.},\n  year         = {????},\n  note         = {Forward-citation metadata incomplete in provided analysis (year/venue/DOI not given).},\n}\n",
+        "source_url": "(source URL not provided in forward-citation analysis)",
+        "theorem_or_result": "Under a constraint qualification for an SDP pair \\((P,D)\\)\u2014either (i) existence of strongly optimal primal-dual solutions (attainment and zero duality gap) or (ii) existence of a strictly unbounded direction\u2014the paper constructs a modified zero-sum semidefinite game \\(G_M\\) (players\u2019 strategies are density matrices with a block-diagonal form encoding \\((X,y,t)\\) plus an extra scalar \\(u\\)) with bilinear payoff \\(p(\\bar X,\\bar Y)\\) such that:\n- \\(\\mathrm{val}(G_M)=0\\) iff a strongly optimal primal-dual pair exists; and if \\(\\mathrm{val}(G_M)=0\\), any optimal strategy of player 2 has \\(t>0\\) and yields strongly optimal SDP solutions \\((X/t,\\,y/t)\\) (Theorem 3.6).\n- If a strictly unbounded direction exists, then for any optimal strategy of player 1 one has \\(t'=0\\) and the strategy yields an unbounded direction certificate for \\(P\\) or \\(D\\) (Theorem 3.10).\nMoreover, for rational input they give an explicit bound \\(M\\) (via KKT root/coordinate bounds) guaranteeing the reduction works in the bounded case (Corollary 4.3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for necessary/sufficient conditions for when a general zero-sum game \\((S,T,u)\\) is equilibrium-equivalent to a cone-leveled, bilinear game \\(\\langle \\tilde y,\\tilde A\\tilde x\\rangle\\). This paper provides such an equilibrium-preserving reduction in one important subclass: SDPs (a specific conic program over \\(S_+^n\\)) are reduced to a zero-sum semidefinite game whose strategy sets are density matrices (a base of the PSD cone, hence basic cone-leveled) and whose payoff is bilinear in the players\u2019 matrix strategies. The reduction is shown to preserve optimal strategies/equilibria and to allow recovery of primal/dual SDP solutions or infeasibility/unboundedness certificates, but only under a stated constraint qualification (strong optimality or strict unboundedness). It does not characterize reductions for arbitrary Banach-space games \\((S,T,u)\\), nor for general cones beyond the semidefinite cone, though it suggests extension to conic games as future work."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.084567,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0792155,
-    "total_cost_usd": 0.1637825
+    "literature_total_cost_usd": 0.1338785,
+    "total_cost_usd": 0.21844550000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W7143448186/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W7143448186_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W7143448186_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W7143448186_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 1,
     "is_open": true,
     "model": "gpt-5.2"
   }

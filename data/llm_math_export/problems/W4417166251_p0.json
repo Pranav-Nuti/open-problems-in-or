@@ -49,105 +49,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 9,
-    "synthesis": "In Chen\u2013Nie\u2013Wu (2025), the feedback form of decentralized strategies for an indefinite partially observed mean-field game with common noise hinges on two matrix ODEs: a symmetric indefinite stochastic-LQ Riccati equation for \\(\\Pi_t\\) and a generally asymmetric, indefinite Riccati equation for \\(\\Sigma_t\\) (their equation (35)). The paper resolves well-posedness of the Hamiltonian FBSDE and the symmetric Riccati \\(\\Pi_t\\) by introducing a relaxed compensator \\(P\\) (an inequality/LMI-type condition (RC)) inspired by equivalent cost functional methods. However, it explicitly leaves open general verifiable conditions ensuring existence/uniqueness of \\(\\Sigma_t\\) together with uniform invertibility of the effective control weight \\(R_{e,t}\\), noting that \\(\\Sigma_t\\) is not constrained to be symmetric and \\(R_{e,t}\\) depends on \\(\\Sigma_t\\).\n\nThe closest available theory comes from indefinite stochastic LQ control and generalized Riccati equations (Chen\u2013Li\u2013Zhou 1998; Chen\u2013Zhou 2000; Rami\u2013Moore\u2013Zhou 2002) and from the equivalent cost functional/convexity approach (Yu 2013; Sun\u2013Li\u2013Yong 2016; Sun\u2013Xiong\u2013Yong 2021). These works provide verifiable sufficient conditions for symmetric Riccati solvability and uniform convexity (or definiteness after compensation), and they clarify how invertibility of effective control weights like \\(R_t+F_t^\\top \\Pi_t F_t\\) can be guaranteed. Mean-field extensions in indefinite settings (Li\u2013Li\u2013Yu 2020) indicate that mean-field coupling typically leads to coupled Riccati systems, but still largely within symmetric frameworks. Partial observation MFG references (Bensoussan\u2013Feng\u2013Huang 2021; Chen\u2013Du\u2013Wu 2024) supply the filtering/backward separation scaffolding but assume positive-definite weights, avoiding the asymmetric indefinite Riccati phenomenon.\n\nAt present, there is no cited work that settles the asymmetric indefinite Riccati equation (35) in the generality posed (time-varying coefficients, \\(\\Sigma_t\\) nonsymmetric, and \\(R_{e,t}\\) depending on \\(\\Sigma_t\\)). A promising direction suggested by the surrounding literature is to seek a transformation that embeds (35) into a higher-dimensional symmetric generalized Riccati equation or an LMI/compensator condition analogous to (RC), thereby yielding a priori bounds ensuring \\(R_{e,t}\\) remains uniformly invertible. Another direction is to identify structural regimes (commutativity/simultaneous triangularization, small coupling \\(\\bar A,\\bar B,\\bar D,\\bar F\\), or symmetry-restoring parameter constraints such as \\(\\bar A=\\delta I\\), \\(\\bar B=\\bar D=\\bar F=0\\), \\(\\alpha_2=\\beta_2\\)) under which (35) reduces to a symmetric indefinite Riccati equation, for which existing indefinite SLQ theory applies.",
-    "total_cost_usd": 0.11350675,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Stochastic linear quadratic regulators with indefinite control weight costs",
-        "bibtex": "@article{ChenLiZhou1998,\n  author  = {Chen, Shui-Nee and Li, Xun Yu and Zhou, Xun Yu},\n  title   = {Stochastic linear quadratic regulators with indefinite control weight costs},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {1998},\n  volume  = {36},\n  number  = {5},\n  pages   = {1685--1702},\n  doi     = {10.1137/S0363012996303389}\n}\n",
-        "source_url": "https://doi.org/10.1137/S0363012996303389",
-        "theorem_or_result": "Introduces solvability theory for stochastic LQ control with indefinite control weight via generalized Riccati equations and conditions ensuring well-posedness.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides foundational indefinite SLQ Riccati machinery that underlies the symmetric Riccati equation for \\(\\Pi_t\\) and informs what might be needed for the asymmetric mean-field Riccati \\(\\Sigma_t\\), though it does not treat asymmetry or mean-field coupling."
-      },
-      {
-        "title": "Stochastic linear quadratic regulators with indefinite control weight costs II",
-        "bibtex": "@article{ChenZhou2000,\n  author  = {Chen, Shui-Nee and Zhou, Xun Yu},\n  title   = {Stochastic linear quadratic regulators with indefinite control weight costs II},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {2000},\n  volume  = {39},\n  number  = {4},\n  pages   = {1065--1081},\n  doi     = {10.1137/S0363012998334756}\n}\n",
-        "source_url": "https://doi.org/10.1137/S0363012998334756",
-        "theorem_or_result": "Extends indefinite SLQ theory, including solvability and structure of associated Riccati equations in stochastic settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Further background on indefinite Riccati solvability; relevant as the mean-field game feedback derivation relies on indefinite quadratic costs, but it does not address the asymmetric Riccati structure induced by mean-field coupling and partial observation."
-      },
-      {
-        "title": "Indefinite stochastic linear quadratic control and generalized differential Riccati equation",
-        "bibtex": "@article{RamiMooreZhou2002,\n  author  = {Rami, Mohamed A. and Moore, John B. and Zhou, Xun Yu},\n  title   = {Indefinite stochastic linear quadratic control and generalized differential Riccati equation},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {2002},\n  volume  = {40},\n  number  = {4},\n  pages   = {1296--1311},\n  doi     = {10.1137/S0363012900379964}\n}\n",
-        "source_url": "https://doi.org/10.1137/S0363012900379964",
-        "theorem_or_result": "Develops generalized Riccati equation framework for indefinite stochastic LQ control, giving conditions for existence/uniqueness and links to optimal control.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Closest classical source for indefinite Riccati solvability; suggests that generalized Riccati/linear matrix inequality conditions may be a route to verifiable conditions for \\(R_{e,t}\\) invertibility and \\(\\Sigma_t\\) existence, but does not cover asymmetric mean-field Riccati equations."
-      },
-      {
-        "title": "Equivalent cost functionals and stochastic linear quadratic optimal control problems",
-        "bibtex": "@article{Yu2013,\n  author  = {Yu, Zhen},\n  title   = {Equivalent cost functionals and stochastic linear quadratic optimal control problems},\n  journal = {ESAIM: Control, Optimisation and Calculus of Variations},\n  year    = {2013},\n  volume  = {19},\n  number  = {1},\n  pages   = {78--90},\n  doi     = {10.1051/cocv/2012023}\n}\n",
-        "source_url": "https://doi.org/10.1051/cocv/2012023",
-        "theorem_or_result": "Introduces equivalent cost functional transformations that can convert indefinite SLQ problems into definite ones under suitable compensator constructions.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 8,
-        "connection": "Directly motivates the relaxed compensator method used in the source paper to guarantee solvability of the symmetric Riccati \\(\\Pi_t\\); analogous transformations might help recast the asymmetric \\(\\Sigma_t\\) equation or derive sufficient conditions for \\(R_{e,t}\\) invertibility."
-      },
-      {
-        "title": "Open-loop and closed-loop solvabilities for stochastic linear quadratic optimal control problems",
-        "bibtex": "@article{SunLiYong2016,\n  author  = {Sun, Jiongmin and Li, Xun Yu and Yong, Jiongmin},\n  title   = {Open-loop and closed-loop solvabilities for stochastic linear quadratic optimal control problems},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {2016},\n  volume  = {54},\n  number  = {5},\n  pages   = {2274--2308},\n  doi     = {10.1137/15M1041431}\n}\n",
-        "source_url": "https://doi.org/10.1137/15M1041431",
-        "theorem_or_result": "Establishes equivalences between uniform convexity, Riccati solvability, and closed-loop solvability for (possibly indefinite) stochastic LQ problems.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 8,
-        "connection": "The source paper uses this equivalence (via relaxed compensator) for \\(\\Pi_t\\). Extending these ideas to the asymmetric mean-field Riccati \\(\\Sigma_t\\) would require new arguments because \\(\\Sigma_t\\) is not symmetric and the quadratic form structure is altered by mean-field coupling."
-      },
-      {
-        "title": "Indefinite stochastic linear-quadratic optimal control problems with random coefficients: Closed-loop representation of open-loop optimal controls",
-        "bibtex": "@article{SunXiongYong2021,\n  author  = {Sun, Jiongmin and Xiong, Jie and Yong, Jiongmin},\n  title   = {Indefinite stochastic linear-quadratic optimal control problems with random coefficients: Closed-loop representation of open-loop optimal controls},\n  journal = {The Annals of Applied Probability},\n  year    = {2021},\n  volume  = {31},\n  number  = {1},\n  pages   = {460--499},\n  doi     = {10.1214/20-AAP1575}\n}\n",
-        "source_url": "https://doi.org/10.1214/20-AAP1575",
-        "theorem_or_result": "Provides closed-loop representations and solvability results for indefinite SLQ with random coefficients, refining the Riccati-based framework.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Relevant for understanding robustness of Riccati solvability under randomness; however the open problem concerns a deterministic-coefficient but asymmetric Riccati ODE arising from mean-field game coupling."
-      },
-      {
-        "title": "Indefinite mean-field type linear-quadratic stochastic optimal control problems",
-        "bibtex": "@article{LiLiYu2020,\n  author  = {Li, Ning and Li, Xun Yu and Yu, Zhen},\n  title   = {Indefinite mean-field type linear-quadratic stochastic optimal control problems},\n  journal = {Automatica},\n  year    = {2020},\n  volume  = {122},\n  pages   = {109267},\n  doi     = {10.1016/j.automatica.2020.109267}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.automatica.2020.109267",
-        "theorem_or_result": "Studies indefinite mean-field type LQ stochastic control, deriving Riccati systems and solvability under generalized conditions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "Closer to mean-field coupling than classical SLQ. While it treats mean-field type control (not games) and typically symmetric Riccati systems, it informs what coefficient conditions might ensure well-posedness and invertibility of effective control weights analogous to \\(R_{e,t}\\)."
-      },
-      {
-        "title": "Linear-quadratic-Gaussian mean-field-game with partial observation and common noise",
-        "bibtex": "@article{BensoussanFengHuang2021,\n  author  = {Bensoussan, Alain and Feng, Xiaoliang and Huang, Minyi},\n  title   = {Linear-quadratic-Gaussian mean-field-game with partial observation and common noise},\n  journal = {Mathematical Control and Related Fields},\n  year    = {2021},\n  volume  = {11},\n  number  = {1},\n  pages   = {23--46},\n  doi     = {10.3934/mcrf.2020015}\n}\n",
-        "source_url": "https://www.aimsciences.org/article/doi/10.3934/mcrf.2020015",
-        "theorem_or_result": "Develops LQG mean-field games with partial observation and common noise under positive-definite conditions, using filtering and Riccati equations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides the closest partial-observation/common-noise MFG template; however it relies on definiteness and symmetric Riccati equations, whereas the open problem is the asymmetric indefinite Riccati \\(\\Sigma_t\\) governing mean-field feedback."
-      },
-      {
-        "title": "Partially observed mean-field game and related mean-field forward-backward stochastic differential equation",
-        "bibtex": "@article{ChenDuWu2024,\n  author  = {Chen, Tian and Du, Kang and Wu, Zhen},\n  title   = {Partially observed mean-field game and related mean-field forward-backward stochastic differential equation},\n  journal = {Journal of Differential Equations},\n  year    = {2024},\n  volume  = {408},\n  pages   = {409--448},\n  doi     = {10.1016/j.jde.2024.04.020}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.jde.2024.04.020",
-        "theorem_or_result": "Studies partially observed mean-field games via backward separation and mean-field FBSDEs under positive-definite settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Methodological precursor for the backward separation approach in the source paper; does not address indefinite costs or the asymmetric Riccati equation \\(\\Sigma_t\\) with \\(R_{e,t}\\) depending on \\(\\Sigma_t\\)."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.07863275,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11350675,
-    "total_cost_usd": 0.19213950000000002
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07863275
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4417166251/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4417166251_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4417166251_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4417166251_p0",

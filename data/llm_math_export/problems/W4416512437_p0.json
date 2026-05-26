@@ -48,69 +48,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
-    "difficulty": 7,
-    "synthesis": "The open problem asks whether, for a maximally monotone operator \\(A\\) with a unique zero \\(\\bar x\\), metric subregularity of \\(A\\) at \\((\\bar x,0)\\) implies a Lipschitz property of the inverse mapping \\(A^{-1}\\) at the origin. In general variational analysis, metric subregularity is a local error bound for the inclusion \\(0\\in A(x)\\), while Lipschitz continuity of \\(A^{-1}\\) at \\(0\\) is a stronger stability property of the solution mapping \\(w\\mapsto A^{-1}(w)\\). The direction \\(2\\Rightarrow 1\\) is standard: if \\(A^{-1}\\) is Lipschitz at \\(0\\), then \\(\\|x-\\bar x\\|\\le \\alpha\\, d(0,A(x))\\) follows by taking \\(w\\in A(x)\\) with \\(\\|w\\|\\approx d(0,A(x))\\). The difficult direction is \\(1\\Rightarrow 2\\), which would upgrade an error bound for the residual \\(d(0,A(x))\\) into uniform Lipschitz control of all nearby inverse images \\(x\\in A^{-1}(w)\\).\n\nNo forward-citation evidence was provided, and among the accessible surrounding literature the equivalence is not stated as resolved. Standard references on solution mappings and regularity (e.g., Dontchev--Rockafellar) explain that subregularity is typically weaker than strong metric regularity (which is equivalent to single-valued Lipschitz localization of the inverse), suggesting that additional assumptions beyond maximal monotonicity and isolatedness of \\(\\mathrm{zer}\\,A\\) may be needed for \\(1\\Rightarrow 2\\). Algorithmic works on proximal/warped proximal methods (Rockafellar; B{\\`u}i--Combettes; Le--Dao--Th{\\'e}ra) and error-bound-driven linear convergence (Drusvyatskiy--Lewis) motivate why such an implication would be impactful: it would allow one to replace inverse Lipschitz assumptions by the more checkable residual error bound when proving linear rates for proximal-type algorithms.\n\nAt present, based on the supplied materials, the problem should be regarded as open: it is plausible that metric subregularity at an isolated zero does not by itself guarantee Lipschitz continuity of \\(A^{-1}\\) at \\(0\\) without strengthening to (strong) metric regularity or imposing additional structure (e.g., strong monotonicity, polyhedrality, or smoothness/second-order conditions in subdifferential cases). Promising directions are to (i) search for counterexamples among maximally monotone operators with isolated zeros but multi-valued inverses near \\(0\\), and (ii) identify natural classes (subdifferentials of convex functions with quadratic growth, piecewise linear-quadratic functions, or polyhedral monotone operators) where subregularity is known to coincide with strong metric regularity, thereby yielding \\(1\\Leftrightarrow 2\\) in those settings.",
-    "total_cost_usd": 0.11797099999999999,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.054573750000000004,
     "citations_analyzed": 1,
-    "sources": [
-      {
-        "title": "Monotone operators and the proximal point algorithm",
-        "bibtex": "@article{Rockafellar1976PPA,\n  author  = {R. T. Rockafellar},\n  title   = {Monotone operators and the proximal point algorithm},\n  journal = {SIAM Journal on Control and Optimization},\n  year    = {1976},\n  volume  = {14},\n  number  = {5},\n  pages   = {877--898},\n  doi     = {10.1137/0314056}\n}\n",
-        "source_url": "https://doi.org/10.1137/0314056",
-        "theorem_or_result": "Introduces the proximal point algorithm for maximal monotone operators and foundational properties of resolvents and maximal monotonicity in Hilbert spaces.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides the classical framework and notation for maximal monotone operators and their inverses/resolvents, within which metric subregularity and inverse Lipschitz properties are studied."
-      },
-      {
-        "title": "Implicit Functions and Solution Mappings",
-        "bibtex": "@book{DontchevRockafellar2009Implicit,\n  author    = {Dontchev, Asen L. and Rockafellar, R. Tyrrell},\n  title     = {Implicit Functions and Solution Mappings},\n  publisher = {Springer},\n  year      = {2009},\n  series    = {Springer Monographs in Mathematics},\n  doi       = {}\n}\n",
-        "source_url": "https://link.springer.com/book/10.1007/978-1-4419-0179-9",
-        "theorem_or_result": "Develops variational-analytic theory of metric regularity/subregularity and Lipschitz properties of solution mappings, including relationships among these notions for set-valued maps.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Contains general results comparing metric subregularity of a mapping with Lipschitz properties of its inverse/solution mapping, clarifying what can and cannot be inferred without stronger regularity assumptions."
-      },
-      {
-        "title": "Error bounds, quadratic growth, and linear convergence of proximal methods",
-        "bibtex": "@article{DrusvyatskiyLewis2013ErrorBounds,\n  author  = {Drusvyatskiy, Dmitriy and Lewis, Adrian S.},\n  title   = {Error bounds, quadratic growth, and linear convergence of proximal methods},\n  journal = {Mathematics of Operations Research},\n  year    = {2013},\n  doi     = {}\n}\n",
-        "source_url": "https://arxiv.org/abs/1308.4020",
-        "theorem_or_result": "Connects error bounds/metric subregularity-type conditions to linear convergence of proximal algorithms in convex and variational settings.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Uses metric subregularity/error bounds as a central assumption; helps interpret the open problem as asking when such an error bound yields a Lipschitz inverse for maximal monotone operators."
-      },
-      {
-        "title": "Warped proximal iterations for monotone inclusions",
-        "bibtex": "@article{BuiCombettes2020Warped,\n  author  = {B{\\`u}i, M. N. and Combettes, P. L.},\n  title   = {Warped proximal iterations for monotone inclusions},\n  journal = {Journal of Mathematical Analysis and Applications},\n  year    = {2020},\n  volume  = {491},\n  number  = {1},\n  pages   = {124315},\n  doi     = {10.1016/j.jmaa.2020.124315}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.jmaa.2020.124315",
-        "theorem_or_result": "Introduces warped proximal iterations and warped resolvents for monotone inclusions, generalizing classical resolvent-based methods.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "While not directly about subregularity vs inverse Lipschitzness, it extends the algorithmic context (proximal/resolvent methods) where such regularity properties influence convergence rates."
-      },
-      {
-        "title": "Solving non-monotone inclusions using monotonicity of pairs of operators",
-        "bibtex": "@article{LeDaoThera2025MonotonePairs,\n  author  = {Le, Ba Khiet and Dao, Minh N. and Th{\\'e}ra, Michel},\n  title   = {Solving non-monotone inclusions using monotonicity of pairs of operators},\n  journal = {Journal of Optimization Theory and Applications},\n  year    = {2025},\n  doi     = {10.1007/s10957-025-02770-w}\n}\n",
-        "source_url": "https://doi.org/10.1007/s10957-025-02770-w",
-        "theorem_or_result": "Develops generalized proximal point methods based on monotonicity of operator pairs and establishes convergence under mild assumptions.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 4,
-        "connection": "Cited by the 2026 paper; provides algorithmic motivation where stronger regularity (e.g., inverse Lipschitzness) would yield linear rates, but does not resolve the equivalence question for maximal monotone operators."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.07438725,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11797099999999999,
-    "total_cost_usd": 0.19235825
+    "literature_total_cost_usd": 0.054573750000000004,
+    "total_cost_usd": 0.128961
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_past_year_problems/W4416512437/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4416512437_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4416512437_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4416512437_p0",

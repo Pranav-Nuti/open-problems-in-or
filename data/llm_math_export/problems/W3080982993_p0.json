@@ -51,98 +51,62 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The source paper introduces the RWoGG model and proves strong sufficient conditions for bounded expected number of unvisited vertices: uniformly over all irreducible chains on each \\(G^{(i)}\\), \\(\\mathbb{E}[U(n)]=O(1)\\) holds if \\(d(i)\\ge C\\,t_{\\mathrm{hit}}(i)\\) for some constant \\(C>1\\), and \\(\\mathbb{E}[U(n)]\\to 0\\) if \\(d(i)/t_{\\mathrm{hit}}(i)\\to\\infty\\). It also provides refined sufficient conditions under additional assumptions (lazy/reversible, control of \\(t_{\\mathrm{mix}}\\), or controlled edge growth) and matching lower bounds for specific families (complete graphs and paths), but it leaves open whether the \\(t_{\\mathrm{hit}}\\)-scale is necessary in full generality.\n\nExisting literature on cover times and dynamic graphs supplies background techniques but does not resolve the necessity direction. Classical results (e.g., Matthews' method) relate cover time to \\(t_{\\mathrm{hit}}\\log n\\) on static graphs, while work on evolving graphs with fixed vertex sets (Avin\u2013Kouck\u00fd\u2013Lotker; Sauerwald\u2013Zanetti) shows that time-inhomogeneity can substantially alter hitting/cover behavior, suggesting that proving a universal lower bound in terms of \\(t_{\\mathrm{hit}}\\) may require additional structural assumptions. Tools for time-inhomogeneous Markov chains (Saloff-Coste\u2013Z\u00fa\u00f1iga) and refined inequalities for reversible chains (Oliveira\u2013Peres) appear promising for either constructing counterexamples where \\(t_{\\mathrm{hit}}(i)\\) is large but new vertices are nevertheless discovered quickly, or for proving that bounded \\(\\mathbb{E}[U(n)]\\) forces a uniform per-round success probability that in turn implies \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\) under mild regularity.\n\nAt present, with no forward-citation evidence of a resolution and given that the source paper (2020) explicitly states the question as unsettled, the problem should be regarded as open.",
-    "total_cost_usd": 0.0978845,
-    "citations_analyzed": 0,
+    "synthesis": "In the RWoGG model of Kijima\u2013Shimizu\u2013Shiraga (arXiv:2008.10837), the central sufficient condition for bounded expected unvisited vertices is Theorem 1.2: if there exists \\(C>1\\) with \\(d(i)\\ge C\\,t_{\\mathrm{hit}}(i)\\) for all large \\(i\\), then \\(\\mathbb E[U(n)]=O(1)\\), and if \\(d(i)/t_{\\mathrm{hit}}(i)\\to\\infty\\) then \\(\\mathbb E[U(n)]\\to 0\\). The paper also shows that for specific families (complete graphs and paths/Metropolis walks) the scale \\(d(i)\\asymp t_{\\mathrm{hit}}(i)\\) is essentially tight for achieving \\(\\mathbb E[U(n)]=O(1)\\), but it leaves open whether such a lower bound must hold uniformly over all growing-graph processes.\n\nForward-citing work so far does not resolve this necessity question. The most conceptually adjacent tool is the theory of reversible time-inhomogeneous chains on a fixed vertex set with common stationary distribution, where one can bound the probability of avoiding a vertex over \\(T\\) steps by \\(\\exp(-T/t_{\\mathrm{HIT}})\\) and obtain cover-time bounds in terms of worst static hitting time; however, the fixed-vertex-set and common-\\(\\pi\\) assumptions do not directly apply to vertex growth. Other forward citations develop coupling/monotonicity frameworks (LHaGG/weakly-LHaGG, pausing couplings) and sharp recurrence/transience thresholds for RWoGG on growing trees, hypercubes, and increasing-dimension grids; these results indicate that some global properties (recurrence to a root/origin) can occur with \\(d(i)\\) far smaller than typical cover times, but they do not control the number of distinct vertices visited.\n\nAt present, the implication \\(\\mathbb E[U(n)]=O(1)\\Rightarrow d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\) remains open. Promising directions include: (i) attempting to adapt dynamic-graph hitting-time avoidance bounds to the growing-vertex setting by proving that each round begins sufficiently close to stationarity (or by controlling the \\(\\ell_2(\\pi)\\) distance as in the original paper\u2019s Theorem 3.6 machinery), and (ii) searching for counterexamples where new vertices attach in a way that makes them easy to hit quickly even though worst-case \\(t_{\\mathrm{hit}}(i)\\) is large (e.g., graphs with a small \u201cgateway\u201d set that the walk visits frequently, while worst-case pairs are separated by bottlenecks).",
+    "total_cost_usd": 0.3288761,
+    "citations_analyzed": 5,
     "sources": [
       {
-        "title": "How Many Vertices Does a Random Walk Miss in a Network with Moderately Increasing the Number of Vertices?",
-        "bibtex": "@article{kijima2020howmany,\n  title={How Many Vertices Does a Random Walk Miss in a Network with Moderately Increasing the Number of Vertices?},\n  author={Kijima, Shuji and Shimizu, Nobutaka and Shiraga, Takeharu},\n  year={2020},\n  journal={arXiv preprint},\n  eprint={2008.10837},\n  archivePrefix={arXiv},\n  primaryClass={math.PR},\n  url={https://arxiv.org/abs/2008.10837}\n}\n",
-        "source_url": "https://arxiv.org/abs/2008.10837",
-        "theorem_or_result": "Introduces the random walk on a growing graph (RWoGG) model with duration function \\(d(i)\\) and studies the expected number \\(\\mathbb{E}[U(n)]\\) of unvisited vertices at change times. Proves general sufficient conditions: if \\(d(i)\\ge C\\,t_{\\mathrm{hit}}(i)\\) for some constant \\(C>1\\), then \\(\\mathbb{E}[U(n)]=O(1)\\); if \\(d(i)/t_{\\mathrm{hit}}(i)\\to\\infty\\), then \\(\\mathbb{E}[U(n)]\\to 0\\). Provides tight bounds for growing complete graphs and growing paths, and explicitly leaves open whether \\(\\mathbb{E}[U(n)]=O(1)\\) forces \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\) in full generality.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open question: whether bounded expected unvisited vertices implies durations at least on the order of the hitting time uniformly over all growing-graph random walks."
-      },
-      {
-        "title": "Covering problems for Markov chains",
-        "bibtex": "@article{matthews1988covering,\n  title={Covering problems for {M}arkov chains},\n  author={Matthews, Peter},\n  journal={The Annals of Probability},\n  volume={16},\n  number={3},\n  pages={1215--1228},\n  year={1988}\n}\n",
-        "source_url": "https://projecteuclid.org/journals/annals-of-probability/volume-16/issue-3/Covering-problems-for-Markov-chains/10.1214/aop/1176991790.full",
-        "theorem_or_result": "Develops inequalities relating cover time to hitting times, including the classical bound \\(t_{\\mathrm{cov}}\\le t_{\\mathrm{hit}}\\log n\\) (up to constants) via what is now called Matthews' method.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "The source paper notes that a naive sufficient condition \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i)\\log i)\\) follows from exponential decay of unvisited vertices; Matthews' method is part of the static-graph background linking hitting and covering, motivating the question of whether \\(t_{\\mathrm{hit}}\\) alone is the right scale in the growing setting."
-      },
-      {
-        "title": "Crawling on simple models of web graphs",
-        "bibtex": "@article{cooper2003crawling,\n  title={Crawling on simple models of web graphs},\n  author={Cooper, Colin and Frieze, Alan},\n  journal={Internet Mathematics},\n  volume={1},\n  number={1},\n  pages={57--90},\n  year={2003}\n}\n",
-        "source_url": "https://www.tandfonline.com/doi/abs/10.1080/15427951.2004.10129076",
-        "theorem_or_result": "Studies random walks on preferential-attachment web graph models where vertices are added over time; shows that when growth is constant-rate, the proportion of vertices visited converges to a constant (so a linear number remain unvisited).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides a contrasting regime (constant duration) where \\(\\mathbb{E}[U(n)]\\) is linear, motivating the need for duration conditions; however it does not resolve whether bounded \\(\\mathbb{E}[U(n)]\\) forces \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\)."
-      },
-      {
-        "title": "Cover time and mixing time of random walks on dynamic graphs",
-        "bibtex": "@article{avin2018cover,\n  title={Cover time and mixing time of random walks on dynamic graphs},\n  author={Avin, Chen and Kouck{\\'y}, Michal and Lotker, Zvi},\n  journal={Random Structures \\& Algorithms},\n  volume={52},\n  number={4},\n  pages={576--596},\n  year={2018},\n  doi={10.1002/rsa.20744}\n}\n",
-        "source_url": "https://doi.org/10.1002/rsa.20744",
-        "theorem_or_result": "Analyzes cover and mixing times for random walks on evolving graphs with fixed vertex set; provides upper/lower bounds and examples where dynamics can dramatically increase cover time.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Although the vertex set is static (unlike RWoGG), techniques and phenomena about time-inhomogeneous walks inform what can go wrong when the environment changes, relevant to constructing counterexamples or proving necessity of \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\)."
-      },
-      {
-        "title": "Random walks on dynamic graphs: Mixing times, hitting times, and return probabilities",
-        "bibtex": "@inproceedings{sauerwald2019random,\n  title={Random walks on dynamic graphs: Mixing times, hitting times, and return probabilities},\n  author={Sauerwald, Thomas and Zanetti, Luca},\n  booktitle={Proceedings of the 46th International Colloquium on Automata, Languages, and Programming (ICALP)},\n  year={2019},\n  pages={93:1--93:15},\n  publisher={Schloss Dagstuhl--Leibniz-Zentrum f{\"u}r Informatik},\n  url={https://drops.dagstuhl.de/opus/volltexte/2019/10658/}\n}\n",
-        "source_url": "https://drops.dagstuhl.de/opus/volltexte/2019/10658/",
-        "theorem_or_result": "Provides bounds for mixing, hitting, and return probabilities for random walks on dynamic graphs under assumptions such as common stationary distribution; includes cover-time consequences for regular dynamic graphs.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Relevant methodological background: relates dynamic-graph walk behavior to hitting/mixing parameters, potentially useful for attacking whether bounded \\(\\mathbb{E}[U(n)]\\) enforces a hitting-time-scale duration in the growing-vertex model."
-      },
-      {
-        "title": "Random walks on graphs: new bounds on hitting, meeting, coalescing and returning",
-        "bibtex": "@inproceedings{oliveira2019random,\n  title={Random walks on graphs: new bounds on hitting, meeting, coalescing and returning},\n  author={Oliveira, Roberto Imbuzeiro and Peres, Yuval},\n  booktitle={Proceedings of the 16th Workshop on Analytic Algorithmics and Combinatorics (ANALCO)},\n  pages={119--126},\n  year={2019},\n  publisher={SIAM},\n  url={https://epubs.siam.org/doi/10.1137/1.9781611975499.10}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975499.10",
-        "theorem_or_result": "Establishes sharp inequalities connecting hitting/meeting/coalescence times for reversible chains; provides tools to compare these quantities and derive bounds in terms of stationary distribution and spectral gap.",
+        "title": "Reversible random walks on dynamic graphs",
+        "bibtex": "@article{SauerwaldZanettiReversibleDynamicGraphs,\n  title        = {Reversible random walks on dynamic graphs},\n  author       = {},\n  journal      = {Random Structures \\& Algorithms},\n  year         = {},\n  doi          = {10.1002/rsa.21164},\n  url          = {https://doi.org/10.1002/rsa.21164}\n}\n",
+        "source_url": "https://doi.org/10.1002/rsa.21164",
+        "theorem_or_result": "For a time-inhomogeneous random walk on a fixed vertex set with transition matrices \\((P_t)_{t\\ge1}\\) that are irreducible, reversible (often lazy), and share a common stationary distribution \\(\\pi\\), the paper proves uniform bounds on dynamic hitting/cover/coalescing times in terms of the worst static hitting time: in particular, for one walk, \\(t_{\\mathrm{hit}}((P_t)) = O(\\max_t t_{\\mathrm{hit}}(P_t))\\) (Theorem 1.4(i), with laziness), and \\(t_{\\mathrm{cov}}((P_t)) = O(\\max_t t_{\\mathrm{hit}}(P_t)\\,\\log n)\\) (Theorem 1.4(ii)). A key lemma is that if \\(X_0\\sim\\pi\\), then for any vertex \\(w\\) and \\(T\\ge0\\), \\(\\Pr[\\wedge_{t=0}^T\\{X_t\\neq w\\}]\\le \\prod_{t=1}^T(1-1/t_{\\mathrm{hit}}(P_t))\\le \\exp(-T/t_{\\mathrm{HIT}})\\) where \\(t_{\\mathrm{HIT}}:=\\max_t t_{\\mathrm{hit}}(P_t)\\) (Lemma 1.11/4.3).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "The open problem asks for necessity of \\(t_{\\mathrm{hit}}\\)-scale durations; refined relationships among hitting/mixing/return times may help either prove necessity or build counterexamples where \\(t_{\\mathrm{hit}}\\) is large but typical discovery of new vertices is fast."
+        "relevance_score": 4,
+        "connection": "The open problem concerns a *growing-vertex* graph process with dwell times \\(d(i)\\) on \\(G^{(i)}\\), and asks whether bounded expected number of unvisited vertices \\(\\mathbb E[U(n)]=O(1)\\) forces \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\). This paper studies a different model: dynamic graphs/Markov chains on a *fixed* vertex set, with time-inhomogeneous \\(P_t\\) but (crucially) a common stationary distribution. It does not analyze vertex growth, the quantity \\(U(n)\\), nor provide lower bounds relating a dwell time schedule to hitting times. However, its techniques (spectral-radius bounds for killed chains and exponential tail bounds for avoiding a vertex when started from stationarity) could be useful tools when analyzing periods on each \\(G^{(i)}\\) in the growing-graph setting, especially if one can couple each stage to a chain started near stationarity. Still, it neither proves nor disproves the implication \\(\\mathbb E[U(n)]=O(1)\\Rightarrow d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\)."
       },
       {
-        "title": "Merging for time inhomogeneous finite Markov chains. I. Singular values and stability",
-        "bibtex": "@article{saloffcoste2009merging1,\n  title={Merging for time inhomogeneous finite {M}arkov chains. {I}. Singular values and stability},\n  author={Saloff-Coste, Laurent and Z{\\'u}{\\~n}iga, Jes{\\'u}s},\n  journal={Electronic Journal of Probability},\n  volume={14},\n  number={49},\n  pages={1456--1494},\n  year={2009},\n  doi={10.1214/EJP.v14-659}\n}\n",
-        "source_url": "https://doi.org/10.1214/EJP.v14-659",
-        "theorem_or_result": "Develops a framework for convergence/merging of time-inhomogeneous Markov chains using singular values and stability conditions, giving quantitative bounds on distance to evolving stationary measures.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "RWoGG is a piecewise-homogeneous but globally time-inhomogeneous chain; merging/stability tools may help control visitation probabilities across rounds when \\(d(i)\\) is below \\(t_{\\mathrm{hit}}(i)\\), relevant to proving necessity or finding counterexamples."
+        "title": "An analysis of the recurrence/transience of random walks on growing trees and hypercubes",
+        "bibtex": "@article{GrowingTreesHypercubesRecurrenceTransience,\n  title        = {An analysis of the recurrence/transience of random walks on growing trees and hypercubes},\n  author       = {},\n  journal      = {},\n  year         = {},\n  doi          = {},\n  url          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves phase transitions for recurrence/transience of random walks on specific growing graphs (complete \\(k\\)-ary trees, boxes in \\(\\mathbb Z^d\\), and hypercubes \\(\\{0,1\\}^n\\)) in the RWoGG model with duration \\(d(n)\\). For the growing complete \\(k\\)-ary tree with biased walk parameter \\(\\lambda\\) (simple RW when \\(\\lambda=1\\)), it shows (Theorem 4.2) that the root is recurrent iff \\(\\sum_{n\\ge1} d(n)(\\lambda/k)^n=\\infty\\) (and always recurrent if \\(\\lambda\\ge k\\)). For the growing hypercube it shows (Theorem 5.9) that the origin is recurrent iff \\(\\sum_{n\\ge1} d(n)/2^n=\\infty\\). It introduces the monotonicity/coupling property \u201cless-homesick as graph growing\u201d (LHaGG) and general sufficient conditions for recurrence/transience (Lemmas 3.2\u20133.5) in terms of stationary mass \\(p(n)=\\pi_n(v)\\) (or even-time stationary mass) and mixing times.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether bounded expected number of unvisited vertices \\(\\mathbb E[U(n)]=O(1)\\) forces phase durations \\(d(i)\\) to be at least on the order of the worst-case hitting time \\(t_{\\mathrm{hit}}(i)\\) for each static graph \\(G^{(i)}\\). This citing paper does not study \\(\\mathbb E[U(n)]\\), cover/unvisited vertices, or relate \\(d(i)\\) to \\(t_{\\mathrm{hit}}(i)\\). Instead it studies recurrence/transience (return probabilities) on growing graphs and provides coupling-based monotonicity (LHaGG) plus criteria involving stationary probabilities and mixing times. These techniques may be relevant background/tools for analyzing time-inhomogeneous walks on growing graphs, but they do not resolve (or directly address) the implication about unvisited vertices vs hitting time. In particular, their thresholds (e.g., \\(d(n)\\asymp k^n/(n\\log n)\\) for recurrence on growing trees) are far smaller than typical hitting/cover times on those graphs, suggesting that recurrence phenomena can occur with \\(d(n)\\ll t_{\\mathrm{hit}}(n)\\); however this is about returning to a fixed vertex, not visiting all vertices, so it does not provide a counterexample or proof for the open problem."
       },
       {
-        "title": "Merging for inhomogeneous finite Markov chains part II: Nash and log-Sobolev inequalities",
-        "bibtex": "@article{saloffcoste2011merging2,\n  title={Merging for inhomogeneous finite {M}arkov chains part {II}: Nash and log-{S}obolev inequalities},\n  author={Saloff-Coste, Laurent and Z{\\'u}{\\~n}iga, Jes{\\'u}s},\n  journal={The Annals of Probability},\n  volume={39},\n  number={3},\n  pages={1161--1203},\n  year={2011},\n  doi={10.1214/10-AOP574}\n}\n",
-        "source_url": "https://doi.org/10.1214/10-AOP574",
-        "theorem_or_result": "Extends merging theory for inhomogeneous chains using Nash and log-Sobolev inequalities, providing conditions for uniform convergence rates under time variation.",
+        "title": "The Recurrence/Transience of Random Walks on a Bounded Grid in an Increasing Dimension",
+        "bibtex": "@inproceedings{AofA2024IncreasingDimensionGrid,\n  title        = {The Recurrence/Transience of Random Walks on a Bounded Grid in an Increasing Dimension},\n  author       = {},\n  booktitle    = {Proceedings of the 35th International Conference on Analysis of Algorithms (AofA)},\n  series       = {LIPIcs},\n  year         = {2024},\n  doi          = {10.4230/LIPIcs.AofA.2024.22},\n  url          = {https://doi.org/10.4230/LIPIcs.AofA.2024.22}\n}\n",
+        "source_url": "https://doi.org/10.4230/LIPIcs.AofA.2024.22",
+        "theorem_or_result": "The paper proves a phase transition for recurrence/transience of a lazy simple random walk on growing boxes \\(\\{0,\\dots,N\\}^{n_0+n-1}\\) under the RWoGG model: the origin \\(o\\) is recurrent iff \\(\\sum_{k\\ge1} d(k)/(2N)^k=\\infty\\), and transient otherwise (Theorem 6). More generally, it gives sufficient conditions for recurrence (Theorem 2: if \\(\\sum_k d(k)\\,\\pi^{(k)}(o)=\\infty\\) under a mild mixing-time summability condition) and for transience (Theorem 4: if \\(\\sum_{k\\ge2} d(k)\\,\\pi^{(k-1)}(o)<\\infty\\) assuming a monotonicity property \u2018weakly LHaGG\u2019 plus the same mixing condition).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks whether bounded expected number of unvisited vertices \\(\\mathbb E[U(n)]=O(1)\\) forces durations \\(d(i)\\) to be at least on the order of the worst-case hitting time \\(t_{\\mathrm{hit}}(i)\\) uniformly over all growing-graph random walks. This paper does not study \\(U(n)\\) or cover/miss counts, nor does it relate bounded unvisited vertices to hitting times. Its results concern recurrence/transience (return probabilities to the origin) in the RWoGG framework and introduce coupling/monotonicity tools (weakly LHaGG, pausing coupling) and mixing-time-based criteria. These techniques could be tangentially relevant for analyzing time-inhomogeneous walks, but they do not address whether \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\) is necessary for \\(\\mathbb E[U(n)]=O(1)\\), nor provide a counterexample with \\(d(i)/t_{\\mathrm{hit}}(i)\\to0\\)."
+      },
+      {
+        "title": "\u52d5\u7684\u30b0\u30e9\u30d5\u4e0a\u306e\u30e9\u30f3\u30c0\u30e0\u30a6\u30a9\u30fc\u30af",
+        "bibtex": "@article{DynamicGraphsRandomWalkSurveyJapanese2022,\n  title        = {\u52d5\u7684\u30b0\u30e9\u30d5\u4e0a\u306e\u30e9\u30f3\u30c0\u30e0\u30a6\u30a9\u30fc\u30af},\n  author       = {},\n  journal      = {},\n  year         = {2022},\n  doi          = {},\n  url          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "This citing paper is a 2022 Japanese survey article on random walks on dynamic graphs. The only explicit theorem stated about growing-vertex models is Theorem 4.1 (attributed to [17]) for the \u201cincreasing coupon collector\u201d (complete graph) model: for duration function \\(d\\), the expected number of uncollected types at the end of phase \\(n\\) is \\(\\mathbb{E}[U(n)]=\\sum_{i=1}^n\\prod_{j=i}^n(1-1/j)^{d(j)}\\), and in particular: (i) if \\(d(i)/i\\ge c>0\\) for all \\(i\\), then \\(\\mathbb{E}[U(n)]\\le 1/c\\) (and if \\(d(i)/i\\to\\infty\\) then \\(\\mathbb{E}[U(n)]\\to 0\\)); (ii) if \\(d\\) is nondecreasing, unbounded, and sublinear then \\(\\mathbb{E}[U(n)]=(1-o(1))\\, n/(d(n)+1)\\); (iii) if \\(d(i)=c\\) constant then \\(\\mathbb{E}[U(n)]=(1-O(1/n))\\, n/(c+1)\\).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Potentially applicable to bounding unvisited mass in the growing-graph walk by controlling how quickly distributions 'merge' within each round and across rounds, which is central to relating \\(d(i)\\) to intrinsic timescales like \\(t_{\\mathrm{hit}}(i)\\)."
+        "relevance_score": 3,
+        "connection": "The open problem asks whether bounded \\(\\mathbb{E}[U(n)]\\) for *arbitrary* growing graphs/Markov chains forces \\(d(i)=\\Omega(t_{\\mathrm{hit}}(i))\\). This survey does not address that implication. It summarizes known results on dynamic graphs with fixed vertex set (cover/hitting time bounds) and briefly introduces the authors\u2019 SODA\u201921 work [17] on growing-vertex graphs via an \u201cincreasing coupon collector\u201d (complete-graph) special case. In that special case, \\(t_{\\mathrm{hit}}(i)=\\Theta(i)\\) and Theorem 4.1(i) shows bounded \\(\\mathbb{E}[U(n)]\\) when \\(d(i)=\\Omega(i)=\\Omega(t_{\\mathrm{hit}}(i))\\), which is consistent with (but does not prove) the conjectured necessity. No counterexample with \\(d(i)/t_{\\mathrm{hit}}(i)\\to 0\\) is constructed, and no general necessity theorem is proved."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.06786500000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0978845,
-    "total_cost_usd": 0.1657495
+    "literature_total_cost_usd": 0.3288761,
+    "total_cost_usd": 0.3967411
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3080982993/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3080982993_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3080982993_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3080982993_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 5,
     "is_open": true,
     "model": "gpt-5.2"
   }

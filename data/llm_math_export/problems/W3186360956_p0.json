@@ -47,92 +47,83 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 10,
-    "difficulty": 10,
-    "synthesis": "The complete-allocations EFX existence question for general (only normalized and monotone) valuations remains open in full generality, and is not known even for \\(n=3\\). The foundational work of Plaut and Roughgarden establishes the main tractable special cases in this general model\u2014complete EFX for \\(n=2\\) and for identical valuations\u2014and also highlights algorithmic barriers via strong value-query lower bounds. Subsequent progress has largely proceeded by importing structural tools from the additive setting, especially the champion graph and Pareto-improvable (PI) cycles, which allow one to transform a partial EFX allocation into another EFX allocation that improves a carefully chosen potential.\n\nMahara (2021) is the main advance within the general-valuation model: it extends additive-technique results to show complete EFX existence in two notable regimes\u2014when agents\u2019 valuations come from only two valuation functions, and when the number of items is small (\\(m\\le n+3\\)). It also strengthens the best-known \u201cEFX with charity\u201d guarantee for general valuations from \\(|U|\\le n-1\\) (Chaudhury et al. 2020) to \\(|U|\\le n-2\\), while ensuring no agent envies the unallocated set \\(U\\). Technically, this relies on champion-graph reasoning plus two potential functions: the lexicographic potential (as in the \\(n=3\\) additive existence proof of Chaudhury, Garg, and Mehlhorn) and a new partition-leximin potential tailored to the two-valuations regime.\n\nDespite these advances, the gap to full generality is substantial: Mahara also constructs a \\(n=3\\) general-valuation instance showing that the lexicographic-potential progress approach can get stuck, indicating that new ideas are needed beyond current champion-graph/potential-function frameworks. Promising directions include identifying additional valuation structure short of additivity that still supports monotone potential progress, strengthening PI-cycle existence arguments in generalized champion graphs, or developing existence proofs that avoid algorithmic progress measures altogether (e.g., via topological or combinatorial fixed-point style arguments adapted to discrete allocations).",
-    "total_cost_usd": 0.08032675,
-    "citations_analyzed": 0,
+    "importance": 9,
+    "difficulty": 9,
+    "synthesis": "Mahara (2021) framed the central question for general (normalized, monotone) valuations: whether a complete EFX allocation must always exist. Building on the champion-graph framework of Chaudhury\u2013Garg\u2013Mehlhorn and the \u201cEFX with charity\u201d line, Mahara extended several additive-valuation existence results to general valuations via potential-function arguments (lexicographic and a new partition-leximin potential). In particular, Mahara proved complete EFX existence for two-valuation-type profiles and for the small-excess regime \\(m\\le n+3\\), and improved bounded-charity guarantees to \\(|U|\\le n-2\\) unallocated goods while maintaining that no agent envies the unallocated set.\n\nThe universal existence conjecture for complete EFX under general monotone valuations has since been resolved negatively by the paper titled \u201cA Counterexample to EFX; Agents, Items, Monotone Valuations; via SAT-Solving\u201d, which constructs an explicit instance with \\(n=3\\) agents and \\(m=8\\) goods admitting no complete EFX allocation, and further shows broad families of counterexamples for all \\(n\\ge 3\\) once \\(m\\) is sufficiently larger than \\(n\\) (even for submodular valuations). This pins down the sharpness of Mahara\u2019s positive results in the small-\\(m\\) regime and clarifies that any general-valuation existence theorem must impose additional structure (on valuations, on item-agent incidence, or by allowing charity/approximation).\n\nSubsequent work has therefore focused on delineating maximal domains where complete EFX remains guaranteed and on principled relaxations. On the positive side, complete EFX is shown to exist for substantial structured subclasses of monotone valuations, notably multigraph/bipartite-multigraph valuation models where each good is relevant to at most two agents, and for leveled valuations where value strictly increases with bundle size. Complementarily, relaxations such as epistemic EFX (EEFX) restore unconditional existence for arbitrary monotone valuations, while other lines (e.g., rainbow-cycle-number methods) yield near-optimal \\((1-\\varepsilon)\\)-EFX with bounded charity and additional welfare guarantees. Together, these results map a post-counterexample landscape: exact complete EFX fails in full generality, but remains attainable in rich structured settings and via carefully designed relaxations.",
+    "total_cost_usd": 2.3642632999999997,
+    "citations_analyzed": 37,
     "sources": [
       {
-        "title": "Almost envy-freeness with general valuations",
-        "bibtex": "@article{PlautRoughgarden2020AlmostEFX,\n  author = {Plaut, Benjamin and Roughgarden, Tim},\n  title = {Almost envy-freeness with general valuations},\n  journal = {SIAM Journal on Discrete Mathematics},\n  year = {2020},\n  volume = {34},\n  number = {2},\n  pages = {1039--1068}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/19M124397X",
-        "theorem_or_result": "For general (normalized, monotone) valuations, proves existence of complete EFX allocations for (i) two agents and (ii) identical valuations; also shows strong query-complexity lower bounds for finding EFX even in restricted cases, and proves existence of partial EFX allocations leaving up to \\(n-1\\) items unallocated with a non-envy-to-charity guarantee.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "This is the foundational positive evidence and barrier result for the open question of complete EFX existence under general valuations; it establishes the main known solvable special cases and motivates the need for new techniques beyond value-query algorithms."
-      },
-      {
-        "title": "EFX exists for three agents",
-        "bibtex": "@inproceedings{ChaudhuryGargMehlhorn2020EFX3,\n  author = {Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt},\n  title = {EFX Exists for Three Agents},\n  booktitle = {Proceedings of the 21st ACM Conference on Economics and Computation (EC)},\n  year = {2020}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399536",
-        "theorem_or_result": "Proves existence of complete EFX allocations for \\(n=3\\) under additive valuations via the champion graph and a lexicographic potential argument that maintains EFX while making progress.",
-        "relevance_category": "PARTIAL_PROGRESS",
+        "title": "A Counterexample to EFX; Agents, Items, Monotone Valuations; via SAT-Solving",
+        "bibtex": "@misc{CounterexampleEFXSATSolver,\n  title        = {A Counterexample to EFX; Agents, Items, Monotone Valuations; via SAT-Solving},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves non-existence of complete EFX allocations in the general monotone-valuation setting by exhibiting an explicit counterexample with 3 agents and 8 goods (monotone valuations) for which no allocation \n\\(X=(X_1,X_2,X_3)\\) satisfies EFX, and extends this to show: for every \\(n\\ge 3\\) and \\(m\\ge n+5\\), there exists an instance with submodular (hence monotone) valuations with no EFX allocation (Theorem 2). It also proves universal existence for the boundary case of 3 agents and 7 goods (Theorem 1).",
+        "relevance_category": "SOLUTION",
         "relevance_score": 10,
-        "connection": "Although limited to additive valuations, it introduces the champion-graph/PI-cycle framework and lexicographic potential method that Mahara adapts to general valuations for partial-allocation results and small-\\(m\\) regimes."
+        "connection": "The open problem asks whether for arbitrary normalized, monotone valuations there must always exist a complete EFX allocation. This paper answers the existence question in the negative by constructing monotone valuations (already for \\(n=3, m=8\\)) with no EFX allocation, and further shows such counterexamples exist broadly (\\(n\\ge 3, m\\ge n+5\\)), even within submodular valuations. Thus it refutes the conjectured universal existence in the general-valuation setting (and a fortiori in the monotone setting)."
       },
       {
-        "title": "A little charity guarantees almost envy-freeness",
-        "bibtex": "@inproceedings{ChaudhuryKavithaMehlhornSgouritsa2020Charity,\n  author = {Chaudhury, Bhaskar Ray and Kavitha, Telikepalli and Mehlhorn, Kurt and Sgouritsa, Alkmini},\n  title = {A Little Charity Guarantees Almost Envy-Freeness},\n  booktitle = {Proceedings of the 31st ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2020},\n  pages = {2658--2672}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611975994.163",
-        "theorem_or_result": "For general valuations, establishes existence of partial EFX allocations with a set \\(U\\) of unallocated items such that no agent envies \\(U\\), with \\(|U|\\le n-1\\).",
+        "title": "EFX: a simpler approach and an (almost) optimal guarantee via rainbow cycle number",
+        "bibtex": "@article{RainbowCycleOPRE2023,\n  title   = {EFX: a simpler approach and an (almost) optimal guarantee via rainbow cycle number},\n  author  = {},\n  year    = {\\n},\n  doi     = {10.1287/opre.2023.0433}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2023.0433",
+        "theorem_or_result": "The paper proves two main results about EFX. (1) For exact EFX with complete allocation: with three agents, a complete EFX allocation exists provided at least one agent\u2019s valuation is MMS-feasible (in particular, additive); the other agents may have arbitrary normalized monotone valuations (Theorems 1\u20132). (2) For approximate EFX with charity: the rainbow cycle number satisfies \\(R(d)=O(d\\log d)\\) (Theorem 3/10), implying a deterministic polynomial-time algorithm that outputs a partial \\((1-\\varepsilon)\\)-EFX allocation leaving \\(\\tilde O((n/\\varepsilon)^{1/2})\\) goods unallocated and with Nash-welfare guarantee (Theorem 4).",
         "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 9,
-        "connection": "Directly addresses the general-valuation setting by proving an 'EFX with charity' guarantee; Mahara strengthens the bound to \\(|U|\\le n-2\\), but the complete-allocation existence remains open."
-      },
-      {
-        "title": "Extension of Additive Valuations to General Valuations on the Existence of EFX",
-        "bibtex": "@article{Mahara2021ExtensionGeneralEFX,\n  author = {Mahara, Ryoga},\n  title = {Extension of Additive Valuations to General Valuations on the Existence of EFX},\n  year = {2021},\n  eprint = {2107.09901},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2107.09901",
-        "theorem_or_result": "For general valuations, proves: (i) complete EFX exists when agents have one of two valuations; (ii) complete EFX exists when \\(m\\le n+3\\); (iii) EFX with charity exists with \\(|U|\\le n-2\\) and no agent envies \\(U\\); and gives an \\(n=3\\) example showing limitations of lexicographic-potential progress.",
-        "relevance_category": "PARTIAL_PROGRESS",
-        "relevance_score": 10,
-        "connection": "This is the source paper framing the open problem; it provides the strongest known general-valuation existence results short of full generality and develops the partition-leximin potential technique."
-      },
-      {
-        "title": "Existence of EFX for two additive valuations",
-        "bibtex": "@article{Mahara2020TwoAdditiveValuationsEFX,\n  author = {Mahara, Ryoga},\n  title = {Existence of EFX for Two Additive Valuations},\n  year = {2020},\n  eprint = {2008.08798},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2008.08798",
-        "theorem_or_result": "Shows that for additive valuations, complete EFX allocations exist when all agents' valuations come from a set of two additive valuation functions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Precursor to Mahara (2021): motivates the 'two valuations' tractable regime and informs the general-valuation extension via new potential functions."
-      },
-      {
-        "title": "(almost full) EFX exists for four agents (and beyond)",
-        "bibtex": "@article{BergerCohenFeldmanFiat2021AlmostFullEFX,\n  author = {Berger, Ben and Cohen, Avi and Feldman, Michal and Fiat, Amos},\n  title = {(almost full) EFX exists for four agents (and beyond)},\n  year = {2021},\n  eprint = {2102.10654},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2102.10654",
-        "theorem_or_result": "Develops generalized champion-graph machinery and proves near-complete EFX guarantees (e.g., for \\(n=4\\) with at most one unallocated item) and broader valuation classes (nice cancelable valuations) with \\(|U|\\le n-2\\) unallocated items.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 8,
-        "connection": "Provides key technical tools (Pareto-improvable cycles and generalized champion graphs) used by Mahara to extend 'charity' and other results to general valuations; still does not resolve complete EFX existence for arbitrary general valuations."
-      },
-      {
-        "title": "Envy-freeness up to any item with high Nash welfare: The virtue of donating items",
-        "bibtex": "@inproceedings{CaragiannisGravinHuang2019Donating,\n  author = {Caragiannis, Ioannis and Gravin, Nick and Huang, Xin},\n  title = {Envy-Freeness up to Any Item with High Nash Welfare: The Virtue of Donating Items},\n  booktitle = {Proceedings of the 20th ACM Conference on Economics and Computation (EC)},\n  year = {2019},\n  pages = {527--545}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3328526.3329575",
-        "theorem_or_result": "Introduces and studies 'EFX with charity' (donating/unallocated items) and shows existence of partial EFX allocations with strong welfare guarantees under additive valuations.",
-        "relevance_category": "BACKGROUND",
         "relevance_score": 6,
-        "connection": "Establishes the charity relaxation framework that later work (including Chaudhury et al. 2020 and Mahara 2021) extends to general valuations and tighter bounds on the number of unallocated items."
+        "connection": "The open problem asks for existence of complete EFX allocations for arbitrary numbers of agents under general (normalized, monotone) valuations. This paper does not resolve that: it gives an exact-existence theorem only for \\(n=3\\) under a restriction (one agent MMS-feasible), leaving the fully general \\(n=3\\) monotone case open, and it does not address \\(n\\ge 4\\) exact EFX existence. It also advances a different relaxation\u2014\\((1-\\varepsilon)\\)-EFX with bounded charity\u2014by nearly tight bounds on rainbow cycle number, but this does not yield complete EFX for general valuations."
+      },
+      {
+        "title": "EFX allocations and orientations on bipartite multi-graphs: A complete picture",
+        "bibtex": "@misc{EFXBipartiteMultigraphs,\n  title        = {EFX allocations and orientations on bipartite multi-graphs: A complete picture},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves existence (and algorithms) of complete EFX allocations for a restricted general-valuation model where each item is valued by at most two agents (a multi-graph instance). In particular:\n- Theorem 4.11: For any fair-division instance whose valuation profile is representable by a bipartite multi-graph and where each agent\u2019s valuation is normalized and monotone (with value depending only on incident edges), a complete EFX allocation always exists; it can be computed in pseudo-polynomial time (and in polynomial time for cancelable valuations).\n- Theorem 5.1 / Corollary 5.2: For multi-cycles, EFX allocations exist for MMS-feasible valuations; for cycles with at least four agents, existence holds for monotone valuations as well (pseudo-polynomial time; polynomial for cancelable).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for existence of complete EFX allocations for arbitrary normalized, monotone valuations on all subsets of goods (no structural restrictions). This paper does not resolve that general question. Instead it establishes existence in a significant special case: valuations induced by (bi)partite multi-graphs, i.e., each good has positive marginal value for at most two agents and each agent\u2019s value for a bundle depends only on the subset of incident goods. Within that restricted domain, it gives unconditional existence and constructive algorithms (Theorem 4.11), and extends to multi-cycles (Theorem 5.1). Thus it is partial progress: it expands the largest known valuation classes guaranteeing EFX, but leaves the unrestricted general-valuation setting open (indeed it ends with a conjecture for general multi-graphs, still far from arbitrary valuations)."
+      },
+      {
+        "title": "On the existence of EFX allocations in multigraphs",
+        "bibtex": "@misc{EFXMultigraphs,\n  title        = {On the existence of EFX allocations in multigraphs},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In the multigraph valuation model (goods are edges; each agent/vertex values only incident edges; valuations are normalized and monotone), the paper proves existence of complete EFX allocations under any of the following structural conditions on the multigraph: (a) the multigraph is bipartite (Theorem 1), or (b) every vertex has at most \\(\\lceil n/4\\rceil-1\\) neighbors (Theorem 2), or (c) the shortest cycle consisting of non-parallel edges has length at least 6 (Theorem 3). In each case, all edges are allocated and the resulting allocation \\(X\\) satisfies \\(\\forall i,j\\ \\forall g\\in X_j: v_i(X_i)\\ge v_i(X_j\\setminus\\{g\\})\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether complete EFX allocations always exist for completely general monotone valuations over an arbitrary item set (no structural restrictions). This paper does not resolve that question. Instead it proves existence in a restricted but nontrivial subclass of general monotone valuations: the (2,\\(\\infty\\))-bounded/multigraph setting where each good is relevant to at most two agents (incident endpoints), and additionally requires one of three graph-structural conditions (bipartite, bounded neighborhood size, or large girth in the underlying simple graph of non-parallel edges). Thus it is partial progress toward the general-valuation existence question by expanding the known positive territory beyond simple graphs and beyond additive valuations in multigraphs."
+      },
+      {
+        "title": "Fair and truthful allocations under leveled valuations",
+        "bibtex": "@misc{LeveledValuationsEFX,\n  title        = {Fair and truthful allocations under leveled valuations},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Theorem 4: For any number of agents and indivisible goods, if all agents have leveled valuation functions (normalized, monotone, and strictly increasing with bundle cardinality: \n- if \\(|S|>|T|\\) then \\(v(S)>v(T)\\)), then a complete EFX allocation exists. In particular, Algorithm 1 (a serial dictatorship with quotas \\(\\lfloor m/n\\rfloor\\) for \\(n-r\\) agents and \\(\\lfloor m/n\\rfloor+1\\) for \\(r\\) agents, where \\(m=kn+r\\)) outputs an allocation \\(A\\) such that \\(\\forall i,j\\,\\forall g\\in A_j: v_i(A_i)\\ge v_i(A_j\\setminus\\{g\\})\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether complete EFX allocations always exist for completely general monotone valuations (no structure beyond normalization and monotonicity). This paper proves existence of complete EFX allocations only for the restricted class of leveled valuations, which is a strict subclass of monotone valuations (it imposes strict preference for larger cardinality bundles regardless of item identities). Thus it does not resolve the general-valuation existence question, but provides a positive existence theorem in a non-additive, non-submodular setting that still allows arbitrary rankings among equal-size bundles. The proof/algorithm (quota-based serial dictatorship) leverages the cardinality-driven structure; it does not extend to arbitrary monotone valuations where bundle size alone does not determine strict preference."
+      },
+      {
+        "title": "Epistemic EFX allocations exist for monotone valuations",
+        "bibtex": "@misc{EpistemicEFX,\n  title        = {Epistemic EFX allocations exist for monotone valuations},\n  author       = {},\n  year         = {\\n},\n  note         = {Metadata incomplete in provided citation analysis (authors/year/venue not specified).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves existence of epistemic EFX (EEFX) allocations for any number of agents with normalized, monotone (general) valuations: for every instance \nI=([n],M,(v_1,\\dots,v_n))\n there exists a complete allocation \\(X=(X_1,\\dots,X_n)\\) such that for each agent \\(i\\) there exists a partition of \\(M\\setminus X_i\\) into \\(n-1\\) bundles \\(C_1,\\dots,C_{n-1}\\) with \\(v_i(X_i)\\ge v_i(C_j\\setminus\\{g\\})\\) for all \\(j\\) and all \\(g\\in C_j\\) (Theorem 3.5). It also shows computing EEFX is hard: exponential value-query lower bound and PLS-hardness even for identical submodular valuations (Theorems 4.7, 4.8).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for existence of complete EFX allocations under general monotone valuations. This paper does not prove EFX existence; instead it proves existence of a relaxation, EEFX, for the full generality of monotone valuations. Thus it provides progress only in the sense of identifying a fairness notion close to EFX with unconditional existence, and it highlights that computational hardness for EEFX parallels known hardness for EFX. It does not resolve whether EFX itself always exists when all goods must be allocated."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.049710500000000005,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08032675,
-    "total_cost_usd": 0.13003725
+    "literature_total_cost_usd": 2.3642632999999997,
+    "total_cost_usd": 2.4139738
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3186360956/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3186360956_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3186360956_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3186360956_p0",
-    "citations_analyzed": 0,
-    "is_open": true,
+    "citations_analyzed": 37,
+    "is_open": false,
     "model": "gpt-5.2"
   }
 }

@@ -47,69 +47,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 7,
-    "difficulty": 7,
-    "synthesis": "The open issue in Lima\u2019s Problem (B) is to give verifiable conditions on the tolerance sequence \\(S_n\\) (ideally in terms of \\(\\sigma^2\\)) that ensure the roughness-minimizing constrained estimator \\(\\hat g_n\\) is consistent and achieves rates comparable to the Sobolev-optimal \\(n^{-m/(2m+d)}\\) rate established in the paper for the smoothness-constrained least-squares estimator (Problem (A)). Classical spline theory (Schoenberg; Reinsch) and thin-plate spline/RKHS theory (Duchon) show that constrained and penalized formulations are closely linked via Lagrange multipliers and that solutions lie in finite-dimensional spline spaces, but these works do not directly provide stochastic calibration rules for \\(S_n\\) under random design.\n\nRate results for penalized smoothing splines (e.g., Utreras and related work) and general empirical-process analyses of constrained/penalized regression over Sobolev balls (van de Geer) suggest a pathway: if \\(S_n\\) is chosen so that the constraint is feasible for \\(f^*\\) with high probability (typically \\(S_n\\ge E_n(f^*)\\approx \\sigma^2\\) plus a deviation term of order \\(n^{-1/2}\\) under sub-Gaussian noise), then \\(\\hat g_n\\) should behave like the penalized estimator with a data-dependent multiplier \\(\\lambda_n\\), and one can aim to prove oracle inequalities translating control of \\(E_n(\\hat g_n)\\) into control of \\(\\|\\hat g_n-f^*\\|_{L_2(P_X)}\\) and derivative risks. However, a complete, sharp characterization of the optimal rate for \\(\\hat g_n\\) as a function of the slack \\(S_n-\\sigma^2\\) (and conditions ensuring the key inequality highlighted by Lima) does not appear to be settled in the provided materials, so the problem remains open.",
-    "total_cost_usd": 0.034531,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Spline functions and the problem of graduation",
-        "bibtex": "@article{Schoenberg1964SplineGraduation,\n  author  = {Schoenberg, I. J.},\n  title   = {Spline functions and the problem of graduation},\n  journal = {Proceedings of the National Academy of Sciences of the United States of America},\n  year    = {1964}\n}\n",
-        "source_url": "https://www.pnas.org/doi/10.1073/pnas.52.4.947",
-        "theorem_or_result": "Introduces variational characterization of smoothing splines: minimizers of a roughness functional subject to interpolation/fit constraints, and establishes representer-type structure in 1D.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides foundational variational/representer framework for problems of the form minimize roughness subject to data-fit constraints, which underlies Problem (B) though not its stochastic rate analysis."
-      },
-      {
-        "title": "Splines minimizing rotation-invariant semi-norms in Sobolev spaces",
-        "bibtex": "@article{Duchon1977RotationInvariantSplines,\n  author  = {Duchon, Jean},\n  title   = {Splines minimizing rotation-invariant semi-norms in Sobolev spaces},\n  journal = {Constructive Theory of Functions of Several Variables},\n  year    = {1977},\n  doi     = {10.1007/BF01406593}\n}\n",
-        "source_url": "https://doi.org/10.1007/BF01406593",
-        "theorem_or_result": "Establishes existence and explicit representer for thin-plate splines as minimizers of Sobolev semi-norms with data-fit terms/constraints in \u0002m>d/2\u0003 settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Gives the RKHS/semi-Hilbert space structure of \u0002m>d/2\u0003 Sobolev spaces used in Lima\u2019s \u0002\\(\\mathcal F_m\\)\u0003 and justifies that solutions to constrained/penalized problems live in finite-dimensional spline spaces, enabling analysis of \u0002\\(\\hat g_n\\)\u0003 via finite-dimensional convex programs."
-      },
-      {
-        "title": "Smoothing by spline functions",
-        "bibtex": "@article{Reinsch1967SmoothingSplines,\n  author  = {Reinsch, C. H.},\n  title   = {Smoothing by spline functions},\n  journal = {Numerische Mathematik},\n  year    = {1967}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/BF02162161",
-        "theorem_or_result": "Studies smoothing splines and the relationship between constrained formulations (fit constraint vs roughness constraint) and penalized formulations in 1D; provides existence/uniqueness and computational insights.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Directly related to Problem (B) as an early analysis of minimizing roughness subject to a residual sum-of-squares bound, but primarily in 1D and without modern stochastic rates for random design."
-      },
-      {
-        "title": "Convergence rates for spline smoothing",
-        "bibtex": "@article{Utreras1988ConvergenceSplineSmoothing,\n  author  = {Utreras, F. I.},\n  title   = {Convergence rates for spline smoothing},\n  journal = {Journal of Approximation Theory},\n  year    = {1988}\n}\n",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/0021904588900555",
-        "theorem_or_result": "Derives convergence rates for smoothing spline estimators (penalized least squares) under Sobolev smoothness assumptions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides rate techniques for penalized formulation (Problem (C)) that can be transferred to constrained formulations via Lagrange multiplier equivalence, informing what rates are plausible for \u0002\\(\\hat g_n\\)\u0003 when \u0002\\(S_n\\)\u0003 is calibrated."
-      },
-      {
-        "title": "Estimating a regression function",
-        "bibtex": "@book{VandeGeer1990EstimatingRegressionFunction,\n  author    = {van de Geer, Sara A.},\n  title     = {Estimating a regression function},\n  publisher = {Springer},\n  year      = {1990}\n}\n",
-        "source_url": "https://link.springer.com/book/10.1007/978-1-4612-4478-3",
-        "theorem_or_result": "Develops empirical process tools and rates for nonparametric regression with complexity penalties/constraints, including Sobolev-type function classes.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Supplies general machinery (entropy bounds, oracle inequalities) that can be adapted to analyze constrained estimators like Problem (A)/(B), especially for random design and sub-Gaussian noise assumptions used by Lima."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.08503425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.034531,
-    "total_cost_usd": 0.11956525000000001
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.08503425
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4396581165/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4396581165_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4396581165_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4396581165_p0",

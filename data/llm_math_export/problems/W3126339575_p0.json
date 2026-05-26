@@ -51,91 +51,73 @@
     "method": "forward_citation_review",
     "model": "gpt-5.2",
     "importance": 7,
-    "difficulty": 7,
-    "synthesis": "The open question concerns a monotonicity property of the (weak) core under weak preferences and unbounded exchange cycles: if object \\(i\\) becomes (weakly) more desirable to other agents while \\(R_i\\) is fixed, can agent \\(i\\)\u2019s \\(R_i\\)-best allotment among core allocations become strictly worse? The source paper establishes strong positive results for the unique competitive/strong-core outcome under strict preferences (via TTC) and for competitive allocations under weak preferences (via tie-breaking and Wako\u2019s characterization), and it proves a conditional respecting-improvement statement for the strong core when it is nonempty (using the Quint\u2013Wako absorbing-set decomposition). It also shows that analogous monotonicity can fail in bounded-cycle variants, so the remaining difficulty is genuinely tied to the weak core with unbounded cycles and weak preferences.\n\nFoundational work by Shapley\u2013Scarf and Roth\u2013Postlewaite explains why strict preferences are tractable: TTC yields a unique strong-core/competitive allocation, and monotonicity can be proved by tracking reachability/predecessor relations in the TTC graph. Under weak preferences, Wako\u2019s results identify competitive allocations with a refined blocking notion (antisymmetric weak domination), enabling the source paper\u2019s setwise monotonicity for competitive allocations. Quint\u2013Wako (and the graph-theoretic reformulation by Cechl\u00e1rov\u00e1\u2013Fleiner) provide the structural segmentation into absorbing sets that makes the strong core welfare-equivalent and allows conditional monotonicity for the strong core.\n\nHowever, none of these characterizations directly control the weak core \\(C(R)\\), which can be substantially larger than the competitive set and can contain Pareto-inefficient allocations. The open problem remains unresolved in the provided material: there is no known theorem guaranteeing best-core-allotment monotonicity under improvements, nor a counterexample for the unbounded weak-core setting. Promising directions suggested by the existing toolkit are: (i) attempt to extend the TTC/absorbing-set reachability arguments to the weak core by identifying a canonical \u201cbest-for-\\(i\\)\u201d core selection and proving its monotonicity; or (ii) construct a counterexample exploiting the weak core\u2019s allowance of Pareto-inefficient allocations and the sensitivity of blocking cycles to small changes in others\u2019 rankings of object \\(i\\).",
-    "total_cost_usd": 0.11274725,
-    "citations_analyzed": 0,
+    "difficulty": 6,
+    "synthesis": "Bir\u00f3\u2013Klijn\u2013Klimentova\u2013Viana (2021) introduced \u201crespecting improvement\u201d for Shapley\u2013Scarf housing markets and proved it for the unique competitive/strong-core allocation under strict preferences (via TTC), and obtained setwise monotonicity for competitive allocations under weak preferences. They also showed that once exchanges are bounded (e.g., cycle length \\(\\le 3\\)), even strict-preference cores can fail to respect improvement for an agent\u2019s best attainable allotment, leaving open the unbounded-cycle question for the (weak) core: can \\(\\mathrm{best}_i(C(R))\\) become worse after a \\(p\\)-improvement (others rank \\(i\\)\u2019s endowment weakly higher, \\(R_i\\) fixed)?\n\nThis open problem has been solved affirmatively by Schlotter\u2013Bir\u00f3\u2013Fleiner in \u201cThe core of housing markets from an agent's perspective: Is it worth sprucing up your home?\u201d. Their Theorem 2 gives a strong monotonicity: starting from any core allocation \\(X\\in C(H)\\), after a \\(p\\)-improvement \\(H'\\) there exists \\(X'\\in C(H')\\) with \\(X'(p)=X(p)\\) or \\(X'(p)\\,P_p\\,X(p)\\). Taking \\(X\\) to be a \\(p\\)-best core allocation in \\(H\\) implies that \\(p\\)\u2019s best attainable core object in \\(H'\\) is weakly better, yielding the exact quantified statement posed in the source paper: for any \\(x\\in C(R)\\) with \\(x_i\\in \\mathrm{best}_i(C(R))\\) and any \\(\\widetilde x\\in C(\\widetilde R)\\) with \\(\\widetilde x_i\\in \\mathrm{best}_i(C(\\widetilde R))\\), one has \\(\\widetilde x_i\\,R_i\\,x_i\\). The result holds in full generality of unbounded exchange cycles and is constructive (linear time).\n\nRelated subsequent work develops broader \u201crespecting improvement\u201d frameworks for mechanisms (single-valued rules) and for stronger stability notions (e.g., strong core under partial orders), but these do not substitute for the above core-correspondence comparative statics. A remaining direction, suggested already by Bir\u00f3 et al. (2021), is to understand analogous RI-best statements in other stability models (e.g., stable roommates) and to delineate precisely which bounded-exchange restrictions reintroduce failures of monotonicity, as seen in their bounded-cycle counterexamples.",
+    "total_cost_usd": 1.37131505,
+    "citations_analyzed": 21,
     "sources": [
       {
-        "title": "On cores and indivisibility",
-        "bibtex": "@article{ShapleyScarf1974,\n  author  = {Shapley, Lloyd S. and Scarf, Herbert},\n  title   = {On cores and indivisibility},\n  journal = {Journal of Mathematical Economics},\n  year    = {1974},\n  volume  = {1},\n  number  = {1},\n  pages   = {23--37},\n  doi     = {10.1016/0304-4068(74)90033-0}\n}\n",
-        "source_url": "https://doi.org/10.1016/0304-4068(74)90033-0",
-        "theorem_or_result": "Introduces the Shapley\u2013Scarf housing market and proves nonemptiness of the core; establishes the Top Trading Cycles (TTC) construction of competitive/core outcomes in this setting.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "Provides the foundational model and the core notion whose best-allotment monotonicity under improvements is being questioned; TTC/competitive structure is the benchmark against which core behavior is compared."
-      },
-      {
-        "title": "Weak versus strong domination in a market with indivisible goods",
-        "bibtex": "@article{RothPostlewaite1977,\n  author  = {Roth, Alvin E. and Postlewaite, Andrew},\n  title   = {Weak versus strong domination in a market with indivisible goods},\n  journal = {Journal of Mathematical Economics},\n  year    = {1977},\n  volume  = {4},\n  number  = {2},\n  pages   = {131--137},\n  doi     = {10.1016/0304-4068(77)90004-9}\n}\n",
-        "source_url": "https://doi.org/10.1016/0304-4068(77)90004-9",
-        "theorem_or_result": "Shows that with strict preferences TTC yields the unique strong core allocation, which coincides with the unique competitive allocation; relates weak/strong domination concepts in housing markets.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "The open problem contrasts the well-behaved monotonicity of the unique competitive/strong-core outcome under strict preferences with the potentially multi-valued weak core under weak preferences."
-      },
-      {
-        "title": "A note on the strong core of a market with indivisible goods",
-        "bibtex": "@article{Wako1984,\n  author  = {Wako, Jun},\n  title   = {A note on the strong core of a market with indivisible goods},\n  journal = {Journal of Mathematical Economics},\n  year    = {1984},\n  volume  = {13},\n  number  = {2},\n  pages   = {189--194},\n  doi     = {10.1016/0304-4068(84)90017-6}\n}\n",
-        "source_url": "https://doi.org/10.1016/0304-4068(84)90017-6",
-        "theorem_or_result": "Establishes that the strong core is contained in the set of competitive allocations in housing markets with indivisible goods.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Clarifies the hierarchy strong core \u2286 competitive (Wako-core) \u2286 core used in the 2021 paper\u2019s monotonicity results and motivates why the weak core is the remaining difficult case."
-      },
-      {
-        "title": "Coalition-proofness of the competitive allocations in an indivisible goods market",
-        "bibtex": "@incollection{Wako1999,\n  author    = {Wako, Jun},\n  title     = {Coalition-proofness of the competitive allocations in an indivisible goods market},\n  booktitle = {Topics in Mathematical Economics and Game Theory: Essays in Honor of Robert J. Aumann},\n  series    = {Fields Institute Communications},\n  volume    = {23},\n  pages     = {277--283},\n  year      = {1999}\n}\n",
-        "source_url": "https://www.math.ias.edu/avi/book/fields23.html",
-        "theorem_or_result": "Shows that competitive allocations coincide with a core notion based on antisymmetric weak domination (the Wako-core), strengthening the conceptual characterization of competitive outcomes under weak preferences.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "The 2021 paper\u2019s positive monotonicity results for competitive allocations under weak preferences rely on this characterization; the open problem asks for an analogous statement for the (weak) core."
-      },
-      {
-        "title": "On houseswapping, the strict core, segmentation, and linear programming",
-        "bibtex": "@article{QuintWako2004,\n  author  = {Quint, Thomas and Wako, Jun},\n  title   = {On houseswapping, the strict core, segmentation, and linear programming},\n  journal = {Mathematics of Operations Research},\n  year    = {2004},\n  volume  = {29},\n  number  = {4},\n  pages   = {861--877},\n  doi     = {10.1287/moor.1040.0102}\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.1040.0102",
-        "theorem_or_result": "Provides an efficient algorithmic characterization of strong core existence and structure under weak preferences (segmentation/absorbing sets) and gives linear/integer programming formulations for core and strict core.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "The 2021 paper\u2019s strong-core monotonicity proof under weak preferences uses the Quint\u2013Wako absorbing-set graph; understanding why the weak core is harder requires this structural decomposition."
-      },
-      {
-        "title": "Housing markets through graphs",
-        "bibtex": "@article{CechlarovaFleiner2010,\n  author  = {Cechl{\\'a}rov{\\'a}, Katar{\\'i}na and Fleiner, Tam{\\'a}s},\n  title   = {Housing markets through graphs},\n  journal = {Algorithmica},\n  year    = {2010},\n  volume  = {58},\n  number  = {1},\n  pages   = {19--33},\n  doi     = {10.1007/s00453-009-9308-8}\n}\n",
-        "source_url": "https://doi.org/10.1007/s00453-009-9308-8",
-        "theorem_or_result": "Recasts housing market solution concepts via directed graph structures; simplifies and generalizes aspects of the Quint\u2013Wako approach using graph-theoretic tools.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Graph-based viewpoints (absorbing sets, reachability, best paths) underpin the monotonicity arguments in the 2021 paper; these tools may be needed to attack the open weak-core best-allotment question."
-      },
-      {
-        "title": "Shapley\u2013Scarf Housing Markets: Respecting Improvement, Integer Programming, and Kidney Exchange",
-        "bibtex": "@article{BiroKlijnKlimentovaViana2021,\n  author  = {Bir{\\'o}, P{\\'e}ter and Klijn, Flip and Klimentova, Xenia and Viana, Ana},\n  title   = {Shapley--Scarf Housing Markets: Respecting Improvement, Integer Programming, and Kidney Exchange},\n  year    = {2021},\n  note    = {arXiv:2102.00167}\n}\n",
-        "source_url": "https://arxiv.org/abs/2102.00167",
-        "theorem_or_result": "Proves respecting-improvement for the unique competitive/strong-core allocation under strict preferences; gives setwise respecting-improvement for competitive allocations under weak preferences; proves conditional respecting-improvement for the strong core when nonempty; shows failures under bounded cycle-length constraints; leaves open the weak-core best-allotment question for unbounded exchanges.",
-        "relevance_category": "BACKGROUND",
+        "title": "The core of housing markets from an agent's perspective: Is it worth sprucing up your home?",
+        "bibtex": "@article{SchlotterBiroFleiner2024CoreAgentsPerspective,\n  title={The core of housing markets from an agent's perspective: Is it worth sprucing up your home?},\n  author={Schlotter, Irene and Bir{\\'{o}}, P{\\'{e}}ter and Fleiner, Tam{\\'{a}}s},\n  journal={Mathematics of Operations Research},\n  year={2024},\n  doi={10.1287/moor.2023.0092}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2023.0092",
+        "theorem_or_result": "Theorem 2 (Schlotter\u2013Bir\u00f3\u2013Fleiner, 2024): For any housing market \\(H\\), any agent \\(p\\), any \\(p\\)-improvement \\(H'\\) of \\(H\\), and any core allocation \\(X\\in C(H)\\), there exists a core allocation \\(X'\\in C(H')\\) such that either \\(X'(p)=X(p)\\) or \\(X'(p)\\,P_p\\,X(p)\\). Moreover, such an \\(X'\\) can be found in \\(O(|H|)\\) time. Corollary 1: the core strongly satisfies the RI-best property, i.e., for any \\(p\\)-improvement \\(H'\\) of \\(H\\), every \\(a\\in \\Phi_p^+(H)\\) and \\(a'\\in \\Phi_p^+(H')\\) satisfy \\(a\\preceq_p a'\\) (equivalently \\(a'\\,R_p\\,a\\)).",
+        "relevance_category": "SOLUTION",
         "relevance_score": 10,
-        "connection": "This is the source paper that formulates the open problem: whether agent i\u2019s best core allotment can worsen after an improvement for i in unbounded markets with weak preferences."
+        "connection": "The open problem asks whether, under an improvement for agent \\(i\\) (others rank object \\(i\\) weakly higher, \\(i\\)'s own preferences fixed), agent \\(i\\)'s best attainable core allotment can become worse: for any \\(x\\in C(R)\\) with \\(x_i\\in \\mathrm{best}_i(C(R))\\) and any \\(\\tilde x\\in C(\\tilde R)\\) with \\(\\tilde x_i\\in \\mathrm{best}_i(C(\\tilde R))\\), must \\(\\tilde x_i\\,R_i\\,x_i\\) hold? This paper proves exactly this monotonicity for the core (their RI-best property) in full generality, even allowing partial orders and unbounded exchange cycles. Corollary 1 gives the setwise statement about best core outcomes across markets \\(H\\) and its \\(p\\)-improvement \\(H'\\), which matches the quantification over all best-core selections in the open problem. Thus the answer is \u2018yes\u2019: best core allotments cannot deteriorate after such an improvement."
+      },
+      {
+        "title": "The core of housing markets from an agent's perspective: Is it worth sprucing up your home?",
+        "bibtex": "@incollection{SchlotterBiroFleiner2024CoreAgentsPerspectiveProc,\n  title={The core of housing markets from an agent's perspective: Is it worth sprucing up your home?},\n  author={Schlotter, Irene and Bir{\\'{o}}, P{\\'{e}}ter and Fleiner, Tam{\\'{a}}s},\n  booktitle={Proceedings of the International Conference on Algorithmic Game Theory},\n  year={2024},\n  doi={10.1007/978-3-030-94676-0_14}\n}\n",
+        "source_url": "https://doi.org/10.1007/978-3-030-94676-0_14",
+        "theorem_or_result": "Theorem 2 (Schlotter\u2013Bir\u00f3\u2013Fleiner, 2024): For any housing market \\(H\\), any agent \\(p\\), any \\(p\\)-improvement \\(H'\\) of \\(H\\) (i.e., only \\(p\\)'s house moves weakly up in other agents\u2019 rankings, with all other relative comparisons unchanged), and any core allocation \\(X\\in C(H)\\), there exists a core allocation \\(X'\\in C(H')\\) such that either \\(X'(p)=X(p)\\) or \\(X'(p)\\succ_p X(p)\\). Moreover, such an \\(X'\\) can be found in \\(O(|H|)\\) time.",
+        "relevance_category": "SOLUTION",
+        "relevance_score": 10,
+        "connection": "The open problem asks whether, after an improvement for agent \\(i\\), the agent\u2019s best attainable core allotment can become worse: for any \\(x\\in C(R)\\) with \\(x_i\\in \\mathrm{best}_i(C(R))\\) and any \\(\\tilde x\\in C(\\tilde R)\\) with \\(\\tilde x_i\\in \\mathrm{best}_i(C(\\tilde R))\\), must \\(\\tilde x_i\\,R_i\\,x_i\\) hold?\n- Theorem 2 implies the RI-best property for the core: for any \\(x\\in C(R)\\) there exists some \\(\\tilde x\\in C(\\tilde R)\\) with \\(\\tilde x_i\\,R_i\\,x_i\\). Applying this with \\(x\\) chosen so that \\(x_i\\in \\mathrm{best}_i(C(R))\\) shows that \\(\\mathrm{best}_i(C(\\tilde R))\\) contains an object weakly preferred to \\(x_i\\).\n- Therefore it is impossible for every best core allotment after the improvement to be strictly worse than a best core allotment before the improvement; equivalently, the agent\u2019s best achievable core object cannot deteriorate.\n- In fact, this yields the stronger quantifier pattern in the open problem: if there exists \\(\\tilde x\\in C(\\tilde R)\\) with \\(\\tilde x_i\\succeq_i x_i\\), then any \\(\\tilde x\\) with \\(\\tilde x_i\\in \\mathrm{best}_i(C(\\tilde R))\\) must satisfy \\(\\tilde x_i\\succeq_i x_i\\) (since it is at least as good as that witness). Hence the stated property holds."
+      },
+      {
+        "title": "Respecting improvement in markets with indivisible goods",
+        "bibtex": "@article{RespectingImprovementIndivisibleGoods2025,\n  title={Respecting improvement in markets with indivisible goods},\n  journal={Management Science},\n  year={2025},\n  doi={10.1287/mnsc.2025.00052}\n}\n",
+        "source_url": "https://doi.org/10.1287/mnsc.2025.00052",
+        "theorem_or_result": "Main strict-domain implication: for generalized matching problems, any rule \n\\(\\phi: P^N\\to M^f\\) that satisfies individual rationality, strategy-proofness, and non-bossiness also satisfies respecting improvement (Theorem 1): for any agent \\(k\\) whose endowment improves in some other agent\u2019s ranking (a \\(k\\)-improvement), \\(\\phi_k(R'_i,R_{-i})\\,R_k\\,\\phi_k(R)\\). Corollary: extending such a strict-domain rule to weak preferences via fixed tie-breaking preserves respecting improvement on \\(R^N\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem concerns the weak core correspondence \\(C(R)\\) in (possibly unbounded-cycle) Shapley\u2013Scarf markets and asks whether agent \\(i\\)\u2019s best attainable core object (i.e., \\(\\mathrm{best}_i(C(R))\\)) is monotone under an improvement of object \\(i\\) in others\u2019 rankings. This paper does not analyze the core correspondence\u2019s comparative statics, nor does it prove monotonicity for \\(\\mathrm{best}_i(C(R))\\). Instead it studies respecting improvement for single-valued mechanisms/rules (not correspondences) and shows a general sufficient condition (IR+SP+NB) on the strict domain, with extensions to weak preferences via tie-breaking. It also discusses competitive allocations and (strong/weak) core sets in housing markets, but only derives \u2018optimistic\u2019 setwise statements for competitive allocations (and notes impossibility of satisfying such best-type properties simultaneously for multiple agents). Thus it provides tools and context but does not resolve the best-core-allotment question."
+      },
+      {
+        "title": "The strong core of housing markets with partial order preferences",
+        "bibtex": "@article{StrongCorePartialOrders,\n  title={The strong core of housing markets with partial order preferences},\n  author={Fleiner, Tam{\\'{a}}s and others},\n  year={2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper\u2019s main result on improvements is Theorem 5.4: if \\(H=(N,\\{\\succ_i\\})\\) has partial-order preferences and \\(H'\\) is a \\(p\\)-improvement of \\(H\\) (i.e., only other agents\u2019 rankings of \\(p\\)\u2019s house move weakly upward, with all other comparisons unchanged), then for any \\(X\\in SC(H)\\) and \\(X'\\in SC(H')\\) we have \\(X'(p)\\succeq_p X(p)\\). It also gives a structural characterization (Theorem 3.5) and a polynomial-time algorithm (Theorem 4.4) for finding a strong-core allocation under partial orders (with forbidden/forced arcs).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks about the (weak) core \\(C(R)\\) under weak preferences and unbounded exchange cycles: whether agent \\(i\\)\u2019s best attainable core object can become worse after an improvement for \\(i\\) (others value \\(i\\)\u2019s object more). This paper does not address the weak core; it studies the strong core \\(SC\\) (no weakly blocking cycle) under partial orders and proves a respecting-improvement property for \\(SC\\) (Theorem 5.4). While conceptually related (same monotonicity question under \u2018improvement\u2019), the result does not imply the desired statement for \\(C(R)\\), because \\(SC\\subseteq C\\) and the best-in-core comparison in the open problem is specific to \\(C\\) and to selecting \\(R_i\\)-maximal elements of \\(C\\). Thus it provides supporting techniques/insight but not a solution to the open problem."
+      },
+      {
+        "title": "Novel integer programming models for the stable kidney exchange problem",
+        "bibtex": "@article{KlimentovaBiroCostaPedrosoViana2020NovelIPStableKE,\n  title={Novel integer programming models for the stable kidney exchange problem},\n  author={Klimentova, Xenia and Bir{\\'{o}}, P{\\'{e}}ter and Costa, Virginia and Pedroso, Jo{\\~{a}}o P. and Viana, Ana},\n  year={2020},\n  eprint={2012.04918},\n  archivePrefix={arXiv}\n}\n",
+        "source_url": "https://arxiv.org/abs/2012.04918",
+        "theorem_or_result": "The paper gives integer programming formulations to compute maximum-cardinality stable and strongly stable exchanges in kidney exchange graphs with bounded cycle/chain length. In particular, it encodes stability via constraints equivalent to: for every cycle \\(c\\) there exists an arc \\((i,j)\\in A(c)\\) such that \\(j\\) is matched in the solution to some \\(k\\) with \\(k\\) weakly preferred to \\(i\\) (Proposition 1), and analogous constraints for strong stability under strict/weak preferences (Propositions 2\u20133).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns a monotonicity/respecting-improvement property for an agent\u2019s best (weak) core allotment in an unbounded Shapley\u2013Scarf housing market under an \u2018improvement\u2019 change (others rank object \\(i\\) weakly higher). This paper does not study that monotonicity question, nor best-core selections, nor unbounded exchange cycles in the Shapley\u2013Scarf model. It instead focuses on computational IP models for finding maximum-cardinality stable/strongly stable exchanges in kidney exchange with typically bounded cycle/chain lengths, and discusses trade-offs between stability and cardinality. While it cites the respecting-improvement property for the TTC outcome in the unbounded case as motivation, it provides no theorem about how core outcomes change under improvements, and no counterexample or proof for the best-core respecting-improvement question."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.08870225,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11274725,
-    "total_cost_usd": 0.2014495
+    "literature_total_cost_usd": 1.37131505,
+    "total_cost_usd": 1.4600173
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3126339575/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3126339575_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3126339575_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3126339575_p0",
-    "citations_analyzed": 0,
-    "is_open": true,
+    "citations_analyzed": 21,
+    "is_open": false,
     "model": "gpt-5.2"
   }
 }

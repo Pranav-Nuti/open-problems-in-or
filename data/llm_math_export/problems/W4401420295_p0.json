@@ -48,69 +48,23 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 6,
-    "difficulty": 7,
-    "synthesis": "The open problem asks whether global linear regularity of the constraint sets \\(\\{X_i\\}\\) suffices to guarantee a sublevel-set quadratic growth (error bound) for the composite dual objective \\(d(y)=g^*(-\\sum_i y_i)+\\sum_i \\mathrm{supp}_{X_i}(y_i)\\). The originating work by Necoara and Fercoq proves this quadratic growth under a Slater-type relative-interior condition (allowing some polyhedral sets) and explicitly conjectures that linear regularity might be enough, but does not establish it.\n\nWith no forward-citation evidence provided here, there is currently no identified paper that resolves the conjecture. Existing background results connect Slater-type conditions to bounded linear regularity (Bauschke--Borwein--Li) and show quadratic growth for duals in polyhedral/linear-constraint settings (e.g., Necoara--Nedelcu) or for augmented formulations under compactness (Gidel--Pedregosa--Lacoste-Julien). However, none of these directly implies quadratic growth of \\(d\\) under mere global linear regularity for general (possibly nonpolyhedral, unbounded) sets.\n\nPromising directions suggested by the source paper\u2019s proof strategy include: (i) deriving a decomposition of the dual solution set \\(Y^*\\) into a subspace plus a compact set (as done under Slater) using only linear regularity; and/or (ii) proving an error bound for the KKT mapping \\(0\\in \\partial d(y)\\) from metric regularity/subtransversality properties implied by linear regularity. Establishing such a link would likely require additional assumptions (e.g., amenability, definability, or some form of constraint qualification beyond linear regularity) or a counterexample demonstrating failure in full generality.",
-    "total_cost_usd": 0.0722995,
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
     "citations_analyzed": 0,
-    "sources": [
-      {
-        "title": "Linear convergence of dual coordinate descent on non-polyhedral convex problems",
-        "bibtex": "@article{NecoaraFercoq2019LinearConvergenceDualCD,\n  title        = {Linear convergence of dual coordinate descent on non-polyhedral convex problems},\n  author       = {Necoara, Ion and Fercoq, Olivier},\n  year         = {2019},\n  journal      = {arXiv preprint},\n  eprint       = {1911.06014},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC}\n}\n",
-        "source_url": "https://arxiv.org/abs/1911.06014",
-        "theorem_or_result": "Proves local quadratic growth of the dual objective \\(d(y)=g^*(-\\sum_i y_i)+\\sum_i \\mathrm{supp}_{X_i}(y_i)\\) on any sublevel set under a Slater-type condition (allowing some \\(X_i\\) polyhedral), yielding linear convergence of randomized (accelerated) dual coordinate descent and randomized Dykstra.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the originating work that poses the open question: whether the same sublevel-set quadratic growth of \\(d\\) holds assuming only global linear regularity of \\(\\{X_i\\}\\), without Slater/relative-interior assumptions."
-      },
-      {
-        "title": "Strong conical hull intersection property, bounded linear regularity, Jameson property, and error bounds in convex optimization",
-        "bibtex": "@article{BauschkeBorweinLi1999StrongConicalHull,\n  title   = {Strong conical hull intersection property, bounded linear regularity, Jameson property, and error bounds in convex optimization},\n  author  = {Bauschke, Heinz H. and Borwein, Jonathan M. and Li, Wenyuan},\n  journal = {Mathematical Programming},\n  year    = {1999},\n  volume  = {86},\n  pages   = {135--160}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s101070050089",
-        "theorem_or_result": "Develops relationships among geometric regularity properties of convex set collections (including bounded linear regularity) and error bounds; provides conditions under which Slater-type assumptions imply bounded linear regularity.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides foundational results connecting Slater/relative-interior conditions to (bounded) linear regularity; relevant for assessing whether linear regularity alone could imply the dual quadratic growth/error bound sought in the open problem."
-      },
-      {
-        "title": "Linear convergence of first order methods for non-strongly convex optimization",
-        "bibtex": "@article{NecoaraNesterovGlineur2019LinearConvergenceFOM,\n  title   = {Linear convergence of first order methods for non-strongly convex optimization},\n  author  = {Necoara, Ion and Nesterov, Yurii and Glineur, Fran{\\c{c}}ois},\n  journal = {Mathematical Programming},\n  year    = {2019},\n  volume  = {175},\n  number  = {1},\n  pages   = {69--107}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s10107-018-1232-1",
-        "theorem_or_result": "Establishes linear convergence of first-order methods under error bound/quadratic growth conditions and discusses equivalences and implications among these regularity notions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Supplies the algorithmic motivation and the equivalence between quadratic growth and error bounds used in the original paper; helps frame what must be proved for \\(d\\) under linear regularity."
-      },
-      {
-        "title": "On linear convergence of a distributed dual gradient algorithm for linearly constrained separable convex problems",
-        "bibtex": "@article{NecoaraNedelcu2015DistributedDualGradient,\n  title   = {On linear convergence of a distributed dual gradient algorithm for linearly constrained separable convex problems},\n  author  = {Necoara, Ion and Nedelcu, Vlad},\n  journal = {Automatica},\n  year    = {2015},\n  volume  = {55},\n  pages   = {209--216}\n}\n",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0005109815000330",
-        "theorem_or_result": "Proves dual error bounds/linear convergence for dual gradient methods in linearly constrained settings, leveraging strong convexity of the primal objective.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Represents the polyhedral/linear-constraint analogue where dual quadratic growth is known; serves as a comparison point for extending to general convex-set intersections under linear regularity."
-      },
-      {
-        "title": "Frank-Wolfe splitting via augmented Lagrangian method",
-        "bibtex": "@inproceedings{GidelPedregosaLacosteJulien2018FrankWolfeSplitting,\n  title     = {Frank-Wolfe splitting via augmented Lagrangian method},\n  author    = {Gidel, Gauthier and Pedregosa, Fabian and Lacoste-Julien, Simon},\n  booktitle = {International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year      = {2018}\n}\n",
-        "source_url": "http://proceedings.mlr.press/v84/gidel18a.html",
-        "theorem_or_result": "Shows quadratic growth for certain augmented dual/ALM-based formulations under compactness assumptions and Slater-type conditions, enabling faster rates for splitting methods.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 4,
-        "connection": "Cited in the source paper as related work proving quadratic growth under boundedness/compactness; highlights that removing such assumptions (or replacing Slater by linear regularity) is nontrivial."
-      }
-    ]
+    "sources": []
   },
   "costs": {
     "extractor_total_cost_usd": 0.063546,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0722995,
-    "total_cost_usd": 0.1358455
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.063546
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401420295/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4401420295_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4401420295_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4401420295_p0",

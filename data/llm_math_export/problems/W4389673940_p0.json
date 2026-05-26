@@ -51,80 +51,71 @@
     "model": "gpt-5.2",
     "importance": 7,
     "difficulty": 8,
-    "synthesis": "The objective in the open problem is to minimize \\(\\sum_{i=1}^k d(V_i)\\), where \\(d(U)=|\\delta(U)|\\) is the hypergraph cut function. The source paper (Beideman\u2013Chandrasekaran\u2013Wang) emphasizes that this objective is distinct from Hypergraph-\\(k\\)-Cut (minimizing \\(|\\delta(V_1,\\dots,V_k)|\\)) and from Minmax-Hypergraph-\\(k\\)-Partition (minimizing \\(\\max_i d(V_i)\\)). Their main structural tool (recovery of optimum cut-sets via small terminal sets) successfully yields deterministic polynomial-time algorithms for fixed \\(k\\) for Hypergraph-\\(k\\)-Cut and for Minmax-Hypergraph-\\(k\\)-Partition, and even enumeration of all optimum cut-sets for these objectives. However, they explicitly note that \u201cnatural variants\u201d of their structural theorem fail for the min-sum-of-boundaries objective, leaving its complexity unresolved for fixed \\(k\\ge 5\\).\n\nRelated work provides partial context but not a resolution. Lawler\u2019s early paper introduced hypergraph cutset/partition formulations, while later divide-and-conquer frameworks (Okumoto\u2013Fukunaga\u2013Nagamochi) treat several hypergraph/submodular partitioning objectives and highlight the broader connection to submodular \\(k\\)-partitioning. On the algorithmic side, Chandrasekaran\u2013Chekuri established polynomial-time solvability for fixed \\(k\\) of Hypergraph-\\(k\\)-Cut and of minmax partitioning for symmetric submodular functions (hence Minmax-Hypergraph-\\(k\\)-Partition), and subsequent work enumerated all minimum \\(k\\)-cut-sets. These results suggest that terminal-cut structure can tame certain hypergraph partitioning objectives for fixed \\(k\\), but they do not extend to minimizing \\(\\sum_i d(V_i)\\), which remains a key gap.\n\nPromising directions suggested implicitly by the source paper are: (i) identify a new structural characterization tailored to \\(\\sum_i d(V_i)\\) (since direct analogues of Theorem 1.4 fail), perhaps via alternative uncrossing/laminarity phenomena for collections \\(\\{V_i\\}\\); (ii) attempt hardness reductions for fixed \\(k\\ge 5\\) exploiting the fact that \\(\\sum_i d(V_i)\\) counts each hyperedge proportionally to the number of parts it touches (unlike Hypergraph-\\(k\\)-Cut which counts each crossing hyperedge once), potentially enabling encoding of constraint satisfaction; and (iii) study restricted hypergraph classes (bounded rank, bounded degree, or linear hypergraphs) where the objective might become tractable and could guide the general case.",
-    "total_cost_usd": 0.08969275,
-    "citations_analyzed": 0,
+    "synthesis": "The objective in the open problem is the minsum boundary variant of hypergraph \\(k\\)-partitioning: minimize \\(\\sum_{i=1}^k d(V_i)\\) where \\(d(U)=|\\delta(U)|\\) is the (unweighted) hypergraph cut function. In the notation of the source paper, this is distinct from Hypergraph-\\(k\\)-Cut (which minimizes \\(|\\delta(V_1,\\dots,V_k)|\\) counting each crossing hyperedge once) and from Minmax-Hypergraph-\\(k\\)-Partition (which minimizes \\(\\max_i d(V_i)\\)). The source paper develops powerful terminal-cut structural theorems (notably Theorem 1.4) enabling deterministic enumeration for Hypergraph-\\(k\\)-Cut and Minmax-Hypergraph-\\(k\\)-Partition for fixed \\(k\\), but it explicitly notes that analogous structure fails for the minsum boundary objective and leaves its complexity for \\(k\\ge 5\\) open.\n\nSubsequent work on submodular partitioning has made partial progress on the minsum side. The strongest direct advance toward the stated objective is the polynomial-time algorithm for minimum 4-partition of a general submodular function, which implies a polynomial-time algorithm for minimum 5-partition when the function is symmetric submodular; since hypergraph cut functions are symmetric submodular, this yields a polynomial-time algorithm for the hypergraph minsum boundary objective at \\(k=5\\). However, no general polynomial-time algorithm is known for fixed \\(k\\ge 6\\), and no NP-hardness is established for fixed \\(k\\ge 5\\) in the unweighted hypergraph setting.\n\nOn the minmax and standard \\(k\\)-cut sides, polynomial-time solvability for fixed \\(k\\) is now well developed: minmax symmetric-submodular partitioning admits an \\(n^{O(k^2)}\\)-time algorithm, and hypergraph minimum \\(k\\)-cut admits deterministic enumeration algorithms for fixed \\(k\\). These results supply techniques (terminal-cut enumeration, contraction/uncrossing structure) that may inform future attacks on the minsum boundary objective, but current literature still treats the fixed-\\(k\\) minsum symmetric-submodular/hypergraph partition problem beyond \\(k=5\\) as open.",
+    "total_cost_usd": 0.8161825,
+    "citations_analyzed": 7,
     "sources": [
       {
-        "title": "Cutsets and Partitions of Hypergraphs",
-        "bibtex": "@article{Lawler1973Cutsets,\n  author = {Lawler, E.},\n  title = {Cutsets and Partitions of Hypergraphs},\n  journal = {Networks},\n  year = {1973}\n}\n",
-        "source_url": "https://doi.org/10.1002/net.3230030405",
-        "theorem_or_result": "Introduces early formulations of hypergraph cutset/partition problems, including objectives based on hyperedge boundary/cutsets.",
-        "relevance_category": "BACKGROUND",
+        "title": "Min\u2013max partitioning of hypergraphs and symmetric submodular functions",
+        "bibtex": "@article{ChandrasekaranChekuri2023MinmaxSymSubmod,\n  title        = {Min--max partitioning of hypergraphs and symmetric submodular functions},\n  author       = {Chandrasekaran, Karthekeyan and Chekuri, Chandra},\n  journal      = {Combinatorica},\n  year         = {2023},\n  doi          = {10.1007/s00493-023-00021-y},\n  url          = {https://doi.org/10.1007/s00493-023-00021-y}\n}\n",
+        "source_url": "https://doi.org/10.1007/s00493-023-00021-y",
+        "theorem_or_result": "The paper proves that Minmax-SymSubmod-\\(k\\)-Part is solvable in polynomial time for any fixed \\(k\\): given a symmetric submodular function \\(f:2^V\\to\\mathbb R\\) via an evaluation oracle, one can find a \\(k\\)-partition \\((V_1,\\dots,V_k)\\) minimizing \\(\\max_i f(V_i)\\) in time \\(n^{O(k^2)}T\\), where \\(n=|V|\\) and \\(T\\) is the oracle evaluation time (Theorems 1.2 and 3.1). As a corollary, Minmax-Hypergraph-\\(k\\)-Part (minimize \\(\\max_i w(\\delta(V_i))\\)) has an \\(n^{O(k^2)}m\\)-time algorithm for fixed \\(k\\) (Theorem 1.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the complexity of the *minsum* hypergraph \\(k\\)-partition objective \\(\\min \\sum_{i=1}^k |\\delta(V_i)|\\) for fixed \\(k\\ge 5\\). This paper primarily resolves the *minmax* variant (minimize \\(\\max_i |\\delta(V_i)|\\)) for fixed \\(k\\) via a structural theorem (Theorem 1.3) and a contraction-based enumeration algorithm. It does not give a polynomial-time algorithm or NP-hardness for the minsum objective on hypergraphs. It does, however, discuss the minsum symmetric-submodular partition problem (Sym-Submod-\\(k\\)-Part) and proves a structural theorem for minsum (Theorem 4.1) that yields solvability for Sym-Submod-\\(k\\)-Part up to \\(k\\le 5\\) assuming an algorithm for Submod-\\((k-1)\\)-Part; but it explicitly states that a general fixed-\\(k\\) polynomial-time algorithm for the minsum symmetric-submodular/hypergraph partition problem remains open."
+      },
+      {
+        "title": "A polynomial time algorithm for finding a minimum 4-partition of a submodular function",
+        "bibtex": "@article{Iwata2023Minimum4Partition,\n  title        = {A polynomial time algorithm for finding a minimum 4-partition of a submodular function},\n  author       = {Iwata, Satoru and Wahlstr{\"o}m, Magnus and Yoshida, Yuichi},\n  journal      = {Mathematical Programming},\n  year         = {2023},\n  doi          = {10.1007/s10107-023-02029-0},\n  url          = {https://doi.org/10.1007/s10107-023-02029-0}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-023-02029-0",
+        "theorem_or_result": "The paper gives the first polynomial-time exact algorithm for the minimum 4-partition problem for a general submodular function: given submodular \n\\(f:2^V\\to\\mathbb R\\), it computes a 4-partition \\(\\{V_1,V_2,V_3,V_4\\}\\) minimizing \\(\\sum_{i=1}^4 f(V_i)\\) in time \\(O(n^6\\tau(n))\\), where \\(n=|V|\\) and \\(\\tau(n)\\) is the time for submodular function minimization (Theorem 6.1). As a corollary, it computes a minimum 5-partition for symmetric submodular functions in time \\(O(n^{14}\\tau(n))\\) (Corollary 6.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "For a hypergraph \\(G=(V,E)\\), the boundary function \\(d(U)=|\\delta(U)|\\) is a symmetric submodular function. The open problem asks for the complexity of minimizing \\(\\sum_{i=1}^k d(V_i)\\) over \\(k\\)-partitions for fixed \\(k\\ge 5\\) (unweighted hypergraphs). This paper advances the general submodular-partition landscape by settling \\(k=4\\) in polynomial time and giving a polynomial-time algorithm for \\(k=5\\) only in the symmetric-submodular setting via reduction to the (general) 4-partition algorithm. However, it does not provide a polynomial-time algorithm (nor NP-hardness) for fixed \\(k\\ge 5\\) for hypergraph boundary objectives; it explicitly states the fixed-\\(k\\) submodular \\(k\\)-partition problem remains open for \\(k\\ge 5\\), and even shows a compatibility-based approach fails for 5-partitions (Section 7)."
+      },
+      {
+        "title": "Minimum Cut and Minimum k-Cut in Hypergraphs via Branching Contractions",
+        "bibtex": "@article{FoxPanigrahiZhang2023BranchingContractions,\n  title        = {Minimum Cut and Minimum $k$-Cut in Hypergraphs via Branching Contractions},\n  author       = {Fox, Kyle and Panigrahi, Debmalya and Zhang, Fan},\n  journal      = {ACM Transactions on Algorithms},\n  year         = {2023},\n  doi          = {10.1145/3570162},\n  url          = {https://doi.org/10.1145/3570162}\n}\n",
+        "source_url": "https://doi.org/10.1145/3570162",
+        "theorem_or_result": "From the title/abstract only: the paper gives algorithms for minimum cut and minimum \\(k\\)-cut in hypergraphs using a \u201cbranching contractions\u201d framework, with running time expressed in terms of \\(m\\) hyperedges, \\(n\\) vertices, and \\(p\\) total hyperedge size. (No precise theorem statement is available from the provided abstract snippet.)",
+        "relevance_category": "RELATED_TOOL",
         "relevance_score": 4,
-        "connection": "Provides historical context for hypergraph partitioning objectives; does not resolve complexity of minimizing \\(\\sum_i |\\delta(V_i)|\\)."
+        "connection": "The open problem asks for the complexity of minimizing \\(\\sum_{i=1}^k |\\delta(V_i)|\\) over \\(k\\)-partitions for fixed \\(k\\ge 5\\). This objective is not the standard minimum \\(k\\)-cut objective (which typically minimizes the number/weight of hyperedges crossing between different parts, counted once per hyperedge). However, algorithms/techniques for hypergraph minimum cut and minimum \\(k\\)-cut may be relevant as potential subroutines or as a starting point for reductions/complexity comparisons. Based only on the title/abstract, there is no indication the paper studies the \u201csum of boundary sizes\u201d objective or resolves its complexity for fixed \\(k\\ge 5\\)."
       },
       {
-        "title": "Divide-and-conquer algorithms for partitioning hypergraphs and submodular systems",
-        "bibtex": "@article{Okumoto2012Divide,\n  author = {Okumoto, K. and Fukunaga, T. and Nagamochi, H.},\n  title = {Divide-and-conquer algorithms for partitioning hypergraphs and submodular systems},\n  journal = {Algorithmica},\n  year = {2012}\n}\n",
-        "source_url": "https://doi.org/10.1007/s00453-011-9570-8",
-        "theorem_or_result": "Develops divide-and-conquer frameworks for several hypergraph/submodular partitioning objectives, highlighting tractable cases and structural approaches.",
+        "title": "Deterministic enumeration of all minimum cut-sets and k-cut-sets in hypergraphs for fixed k",
+        "bibtex": "@article{BeidemanChandrasekaranWang2023EnumKCutSets,\n  title        = {Deterministic enumeration of all minimum cut-sets and $k$-cut-sets in hypergraphs for fixed $k$},\n  author       = {Beideman, Calvin and Chandrasekaran, Karthekeyan and Wang, Weihang},\n  journal      = {Mathematical Programming},\n  year         = {2023},\n  doi          = {10.1007/s10107-023-02013-8},\n  url          = {https://doi.org/10.1007/s10107-023-02013-8}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-023-02013-8",
+        "theorem_or_result": "The paper proves that for every fixed integer \\(k\\ge 2\\), all minimum \\(k\\)-cut-sets in a hypergraph \\(G=(V,E)\\) with nonnegative hyperedge costs can be enumerated in deterministic polynomial time. Concretely (Theorem 1.1 / Theorem 2.1), it gives a deterministic algorithm that enumerates \\(n^{O(k)}\\) minimum \\((S,T)\\)-terminal cuts for all \\(|S|,|T|\\le 2k-1\\), forms a candidate family \\(\\mathcal F\\) of \\(k\\)-cut-sets, and returns exactly the minimum-cost \\(k\\)-cut-sets; runtime \\(O(n^{4k-2})T(n,p)+O(n^{4k^2-2k}p)\\), where \\(T(n,p)\\) is the time for a minimum terminal cut in an \\(n\\)-vertex hypergraph of size \\(p\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for the complexity of minimizing \\(\\sum_{i=1}^k |\\delta(V_i)|\\) over \\(k\\)-partitions (fixed \\(k\\ge 5\\)). This paper instead studies the standard Hypergraph-\\(k\\)-Cut objective: minimize the cost of hyperedges crossing the \\(k\\)-partition, i.e. \\(|\\delta(V_1,\\dots,V_k)|\\), equivalently minimum \\(k\\)-cut-set. It provides deterministic enumeration and structural theorems for minimum \\(k\\)-cut-sets via small-witness terminal cuts. These techniques may be relevant as tools (terminal-cut based structure/uncrossing) but do not address the different objective \\(\\sum_i |\\delta(V_i)|\\), nor prove NP-hardness or a polytime algorithm for that objective."
+      },
+      {
+        "title": "Algorithms for new objectives in graph partitioning and generalizations",
+        "bibtex": "@phdthesis{BeidemanThesis2023NewObjectives,\n  title        = {Algorithms for new objectives in graph partitioning and generalizations},\n  author       = {Beideman, Calvin},\n  school       = {University of Illinois Urbana-Champaign},\n  year         = {2023},\n  url          = {https://arxiv.org/abs/????}\n}\n",
+        "source_url": "https://arxiv.org/search/?query=Algorithms+for+new+objectives+in+graph+partitioning+and+generalizations",
+        "theorem_or_result": "The thesis studies several graph/hypergraph partitioning objectives. Relevant to the open problem, it defines Hypergraph-k-Partition (minimize \\(\\sum_{i=1}^k w(\\delta(V_i))\\)) and focuses mainly on (i) Minmax-Hypergraph-k-Partition and Hypergraph-k-Cut (objective \\(w(\\delta(V_1,\\dots,V_k))\\)), and (ii) enumeration algorithms for optimum solutions when \\(k\\) is fixed. It states deterministic polynomial-time enumeration algorithms for fixed \\(k\\): Enum-Hypergraph-k-Cut in \\(O(n^{16k-25}p)\\) time and Enum-MinMax-Hypergraph-k-Partition in \\(O(k n^{4k^2-2k+1}p)\\) time (as summarized in the introduction).",
         "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Related algorithmic techniques for hypergraph/submodular partitioning; does not settle the specific min-sum-of-boundaries objective for fixed \\(k\\ge 5\\)."
-      },
-      {
-        "title": "Hypergraph k-cut for fixed k in deterministic polynomial time",
-        "bibtex": "@inproceedings{ChandrasekaranChekuri2020Hypergraph,\n  author = {Chandrasekaran, Karthekeyan and Chekuri, Chandra},\n  title = {Hypergraph k-cut for fixed k in deterministic polynomial time},\n  booktitle = {Proceedings of the 61st Annual Symposium on Foundations of Computer Science (FOCS)},\n  year = {2020}\n}\n",
-        "source_url": "https://doi.org/10.1109/FOCS46700.2020.00079",
-        "theorem_or_result": "Gives a deterministic polynomial-time algorithm for Hypergraph-\\(k\\)-Cut for fixed \\(k\\), using structural properties of hypergraph cut functions and terminal cuts.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Shows some hypergraph \\(k\\)-partitioning objectives are polytime for fixed \\(k\\), but explicitly distinguishes Hypergraph-\\(k\\)-Cut from minimizing \\(\\sum_i |\\delta(V_i)|\\)."
-      },
-      {
-        "title": "Min-max partitioning of hypergraphs and symmetric submodular functions",
-        "bibtex": "@inproceedings{ChandrasekaranChekuri2021Minmax,\n  author = {Chandrasekaran, Karthekeyan and Chekuri, Chandra},\n  title = {Min-max partitioning of hypergraphs and symmetric submodular functions},\n  booktitle = {Proceedings of the 32nd Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2021}\n}\n",
-        "source_url": "https://doi.org/10.1137/1.9781611976465.62",
-        "theorem_or_result": "Provides a deterministic polynomial-time algorithm for Minmax-SymSubmod-\\(k\\)-Partition for fixed \\(k\\), implying polytime solvability of Minmax-Hypergraph-\\(k\\)-Partition.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Contrasts with the open min-sum-of-boundaries objective; indicates minmax variants are tractable while minsum variants remain open for larger \\(k\\)."
-      },
-      {
-        "title": "Deterministic enumeration of all minimum k-cut-sets in hypergraphs for fixed k",
-        "bibtex": "@inproceedings{BeidemanChandrasekaranWang2022Enum,\n  author = {Beideman, Calvin and Chandrasekaran, Karthekeyan and Wang, Weihang},\n  title = {Deterministic enumeration of all minimum k-cut-sets in hypergraphs for fixed k},\n  booktitle = {Proceedings of the 33rd Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year = {2022}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611977073.7",
-        "theorem_or_result": "Gives deterministic enumeration of all minimum \\(k\\)-cut-sets for Hypergraph-\\(k\\)-Cut for fixed \\(k\\), via terminal-cut structure and uncrossing.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "Develops structural/algorithmic machinery for hypergraph cut objectives; does not address minimizing \\(\\sum_i |\\delta(V_i)|\\)."
-      },
-      {
-        "title": "Counting and enumerating optimum cut sets for hypergraph k-partitioning problems for fixed k",
-        "bibtex": "@article{BeidemanChandrasekaranWang2023Counting,\n  author = {Beideman, Calvin and Chandrasekaran, Karthekeyan and Wang, Weihang},\n  title = {Counting and enumerating optimum cut sets for hypergraph k-partitioning problems for fixed k},\n  year = {2023},\n  eprint = {2204.09178},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.DS}\n}\n",
-        "source_url": "https://arxiv.org/abs/2204.09178",
-        "theorem_or_result": "Proves structural theorems (notably Theorem 1.4) enabling enumeration of min-\\(k\\)-cut-sets and minmax-\\(k\\)-cut-sets in hypergraphs for fixed \\(k\\); explicitly states the min-sum-of-boundaries objective \\(\\sum_i |\\delta(V_i)|\\) remains open for \\(k\\ge 5\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "This is the source paper posing the open problem; it clarifies that their terminal-cut techniques do not extend to the \\(\\sum_i |\\delta(V_i)|\\) objective and leaves complexity open for fixed \\(k\\ge 5\\)."
+        "relevance_score": 3,
+        "connection": "The open problem asks for the computational complexity (polytime vs NP-hard) of Hypergraph-k-Partition with the minsum boundary objective \\(\\min \\sum_{i=1}^k |\\delta(V_i)|\\) for fixed \\(k\\ge 5\\) in unweighted hypergraphs. This thesis explicitly defines that same objective as \u201cHypergraph-k-Partition\u201d (a symmetric submodular k-partition instance), but the provided excerpt does not contain a hardness proof or a polynomial-time exact algorithm for this objective for fixed \\(k\\ge 5\\). Instead, the thesis discusses: (a) exact/approx/FPT results for graph minmax objectives, (b) hardness/approx for \\(\\ell_p\\)-norm multiway cut, and (c) enumeration algorithms for Hypergraph-k-Cut and Minmax-Hypergraph-k-Partition. Thus it provides context and related techniques (submodular/hypergraph partitioning framework, enumeration/structural results), but does not resolve the stated complexity question for the minsum boundary objective."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.0654325,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.08969275,
-    "total_cost_usd": 0.15512525
+    "literature_total_cost_usd": 0.8161825,
+    "total_cost_usd": 0.881615
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4389673940/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4389673940_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4389673940_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4389673940_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 7,
     "is_open": true,
     "model": "gpt-5.2"
   }

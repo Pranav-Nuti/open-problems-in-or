@@ -51,109 +51,91 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 9,
+    "importance": 8,
     "difficulty": 9,
-    "synthesis": "The source paper formalizes a data-acquisition marketplace in which agents\u2019 utilities include privacy costs that depend on others\u2019 participation because correlated data creates information leakage. In their model, equilibrium participation has a threshold structure, and the analyst designs a truthful menu of payments and selection probabilities to minimize a worst-case bias\u2013variance objective for a Horvitz\u2013Thompson estimator under a budget constraint. A key takeaway is that correlation-driven leakage can induce oversharing and allow the platform to underpay relative to settings without leakage, echoing the privacy-paradox narrative.\n\nExisting literature provides strong foundations for procurement mechanisms and privacy pricing, but does not yet deliver a general \u201cregulatory layer\u201d \\(R\\in\\mathcal R\\) that robustly internalizes correlation-driven externalities. Acemoglu et al. develop the core economic logic of leakage as an externality and show resulting inefficiencies in prices and sharing. The truthful survey/data-procurement line (Roth\u2013Schoenebeck; Chen et al.; Chen\u2013Zheng) gives optimal or near-optimal allocation/payment rules under budget constraints, including bias\u2013variance trade-offs, but typically treats privacy as an individual cost rather than a network/correlation externality. Differential-privacy procurement work (Ghosh\u2013Roth; Cummings et al.; Nissim\u2013Vadhan\u2013Xiao) clarifies how to pay for privacy loss \\(\\varepsilon\\) and achieve accuracy guarantees, yet the source paper argues that DP on released statistics does not eliminate leakage incentives when agents\u2019 data are correlated and when participation itself generates inference about nonparticipants.\n\nPromising directions for interventions \\(\\mathcal R\\) suggested by this landscape include: (i) externality-correcting compensation rules that pay agents partly for marginal leakage imposed on correlated peers (a Pigouvian-style transfer), (ii) correlation-aware privacy accounting and constraints on inference/secondary use (building on correlation-aware collection tools), and (iii) market rules that restrict or randomize participation/selection in ways that reduce the informational content of participation decisions themselves (since equilibrium participation thresholds can be exploited). However, a broadly applicable mechanism/regulatory framework that is incentive compatible, budget feasible, and provably mitigates correlation-driven leakage across heterogeneous groups remains undeveloped; thus the problem appears open.",
-    "total_cost_usd": 0.129808,
-    "citations_analyzed": 0,
+    "synthesis": "The source paper (Liao\u2013Su\u2013Ziani\u2013Wierman\u2013Huang, 2021) formalizes the privacy paradox in a data-acquisition mechanism with verifiable data and correlation-driven privacy externalities: an agent who does not participate still incurs privacy loss \\(g(c,\\theta_i;\\alpha_i)\\) from others\u2019 participation, while a participant incurs \\(h(c,\\theta_i;\\alpha_i)=c\\,b(\\theta_i;\\alpha_i)\\). This creates a wedge \\(h-g\\) that lets the platform induce participation with lower payments and can generate oversharing and inefficiency. The open problem asks for interventions \\(R\\in\\mathcal R\\) that mitigate this information leakage (inference about nonparticipants from correlated participants) beyond standard fixes like competition or differential privacy.\n\nAmong forward citations, none directly propose or analyze such correlation-targeted regulatory interventions. The closest partial progress comes from differential-privacy-based mechanism design for data acquisition (\"Bridging central and local differential privacy in data acquisition mechanisms\" and \"Optimal and differentially private data acquisition: Central and local mechanisms\"), which provide strong tools for incentive-compatible payments and for choosing privacy parameters to trade off estimation error and compensation. However, these works largely assume conditional independence across agents and treat privacy loss as individual (DP/RDP) rather than as an externality induced by correlation \\(\\alpha\\); consequently, they do not address the core channel in the source model where participation of one agent changes others\u2019 utilities via \\(g\\) and \\(h\\).\n\nOther citing works study marketplace interventions of a different kind (fairness/balance constraints, demographic secrecy, or user-facing redaction tools). They are useful methodologically: they show how constraints imposed alongside a market mechanism can backfire by preventing market formation, and how costs of interventions can amortize with market growth. Translating these lessons to privacy-externality mitigation suggests that promising directions for \\(\\mathcal R\\) likely require explicit limits on inference about nonparticipants (e.g., correlation-aware privacy constraints, restrictions on cross-agent predictive use, or compensation rules internalizing \\(g\\)-type externalities), and equilibrium analysis to avoid participation collapse. Based on the provided forward-citation set, the problem remains open.",
+    "total_cost_usd": 0.5271245,
+    "citations_analyzed": 8,
     "sources": [
       {
-        "title": "Too much data: Prices and inefficiencies in data markets",
-        "bibtex": "@techreport{acemoglu2019toomuchdata,\n  title        = {Too much data: Prices and inefficiencies in data markets},\n  author       = {Acemoglu, Daron and Makhdoumi, Ali and Malekian, Azarakhsh and Ozdaglar, Asuman},\n  year         = {2019},\n  institution  = {National Bureau of Economic Research},\n  type         = {Working Paper}\n}\n",
-        "source_url": "https://www.nber.org/papers/w26296",
-        "theorem_or_result": "Introduces correlation-driven information leakage as a negative externality in data markets; shows it can induce oversharing and lead to inefficiently low prices/payments and welfare losses, with non-monotonicities in total payments as market size changes.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "Provides the core economic externality mechanism (correlated-data leakage) underlying the privacy paradox; motivates regulatory/market-design interventions that internalize externalities or constrain inference."
-      },
-      {
-        "title": "Selling privacy at auction",
-        "bibtex": "@inproceedings{ghosh2011sellingprivacy,\n  title     = {Selling privacy at auction},\n  author    = {Ghosh, Arpita and Roth, Aaron},\n  booktitle = {Proceedings of the 12th ACM Conference on Electronic Commerce (EC)},\n  year      = {2011},\n  doi       = {10.1145/1993574.1993605}\n}\n",
-        "source_url": "https://doi.org/10.1145/1993574.1993605",
-        "theorem_or_result": "Foundational mechanism-design framework for purchasing private data under differential privacy, modeling privacy cost as proportional to privacy loss parameter \\(\\varepsilon\\), and designing auctions to buy privacy/participation.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Baseline for marketplace mechanisms with privacy costs; highlights limits when privacy is treated as individual and independent, contrasting with correlation-driven leakage externalities."
-      },
-      {
-        "title": "Accuracy for sale: Aggregating data with a variance constraint",
-        "bibtex": "@inproceedings{cummings2015accuracyforsale,\n  title     = {Accuracy for sale: Aggregating data with a variance constraint},\n  author    = {Cummings, Rachel and Ligett, Katrina and Roth, Aaron and Wu, Zhiwei Steven and Ziani, Juba},\n  booktitle = {Proceedings of the 2015 Conference on Innovations in Theoretical Computer Science (ITCS)},\n  year      = {2015}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/2688073.2688085",
-        "theorem_or_result": "Studies buying data/participation with privacy concerns to achieve target statistical accuracy (variance constraints), connecting payments, privacy loss, and estimator accuracy.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Represents the DP-based regulatory/market-design approach; useful comparator because correlation-driven leakage can persist even when DP is applied to the released statistic."
-      },
-      {
-        "title": "Conducting truthful surveys, cheaply",
-        "bibtex": "@inproceedings{roth2012conductingtruthfulsurveyscheaply,\n  title     = {Conducting truthful surveys, cheaply},\n  author    = {Roth, Aaron and Schoenebeck, Grant},\n  booktitle = {Proceedings of the 13th ACM Conference on Electronic Commerce (EC)},\n  year      = {2012},\n  doi       = {10.1145/2229012.2229073}\n}\n",
-        "source_url": "https://doi.org/10.1145/2229012.2229073",
-        "theorem_or_result": "Mechanisms for truthful data procurement under budget constraints, focusing on unbiased estimation and worst-case variance bounds when costs correlate with data.",
-        "relevance_category": "BACKGROUND",
+        "title": "Bridging central and local differential privacy in data acquisition mechanisms",
+        "bibtex": "@article{BridgingCentralLocalDPDataAcquisition,\n  title={Bridging central and local differential privacy in data acquisition mechanisms},\n  author={},\n  year={\\n  },\n  note={Metadata incomplete in provided forward-citation analysis; add venue/arXiv/author list when available}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For Bayesian data acquisition with users having heterogeneous weights between local and central R\u00e9nyi differential privacy losses, the optimal incentive-compatible and individually rational mechanism reduces pointwise (for each reported type vector \\(c\\)) to minimizing \\(\\gamma\\,\\mathrm{MSE}(\\varepsilon^{(l)},\\varepsilon^{(c)},\\hat\\theta)+\\sum_i \\psi_i(c_i)\\varepsilon^{(l)}_i+\\sum_i (1-\\psi_i(c_i))\\varepsilon^{(c)}_i\\) (Theorem 2), where \\(\\psi_i(c)=c+F_i(c)/f_i(c)\\) is the virtual cost. For linear estimators with Gaussian mechanisms, the resulting nonconvex program (7) admits a PTAS: for any \\(\\delta>0\\), Algorithm 1 outputs \\((\\varepsilon^{(l)},\\varepsilon^{(c)},\\hat\\theta)\\) with objective within factor \\(1+\\delta\\) of optimal in time \\(\\mathrm{poly}(n,1/\\delta)\\) (Theorem 3). Additionally, in an optimal Gaussian two-part mechanism it is never optimal to add extra central noise (Proposition 1: the optimal central-noise privacy parameter satisfies \\(\\varepsilon=\\infty\\)).",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 6,
-        "connection": "Core procurement model extended by the source paper; informs what interventions \\(\\mathcal R\\) can be layered on top of procurement mechanisms (e.g., compensation rules, sampling/selection constraints)."
+        "connection": "The open problem asks for regulatory/market-design interventions \\(R\\in\\mathcal R\\) that mitigate information leakage and correlation-driven privacy externalities in data marketplaces. This paper designs an optimal Bayesian incentive-compatible acquisition mechanism under differential privacy, but it assumes users\u2019 data are independent conditional on \\(\\theta\\) (no cross-agent correlation) and models privacy loss via local/central RDP rather than explicit correlation-driven leakage about nonparticipants. Thus it does not address the core externality mechanism (inference about others from correlated data) nor propose interventions targeted at that externality. However, it provides related mechanism-design tools: (i) a two-part privacy model separating platform access (local DP) from public release (central DP), and (ii) computational/structural results (pointwise reduction, PTAS) that could be components of an intervention class \\(\\mathcal R\\) in settings where DP-style constraints are the regulatory lever."
       },
       {
-        "title": "Optimal data acquisition for statistical estimation",
-        "bibtex": "@inproceedings{chen2018optimaldataacquisition,\n  title     = {Optimal data acquisition for statistical estimation},\n  author    = {Chen, Yiling and Immorlica, Nicole and Lucier, Brendan and Syrgkanis, Vasilis and Ziani, Juba},\n  booktitle = {Proceedings of the 2018 ACM Conference on Economics and Computation (EC)},\n  year      = {2018},\n  doi       = {10.1145/3219166.3219174}\n}\n",
-        "source_url": "https://doi.org/10.1145/3219166.3219174",
-        "theorem_or_result": "Gives closed-form optimal truthful procurement mechanisms minimizing worst-case variance for unbiased estimation under budget constraints via virtual costs and monotone allocation rules.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Technical foundation for designing procurement mechanisms; the source paper adapts this structure to settings with participation externalities and bias\u2013variance trade-offs."
-      },
-      {
-        "title": "Prior-free data acquisition for accurate statistical estimation",
-        "bibtex": "@inproceedings{chen2019priorfreedataacquisition,\n  title     = {Prior-free data acquisition for accurate statistical estimation},\n  author    = {Chen, Yiling and Zheng, Shuran},\n  booktitle = {Proceedings of the 2019 ACM Conference on Economics and Computation (EC)},\n  year      = {2019},\n  doi       = {10.1145/3328526.3329568}\n}\n",
-        "source_url": "https://doi.org/10.1145/3328526.3329568",
-        "theorem_or_result": "Studies online/prior-free procurement and explicitly optimizes a bias\u2013variance trade-off when unbiasedness is infeasible, under budget constraints.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Closest precursor on bias\u2013variance in procurement; suggests intervention levers that trade bias vs variance, but does not model correlation-driven privacy externalities."
-      },
-      {
-        "title": "Approximately optimal auctions for selling privacy when costs are correlated with data",
-        "bibtex": "@inproceedings{fleischer2012approximatelyoptimalauctions,\n  title     = {Approximately optimal auctions for selling privacy when costs are correlated with data},\n  author    = {Fleischer, Lisa K. and Lyu, Yu-Han},\n  booktitle = {Proceedings of the 13th ACM Conference on Electronic Commerce (EC)},\n  year      = {2012},\n  doi       = {10.1145/2229012.2229053}\n}\n",
-        "source_url": "https://doi.org/10.1145/2229012.2229053",
-        "theorem_or_result": "Designs approximately optimal mechanisms for purchasing privacy when agents' privacy costs are correlated with their data, addressing adverse selection in privacy procurement.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Addresses correlation between cost and data (a key difficulty in the source paper\u2019s worst-case analysis), but not correlation across agents; relevant for designing compensation rules under informational constraints."
-      },
-      {
-        "title": "Redrawing the boundaries on purchasing data from privacy-sensitive individuals",
-        "bibtex": "@inproceedings{nissim2014redrawingboundaries,\n  title     = {Redrawing the boundaries on purchasing data from privacy-sensitive individuals},\n  author    = {Nissim, Kobbi and Vadhan, Salil and Xiao, David},\n  booktitle = {Proceedings of the 5th Conference on Innovations in Theoretical Computer Science (ITCS)},\n  year      = {2014},\n  doi       = {10.1145/2554797.2554815}\n}\n",
-        "source_url": "https://doi.org/10.1145/2554797.2554815",
-        "theorem_or_result": "Studies fundamental limits and mechanism design for buying data under differential privacy, including impossibility/feasibility boundaries for accuracy, payments, and participation.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Clarifies what DP-style interventions can and cannot guarantee; helps frame why correlation-driven leakage may require interventions beyond DP on released statistics."
-      },
-      {
-        "title": "Social-aware privacy-preserving correlated data collection",
-        "bibtex": "@inproceedings{liao2018socialaware,\n  title     = {Social-aware privacy-preserving correlated data collection},\n  author    = {Liao, Guocheng and Chen, Xu and Huang, Jianwei},\n  booktitle = {Proceedings of the Eighteenth ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc)},\n  year      = {2018},\n  doi       = {10.1145/3209582.3209590}\n}\n",
-        "source_url": "https://doi.org/10.1145/3209582.3209590",
-        "theorem_or_result": "Proposes mechanisms for collecting correlated data with privacy preservation that accounts for social/correlation structure, aiming to reduce leakage in correlated settings.",
+        "title": "Optimal and differentially private data acquisition: Central and local mechanisms",
+        "bibtex": "@article{OptimalDPDataAcquisitionCentralLocal,\n  title={Optimal and differentially private data acquisition: Central and local mechanisms},\n  author={},\n  year={\\n  },\n  doi={10.1287/opre.2022.0014},\n  url={https://doi.org/10.1287/opre.2022.0014},\n  note={Year/venue/authors not provided in forward-citation analysis; fill in from the published O.R. article}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2022.0014",
+        "theorem_or_result": "The paper designs Bayesian incentive-compatible, individually rational mechanisms for purchasing verifiable user data under heterogeneous differential privacy costs, and characterizes (near-)optimal estimators and privacy-loss allocations in both central and local DP architectures. Key characterizations: (i) Central DP minimax mean-estimation with heterogeneous privacy losses \\(\\varepsilon=(\\varepsilon_i)\\): \\(L_c(P^*,\\theta,\\varepsilon)\\ge c\\,\\max_{k\\in\\{0,\\dots,n\\}}\\big(\\frac{1}{n-k+(\\sum_{i=1}^k\\varepsilon_i)^2}\\wedge 1\\big)\\), and a Laplace-noised linear estimator achieves this up to a \\(\\log(n)\\) factor (Theorem 1). (ii) Under regularity (monotone virtual costs \\(\\psi_i(c)=c+F_i(c)/f_i(c)\\)), the optimal central-mechanism privacy losses \\(\\varepsilon_i^*(c)=y_i^*\\) solve the pointwise program \\[\\min_{y\\ge 0}\\ \\frac{n+1}{(\\sum_j y_j)^2}\\Big(2+\\sum_i y_i^2\\,\\mathrm{var}\\Big)+\\sum_i \\psi_i(c_i) y_i,\\] with estimator weights \\(w_i=y_i^*/\\sum_j y_j^*\\) (Theorem 3). (iii) In the local DP architecture, optimal privacy losses solve \\[\\min_{y\\ge 0}\\ \\frac{n+1}{\\sum_i \\frac{1}{\\mathrm{var}+2/y_i^2}}+\\sum_i \\psi_i(c_i) y_i,\\] with weights proportional to \\(1/(\\mathrm{var}+2/y_i^{*2})\\) (Theorem 4). Efficient computation: \\(O(n\\log n)\\) algorithm for the central program and a PTAS for the local program (Propositions 3\u20134).",
         "relevance_category": "RELATED_TOOL",
         "relevance_score": 6,
-        "connection": "Provides algorithmic/engineering approaches to mitigate leakage under correlation (e.g., correlation-aware privacy accounting), which can be incorporated as interventions \\(R\\in\\mathcal R\\) alongside marketplace mechanisms."
+        "connection": "The open problem asks for regulatory/market-design interventions \\(R\\in\\mathcal R\\) that mitigate information leakage and correlation-driven privacy externalities (privacy paradox) in data marketplaces with statistically correlated agents. This paper instead studies optimal data acquisition mechanisms under differential privacy when users\u2019 data are modeled as i.i.d. \\(X_i=\\theta+Z_i\\) (independent across users) and privacy costs are heterogeneous but private. It provides mechanism-design and algorithmic tools for choosing personalized DP levels and payments (central vs local DP) to trade off estimation error and compensation. However, it does not model correlation-driven information leakage across agents, nor externalities where one agent\u2019s participation affects others\u2019 privacy costs via correlation, nor does it propose regulatory interventions limiting inference about nonparticipants. Thus it is relevant mainly as a mechanism-design baseline/toolkit for DP-based marketplace design, not as a direct solution to correlation/externality mitigation."
+      },
+      {
+        "title": "Machine-Learning Fairness in Data Markets: Challenges and Opportunities",
+        "bibtex": "@phdthesis{MLFairnessDataMarketsThesis,\n  title={Machine-Learning Fairness in Data Markets: Challenges and Opportunities},\n  author={},\n  school={\\n  },\n  year={\\n  },\n  note={Metadata incomplete in provided forward-citation analysis; add author/school/year/URL when available}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The thesis develops theoretical models of data markets under fairness interventions. Key results include: - In a fair-representation/data-reuse model, demographic secrecy can impose an additional welfare loss beyond the cost of fairness; under a random-functions model, expected cost of demographic secrecy grows as \\(\\Omega(2^{n/2}\\sqrt{|V|})\\) while expected cost of fairness is \\(\\Theta(n\\sqrt{|V|})\\), and with high probability there exist incentive-compatible (non-demographically-secret) representations achieving the maximum fair welfare \\(\\beta\\) (Theorems 2.5.1\u20132.5.3). - In a centralized data-market model with endogenous data production, fairness interventions enforcing demographic-balance constraints can backfire (market fails to form) for some market conditions (Theorem 3.5.1), but market growth can mitigate backfire risk and the relative cost of fairness can amortize to 0 as the number of buyers grows under unbounded economic potential (Theorems 3.6.1\u20133.6.3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 6,
+        "connection": "The open problem asks for regulatory/market-design interventions \\(R\\in\\mathcal R\\) that mitigate information leakage and correlation-driven privacy externalities in data marketplaces. This thesis is not about correlated-data privacy leakage; it focuses on fairness interventions and incentive-compatible information control in data reuse/markets. Still, it is relevant as a mechanism-design template: it studies how constraints on information release (demographic secrecy vs incentive-compatible representations) and marketplace rules (acceptance constraints enforcing demographic balance) change equilibrium participation, welfare, and can cause \u2018backfire\u2019/market collapse. These analyses provide tools and cautionary lessons for designing \\(R\\) in privacy-externality settings: interventions must be market-aware, account for participation incentives, and may need growth/scale conditions to avoid collapse. However, it does not model statistical correlation across agents nor privacy costs/externalities from inference, so it does not directly resolve the leakage-mitigation problem."
+      },
+      {
+        "title": "The Cost of Balanced Training-Data Production in an Online Data Market",
+        "bibtex": "@inproceedings{CostBalancedTrainingDataOnlineMarket,\n  title={The Cost of Balanced Training-Data Production in an Online Data Market},\n  author={},\n  booktitle={Proceedings of the ACM Web Conference},\n  year={\\n  },\n  doi={10.1145/3696410.3714882},\n  url={https://doi.org/10.1145/3696410.3714882},\n  note={Year/authors/venue details not provided in forward-citation analysis; fill in from ACM DL}\n}\n",
+        "source_url": "https://doi.org/10.1145/3696410.3714882",
+        "theorem_or_result": "In a stylized online data-market game (based on Agarwal\u2013Dahleh\u2013Sarkar) with endogenous data production by sellers and a marketplace-imposed demographic-balance constraint (accepting a seller\u2019s dataset iff its group proportions equal a target \\(\\tau\\)), the paper characterizes Nash equilibria and shows: (i) fairness constraints can prevent market formation in small/emerging markets (Theorem 5.1: for any target \\(\\tau\\) there exists a market where baseline forms but intervention does not); (ii) in fully-forming markets, the uniform target \\(\\tau_g=1/|\\mathcal G|\\) guarantees formation (Theorem 5.2) but non-uniform targets can still backfire (Theorem 5.3); and (iii) under market growth where some group\u2019s potential economic value \\(V_g\\to\\infty\\), the normalized \u201ccost of fairness\u201d amortizes: marketplace and sellers\u2019 utility ratios \\(\\to 1\\) and buyers\u2019 ratios \\(\\ge 1\\) (Theorem 6.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for regulatory/market-design interventions \\(R\\) that mitigate correlation-driven information leakage and privacy externalities in data marketplaces. This citing paper studies a different ethical intervention\u2014demographic balance/fairness in training-data production\u2014under assumptions that explicitly remove cross-agent/cross-group statistical dependence (samples i.i.d. and independent across groups; \u201czero inter-group transfer\u201d). It therefore does not model correlated private data, information leakage, or privacy externalities, and does not propose mechanisms to mitigate the privacy paradox. However, it is tangentially relevant as a market-design analysis of an intervention imposed alongside a data-acquisition mechanism, including conditions under which interventions backfire (prevent market formation) and when their welfare cost vanishes with market growth\u2014insights that could inform the feasibility analysis of privacy-mitigating regulations \\(R\\) in correlated-data settings."
+      },
+      {
+        "title": "Privacy concerns and social desirability bias",
+        "bibtex": "@article{PrivacyConcernsSocialDesirabilityBias,\n  title={Privacy concerns and social desirability bias},\n  author={},\n  journal={\\n  },\n  year={\\n  },\n  doi={10.1177/14707853231222810},\n  url={https://doi.org/10.1177/14707853231222810},\n  note={Year/authors/journal not provided in forward-citation analysis; fill in from publisher page}\n}\n",
+        "source_url": "https://doi.org/10.1177/14707853231222810",
+        "theorem_or_result": "The paper designs and evaluates post-interview privacy controls for chatbot-based interviews: (i) unguided free editing of the transcript and (ii) AI-aided editing where an LLM flags potential personally identifiable information (PII) and suggests redaction/abstraction (e.g., replacing names with placeholders like \\([\\mathrm{NAME}1]\\) or generalizing \u201c18 years old\u201d to \u201cyoung adult\u201d). In a between-subjects experiment with \\(N=188\\), AI-aided editing reduces PII disclosure while maintaining interview data quality and user engagement relative to no-editing and free-editing baselines.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for marketplace/regulatory interventions \\(R\\in\\mathcal R\\) that mitigate information leakage and privacy externalities arising from correlated data in data marketplaces, under incentive/budget/estimation objectives. This paper does not model correlated-data externalities, mechanism design, payments, or market equilibrium; it studies an HCI setting (chatbot interviews) where individuals overshare and proposes a user-facing control (post-hoc editing with AI cues) to reduce direct PII leakage while preserving data utility. As such, it is best viewed as a related tool/intervention idea\u2014human-in-the-loop, post-collection sanitization and disclosure control\u2014that could potentially be incorporated as a policy in \\(\\mathcal R\\) (e.g., mandatory review/redaction stage) but it does not analyze the correlation-driven leakage central to the open problem nor provide formal guarantees for marketplace inefficiency mitigation."
+      },
+      {
+        "title": "How differential privacy impacts data elicitation",
+        "bibtex": "@inproceedings{HowDPImpactsDataElicitation,\n  title={How differential privacy impacts data elicitation},\n  author={},\n  booktitle={\\n  },\n  year={\\n  },\n  doi={10.1145/3699804.3699811},\n  url={https://doi.org/10.1145/3699804.3699811},\n  note={Year/authors/venue not provided in forward-citation analysis; fill in from ACM DL}\n}\n",
+        "source_url": "https://doi.org/10.1145/3699804.3699811",
+        "theorem_or_result": "The paper gives distribution- and privacy-parameter-dependent bounds on how randomized response (RR) (\\varepsilon\\)-local differential privacy applied to the sensitive attribute in training data changes group-fairness metrics of the resulting classifier. In particular, under their majority-vote-style learning assumption, for each fixed \\(x\\): if \\(\\mathrm{CSD}_x\\neq 0\\) then \\(\\mathrm{CSD}'_x\\) lies between \\(\\mathrm{CSD}_x\\) and \\(0\\) (Theorem 4.1). If \\(X\\perp A\\), then \\(\\mathrm{SD}'\\) lies between \\(\\mathrm{SD}\\) and \\(0\\) (Theorem 4.2). If \\(X\\not\\perp A\\), then only one-sided inequalities hold (Theorem 4.3) and \\(\\mathrm{SD}'\\) can flip sign. Under a reliability assumption \\(Y\\perp A\\mid X\\), \\(\\mathrm{EOD}'\\) lies between \\(\\mathrm{EOD}\\) and \\(0\\) (Theorem 4.4).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for marketplace/regulatory interventions \\(R\\in\\mathcal R\\) that mitigate information leakage and correlation-driven privacy externalities in data acquisition/marketplaces. This paper does not study correlated-data leakage across agents, incentives, payments, or mechanism/regulatory design. It analyzes a technical privacy intervention (local DP via randomized response on a sensitive attribute) and its effect on fairness metrics, including cases where proxy correlation \\(X\\not\\perp A\\) causes unexpected behavior. Thus it is only indirectly relevant: it provides formal tools/insights about how a privacy mechanism behaves under attribute correlations (proxies), which is conceptually adjacent to correlation-driven externalities, but it does not propose or analyze interventions for data marketplaces or the privacy paradox."
+      },
+      {
+        "title": "Algorithms to the rescue: Market mechanisms for consensual trading of unbiased individual data",
+        "bibtex": "@article{AlgorithmsToTheRescueConsensualUnbiasedData,\n  title={Algorithms to the rescue: Market mechanisms for consensual trading of unbiased individual data},\n  author={},\n  journal={Information Systems Research},\n  year={\\n  },\n  doi={10.1287/isre.2024.1115},\n  url={https://doi.org/10.1287/isre.2024.1115},\n  note={Year/authors not provided in forward-citation analysis; fill in from INFORMS page}\n}\n",
+        "source_url": "https://doi.org/10.1287/isre.2024.1115",
+        "theorem_or_result": "From the title/abstract only, the paper appears to propose market mechanisms/algorithms for \u201cconsensual trading\u201d of \u201cunbiased individual data,\u201d i.e., mechanisms that elicit data with consent and preserve statistical unbiasedness of the acquired dataset/estimator. No specific theorem, model, or guarantee about correlated-data information leakage or privacy externalities can be identified from the provided abstract.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for regulatory/market-design interventions that mitigate correlation-driven information leakage and the resulting privacy paradox/inefficiencies in data marketplaces. A mechanism for consensual trading of unbiased data could be relevant as a market-design intervention (e.g., rules for payments/selection/consent that preserve estimator properties). However, based on the limited abstract, it is unclear whether the paper models cross-agent correlation, privacy externalities, or explicitly targets leakage about nonparticipants; thus it cannot be credited as solving or partially solving the stated problem."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.09529800000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.129808,
-    "total_cost_usd": 0.22510600000000003
+    "literature_total_cost_usd": 0.5271245,
+    "total_cost_usd": 0.6224225
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4390763638/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4390763638_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4390763638_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4390763638_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 8,
     "is_open": true,
     "model": "gpt-5.2"
   }

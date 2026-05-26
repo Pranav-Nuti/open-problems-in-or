@@ -52,89 +52,62 @@
     "model": "gpt-5.2",
     "importance": 8,
     "difficulty": 9,
-    "synthesis": "The source paper of Black\u2013De Loera\u2013Kafer\u2013Sanit\u00e0 (2021) introduces three pivot rules tailored to 0/1 polytopes\u2014True Steepest-Edge, Slim Shadow, and Ordered Shadow\u2014and proves strongly polynomial bounds on the number of non-degenerate pivots (edge moves on the 1-skeleton). The key geometric input is that at a 0/1 vertex the feasible cone lies in a single orthant, allowing the 1-norm steepness to be expressed via \\(v=1-2x\\) and enabling short coherent shadow paths when \\(v\\) is chosen to take few values on \\(\\{0,1\\}^n\\). However, the analysis explicitly does not control degenerate pivots: basis changes that keep the same BFS/vertex, which can cause stalling even when the underlying edge path is short.\n\nNo forward-citation evidence was provided, and within the cited background literature there is likewise no known polynomial upper bound on the number of degenerate pivots for these (or any) deterministic pivot rules in full generality. Standard anti-cycling devices such as lexicographic pivoting (Terlaky; Murty) guarantee termination but not polynomially many degenerate steps. Complexity-theoretic results on pivot rules (Adler\u2013Papadimitriou\u2013Rubinstein; Disser\u2013Skutella) underscore why bounding stalling is difficult. Parameterized bounds on the number of distinct BFSs (Kitahara\u2013Mizuno) apply to restricted standard-form 0/1 settings but do not extend to arbitrary 0/1 polytopes after adding slack variables, and they do not yield a polynomial bound on degenerate basis exchanges.\n\nConsequently, the problem of proving a polynomial bound on the total number of degenerate pivots for at least one of the new 0/1-polytope pivot rules remains open. Promising directions suggested by the source paper\u2019s framework include exploiting the special structure of the basic cones \\(C(B)\\) relative to feasible cones \\(C(x)\\), and proving that the auxiliary potential \\(v^\\top z\\) (or the shadow slope \\(c^\\top z / v^\\top z\\)) decreases in a way that limits how many degenerate bases can occur at a fixed vertex, perhaps via bounds on the number of distinct basic cones compatible with a given 0/1 vertex.",
-    "total_cost_usd": 0.0930685,
-    "citations_analyzed": 0,
+    "synthesis": "Black\u2013De Loera\u2013Kafer\u2013Sanit\u00e0 (2021) introduce pivot rules tailored to 0/1 polytopes\u2014True Steepest-Edge and two Shadow variants (Slim/Ordered)\u2014and prove strongly polynomial bounds on the number of non-degenerate pivots: steepest-edge paths are strongly polynomial (via circuit-augmentation results), Slim Shadow uses at most \\(n\\) non-degenerate pivots, and Ordered Shadow uses at most the dimension \\(d\\). Their analysis explicitly avoids perturbations because 0/1 polytopes are typically highly degenerate, and they isolate degeneracy as the remaining obstacle: a simplex implementation may still perform many degenerate basis exchanges while staying at the same vertex of the original polytope.\n\nThe most directly relevant forward-citing progress is the work \u201cOn the number of degenerate simplex pivots\u201d and its journal version \u201cOn the number of degenerate simplex pivots: K. Kukharenko and L. Sanit\u00e0\u201d. These papers do not analyze the specific 0/1-polytope pivot rules of Black\u2013De Loera\u2013Kafer\u2013Sanit\u00e0, nor do they bound the total number of degenerate pivots over an entire run. Instead, they design an anti-stalling pivot rule for general standard-form LPs that guarantees at any non-optimal BFS the number of consecutive degenerate pivots is at most \\(n-m-1\\) (or \\(\\min\\{n-m-1,m-1\\}\\) under stronger directional information). This shows that degeneracy can be controlled locally (stalling cannot persist too long) even without 0/1 structure, but it leaves open whether the original True Steepest-Edge / Slim Shadow / Ordered Shadow pivot rules admit polynomial bounds on total degenerate pivots on arbitrary 0/1-LPs.\n\nRelated work on smoothed analysis (e.g., \u201cOptimal smoothed analysis of the simplex method\u201d) largely sidesteps degeneracy by random perturbations that make degenerate pivots occur with probability 0, and work on monotone path polytopes (e.g., \u201cMonotone Paths on Polytopes: Combinatorics and Optimization\u201d) clarifies the combinatorics of coherent (typically nondegenerate) shadow paths. Neither yields worst-case polynomial bounds on degenerate basis exchanges in the deterministic 0/1 setting. Consequently, the specific open question posed as Question 2 in the 0/1-polytope simplex paper remains open: proving a polynomial upper bound on the total number of degenerate pivots for their pivot rules, or constructing superpolynomial lower bounds, remains a key gap.",
+    "total_cost_usd": 0.80428915,
+    "citations_analyzed": 13,
     "sources": [
       {
-        "title": "On the Simplex method for 0/1 polytopes",
-        "bibtex": "@misc{BlackDeLoeraKaferSanita2021Simplex01,\n  author       = {Alexander Black and Jes{\\'u}s A. De Loera and Sean Kafer and Laura Sanit{\\`a}},\n  title        = {On the Simplex method for 0/1 polytopes},\n  year         = {2021},\n  eprint       = {2111.14050},\n  archivePrefix= {arXiv},\n  primaryClass = {math.OC},\n  url          = {https://arxiv.org/abs/2111.14050}\n}\n",
-        "source_url": "https://arxiv.org/abs/2111.14050",
-        "theorem_or_result": "Introduces the True Steepest-Edge, Slim Shadow, and Ordered Shadow pivot rules for LPs over 0/1 polytopes and proves strongly polynomial bounds on the number of non-degenerate pivots (at most \n- strongly polynomial for True Steepest-Edge via steepest-edge paths,\n- at most \\(n\\) for Slim Shadow,\n- at most \\(d\\) (dimension) for Ordered Shadow).\nIt explicitly leaves open whether there is a polynomial bound on the number of degenerate pivots (stalling) for these rules.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open question: whether any of the proposed pivot rules admits a polynomial upper bound on the number of degenerate pivots (basis changes with zero step length) when solving arbitrary 0/1-LPs without perturbing away the 0/1 structure."
+        "title": "On the number of degenerate simplex pivots",
+        "bibtex": "@inproceedings{KukharenkoSanita2024DegeneratePivots,\n  title        = {On the number of degenerate simplex pivots},\n  author       = {Kukharenko, K. and Sanita, Laura},\n  booktitle    = {Integer Programming and Combinatorial Optimization},\n  year         = {2024},\n  doi          = {10.1007/978-3-031-59835-7_19},\n  url          = {https://doi.org/10.1007/978-3-031-59835-7_19}\n}\n",
+        "source_url": "https://doi.org/10.1007/978-3-031-59835-7_19",
+        "theorem_or_result": "They prove existence of an \u201cantistalling\u201d simplex pivot rule for any LP in standard form \\(\\min\\{c^\\top x:Ax=b,\\ x\\ge 0\\}\\) that bounds the number of consecutive degenerate simplex pivots at any non-optimal BFS by \\(n-m-1\\) (and in a strengthened version by \\(\\min\\{n-m-1,\\ m-1\\}\\)), where \\(n\\) is the number of variables and \\(m\\) the number of equality constraints (Theorems 1\u20132).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "The open problem asks for a polynomial upper bound on the total number of degenerate pivots when solving 0/1-polytope LPs under specific pivot rules (modified steepest-edge/shadow rules). This paper does not analyze those specific 0/1-polytope pivot rules, nor does it bound the total number of degenerate pivots over the whole run. Instead it gives a general technique/pivot rule that guarantees a polynomial bound on stalling: at any non-optimal vertex, the number of consecutive degenerate pivots before a non-degenerate move is at most \\(O(n)\\). This is directly relevant as it shows degeneracy can be controlled (in the sense of consecutive degenerate pivots) even for general LPs, hence also for 0/1 polytopes. However, it does not by itself yield a polynomial bound on the total number of degenerate pivots for the pivot rules in the original 0/1-polytope paper; total degenerate pivots could still be large if many vertices are visited, and their rule requires access to an improving feasible direction (potentially as hard as solving the LP)."
       },
       {
-        "title": "Complexity of degeneracy",
-        "bibtex": "@incollection{Murty2009ComplexityDegeneracy,\n  author    = {K. G. Murty},\n  title     = {Complexity of degeneracy},\n  booktitle = {Encyclopedia of Optimization},\n  publisher = {Springer},\n  year      = {2009}\n}\n",
-        "source_url": "https://link.springer.com/referenceworkentry/10.1007/978-0-387-74759-0_74",
-        "theorem_or_result": "Surveys how degeneracy leads to cycling and stalling in the simplex method and discusses why bounding degenerate pivots is closely tied to the broader open problem of finding polynomial pivot rules; provides context and known barriers rather than a polynomial bound.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Provides background on why degenerate pivot counts are hard to bound in general and frames the 0/1-polytope question as a special case where perturbation is undesirable."
+        "title": "On the number of degenerate simplex pivots: K. Kukharenko and L. Sanit\u00e0",
+        "bibtex": "@article{KukharenkoSanita2026DegeneratePivots,\n  title        = {On the number of degenerate simplex pivots: K. Kukharenko and L. Sanit{\\`a}},\n  author       = {Kukharenko, K. and Sanita, Laura},\n  journal      = {Mathematical Programming},\n  year         = {2026},\n  doi          = {10.1007/s10107-026-02349-x},\n  url          = {https://doi.org/10.1007/s10107-026-02349-x}\n}\n",
+        "source_url": "https://doi.org/10.1007/s10107-026-02349-x",
+        "theorem_or_result": "The paper proves that for any LP in standard equality form \\(\\min\\{c^\\top x: Ax=b,\\ x\\ge 0\\}\\) with \\(A\\in\\mathbb{R}^{m\\times n}\\), there exists an (anti-stalling) simplex pivot rule such that at any non-optimal extreme point the number of consecutive degenerate simplex pivots is at most \\(n-m-1\\) (Theorem 1), and in fact at most \\(\\min\\{n-m-1,\\ m-1\\}\\) when an improving feasible direction of the form \\(\\tilde x-x\\) between vertices is available (Theorem 2). It also bounds the number of degenerate pivots needed at an optimal vertex to reach an optimal basis by \\(n-m\\) (Lemma 4).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 9,
+        "connection": "The open problem asks for a polynomial upper bound on the total number of degenerate pivots when solving LPs over 0/1 polytopes using one of the specific pivot rules from Black\u2013De Loera\u2013Kafer\u2013Sanit\\`a (modified steepest-edge/shadow rules). This paper does not analyze those specific 0/1-polytope pivot rules. Instead, it introduces a different pivot rule (Algorithm 1) that, given access to an improving feasible direction at the current vertex, guarantees a polynomial bound on degeneracy: it prevents long stalling by bounding the length of any run of degenerate pivots by \\(O(n)\\), independent of integrality/0-1 structure. Thus it provides strong partial progress toward the spirit of the open problem (controlling degeneracy), but it does not resolve whether the original 0/1-specific pivot rules themselves admit polynomial bounds on degenerate pivots, nor does it yield a polynomial bound on the total number of degenerate pivots without additional assumptions (e.g., availability of improving feasible directions, and bounds on the number of visited vertices)."
       },
       {
-        "title": "Geometry of the Gass-Saaty parametric cost LP algorithm",
-        "bibtex": "@article{KleeKleinschmidt1990GeometryGassSaaty,\n  author  = {V. Klee and P. Kleinschmidt},\n  title   = {Geometry of the {G}ass-{S}aaty parametric cost {LP} algorithm},\n  journal = {Discrete \\& Computational Geometry},\n  year    = {1990},\n  volume  = {5},\n  number  = {1},\n  pages   = {13--26}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/BF02187704",
-        "theorem_or_result": "Studies geometric behavior of the Gass\u2013Saaty/parametric (shadow) simplex method under degeneracy, giving structural insights into pivot paths and degeneracy handling, but not a general polynomial bound on degenerate pivots.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Relevant to the modified shadow rules in the source paper and to understanding how degeneracy interacts with shadow/parametric pivoting, though it does not resolve polynomial stalling bounds."
-      },
-      {
-        "title": "Lexicographic pivoting rules",
-        "bibtex": "@incollection{Terlaky2009LexicographicPivoting,\n  author    = {T. Terlaky},\n  title     = {Lexicographic pivoting rules},\n  booktitle = {Encyclopedia of Optimization (Second Edition)},\n  publisher = {Springer},\n  year      = {2009}\n}\n",
-        "source_url": "https://link.springer.com/referenceworkentry/10.1007/978-0-387-74759-0_327",
-        "theorem_or_result": "Describes lexicographic tie-breaking rules that prevent cycling in simplex under degeneracy; ensures termination but does not guarantee polynomial bounds on the number of degenerate pivots.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "The source paper uses lexicographic leaving-variable rules to avoid cycling; this reference provides the standard anti-cycling mechanism but highlights that stalling can remain exponential."
-      },
-      {
-        "title": "On simplex pivoting rules and complexity theory",
-        "bibtex": "@inproceedings{AdlerPapadimitriouRubinstein2014PivotRules,\n  author    = {I. Adler and C. Papadimitriou and A. Rubinstein},\n  title     = {On simplex pivoting rules and complexity theory},\n  booktitle = {Integer Programming and Combinatorial Optimization},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {8494},\n  pages     = {13--24},\n  publisher = {Springer},\n  year      = {2014}\n}\n",
-        "source_url": "https://link.springer.com/chapter/10.1007/978-3-319-07557-0_2",
-        "theorem_or_result": "Shows complexity-theoretic hardness phenomena for simplex pivoting rules (viewed as computational problems), supporting the view that strong worst-case guarantees for pivot rules are difficult.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Gives theoretical evidence that bounding pivot behavior (including degeneracy/stalling) may be hard even for structured settings, motivating why the 0/1-polytope degeneracy bound remains open."
-      },
-      {
-        "title": "The simplex algorithm is NP-mighty",
-        "bibtex": "@inproceedings{DisserSkutella2015NPMighty,\n  author    = {Y. Disser and M. Skutella},\n  title     = {The simplex algorithm is {NP}-mighty},\n  booktitle = {Proceedings of the Twenty-Sixth Annual {ACM}-{SIAM} Symposium on Discrete Algorithms (SODA)},\n  pages     = {858--872},\n  publisher = {SIAM},\n  year      = {2015}\n}\n",
-        "source_url": "https://epubs.siam.org/doi/abs/10.1137/1.9781611973730.58",
-        "theorem_or_result": "Establishes NP-hardness-type results for predicting/controlling simplex behavior, reinforcing limits on what can be efficiently guaranteed for pivot rules in general.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Supports the broader barrier: even deciding properties of simplex runs can be hard; while not specific to 0/1 polytopes, it contextualizes why polynomial bounds on degenerate pivots are elusive."
-      },
-      {
-        "title": "A bound for the number of different basic solutions generated by the simplex method",
-        "bibtex": "@article{KitaharaMizuno2013BoundBFS,\n  author  = {T. Kitahara and S. Mizuno},\n  title   = {A bound for the number of different basic solutions generated by the simplex method},\n  journal = {Mathematical Programming},\n  year    = {2013},\n  volume  = {137},\n  number  = {1-2},\n  pages   = {579--586}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s10107-012-0550-1",
-        "theorem_or_result": "Bounds the number of distinct basic feasible solutions generated by simplex with Dantzig's rule in terms of parameters \\(\\tau,\\gamma\\) (minimum/maximum positive BFS entries), yielding strongly polynomial bounds for certain classes where all variables at vertices are in \\(\\{0,1\\}\\) in standard form.",
+        "title": "Optimal smoothed analysis of the simplex method",
+        "bibtex": "@article{UnknownOptimalSmoothedSimplex,\n  title        = {Optimal smoothed analysis of the simplex method},\n  author       = {Unknown},\n  journal      = {Unknown},\n  year         = {????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves improved smoothed-analysis bounds for a (semi-random) shadow-vertex simplex method: there exists a simplex method with smoothed complexity (number of pivot steps) at most \\(O(\\sigma^{-1/2} d^{11/4} \\log(n)^{7/4})\\) (up to additional \\(d^3\\log(n)^2\\) terms), and it gives a nearly matching lower bound \\(\\Omega(\\sigma^{-1/2} d^{1/2} \\ln(4/\\sigma)^{-1/4})\\) on the (semi-random) shadow size / diameter after smoothing for instances with \\(n=\\lfloor(4/\\sigma)^d\\rfloor\\).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 7,
-        "connection": "Shows that for special 0/1-LPs that remain 0/1 after conversion to standard form (no large slack values), one can control the number of (non-degenerate) BFS changes; however it does not bound degenerate pivots and does not apply to general 0/1 polytopes after adding slacks."
+        "relevance_score": 3,
+        "connection": "The open problem asks for a worst-case polynomial upper bound on the number of degenerate simplex pivots when solving integral 0/1-polytope LPs under specific pivot rules (modified steepest-edge or modified shadow rules) after converting to standard form with slack variables. This citing paper studies a different setting: smoothed analysis of a shadow-vertex-type simplex method for general real LPs under Gaussian perturbations, and it assumes (with probability 1) non-degeneracy of the shadow path due to random perturbations/objectives, so degenerate pivots essentially do not occur in its model. It does not analyze degeneracy in the worst case, does not specialize to 0/1 polytopes, and does not bound the number of degenerate basis exchanges for the pivot rules from the 0/1-polytope paper. At best, it provides techniques suggesting that random perturbations remove degeneracy and yield polynomial expected pivot counts, but this is not a polynomial bound on degenerate pivots in the original deterministic 0/1 setting."
+      },
+      {
+        "title": "Monotone Paths on Polytopes: Combinatorics and Optimization",
+        "bibtex": "@article{UnknownMonotonePathsPolytopes,\n  title        = {Monotone Paths on Polytopes: Combinatorics and Optimization},\n  author       = {Unknown},\n  journal      = {Unknown},\n  year         = {????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper gives a combinatorial description of the vertices of the monotone path polytope \\(M_c(\\Delta(n,2))\\) (for any generic direction \\(c\\)), yielding an explicit formula for the number of coherent monotone paths on the hypersimplex \\(\\Delta(n,2)\\), and refines this by counting coherent monotone paths by their length \\(\\ell\\).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a polynomial upper bound on the number of degenerate simplex pivots under certain pivot rules for LPs over 0/1 polytopes. This paper studies monotone path polytopes, which encode the combinatorics of the shadow-vertex (shadow) pivot rule: vertices of \\(M_c(P)\\) correspond to coherent monotone paths that can occur as shadow-vertex pivot paths on \\(P\\) for some secondary direction \\(\\omega\\). The results here are about enumerating coherent monotone paths on a specific 0/1 polytope family (hypersimplices), not about degeneracy or the number of degenerate basis exchanges in simplex on a standard-form formulation. Thus it provides structural/background information about possible (nondegenerate) shadow-vertex paths, but does not bound (or even model) degenerate pivots/stalling sequences."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.06686575,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.0930685,
-    "total_cost_usd": 0.15993425
+    "literature_total_cost_usd": 0.80428915,
+    "total_cost_usd": 0.8711549000000001
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W3217714619/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W3217714619_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W3217714619_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W3217714619_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 13,
     "is_open": true,
     "model": "gpt-5.2"
   }

@@ -52,37 +52,46 @@
   "literature_review": {
     "method": "forward_citation_review",
     "model": "gpt-5.2",
-    "importance": 8,
-    "difficulty": 9,
-    "synthesis": "The forward-citation list was not provided, so the review is necessarily grounded in the source paper and its cited prior work. The source establishes doubly-exponential convergence in the single-item prophet inequality via block thresholds, and gives only preliminary combinatorial-auction extensions: block-consistent prices achieve O(\\log(1/\u03b5)) competition complexity for XOS/submodular valuations, while static prices require O(1/\u03b5). The paper explicitly leaves open whether fully dynamic posted prices can improve this to \u0398(\\log\\log(1/\u03b5)) in combinatorial auctions.\n\nBased on the current information, the problem remains open. Progress likely requires new structural characterizations of optimal dynamic pricing in combinatorial auctions (analogous to the block-threshold optimality in the single-item case) or new stochastic-dominance/duality arguments that can exploit adaptivity across blocks while respecting item competition and complement-free valuations.",
-    "total_cost_usd": 0.068061,
-    "citations_analyzed": 0,
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper introduces competition complexity as a resource-augmentation lens for online allocation and pricing, and explicitly raises the combinatorial-auction analogue of the doubly-exponential convergence phenomenon known for single-item prophet inequalities. In XOS/submodular combinatorial auctions with product distributions, it proves that block-consistent posted prices (prices fixed within each block but allowed to change between blocks) achieve welfare at least \\((1-2^{-k})\\,\\mathbb{E}[\\mathrm{OPT}_1]\\), yielding \\((1-\\varepsilon)\\)-competition complexity \\(O(\\log(1/\\varepsilon))\\). It also shows that fully static prices require \\(k=O(1/\\varepsilon)\\) blocks to reach \\((1-\\varepsilon)\\) of \\(\\mathbb{E}[\\mathrm{OPT}_1]\\). The open question is whether allowing fully dynamic prices (updating after each buyer) can improve this to \\(k=\\Theta(\\log\\log(1/\\varepsilon))\\), matching the single-item block-threshold phenomenon.\n\nThe two forward-citing works provided do not resolve the combinatorial-auction question. They study prophet-inequality variants (correlations; multiple-selection) and develop techniques\u2014especially doubly-exponentially decreasing quantile thresholds and quantile-space duality\u2014that may be useful ingredients in a future dynamic-pricing construction. At present, there is no cited paper establishing \\(\\Theta(\\log\\log(1/\\varepsilon))\\) competition complexity for dynamic posted prices in XOS/submodular combinatorial auctions under product distributions, so the problem remains open.",
+    "total_cost_usd": 0.75142095,
+    "citations_analyzed": 8,
     "sources": [
       {
-        "title": "The Competition Complexity of Prophet Inequalities",
-        "bibtex": "@article{BrustleEtAl2024CompetitionComplexityProphetInequalities,\n  title        = {The Competition Complexity of Prophet Inequalities},\n  author       = {Brustle, Johannes and Correa, Jos{\\'e} and D{\\\"u}tting, Paul and Ezra, Tomer and Feldman, Michal and Verdugo, Victor},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2402.11084},\n  eprint       = {2402.11084},\n  archivePrefix= {arXiv},\n  primaryClass = {cs.GT}\n}\n",
-        "source_url": "https://arxiv.org/abs/2402.11084",
-        "theorem_or_result": "Introduces the \u001a(1-\u001a\u03b5)-competition complexity benchmark for prophet inequalities under resource augmentation. Proves \u001a\u0398(\\log\\log(1/\u03b5)) blocks suffice for single-item prophet inequalities via block thresholds, but for XOS/submodular combinatorial auctions only achieves \u001aO(\\log(1/\u03b5)) with block-consistent prices and \u001aO(1/\u03b5) with static prices; explicitly leaves open whether fully dynamic posted prices can achieve \u001a\u0398(\\log\\log(1/\u03b5)) in combinatorial auctions.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the source paper posing the open problem: whether dynamic posted-pricing in XOS/submodular combinatorial auctions can match the doubly-exponential convergence (competition complexity \u001a\u0398(\\log\\log(1/\u03b5))) known for the single-item prophet setting."
+        "title": "The competition complexity of prophet inequalities with correlations",
+        "bibtex": "@inproceedings{Unknown2025CompetitionComplexityCorrelations,\n  title     = {The competition complexity of prophet inequalities with correlations},\n  year      = {2025},\n  doi       = {10.1145/3736252.3742521},\n  publisher = {ACM},\n  url       = {https://doi.org/10.1145/3736252.3742521}\n}\n",
+        "source_url": "https://doi.org/10.1145/3736252.3742521",
+        "theorem_or_result": "The paper studies competition complexity for the single-item (choose-one) prophet inequality under correlated rewards. Main theorem (block arrival): Algorithm 3 achieves \n\\[k(n,\\varepsilon)=(1+o(1))\\,(n+\\log\\log(1/\\varepsilon))\\]\\u000a copies to obtain \\(\\mathbb{E}[\\mathrm{ALG}]\\ge (1-\\varepsilon)\\,\\mathbb{E}[\\max_i v_i]\\) for every correlated distribution \\(F\\in\\Delta_n\\) (Theorem 3.1). For adversarial arrival, the optimal competition complexity is \\(\\Theta(n/\\varepsilon)\\) (Theorem 4.1). For pairwise independent rewards, Algorithm 5 achieves \\(k(\\varepsilon)=\\Theta(\\log\\log(1/\\varepsilon))\\) independent of \\(n\\) (Theorem 5.1).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for fully dynamic posted-pricing policies in combinatorial auctions (XOS/submodular valuations) with competition complexity \\(\\Theta(\\log\\log(1/\\varepsilon))\\). This paper does not study combinatorial auctions or posted prices; it studies the (single-choice) prophet inequality with correlations. Its relevance is indirect: it develops a two-phase method combining an OCRS-style selection procedure with doubly-exponentially decreasing quantile thresholds to obtain \\(\\log\\log(1/\\varepsilon)\\)-type dependence (in settings where such dependence is achievable). These techniques may inspire dynamic pricing constructions, but the paper neither proves nor implies the desired \\(\\Theta(\\log\\log(1/\\varepsilon))\\) competition complexity for XOS/submodular combinatorial auctions under product distributions."
+      },
+      {
+        "title": "Competition Versus Complexity in Multiple-Selection Prophet Inequalities",
+        "bibtex": "@article{UnknownCompetitionVersusComplexityMultipleSelection,\n  title   = {Competition Versus Complexity in Multiple-Selection Prophet Inequalities},\n  author  = {},\n  year    = {},\n  note    = {DOI not provided}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper fully characterizes, for the i.i.d. multiple-selection prophet inequality, the optimal worst-case competitive ratio achievable by single-threshold (static) algorithms when the online algorithm observes a length-m sequence and the prophet observes length-n and selects the top k values. In particular (Theorem1), for all n,m\\ge k, the optimal ratio equals \\(\\gamma_{m,n,k}=Q_{m,k}(k/n)/k\\), where \\(Q_{m,k}(q)=\\mathbb{E}[\\min\\{k,Y\\}]\\) for \\(Y\\sim\\mathrm{Binomial}(m,q)\\). It also derives the resulting \\((1-\\varepsilon)\\)-competition complexity for single-thresholds: \\(\\beta_1(\\varepsilon)=\\ln(1/\\varepsilon)\\) and for \\(k>1\\), \\(\\ln(1/\\varepsilon)/k\\le \\beta_k(\\varepsilon)\\le 1+\\tfrac{2\\ln(1/\\varepsilon)}{k-1}+\\sqrt{\\tfrac{2\\ln(1/\\varepsilon)}{k-1}}\\) (Theorem2).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for fully dynamic posted-pricing policies in combinatorial auctions with XOS/submodular valuations that achieve \\(\\Theta(\\log\\log(1/\\varepsilon))\\) competition complexity in the k-block (buyer replication) model. This paper studies a different setting: i.i.d. scalar-value multiple-selection prophet inequalities and the competition complexity of static single-threshold policies under extra observations (m vs n), not multi-item combinatorial valuations nor dynamic item prices. Thus it does not resolve the combinatorial-auction question. At most, it provides methodological tools (infinite-dimensional LP/duality in quantile space) and comparative intuition about how added competition can substitute for algorithmic/mechanism complexity, which might inspire analogous analyses for posted prices in auctions."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.073395,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.068061,
-    "total_cost_usd": 0.141456
+    "literature_total_cost_usd": 0.75142095,
+    "total_cost_usd": 0.82481595
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4408830023/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4408830023_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4408830023_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4408830023_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 8,
     "is_open": true,
     "model": "gpt-5.2"
   }

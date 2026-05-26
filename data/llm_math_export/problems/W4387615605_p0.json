@@ -52,90 +52,81 @@
     "method": "forward_citation_review",
     "model": "gpt-5.2",
     "importance": 8,
-    "difficulty": 8,
-    "synthesis": "The OBMRR model of Delong et al. generalizes classic online bipartite matching by allowing each offline vertex to be reused after a deterministic duration \\(d\\), equivalently enforcing that each resource is matched at most once in any length-\\(d\\) window. Because OBMRR reduces to non-reusable OBM when \\(d=|U|\\), the optimal \\(1-1/e\\) bound from RANKING and its vertex-weighted extension (Perturbed Greedy) remains an upper bound in that regime. The source paper gives the first integral (unit-inventory) algorithms beating the \\(1/2\\) greedy barrier: Periodic Reranking achieves about \\(0.589\\) via a reranking-every-\\(d\\)-steps variant of Perturbed Greedy analyzed through randomized dual fitting, and an OCR-based primal-dual method achieves \\(50/99\\approx 0.505\\) by extending online correlated selection to reusable resources.\n\nAt present, there is no evidence in the provided material that the open problem of achieving \\(1-1/e\\) for vertex-weighted OBMRR with deterministic \\(d\\) has been solved. The main technical obstacles highlighted by Delong et al. are (i) long-range dependencies created by reuse (a fixed ranking can force repeated use of the same resource across far-apart times), and (ii) the need for stronger, availability-aware negative correlation across rounds within distance \\(d-1\\). Their Periodic Reranking partially breaks these dependencies by resampling ranks on a period aligned with \\(d\\), but the analysis loses slack precisely in scenarios where a resource is unavailable at time \\(j\\) due to being used late in the previous period. Their OCR framework provides a modular way to inject negative correlation, but with a relatively small \\(\\gamma\\) parameter (\\(1/32\\)) leading only to a slight improvement over \\(1/2\\).\n\nPromising directions suggested by the surrounding literature are to strengthen the correlated-selection primitive and/or allow richer query structures. Subsequent work on improved OCS and multiway OCS indicates that better correlation guarantees are possible in non-reusable settings; translating these improvements to the reusable OCR setting could increase \\(\\gamma\\) and thus the competitive ratio of OCR-based primal-dual algorithms. Another direction is to develop new dual-fitting certificates that more tightly track availability windows (potentially beyond the two-period conditioning used in the Periodic Reranking analysis), aiming to close the gap between \\(0.589\\) and \\(1-1/e\\) or to prove a strictly smaller upper bound for integral OBMRR when \\(d\\) is finite.",
-    "total_cost_usd": 0.105539,
-    "citations_analyzed": 0,
+    "difficulty": 9,
+    "synthesis": "In Delong et al.'s OBMRR model, each offline vertex (resource) can be matched at most once in any length-\\(d\\) window, and the objective is vertex-weighted reward \\(\\sum r_i\\) over matches. The paper highlights that the natural LP relaxation is not integral (integrality gap at least \\(7/6\\) for \\(d=3\\)), so achieving the classic \\(1-1/e\\) ratio for integral algorithms is nontrivial even though the fractional/large-capacity regime admits \\(1-1/e\\) via balance-style methods. Their own contributions (Periodic Reranking at \\(\\approx 0.589\\) and an OCR-based primal-dual algorithm at \\(\\approx 0.505\\)) establish the first guarantees beating the \\(1/2\\) greedy barrier for unit-inventory reusable matching, but still fall short of \\(1-1/e\\).\n\nForward-citing work has largely reinforced \\(1-1/e\\) as the right asymptotic benchmark while leaving the exact unit-capacity question open. The strongest progress toward \\(1-1/e\\) comes from large-inventory/large-capacity analyses: \"Asymptotically optimal competitive ratio for online allocation of reusable resources\" proves realization-independent algorithms with competitive ratio \\((1-1/e-\\delta)\\) where \\(\\delta\\to 0\\) as \\(c_{\\min}\\to\\infty\\), and also shows an asymptotic \\(1-1/e\\) upper bound, establishing optimality in that limit. Related large-inventory robustness results (Batched Inventory Balancing under inventory shocks) similarly obtain ratios converging to \\(1-1/e\\) as initial inventory grows, even with adversarial replenishments.\n\nOn the algorithmic-tools side, work on k-rental problems develops lossless dependent online rounding for fixed deterministic durations, suggesting a potential pathway: if one can design a strong fractional OBMRR policy (perhaps via the OBMRR LP or a tighter relaxation) whose marginals satisfy appropriate online-rounding conditions, then one might lift near-\\(1-1/e\\) fractional performance to the integral setting. However, current rounding results either apply to identical-unit feasibility systems (k-rental) or to non-reusable matching (lossless online rounding for classic OBM), and do not yet yield a constant \\(1-1/e\\) guarantee under the bipartite-compatibility plus sliding-window reuse constraints. Overall, the problem of achieving an exact \\(1-1/e\\) competitive ratio for vertex-weighted OBMRR with deterministic duration \\(d\\) and unit inventory remains open; the best known worst-case ratios for integral algorithms in this model remain below \\(1-1/e\\), while \\(1-1/e\\) is achievable only asymptotically in large-capacity regimes.",
+    "total_cost_usd": 2.0058374,
+    "citations_analyzed": 25,
     "sources": [
       {
-        "title": "An optimal algorithm for on-line bipartite matching",
-        "bibtex": "@inproceedings{KarpVaziraniVazirani1990,\n  author    = {Richard M. Karp and Umesh V. Vazirani and Vijay V. Vazirani},\n  title     = {An optimal algorithm for on-line bipartite matching},\n  booktitle = {Proceedings of the 22nd Annual ACM Symposium on Theory of Computing (STOC)},\n  year      = {1990}\n}",
-        "source_url": "https://doi.org/10.1145/100216.100262",
-        "theorem_or_result": "Introduces the RANKING algorithm for online bipartite matching with non-reusable offline vertices and proves the optimal randomized competitive ratio \\(1-1/e\\) against an oblivious adversary.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "OBMRR reduces to classic OBM when \\(d=|U|\\); thus \\(1-1/e\\) is an upper bound for OBMRR in that regime and the techniques (random ranking/negative correlation) motivate attempts to reach \\(1-1/e\\) with reusability."
-      },
-      {
-        "title": "Online vertex-weighted bipartite matching and single-bid budgeted allocations",
-        "bibtex": "@inproceedings{AggarwalGoelKarandeMehta2011,\n  author    = {Gagan Aggarwal and Gagan Goel and Chaitanya Karande and Aranyak Mehta},\n  title     = {Online vertex-weighted bipartite matching and single-bid budgeted allocations},\n  booktitle = {Proceedings of the 22nd Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2011}\n}",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973082.99",
-        "theorem_or_result": "Gives the Perturbed Greedy algorithm for vertex-weighted online bipartite matching with non-reusable offline vertices and achieves the optimal \\(1-1/e\\) competitive ratio.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "The Periodic Reranking algorithm in OBMRR is explicitly designed to reduce to Perturbed Greedy when \\(d=|U|\\); understanding the \\(1-1/e\\) analysis highlights what breaks under reusability and what must be recovered to reach \\(1-1/e\\)."
-      },
-      {
-        "title": "Randomized primal-dual analysis of ranking for online bipartite matching",
-        "bibtex": "@inproceedings{DevanurJainKleinberg2013,\n  author    = {Nikhil R. Devanur and Kamal Jain and Robert D. Kleinberg},\n  title     = {Randomized primal-dual analysis of ranking for online bipartite matching},\n  booktitle = {Proceedings of the 24th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},\n  year      = {2013}\n}",
-        "source_url": "https://epubs.siam.org/doi/10.1137/1.9781611973105.9",
-        "theorem_or_result": "Develops a randomized primal-dual (dual-fitting) analysis framework for RANKING, clarifying how to construct dual variables from random ranks to certify \\(1-1/e\\).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Delong et al. adapt this randomized primal-dual template to periodic reranking under reuse constraints; any attempt to reach \\(1-1/e\\) for OBMRR likely needs a sharper dual-fitting argument or new dual variables capturing availability windows."
-      },
-      {
-        "title": "Edge-weighted online bipartite matching",
-        "bibtex": "@inproceedings{FahrbachHuangTaoZadimoghaddam2020,\n  author    = {Matthew Fahrbach and Zhiyi Huang and Runzhou Tao and Morteza Zadimoghaddam},\n  title     = {Edge-weighted online bipartite matching},\n  booktitle = {2020 IEEE 61st Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2020}\n}",
-        "source_url": "https://doi.org/10.1109/FOCS46700.2020.00046",
-        "theorem_or_result": "Introduces the online correlated selection (OCS) technique to induce negative correlation in online matching decisions, enabling improved competitive ratios in edge-weighted settings.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Delong et al. extend OCS to reusable resources via Online Correlated Rental (OCR); further improvements to OCR/OCS parameters are a plausible route toward \\(1-1/e\\) for OBMRR."
-      },
-      {
-        "title": "Improved online correlated selection",
-        "bibtex": "@inproceedings{GaoHeHuangNieYuanZhong2022,\n  author    = {Runzhou Gao and Zhiyi He and Zhiyi Huang and Zhijian Nie and Binghui Yuan and Yufan Zhong},\n  title     = {Improved online correlated selection},\n  booktitle = {2021 IEEE 62nd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2022}\n}",
-        "source_url": "https://doi.org/10.1109/FOCS52979.2021.000125",
-        "theorem_or_result": "Improves guarantees/parameters for online correlated selection beyond the original OCS construction.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 6,
-        "connection": "If improved OCS parameters can be translated to the reusable-resource OCR setting, the resulting stronger negative-correlation guarantee \\(\\gamma\\) could improve the 0.505 bound and potentially approach \\(1-1/e\\)."
-      },
-      {
-        "title": "Multiway online correlated selection",
-        "bibtex": "@inproceedings{BlancCharikar2022,\n  author    = {Guy Blanc and Moses Charikar},\n  title     = {Multiway online correlated selection},\n  booktitle = {2021 IEEE 62nd Annual Symposium on Foundations of Computer Science (FOCS)},\n  year      = {2022}\n}",
-        "source_url": "https://doi.org/10.1109/FOCS52979.2021.000124",
-        "theorem_or_result": "Extends online correlated selection to multiway choices, providing more flexible correlation structures than pairwise OCS.",
-        "relevance_category": "RELATED_TOOL",
-        "relevance_score": 5,
-        "connection": "OBMRR algorithms may benefit from proposing more than two candidate resources per request; multiway correlated selection could be a building block for such extensions under reuse constraints."
-      },
-      {
         "title": "Asymptotically optimal competitive ratio for online allocation of reusable resources",
-        "bibtex": "@inproceedings{GoyalIyengarUdwani2021,\n  author    = {Vineet Goyal and Garud Iyengar and Rajan Udwani},\n  title     = {Asymptotically optimal competitive ratio for online allocation of reusable resources},\n  booktitle = {Web and Internet Economics (WINE 2021), Lecture Notes in Computer Science},\n  year      = {2021}\n}",
-        "source_url": "https://link.springer.com/book/10.1007/978-3-030-94676-0",
-        "theorem_or_result": "Studies online allocation with reusable resources in the large-capacity/fractional regime and achieves asymptotically optimal \\(1-1/e\\)-type guarantees (with appropriate algorithms) under that model.",
-        "relevance_category": "BACKGROUND",
+        "bibtex": "@article{GoyalIyengarUdwani2021AsymptoticallyOptimalReusable,\n  title        = {Asymptotically optimal competitive ratio for online allocation of reusable resources},\n  journal      = {Operations Research},\n  year         = {2021},\n  doi          = {10.1287/opre.2021.0695},\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2021.0695",
+        "theorem_or_result": "The paper gives a randomized online algorithm for online bipartite matching/allocation with reusable resources and stochastic usage durations that is asymptotically optimal in the large-capacity regime: for OBMR with capacities \\,\\(c_i\\) and known usage distributions \\,\\(F_i\\), there exists a realization-independent algorithm (Sample G-ALG) with competitive ratio \\((1-1/e-\\delta)\\) where \\(\\delta=O(\\sqrt{\\log c_{\\min}/c_{\\min}})\\) and \\(c_{\\min}=\\min_i c_i\\); hence the ratio tends to \\(1-1/e\\) as \\(c_{\\min}\\to\\infty\\). It also proves an upper bound that no online algorithm can beat \\(1-1/e\\) asymptotically. Additionally, a simpler Rank-Based Allocation (RBA) policy is shown \\((1-1/e-\\delta)\\)-competitive for several distribution families (e.g., IFR, exponential, certain two-point).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks whether vertex-weighted OBMRR with deterministic usage duration \\(d\\) admits a randomized \\((1-1/e)\\)-competitive algorithm for all instances (no large-capacity assumption). This paper achieves \\((1-1/e)\\) only asymptotically as capacities \\(c_i\\) grow, and primarily for stochastic durations; deterministic duration is a special case, but the guarantee still relies on the large-inventory regime (and/or distributional assumptions for the simpler RBA). Thus it does not resolve the open problem in full generality (notably, it does not give a \\((1-1/e)\\) guarantee for unit capacities / general capacities, which corresponds to the original OBMRR model with one reusable unit per resource). It does, however, establish optimality of \\(1-1/e\\) as an asymptotic limit and provides algorithmic/analytic tools (LP-free certificate, fluid-guided rounding) relevant to pursuing the full result."
+      },
+      {
+        "title": "Robustness of online inventory balancing to inventory shocks",
+        "bibtex": "@misc{RobustnessInventoryBalancingShocks,\n  title        = {Robustness of online inventory balancing to inventory shocks},\n  note         = {Working paper},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies online assortment/allocation with reusable inventory (deterministic return durations \\(d_i\\)) and adversarial nonnegative exogenous replenishments. It proposes Batched Inventory Balancing (BIB) and proves (Theorem 1) that for any concave nondecreasing penalty \\(\\Psi\\) and batch threshold \\(\\gamma\\in[1,c_0]\\), BIB is \\(\\Gamma(\\Psi,\\gamma)\\)-competitive against a clairvoyant benchmark, where \\(\\Gamma(\\Psi,\\gamma)=\\min\\{\\Gamma_1(\\Psi,\\gamma),\\Gamma_2(\\Psi,\\gamma)\\}\\) with\n- \\(\\Gamma_1(\\Psi,\\gamma)=\\min_{x\\in[0,1-1/c_0]}\\Big\\{1-\\frac{x}{1/c_0+(1+\\gamma/c_0)(1-\\Psi(x))+\\int_{x+1/c_0}^1\\Psi(y)\\,dy}\\Big\\}\\) (as stated in the paper),\n- \\(\\Gamma_2(\\Psi,\\gamma)=\\min_{x\\in[0,1-1/\\gamma]}\\Big\\{1-\\frac{x}{1/\\gamma+1-\\Psi(x)+\\int_{x+1/\\gamma}^1\\Psi(y)\\,dy}\\Big\\}\\).\nIn particular, choosing the exponential penalty \\(\\Psi(x)=\\frac{e^{1-x}-e}{1-e}\\) and \\(\\gamma=\\Theta(\\sqrt{c_0})\\) yields a competitive ratio that converges to \\(1-1/e\\) as the minimum initial inventory \\(c_0\\to\\infty\\) (large-inventory/asymptotic regime), even with both endogenous (returns after \\(d_i\\)) and exogenous shocks.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether vertex-weighted OBMRR with deterministic usage duration \\(d\\) admits a randomized online algorithm achieving the optimal \\(1-1/e\\) competitive ratio for all instances (no large-inventory assumption). This paper does not resolve that in full generality. Instead, it proves an asymptotically optimal \\(1-1/e\\) guarantee in a different but related model (online assortment/allocation) with reusable resources and even additional exogenous replenishments, under a large-inventory regime (competitive ratio approaches \\(1-1/e\\) as \\(c_0\\to\\infty\\)). For OBMRR with capacity 1 per offline vertex (the usual matching setting), \\(c_0=1\\), so the theorem does not yield \\(1-1/e\\) and does not close the gap. Nonetheless, the algorithmic idea (batching units) and the randomized primal-dual/interval-assignment analysis are relevant tools that might be adaptable to OBMRR or to the multi-unit (\\(b\\)-matching) generalization of OBMRR."
+      },
+      {
+        "title": "Leveraging reusability: Improved competitive ratio of greedy for reusable resources",
+        "bibtex": "@misc{LeveragingReusabilityGreedy,\n  title        = {Leveraging reusability: Improved competitive ratio of greedy for reusable resources},\n  note         = {Working paper},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In online weighted bipartite matching with reusable resources and random i.i.d. usage durations per resource, the Greedy policy is provably competitive against an optimal clairvoyant benchmark (knows the request sequence but not duration realizations):\n- If each resource returns in one step with probability at least \\(p=\\min_i \\Pr(D_i=1)\\), then \\(\\mathrm{Greedy}/\\mathrm{OPT}\\ge 1/(2-p)\\).\n- If usage durations are geometric \\(D_i\\sim\\mathrm{Geom}(p_i)\\) with \\(p=\\min_i p_i\\), then \\(\\mathrm{Greedy}/\\mathrm{OPT}\\ge (1+p)/2\\), and this bound is tight (approachable on a 2-step, 2-resource instance).",
+        "relevance_category": "PARTIAL_PROGRESS",
         "relevance_score": 6,
-        "connection": "Shows \\(1-1/e\\) is achievable for reusable resources when capacities are large or allocations are fractional; highlights the integrality/unit-inventory barrier central to the OBMRR open problem."
+        "connection": "The open problem asks whether vertex-weighted OBMRR with deterministic usage duration \\(d\\) admits a randomized online algorithm achieving the optimal \\(1-1/e\\) competitive ratio (vs the offline optimum under the same deterministic reusability constraint). This paper does not address the deterministic-duration model nor the \\(1-1/e\\) target. Instead it studies a different OBMRR variant with random usage durations and analyzes the (deterministic) Greedy algorithm against a weaker benchmark (a clairvoyant that knows arrivals but not duration realizations). It shows competitive ratios improving with a reusability parameter \\(p\\), but the guarantees are of the form \\(1/(2-p)\\) or \\((1+p)/2\\), which do not imply \\(1-1/e\\) in general and are not stated against the full offline optimum for deterministic \\(d\\). The coupling/lost-match analysis technique may be a related tool for analyzing reusable-resource matching, but it does not resolve the \\(1-1/e\\) question for deterministic \\(d\\)."
+      },
+      {
+        "title": "Online Rounding and Pricing Schemes for k-Rental Problems",
+        "bibtex": "@inproceedings{OnlineRoundingPricingKRental2024,\n  title        = {Online Rounding and Pricing Schemes for k-Rental Problems},\n  year         = {2024},\n  doi          = {10.1145/3774904.3792368},\n}\n",
+        "source_url": "https://doi.org/10.1145/3774904.3792368",
+        "theorem_or_result": "The paper studies adversarial online allocation with reusable identical units (k-rental). For kRental-Fixed (all rentals have the same deterministic duration d), it gives a relax-and-round algorithm (dop-\\(\\phi\\)-fixed) that computes an online fractional solution via a price function \\(\\phi\\) and then rounds it using a new dependent rounding subroutine (Algorithm 2) that is lossless: for any feasible fractional targets \\(\\hat x_n\\) satisfying \\(\\hat x_n \\le \\min\\{1,\\, k-\\sum_{j<n}\\hat x_j\\mathbf 1\\{a_j+d>a_n\\}\\}\\), the rounding allocates with probability exactly \\(\\hat x_n\\) (Theorem 1). Under bounded valuations \\(v_n\\in[v_{\\min},v_{\\max}]\\), dop-\\(\\phi\\)-fixed achieves competitive ratio \\(1+\\ln(v_{\\max}/v_{\\min})\\) with \\(\\phi(y)=v_{\\min}\\exp((1+\\ln(v_{\\max}/v_{\\min}))y-1)\\) (Theorem 2), and no online algorithm can do better than \\(1+\\ln(v_{\\max}/v_{\\min})\\) in that model (Proposition 3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether vertex-weighted OBMRR with fixed deterministic reuse duration \\(d\\) admits a \\((1-1/e)\\)-competitive randomized online algorithm (matching the classic non-reusable optimum) or, failing that, what the optimal ratio is. This paper does not resolve that: it analyzes a different but related model (k identical reusable units with per-request valuations, not a general bipartite graph with heterogeneous vertex weights and adjacency constraints). Its main relevance is methodological: it introduces a lossless online dependent rounding scheme (1-ocr) for fixed-duration reusability, which could be a component in designing improved OBMRR algorithms if one can obtain strong fractional guarantees for the matching LP. However, the competitive ratios proved here for kRental-Fixed are of the form \\(1/(1+\\ln(v_{\\max}/v_{\\min}))\\) (in their convention) and depend on bounded valuation ranges, rather than achieving a constant \\(1-1/e\\) independent of value spread. Thus it provides partial progress/related tools but not a \\((1-1/e)\\) algorithm for vertex-weighted OBMRR."
+      },
+      {
+        "title": "Online Rounding Schemes for -Rental Problems",
+        "bibtex": "@misc{OnlineRoundingSchemesRentalProblems,\n  title        = {Online Rounding Schemes for -Rental Problems},\n  note         = {Working paper},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies adversarial online allocation with reusable identical units (k-rental). For kRental-Fixed (all rentals have the same deterministic duration \\(d\\)), it gives a relax-and-round algorithm (Algorithm 3) that computes an online fractional solution via a pricing function \\(\\phi\\) and then rounds it using a new lossless online rounding scheme (Algorithm 2). The rounding result is: Algorithm 2 is a \\(1\\)-ocr (Theorem 1), i.e., for any feasible fractional targets \\(\\hat x_n\\) satisfying \\(\\hat x_n \\le \\min\\{1,\\, k-\\sum_{j<n}\\hat x_j\\mathbf 1\\{a_j+d>a_n\\}\\}\\), it produces integral allocations with \\(\\Pr[x_n=1]\\ge \\hat x_n\\) for all \\(n\\). For kRental-Fixed under bounded valuations \\(v_n\\in[v_{\\min},v_{\\max}]\\), their pricing+rounding algorithm dop-\\(\\phi\\)-fixed is \\((1+\\ln(v_{\\max}/v_{\\min}))\\)-competitive (Theorem 2), and no online algorithm can beat this ratio in that model (Proposition 3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether vertex-weighted online bipartite matching with reusable resources and fixed deterministic reuse time \\(d\\) admits a \\((1-1/e)\\)-competitive randomized algorithm (matching the classic non-reusable optimum). This paper does not address that question in the general OBMRR model: it studies a different special case with \\(k\\) identical resources (no bipartite graph structure/compatibility constraints) and request-specific valuations, plus an additional bounded-valuation assumption \\([v_{\\min},v_{\\max}]\\). Its main relevance is methodological: it introduces a lossless online rounding scheme (1-ocr) for fixed-duration reusability that could potentially be useful as a rounding component in OBMRR algorithms. However, its competitive-ratio results are logarithmic in \\(v_{\\max}/v_{\\min}\\), not the constant \\(1-1/e\\), and it does not prove any \\(1-1/e\\) guarantee nor any impossibility for OBMRR. Thus it provides tools/partial progress but does not solve the stated open problem."
+      },
+      {
+        "title": "Online matching: A brief survey",
+        "bibtex": "@article{OnlineMatchingBriefSurvey2024,\n  title        = {Online matching: A brief survey},\n  year         = {2024},\n  doi          = {10.1145/3699824.3699837},\n}\n",
+        "source_url": "https://doi.org/10.1145/3699824.3699837",
+        "theorem_or_result": "This paper is a survey and does not prove new competitive-ratio theorems for online bipartite matching with reusable resources. It summarizes known results, including that for OBMRR with identical deterministic usage duration \\(d\\):\n- Fractional/divisible relaxation admits an optimal \\(1-1/e\\) competitive ratio via generalized balance (citing [GIU21, FNS21]).\n- Integral (randomized) algorithms achieve competitive ratios \\(0.589\\) via periodic reranking and \\(0.505\\) via an OCS-based algorithm (citing [DFN+23]), extending to vertex-weighted settings.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 4,
+        "connection": "The open problem asks whether vertex-weighted OBMRR with deterministic usage duration \\(d\\) admits a randomized online algorithm with competitive ratio \\(1-1/e\\) against \\(\\mathrm{OPT}(G,d)\\), or else what the optimal ratio is. This survey does not resolve that question; it reports that \\(1-1/e\\) is known for the fractional version, while the best known guarantees for the integral version (even with identical \\(d\\) across resources) are below \\(1-1/e\\) (\\(0.589\\) and \\(0.505\\)). It also notes that heterogeneous durations \\(d_v\\) remain open, but that is a different open direction than achieving \\(1-1/e\\) for the integral identical-\\(d\\) model."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.08105825000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.105539,
-    "total_cost_usd": 0.18659725
+    "literature_total_cost_usd": 2.0058374,
+    "total_cost_usd": 2.0868956499999998
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4387615605/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4387615605_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4387615605_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4387615605_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 25,
     "is_open": true,
     "model": "gpt-5.2"
   }

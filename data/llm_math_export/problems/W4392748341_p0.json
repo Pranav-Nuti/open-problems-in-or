@@ -50,99 +50,36 @@
     "method": "forward_citation_review",
     "model": "gpt-5.2",
     "importance": 6,
-    "difficulty": 7,
-    "synthesis": "The source paper of Laurent\u2013Polak\u2013Vargas (2024) formulates balanced bipartite biindependent pairs and the balanced independent-set size \\(\\alpha_{\\mathrm{bal}}(G)\\), and develops several first-level SOS/SDP relaxations (balanced variants of Lov\u00e1sz\u2019 \\(\\vartheta\\)-number and related Lasserre bounds). For \\(r\\)-regular bipartite graphs with \\(|V_1|=|V_2|=n\\), the paper shows that when one restricts these SDPs to highly symmetric feasible solutions (the natural route to closed-form spectral bounds), all resulting eigenvalue expressions collapse (up to scaling) to the same \\(\\lambda_2\\)-based quantity \\(\\mathrm{b}h(G)=\\frac{n\\lambda_2(A_G)}{2(r+\\lambda_2(A_G))}\\). In particular, the balanced SDPs do not yield a strictly smaller closed-form upper bound on \\(\\alpha_{\\mathrm{bal}}(G)\\) than the inequality \\(\\alpha_{\\mathrm{bal}}(G)\\le 4\\,\\mathrm{b}h(G)\\) obtained via \\(h\\)-type relaxations.\n\nAt present (based on the provided material and absence of forward-citation evidence), the problem of finding a provably stronger universal closed-form eigenvalue bound exploiting \\(|A|=|B|\\) remains open. The closest related spectral frameworks are the Lov\u00e1sz theta method (Lov\u00e1sz 1979; Gr\u00f6tschel\u2013Lov\u00e1sz\u2013Schrijver 1988) and Hoffman/Haemers-style ratio and biclique bounds (Haemers 1997, 2001; Haemers 2021). These works suggest possible directions: (i) move beyond a \\(\\lambda_2\\)-only formula by incorporating additional spectral data (e.g., multiple singular values/eigenvalue sums, Laplacian extremals, or interlacing constraints tied to the bipartition), and/or (ii) derive new dual feasible certificates for balanced SDPs that are not forced into the two-parameter symmetric ansatz \\(Z=tA_G\\) (and scalar diagonal shifts) that yields \\(\\mathrm{b}h(G)\\).\n\nPromising technical avenues include exploiting equitable partitions/quotient matrices induced by candidate balanced cuts, applying refined eigenvalue interlacing to the bipartite adjacency block \\(M_G\\) with constraints reflecting \\(|A|=|B|\\), or designing spectral bounds from higher-level SOS relaxations that still admit tractable symmetry reductions (e.g., association-scheme settings) but retain enough degrees of freedom to separate balanced from unbalanced solutions. Any such bound would need to be computable from standard spectra and demonstrably strictly smaller than \\(4\\,\\mathrm{b}h(G)\\) on some regular bipartite families while remaining valid for all.",
-    "total_cost_usd": 0.1400315,
-    "citations_analyzed": 0,
+    "difficulty": 8,
+    "synthesis": "The original problem asks for a closed-form spectral upper bound on \\(\\alpha_{\\mathrm{bal}}(G)\\) for \\(r\\)-regular bipartite graphs \\(|V_1|=|V_2|=n\\) that improves on the Laurent--Polak--Vargas symmetric specialization \\(\\alpha_{\\mathrm{bal}}(G)\\le 4\\,\\mathrm{b}h(G)=\\frac{2n\\lambda_2}{r+\\lambda_2}\\). In the source paper, multiple natural balanced SDP relaxations (balanced variants of Lov\\'asz-\\(\\vartheta\\) and first-level Lasserre relaxations) are introduced, but their symmetric/closed-form reductions on regular bipartite graphs all collapse back to \\(\\mathrm{b}h(G)=\\frac{n\\lambda_2}{2(r+\\lambda_2)}\\), indicating that new ideas beyond these symmetric SDP templates are needed to get a strictly stronger universal eigenvalue formula.\n\nAmong the forward citations provided, the only citing work is an SDP-based extremal paper on cross-intersecting families. While it does not contribute a new bound for \\(\\alpha_{\\mathrm{bal}}\\) in regular bipartite graphs, it exemplifies a successful strategy for obtaining sharp results: constructing explicit dual SDP certificates and verifying PSD constraints via association-scheme diagonalization. This suggests a plausible direction for the open problem: identify additional algebraic structure (e.g., distance-regular/association-scheme settings, or refined block-diagonalizations beyond the \\(\\{I,J,A_G\\}\\)-span) where balanced constraints can be enforced in the dual and yield a closed-form expression strictly improving \\(\\mathrm{b}h(G)\\). At present, based on the supplied citation set, no paper resolves the requested stronger universal eigenvalue bound, so the problem remains open.",
+    "total_cost_usd": 0.16966775,
+    "citations_analyzed": 2,
     "sources": [
       {
-        "title": "Semidefinite approximations for bicliques and biindependent pairs",
-        "bibtex": "@article{LaurentPolakVargas2024SDPBicliques,\n  title        = {Semidefinite approximations for bicliques and biindependent pairs},\n  author       = {Laurent, Monique and Polak, Sven and Vargas, Luis Felipe},\n  year         = {2024},\n  journal      = {arXiv preprint arXiv:2302.08886},\n  eprint       = {2302.08886},\n  archivePrefix= {arXiv},\n  primaryClass = {math.CO}\n}\n",
-        "source_url": "https://arxiv.org/abs/2302.08886",
-        "theorem_or_result": "Introduces SDP relaxations for bipartite biindependent-pair parameters and for the balanced parameter \\(\\alpha_{\\mathrm{bal}}(G)\\). For \\(r\\)-regular bipartite \\(G\\) with \\(|V_1|=|V_2|=n\\), shows the closed-form spectral bound \\(h(G)\\le h_1(G)\\le \\mathrm{b}h(G)=\\frac{n\\lambda_2}{2(r+\\lambda_2)}\\) and that natural symmetric specializations of several balanced SDPs collapse (up to scaling) to \\(\\mathrm{b}h(G)\\), leaving open the task of finding a strictly stronger closed-form eigenvalue bound exploiting balance.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 10,
-        "connection": "This is the originating paper: it defines \\(\\alpha_{\\mathrm{bal}}(G)\\), develops balanced SDPs, and proves that their symmetric/eigenvalue reductions do not improve on \\(\\mathrm{b}h(G)\\), motivating the open problem of stronger spectral closed forms."
-      },
-      {
-        "title": "On the Shannon capacity of a graph",
-        "bibtex": "@article{Lovasz1979Shannon,\n  title   = {On the {S}hannon capacity of a graph},\n  author  = {Lov{\\'a}sz, L{\\'a}szl{\\'o}},\n  journal = {IEEE Transactions on Information Theory},\n  volume  = {25},\n  number  = {1},\n  pages   = {1--7},\n  year    = {1979},\n  doi     = {10.1109/TIT.1979.1055985}\n}\n",
-        "source_url": "https://doi.org/10.1109/TIT.1979.1055985",
-        "theorem_or_result": "Introduces the Lov\u00e1sz theta number \\(\\vartheta(G)\\), an SDP computable upper bound on \\(\\alpha(G)\\) that is exact for bipartite/perfect graphs and underlies many spectral/SDP bounds.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 8,
-        "connection": "The balanced SDPs in the source paper are explicit variations of \\(\\vartheta\\); any improved closed-form eigenvalue bound for \\(\\alpha_{\\mathrm{bal}}\\) would likely be interpretable as a structured restriction/rounding of a theta-like SDP."
-      },
-      {
-        "title": "Geometric Algorithms and Combinatorial Optimization",
-        "bibtex": "@book{GrotschelLovaszSchrijver1988GLS,\n  title     = {Geometric Algorithms and Combinatorial Optimization},\n  author    = {Gr{\\\"o}tschel, Martin and Lov{\\'a}sz, L{\\'a}szl{\\'o} and Schrijver, Alexander},\n  year      = {1988},\n  publisher = {Springer},\n  address   = {Berlin}\n}\n",
-        "source_url": "https://link.springer.com/book/10.1007/978-3-642-78240-4",
-        "theorem_or_result": "Develops the ellipsoid/SDP framework for \\(\\vartheta\\) and related relaxations; establishes exactness of \\(\\vartheta\\) on perfect graphs and foundational duality/structure used in spectral bounds.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Provides the canonical reference for theta/SDP duality and symmetry reduction arguments that the source paper uses when deriving eigenvalue closed forms; relevant for attempts to derive new structured feasible dual certificates tailored to balance."
-      },
-      {
-        "title": "A comparison of the Sherali-Adams, Lov\u00e1sz-Schrijver and Lasserre relaxations for 0-1 programming",
-        "bibtex": "@article{Laurent2003Comparison,\n  title   = {A comparison of the {S}herali--{A}dams, {L}ov{\\'a}sz--{S}chrijver and {L}asserre relaxations for 0--1 programming},\n  author  = {Laurent, Monique},\n  journal = {Mathematics of Operations Research},\n  volume  = {28},\n  number  = {3},\n  pages   = {470--496},\n  year    = {2003},\n  doi     = {10.1287/moor.28.3.470.16391}\n}\n",
-        "source_url": "https://doi.org/10.1287/moor.28.3.470.16391",
-        "theorem_or_result": "Systematic comparison of lift-and-project/SOS hierarchies; shows convergence properties and relationships among relaxations for 0\u20131 problems, including stable set formulations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Balanced independent set can be encoded by adding a linear constraint \\(f^Tx=0\\) to the stable-set ideal; this paper is a key reference for how such constraints interact with SOS/Lasserre levels and for understanding why low-level symmetric restrictions may be too coarse."
-      },
-      {
-        "title": "An explicit exact SDP relaxation for nonlinear 0-1 programs",
-        "bibtex": "@inproceedings{Lasserre2001Explicit,\n  title     = {An explicit exact {SDP} relaxation for nonlinear 0--1 programs},\n  author    = {Lasserre, Jean B.},\n  booktitle = {Integer Programming and Combinatorial Optimization (IPCO)},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {2081},\n  pages     = {293--303},\n  year      = {2001},\n  publisher = {Springer},\n  doi       = {10.1007/3-540-44676-1_20}\n}\n",
-        "source_url": "https://doi.org/10.1007/3-540-44676-1_20",
-        "theorem_or_result": "Introduces the Lasserre/SOS hierarchy giving increasingly tight SDP relaxations for polynomial 0\u20131 optimization, exact at sufficiently high level.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "The balanced constraint \\(f^Tx=0\\) fits naturally into the SOS framework; stronger eigenvalue bounds might correspond to identifying low-degree SOS certificates specialized to regular bipartite graphs beyond the symmetric ansatz yielding \\(\\mathrm{b}h(G)\\)."
-      },
-      {
-        "title": "Bicliques and eigenvalues",
-        "bibtex": "@article{Haemers2001Bicliques,\n  title   = {Bicliques and eigenvalues},\n  author  = {Haemers, Willem H.},\n  journal = {Journal of Combinatorial Theory, Series B},\n  volume  = {82},\n  number  = {1},\n  pages   = {56--66},\n  year    = {2001},\n  doi     = {10.1006/jctb.2000.2020}\n}\n",
-        "source_url": "https://doi.org/10.1006/jctb.2000.2020",
-        "theorem_or_result": "Develops spectral parameters (e.g., \\(\\varphi\\), \\(\\varphi'\\), \\(\\varphi_H\\)) to upper bound biclique-related quantities via eigenvalues; connects to complements and Laplacian spectra.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Although focused on bicliques, the source paper relates its \\(h_1\\)/\\(\\mathrm{b}h\\) bounds to Haemers\u2019 parameters through bipartite doubles/complements; techniques suggest alternative spectral certificates that might be adapted to balanced biindependent sets."
-      },
-      {
-        "title": "Disconnected vertex sets and equidistant code pairs",
-        "bibtex": "@article{Haemers1997Disconnected,\n  title   = {Disconnected vertex sets and equidistant code pairs},\n  author  = {Haemers, Willem H.},\n  journal = {The Electronic Journal of Combinatorics},\n  volume  = {4},\n  number  = {1},\n  pages   = {R7},\n  year    = {1997}\n}\n",
-        "source_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v4i1r7",
-        "theorem_or_result": "Introduces spectral techniques for bounding sizes of disconnected vertex sets and related extremal configurations; precursor to later biclique/eigenvalue bounds.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Balanced biindependent pairs correspond to large disconnected bipartite substructures; Haemers\u2019 framework is a potential source of alternative eigenvalue bounds beyond the \\(\\lambda_2\\)-only expression \\(\\mathrm{b}h(G)\\)."
-      },
-      {
-        "title": "Hoffman\u2019s ratio bound",
-        "bibtex": "@article{Haemers2021Hoffman,\n  title   = {Hoffman{'}s ratio bound},\n  author  = {Haemers, Willem H.},\n  journal = {Linear Algebra and its Applications},\n  volume  = {617},\n  pages   = {215--219},\n  year    = {2021},\n  doi     = {10.1016/j.laa.2020.12.011}\n}\n",
-        "source_url": "https://doi.org/10.1016/j.laa.2020.12.011",
-        "theorem_or_result": "Modern account and proof of Hoffman\u2019s ratio bound \\(\\alpha(G)\\le \\frac{n(-\\lambda_{\\min})}{r-\\lambda_{\\min}}\\) for \\(r\\)-regular graphs, and related spectral extremal methods.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 5,
-        "connection": "Hoffman-type bounds are the archetype of closed-form eigenvalue bounds for independent sets; the open problem asks for an analog that better captures the balancing constraint in bipartite regular graphs, potentially involving both positive and negative spectrum or refined interlacing."
+        "title": "A semidefinite programming approach to cross -intersecting families",
+        "bibtex": "@article{,\n  title        = {A semidefinite programming approach to cross -intersecting families},\n  author       = {},\n  year         = {},\n  doi          = {}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves sharp SDP-based extremal results for cross 2-intersecting families. In particular, for integers \\(k\\ge 2\\) and \\(n\\ge 3(k-1)\\), if \\(\\mathcal F,\\mathcal G\\subseteq \\binom{[n]}{k}\\) are cross 2-intersecting (i.e., \\(|F\\cap G|\\ge 2\\) for all \\(F\\in\\mathcal F, G\\in\\mathcal G\\)), then \\(|\\mathcal F|\\,|\\mathcal G|\\le \\binom{n-2}{k-2}^2\\), with characterization of equality cases (Theorem 2). It also proves the measure analogue: for \\(0<p\\le 1/3\\), cross 2-intersecting \\(\\mathcal F,\\mathcal G\\subseteq 2^{[n]}\\) satisfy \\(\\mu_p(\\mathcal F)\\mu_p(\\mathcal G)\\le p^4\\), with equality characterization for \\(p<1/3\\) (Theorem 4).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for a stronger closed-form eigenvalue upper bound on the balanced biindependent-pair size \\(\\alpha_{\\mathrm{bal}}(G)\\) in \\(r\\)-regular bipartite graphs, improving on a specific spectral bound \\(4\\,\\mathrm{b}h(G)=\\frac{2n\\lambda_2}{r+\\lambda_2}\\). This citing paper does not study \\(\\alpha_{\\mathrm{bal}}\\) in regular bipartite graphs nor derive eigenvalue bounds in terms of \\(r\\) and \\(\\lambda_2\\). Instead it uses semidefinite programming and association-scheme diagonalization (Johnson and Hamming schemes) to solve extremal problems for cross-intersecting set families, formulated as maximum product of sizes/measures of cross-independent sets in a specially constructed bipartite graph. Methodologically, it is related in that it constructs explicit dual SDP certificates using symmetry/eigen-decomposition, similar in spirit to the SDP/spectral techniques in Laurent\u2013Polak\u2013Vargas (the original paper), but it does not provide a new spectral closed-form bound for balanced biindependent pairs in regular bipartite graphs."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.10621275000000001,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.1400315,
-    "total_cost_usd": 0.24624425
+    "literature_total_cost_usd": 0.16966775,
+    "total_cost_usd": 0.27588050000000003
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4392748341/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4392748341_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4392748341_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4392748341_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 2,
     "is_open": true,
     "model": "gpt-5.2"
   }

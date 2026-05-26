@@ -51,71 +51,71 @@
     "model": "gpt-5.2",
     "importance": 8,
     "difficulty": 8,
-    "synthesis": "No forward-citation corpus was provided, so the state of the art must be reconstructed from the original paper\u2019s context and the pre-2022 MMS-approximation literature it builds on. The core obstruction is that \\(\\mathrm{MMS}_n\\) itself is infeasible for additive valuations when \\(n\\ge 3\\) (Kurokawa--Procaccia--Wang), so \\(\\rho^*<1\\) for the share-design problem. Babaioff--Feige introduce self-maximizing shares via the implied guarantee \\(\\hat s_v(\\cdot)\\), show that exact SM-domination is impossible, and then give explicit feasible, self-maximizing, polynomial-time shares (notably Nested Shares \\(\\mathrm{NS}_{n,3}\\)) that \\(\\rho\\)-dominate MMS with \\(\\rho=\\frac{2n}{3n-1}\\) for general \\(n\\) and \\(\\rho=\\frac45\\) for \\(n\\le 4\\), plus a PTAS for \\(n=2\\).\n\nThe open problem asks for the optimal achievable domination factor \\(\\rho^*\\) under the joint constraints of feasibility, self-maximization, and polynomial-time computability. Existing MMS-allocation algorithms (e.g., Garg--McGlaughlin--Taki; Garg--Taki) imply feasibility of \\(\\rho\\)-MMS shares for \\(\\rho\\approx \\frac34\\), but Babaioff--Feige show \\(\\rho\\)-MMS shares are not self-maximizing for any \\(0<\\rho<1\\), so these results do not directly translate. Conversely, incentive constraints are weaker than full mechanism truthfulness (Amanatidis--Birmpas--Markakis explain why the latter is too demanding), but still nontrivial. At present there is no matching upper bound on \\(\\rho^*\\) beyond the trivial \\(\\rho^*\\le 1\\), and no known construction beating the \\(\\frac{2n}{3n-1}\\) (asymptotically \\(2/3\\)) domination guarantee while retaining self-maximization and polytime computability. Thus the problem remains open; progress likely requires either new self-maximizing share families with stronger MMS domination, or impossibility/upper-bound techniques that exploit the implied-guarantee incentive constraint rather than allocation infeasibility alone.",
-    "total_cost_usd": 0.11506775,
-    "citations_analyzed": 0,
+    "synthesis": "The Babaioff--Feige open problem asks for the largest uniform \\(\\rho^*\\) such that there exists a share function \\(s(v,n)\\) for additive valuations that is simultaneously feasible (there is always an allocation meeting all agents' shares), self-maximizing in the implied-guarantee sense \\(\\hat s_v(v)\\ge \\hat s_v(v')\\), polynomial-time computable, and pointwise \\(\\rho\\)-dominating the maximin share \\(\\mathrm{MMS}_n\\). In the source paper, Babaioff and Feige introduce the share/contract viewpoint, prove that exact SM-domination is impossible for any class containing additive valuations (via picking-order shares and MMS infeasibility), and then give explicit positive constructions: ordinal maximin shares (self-maximizing by design) and the nested shares \\(\\mathrm{NS}_{n,3}\\), which are feasible, polynomial-time computable, and guarantee \\(\\frac{2n}{3n-1}\\)-MMS for all \\(n\\), improving to \\(4/5\\)-MMS for \\(n\\le 4\\); for \\(n=2\\) they give a PTAS achieving \\((1-\\varepsilon)\\)-MMS.\n\nSubsequent work in the forward-citation set does not determine \\(\\rho^*\\) in this exact framework. Several papers explore adjacent notions of feasible shares: quantile shares and thinned quantile shares establish constant-quantile feasibility (even universal feasibility for all monotone valuations after thinning), and these benchmarks are also (informally) self-maximizing and efficiently approximable by sampling. However, these works do not provide pointwise lower bounds of the form \\(s(v,n)\\ge \\rho\\,\\mathrm{MMS}_n(v)\\) for all additive \\(v\\), so they do not improve the best known \\(\\rho\\) under the MMS-domination requirement.\n\nOn the incentives side, work on truthful(-in-expectation) mechanisms and on characterizations of deterministic truthful mechanisms highlights strong constraints when one insists on dominant-strategy truthfulness of allocation rules; these results yield poor MMS approximations for broad classes of truthful mechanisms. While conceptually related, they do not translate directly to the implied-guarantee self-maximization condition for shares. Overall, the state of the art remains that constant \\(\\rho\\) is achievable (at least \\(\\approx 2/3\\) uniformly in \\(n\\) via nested shares, and \\(4/5\\) for \\(n\\le 4\\)), but the optimal uniform \\(\\rho^*\\) for feasible, self-maximizing, polynomial-time shares that dominate \\(\\mathrm{MMS}_n\\) for additive valuations remains open.",
+    "total_cost_usd": 1.5757805,
+    "citations_analyzed": 18,
     "sources": [
       {
-        "title": "Fair enough: Guaranteeing approximate maximin shares",
-        "bibtex": "@article{KurokawaProcacciaWang2018FairEnough,\n  title        = {Fair Enough: Guaranteeing Approximate Maximin Shares},\n  author       = {Kurokawa, David and Procaccia, Ariel D. and Wang, Junxing},\n  journal      = {Journal of the ACM},\n  volume       = {65},\n  number       = {2},\n  pages        = {8:1--8:27},\n  year         = {2018}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3140756",
-        "theorem_or_result": "Shows MMS is not feasible for additive valuations when \\(n\\ge 3\\); establishes existence and algorithms for constant-factor MMS approximations (\\(\\rho\\)-MMS allocations).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 9,
-        "connection": "The open problem asks for the best \\(\\rho\\) achievable by feasible, self-maximizing, polytime shares that \\(\\rho\\)-dominate MMS. Infeasibility of MMS (\\(\\rho=1\\)) for \\(n\\ge 3\\) is the fundamental barrier and motivates approximate domination."
-      },
-      {
-        "title": "Approximating maximin share allocations",
-        "bibtex": "@inproceedings{GargMcGlaughlinTaki2019Approximating,\n  title        = {Approximating Maximin Share Allocations},\n  author       = {Garg, Jugal and McGlaughlin, Peter and Taki, Setareh},\n  booktitle    = {2nd Symposium on Simplicity in Algorithms (SOSA 2019)},\n  series       = {OASIcs},\n  volume       = {69},\n  pages        = {20:1--20:11},\n  year         = {2019}\n}\n",
-        "source_url": "https://drops.dagstuhl.de/entities/document/10.4230/OASIcs.SOSA.2019.20",
-        "theorem_or_result": "Gives approximation algorithms for MMS allocations; in particular yields a \\(\\frac{2n}{3n-1}\\)-approximation for additive valuations (among other bounds).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Babaioff--Feige\u2019s Nested Shares \\(\\mathrm{NS}_{n,3}\\) achieve \\(\\frac{2n}{3n-1}\\)-domination, and their analysis is derived from the same approximation phenomena as in this work; it provides the algorithmic benchmark for feasible guarantees relative to MMS."
-      },
-      {
-        "title": "An improved approximation algorithm for maximin shares",
-        "bibtex": "@inproceedings{GargTaki2020Improved,\n  title        = {An Improved Approximation Algorithm for Maximin Shares},\n  author       = {Garg, Jugal and Taki, Setareh},\n  booktitle    = {Proceedings of the 21st ACM Conference on Economics and Computation (EC '20)},\n  pages        = {379--380},\n  year         = {2020}\n}\n",
-        "source_url": "https://dl.acm.org/doi/10.1145/3391403.3399532",
-        "theorem_or_result": "Improves the approximation ratio for MMS allocations for additive valuations to \\(\\frac{3}{4}+\\Theta(\\frac{1}{n})\\) (reported as \\(\\frac{3}{4}+\\frac{1}{12n}\\) in Babaioff--Feige).",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 7,
-        "connection": "Shows that feasibility of a \\(\\rho\\)-MMS share holds for \\(\\rho\\approx \\frac{3}{4}\\), but Babaioff--Feige note such \\(\\rho\\)-MMS shares are not self-maximizing; thus it separates feasibility/algorithmic approximation from the incentive-compatible (self-maximizing) share-design objective."
-      },
-      {
-        "title": "On truthful mechanisms for maximin share allocations",
-        "bibtex": "@inproceedings{AmanatidisBirmpasMarkakis2016TruthfulMMS,\n  title        = {On Truthful Mechanisms for Maximin Share Allocations},\n  author       = {Amanatidis, Georgios and Birmpas, Georgios and Markakis, Evangelos},\n  booktitle    = {Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence (IJCAI 2016)},\n  pages        = {31--37},\n  year         = {2016}\n}\n",
-        "source_url": "https://www.ijcai.org/Proceedings/16/Papers/005.pdf",
-        "theorem_or_result": "Shows strong impossibility results for truthful mechanisms achieving good MMS approximations when all items must be allocated; relates picking sequences/strategyproofness limitations.",
-        "relevance_category": "BACKGROUND",
-        "relevance_score": 6,
-        "connection": "Babaioff--Feige\u2019s notion of self-maximizing shares is weaker than full mechanism truthfulness; ABM16 explains why one cannot hope for incentive-compatible allocation mechanisms with good MMS approximation, motivating the contract/share approach and clarifying the incentive landscape."
-      },
-      {
-        "title": "Characterizing conflicts in fair division of indivisible goods using a scale of criteria",
-        "bibtex": "@article{BouveretLemaitre2016Conflicts,\n  title        = {Characterizing Conflicts in Fair Division of Indivisible Goods Using a Scale of Criteria},\n  author       = {Bouveret, Sylvain and Lema{\\^\\i}tre, Michel},\n  journal      = {Autonomous Agents and Multi-Agent Systems},\n  volume       = {30},\n  number       = {2},\n  pages        = {259--290},\n  year         = {2016}\n}\n",
-        "source_url": "https://link.springer.com/article/10.1007/s10458-015-9308-3",
-        "theorem_or_result": "Provides reduction/transfer principles between ordered and general instances for additive valuations (used by Babaioff--Feige to reduce feasibility proofs to ordered instances).",
+        "title": "Fair division via quantile shares",
+        "bibtex": "@inproceedings{QuantileShares2024,\n  title        = {Fair division via quantile shares},\n  doi          = {10.1145/3618260.3649728},\n  booktitle    = {Proceedings of the ACM Conference on Economics and Computation},\n  year         = {2024}\n}\n",
+        "source_url": "https://doi.org/10.1145/3618260.3649728",
+        "theorem_or_result": "The paper introduces the q-quantile share \\(\\tau_q(v,n)\\), defined as the \\(q\\)-quantile of \\(v(X)\\) where \\(X\\) is the random bundle obtained by assigning each item independently to an agent with probability \\(1/n\\). It proves feasibility results for this share notion: - (Conditional) If a special case of the Rainbow Erd\\H{o}s Matching Conjecture holds, then the \\(1/(2e)\\)-quantile share is universally feasible for all monotone valuations (Theorem 2). - (Unconditional) For additive valuations, the \\(q\\)-quantile share is feasible for \\(q<0.14/e\\) asymptotically (Proposition 4). - For unit-demand and matroid-rank valuations, feasibility holds up to \\(q\\approx 1/e\\) (Propositions 5\u20136), and \\(q>1/e\\) is infeasible for large \\(n\\) (via Proposition 3).",
         "relevance_category": "RELATED_TOOL",
-        "relevance_score": 5,
-        "connection": "Used as a technical tool in proving feasibility of Nested Shares: an algorithm that works on ordered instances can be lifted to arbitrary instances, enabling feasibility proofs for \\(\\mathrm{NS}_{n,3}\\)."
+        "relevance_score": 4,
+        "connection": "The open problem asks for the largest \\(\\rho^*\\) such that there exists a share \\(s\\) that is simultaneously (i) feasible for additive valuations, (ii) self-maximizing in the Babaioff\u2013Feige sense (truthful report maximizes the implied worst acceptable-bundle guarantee \\(\\hat s_v\\)), (iii) polynomial-time computable, and (iv) \\(\\rho\\)-dominates MMS pointwise: \\(s(v,n)\\ge \\rho\\,\\mathrm{MMS}_n(v)\\) for all additive \\(v\\), uniformly over \\(n\\).\n\nThis paper studies a different share family (quantile shares) and establishes feasibility/universal-feasibility thresholds for \\(\\tau_q\\). It notes that quantile shares are self-maximizing (in an informal sense) and efficiently approximable by sampling, but it does not analyze domination relative to MMS, nor does it optimize \\(\\rho\\) in \\(s(v,n)\\ge \\rho\\,\\mathrm{MMS}_n(v)\\). In fact, quantile shares are not designed to approximate MMS and can be either more or less demanding than MMS fractions depending on the instance (Example 2). Therefore it does not resolve \\(\\rho^*\\) and does not provide a candidate share with a proven constant \\(\\rho\\)-MMS domination guarantee under the self-maximizing + feasibility + polytime constraints."
+      },
+      {
+        "title": "Thinned Quantile Shares are Universally Feasible",
+        "bibtex": "@article{ThinnedQuantileShares,\n  title        = {Thinned Quantile Shares are Universally Feasible},\n  year         = {2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Main results (for general monotone valuations):\n- There exists a universal constant \\(c>0\\) such that the \\(c\\)-thinned \\(e^{-c}\\)-quantile share \\(\\tau^{(c)}_{e^{-c}}(v,n)\\) is universally feasible (Theorem 1.5 / Theorem 4.2).\n- Assuming the rainbow Erd\u0151s matching conjecture, the (unthinned) \\((1/e)\\)-quantile share is universally feasible (Theorem 1.7), and for any \\(c\\in(0,1]\\) the \\(c\\)-thinned \\(q\\)-quantile share can be infeasible for any \\(q>e^{-c}\\) (Proposition 1.8).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for the largest \\(\\rho^*\\) such that there exists a share \\(s\\) for additive valuations that is simultaneously (i) feasible, (ii) self-maximizing in the Babaioff\u2013Feige sense, (iii) polynomial-time computable, and (iv) \\(\\rho\\)-dominates \\(\\mathrm{MMS}_n\\) pointwise.\n\nThis paper studies a different share family (quantile shares and their \\(c\\)-thinned variant) and proves strong feasibility results\u2014indeed universal feasibility for all monotone valuations\u2014for \\(\\tau^{(c)}_{e^{-c}}\\). Quantile shares are known to be self-maximizing (and the paper states this extends to thinned quantile shares), and they are Monte-Carlo approximable.\n\nHowever, the paper does not analyze domination of \\(\\mathrm{MMS}\\) for additive valuations, nor does it optimize or even provide a constant \\(\\rho\\) such that \\(\\tau^{(c)}_{e^{-c}}(v,n)\\ge \\rho\\,\\mathrm{MMS}_n(v)\\) for all additive \\(v\\). In fact, since Babichenko et al. show no constant fraction of MMS is universally feasible over all monotone valuations, these universally feasible quantile-type shares cannot \\(\\rho\\)-dominate MMS uniformly over all monotone valuations; the open problem is restricted to additive valuations, but this paper does not bridge that gap.\n\nThus, the connection is mainly methodological/background: it provides a new universally feasible, self-maximizing benchmark share (thinned quantile share) and extremal-set-theory tools, but it does not resolve \\(\\rho^*\\) for additive valuations under the additional MMS-domination requirement."
+      },
+      {
+        "title": "Truthful-in-Expectation Mechanisms for MMS Approximation",
+        "bibtex": "@article{TIEforMMS,\n  title        = {Truthful-in-Expectation Mechanisms for MMS Approximation},\n  year         = {2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper designs polynomial-time randomized allocation mechanisms for strategic agents with additive valuations that are truthful-in-expectation (TIE) and guarantee ex-post approximations to MMS (and TPS). Main stated guarantees include: - For general n, an ordinal TIE distributional mechanism that is ex-ante proportional and guarantees each agent at least \\(\\frac{1}{H_{n-1}+2}\\)-MMS ex-post (Theorem 1). - With small additional cardinal information and relaxing incentives to \\((1-\\varepsilon(n))\\)-TIE (negligible \\(\\varepsilon(n)=n^{-\\log n}\\)), an ex-ante proportional mechanism guaranteeing \\(\\Omega(1/\\log\\log n)\\)-MMS ex-post (Theorem 2). - For \\(n=2\\), a TIE distributional mechanism that is ex-ante proportional and \\(\\frac{2}{3}\\)-MMS ex-post (Theorem 3).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the largest domination factor \\(\\rho^*\\) achievable by a share function \\(s(v,n)\\) that is (i) feasible for all additive instances, (ii) self-maximizing in the sense that truthful reporting maximizes the implied guarantee \\(\\hat s_v(\\cdot)\\), (iii) polynomial-time computable, and (iv) pointwise \\(\\rho\\)-dominating MMS: \\(s(v,n)\\ge \\rho\\,\\mathrm{MMS}_n(v)\\) for all additive \\(v\\), uniformly over \\(n\\).\nThis paper does not study shares \\(s(v,n)\\) with the feasibility/self-maximizing definition from Babaioff\u2013Feige (\"Fair Shares\"). Instead it studies TIE mechanisms (randomized allocation rules) that approximate MMS/TPS ex-post. TIE is an incentive notion about expected utility, not the paper\u2019s self-maximizing share notion based on worst acceptable bundles \\(\\hat s\\). Likewise, the paper\u2019s guarantees are about existence of a mechanism producing allocations with ex-post MMS approximation, not about a per-agent share function \\(s(v,n)\\) that is always simultaneously feasible across all agents\u2019 shares.\nNevertheless, the paper is partially relevant: it provides new incentive-compatible (in expectation) constructions and impossibility insights around truthful fair division without payments, and it highlights computable benchmarks (TPS) and approximation factors (e.g., \\(1/(H_{n-1}+2)\\), \\(\\Omega(1/\\log\\log n)\\), \\(2/3\\) for \\(n=2\\)) that could inform upper/lower bounds for \\(\\rho^*\\) if one attempts to relate self-maximizing shares to implementable truthful mechanisms. But it does not directly bound or determine \\(\\rho^*\\) under the self-maximizing-share framework."
+      },
+      {
+        "title": "Near-Optimal Best-of-Both-Worlds Fairness for Few Agents",
+        "bibtex": "@article{BoBWFewAgents,\n  title        = {Near-Optimal Best-of-Both-Worlds Fairness for Few Agents},\n  year         = {2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For additive valuations with a fixed small number of agents, the paper gives Best-of-Both-Worlds (BoBW) randomized allocation algorithms/distributions with strong ex-ante proportionality/envy-freeness and strong ex-post guarantees. In particular:\n- For 2 agents and any \\(\\varepsilon>0\\), there is an FPTAS outputting a distribution over at most two allocations that is ex-ante envy-free (hence proportional), ex-post EFX, and in every realized allocation each agent gets at least \\((1-\\varepsilon)\\,\\mathrm{MMS}_2(v_i)\\) (Theorem 1.2).\n- For 3 agents, there exists an ex-ante proportional distribution supported on at most six allocations such that every realized allocation is EEFX and gives each agent at least \\(\\tfrac{9}{10}\\,\\mathrm{MMS}_3(v_i)\\), and moreover is IMMX (each agent either gets her MMS or is EFX-satisfied) (Theorem 1.1). Polynomial-time variants via FPTAS achieve ex-ante proportionality with ex-post \\((\\tfrac{9}{10}-\\varepsilon)\\)-MMS (Theorem 5.1) or approximate ex-ante proportionality with EEFX retained (Theorem 3.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the maximal domination factor \\(\\rho^*\\) achievable by shares \\(s(v,n)\\) that are simultaneously (i) feasible for all additive instances, (ii) self-maximizing (truthful reporting maximizes the implied guarantee \\(\\hat s_v\\)), and (iii) polynomial-time computable, while (iv) pointwise \\(\\rho\\)-dominating MMS for all \\(n\\ge2\\).\n\nThis paper does not study shares \\(s(v,n)\\) or the self-maximizing (incentive) constraint; instead it studies randomized allocation algorithms achieving ex-ante/ex-post fairness (BoBW) for \\(n=2,3\\). Its results are therefore not direct progress on determining \\(\\rho^*\\) under self-maximization.\n\nIndirectly, the paper strengthens what is achievable (algorithmically, and in some cases with FPTAS) in terms of ex-post MMS approximation factors for small \\(n\\) while also satisfying strong envy-based properties (EFX/EEFX). These constructions might inspire candidate shares or feasibility constructions, but they do not establish any \\(\\rho\\)-dominating self-maximizing polynomial-time share uniformly over all \\(n\\), nor upper/lower bounds on \\(\\rho^*\\)."
+      },
+      {
+        "title": "On Truthful Mechanisms without Pareto-efficiency: Characterizations and Fairness",
+        "bibtex": "@article{SerialQuotaCharacterization,\n  title        = {On Truthful Mechanisms without Pareto-efficiency: Characterizations and Fairness},\n  year         = {2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Main characterization (Theorem 1 / Application 1): For any permutations-closed class of strict preferences (or strict valuations) that contains all lexicographic preferences\u2014hence in particular any class containing additive valuations\u2014every deterministic mechanism that is strategy-proof (truthful), non-bossy, and neutral (even without Pareto-efficiency and even allowing disposal) must be a serial-quota mechanism (fixed agent order and fixed quotas; each agent in turn picks her quota-demand from remaining goods). Consequently, for additive valuations, any such truthful mechanism has very poor MMS approximation, at most \\(1/\\lfloor (m-n+2)/2\\rfloor\\) (Application 2, via known bounds for serial-quota mechanisms).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the best domination factor \\(\\rho^*\\) achievable by feasible, self-maximizing, polynomial-time computable shares relative to MMS under additivity. This paper does not study shares, feasibility of shares, or the self-maximizing condition \\(\\hat s_v(v)\\ge \\hat s_v(v')\\). Instead it characterizes truthful (strategy-proof) allocation mechanisms under neutrality and non-bossiness, and derives impossibility/upper bounds on MMS approximation for such mechanisms. While conceptually related (both restrict incentives and compare to MMS), the incentive notion here (dominant-strategy truthfulness of mechanisms) is different from self-maximizing shares, so the paper does not resolve \\(\\rho^*\\). It may provide techniques/negative intuition suggesting strong limits when incentives are imposed, but it does not translate directly to the share framework."
       }
     ]
   },
   "costs": {
     "extractor_total_cost_usd": 0.10372425,
     "verifier_total_cost_usd": 0.0,
-    "literature_total_cost_usd": 0.11506775,
-    "total_cost_usd": 0.218792
+    "literature_total_cost_usd": 1.5757805,
+    "total_cost_usd": 1.67950475
   },
   "provenance": {
     "problem_source": "/project/caai_amzn_cmpr/efithian/llm-math/data/mor_prev_2_years_problems/W4401117667/problems.json",
     "verification_source": null,
-    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_reviews/W4401117667_p0_forward_citation_review.json"
+    "literature_source": "/project/caai_amzn_cmpr/efithian/llm-math/data_local/website_forward_citation_strict_reviews/W4401117667_p0_forward_citation_review.json"
   },
   "forward_citation_review": {
     "run_id": "W4401117667_p0",
-    "citations_analyzed": 0,
+    "citations_analyzed": 18,
     "is_open": true,
     "model": "gpt-5.2"
   }
