@@ -132,6 +132,7 @@
   </footer>
 
   <script src="js/site-config.js"></script>
+  <script src="js/taxonomy.js"></script>
   <script>
     const LIST_PAGE_SIZE = 10;
     const GREEN_AREA_LABELS = new Set([
@@ -139,6 +140,21 @@
       "prophet inequalities",
       "multi-armed bandits",
     ]);
+
+    if (!window.TAXONOMY || !Array.isArray(window.TAXONOMY.categories)) {
+      throw new Error("Missing taxonomy: js/taxonomy.js did not load a valid window.TAXONOMY.");
+    }
+    const CATEGORY_SET = new Set(window.TAXONOMY.categories);
+    const AREA_TO_CATEGORY = window.TAXONOMY.areaToCategory || {};
+    const FALLBACK_CATEGORY = window.TAXONOMY.fallback || "Other";
+
+    function categoryForProblem(payload, areaRaw) {
+      const explicit = String(payload?.category ?? "").trim();
+      if (explicit && CATEGORY_SET.has(explicit)) {
+        return explicit;
+      }
+      return AREA_TO_CATEGORY[String(areaRaw ?? "").trim().toLowerCase()] || FALLBACK_CATEGORY;
+    }
 
     function escapeHtml(text) {
       const div = document.createElement("div");
@@ -311,8 +327,33 @@
 
     function configureBackLink(pageNumber) {
       const backLink = document.getElementById("back-link");
-      backLink.href = `index.html?page=${pageNumber}`;
-      backLink.textContent = `← Back to problems list (page ${pageNumber})`;
+      const source = new URLSearchParams(window.location.search);
+      const params = new URLSearchParams();
+      const q = (source.get("q") || "").trim();
+      const category = (source.get("category") || "").trim();
+      const area = (source.get("area") || "").trim();
+      const sort = (source.get("sort") || "").trim();
+      if (q) {
+        params.set("q", q);
+      }
+      if (category) {
+        params.set("category", category);
+      }
+      if (area) {
+        params.set("area", area);
+      }
+      if (sort && sort !== "default") {
+        params.set("sort", sort);
+      }
+      if (pageNumber > 1) {
+        params.set("page", String(pageNumber));
+      }
+      const query = params.toString();
+      backLink.href = query ? `index.html?${query}` : "index.html";
+      const filtered = Boolean(q || category || area);
+      backLink.textContent = filtered
+        ? "← Back to filtered problems list"
+        : `← Back to problems list (page ${pageNumber})`;
     }
 
     function _trimBibtexValue(value) {
@@ -708,8 +749,14 @@
           "Problem payload is missing non-empty area (no legacy evaluation_area_label / subject_classification either).",
         );
       }
-      document.getElementById("problem-area").textContent = areaRaw;
       const areaEl = document.getElementById("problem-area");
+      const category = categoryForProblem(payload, areaRaw);
+      const categoryHref = `index.html?category=${encodeURIComponent(category)}`;
+      const areaHref = `index.html?area=${encodeURIComponent(areaRaw)}`;
+      areaEl.innerHTML =
+        `<a class="problem-area-link problem-category-link" href="${escapeHtml(categoryHref)}" title="Show all problems in ${escapeHtml(category)}">${escapeHtml(category)}</a>` +
+        `<span class="problem-area-sep">›</span>` +
+        `<a class="problem-area-link" href="${escapeHtml(areaHref)}" title="Show only problems in ${escapeHtml(areaRaw)}">${escapeHtml(areaRaw)}</a>`;
       areaEl.classList.remove("problem-area-green");
       if (GREEN_AREA_LABELS.has(areaRaw.toLowerCase())) {
         areaEl.classList.add("problem-area-green");
