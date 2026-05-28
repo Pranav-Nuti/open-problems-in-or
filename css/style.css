@@ -120,6 +120,10 @@ main {
 }
 
 .problem-card {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
   padding: 1.2rem 0;
   border-bottom: 1px solid var(--color-rule);
 }
@@ -130,16 +134,26 @@ main {
   border-bottom: none;
 }
 
+.problem-card-empty {
+  display: block;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 .problem-card-link {
   text-decoration: none;
   color: var(--color-text);
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  width: 100%;
 }
 
-.problem-card-link:hover .problem-card-title {
+/* Stretched link: whole card is clickable, while pills/links above stay interactive. */
+.problem-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.problem-card:hover .problem-card-title {
   color: var(--color-accent);
 }
 
@@ -189,6 +203,8 @@ main {
 .problem-card-meta a {
   color: var(--color-text-secondary);
   text-decoration: none;
+  position: relative;
+  z-index: 1;
 }
 .problem-card-meta a:hover {
   color: var(--color-accent);
@@ -217,6 +233,174 @@ main {
   border-color: #b7d8b9;
   background: #edf8ef;
   color: #1f5f2b;
+}
+
+/* Clickable area pill on list cards (sits above the card stretched link). */
+.area-pill-btn {
+  z-index: 1;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.area-pill-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.area-pill-btn.area-pill-green:hover {
+  border-color: #1f5f2b;
+  color: #143f1d;
+}
+.area-pill-btn.area-pill-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+.area-pill-btn.area-pill-green.area-pill-active {
+  background: #1f5f2b;
+  border-color: #1f5f2b;
+  color: #fff;
+}
+
+/* List controls: search + topic + sort */
+.list-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.control-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.control-field-search {
+  flex: 1 1 240px;
+}
+
+.control-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.control-input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-rule-heavy);
+  border-radius: 3px;
+  padding: 0.45rem 0.6rem;
+  line-height: 1.4;
+  width: 100%;
+}
+.control-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+select.control-input {
+  cursor: pointer;
+  max-width: 16rem;
+}
+
+.control-search {
+  width: 100%;
+}
+
+.list-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+.list-status-count strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.list-clear-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-rule-heavy);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.list-clear-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.active-filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #881337;
+  background: #fff4f6;
+  border: 1px solid #e7d7d7;
+  border-radius: 999px;
+  padding: 0.15rem 0.3rem 0.15rem 0.6rem;
+}
+
+.filter-chip-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.filter-chip-x:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Clickable area on problem detail page */
+.problem-area-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+.problem-area-link:hover {
+  color: var(--color-accent);
+}
+
+.problem-area-sep {
+  color: var(--color-text-muted);
+  margin: 0 0.35rem;
 }
 
 /* Pagination */
@@ -711,5 +895,15 @@ a.problem-seq-btn:hover .problem-seq-btn-label {
   .problem-detail-grid {
     flex-direction: column;
     gap: 0.35rem;
+  }
+  .list-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .control-field,
+  .control-field-search {
+    flex: 1 1 auto;
+    width: 100%;
   }
 }

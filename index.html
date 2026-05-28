@@ -32,6 +32,34 @@
       <span class="unverified-email-wrap"> Contact
         <span class="unverified-email"></span> if any entry is resolved or misstated.</span>
     </div>
+
+    <div class="list-controls" role="search">
+      <div class="control-field control-field-search">
+        <label class="control-label" for="search-input">Search</label>
+        <input type="search" id="search-input" class="control-input control-search"
+               placeholder="Search titles, areas, keywords, papers…" autocomplete="off"
+               aria-label="Search open problems">
+      </div>
+      <div class="control-field">
+        <label class="control-label" for="category-select">Topic</label>
+        <select id="category-select" class="control-input" aria-label="Filter by topic"></select>
+      </div>
+      <div class="control-field">
+        <label class="control-label" for="sort-select">Sort</label>
+        <select id="sort-select" class="control-input" aria-label="Sort problems">
+          <option value="default">Default order</option>
+          <option value="counterexample">Counterexample suitability (high→low)</option>
+          <option value="alphaevolve">AlphaEvolve suitability (high→low)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="list-status" id="list-status">
+      <span class="list-status-count" id="list-status-count"></span>
+      <span class="active-filters" id="active-filters"></span>
+      <button type="button" class="list-clear-btn" id="list-clear-btn" hidden>Clear all</button>
+    </div>
+
     <ul class="problem-list" id="problem-list">
       <!-- Populated by JavaScript -->
     </ul>
@@ -49,6 +77,7 @@
   </footer>
 
   <script src="js/site-config.js"></script>
+  <script src="js/taxonomy.js"></script>
   <script>
     const PROBLEMS_PER_PAGE = 10;
     const GREEN_AREA_LABELS = new Set([
@@ -56,54 +85,55 @@
       "prophet inequalities",
       "multi-armed bandits",
     ]);
-    let PROBLEMS_DATA = [];
+    const SUITABILITY_RANK = { high: 3, medium: 2, low: 1 };
+    const SORT_OPTIONS = new Set(["default", "counterexample", "alphaevolve"]);
+
+    if (!window.TAXONOMY || !Array.isArray(window.TAXONOMY.categories)) {
+      throw new Error("Missing taxonomy: js/taxonomy.js did not load a valid window.TAXONOMY.");
+    }
+    const CATEGORY_ORDER = window.TAXONOMY.categories;
+    const CATEGORY_SET = new Set(CATEGORY_ORDER);
+    const FEATURED_CATEGORIES = window.TAXONOMY.featured || [];
+    const FEATURED_SET = new Set(FEATURED_CATEGORIES);
+    const AREA_TO_CATEGORY = window.TAXONOMY.areaToCategory || {};
+    const FALLBACK_CATEGORY = window.TAXONOMY.fallback || "Other";
+
+    let ALL_PROBLEMS = [];
+    let FILTERED = [];
     let totalPages = 1;
+    const VIEW = { q: "", category: "", area: "", sort: "default", page: 1 };
 
-    function getCurrentPage() {
+    function readStateFromUrl() {
       const params = new URLSearchParams(window.location.search);
-      const page = parseInt(params.get('page') || '1', 10);
-      return Math.min(Math.max(1, page), totalPages);
+      VIEW.q = (params.get("q") || "").trim();
+      VIEW.category = (params.get("category") || "").trim();
+      VIEW.area = (params.get("area") || "").trim();
+      const sort = (params.get("sort") || "default").trim();
+      VIEW.sort = SORT_OPTIONS.has(sort) ? sort : "default";
+      const page = Number.parseInt(params.get("page") || "1", 10);
+      VIEW.page = Number.isFinite(page) && page > 0 ? page : 1;
     }
 
-    function renderProblems() {
-      const currentPage = getCurrentPage();
-      const start = (currentPage - 1) * PROBLEMS_PER_PAGE;
-      const end = Math.min(start + PROBLEMS_PER_PAGE, PROBLEMS_DATA.length);
-      const pageProblems = PROBLEMS_DATA.slice(start, end);
-
-      const listEl = document.getElementById('problem-list');
-      listEl.innerHTML = pageProblems.map((p, idx) => `
-        <li class="problem-card">
-          <a href="problem.html?id=${encodeURIComponent(p.problem_id)}&page=${currentPage}&n=${(currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1}" class="problem-card-link">
-            <div class="problem-card-id">${String((currentPage - 1) * PROBLEMS_PER_PAGE + idx + 1).padStart(2, "\u2007")}</div>
-            <div class="problem-card-body">
-              <h2 class="problem-card-title math-content">${formatTitleWithMath(p.title)}</h2>
-              <div class="problem-card-meta">
-                <span>${formatSourcePaper(p)}</span>
-                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAreaBadge(p)}
-              </div>
-            </div>
-          </a>
-        </li>
-      `).join('');
-
-      renderPagination(currentPage);
-    }
-
-    function renderPagination(currentPage) {
-      const navEl = document.getElementById('pagination');
-      let html = '';
-
-      html += `<a href="?page=${currentPage - 1}" class="${currentPage === 1 ? 'disabled' : ''}" ${currentPage === 1 ? 'aria-disabled="true"' : ''}>Previous</a>`;
-
-      for (let i = 1; i <= totalPages; i++) {
-        const activeClass = i === currentPage ? 'current' : '';
-        html += `<a href="?page=${i}" class="${activeClass}">${i}</a>`;
+    function writeStateToUrl() {
+      const params = new URLSearchParams();
+      if (VIEW.q) {
+        params.set("q", VIEW.q);
       }
-
-      html += `<a href="?page=${currentPage + 1}" class="${currentPage === totalPages ? 'disabled' : ''}" ${currentPage === totalPages ? 'aria-disabled="true"' : ''}>Next</a>`;
-
-      navEl.innerHTML = html;
+      if (VIEW.category) {
+        params.set("category", VIEW.category);
+      }
+      if (VIEW.area) {
+        params.set("area", VIEW.area);
+      }
+      if (VIEW.sort && VIEW.sort !== "default") {
+        params.set("sort", VIEW.sort);
+      }
+      if (VIEW.page > 1) {
+        params.set("page", String(VIEW.page));
+      }
+      const query = params.toString();
+      const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState(null, "", url);
     }
 
     function escapeHtml(text) {
@@ -171,6 +201,15 @@
       return String(payload?.subject_classification ?? "").trim();
     }
 
+    function categoryForProblem(payload) {
+      const explicit = String(payload?.category ?? "").trim();
+      if (explicit && CATEGORY_SET.has(explicit)) {
+        return explicit;
+      }
+      const area = effectiveProblemArea(payload).toLowerCase();
+      return AREA_TO_CATEGORY[area] || FALLBACK_CATEGORY;
+    }
+
     function formatAreaBadge(p) {
       const area = effectiveProblemArea(p);
       if (!area) {
@@ -178,7 +217,8 @@
       }
       const normalized = area.toLowerCase();
       const variant = GREEN_AREA_LABELS.has(normalized) ? " area-pill-green" : "";
-      return `<span class="area-pill${variant}">${escapeHtml(area)}</span>`;
+      const active = VIEW.area && VIEW.area.toLowerCase() === normalized ? " area-pill-active" : "";
+      return `<button type="button" class="area-pill area-pill-btn${variant}${active}" data-area="${escapeHtml(area)}" title="Show only problems in ${escapeHtml(area)}">${escapeHtml(area)}</button>`;
     }
 
     function formatUploadDate(iso) {
@@ -186,6 +226,305 @@
       const d = new Date(iso);
       if (isNaN(d.getTime())) return escapeHtml(iso);
       return escapeHtml(d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }));
+    }
+
+    function buildSearchBlob(p) {
+      const parts = [
+        p.title,
+        effectiveProblemArea(p),
+        p.__category,
+        Array.isArray(p.keywords) ? p.keywords.join(" ") : "",
+        p.source_paper_title,
+        p.source_paper,
+        p.source_paper_journal,
+        Array.isArray(p.source_paper_authors) ? p.source_paper_authors.join(" ") : "",
+        p.problem_id,
+      ];
+      return parts.map((v) => String(v ?? "")).join(" ").toLowerCase();
+    }
+
+    function matchesQuery(p, tokens) {
+      if (tokens.length === 0) {
+        return true;
+      }
+      const blob = p.__search;
+      return tokens.every((token) => blob.includes(token));
+    }
+
+    function suitabilityRank(value) {
+      return SUITABILITY_RANK[String(value ?? "").trim().toLowerCase()] || 0;
+    }
+
+    function applyFilters() {
+      const tokens = VIEW.q.toLowerCase().split(/\s+/).filter(Boolean);
+      const areaNeedle = VIEW.area.toLowerCase();
+      FILTERED = ALL_PROBLEMS.filter((p) => {
+        if (VIEW.category && p.__category !== VIEW.category) {
+          return false;
+        }
+        if (areaNeedle && p.__area.toLowerCase() !== areaNeedle) {
+          return false;
+        }
+        return matchesQuery(p, tokens);
+      });
+
+      if (VIEW.sort === "counterexample" || VIEW.sort === "alphaevolve") {
+        const key = VIEW.sort === "counterexample" ? "counterexample_suitability" : "alphaevolve_suitability";
+        FILTERED.sort((a, b) => {
+          const diff = suitabilityRank(b[key]) - suitabilityRank(a[key]);
+          if (diff !== 0) {
+            return diff;
+          }
+          return a.__globalIndex - b.__globalIndex;
+        });
+      }
+
+      totalPages = Math.max(1, Math.ceil(FILTERED.length / PROBLEMS_PER_PAGE));
+      if (VIEW.page > totalPages) {
+        VIEW.page = totalPages;
+      }
+    }
+
+    function problemHref(p) {
+      const params = new URLSearchParams();
+      params.set("id", p.problem_id);
+      params.set("n", String(p.__globalIndex));
+      if (VIEW.q) {
+        params.set("q", VIEW.q);
+      }
+      if (VIEW.category) {
+        params.set("category", VIEW.category);
+      }
+      if (VIEW.area) {
+        params.set("area", VIEW.area);
+      }
+      if (VIEW.sort !== "default") {
+        params.set("sort", VIEW.sort);
+      }
+      params.set("page", String(VIEW.page));
+      return `problem.html?${params.toString()}`;
+    }
+
+    function renderProblems() {
+      const start = (VIEW.page - 1) * PROBLEMS_PER_PAGE;
+      const end = Math.min(start + PROBLEMS_PER_PAGE, FILTERED.length);
+      const pageProblems = FILTERED.slice(start, end);
+
+      const listEl = document.getElementById('problem-list');
+      if (pageProblems.length === 0) {
+        listEl.innerHTML = `<li class="problem-card problem-card-empty">No problems match the current search or topic.</li>`;
+      } else {
+        listEl.innerHTML = pageProblems.map((p, idx) => `
+          <li class="problem-card">
+            <div class="problem-card-id">${String(start + idx + 1).padStart(2, "\u2007")}</div>
+            <div class="problem-card-body">
+              <h2 class="problem-card-title math-content"><a class="problem-card-link" href="${problemHref(p)}">${formatTitleWithMath(p.title)}</a></h2>
+              <div class="problem-card-meta">
+                <span>${formatSourcePaper(p)}</span>
+                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAreaBadge(p)}
+              </div>
+            </div>
+          </li>
+        `).join('');
+      }
+
+      renderStatus();
+      renderPagination();
+      typesetList();
+    }
+
+    function renderStatus() {
+      const countEl = document.getElementById('list-status-count');
+      const filtersEl = document.getElementById('active-filters');
+      const clearBtn = document.getElementById('list-clear-btn');
+      const total = ALL_PROBLEMS.length;
+      const shown = FILTERED.length;
+      const filtering = Boolean(VIEW.q || VIEW.category || VIEW.area);
+
+      countEl.innerHTML = filtering
+        ? `Showing <strong>${shown}</strong> of ${total} problems`
+        : `<strong>${total}</strong> open problems`;
+
+      const chips = [];
+      if (VIEW.category) {
+        chips.push(filterChip("category", "Topic", VIEW.category));
+      }
+      if (VIEW.area) {
+        chips.push(filterChip("area", "Area", VIEW.area));
+      }
+      if (VIEW.q) {
+        chips.push(filterChip("q", "Search", VIEW.q));
+      }
+      filtersEl.innerHTML = chips.join("");
+      clearBtn.hidden = !filtering;
+    }
+
+    function filterChip(kind, label, value) {
+      return `<span class="filter-chip" data-chip="${kind}">${escapeHtml(label)}: ${escapeHtml(value)}<button type="button" class="filter-chip-x" data-remove="${kind}" aria-label="Remove ${escapeHtml(label)} filter">×</button></span>`;
+    }
+
+    function renderPagination() {
+      const navEl = document.getElementById('pagination');
+      if (totalPages <= 1) {
+        navEl.innerHTML = "";
+        return;
+      }
+      let html = '';
+      html += `<a href="#" data-page="${VIEW.page - 1}" class="${VIEW.page === 1 ? 'disabled' : ''}" ${VIEW.page === 1 ? 'aria-disabled="true"' : ''}>Previous</a>`;
+      for (let i = 1; i <= totalPages; i++) {
+        const activeClass = i === VIEW.page ? 'current' : '';
+        html += `<a href="#" data-page="${i}" class="${activeClass}">${i}</a>`;
+      }
+      html += `<a href="#" data-page="${VIEW.page + 1}" class="${VIEW.page === totalPages ? 'disabled' : ''}" ${VIEW.page === totalPages ? 'aria-disabled="true"' : ''}>Next</a>`;
+      navEl.innerHTML = html;
+    }
+
+    async function typesetList() {
+      const listEl = document.getElementById("problem-list");
+      if (!listEl) {
+        return;
+      }
+      for (let i = 0; i < 50; i++) {
+        if (window.MathJax?.typesetPromise) {
+          if (window.MathJax.typesetClear) {
+            window.MathJax.typesetClear([listEl]);
+          }
+          await window.MathJax.typesetPromise([listEl]);
+          return;
+        }
+        await new Promise((r) => setTimeout(r, 100));
+      }
+    }
+
+    function refresh({ resetPage = false } = {}) {
+      if (resetPage) {
+        VIEW.page = 1;
+      }
+      applyFilters();
+      writeStateToUrl();
+      syncControls();
+      renderProblems();
+    }
+
+    function syncControls() {
+      const searchInput = document.getElementById("search-input");
+      const categorySelect = document.getElementById("category-select");
+      const sortSelect = document.getElementById("sort-select");
+      if (searchInput.value !== VIEW.q) {
+        searchInput.value = VIEW.q;
+      }
+      categorySelect.value = VIEW.category;
+      if (categorySelect.value !== VIEW.category) {
+        // Selected category is not an available option (e.g. stale URL); fall back to "all".
+        VIEW.category = "";
+        categorySelect.value = "";
+      }
+      sortSelect.value = VIEW.sort;
+    }
+
+    function buildCategoryOptions() {
+      const counts = new Map();
+      for (const p of ALL_PROBLEMS) {
+        counts.set(p.__category, (counts.get(p.__category) || 0) + 1);
+      }
+      const ordered = CATEGORY_ORDER.filter((c) => counts.has(c) || FEATURED_SET.has(c));
+      for (const c of counts.keys()) {
+        if (!CATEGORY_SET.has(c) && c !== FALLBACK_CATEGORY) {
+          ordered.push(c);
+        }
+      }
+      if (counts.has(FALLBACK_CATEGORY)) {
+        ordered.push(FALLBACK_CATEGORY);
+      }
+      const options = [`<option value="">All topics (${ALL_PROBLEMS.length})</option>`];
+      for (const c of ordered) {
+        options.push(`<option value="${escapeHtml(c)}">${escapeHtml(c)} (${counts.get(c) || 0})</option>`);
+      }
+      document.getElementById("category-select").innerHTML = options.join("");
+    }
+
+    function wireControls() {
+      const searchInput = document.getElementById("search-input");
+      const categorySelect = document.getElementById("category-select");
+      const sortSelect = document.getElementById("sort-select");
+      const clearBtn = document.getElementById("list-clear-btn");
+      const filtersEl = document.getElementById("active-filters");
+      const pagination = document.getElementById("pagination");
+      const listEl = document.getElementById("problem-list");
+
+      searchInput.addEventListener("input", () => {
+        VIEW.q = searchInput.value.trim();
+        refresh({ resetPage: true });
+      });
+      categorySelect.addEventListener("change", () => {
+        VIEW.category = categorySelect.value;
+        VIEW.area = "";
+        refresh({ resetPage: true });
+      });
+      sortSelect.addEventListener("change", () => {
+        VIEW.sort = SORT_OPTIONS.has(sortSelect.value) ? sortSelect.value : "default";
+        refresh({ resetPage: true });
+      });
+      clearBtn.addEventListener("click", () => {
+        VIEW.q = "";
+        VIEW.category = "";
+        VIEW.area = "";
+        refresh({ resetPage: true });
+      });
+
+      filtersEl.addEventListener("click", (event) => {
+        const btn = event.target.closest("[data-remove]");
+        if (!btn) {
+          return;
+        }
+        const kind = btn.getAttribute("data-remove");
+        if (kind === "category") {
+          VIEW.category = "";
+          VIEW.area = "";
+        } else if (kind === "area") {
+          VIEW.area = "";
+        } else if (kind === "q") {
+          VIEW.q = "";
+        }
+        refresh({ resetPage: true });
+      });
+
+      pagination.addEventListener("click", (event) => {
+        const link = event.target.closest("a[data-page]");
+        if (!link) {
+          return;
+        }
+        event.preventDefault();
+        if (link.classList.contains("disabled")) {
+          return;
+        }
+        const page = Number.parseInt(link.getAttribute("data-page"), 10);
+        if (!Number.isFinite(page) || page < 1 || page > totalPages || page === VIEW.page) {
+          return;
+        }
+        VIEW.page = page;
+        applyFilters();
+        writeStateToUrl();
+        renderProblems();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      listEl.addEventListener("click", (event) => {
+        const pill = event.target.closest(".area-pill-btn");
+        if (!pill) {
+          return;
+        }
+        event.preventDefault();
+        const area = pill.getAttribute("data-area") || "";
+        if (VIEW.area.toLowerCase() === area.toLowerCase()) {
+          VIEW.area = "";
+        } else {
+          VIEW.area = area;
+          VIEW.category = AREA_TO_CATEGORY[area.toLowerCase()] || VIEW.category;
+        }
+        refresh({ resetPage: true });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
 
     async function loadProblems() {
@@ -197,8 +536,16 @@
       if (!payload || !Array.isArray(payload.problems)) {
         throw new Error("Invalid export index payload.");
       }
-      PROBLEMS_DATA = payload.problems;
-      totalPages = Math.max(1, Math.ceil(PROBLEMS_DATA.length / PROBLEMS_PER_PAGE));
+      ALL_PROBLEMS = payload.problems.map((p, idx) => {
+        const enriched = {
+          ...p,
+          __globalIndex: idx + 1,
+          __area: effectiveProblemArea(p),
+        };
+        enriched.__category = categoryForProblem(enriched);
+        enriched.__search = buildSearchBlob(enriched);
+        return enriched;
+      });
 
       const disc = payload.unverified_disclaimer;
       const show = Boolean(payload.has_unverified_problems) && disc && typeof disc === "object";
@@ -221,21 +568,11 @@
 
     async function boot() {
       try {
+        readStateFromUrl();
         await loadProblems();
-        renderProblems();
-        const listEl = document.getElementById("problem-list");
-        if (listEl) {
-          const typeset = async () => {
-            for (let i = 0; i < 50; i++) {
-              if (window.MathJax?.typesetPromise) {
-                await window.MathJax.typesetPromise([listEl]);
-                return;
-              }
-              await new Promise((r) => setTimeout(r, 100));
-            }
-          };
-          await typeset();
-        }
+        buildCategoryOptions();
+        wireControls();
+        refresh();
       } catch (err) {
         const listEl = document.getElementById('problem-list');
         listEl.innerHTML = `<li class="problem-card"><div class="problem-card-title">No synced problems found.</div><div class="problem-card-meta">${escapeHtml(err.message)}</div></li>`;
