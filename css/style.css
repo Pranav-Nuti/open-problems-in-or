@@ -229,12 +229,6 @@ main {
   top: -0.5px;
 }
 
-.area-pill.area-pill-green {
-  border-color: #b7d8b9;
-  background: #edf8ef;
-  color: #1f5f2b;
-}
-
 /* Clickable area pill on list cards (sits above the card stretched link). */
 .area-pill-btn {
   z-index: 1;
@@ -246,18 +240,9 @@ main {
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
-.area-pill-btn.area-pill-green:hover {
-  border-color: #1f5f2b;
-  color: #143f1d;
-}
 .area-pill-btn.area-pill-active {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  color: #fff;
-}
-.area-pill-btn.area-pill-green.area-pill-active {
-  background: #1f5f2b;
-  border-color: #1f5f2b;
   color: #fff;
 }
 
@@ -635,10 +620,6 @@ select.control-input {
 .problem-detail-value {
   font-weight: 500;
   color: var(--color-text-secondary);
-}
-
-.problem-detail-value.problem-area-green {
-  color: #1f5f2b;
 }
 
 /* Sections */

@@ -92,11 +92,6 @@
   <script src="js/taxonomy.js"></script>
   <script>
     const PROBLEMS_PER_PAGE = 10;
-    const GREEN_AREA_LABELS = new Set([
-      "online matching",
-      "prophet inequalities",
-      "multi-armed bandits",
-    ]);
     const SUITABILITY_RANK = { high: 3, medium: 2, low: 1 };
     const SORT_OPTIONS = new Set(["default", "solutions", "partials", "counterexample", "alphaevolve"]);
     const ATTEMPT_FILTERS = new Set(["", "solution", "partial", "any", "none"]);
@@ -234,9 +229,8 @@
         return "";
       }
       const normalized = area.toLowerCase();
-      const variant = GREEN_AREA_LABELS.has(normalized) ? " area-pill-green" : "";
       const active = VIEW.area && VIEW.area.toLowerCase() === normalized ? " area-pill-active" : "";
-      return `<button type="button" class="area-pill area-pill-btn${variant}${active}" data-area="${escapeHtml(area)}" title="Show only problems in ${escapeHtml(area)}">${escapeHtml(area)}</button>`;
+      return `<button type="button" class="area-pill area-pill-btn${active}" data-area="${escapeHtml(area)}" title="Show only problems in ${escapeHtml(area)}">${escapeHtml(area)}</button>`;
     }
 
     function formatUploadDate(iso) {
