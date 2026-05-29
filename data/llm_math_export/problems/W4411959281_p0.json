@@ -72,5 +72,12 @@
     "citations_analyzed": 300,
     "is_open": true,
     "model": "gpt-5.2"
-  }
+  },
+  "solution_attempts": [
+    {
+      "label": "Automated solver attempt (gpt-5.4)",
+      "path": "solutions/W4411959281_p0__21_W4411959281_p0.pdf",
+      "verdict": "verified"
+    }
+  ]
 }

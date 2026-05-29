@@ -112,6 +112,12 @@
       </dl>
     </section>
 
+    <section class="problem-section" id="solution-attempts-section" hidden>
+      <h2>Solution attempts</h2>
+      <p class="section-note">Automated or community solution attempts for this problem. These are attempts shared for discussion, not peer-reviewed results.</p>
+      <ul id="solution-attempts-list" class="solution-attempts-list"></ul>
+    </section>
+
     <section class="problem-section">
       <h2>Literature review</h2>
       <div id="literature-review"></div>
@@ -796,7 +802,33 @@
       contextEl.classList.add("math-content");
       document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
       renderSuitability(payload);
+      renderSolutionAttempts(payload);
       renderLiterature(payload);
+    }
+
+    function renderSolutionAttempts(payload) {
+      const section = document.getElementById("solution-attempts-section");
+      const list = document.getElementById("solution-attempts-list");
+      const attempts = Array.isArray(payload.solution_attempts) ? payload.solution_attempts : [];
+      const items = attempts
+        .map((attempt) => {
+          const url = String(attempt.path || attempt.url || "");
+          if (!url) {
+            return "";
+          }
+          const label = String(attempt.label || "Solution attempt (PDF)");
+          const meta = attempt.verdict
+            ? ` <span class="solution-attempt-meta">${escapeHtml(String(attempt.verdict))}</span>`
+            : "";
+          return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>${meta}</li>`;
+        })
+        .filter(Boolean);
+      if (items.length === 0) {
+        section.hidden = true;
+        return;
+      }
+      list.innerHTML = items.join("");
+      section.hidden = false;
     }
 
     async function boot() {
