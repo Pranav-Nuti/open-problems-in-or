@@ -3,20 +3,20 @@
   "base_path": "data/llm_math_export/solution_progress",
   "counts": {
     "problems_with_progress": 15,
-    "solution_pdfs": 14,
-    "partial_progress_pdfs": 1
+    "solution_pdfs": 10,
+    "partial_progress_pdfs": 5
   },
   "problems": {
     "W3133568468_p0": {
-      "solutions": [
+      "solutions": [],
+      "partial_progress": [
         {
-          "kind": "solution",
-          "label": "Solution #61 (PDF)",
-          "path": "data/llm_math_export/solution_progress/W3133568468_p0/solutions/61.pdf",
+          "kind": "partial_progress",
+          "label": "Partial progress #61 (PDF)",
+          "path": "data/llm_math_export/solution_progress/W3133568468_p0/partial_progress/61.pdf",
           "filename": "61.pdf"
         }
-      ],
-      "partial_progress": []
+      ]
     },
     "W3170420696_p0": {
       "solutions": [
@@ -41,15 +41,15 @@
       "partial_progress": []
     },
     "W4379646686_p0": {
-      "solutions": [
+      "solutions": [],
+      "partial_progress": [
         {
-          "kind": "solution",
-          "label": "Solution #82 (PDF)",
-          "path": "data/llm_math_export/solution_progress/W4379646686_p0/solutions/82_for_80.pdf",
+          "kind": "partial_progress",
+          "label": "Partial progress #82 (PDF)",
+          "path": "data/llm_math_export/solution_progress/W4379646686_p0/partial_progress/82_for_80.pdf",
           "filename": "82_for_80.pdf"
         }
-      ],
-      "partial_progress": []
+      ]
     },
     "W4388047886_p0": {
       "solutions": [
@@ -63,26 +63,26 @@
       "partial_progress": []
     },
     "W4389224581_p0": {
-      "solutions": [
+      "solutions": [],
+      "partial_progress": [
         {
-          "kind": "solution",
-          "label": "Solution #101 (PDF)",
-          "path": "data/llm_math_export/solution_progress/W4389224581_p0/solutions/101.pdf",
+          "kind": "partial_progress",
+          "label": "Partial progress #101 (PDF)",
+          "path": "data/llm_math_export/solution_progress/W4389224581_p0/partial_progress/101.pdf",
           "filename": "101.pdf"
         }
-      ],
-      "partial_progress": []
+      ]
     },
     "W4392748341_p0": {
-      "solutions": [
+      "solutions": [],
+      "partial_progress": [
         {
-          "kind": "solution",
-          "label": "Solution #114 (PDF)",
-          "path": "data/llm_math_export/solution_progress/W4392748341_p0/solutions/114.pdf",
+          "kind": "partial_progress",
+          "label": "Partial progress #114 (PDF)",
+          "path": "data/llm_math_export/solution_progress/W4392748341_p0/partial_progress/114.pdf",
           "filename": "114.pdf"
         }
-      ],
-      "partial_progress": []
+      ]
     },
     "W4393233856_p0": {
       "solutions": [
@@ -133,8 +133,8 @@
         {
           "kind": "solution",
           "label": "Solution #24 (PDF)",
-          "path": "data/llm_math_export/solution_progress/W4413077228_p0/solutions/24_W4413077228_p0.pdf",
-          "filename": "24_W4413077228_p0.pdf"
+          "path": "data/llm_math_export/solution_progress/W4413077228_p0/solutions/24.pdf",
+          "filename": "24.pdf"
         }
       ],
       "partial_progress": []
