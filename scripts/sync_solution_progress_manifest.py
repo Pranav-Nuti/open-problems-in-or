@@ -65,6 +65,10 @@ def _pdf_entries(path: pathlib.Path, problem_id: str, kind: str) -> list[dict[st
 
 def _label_from_filename(filename: str, kind: str) -> str:
     stem = pathlib.Path(filename).stem
+    if stem.isdigit():
+        if kind == "solution":
+            return f"Solution #{int(stem)} (PDF)"
+        return f"Partial progress #{int(stem)} (PDF)"
     parts = stem.split("_", 1)
     if len(parts) == 2 and parts[0].isdigit():
         if kind == "solution":
