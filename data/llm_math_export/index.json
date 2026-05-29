@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-05-29T16:31:04.403320+00:00",
+  "generated_at_utc": "2026-05-29T16:51:49.172450+00:00",
   "counts": {
-    "exported_problems": 144,
-    "open_problems_exported": 144,
-    "with_literature_review": 113,
+    "exported_problems": 132,
+    "open_problems_exported": 132,
+    "with_literature_review": 105,
     "newly_added_problems": 97,
     "duplicates_skipped": 1,
-    "unverified_problems": 144
+    "unverified_problems": 132
   },
   "has_unverified_problems": true,
   "problems": [
@@ -246,39 +246,6 @@
       "number": 7
     },
     {
-      "problem_id": "W4410233541_p0",
-      "paper_id": "W4410233541",
-      "source_paper": "W4410233541",
-      "source_paper_title": "Online Regret Bounds for Satisficing in Markov Decision Processes",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0275",
-      "source_paper_authors": [
-        "Hossein Hajiabolhassan",
-        "Ronald Ortner"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Hajiabolhassan_2025, title={Online Regret Bounds for Satisficing in Markov Decision Processes}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0275}, DOI={10.1287/moor.2023.0275}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Hajiabolhassan, Hossein and Ortner, Ronald}, year={2025}, month=may }",
-      "problem_index": 0,
-      "title": "Achieve square-root worst-case expected regret for bandit optimistic Adversarial MDPs",
-      "area": "adversarial mdp bandits",
-      "keywords": [
-        "adversarial mdps",
-        "bandit feedback",
-        "optimistic regret",
-        "policy search",
-        "occupancy measures",
-        "regret bounds"
-      ],
-      "counterexample_suitability": "low",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W4410233541_p0.json",
-      "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 8
-    },
-    {
       "problem_id": "W4410233669_p0",
       "paper_id": "W4410233669",
       "source_paper": "W4410233669",
@@ -344,38 +311,6 @@
       "path": "problems/W4410395976_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
       "number": 10
-    },
-    {
-      "problem_id": "W4410396076_p0",
-      "paper_id": "W4410396076",
-      "source_paper": "W4410396076",
-      "source_paper_title": "Fluid Limits for Longest Job First Queues",
-      "source_paper_url": "https://doi.org/10.1287/moor.2024.0415",
-      "source_paper_authors": [
-        "\u0141ukasz Kruk"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Kruk_2025, title={Fluid Limits for Longest Job First Queues}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0415}, DOI={10.1287/moor.2024.0415}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Kruk, \u0141ukasz}, year={2025}, month=may }",
-      "problem_index": 0,
-      "title": "Establish fluid limits for hard earliest-deadline-first networks with fixed deadlines",
-      "area": "queueing networks",
-      "keywords": [
-        "queueing networks",
-        "earliest deadline first",
-        "fluid limits",
-        "reneging",
-        "measure-valued processes",
-        "Jackson networks"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W4410396076_p0.json",
-      "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 11
     },
     {
       "problem_id": "W4411023035_p0",
@@ -1117,39 +1052,6 @@
       "number": 34
     },
     {
-      "problem_id": "W4416512437_p0",
-      "paper_id": "W4416512437",
-      "source_paper": "W4416512437",
-      "source_paper_title": "Generalized Monotonicity and the Proximal Point Algorithm",
-      "source_paper_url": "https://doi.org/10.1287/moor.2025.0863",
-      "source_paper_authors": [
-        "D. L\u00fcke",
-        "Matthew K. Tam"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2025,
-      "source_paper_bibtex": "@article{Luke_2025, title={Generalized Monotonicity and the Proximal Point Algorithm}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2025.0863}, DOI={10.1287/moor.2025.0863}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Luke, D. Russell and Tam, Matthew K.}, year={2025}, month=nov }",
-      "problem_index": 0,
-      "title": "Equivalence of metric subregularity and inverse Lipschitzness for maximal monotone operators",
-      "area": "monotone operator theory",
-      "keywords": [
-        "maximally monotone operator",
-        "metric subregularity",
-        "Lipschitz continuity",
-        "inverse mapping",
-        "error bounds",
-        "Hilbert space"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W4416512437_p0.json",
-      "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 35
-    },
-    {
       "problem_id": "W4416664990_p0",
       "paper_id": "W4416664990",
       "source_paper": "W4416664990",
@@ -1655,40 +1557,6 @@
       "path": "problems/W7143448186_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
       "number": 50
-    },
-    {
-      "problem_id": "W7148364054_p0",
-      "paper_id": "W7148364054",
-      "source_paper": "W7148364054",
-      "source_paper_title": "Single-Server Queues with State-Dependent Hawkes Arrivals",
-      "source_paper_url": "https://doi.org/10.1287/moor.2024.0855",
-      "source_paper_authors": [
-        "Bing Li",
-        "Guodong Pang"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2026,
-      "source_paper_bibtex": "@article{Li_2026, title={Single-Server Queues with State-Dependent Hawkes Arrivals}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0855}, DOI={10.1287/moor.2024.0855}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Li, Bo and Pang, Guodong}, year={2026}, month=apr }",
-      "problem_index": 0,
-      "title": "Determine the correct heavy-traffic staffing asymptotics for Hawkes single-server queues",
-      "area": "hawkes queue staffing",
-      "keywords": [
-        "Hawkes process",
-        "GI/GI/1 queue",
-        "heavy traffic",
-        "staffing rule",
-        "square-root rule",
-        "capacity sizing",
-        "steady-state workload"
-      ],
-      "counterexample_suitability": "low",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W7148364054_p0.json",
-      "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 51
     },
     {
       "problem_id": "W7150839694_p0",
@@ -2480,40 +2348,6 @@
       "number": 75
     },
     {
-      "problem_id": "W4366170875_p0",
-      "paper_id": "W4366170875",
-      "source_paper": "W4366170875",
-      "source_paper_title": "Asymptotic Optimality of Constant-Order Policies in Joint Pricing and Inventory Models",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.1367",
-      "source_paper_authors": [
-        "Xin Chen",
-        "Alexander Stolyar",
-        "Linwei Xin"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2023,
-      "source_paper_bibtex": "@article{Chen_2024, title={Asymptotic Optimality of Constant-Order Policies in Joint Pricing and Inventory Models}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.1367}, DOI={10.1287/moor.2023.1367}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Chen, Xin and Stolyar, Alexander L. and Xin, Linwei}, year={2024}, month=feb, pages={557\u2013577} }",
-      "problem_index": 0,
-      "title": "Determine minimal moment assumptions for asymptotic optimality of constant-order policies",
-      "area": "lost sales inventory",
-      "keywords": [
-        "lost sales inventory",
-        "lead time asymptotics",
-        "constant-order policy",
-        "moment assumptions",
-        "stochastic control",
-        "GI/GI/1 queue"
-      ],
-      "counterexample_suitability": "low",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4366170875_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 76
-    },
-    {
       "problem_id": "W4376149422_p0",
       "paper_id": "W4376149422",
       "source_paper": "W4376149422",
@@ -2647,39 +2481,6 @@
       "path": "problems/W4379646686_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
       "number": 80
-    },
-    {
-      "problem_id": "W4380609511_p0",
-      "paper_id": "W4380609511",
-      "source_paper": "W4380609511",
-      "source_paper_title": "Asymptotically Optimal Control of Make-to-Stock Systems",
-      "source_paper_url": "https://doi.org/10.1287/moor.2021.161",
-      "source_paper_authors": [
-        "Xuefeng Gao",
-        "Junfei Huang"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2023,
-      "source_paper_bibtex": "@article{Gao_2023, title={Asymptotically Optimal Control of Make-to-Stock Systems}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.161}, DOI={10.1287/moor.2021.161}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Gao, Xuefeng and Huang, Junfei}, year={2023}, month=june }",
-      "problem_index": 0,
-      "title": "Computationally efficient methods for solving multistage stochastic programs in ATO inventory control",
-      "area": "multistage stochastic programming",
-      "keywords": [
-        "assemble-to-order",
-        "multistage stochastic programming",
-        "scenario tree",
-        "linear programming",
-        "computational complexity",
-        "inventory control"
-      ],
-      "counterexample_suitability": "low",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4380609511_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 81
     },
     {
       "problem_id": "W4384342505_p0",
@@ -2847,38 +2648,6 @@
       "path": "problems/W4385980778_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
       "number": 88
-    },
-    {
-      "problem_id": "W4386141282_p0",
-      "paper_id": "W4386141282",
-      "source_paper": "W4386141282",
-      "source_paper_title": "Weak Approachability of Convex Sets in Absorbing Games",
-      "source_paper_url": "https://doi.org/10.1287/moor.2021.0160",
-      "source_paper_authors": [
-        "Thomas Ragel"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2023,
-      "source_paper_bibtex": "@article{Ragel_2024, title={Weak Approachability of Convex Sets in Absorbing Games}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2021.0160}, DOI={10.1287/moor.2021.0160}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Ragel, Thomas}, year={2024}, month=aug, pages={1372\u20131402} }",
-      "problem_index": 0,
-      "title": "Establish weak determinacy for convex target sets in Big-Match type II",
-      "area": "approachability in repeated games",
-      "keywords": [
-        "blackwell approachability",
-        "stochastic games",
-        "big match",
-        "weak determinacy",
-        "convex target sets",
-        "absorbing games"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4386141282_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 89
     },
     {
       "problem_id": "W4386289171_p0",
@@ -3080,41 +2849,6 @@
       "path": "problems/W4387738269_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
       "number": 95
-    },
-    {
-      "problem_id": "W4387820208_p0",
-      "paper_id": "W4387820208",
-      "source_paper": "W4387820208",
-      "source_paper_title": "The Competition Complexity of Dynamic Pricing",
-      "source_paper_url": "https://doi.org/10.1287/moor.2022.0230",
-      "source_paper_authors": [
-        "Johannes Brustle",
-        "Jos\u00e9 Correa",
-        "Paul D\u00fctting",
-        "V\u00edctor Verdugo"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2023,
-      "source_paper_bibtex": "@article{Brustle_2024, title={The Competition Complexity of Dynamic Pricing}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0230}, DOI={10.1287/moor.2022.0230}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Brustle, Johannes and Correa, Jos\u00e9 and Duetting, Paul and Verdugo, Victor}, year={2024}, month=aug, pages={1986\u20132008} }",
-      "problem_index": 0,
-      "title": "Determine sublinear competition complexity for independent monotone hazard rate stages",
-      "area": "dynamic mechanism design",
-      "keywords": [
-        "dynamic auctions",
-        "competition complexity",
-        "monotone hazard rate",
-        "vcg",
-        "revenue guarantees",
-        "order statistics"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4387820208_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 96
     },
     {
       "problem_id": "W4388047886_p0",
@@ -3393,40 +3127,6 @@
       "number": 104
     },
     {
-      "problem_id": "W4390702256_p0",
-      "paper_id": "W4390702256",
-      "source_paper": "W4390702256",
-      "source_paper_title": "Strategy-Proof Multidimensional Mechanism Design",
-      "source_paper_url": "https://doi.org/10.1287/moor.2022.0324",
-      "source_paper_authors": [
-        "Ranojoy Basu",
-        "Conan Mukherjee"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2024,
-      "source_paper_bibtex": "@article{Basu_2024, title={Strategy-Proof Multidimensional Mechanism Design}, volume={49}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2022.0324}, DOI={10.1287/moor.2022.0324}, number={4}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Basu, Ranojoy and Mukherjee, Conan}, year={2024}, month=nov, pages={2768\u20132785} }",
-      "problem_index": 0,
-      "title": "Computational complexity of optimizing large-market obviously strategy-proof trading mechanisms",
-      "area": "mechanism design",
-      "keywords": [
-        "obvious strategy-proofness",
-        "task allocation",
-        "delegation mechanisms",
-        "polarized rays",
-        "large-market relaxation",
-        "support function",
-        "computational complexity"
-      ],
-      "counterexample_suitability": "low",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4390702256_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 105
-    },
-    {
       "problem_id": "W4390763638_p0",
       "paper_id": "W4390763638",
       "source_paper": "W4390763638",
@@ -3661,40 +3361,6 @@
       "path": "problems/W4392646050_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
       "number": 112
-    },
-    {
-      "problem_id": "W4392700274_p0",
-      "paper_id": "W4392700274",
-      "source_paper": "W4392700274",
-      "source_paper_title": "Marginal Values of a Stochastic Game",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0297",
-      "source_paper_authors": [
-        "Luc Attia",
-        "Miquel Oliu\u2010Barton",
-        "Raimundo Saona"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2024,
-      "source_paper_bibtex": "@article{Attia_2025, title={Marginal Values of a Stochastic Game}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0297}, DOI={10.1287/moor.2023.0297}, number={1}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Attia, Luc and Oliu-Barton, Miquel and Saona, Raimundo}, year={2025}, month=feb, pages={482\u2013505} }",
-      "problem_index": 0,
-      "title": "Characterize convergence of discounted values in compact-continuous zero-sum stochastic games",
-      "area": "stochastic games",
-      "keywords": [
-        "stochastic games",
-        "discounted value convergence",
-        "compact action sets",
-        "semi-algebraic data",
-        "o-minimal definability",
-        "zero-sum dynamic games"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4392700274_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 113
     },
     {
       "problem_id": "W4392748341_p0",
@@ -4197,39 +3863,6 @@
       "number": 128
     },
     {
-      "problem_id": "W4401420295_p0",
-      "paper_id": "W4401420295",
-      "source_paper": "W4401420295",
-      "source_paper_title": "Erratum to: Linear Convergence of Dual Coordinate Descent on Nonpolyhedral Convex Problems",
-      "source_paper_url": "https://doi.org/10.1287/moor.2024.0500",
-      "source_paper_authors": [
-        "Ion Necoara",
-        "Olivier Fercoq"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2024,
-      "source_paper_bibtex": "@article{Necoara_2025, title={Erratum to: Linear Convergence of Dual Coordinate Descent on Nonpolyhedral Convex Problems}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2024.0500}, DOI={10.1287/moor.2024.0500}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Necoara, Ion and Fercoq, Olivier}, year={2025}, month=aug, pages={1935\u20131938} }",
-      "problem_index": 0,
-      "title": "Quadratic growth of the dual objective under linear regularity of constraints",
-      "area": "convex dual error bounds",
-      "keywords": [
-        "dual coordinate descent",
-        "quadratic growth",
-        "error bounds",
-        "linear regularity",
-        "Slater condition",
-        "Fenchel duality"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": false,
-      "unverified": true,
-      "path": "problems/W4401420295_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 129
-    },
-    {
       "problem_id": "W4401514485_p0",
       "paper_id": "W4401514485",
       "source_paper": "W4401514485",
@@ -4294,43 +3927,6 @@
       "path": "problems/W4401542271_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
       "number": 131
-    },
-    {
-      "problem_id": "W4401700153_p0",
-      "paper_id": "W4401700153",
-      "source_paper": "W4401700153",
-      "source_paper_title": "Sparse Integer Programming Is Fixed-Parameter Tractable",
-      "source_paper_url": "https://doi.org/10.1287/moor.2023.0162",
-      "source_paper_authors": [
-        "Friedrich Eisenbrand",
-        "Christoph Hunkenschr\u00f6der",
-        "Kim-Manuel Klein",
-        "Martin Kouteck\u00fd",
-        "Asaf Levin",
-        "Shmuel Onn"
-      ],
-      "source_paper_journal": "Mathematics of Operations Research",
-      "source_paper_publication_year": 2024,
-      "source_paper_bibtex": "@article{Eisenbrand_2025, title={Sparse Integer Programming Is Fixed-Parameter Tractable}, volume={50}, ISSN={1526-5471}, url={http://dx.doi.org/10.1287/moor.2023.0162}, DOI={10.1287/moor.2023.0162}, number={3}, journal={Mathematics of Operations Research}, publisher={Institute for Operations Research and the Management Sciences (INFORMS)}, author={Eisenbrand, Friedrich and Hunkenschr\u00f6der, Christoph and Klein, Kim-Manuel and Kouteck\u00fd, Martin and Levin, Asaf and Onn, Shmuel}, year={2025}, month=aug, pages={2141\u20132156} }",
-      "problem_index": 0,
-      "title": "Characterize matrices with bounded Graver basis infinity norm under row operations",
-      "area": "graver basis bounds",
-      "keywords": [
-        "integer programming",
-        "Graver basis",
-        "infinity norm",
-        "row equivalence",
-        "matroid structure",
-        "tree-depth"
-      ],
-      "counterexample_suitability": "medium",
-      "alphaevolve_suitability": "medium",
-      "is_open": true,
-      "has_literature_review": true,
-      "unverified": true,
-      "path": "problems/W4401700153_p0.json",
-      "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 132
     },
     {
       "problem_id": "W4402128674_p0",
