@@ -251,7 +251,7 @@
       for (let i = 0; i < indexRows.length; i += 1) {
         const row = indexRows[i];
         if (row && row.problem_id === problemId) {
-          return i + 1;
+          return typeof row.number === "number" ? row.number : i + 1;
         }
       }
       return null;
@@ -267,13 +267,18 @@
       return -1;
     }
 
-    function problemDetailHref(problemId, problemNumberOneBased) {
-      const page = computeListPage(problemNumberOneBased, LIST_PAGE_SIZE);
+    function problemDetailHref(problemId, arrayPositionOneBased, displayNumber) {
+      // Pagination is array-based (10 per page); the badge uses the frozen display number.
+      const page = computeListPage(arrayPositionOneBased, LIST_PAGE_SIZE);
       const params = new URLSearchParams();
       params.set("id", problemId);
       params.set("page", String(page));
-      params.set("n", String(problemNumberOneBased));
+      params.set("n", String(displayNumber));
       return `problem.html?${params.toString()}`;
+    }
+
+    function rowDisplayNumber(row, arrayIndex) {
+      return typeof row.number === "number" ? row.number : arrayIndex + 1;
     }
 
     function seqBtnHtml(tag, href, directionText, titleText) {
@@ -303,7 +308,7 @@
 
       if (idx > 0) {
         const prevRow = indexRows[idx - 1];
-        const href = problemDetailHref(prevRow.problem_id, idx);
+        const href = problemDetailHref(prevRow.problem_id, idx, rowDisplayNumber(prevRow, idx - 1));
         prevWrap.innerHTML = seqBtnHtml("a", href, "← Previous", prevRow.title || prevRow.problem_id);
       } else {
         prevWrap.innerHTML = seqBtnHtml("span", "", "← Previous", "No previous problem");
@@ -311,7 +316,7 @@
 
       if (idx < total - 1) {
         const nextRow = indexRows[idx + 1];
-        const href = problemDetailHref(nextRow.problem_id, idx + 2);
+        const href = problemDetailHref(nextRow.problem_id, idx + 2, rowDisplayNumber(nextRow, idx + 1));
         nextWrap.innerHTML = seqBtnHtml("a", href, "Next →", nextRow.title || nextRow.problem_id);
       } else {
         nextWrap.innerHTML = seqBtnHtml("span", "", "Next →", "No next problem");
@@ -802,7 +807,8 @@
         const indexedNumber = findProblemNumberFromIndex(indexRows, problemId);
         const problemNumber = requestedNumber || indexedNumber;
         const requestedPage = getRequestedPage();
-        const pageNumber = requestedPage || computeListPage(problemNumber, LIST_PAGE_SIZE);
+        const arrayPosition = findProblemIndexInList(indexRows, problemId) + 1;
+        const pageNumber = requestedPage || computeListPage(arrayPosition, LIST_PAGE_SIZE);
         configureBackLink(pageNumber);
         configureProblemSequenceNav(indexRows, problemId);
         renderProblem(payload, problemNumber);
