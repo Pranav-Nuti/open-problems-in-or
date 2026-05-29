@@ -288,7 +288,7 @@
     function problemHref(p) {
       const params = new URLSearchParams();
       params.set("id", p.problem_id);
-      params.set("n", String(p.__globalIndex));
+      params.set("n", String(p.__number));
       if (VIEW.q) {
         params.set("q", VIEW.q);
       }
@@ -316,7 +316,7 @@
       } else {
         listEl.innerHTML = pageProblems.map((p, idx) => `
           <li class="problem-card">
-            <div class="problem-card-id">${String(start + idx + 1).padStart(2, "\u2007")}</div>
+            <div class="problem-card-id">${String(p.__number).padStart(3, "\u2007")}</div>
             <div class="problem-card-body">
               <h2 class="problem-card-title math-content"><a class="problem-card-link" href="${problemHref(p)}">${formatTitleWithMath(p.title)}</a></h2>
               <div class="problem-card-meta">
@@ -540,6 +540,7 @@
         const enriched = {
           ...p,
           __globalIndex: idx + 1,
+          __number: typeof p.number === "number" ? p.number : idx + 1,
           __area: effectiveProblemArea(p),
         };
         enriched.__category = categoryForProblem(enriched);
