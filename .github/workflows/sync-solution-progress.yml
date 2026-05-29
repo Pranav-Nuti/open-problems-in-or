@@ -1,0 +1,33 @@
+name: Sync solution progress manifest
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/llm_math_export/solution_progress/**/*.pdf"
+      - "scripts/sync_solution_progress_manifest.py"
+      - ".github/workflows/sync-solution-progress.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: ${{ !contains(github.event.head_commit.message, '[skip solution-manifest]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python scripts/sync_solution_progress_manifest.py
+      - name: Commit manifest if changed
+        run: |
+          if ! git diff --quiet data/llm_math_export/solution_progress/index.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/llm_math_export/solution_progress/index.json
+            git commit -m "Update solution progress manifest [skip solution-manifest]"
+            git push
+          fi

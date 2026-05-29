@@ -45,9 +45,21 @@
         <select id="category-select" class="control-input" aria-label="Filter by topic"></select>
       </div>
       <div class="control-field">
+        <label class="control-label" for="attempt-select">Progress</label>
+        <select id="attempt-select" class="control-input" aria-label="Filter by solution/progress status">
+          <option value="">All progress statuses</option>
+          <option value="solution">Solution</option>
+          <option value="partial">Partial progress</option>
+          <option value="any">Solution or partial progress</option>
+          <option value="none">No solution or partial progress</option>
+        </select>
+      </div>
+      <div class="control-field">
         <label class="control-label" for="sort-select">Sort</label>
         <select id="sort-select" class="control-input" aria-label="Sort problems">
           <option value="default">Default order</option>
+          <option value="solutions">Solutions first</option>
+          <option value="partials">Partial progress first</option>
           <option value="counterexample">Counterexample suitability (high→low)</option>
           <option value="alphaevolve">AlphaEvolve suitability (high→low)</option>
         </select>
@@ -86,7 +98,8 @@
       "multi-armed bandits",
     ]);
     const SUITABILITY_RANK = { high: 3, medium: 2, low: 1 };
-    const SORT_OPTIONS = new Set(["default", "counterexample", "alphaevolve"]);
+    const SORT_OPTIONS = new Set(["default", "solutions", "partials", "counterexample", "alphaevolve"]);
+    const ATTEMPT_FILTERS = new Set(["", "solution", "partial", "any", "none"]);
 
     if (!window.TAXONOMY || !Array.isArray(window.TAXONOMY.categories)) {
       throw new Error("Missing taxonomy: js/taxonomy.js did not load a valid window.TAXONOMY.");
@@ -101,13 +114,15 @@
     let ALL_PROBLEMS = [];
     let FILTERED = [];
     let totalPages = 1;
-    const VIEW = { q: "", category: "", area: "", sort: "default", page: 1 };
+    const VIEW = { q: "", category: "", area: "", attempt: "", sort: "default", page: 1 };
 
     function readStateFromUrl() {
       const params = new URLSearchParams(window.location.search);
       VIEW.q = (params.get("q") || "").trim();
       VIEW.category = (params.get("category") || "").trim();
       VIEW.area = (params.get("area") || "").trim();
+      const attempt = (params.get("progress") || params.get("attempt") || "").trim();
+      VIEW.attempt = ATTEMPT_FILTERS.has(attempt) ? attempt : "";
       const sort = (params.get("sort") || "default").trim();
       VIEW.sort = SORT_OPTIONS.has(sort) ? sort : "default";
       const page = Number.parseInt(params.get("page") || "1", 10);
@@ -124,6 +139,9 @@
       }
       if (VIEW.area) {
         params.set("area", VIEW.area);
+      }
+      if (VIEW.attempt) {
+        params.set("progress", VIEW.attempt);
       }
       if (VIEW.sort && VIEW.sort !== "default") {
         params.set("sort", VIEW.sort);
@@ -233,6 +251,8 @@
         p.title,
         effectiveProblemArea(p),
         p.__category,
+        p.__attemptLabel,
+        p.__attemptSearch,
         Array.isArray(p.keywords) ? p.keywords.join(" ") : "",
         p.source_paper_title,
         p.source_paper,
@@ -265,10 +285,31 @@
         if (areaNeedle && p.__area.toLowerCase() !== areaNeedle) {
           return false;
         }
+        if (VIEW.attempt === "solution" && p.__attemptCounts.solutions === 0) {
+          return false;
+        }
+        if (VIEW.attempt === "partial" && p.__attemptCounts.partial === 0) {
+          return false;
+        }
+        if (VIEW.attempt === "any" && p.__attemptCounts.total === 0) {
+          return false;
+        }
+        if (VIEW.attempt === "none" && p.__attemptCounts.total > 0) {
+          return false;
+        }
         return matchesQuery(p, tokens);
       });
 
-      if (VIEW.sort === "counterexample" || VIEW.sort === "alphaevolve") {
+      if (VIEW.sort === "solutions" || VIEW.sort === "partials") {
+        const key = VIEW.sort === "solutions" ? "solutions" : "partial";
+        FILTERED.sort((a, b) => {
+          const diff = b.__attemptCounts[key] - a.__attemptCounts[key];
+          if (diff !== 0) {
+            return diff;
+          }
+          return a.__globalIndex - b.__globalIndex;
+        });
+      } else if (VIEW.sort === "counterexample" || VIEW.sort === "alphaevolve") {
         const key = VIEW.sort === "counterexample" ? "counterexample_suitability" : "alphaevolve_suitability";
         FILTERED.sort((a, b) => {
           const diff = suitabilityRank(b[key]) - suitabilityRank(a[key]);
@@ -298,6 +339,9 @@
       if (VIEW.area) {
         params.set("area", VIEW.area);
       }
+      if (VIEW.attempt) {
+        params.set("progress", VIEW.attempt);
+      }
       if (VIEW.sort !== "default") {
         params.set("sort", VIEW.sort);
       }
@@ -321,7 +365,7 @@
               <h2 class="problem-card-title math-content"><a class="problem-card-link" href="${problemHref(p)}">${formatTitleWithMath(p.title)}</a></h2>
               <div class="problem-card-meta">
                 <span>${formatSourcePaper(p)}</span>
-                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAreaBadge(p)}
+                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAttemptBadge(p)}${formatAreaBadge(p)}
               </div>
             </div>
           </li>
@@ -339,7 +383,7 @@
       const clearBtn = document.getElementById('list-clear-btn');
       const total = ALL_PROBLEMS.length;
       const shown = FILTERED.length;
-      const filtering = Boolean(VIEW.q || VIEW.category || VIEW.area);
+      const filtering = Boolean(VIEW.q || VIEW.category || VIEW.area || VIEW.attempt);
 
       countEl.innerHTML = filtering
         ? `Showing <strong>${shown}</strong> of ${total} problems`
@@ -352,6 +396,9 @@
       if (VIEW.area) {
         chips.push(filterChip("area", "Area", VIEW.area));
       }
+      if (VIEW.attempt) {
+        chips.push(filterChip("attempt", "Progress", attemptFilterLabel(VIEW.attempt)));
+      }
       if (VIEW.q) {
         chips.push(filterChip("q", "Search", VIEW.q));
       }
@@ -361,6 +408,24 @@
 
     function filterChip(kind, label, value) {
       return `<span class="filter-chip" data-chip="${kind}">${escapeHtml(label)}: ${escapeHtml(value)}<button type="button" class="filter-chip-x" data-remove="${kind}" aria-label="Remove ${escapeHtml(label)} filter">×</button></span>`;
+    }
+
+    function attemptFilterLabel(value) {
+      if (value === "solution") return "solution";
+      if (value === "partial") return "partial progress";
+      if (value === "any") return "solution or partial progress";
+      if (value === "none") return "no solution or partial progress";
+      return "all";
+    }
+
+    function formatAttemptBadge(p) {
+      if (p.__attemptCounts.solutions > 0) {
+        return `<span><span class="attempt-pill attempt-pill-solution">${p.__attemptCounts.solutions} solution${p.__attemptCounts.solutions === 1 ? "" : "s"}</span></span>`;
+      }
+      if (p.__attemptCounts.partial > 0) {
+        return `<span><span class="attempt-pill attempt-pill-partial">${p.__attemptCounts.partial} partial</span></span>`;
+      }
+      return "";
     }
 
     function renderPagination() {
@@ -409,6 +474,7 @@
     function syncControls() {
       const searchInput = document.getElementById("search-input");
       const categorySelect = document.getElementById("category-select");
+      const attemptSelect = document.getElementById("attempt-select");
       const sortSelect = document.getElementById("sort-select");
       if (searchInput.value !== VIEW.q) {
         searchInput.value = VIEW.q;
@@ -420,6 +486,7 @@
         categorySelect.value = "";
       }
       sortSelect.value = VIEW.sort;
+      attemptSelect.value = VIEW.attempt;
     }
 
     function buildCategoryOptions() {
@@ -446,6 +513,7 @@
     function wireControls() {
       const searchInput = document.getElementById("search-input");
       const categorySelect = document.getElementById("category-select");
+      const attemptSelect = document.getElementById("attempt-select");
       const sortSelect = document.getElementById("sort-select");
       const clearBtn = document.getElementById("list-clear-btn");
       const filtersEl = document.getElementById("active-filters");
@@ -461,6 +529,10 @@
         VIEW.area = "";
         refresh({ resetPage: true });
       });
+      attemptSelect.addEventListener("change", () => {
+        VIEW.attempt = ATTEMPT_FILTERS.has(attemptSelect.value) ? attemptSelect.value : "";
+        refresh({ resetPage: true });
+      });
       sortSelect.addEventListener("change", () => {
         VIEW.sort = SORT_OPTIONS.has(sortSelect.value) ? sortSelect.value : "default";
         refresh({ resetPage: true });
@@ -469,6 +541,7 @@
         VIEW.q = "";
         VIEW.category = "";
         VIEW.area = "";
+        VIEW.attempt = "";
         refresh({ resetPage: true });
       });
 
@@ -483,6 +556,8 @@
           VIEW.area = "";
         } else if (kind === "area") {
           VIEW.area = "";
+        } else if (kind === "attempt") {
+          VIEW.attempt = "";
         } else if (kind === "q") {
           VIEW.q = "";
         }
@@ -527,7 +602,42 @@
       });
     }
 
-    async function loadProblems() {
+    async function loadSolutionAttemptManifest() {
+      const response = await fetch("data/llm_math_export/solution_progress/index.json");
+      if (!response.ok) {
+        throw new Error(`Failed to load solution/progress manifest: ${response.status}`);
+      }
+      const payload = await response.json();
+      if (!payload || typeof payload !== "object" || !payload.problems || typeof payload.problems !== "object") {
+        throw new Error("Invalid solution/progress manifest payload.");
+      }
+      return payload.problems;
+    }
+
+    function attemptsForProblem(manifest, problemId) {
+      const row = manifest[problemId] || {};
+      const solutions = Array.isArray(row.solutions) ? row.solutions : [];
+      const partial = Array.isArray(row.partial_progress) ? row.partial_progress : [];
+      return { solutions, partial };
+    }
+
+    function attemptSearchText(attempts) {
+      return [...attempts.solutions, ...attempts.partial]
+        .map((attempt) => `${attempt.label || ""} ${attempt.filename || ""}`)
+        .join(" ");
+    }
+
+    function attemptLabel(attempts) {
+      if (attempts.solutions.length > 0) {
+        return "solution";
+      }
+      if (attempts.partial.length > 0) {
+        return "partial progress";
+      }
+      return "no solution or partial progress";
+    }
+
+    async function loadProblems(solutionManifest) {
       const response = await fetch("data/llm_math_export/index.json");
       if (!response.ok) {
         throw new Error(`Failed to load export index: ${response.status}`);
@@ -537,11 +647,20 @@
         throw new Error("Invalid export index payload.");
       }
       ALL_PROBLEMS = payload.problems.map((p, idx) => {
+        const attempts = attemptsForProblem(solutionManifest, p.problem_id);
         const enriched = {
           ...p,
           __globalIndex: idx + 1,
           __number: typeof p.number === "number" ? p.number : idx + 1,
           __area: effectiveProblemArea(p),
+          __attempts: attempts,
+          __attemptCounts: {
+            solutions: attempts.solutions.length,
+            partial: attempts.partial.length,
+            total: attempts.solutions.length + attempts.partial.length,
+          },
+          __attemptLabel: attemptLabel(attempts),
+          __attemptSearch: attemptSearchText(attempts),
         };
         enriched.__category = categoryForProblem(enriched);
         enriched.__search = buildSearchBlob(enriched);
@@ -570,7 +689,8 @@
     async function boot() {
       try {
         readStateFromUrl();
-        await loadProblems();
+        const solutionManifest = await loadSolutionAttemptManifest();
+        await loadProblems(solutionManifest);
         buildCategoryOptions();
         wireControls();
         refresh();

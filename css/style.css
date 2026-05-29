@@ -261,6 +261,30 @@ main {
   color: #fff;
 }
 
+.attempt-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  vertical-align: middle;
+}
+
+.attempt-pill-solution {
+  border: 1px solid #b7d8b9;
+  background: #edf8ef;
+  color: #1f5f2b;
+}
+
+.attempt-pill-partial {
+  border: 1px solid #d9b877;
+  background: #fbf0d9;
+  color: #7a5413;
+}
+
 /* List controls: search + topic + sort */
 .list-controls {
   display: flex;
@@ -409,6 +433,18 @@ select.control-input {
   margin: 0;
   padding: 0;
 }
+
+.solution-attempt-group {
+  margin: 1rem 0 1.35rem;
+}
+
+.solution-attempt-group h3 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  margin: 0 0 0.4rem;
+  color: var(--color-text);
+}
+
 .solution-attempts-list li {
   padding: 0.35rem 0;
   border-bottom: 1px solid var(--color-rule);
@@ -419,10 +455,28 @@ select.control-input {
 .solution-attempt-meta {
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--color-text-muted);
   margin-left: 0.5rem;
+}
+
+.lit-review-details {
+  border: 1px solid var(--color-rule);
+  background: #f7f3ee;
+  padding: 0.75rem 1rem;
+}
+
+.lit-review-details summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lit-review-details[open] summary {
+  margin-bottom: 0.8rem;
 }
 
 /* Pagination */
