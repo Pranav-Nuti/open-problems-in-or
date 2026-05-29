@@ -2,8 +2,8 @@
   "schema_version": 1,
   "base_path": "data/llm_math_export/solution_progress",
   "counts": {
-    "problems_with_progress": 14,
-    "solution_pdfs": 13,
+    "problems_with_progress": 15,
+    "solution_pdfs": 14,
     "partial_progress_pdfs": 1
   },
   "problems": {
@@ -36,6 +36,17 @@
           "label": "Solution #73 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4226226337_p0/solutions/73.pdf",
           "filename": "73.pdf"
+        }
+      ],
+      "partial_progress": []
+    },
+    "W4379646686_p0": {
+      "solutions": [
+        {
+          "kind": "solution",
+          "label": "Solution #82 (PDF)",
+          "path": "data/llm_math_export/solution_progress/W4379646686_p0/solutions/82_for_80.pdf",
+          "filename": "82_for_80.pdf"
         }
       ],
       "partial_progress": []
