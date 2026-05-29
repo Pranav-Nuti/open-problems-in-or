@@ -113,14 +113,17 @@
     </section>
 
     <section class="problem-section" id="solution-attempts-section" hidden>
-      <h2>Solution attempts</h2>
-      <p class="section-note">Automated or community solution attempts for this problem. These are attempts shared for discussion, not peer-reviewed results.</p>
-      <ul id="solution-attempts-list" class="solution-attempts-list"></ul>
+      <h2>Solutions and partial progress</h2>
+      <p class="section-note">None of these PDFs are verified. They are shared for discussion, not peer-reviewed results.</p>
+      <div id="solution-attempts-groups"></div>
     </section>
 
     <section class="problem-section">
       <h2>Literature review</h2>
-      <div id="literature-review"></div>
+      <details class="lit-review-details">
+        <summary>Show literature review</summary>
+        <div id="literature-review"></div>
+      </details>
     </section>
 
     <nav class="problem-sequence-nav" id="problem-sequence-nav" aria-label="Adjacent problems" hidden>
@@ -253,6 +256,18 @@
       return payload.problems;
     }
 
+    async function loadSolutionAttemptManifest() {
+      const response = await fetch("data/llm_math_export/solution_progress/index.json");
+      if (!response.ok) {
+        throw new Error(`Failed to load solution/progress manifest: ${response.status}`);
+      }
+      const payload = await response.json();
+      if (!payload || typeof payload !== "object" || !payload.problems || typeof payload.problems !== "object") {
+        throw new Error("Invalid solution/progress manifest payload.");
+      }
+      return payload.problems;
+    }
+
     function findProblemNumberFromIndex(indexRows, problemId) {
       for (let i = 0; i < indexRows.length; i += 1) {
         const row = indexRows[i];
@@ -343,6 +358,7 @@
       const q = (source.get("q") || "").trim();
       const category = (source.get("category") || "").trim();
       const area = (source.get("area") || "").trim();
+      const attempt = (source.get("progress") || source.get("attempt") || "").trim();
       const sort = (source.get("sort") || "").trim();
       if (q) {
         params.set("q", q);
@@ -353,6 +369,9 @@
       if (area) {
         params.set("area", area);
       }
+      if (attempt) {
+        params.set("progress", attempt);
+      }
       if (sort && sort !== "default") {
         params.set("sort", sort);
       }
@@ -361,7 +380,7 @@
       }
       const query = params.toString();
       backLink.href = query ? `index.html?${query}` : "index.html";
-      const filtered = Boolean(q || category || area);
+      const filtered = Boolean(q || category || area || attempt);
       backLink.textContent = filtered
         ? "← Back to filtered problems list"
         : `← Back to problems list (page ${pageNumber})`;
@@ -624,21 +643,10 @@
         <div class="lit-source-card math-content">
           <div class="lit-source-heading">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${formatCitationHtml(source)}</span></p>
-          <button class="copy-bibtex-btn" data-bibtex="${escapeHtml(source.bibtex || "")}" type="button" ${source.bibtex ? "" : "hidden"}>Copy BibTeX</button>
           <p><strong>Theorem / result</strong><br><span>${escapeHtml(source.theorem_or_result || "")}</span></p>
           <p><strong>Connection</strong><br><span>${escapeHtml(source.connection || "")}</span></p>
         </div>
       `).join("");
-      for (const button of container.querySelectorAll(".copy-bibtex-btn")) {
-        button.addEventListener("click", async (event) => {
-          const bibtex = event.currentTarget?.getAttribute("data-bibtex") || "";
-          await navigator.clipboard.writeText(bibtex);
-          event.currentTarget.textContent = "Copied";
-          window.setTimeout(() => {
-            event.currentTarget.textContent = "Copy raw BibTeX";
-          }, 1200);
-        });
-      }
     }
 
     function renderSourcePaper(payload) {
@@ -802,39 +810,56 @@
       contextEl.classList.add("math-content");
       document.getElementById("problem-keywords").textContent = Array.isArray(payload.keywords) ? payload.keywords.join(", ") : "";
       renderSuitability(payload);
-      renderSolutionAttempts(payload);
+      renderSolutionAttempts(payload.solution_attempts || {});
       renderLiterature(payload);
     }
 
-    function renderSolutionAttempts(payload) {
+    function renderSolutionAttempts(attempts) {
       const section = document.getElementById("solution-attempts-section");
-      const list = document.getElementById("solution-attempts-list");
-      const attempts = Array.isArray(payload.solution_attempts) ? payload.solution_attempts : [];
-      const items = attempts
-        .map((attempt) => {
-          const url = String(attempt.path || attempt.url || "");
-          if (!url) {
-            return "";
-          }
-          const label = String(attempt.label || "Solution attempt (PDF)");
-          const meta = attempt.verdict
-            ? ` <span class="solution-attempt-meta">${escapeHtml(String(attempt.verdict))}</span>`
-            : "";
-          return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>${meta}</li>`;
-        })
-        .filter(Boolean);
-      if (items.length === 0) {
+      const groups = document.getElementById("solution-attempts-groups");
+      const solutions = Array.isArray(attempts.solutions) ? attempts.solutions : [];
+      const partials = Array.isArray(attempts.partial_progress) ? attempts.partial_progress : [];
+      if (solutions.length === 0 && partials.length === 0) {
         section.hidden = true;
         return;
       }
-      list.innerHTML = items.join("");
+      const chunks = [];
+      if (solutions.length > 0) {
+        chunks.push(renderAttemptGroup("Solutions", solutions));
+      }
+      if (partials.length > 0) {
+        chunks.push(renderAttemptGroup("Partial progress", partials));
+      }
+      groups.innerHTML = chunks.join("");
       section.hidden = false;
+    }
+
+    function renderAttemptGroup(title, attempts) {
+      const items = attempts.map((attempt) => {
+        const url = String(attempt.path || "");
+        if (!url) {
+          return "";
+        }
+        const label = String(attempt.label || attempt.filename || "PDF");
+        const file = attempt.filename ? ` <span class="solution-attempt-meta">${escapeHtml(attempt.filename)}</span>` : "";
+        return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>${file}</li>`;
+      }).filter(Boolean);
+      return `
+        <div class="solution-attempt-group">
+          <h3>${escapeHtml(title)}</h3>
+          <ul class="solution-attempts-list">${items.join("")}</ul>
+        </div>`;
     }
 
     async function boot() {
       try {
         const problemId = getProblemId();
-        const [payload, indexRows] = await Promise.all([loadProblem(problemId), loadIndex()]);
+        const [payload, indexRows, solutionManifest] = await Promise.all([
+          loadProblem(problemId),
+          loadIndex(),
+          loadSolutionAttemptManifest(),
+        ]);
+        payload.solution_attempts = solutionManifest[problemId] || {};
         const requestedNumber = getRequestedProblemNumber();
         const indexedNumber = findProblemNumberFromIndex(indexRows, problemId);
         const problemNumber = requestedNumber || indexedNumber;
