@@ -36,7 +36,7 @@
     <div class="list-controls" role="search">
       <div class="control-field control-field-search">
         <label class="control-label" for="search-input">Search</label>
-        <input type="search" id="search-input" class="control-input control-search"
+        <input type="text" id="search-input" class="control-input control-search" role="searchbox"
                placeholder="Search titles, areas, keywords, papers…" autocomplete="off"
                aria-label="Search open problems">
       </div>
@@ -90,6 +90,8 @@
 
   <script src="js/site-config.js"></script>
   <script src="js/taxonomy.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/minisearch@7.1.2/dist/umd/index.js"></script>
+  <script src="js/problem-search.js"></script>
   <script>
     const PROBLEMS_PER_PAGE = 10;
     const SUITABILITY_RANK = { high: 3, medium: 2, low: 1 };
@@ -107,6 +109,7 @@
     const FALLBACK_CATEGORY = window.TAXONOMY.fallback || "Other";
 
     let ALL_PROBLEMS = [];
+    let PROBLEM_SEARCH_INDEX = null;
     let FILTERED = [];
     let totalPages = 1;
     const VIEW = { q: "", category: "", area: "", attempt: "", sort: "default", page: 1 };
@@ -126,8 +129,9 @@
 
     function writeStateToUrl() {
       const params = new URLSearchParams();
-      if (VIEW.q) {
-        params.set("q", VIEW.q);
+      const q = VIEW.q.trim();
+      if (q) {
+        params.set("q", q);
       }
       if (VIEW.category) {
         params.set("category", VIEW.category);
@@ -240,39 +244,19 @@
       return escapeHtml(d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }));
     }
 
-    function buildSearchBlob(p) {
-      const parts = [
-        p.title,
-        effectiveProblemArea(p),
-        p.__category,
-        p.__attemptLabel,
-        p.__attemptSearch,
-        Array.isArray(p.keywords) ? p.keywords.join(" ") : "",
-        p.source_paper_title,
-        p.source_paper,
-        p.source_paper_journal,
-        Array.isArray(p.source_paper_authors) ? p.source_paper_authors.join(" ") : "",
-        p.problem_id,
-      ];
-      return parts.map((v) => String(v ?? "")).join(" ").toLowerCase();
-    }
-
-    function matchesQuery(p, tokens) {
-      if (tokens.length === 0) {
-        return true;
-      }
-      const blob = p.__search;
-      return tokens.every((token) => blob.includes(token));
-    }
-
     function suitabilityRank(value) {
       return SUITABILITY_RANK[String(value ?? "").trim().toLowerCase()] || 0;
     }
 
     function applyFilters() {
-      const tokens = VIEW.q.toLowerCase().split(/\s+/).filter(Boolean);
+      const searchIds = PROBLEM_SEARCH_INDEX
+        ? window.ProblemSearch.matchingIds(PROBLEM_SEARCH_INDEX, VIEW.q)
+        : null;
       const areaNeedle = VIEW.area.toLowerCase();
       FILTERED = ALL_PROBLEMS.filter((p) => {
+        if (searchIds && !searchIds.has(p.problem_id)) {
+          return false;
+        }
         if (VIEW.category && p.__category !== VIEW.category) {
           return false;
         }
@@ -291,7 +275,7 @@
         if (VIEW.attempt === "none" && p.__attemptCounts.total > 0) {
           return false;
         }
-        return matchesQuery(p, tokens);
+        return true;
       });
 
       if (VIEW.sort === "solutions" || VIEW.sort === "partials") {
@@ -324,8 +308,9 @@
       const params = new URLSearchParams();
       params.set("id", p.problem_id);
       params.set("n", String(p.__number));
-      if (VIEW.q) {
-        params.set("q", VIEW.q);
+      const q = VIEW.q.trim();
+      if (q) {
+        params.set("q", q);
       }
       if (VIEW.category) {
         params.set("category", VIEW.category);
@@ -377,7 +362,7 @@
       const clearBtn = document.getElementById('list-clear-btn');
       const total = ALL_PROBLEMS.length;
       const shown = FILTERED.length;
-      const filtering = Boolean(VIEW.q || VIEW.category || VIEW.area || VIEW.attempt);
+      const filtering = Boolean(VIEW.q.trim() || VIEW.category || VIEW.area || VIEW.attempt);
 
       countEl.innerHTML = filtering
         ? `Showing <strong>${shown}</strong> of ${total} problems`
@@ -393,8 +378,9 @@
       if (VIEW.attempt) {
         chips.push(filterChip("attempt", "Progress", attemptFilterLabel(VIEW.attempt)));
       }
-      if (VIEW.q) {
-        chips.push(filterChip("q", "Search", VIEW.q));
+      const qChip = VIEW.q.trim();
+      if (qChip) {
+        chips.push(filterChip("q", "Search", qChip));
       }
       filtersEl.innerHTML = chips.join("");
       clearBtn.hidden = !filtering;
@@ -470,7 +456,7 @@
       const categorySelect = document.getElementById("category-select");
       const attemptSelect = document.getElementById("attempt-select");
       const sortSelect = document.getElementById("sort-select");
-      if (searchInput.value !== VIEW.q) {
+      if (document.activeElement !== searchInput && searchInput.value !== VIEW.q) {
         searchInput.value = VIEW.q;
       }
       categorySelect.value = VIEW.category;
@@ -515,7 +501,7 @@
       const listEl = document.getElementById("problem-list");
 
       searchInput.addEventListener("input", () => {
-        VIEW.q = searchInput.value.trim();
+        VIEW.q = searchInput.value;
         refresh({ resetPage: true });
       });
       categorySelect.addEventListener("change", () => {
@@ -657,9 +643,9 @@
           __attemptSearch: attemptSearchText(attempts),
         };
         enriched.__category = categoryForProblem(enriched);
-        enriched.__search = buildSearchBlob(enriched);
         return enriched;
       });
+      PROBLEM_SEARCH_INDEX = window.ProblemSearch.buildIndex(ALL_PROBLEMS);
 
       const disc = payload.unverified_disclaimer;
       const show = Boolean(payload.has_unverified_problems) && disc && typeof disc === "object";
