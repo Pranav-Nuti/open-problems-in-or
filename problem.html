@@ -630,10 +630,14 @@
         return;
       }
       const synthesis = String(review.synthesis || "").trim();
+      const method = String(review.method || "").trim();
+      const provenanceLine = method && method !== "forward_citation_review"
+        ? `<p class="lit-provenance-note"><em>Sources identified via open web search, not forward citations from the source paper.</em></p>`
+        : "";
       const synthesisBlock = synthesis
         ? `<div class="lit-synthesis math-content"><p><strong>Synthesis</strong></p><p>${escapeHtml(synthesis)}</p></div>`
         : "";
-      container.innerHTML = synthesisBlock + review.sources.map((source, idx) => `
+      container.innerHTML = provenanceLine + synthesisBlock + review.sources.map((source, idx) => `
         <div class="lit-source-card math-content">
           <div class="lit-source-heading">Source ${idx + 1} &middot; ${escapeHtml(source.relevance_category)}</div>
           <p><strong>Citation</strong><br><span>${formatCitationHtml(source)}</span></p>
