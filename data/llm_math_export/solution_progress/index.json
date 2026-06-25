@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "base_path": "data/llm_math_export/solution_progress",
+  "counts": {
+    "problems_with_progress": 0,
+    "solution_pdfs": 0,
+    "partial_progress_pdfs": 0
+  },
+  "problems": {}
+}
