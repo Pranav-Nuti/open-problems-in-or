@@ -114,16 +114,16 @@ main {
 
 .prompt-banner {
   font-size: 0.9rem;
-  color: #374151;
-  background: #f9fafb;
-  border: 1px solid var(--color-rule);
-  border-left: 4px solid var(--color-accent);
+  color: #1f3d2b;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
   padding: 0.8rem 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 .prompt-banner a {
-  color: var(--color-accent);
+  color: #15803d;
   font-weight: 600;
 }
 
