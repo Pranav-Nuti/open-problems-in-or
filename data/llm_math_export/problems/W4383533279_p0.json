@@ -1,0 +1,78 @@
+{
+  "problem_id": "W4383533279_p0",
+  "paper_id": "W4383533279",
+  "source_paper": "W4383533279",
+  "source_paper_title": "On picking sequences for chores",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597783",
+  "source_paper_authors": [
+    "Uriel Feige",
+    "Xin Huang"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533279,\n  title = {On picking sequences for chores},\n  author = {Uriel Feige and Xin Huang},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1.6 \"Discussion and problems\", page 14 (arXiv:2211.13951v1 pagination)\n\nKnown techniques can be used in order to derive a BoBW result showing that for agents with arbitrary entitlement (and additive disvaluation functions over chores), there is an allocation mechanism that ex-ante gives each agent a bundle of expected value not larger than her proportional share, and ex-post not larger than twice the APS. Moreover, such a mechanism can be implemented as a distribution over picking sequences. (The proof of the above claims can be obtained by starting with the proportional fractional allocation, and transforming it into a distribution over picking sequences, using principles as in the proof of Lemma 2. Further details are omitted.) However, it is open whether there is such BoBW result where the ex-post ratio is strictly smaller than 2.",
+  "title": "Improve ex-post anyprice-share approximation in best-of-both-worlds chore allocation mechanisms",
+  "background_latex": "There are \\(n\\) agents and \\(m\\) indivisible chores \\(M=\\{e_1,\\dots,e_m\\}\\). Each agent \\(i\\) has an additive disvaluation (cost) function \\(c_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) given by \\(c_i(S)=\\sum_{e\\in S} c_i(e)\\). Agents have arbitrary responsibilities (entitlements) \\(b_i\\ge 0\\) with \\(\\sum_{i=1}^n b_i=1\\).\n\nFor chores, define the anyprice share (APS) of agent \\(i\\) by\n\\[\n\\mathrm{APS}(c_i,b_i)=\\max_{p\\in\\mathcal P_m}\\ \\min\\Big\\{c_i(S): S\\subseteq M,\\ \\sum_{e_j\\in S} p_j\\ge b_i\\Big\\},\n\\]\nwhere \\(\\mathcal P_m=\\{p\\in\\mathbb{R}_{\\ge 0}^m: \\sum_{j=1}^m p_j=1\\}\\) is the set of nonnegative item-price vectors summing to 1.\n\nAn allocation mechanism (possibly randomized) outputs an allocation \\(A=(A_1,\\dots,A_n)\\), where \\((A_1,\\dots,A_n)\\) is a partition of \\(M\\). An ex-ante proportional-share guarantee for agent \\(i\\) refers to the expected disvalue of her allocated bundle being at most her proportional share \\(b_i\\,c_i(M)\\), where \\(c_i(M)=\\sum_{e\\in M} c_i(e)\\). An ex-post APS approximation with factor \\(\\rho\\ge 1\\) refers to the realized disvalue \\(c_i(A_i)\\) being at most \\(\\rho\\,\\mathrm{APS}(c_i,b_i)\\).",
+  "problem_definition_latex": "Determine whether there exists an allocation mechanism for indivisible chores with additive disvaluation functions and arbitrary responsibilities \\((b_i)_{i=1}^n\\) that simultaneously satisfies:\n\\[\n\\mathbb{E}[c_i(A_i)]\\le b_i\\,c_i(M)\\quad\\text{for every agent }i,\n\\]\nand an ex-post APS guarantee with approximation factor strictly smaller than \\(2\\), i.e.,\n\\[\n c_i(A_i)\\le \\rho\\,\\mathrm{APS}(c_i,b_i)\\quad\\text{for every agent }i\\text{ with some constant }\\rho<2.\n\\]\n(Here \\(A=(A_1,\\dots,A_n)\\) is the allocation produced by the mechanism, and the expectation is over the mechanism\u2019s internal randomness.)",
+  "latex": "There are \\(n\\) agents and \\(m\\) indivisible chores \\(M=\\{e_1,\\dots,e_m\\}\\). Each agent \\(i\\) has an additive disvaluation (cost) function \\(c_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) given by \\(c_i(S)=\\sum_{e\\in S} c_i(e)\\). Agents have arbitrary responsibilities (entitlements) \\(b_i\\ge 0\\) with \\(\\sum_{i=1}^n b_i=1\\).\n\nFor chores, define the anyprice share (APS) of agent \\(i\\) by\n\\[\n\\mathrm{APS}(c_i,b_i)=\\max_{p\\in\\mathcal P_m}\\ \\min\\Big\\{c_i(S): S\\subseteq M,\\ \\sum_{e_j\\in S} p_j\\ge b_i\\Big\\},\n\\]\nwhere \\(\\mathcal P_m=\\{p\\in\\mathbb{R}_{\\ge 0}^m: \\sum_{j=1}^m p_j=1\\}\\) is the set of nonnegative item-price vectors summing to 1.\n\nAn allocation mechanism (possibly randomized) outputs an allocation \\(A=(A_1,\\dots,A_n)\\), where \\((A_1,\\dots,A_n)\\) is a partition of \\(M\\). An ex-ante proportional-share guarantee for agent \\(i\\) refers to the expected disvalue of her allocated bundle being at most her proportional share \\(b_i\\,c_i(M)\\), where \\(c_i(M)=\\sum_{e\\in M} c_i(e)\\). An ex-post APS approximation with factor \\(\\rho\\ge 1\\) refers to the realized disvalue \\(c_i(A_i)\\) being at most \\(\\rho\\,\\mathrm{APS}(c_i,b_i)\\).\n\nDetermine whether there exists an allocation mechanism for indivisible chores with additive disvaluation functions and arbitrary responsibilities \\((b_i)_{i=1}^n\\) that simultaneously satisfies:\n\\[\n\\mathbb{E}[c_i(A_i)]\\le b_i\\,c_i(M)\\quad\\text{for every agent }i,\n\\]\nand an ex-post APS guarantee with approximation factor strictly smaller than \\(2\\), i.e.,\n\\[\n c_i(A_i)\\le \\rho\\,\\mathrm{APS}(c_i,b_i)\\quad\\text{for every agent }i\\text{ with some constant }\\rho<2.\n\\]\n(Here \\(A=(A_1,\\dots,A_n)\\) is the allocation produced by the mechanism, and the expectation is over the mechanism\u2019s internal randomness.)",
+  "location_in_paper": "Section 1.6 \"Discussion and problems\", page 14 (arXiv:2211.13951v1 pagination)",
+  "open_problem_quote": "Known techniques can be used in order to derive a BoBW result showing that for agents with arbitrary entitlement (and additive disvaluation functions over chores), there is an allocation mechanism that ex-ante gives each agent a bundle of expected value not larger than her proportional share, and ex-post not larger than twice the APS. Moreover, such a mechanism can be implemented as a distribution over picking sequences. (The proof of the above claims can be obtained by starting with the proportional fractional allocation, and transforming it into a distribution over picking sequences, using principles as in the proof of Lemma 2. Further details are omitted.) However, it is open whether there is such BoBW result where the ex-post ratio is strictly smaller than 2.",
+  "area": "fair division",
+  "category": "Fair Division & Social Choice",
+  "keywords": [
+    "chores allocation",
+    "anyprice share",
+    "best of both worlds",
+    "proportional share",
+    "approximation ratio",
+    "unequal entitlements"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The question is existential (design a mechanism with \\(\\rho<2\\)), so counterexamples would target specific candidate mechanisms rather than the open question itself. Still, automated search over small instances and mechanism families (e.g., distributions over picking sequences derived from fractional allocations) can falsify proposed \\(\\rho<2\\) constructions by computing the worst violating instance for a fixed \\(n,m\\).",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate mechanisms can be represented programmatically (e.g., a procedure mapping \\((b_i)\\) to a distribution over picking sequences or to a rounding scheme from fractional allocations). A computable fitness signal is available by numerically estimating the worst-case ex-post \\(c_i(A_i)/\\mathrm{APS}(c_i,b_i)\\) over many generated additive instances while checking the ex-ante proportional-share constraint in expectation.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.0271999
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
+    "citations_analyzed": 0,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0271999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.0271999
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533279/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533279/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533279_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533279_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

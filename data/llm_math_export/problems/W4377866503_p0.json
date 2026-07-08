@@ -1,0 +1,125 @@
+{
+  "problem_id": "W4377866503_p0",
+  "paper_id": "W4377866503",
+  "source_paper": "W4377866503",
+  "source_paper_title": "Distortion in metric matching with ordinal preferences",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597740",
+  "source_paper_authors": [
+    "Nima Anari",
+    "Moses Charikar",
+    "Prasanna Ramakrishnan"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4377866503,\n  title = {Distortion in metric matching with ordinal preferences},\n  author = {Nima Anari and Moses Charikar and Prasanna Ramakrishnan},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 8 (Discussion), page 17, under \u201cproblem 1\u201d (also introduced as Question 1 in Section 1, page 2).\n\nproblem 1. What is the optimal metric distortion for deterministic and randomized mechanisms for min-cost ordinal matching?",
+  "title": "Determine optimal worst-case distortion for ordinal min-cost metric perfect matching mechanisms",
+  "background_latex": "Let \\(A=\\{a_1,\\dots,a_n\\}\\) be \\(n\\) agents and \\(B=\\{b_1,\\dots,b_n\\}\\) be \\(n\\) items. There is an unknown metric space \\((A\\cup B,d)\\), i.e., \\(d:(A\\cup B)\\times(A\\cup B)\\to\\mathbb{R}_{\\ge 0}\\) satisfies symmetry and the triangle inequality.\n\nEach agent \\(a_i\\) reports an ordinal preference ranking of all items in \\(B\\), where the ranking is consistent with distances: agent \\(a_i\\) prefers \\(b\\) to \\(b'\\) whenever \\(d(a_i,b)\\le d(a_i,b')\\). A (deterministic) ordinal matching mechanism \\(\\mathcal{M}\\) maps the profile of these rankings to a perfect matching \\(M:A\\to B\\) (a bijection).\n\nThe cost of a matching \\(M\\) under metric \\(d\\) is\n\\[\\mathrm{cost}_d(M):=\\sum_{i=1}^n d\\bigl(a_i, M(a_i)\\bigr).\\]\nLet \\(M^*_d\\) denote a minimum-cost perfect matching under \\(d\\). The distortion of \\(\\mathcal{M}\\) is the worst-case approximation ratio over all \\(n\\), all ordinal profiles, and all metrics \\(d\\) consistent with that profile:\n\\[\\mathrm{dist}(\\mathcal{M}) := \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathrm{cost}_d(\\mathcal{M}(\\text{profile}))}{\\mathrm{cost}_d(M^*_d)}.\\]\n\nA randomized ordinal matching mechanism outputs a distribution over perfect matchings (equivalently, a doubly stochastic matrix \\(p=(p_{i,j})\\) giving marginal probabilities of matching \\(a_i\\) to \\(b_j\\)). Its (worst-case) distortion is defined as\n\\[\\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathbb{E}[\\mathrm{cost}_d(M)]}{\\mathrm{cost}_d(M^*_d)}.\\]\n",
+  "problem_definition_latex": "Determine, as a function of \\(n\\), the smallest achievable worst-case distortion among:\n\n1) deterministic ordinal matching mechanisms \\(\\mathcal{M}:\\text{(rankings)}\\mapsto M\\) that output a perfect matching, i.e.\n\\[\\inf_{\\mathcal{M}\\ \\text{deterministic}}\\ \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathrm{cost}_d(\\mathcal{M}(\\text{profile}))}{\\mathrm{cost}_d(M^*_d)};\\]\n\n2) randomized ordinal matching mechanisms, i.e.\n\\[\\inf_{\\mathcal{M}\\ \\text{randomized}}\\ \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathbb{E}[\\mathrm{cost}_d(M)]}{\\mathrm{cost}_d(M^*_d)}.\\]\n\nEquivalently, determine tight asymptotic bounds (up to constant factors, or otherwise as stated) on the optimal worst-case distortion for deterministic mechanisms and for randomized mechanisms in the minimum-cost metric perfect matching problem given only agents' ordinal rankings over items.",
+  "latex": "Let \\(A=\\{a_1,\\dots,a_n\\}\\) be \\(n\\) agents and \\(B=\\{b_1,\\dots,b_n\\}\\) be \\(n\\) items. There is an unknown metric space \\((A\\cup B,d)\\), i.e., \\(d:(A\\cup B)\\times(A\\cup B)\\to\\mathbb{R}_{\\ge 0}\\) satisfies symmetry and the triangle inequality.\n\nEach agent \\(a_i\\) reports an ordinal preference ranking of all items in \\(B\\), where the ranking is consistent with distances: agent \\(a_i\\) prefers \\(b\\) to \\(b'\\) whenever \\(d(a_i,b)\\le d(a_i,b')\\). A (deterministic) ordinal matching mechanism \\(\\mathcal{M}\\) maps the profile of these rankings to a perfect matching \\(M:A\\to B\\) (a bijection).\n\nThe cost of a matching \\(M\\) under metric \\(d\\) is\n\\[\\mathrm{cost}_d(M):=\\sum_{i=1}^n d\\bigl(a_i, M(a_i)\\bigr).\\]\nLet \\(M^*_d\\) denote a minimum-cost perfect matching under \\(d\\). The distortion of \\(\\mathcal{M}\\) is the worst-case approximation ratio over all \\(n\\), all ordinal profiles, and all metrics \\(d\\) consistent with that profile:\n\\[\\mathrm{dist}(\\mathcal{M}) := \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathrm{cost}_d(\\mathcal{M}(\\text{profile}))}{\\mathrm{cost}_d(M^*_d)}.\\]\n\nA randomized ordinal matching mechanism outputs a distribution over perfect matchings (equivalently, a doubly stochastic matrix \\(p=(p_{i,j})\\) giving marginal probabilities of matching \\(a_i\\) to \\(b_j\\)). Its (worst-case) distortion is defined as\n\\[\\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathbb{E}[\\mathrm{cost}_d(M)]}{\\mathrm{cost}_d(M^*_d)}.\\]\n\nDetermine, as a function of \\(n\\), the smallest achievable worst-case distortion among:\n\n1) deterministic ordinal matching mechanisms \\(\\mathcal{M}:\\text{(rankings)}\\mapsto M\\) that output a perfect matching, i.e.\n\\[\\inf_{\\mathcal{M}\\ \\text{deterministic}}\\ \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathrm{cost}_d(\\mathcal{M}(\\text{profile}))}{\\mathrm{cost}_d(M^*_d)};\\]\n\n2) randomized ordinal matching mechanisms, i.e.\n\\[\\inf_{\\mathcal{M}\\ \\text{randomized}}\\ \\sup_{\\text{profiles}}\\ \\sup_{d\\ \\text{consistent}} \\frac{\\mathbb{E}[\\mathrm{cost}_d(M)]}{\\mathrm{cost}_d(M^*_d)}.\\]\n\nEquivalently, determine tight asymptotic bounds (up to constant factors, or otherwise as stated) on the optimal worst-case distortion for deterministic mechanisms and for randomized mechanisms in the minimum-cost metric perfect matching problem given only agents' ordinal rankings over items.",
+  "location_in_paper": "Section 8 (Discussion), page 17, under \u201cproblem 1\u201d (also introduced as Question 1 in Section 1, page 2).",
+  "open_problem_quote": "problem 1. What is the optimal metric distortion for deterministic and randomized mechanisms for min-cost ordinal matching?",
+  "area": "ordinal metric matching",
+  "category": "Matching & Markets",
+  "keywords": [
+    "metric distortion",
+    "ordinal preferences",
+    "min-cost perfect matching",
+    "approximation ratio",
+    "deterministic mechanisms",
+    "randomized mechanisms"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "Distortion lower bounds can be attacked by automated searches over small ordinal profiles together with adversarial metric completions (e.g., via linear/semidefinite programming feasibility for metrics consistent with rankings) to maximize the ratio for a fixed mechanism or to rule out candidate bounds. The search space is finite at fixed \\(n\\) (profiles and mechanisms restricted to a class), and evaluating distortion for a candidate instance can be cast as an optimization problem over metrics.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate mechanisms can be represented as programs mapping rankings to matchings (or to fractional matchings), and fitness can be computed by repeatedly sampling/adversarially optimizing over metric completions to estimate worst-case distortion. An evolutionary loop can thus explore mechanism design heuristics and also generate hard instances that increase observed distortion, providing concrete conjectures or improved bounds.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.04856424999999999
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper (Anari\u2013Charikar\u2013Ramakrishnan, 2023) formulates the min-sum bipartite perfect matching problem under an unknown metric \\,\\((A\\cup B,d)\\), where only agents\u2019 ordinal rankings over items are observed. It establishes the baseline landscape that motivates the open problem: a deterministic mechanism RepMatch achieves distortion \\(O(n^2)\\) (Theorem 1), while every (even randomized) ordinal mechanism has distortion \\(\\Omega(\\log n)\\) (Theorem 2). For randomized mechanisms, the best general upper bound remains the \\(O(n)\\) distortion of Random Serial Dictatorship from earlier work, leaving a wide gap \\([\\Omega(\\log n),O(n)]\\) randomized and \\([\\Omega(\\log n),O(n^2)]\\) deterministic.\n\nA central conceptual contribution of the source paper is the reduction from derandomizing low-distortion randomized mechanisms to a purely combinatorial \u201cthin matching\u201d rounding question (Section 6): if every fractional perfect matching admits a \\(\\beta(n)\\)-thin integral perfect matching (cut-by-cut), then randomized distortion \\(D\\) can be converted to deterministic distortion \\(O(D\\,\\beta(n)\\log n)\\) via Bourgain\u2019s cut-metric decomposition. The forward-citing paper \u201cOn Thin Perfect Matchings up to Polylogarithmic Factors\u201d makes the strongest progress on this route: it proves polylogarithmic thinness \\(\\beta(n)=O(\\log n\\log\\log n)\\) when the integral matching may use edges outside the fractional support, yielding a derandomization overhead \\(O(\\log^2 n\\log\\log n)\\). This substantially narrows the conceptual gap between deterministic and randomized mechanisms (up to polylog factors), but it still does not determine the optimal randomized distortion itself, nor does it yield constant-factor derandomization.\n\nOther forward citations develop adjacent distortion questions and special cases rather than closing the main asymptotic gap for min-sum distortion in general metrics. \u201cFair metric distortion for matching with preferences\u201d extends analysis of RepMatch-type ideas to fairness-oriented objectives (max/top-\\(k\\)/norms), obtaining, e.g., max-distortion \\(O(n^{\\log_2 3})\\approx O(n^{1.585})\\) and a constant lower bound (7) for deterministic max-distortion, while leaving the min-sum bounds essentially unchanged. \u201cMetric Facility Assignment with Partial Information\u201d shows that in restricted metrics (notably the line) and/or with additional information beyond pure ordinals (approval sets, facility distances), constant distortion is achievable and often tight, highlighting that the hardness in the open problem is tied to the combination of general metrics and purely ordinal information. Overall, based on the provided forward-citation set, the optimal worst-case distortion for deterministic and randomized ordinal mechanisms for min-cost metric perfect matching remains open.",
+    "total_cost_usd": 0.73159625,
+    "citations_analyzed": 8,
+    "sources": [
+      {
+        "title": "On Thin Perfect Matchings up to Polylogarithmic Factors",
+        "bibtex": "@article{OnThinPerfectMatchingsPolylog,\n  title={On Thin Perfect Matchings up to Polylogarithmic Factors},\n  author={},\n  year={},\n  note={Metadata incomplete in provided forward-citation analysis}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves polylogarithmic-factor existence of thin perfect matchings relative to any fractional perfect matching. In particular, for any graph on \n\\(2n\\) vertices and any \\(x\\in PM(G)\\), there exists a perfect matching \\(M\\) (not necessarily contained in \\(\\mathrm{supp}(x)\\)) such that for every cut \\(S\\subseteq V\\),\n\\[|M\\cap \\delta(S)| \\le O(\\log n\\,\\log\\log n)\\, x(\\delta(S)).\\]\n(Thm. 1.4). They also show a support-constrained bound: there exists \\(M\\subseteq \\mathrm{supp}(x)\\) with \\(|M\\cap\\delta(S)|\\le O(n\\log n)\\,x(\\delta(S))\\) for all \\(S\\) (Thm. 1.3), and a lower bound \\(\\Omega(n)\\) thinness is unavoidable under the support constraint (Lemma 1.2). As an application, combining Thm. 1.4 with prior reductions in [ACR23] yields: any randomized ordinal matching mechanism with distortion \\(D\\) can be derandomized to a deterministic mechanism with distortion \\(O(D\\,\\log^2 n\\,\\log\\log n)\\) (Cor. 1.6).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks for the optimal worst-case distortion achievable by deterministic and randomized ordinal mechanisms for min-cost metric perfect matching. This paper does not directly determine those optimal distortions, but it strengthens a key combinatorial ingredient used in [ACR23] to relate randomized-to-deterministic distortion via thin matchings. Specifically, [ACR23] show that if every fractional perfect matching admits a \\(t(n)\\)-thin integral perfect matching, then a randomized mechanism of distortion \\(D\\) can be converted to a deterministic one with distortion \\(O(D\\,t(n)\\log n)\\). By proving \\(t(n)=\\mathrm{polylog}(n)\\) without the support restriction (Thm. 1.4), the paper improves the best-known derandomization overhead to \\(\\mathrm{polylog}(n)\\) (Cor. 1.6). This is partial progress toward characterizing deterministic distortion (it upper-bounds deterministic distortion in terms of randomized distortion up to polylog factors), but it does not pin down the optimal randomized distortion itself nor close the remaining gap to constant-factor derandomization or tight asymptotics for either model."
+      },
+      {
+        "title": "Fair metric distortion for matching with preferences",
+        "bibtex": "@inproceedings{FairMetricDistortionMatchingPreferences,\n  title={Fair metric distortion for matching with preferences},\n  author={},\n  booktitle={Proceedings of the conference volume associated with DOI 10.1007/978-3-032-18660-7_29},\n  year={},\n  doi={10.1007/978-3-032-18660-7_29}\n}\n",
+        "source_url": "https://doi.org/10.1007/978-3-032-18660-7_29",
+        "theorem_or_result": "The paper analyzes a variant of RepMatch (Algorithm 1) and proves worst-case distortion bounds for objectives beyond the sum. In particular:\n- (Theorem 2) For every instance and every consistent metric, Algorithm 1 has top-\n\\(k\\) distortion \\(O\\bigl(k^2 (n/k)^{\\log_2 3}\\bigr)\\).\n- (Corollary 6) Setting \\(k=1\\), Algorithm 1 has max-distortion \\(O\\bigl(n^{\\log_2 3}\\bigr)\\approx O(n^{1.585})\\).\n- (Corollary 5) The worst-case fairness ratio (max over top-\\(k\\) distortions) is \\(O(n^2)\\), hence by Proposition 1 it also yields \\(O(n^2)\\) distortion for any monotone symmetric norm.\nIt also gives lower bounds: Algorithm 1 with worst-case tie-breaking can have top-\\(k\\) distortion \\(\\Omega(kn)\\) (Theorem 3), and every deterministic mechanism has worst-case max-distortion at least 7 (Theorem 4).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the optimal (tight) worst-case distortion for ordinal min-sum metric perfect matching mechanisms, for both deterministic and randomized mechanisms. This paper does not improve the best-known asymptotic bounds for the original sum objective in general metrics: RepMatch remains \\(O(n^2)\\) for sum-distortion and the known lower bound \\(\\Omega(\\log n)\\) (from ACR23) is not strengthened here.\nHowever, it makes partial progress in two ways relevant to the broader distortion landscape for ordinal metric matching:\n- It refines the analysis of RepMatch under alternative objectives (max/top-\\(k\\)/fairness ratio), showing a strictly better bound \\(O(n^{1.585})\\) for max-distortion while retaining \\(O(n^2)\\) for sum.\n- It introduces and studies a new open problem (optimal max-distortion) and provides a constant lower bound (7) for deterministic max-distortion.\nThus it does not resolve the stated open problem (optimal sum-distortion deterministic/randomized), but contributes related bounds and techniques that may inform future attempts."
+      },
+      {
+        "title": "Metric Facility Assignment with Partial Information",
+        "bibtex": "@article{MetricFacilityAssignmentPartialInformation,\n  title={Metric Facility Assignment with Partial Information},\n  author={},\n  year={},\n  note={Metadata incomplete in provided forward-citation analysis}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For deterministic algorithms in the line-metric facility assignment problem with capacities (a generalization of one-sided perfect matching), the paper gives tight constant distortion bounds under richer information models than pure ordinals. In particular:\n- With ORD only on the line, optimal distortion is 3 (citing Filos-Ratsikas et al. 2025).\n- With DIST+APP (no ORD), the algorithm \\(\\alpha\\)-VirtualMinMatch achieves distortion \\(\\le \\max\\{\\alpha,2+1/\\alpha\\}\\), optimized at \\(\\alpha=1+\\sqrt2\\) giving tight distortion \\(1+\\sqrt2\\) even for \\(f=3\\) facilities (Thms. 3.2\u20133.4).\n- With DIST+APP+ORD on the line and \\(f\\ge 3\\) facilities, there is a deterministic algorithm GeneralMatch with distortion 2, and a matching lower bound 2 (Thms. 5.6\u20135.7). For \\(f=2\\), the optimal distortion under APP+ORD is \\(2\\sqrt2-1\\) (Thms. 4.2, 4.4).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the optimal worst-case distortion (as a function of \\(n\\)) for ordinal mechanisms for min-cost metric perfect matching (one-sided matching) under arbitrary metrics, for both deterministic and randomized mechanisms.\n\nThis paper does not resolve that question: it primarily studies deterministic algorithms on the line metric and, crucially, allows additional information beyond ordinal rankings (approval sets APP and/or inter-facility distances DIST). Under these stronger information models it proves tight constant distortions (e.g., 2 for DIST+APP+ORD on the line), which are not comparable to the pure-ordinal setting of the open problem.\n\nNevertheless, it provides partial progress/related bounds in special settings: it confirms tight constant distortion for deterministic algorithms on the line when extra information is available, and it summarizes known bounds for pure ORD on the line (distortion 3) and for general metrics with ORD+DIST (distortion 3 from Anshelevich\u2013Zhu 2021). It does not improve the best-known asymptotics for pure ordinal matching in general metrics, nor address randomized mechanisms\u2019 optimal distortion."
+      },
+      {
+        "title": "Tradeoffs Between Efficiency, Fairness and Information in Computational Social Choice",
+        "bibtex": "@phdthesis{TradeoffsEfficiencyFairnessInformationCS,\n  title={Tradeoffs Between Efficiency, Fairness and Information in Computational Social Choice},\n  author={},\n  school={},\n  year={},\n  note={Metadata incomplete in provided forward-citation analysis}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The thesis does not directly study ordinal min-cost bipartite perfect matching \n\\(\\min_{M:A\\to B}\\sum_i d(a_i,M(a_i))\\) from agent-to-item rankings. Its closest relevant result is in Chapter 4 on \u201cline-up elections,\u201d a matching-like problem with voters \\(V\\), candidates \\(C\\), positions \\(P\\), and costs \\(d(v,c)+d(c,p)\\), where the mechanism only knows ordinal information. It gives deterministic constant-distortion mechanisms, e.g. iterative election achieves distortion \\(\\le 7\\) for general \\((m,\\ell)\\)-line-up elections under ordinal voter preferences, and serial dictatorship achieves distortion \\(\\le 5\\) under ordinal position-preferences (Theorems 4.3.10/Cor. 4.3.11 and 4.4.4).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for tight optimal worst-case distortion (deterministic and randomized) for min-cost metric perfect matching between agents \\(A\\) and items \\(B\\) given only agents\u2019 ordinal rankings over items. This thesis does not resolve that question. It does, however, analyze a related assignment/matching setting (line-up elections) where an injective matching between positions and candidates is chosen under limited ordinal information, and proves constant distortion bounds (e.g. 7 or 5) by combining social-choice distortion ideas with matching arguments. These techniques (charging arguments, transforming matchings via triangle inequality, iterative selection) may be adaptable as tools/insight for ordinal metric matching, but the model and objective differ from \\(\\sum_i d(a_i,M(a_i))\\) and do not yield tight bounds as a function of \\(n\\) for the bipartite matching problem in the open problem. The thesis also cites and discusses the metric matching distortion literature (e.g. Anari\u2013Charikar\u2013Ramakrishnan 2023) but does not improve those bounds for the original min-cost perfect matching problem."
+      },
+      {
+        "title": "Online Min-Cost Matching with General Arrivals",
+        "bibtex": "@article{OnlineMinCostMatchingGeneralArrivals,\n  title={Online Min-Cost Matching with General Arrivals},\n  author={},\n  year={},\n  note={Metadata incomplete in provided forward-citation analysis}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "They study online min-cost perfect matching with general (two-sided) arrivals on the line. Main results include: (i) an ordinal (uses only relative order on the line) online algorithm that is \\(O(\\log^2 n)\\)-competitive in the unknown-i.i.d. arrival model for the non-bipartite version (Theorem 1); (ii) an impossibility: in the random-order model the competitive ratio of any (even randomized) algorithm is unbounded for \\(n\\ge 4\\) (Theorem 2); (iii) for bipartite general arrivals under known-i.i.d., a reduction to one-sided arrivals yielding constant competitiveness on the line and \\(O((\\log\\log\\log n)^2)\\) for general metrics (Theorem 3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem is about worst-case distortion of offline ordinal mechanisms for bipartite min-cost perfect matching between agents \\(A\\) and items \\(B\\) under an unknown metric consistent with agents\u2019 rankings. This paper instead analyzes an online matching model with stochastic arrivals (unknown-i.i.d./random order/known-i.i.d.) on the line (and some general-metric bipartite results via reduction), measuring competitive ratio against the offline optimum on the realized instance. Although it notes its main algorithm is \u201cordinal\u201d (depends only on order on the line) and cites distortion work, it does not address the offline worst-case distortion over all consistent metrics/profiles, nor does it give tight bounds for deterministic/randomized ordinal mechanisms in that distortion model."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.04856424999999999,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.73159625,
+    "total_cost_usd": 0.7801604999999999
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4377866503/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4377866503/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4377866503_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4377866503_p0",
+    "citations_analyzed": 8,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

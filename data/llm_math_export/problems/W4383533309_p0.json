@@ -1,0 +1,80 @@
+{
+  "problem_id": "W4383533309_p0",
+  "paper_id": "W4383533309",
+  "source_paper": "W4383533309",
+  "source_paper_title": "Welfare Distribution in Two-sided Random Matching Markets",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597730",
+  "source_paper_authors": [
+    "Itai Ashlagi",
+    "Mark Braverman",
+    "Geng Zhao"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533309,\n  title = {Welfare Distribution in Two-sided Random Matching Markets},\n  author = {Itai Ashlagi and Mark Braverman and Geng Zhao},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Page 7, Section 3.1 (Discussion); reiterated page 18, Section 7.1 (after Proposition 7.3).\n\nWhile we will establish such an approximation, we believe that, with a refined analysis, one should be able to show \\(\\sup_{\\mu\\in S}\\,\\bigl|n^{-1}\\|X(\\mu)\\|_1\\|Y(\\mu)\\|_1-1\\bigr|\\xrightarrow{p}0\\).\n\nWe believe, however, that a refined analysis should suggest that \\(\\sup_{\\mu\\in S}\\,\\bigl|n^{-1}\\|X(\\mu)\\|_1\\|Y(\\mu)\\|_1-1\\bigr|\\xrightarrow{p}0\\). This is the analogue of the \"law of hyperbola\" in Pittel (1992).",
+  "title": "Remove truncation in hyperbola law for stable matching values in logit markets",
+  "background_latex": "Consider a two-sided matching market with \n1) men set \\(M=\\{m_1,\\dots,m_n\\}\\) and women set \\(W=\\{w_1,\\dots,w_n\\}\\), and a (perfect) matching \\(\\mu:M\\to W\\).\n2) For each ordered pair \\((m_i,w_j)\\), men have latent values \\(X_{ij}\\sim \\mathrm{Exp}(a_{ij})\\) (independent across \\(i,j\\)), and women have latent values \\(Y_{ji}\\sim \\mathrm{Exp}(b_{ji})\\) (independent across \\(j,i\\)), where \\(\\mathrm{Exp}(\\lambda)\\) denotes the exponential distribution with rate \\(\\lambda\\). Smaller latent values are better.\n3) Preferences are induced by these latent values: man \\(m_i\\) ranks women by increasing \\(X_{ij}\\), and woman \\(w_j\\) ranks men by increasing \\(Y_{ji}\\).\n4) A matching \\(\\mu\\) is stable if there is no blocking pair \\((m_i,w_j)\\) such that \\(X_{ij}<X_{i\\mu(i)}\\) and \\(Y_{ji}<Y_{j\\mu^{-1}(j)}\\).\n5) Let \\(S\\) denote the (random) set of stable matchings.\n6) A contiguity/boundedness condition holds: after an appropriate positive rescaling, the scores satisfy uniform bounds \\(a_{ij}, b_{ji}\\in[1/C,C]\\) and the mutual matrix \\(M=(m_{ij})\\) with \\(m_{ij}=\\frac{1}{n}a_{ij}b_{ji}\\) is bistochastic and satisfies \\(nm_{ij}\\in[1/C,C]\\), for some absolute constant \\(C\\ge 1\\).\n7) For a matching \\(\\mu\\), define the realized partner values\n\\[X_i(\\mu):=X_{i\\mu(i)},\\qquad Y_j(\\mu):=Y_{j\\mu^{-1}(j)}.\\]\nLet \\(\\|X(\\mu)\\|_1=\\sum_{i=1}^n X_i(\\mu)\\) and \\(\\|Y(\\mu)\\|_1=\\sum_{j=1}^n Y_j(\\mu)\\).\n8) For \\(\\delta\\in(0,1)\\), define a \\(\\delta\\)-truncation procedure on a stable matching \\(\\mu\\) that removes the least satisfied \\(\\lfloor \\delta n/2\\rfloor\\) men and the least satisfied \\(\\lfloor \\delta n/2\\rfloor\\) women (those with the largest partner values), and considers the induced partial matching on the remaining \\(n-\\lfloor \\delta n\\rfloor\\) pairs. Let \\(X_\\delta(\\mu)\\) and \\(Y_\\delta(\\mu)\\) denote the resulting (length-\\(n\\)) vectors with removed agents\u2019 entries set to \\(0\\).",
+  "problem_definition_latex": "Show that the \"hyperbola law\" for total welfare holds without truncation, namely that\n\\[\\sup_{\\mu\\in S}\\Bigl|\\frac{1}{n}\\,\\|X(\\mu)\\|_1\\,\\|Y(\\mu)\\|_1-1\\Bigr|\\xrightarrow{p}0\\quad\\text{as }n\\to\\infty.\\]\nEquivalently, remove the need for \\(\\delta\\)-truncation in the existing bound \\(\\frac{1}{n}\\|X_\\delta(\\mu)\\|_1\\|Y_\\delta(\\mu)\\|_1\\approx 1\\) that holds uniformly over stable matchings, and prove the corresponding statement for the full sums \\(\\|X(\\mu)\\|_1\\) and \\(\\|Y(\\mu)\\|_1\\).",
+  "latex": "Consider a two-sided matching market with \n1) men set \\(M=\\{m_1,\\dots,m_n\\}\\) and women set \\(W=\\{w_1,\\dots,w_n\\}\\), and a (perfect) matching \\(\\mu:M\\to W\\).\n2) For each ordered pair \\((m_i,w_j)\\), men have latent values \\(X_{ij}\\sim \\mathrm{Exp}(a_{ij})\\) (independent across \\(i,j\\)), and women have latent values \\(Y_{ji}\\sim \\mathrm{Exp}(b_{ji})\\) (independent across \\(j,i\\)), where \\(\\mathrm{Exp}(\\lambda)\\) denotes the exponential distribution with rate \\(\\lambda\\). Smaller latent values are better.\n3) Preferences are induced by these latent values: man \\(m_i\\) ranks women by increasing \\(X_{ij}\\), and woman \\(w_j\\) ranks men by increasing \\(Y_{ji}\\).\n4) A matching \\(\\mu\\) is stable if there is no blocking pair \\((m_i,w_j)\\) such that \\(X_{ij}<X_{i\\mu(i)}\\) and \\(Y_{ji}<Y_{j\\mu^{-1}(j)}\\).\n5) Let \\(S\\) denote the (random) set of stable matchings.\n6) A contiguity/boundedness condition holds: after an appropriate positive rescaling, the scores satisfy uniform bounds \\(a_{ij}, b_{ji}\\in[1/C,C]\\) and the mutual matrix \\(M=(m_{ij})\\) with \\(m_{ij}=\\frac{1}{n}a_{ij}b_{ji}\\) is bistochastic and satisfies \\(nm_{ij}\\in[1/C,C]\\), for some absolute constant \\(C\\ge 1\\).\n7) For a matching \\(\\mu\\), define the realized partner values\n\\[X_i(\\mu):=X_{i\\mu(i)},\\qquad Y_j(\\mu):=Y_{j\\mu^{-1}(j)}.\\]\nLet \\(\\|X(\\mu)\\|_1=\\sum_{i=1}^n X_i(\\mu)\\) and \\(\\|Y(\\mu)\\|_1=\\sum_{j=1}^n Y_j(\\mu)\\).\n8) For \\(\\delta\\in(0,1)\\), define a \\(\\delta\\)-truncation procedure on a stable matching \\(\\mu\\) that removes the least satisfied \\(\\lfloor \\delta n/2\\rfloor\\) men and the least satisfied \\(\\lfloor \\delta n/2\\rfloor\\) women (those with the largest partner values), and considers the induced partial matching on the remaining \\(n-\\lfloor \\delta n\\rfloor\\) pairs. Let \\(X_\\delta(\\mu)\\) and \\(Y_\\delta(\\mu)\\) denote the resulting (length-\\(n\\)) vectors with removed agents\u2019 entries set to \\(0\\).\n\nShow that the \"hyperbola law\" for total welfare holds without truncation, namely that\n\\[\\sup_{\\mu\\in S}\\Bigl|\\frac{1}{n}\\,\\|X(\\mu)\\|_1\\,\\|Y(\\mu)\\|_1-1\\Bigr|\\xrightarrow{p}0\\quad\\text{as }n\\to\\infty.\\]\nEquivalently, remove the need for \\(\\delta\\)-truncation in the existing bound \\(\\frac{1}{n}\\|X_\\delta(\\mu)\\|_1\\|Y_\\delta(\\mu)\\|_1\\approx 1\\) that holds uniformly over stable matchings, and prove the corresponding statement for the full sums \\(\\|X(\\mu)\\|_1\\) and \\(\\|Y(\\mu)\\|_1\\).",
+  "location_in_paper": "Page 7, Section 3.1 (Discussion); reiterated page 18, Section 7.1 (after Proposition 7.3).",
+  "open_problem_quote": "While we will establish such an approximation, we believe that, with a refined analysis, one should be able to show \\(\\sup_{\\mu\\in S}\\,\\bigl|n^{-1}\\|X(\\mu)\\|_1\\|Y(\\mu)\\|_1-1\\bigr|\\xrightarrow{p}0\\).\n\nWe believe, however, that a refined analysis should suggest that \\(\\sup_{\\mu\\in S}\\,\\bigl|n^{-1}\\|X(\\mu)\\|_1\\|Y(\\mu)\\|_1-1\\bigr|\\xrightarrow{p}0\\). This is the analogue of the \"law of hyperbola\" in Pittel (1992).",
+  "area": "random matching markets",
+  "category": "Matching & Markets",
+  "keywords": [
+    "stable matching",
+    "random preferences",
+    "logit model",
+    "welfare",
+    "hyperbola law",
+    "heavy tails",
+    "asymptotic concentration"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The statement is a high-probability universal convergence claim over all stable matchings under a boundedness/contiguity condition; any violation would likely occur in rare-tail events rather than a small finite instance family. Searching finite n instances to disprove asymptotic convergence is not a reliable proxy, and computing the worst-case over all stable matchings is combinatorially hard.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding agent could explore simulated markets, enumerate stable matchings for moderate n, and empirically study \\(\\max_{\\mu\\in S}|n^{-1}\\|X(\\mu)\\|_1\\|Y(\\mu)\\|_1-1|\\) as n grows to guess the right normalization or identify problematic tail mechanisms. However, the key barrier is controlling heavy-tail contributions analytically; empirical fitness signals may suggest conjectures but are only an indirect proxy for a proof.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.10419325
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
+    "citations_analyzed": 0,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.10419325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.10419325
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533309/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533309/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533309_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533309_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

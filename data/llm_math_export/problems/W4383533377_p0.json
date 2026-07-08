@@ -1,0 +1,79 @@
+{
+  "problem_id": "W4383533377_p0",
+  "paper_id": "W4383533377",
+  "source_paper": "W4383533377",
+  "source_paper_title": "Best of Both Distortion Worlds",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597739",
+  "source_paper_authors": [
+    "Vasilis Gkatzelis",
+    "Mohamad Latifian",
+    "Nisarg Shah"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533377,\n  title = {Best of Both Distortion Worlds},\n  author = {Vasilis Gkatzelis and Mohamad Latifian and Nisarg Shah},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 3 (Deterministic Voting Rule), discussion immediately after Theorem 2; page 8 of 21 in the provided text.\n\nThis might lead one to wonder whether one can obtain a tighter best-of-both-worlds guarantee with a utilitarian distortion of \\(O(m^2)\\) and a metric distortion of at most 3. We show that this is not possible and leave open the question of improving upon the metric distortion of \\(9+\\varepsilon\\) in Theorem 1.",
+  "title": "Improve metric distortion constant for deterministic best-of-both-worlds voting with full rankings",
+  "background_latex": "Let $N$ be a set of $n$ agents and $A$ a set of $m$ alternatives. Each agent $i\\in N$ reports a strict ranking $\\sigma_i\\in L(A)$ over $A$, and the preference profile is $\\vec\\sigma=(\\sigma_1,\\dots,\\sigma_n)\\in L(A)^n$. A deterministic voting rule is a function $f:L(A)^n\\to A$ that outputs a single alternative.\n\nMetric framework. A (pseudo)metric is a function $d:(N\\cup A)^2\\to \\mathbb{R}_{\\ge 0}$ satisfying $d(x,x)=0$, symmetry, and the triangle inequality. A profile $\\vec\\sigma$ is consistent with $d$ if for all agents $i$ and alternatives $X,Y\\in A$, $X\\succ_i Y$ implies $d(i,X)\\le d(i,Y)$. The social cost of $X$ is $\\mathrm{SC}(X,d)=\\sum_{i\\in N} d(i,X)$. The metric distortion of a deterministic rule $f$ on a profile $\\vec\\sigma$ is\n\\[\\mathrm{dist}_M(f,\\vec\\sigma)=\\sup_{d:\\, d\\ \\text{consistent with}\\ \\vec\\sigma}\\ \\frac{\\mathrm{SC}(f(\\vec\\sigma),d)}{\\min_{Y\\in A} \\mathrm{SC}(Y,d)}.\\]\n\nUtilitarian framework. Each agent $i$ has a unit-sum utility function $u_i:A\\to \\mathbb{R}_{\\ge 0}$ with $\\sum_{X\\in A} u_i(X)=1$. A profile $\\vec\\sigma$ is consistent with $\\vec u=(u_1,\\dots,u_n)$ if $X\\succ_i Y$ implies $u_i(X)>u_i(Y)$. The social welfare of $X$ is $\\mathrm{SW}(X,\\vec u)=\\sum_{i\\in N} u_i(X)$. The utilitarian distortion of $f$ on $\\vec\\sigma$ is\n\\[\\mathrm{dist}_U(f,\\vec\\sigma)=\\sup_{\\vec u:\\, \\vec u\\ \\text{consistent with}\\ \\vec\\sigma}\\ \\frac{\\max_{Y\\in A} \\mathrm{SW}(Y,\\vec u)}{\\mathrm{SW}(f(\\vec\\sigma),\\vec u)}.\\]\n\nA deterministic rule is said to achieve a \"best-of-both-worlds\" guarantee (for full rankings) if it has metric distortion bounded by a constant independent of $m,n$ and utilitarian distortion on the order of $m^2$ (the asymptotically optimal deterministic order for unit-sum utilities). One known such rule, called Pruned Plurality Veto, achieves metric distortion $9+\\varepsilon$ (for any fixed $\\varepsilon>0$) while keeping utilitarian distortion $O(m^2/\\varepsilon)$.",
+  "problem_definition_latex": "Find a deterministic voting rule on full rankings whose utilitarian distortion is on the order of $m^2$ and whose metric distortion guarantee is strictly smaller than the currently known constant $9+\\varepsilon$ (for fixed $\\varepsilon>0$), i.e., improve the constant-factor upper bound on the worst-case metric distortion achievable simultaneously with an $\\Theta(m^2)$-order utilitarian distortion guarantee.",
+  "latex": "Let $N$ be a set of $n$ agents and $A$ a set of $m$ alternatives. Each agent $i\\in N$ reports a strict ranking $\\sigma_i\\in L(A)$ over $A$, and the preference profile is $\\vec\\sigma=(\\sigma_1,\\dots,\\sigma_n)\\in L(A)^n$. A deterministic voting rule is a function $f:L(A)^n\\to A$ that outputs a single alternative.\n\nMetric framework. A (pseudo)metric is a function $d:(N\\cup A)^2\\to \\mathbb{R}_{\\ge 0}$ satisfying $d(x,x)=0$, symmetry, and the triangle inequality. A profile $\\vec\\sigma$ is consistent with $d$ if for all agents $i$ and alternatives $X,Y\\in A$, $X\\succ_i Y$ implies $d(i,X)\\le d(i,Y)$. The social cost of $X$ is $\\mathrm{SC}(X,d)=\\sum_{i\\in N} d(i,X)$. The metric distortion of a deterministic rule $f$ on a profile $\\vec\\sigma$ is\n\\[\\mathrm{dist}_M(f,\\vec\\sigma)=\\sup_{d:\\, d\\ \\text{consistent with}\\ \\vec\\sigma}\\ \\frac{\\mathrm{SC}(f(\\vec\\sigma),d)}{\\min_{Y\\in A} \\mathrm{SC}(Y,d)}.\\]\n\nUtilitarian framework. Each agent $i$ has a unit-sum utility function $u_i:A\\to \\mathbb{R}_{\\ge 0}$ with $\\sum_{X\\in A} u_i(X)=1$. A profile $\\vec\\sigma$ is consistent with $\\vec u=(u_1,\\dots,u_n)$ if $X\\succ_i Y$ implies $u_i(X)>u_i(Y)$. The social welfare of $X$ is $\\mathrm{SW}(X,\\vec u)=\\sum_{i\\in N} u_i(X)$. The utilitarian distortion of $f$ on $\\vec\\sigma$ is\n\\[\\mathrm{dist}_U(f,\\vec\\sigma)=\\sup_{\\vec u:\\, \\vec u\\ \\text{consistent with}\\ \\vec\\sigma}\\ \\frac{\\max_{Y\\in A} \\mathrm{SW}(Y,\\vec u)}{\\mathrm{SW}(f(\\vec\\sigma),\\vec u)}.\\]\n\nA deterministic rule is said to achieve a \"best-of-both-worlds\" guarantee (for full rankings) if it has metric distortion bounded by a constant independent of $m,n$ and utilitarian distortion on the order of $m^2$ (the asymptotically optimal deterministic order for unit-sum utilities). One known such rule, called Pruned Plurality Veto, achieves metric distortion $9+\\varepsilon$ (for any fixed $\\varepsilon>0$) while keeping utilitarian distortion $O(m^2/\\varepsilon)$.\n\nFind a deterministic voting rule on full rankings whose utilitarian distortion is on the order of $m^2$ and whose metric distortion guarantee is strictly smaller than the currently known constant $9+\\varepsilon$ (for fixed $\\varepsilon>0$), i.e., improve the constant-factor upper bound on the worst-case metric distortion achievable simultaneously with an $\\Theta(m^2)$-order utilitarian distortion guarantee.",
+  "location_in_paper": "Section 3 (Deterministic Voting Rule), discussion immediately after Theorem 2; page 8 of 21 in the provided text.",
+  "open_problem_quote": "This might lead one to wonder whether one can obtain a tighter best-of-both-worlds guarantee with a utilitarian distortion of \\(O(m^2)\\) and a metric distortion of at most 3. We show that this is not possible and leave open the question of improving upon the metric distortion of \\(9+\\varepsilon\\) in Theorem 1.",
+  "area": "distortion in social choice",
+  "category": "Fair Division & Social Choice",
+  "keywords": [
+    "social choice distortion",
+    "metric preferences",
+    "utilitarian distortion",
+    "deterministic voting rules",
+    "approximation ratio",
+    "ordinal preferences"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can computationally search over finite agent/alternative profiles and adversarially chosen metrics consistent with the rankings to test and compare candidate rules\u2019 metric-distortion constants, but the space of deterministic rules is enormous and worst-case distortion involves a supremum over consistent metrics, which is nontrivial to optimize exactly.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate voting rules can be represented as programs and evaluated on large suites of generated preference profiles with metric-adversary subroutines (e.g., LP/MIP formulations for worst-case consistent metrics in restricted families) to obtain a computable fitness proxy; however, faithful evaluation of the true worst-case metric distortion is expensive and may require careful relaxation or restriction to informative metric families.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.0240373
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.006203749999999999,
+    "citations_analyzed": 1,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0240373,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.006203749999999999,
+    "total_cost_usd": 0.03024105
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533377/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533377/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533377_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533377_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

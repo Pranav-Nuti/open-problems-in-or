@@ -1,0 +1,82 @@
+{
+  "problem_id": "W4383558054_p0",
+  "paper_id": "W4383558054",
+  "source_paper": "W4383558054",
+  "source_paper_title": "EFX: A Simpler Approach and an (Almost) Optimal Guarantee via Rainbow Cycle Number",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597799",
+  "source_paper_authors": [
+    "Hannaneh Akrami",
+    "Noga Alon",
+    "Bhaskar Ray Chaudhury",
+    "Jugal Garg",
+    "Kurt Mehlhorn",
+    "Ruta Mehta"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383558054,\n  title = {EFX: A Simpler Approach and an (Almost) Optimal Guarantee via Rainbow Cycle Number},\n  author = {Hannaneh Akrami and Noga Alon and Bhaskar Ray Chaudhury},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Conclusion), page 25\n\nThe most relevant two problems which we propose as the next natural steps to take towards solving the EFX problem are the following:\n) the (non-)existence of complete EFX allocations for three agents with general monotone valuations, and\n) the (non-)existence of complete EFX allocations for four agents with additive valuations.",
+  "title": "Determine existence of complete EFX allocations for three agents with monotone valuations",
+  "background_latex": "Let [1mDiscrete fair division[0m consist of a finite set of indivisible goods \\(M\\) with \\(|M|=m\\) and \\(n\\) agents \\([n]=\\{1,\\dots,n\\}\\). Each agent \\(i\\) has a valuation function \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) that is [1mnormalized[0m \\(v_i(\\varnothing)=0\\) and [1mmonotone[0m: for all \\(S\\subseteq M\\) and \\(g\\in M\\setminus S\\), \\(v_i(S\\cup\\{g\\})\\ge v_i(S)\\).\n\nAn [1mallocation[0m is a partition \\(X=\\langle X_1,\\dots,X_n\\rangle\\) of \\(M\\) into disjoint bundles whose union is \\(M\\); such an allocation is [1mcomplete[0m because every good is assigned to some agent.\n\nFor two agents \\(i,i'\\), agent \\(i\\) has [1mEFX-envy[0m toward \\(i'\\) if there exists a good \\(g\\in X_{i'}\\) such that\n\\[\n v_i(X_i) < v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nAn allocation \\(X\\) is [1menvy-free up to any good (EFX)[0m if no agent has EFX-envy toward any other agent, equivalently, for all \\(i,i'\\in[n]\\) and all \\(g\\in X_{i'}\\),\n\\[\n v_i(X_i) \\ge v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nThe general existence of complete EFX allocations for monotone valuations is a central question in discrete fair division; even for \\(n=3\\) it is not settled for unrestricted monotone valuations.",
+  "problem_definition_latex": "For \\(n=3\\) agents with normalized monotone valuation functions \\(v_1,v_2,v_3:2^M\\to\\mathbb{R}_{\\ge 0}\\) over a finite set of indivisible goods \\(M\\), determine whether there always exists a complete allocation \\(X=\\langle X_1,X_2,X_3\\rangle\\) (a partition of \\(M\\)) that is EFX, i.e., satisfies\n\\[\n\\forall i,i'\\in\\{1,2,3\\},\\ \\forall g\\in X_{i'}:\\quad v_i(X_i) \\ge v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nEquivalently: either prove existence for all such instances or provide a counterexample instance (monotone valuations and goods set) with no complete EFX allocation.",
+  "latex": "Let [1mDiscrete fair division[0m consist of a finite set of indivisible goods \\(M\\) with \\(|M|=m\\) and \\(n\\) agents \\([n]=\\{1,\\dots,n\\}\\). Each agent \\(i\\) has a valuation function \\(v_i:2^M\\to\\mathbb{R}_{\\ge 0}\\) that is [1mnormalized[0m \\(v_i(\\varnothing)=0\\) and [1mmonotone[0m: for all \\(S\\subseteq M\\) and \\(g\\in M\\setminus S\\), \\(v_i(S\\cup\\{g\\})\\ge v_i(S)\\).\n\nAn [1mallocation[0m is a partition \\(X=\\langle X_1,\\dots,X_n\\rangle\\) of \\(M\\) into disjoint bundles whose union is \\(M\\); such an allocation is [1mcomplete[0m because every good is assigned to some agent.\n\nFor two agents \\(i,i'\\), agent \\(i\\) has [1mEFX-envy[0m toward \\(i'\\) if there exists a good \\(g\\in X_{i'}\\) such that\n\\[\n v_i(X_i) < v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nAn allocation \\(X\\) is [1menvy-free up to any good (EFX)[0m if no agent has EFX-envy toward any other agent, equivalently, for all \\(i,i'\\in[n]\\) and all \\(g\\in X_{i'}\\),\n\\[\n v_i(X_i) \\ge v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nThe general existence of complete EFX allocations for monotone valuations is a central question in discrete fair division; even for \\(n=3\\) it is not settled for unrestricted monotone valuations.\n\nFor \\(n=3\\) agents with normalized monotone valuation functions \\(v_1,v_2,v_3:2^M\\to\\mathbb{R}_{\\ge 0}\\) over a finite set of indivisible goods \\(M\\), determine whether there always exists a complete allocation \\(X=\\langle X_1,X_2,X_3\\rangle\\) (a partition of \\(M\\)) that is EFX, i.e., satisfies\n\\[\n\\forall i,i'\\in\\{1,2,3\\},\\ \\forall g\\in X_{i'}:\\quad v_i(X_i) \\ge v_i(X_{i'}\\setminus\\{g\\}).\n\\]\nEquivalently: either prove existence for all such instances or provide a counterexample instance (monotone valuations and goods set) with no complete EFX allocation.",
+  "location_in_paper": "Section 5 (Conclusion), page 25",
+  "open_problem_quote": "The most relevant two problems which we propose as the next natural steps to take towards solving the EFX problem are the following:\n) the (non-)existence of complete EFX allocations for three agents with general monotone valuations, and\n) the (non-)existence of complete EFX allocations for four agents with additive valuations.",
+  "area": "fair division",
+  "category": "Fair Division & Social Choice",
+  "keywords": [
+    "EFX",
+    "indivisible goods",
+    "envy-freeness",
+    "three agents",
+    "monotone valuations",
+    "existence counterexample"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "A counterexample (if it exists) would likely be representable with a small number of goods and succinct valuations, making automated search plausible. However, the space of general monotone set functions is enormous, so one would need to restrict to a parameterized family (e.g., small m with explicit value tables), and verifying nonexistence of any EFX allocation requires checking all partitions, which grows quickly with m.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can encode candidate hard instances via explicit value tables for small numbers of goods and use a fitness signal based on the minimum EFX-violation over all allocations (computed by exhaustive enumeration). Evolutionary search could plausibly discover candidate counterexamples or suggest structural patterns, but scaling beyond very small m is difficult and proving impossibility for all m would still require theory.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.07088375
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
+    "citations_analyzed": 0,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.07088375,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.07088375
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558054/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558054/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383558054_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383558054_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

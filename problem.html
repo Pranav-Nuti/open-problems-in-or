@@ -231,6 +231,37 @@
       return parsed;
     }
 
+    function defaultJournal() {
+      const configured = String(window.SITE_CONFIG?.defaultJournal || "").trim();
+      if (configured) {
+        return configured;
+      }
+      const options = Array.isArray(window.SITE_CONFIG?.journals) ? window.SITE_CONFIG.journals : [];
+      return options.length ? String(options[0].value || "") : "";
+    }
+
+    function normalizeJournal(value) {
+      const needle = String(value || "").trim();
+      const options = Array.isArray(window.SITE_CONFIG?.journals) ? window.SITE_CONFIG.journals : [];
+      if (!needle) {
+        return defaultJournal();
+      }
+      const match = options.find((entry) => entry.value === needle);
+      return match ? match.value : defaultJournal();
+    }
+
+    function getRequestedJournal() {
+      const params = new URLSearchParams(window.location.search);
+      return normalizeJournal(params.get("journal") || "");
+    }
+
+    function filterIndexRowsByJournal(indexRows, journal) {
+      if (!journal) {
+        return indexRows;
+      }
+      return indexRows.filter((row) => row && row.source_paper_journal === journal);
+    }
+
     async function loadProblem(problemId) {
       const response = await fetch(`data/llm_math_export/problems/${encodeURIComponent(problemId)}.json`);
       if (!response.ok) {
@@ -283,13 +314,16 @@
       return -1;
     }
 
-    function problemDetailHref(problemId, arrayPositionOneBased, displayNumber) {
+    function problemDetailHref(problemId, arrayPositionOneBased, displayNumber, journal) {
       // Pagination is array-based (10 per page); the badge uses the frozen display number.
       const page = computeListPage(arrayPositionOneBased, LIST_PAGE_SIZE);
       const params = new URLSearchParams();
       params.set("id", problemId);
       params.set("page", String(page));
       params.set("n", String(displayNumber));
+      if (journal) {
+        params.set("journal", journal);
+      }
       return `problem.html?${params.toString()}`;
     }
 
@@ -307,32 +341,43 @@
       return `<span class="problem-seq-btn disabled" aria-disabled="true">${content}</span>`;
     }
 
-    function configureProblemSequenceNav(indexRows, problemId) {
+    function configureProblemSequenceNav(indexRows, problemId, journal) {
       const nav = document.getElementById("problem-sequence-nav");
       const prevWrap = document.getElementById("problem-prev-wrap");
       const nextWrap = document.getElementById("problem-next-wrap");
       const counter = document.getElementById("problem-seq-counter");
-      const idx = findProblemIndexInList(indexRows, problemId);
-      if (idx < 0 || indexRows.length === 0) {
+      const scopedRows = filterIndexRowsByJournal(indexRows, journal);
+      const idx = findProblemIndexInList(scopedRows, problemId);
+      if (idx < 0 || scopedRows.length === 0) {
         nav.hidden = true;
         return;
       }
       nav.hidden = false;
-      const total = indexRows.length;
+      const total = scopedRows.length;
       const pos = idx + 1;
       counter.textContent = `${pos} / ${total}`;
 
       if (idx > 0) {
-        const prevRow = indexRows[idx - 1];
-        const href = problemDetailHref(prevRow.problem_id, idx, rowDisplayNumber(prevRow, idx - 1));
+        const prevRow = scopedRows[idx - 1];
+        const href = problemDetailHref(
+          prevRow.problem_id,
+          idx,
+          rowDisplayNumber(prevRow, idx - 1),
+          journal,
+        );
         prevWrap.innerHTML = seqBtnHtml("a", href, "← Previous", prevRow.title || prevRow.problem_id);
       } else {
         prevWrap.innerHTML = seqBtnHtml("span", "", "← Previous", "No previous problem");
       }
 
       if (idx < total - 1) {
-        const nextRow = indexRows[idx + 1];
-        const href = problemDetailHref(nextRow.problem_id, idx + 2, rowDisplayNumber(nextRow, idx + 1));
+        const nextRow = scopedRows[idx + 1];
+        const href = problemDetailHref(
+          nextRow.problem_id,
+          idx + 2,
+          rowDisplayNumber(nextRow, idx + 1),
+          journal,
+        );
         nextWrap.innerHTML = seqBtnHtml("a", href, "Next →", nextRow.title || nextRow.problem_id);
       } else {
         nextWrap.innerHTML = seqBtnHtml("span", "", "Next →", "No next problem");
@@ -346,10 +391,13 @@
       return Math.max(1, Math.floor((problemNumber - 1) / pageSize) + 1);
     }
 
-    function configureBackLink(pageNumber) {
+    function configureBackLink(pageNumber, journal) {
       const backLink = document.getElementById("back-link");
       const source = new URLSearchParams(window.location.search);
       const params = new URLSearchParams();
+      if (journal) {
+        params.set("journal", journal);
+      }
       const q = (source.get("q") || "").trim();
       const category = (source.get("category") || "").trim();
       const area = (source.get("area") || "").trim();
@@ -731,7 +779,7 @@
       return `${background}\n\n${definition}`;
     }
 
-    function renderProblem(payload, problemNumber) {
+    function renderProblem(payload, problemNumber, journal) {
       document.title = `${payload.title} | Problems in OR`;
       document.getElementById("problem-id").textContent = payload.problem_id;
       document.getElementById("problem-title").innerHTML = formatTitleWithMath(payload.title);
@@ -765,8 +813,8 @@
       }
       const areaEl = document.getElementById("problem-area");
       const category = categoryForProblem(payload, areaRaw);
-      const categoryHref = `index.html?category=${encodeURIComponent(category)}`;
-      const areaHref = `index.html?area=${encodeURIComponent(areaRaw)}`;
+      const categoryHref = `index.html?journal=${encodeURIComponent(journal)}&category=${encodeURIComponent(category)}`;
+      const areaHref = `index.html?journal=${encodeURIComponent(journal)}&area=${encodeURIComponent(areaRaw)}`;
       areaEl.innerHTML =
         `<a class="problem-area-link problem-category-link" href="${escapeHtml(categoryHref)}" title="Show all problems in ${escapeHtml(category)}">${escapeHtml(category)}</a>` +
         `<span class="problem-area-sep">›</span>` +
@@ -851,15 +899,19 @@
           loadSolutionAttemptManifest(),
         ]);
         payload.solution_attempts = solutionManifest[problemId] || {};
+        const journal = normalizeJournal(
+          getRequestedJournal() || payload.source_paper_journal || "",
+        );
+        const scopedRows = filterIndexRowsByJournal(indexRows, journal);
         const requestedNumber = getRequestedProblemNumber();
-        const indexedNumber = findProblemNumberFromIndex(indexRows, problemId);
+        const indexedNumber = findProblemNumberFromIndex(scopedRows, problemId);
         const problemNumber = requestedNumber || indexedNumber;
         const requestedPage = getRequestedPage();
-        const arrayPosition = findProblemIndexInList(indexRows, problemId) + 1;
+        const arrayPosition = findProblemIndexInList(scopedRows, problemId) + 1;
         const pageNumber = requestedPage || computeListPage(arrayPosition, LIST_PAGE_SIZE);
-        configureBackLink(pageNumber);
-        configureProblemSequenceNav(indexRows, problemId);
-        renderProblem(payload, problemNumber);
+        configureBackLink(pageNumber, journal);
+        configureProblemSequenceNav(indexRows, problemId, journal);
+        renderProblem(payload, problemNumber, journal);
         if (window.MathJax && window.MathJax.typesetPromise) {
           await window.MathJax.typesetPromise([document.body]);
         }

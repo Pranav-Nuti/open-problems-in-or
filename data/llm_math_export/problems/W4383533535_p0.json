@@ -1,0 +1,109 @@
+{
+  "problem_id": "W4383533535_p0",
+  "paper_id": "W4383533535",
+  "source_paper": "W4383533535",
+  "source_paper_title": "Robust Stackelberg Equilibria",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597680",
+  "source_paper_authors": [
+    "Jiarui Gan",
+    "Minbiao Han",
+    "Jibang Wu",
+    "Haifeng Xu"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533535,\n  title = {Robust Stackelberg Equilibria},\n  author = {Jiarui Gan and Minbiao Han and Jibang Wu},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 1.1 (Our contributions), page 4, footnote 2 and surrounding paragraph; and Section 4.2 (A QPTAS for \u03b4-RSE), page 21, paragraph after introducing the QPTAS.\n\nWe remark that it is an intriguing yet highly non-trivial open question to close the gap between the above hardness result and QPTAS.\n\nWe also leave an intriguing problem here to close the gap between the efficiency of this algorithm and the above inapproximability result \u2014 specifically, to understand whether a PTAS exists for \\(\\delta\\)-RSE or whether Theorem 2 can be strengthened to the hardness of obtaining a constant additive approximation (possibly under some assumption like exponential time hypothesis as used by Rubinstein [45] to rule out PTAS for Nash equilibrium).",
+  "title": "Determine whether robust Stackelberg equilibrium admits a polynomial-time approximation scheme",
+  "background_latex": "A (normal-form) Stackelberg game is specified by two payoff matrices \\(u_l,u_f\\in[0,1]^{m\\times n}\\) for a leader and a follower. The leader commits to a mixed strategy \\(x\\in\\Delta_m:=\\{x\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{i=1}^m x_i=1\\}\\). After observing \\(x\\), the follower chooses a pure action \\(j\\in[n]:=\\{1,\\dots,n\\}\\). Expected payoffs are \\(u_l(x,j):=\\sum_{i=1}^m x_i u_l(i,j)\\) and \\(u_f(x,j):=\\sum_{i=1}^m x_i u_f(i,j)\\).\n\nFix a robustness level \\(\\delta>0\\). The follower\u2019s \\(\\delta\\)-optimal (approximately best) response set to \\(x\\) is\n\\[\n\\mathrm{BR}_\\delta(x):=\\Bigl\\{j\\in[n]: u_f(x,j)>\\max_{j'\\in[n]}u_f(x,j')-\\delta\\Bigr\\}.\n\\]\nThe leader anticipates that the follower may choose an action in \\(\\mathrm{BR}_\\delta(x)\\) that is worst for the leader. A \\(\\delta\\)-robust Stackelberg equilibrium (\\(\\delta\\)-RSE) is a pair \\((x^*,j^*)\\) such that\n\\[\n x^*\\in\\arg\\max_{x\\in\\Delta_m}\\min_{j\\in\\mathrm{BR}_\\delta(x)}u_l(x,j),\\qquad\n j^*\\in\\arg\\min_{j\\in\\mathrm{BR}_\\delta(x^*)}u_l(x^*,j).\n\\]\nLet \\(u_{\\mathrm{RSE}}(\\delta):=u_l(x^*,j^*)\\) denote the leader value at a \\(\\delta\\)-RSE. An algorithm outputs an \\(\\varepsilon\\)-optimal \\(\\delta\\)-RSE leader strategy if it returns some \\(\\hat x\\in\\Delta_m\\) with\n\\[\n\\min_{j\\in\\mathrm{BR}_\\delta(\\hat x)}u_l(\\hat x,j)\\ge u_{\\mathrm{RSE}}(\\delta)-\\varepsilon.\n\\]\nIt is known for this model that for any fixed \\(\\delta>0\\) there is no fully polynomial-time approximation scheme (FPTAS) unless \\(\\mathrm{P}=\\mathrm{NP}\\), and there is a quasi-polynomial time approximation scheme (QPTAS) achieving additive \\(\\varepsilon\\) in time quasi-polynomial in \\(m,n,1/\\varepsilon\\).",
+  "problem_definition_latex": "Decide which of the following holds for computing an additive approximation to \\(\\delta\\)-robust Stackelberg equilibrium in general finite Stackelberg games:\n\n1) There exists a polynomial-time approximation scheme (PTAS): for every \\(\\varepsilon>0\\), there is an algorithm running in time \\(\\mathrm{poly}(m,n)\\cdot f(1/\\varepsilon)\\) (for some function \\(f\\)) that outputs an \\(\\varepsilon\\)-optimal \\(\\delta\\)-RSE leader strategy \\(\\hat x\\), i.e., \\(\\min_{j\\in\\mathrm{BR}_\\delta(\\hat x)}u_l(\\hat x,j)\\ge u_{\\mathrm{RSE}}(\\delta)-\\varepsilon\\).\n\n2) No such PTAS exists (under a standard complexity assumption), i.e., the QPTAS is essentially optimal up to quasi-polynomial factors, for example by proving hardness of achieving a constant additive approximation (or ruling out PTAS) for \\(\\delta\\)-RSE under an assumption such as the Exponential Time Hypothesis.",
+  "latex": "A (normal-form) Stackelberg game is specified by two payoff matrices \\(u_l,u_f\\in[0,1]^{m\\times n}\\) for a leader and a follower. The leader commits to a mixed strategy \\(x\\in\\Delta_m:=\\{x\\in\\mathbb{R}^m_{\\ge 0}:\\sum_{i=1}^m x_i=1\\}\\). After observing \\(x\\), the follower chooses a pure action \\(j\\in[n]:=\\{1,\\dots,n\\}\\). Expected payoffs are \\(u_l(x,j):=\\sum_{i=1}^m x_i u_l(i,j)\\) and \\(u_f(x,j):=\\sum_{i=1}^m x_i u_f(i,j)\\).\n\nFix a robustness level \\(\\delta>0\\). The follower\u2019s \\(\\delta\\)-optimal (approximately best) response set to \\(x\\) is\n\\[\n\\mathrm{BR}_\\delta(x):=\\Bigl\\{j\\in[n]: u_f(x,j)>\\max_{j'\\in[n]}u_f(x,j')-\\delta\\Bigr\\}.\n\\]\nThe leader anticipates that the follower may choose an action in \\(\\mathrm{BR}_\\delta(x)\\) that is worst for the leader. A \\(\\delta\\)-robust Stackelberg equilibrium (\\(\\delta\\)-RSE) is a pair \\((x^*,j^*)\\) such that\n\\[\n x^*\\in\\arg\\max_{x\\in\\Delta_m}\\min_{j\\in\\mathrm{BR}_\\delta(x)}u_l(x,j),\\qquad\n j^*\\in\\arg\\min_{j\\in\\mathrm{BR}_\\delta(x^*)}u_l(x^*,j).\n\\]\nLet \\(u_{\\mathrm{RSE}}(\\delta):=u_l(x^*,j^*)\\) denote the leader value at a \\(\\delta\\)-RSE. An algorithm outputs an \\(\\varepsilon\\)-optimal \\(\\delta\\)-RSE leader strategy if it returns some \\(\\hat x\\in\\Delta_m\\) with\n\\[\n\\min_{j\\in\\mathrm{BR}_\\delta(\\hat x)}u_l(\\hat x,j)\\ge u_{\\mathrm{RSE}}(\\delta)-\\varepsilon.\n\\]\nIt is known for this model that for any fixed \\(\\delta>0\\) there is no fully polynomial-time approximation scheme (FPTAS) unless \\(\\mathrm{P}=\\mathrm{NP}\\), and there is a quasi-polynomial time approximation scheme (QPTAS) achieving additive \\(\\varepsilon\\) in time quasi-polynomial in \\(m,n,1/\\varepsilon\\).\n\nDecide which of the following holds for computing an additive approximation to \\(\\delta\\)-robust Stackelberg equilibrium in general finite Stackelberg games:\n\n1) There exists a polynomial-time approximation scheme (PTAS): for every \\(\\varepsilon>0\\), there is an algorithm running in time \\(\\mathrm{poly}(m,n)\\cdot f(1/\\varepsilon)\\) (for some function \\(f\\)) that outputs an \\(\\varepsilon\\)-optimal \\(\\delta\\)-RSE leader strategy \\(\\hat x\\), i.e., \\(\\min_{j\\in\\mathrm{BR}_\\delta(\\hat x)}u_l(\\hat x,j)\\ge u_{\\mathrm{RSE}}(\\delta)-\\varepsilon\\).\n\n2) No such PTAS exists (under a standard complexity assumption), i.e., the QPTAS is essentially optimal up to quasi-polynomial factors, for example by proving hardness of achieving a constant additive approximation (or ruling out PTAS) for \\(\\delta\\)-RSE under an assumption such as the Exponential Time Hypothesis.",
+  "location_in_paper": "Section 1.1 (Our contributions), page 4, footnote 2 and surrounding paragraph; and Section 4.2 (A QPTAS for \u03b4-RSE), page 21, paragraph after introducing the QPTAS.",
+  "open_problem_quote": "We remark that it is an intriguing yet highly non-trivial open question to close the gap between the above hardness result and QPTAS.\n\nWe also leave an intriguing problem here to close the gap between the efficiency of this algorithm and the above inapproximability result \u2014 specifically, to understand whether a PTAS exists for \\(\\delta\\)-RSE or whether Theorem 2 can be strengthened to the hardness of obtaining a constant additive approximation (possibly under some assumption like exponential time hypothesis as used by Rubinstein [45] to rule out PTAS for Nash equilibrium).",
+  "area": "stackelberg games",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "stackelberg games",
+    "robust equilibrium",
+    "approximation schemes",
+    "ptas vs qptas",
+    "computational complexity",
+    "inapproximability",
+    "additive approximation"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One direction is to refute PTAS by exhibiting families of hard instances under stronger assumptions (e.g., ETH-style reductions), which is not a finite counterexample but could be guided by automated exploration of reductions and gap instances. However, complexity lower bounds typically require structured reductions rather than searching a bounded instance space.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "There is a computable fitness signal for algorithm design: given \\((u_l,u_f,\\delta)\\) one can evaluate candidate heuristics via the achieved value \\(\\min_{j\\in\\mathrm{BR}_\\delta(x)}u_l(x,j)\\) and compare to an upper bound or to the QPTAS on small instances. Automated search could plausibly discover improved algorithms or sharper empirical gaps, but proving PTAS existence or hardness would still require non-automated theoretical insights.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.08918175
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper defines \\(\\delta\\)-robust Stackelberg equilibrium (\\(\\delta\\)-RSE) by replacing exact best responses with the strict \\(\\delta\\)-optimal response set \\(\\mathrm{BR}_\\delta(x)=\\{j: u_f(x,j)>\\max_{j'}u_f(x,j')-\\delta\\}\\) and taking worst-case tie-breaking for the leader. It establishes foundational properties (existence, monotonicity of \\(u_{\\mathrm{RSE}}(\\delta)\\), and Lipschitz continuity for \\(\\delta<\\Delta\\) where \\(\\Delta\\) is the inducibility gap) and gives the current algorithmic landscape: (i) strong inapproximability sufficient to rule out an FPTAS for any constant \\(\\delta\\) (indeed NP-hard to compute a \\(1/(2n)\\)-additive approximation), and (ii) a quasi-polynomial time approximation scheme (QPTAS) for additive \\(\\varepsilon\\), based on discretizing leader payoffs via \\(k\\)-uniform strategies and then searching nearby regions to control the induced \\(\\delta\\)-best-response set.\n\nThe open problem is whether this QPTAS can be improved to a PTAS, or whether one can strengthen hardness (e.g., under ETH) to rule out a PTAS or even constant-additive approximation. None of the provided forward citations resolve this gap. The dissertation on leadership games supplies broader evidence that pessimistic Stackelberg variants can be extremely hard to approximate (in other models such as multiple followers and multiplicative factors), but it does not transfer to the single-follower additive \\(\\delta\\)-RSE setting. The other two citations contribute tools and alternative robustness frameworks (limited-perception equilibria; smoothing/first-order methods on treeplexes) that might inspire algorithmic approaches in structured subclasses, but they do not address the PTAS-vs-QPTAS frontier.\n\nAt present, the best general-purpose guarantee remains the QPTAS of the source paper, and the strongest lower bound remains NP-hardness that rules out an FPTAS. Closing the gap likely requires either (a) a new structural discretization/rounding argument that preserves \\(\\mathrm{BR}_\\delta(x)\\) behavior sufficiently to allow polynomial-time search, or (b) a reduction from an ETH-hard problem that encodes the discontinuous dependence of \\(\\mathrm{BR}_\\delta(x)\\) on \\(x\\) tightly enough to preclude PTAS-level additive approximation.",
+    "total_cost_usd": 0.9816050999999999,
+    "citations_analyzed": 17,
+    "sources": [
+      {
+        "title": "Leadership games: multiple followers, multiple leaders, and perfection",
+        "bibtex": "@phdthesis{CastiglioniLeadershipGamesThesis,\n  title  = {Leadership games: multiple followers, multiple leaders, and perfection},\n  author = {Castiglioni, Matteo},\n  school = {University of Milan},\n  year   = {????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The dissertation develops complexity and algorithmic results for several Stackelberg equilibrium variants (e.g., strong/weak Stackelberg\u2013Nash equilibria with multiple followers, Stackelberg polymatrix and congestion games, and trembling-hand refinements). In particular, for weak Stackelberg\u2013pure-Nash equilibria (WSPNE) in normal-form games with at least three followers it proves strong inapproximability: no polynomial-time approximation within any polynomial multiplicative factor unless \\(\\mathrm{P}=\\mathrm{NP}\\) (Theorem 4.3), via a reduction from 3-SAT.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns whether \\(\\delta\\)-robust Stackelberg equilibrium (with a \\(\\delta\\)-approximate best-response set and worst-case tie-breaking) admits a PTAS or is QPTAS-optimal. This dissertation does not study \\(\\delta\\)-robust Stackelberg equilibrium or additive-\\(\\varepsilon\\) approximation schemes for that robustness model. Its closest connection is conceptual: it analyzes pessimistic/weak Stackelberg variants where the follower (or followers) select a worst-case equilibrium, and it establishes strong hardness/inapproximability for some weak Stackelberg\u2013Nash models (often multiplicative, and frequently with multiple followers or different game classes). These results may inform expectations about hardness of robust/pessimistic Stackelberg computation, but they do not imply PTAS nonexistence (or existence) for the specific \\(\\delta\\)-RSE additive-approximation problem."
+      },
+      {
+        "title": "Limited-perception games",
+        "bibtex": "@article{LimitedPerceptionGames,\n  title  = {Limited-perception games},\n  author = {???},\n  journal = {???},\n  year   = {????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces one-shot limited-perception games (OLP-Games) where players perceive abstractions of payoff functions via a perception function \\(\\alpha(u,c)\\), and defines an equilibrium \\((x^*,Y)\\) in which a lower-capability player chooses \\(x^*\\) to maximize worst-case payoff against a higher-capability player\u2019s best-response function \\(Y\\) over a (possibly huge) set of possible perceptions. Key technical results include: (i) payoff lower bounds \\(P^-(v,c,\\sigma)\\) are continuous and concave in a player\u2019s mixed strategy (Theorem 1); (ii) for any \\(\\varepsilon>0\\) there exists an \\(\\varepsilon\\)-equilibrium with a compact representation of \\(Y\\) whose size is independent of \\(|\\mathrm{dom}(Y)|\\) (Theorem 2); and (iii) for certain zero-sum subclasses (maximin-attainable instances), equilibrium computation reduces to a nonsmooth convex optimization problem (Theorem 4), with examples including quantized-payoff and limited-rank perception models (Theorems 5\u20137).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether computing an additive \\(\\varepsilon\\)-approximation to \\(\\delta\\)-robust Stackelberg equilibrium (RSE) in general finite Stackelberg games admits a PTAS or is PTAS-hard (QPTAS optimal). This paper does not study \\(\\delta\\)-robust Stackelberg equilibria in the normal-form Stackelberg model, nor does it provide PTAS/QPTAS algorithms or hardness for \\(\\delta\\)-RSE. Its closest conceptual link is that both models involve robustness/worst-case reasoning under payoff uncertainty or approximate responses. The paper\u2019s results are about existence/representation and (in special zero-sum limited-perception classes) tractable convex-optimization formulations, which could be viewed as potentially relevant tools or alternative robustness models, but they do not resolve the PTAS-vs-hardness question for \\(\\delta\\)-RSE."
+      },
+      {
+        "title": "Faster algorithms for extensive-form game solving via improved smoothing functions",
+        "bibtex": "@article{FasterAlgorithmsTreeplexSmoothing,\n  title  = {Faster algorithms for extensive-form game solving via improved smoothing functions},\n  author = {???},\n  journal = {???},\n  year   = {????}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper develops improved distance-generating functions (DGFs) for treeplex domains (sequence-form strategy spaces of two-player zero-sum extensive-form games). In particular, for a treeplex Q it defines a weighted dilated entropy DGF \\(\\omega(q)=\\sum_{j\\in S_Q}\\beta_j\\sum_{i\\in I_j} q_i\\log(q_i/q_{p_j})\\) with weights \\(\\beta_j\\) satisfying a recurrence, and proves strong convexity: (i) modulus 1 w.r.t. \\(\\ell_2\\) (Theorem 2), and (ii) modulus \\(1/M_Q\\) w.r.t. \\(\\ell_1\\) (Theorem 3), where \\(M_Q=\\max_{q\\in Q}\\|q\\|_1\\). It also bounds the treeplex width/diameter so that first-order methods like EGT achieve improved iteration complexity for solving bilinear saddle-point problems over treeplexes (Theorem 5 gives an \\(O(1/\\varepsilon)\\) iteration bound with improved dependence on branching factor).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns existence/nonexistence of a PTAS for computing additive \\(\\varepsilon\\)-optimal \\(\\delta\\)-robust Stackelberg equilibria (RSE) in normal-form Stackelberg games. This paper instead studies first-order methods for computing approximate Nash equilibria in two-player zero-sum extensive-form games via smoothing and improved DGFs. It does not address Stackelberg commitment, the \\(\\delta\\)-robust best-response set \\(\\mathrm{BR}_\\delta(x)\\), or approximation-scheme complexity (PTAS vs QPTAS) for robust Stackelberg equilibria. At most, it provides optimization tools (smoothing, prox methods on treeplexes) that could be useful in algorithmic game solving more broadly, including some Stackelberg-in-EFG contexts, but it gives no PTAS/hardness results for \\(\\delta\\)-RSE."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.08918175,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.9816050999999999,
+    "total_cost_usd": 1.07078685
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533535/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533535/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533535_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533535_p0",
+    "citations_analyzed": 17,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

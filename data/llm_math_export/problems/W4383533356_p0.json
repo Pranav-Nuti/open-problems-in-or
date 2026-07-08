@@ -1,0 +1,91 @@
+{
+  "problem_id": "W4383533356_p0",
+  "paper_id": "W4383533356",
+  "source_paper": "W4383533356",
+  "source_paper_title": "The Hazards and Benefits of Condescension in Social Learning",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597752",
+  "source_paper_authors": [
+    "Itai Arieli",
+    "Yakov Babichenkoyako",
+    "Stephan M\u00fcller",
+    "Farzad Pourbabaee",
+    "Omer Tamuz"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533356,\n  title = {The Hazards and Benefits of Condescension in Social Learning},\n  author = {Itai Arieli and Yakov Babichenkoyako and Stephan M\u00fcller},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 3 Results, page 7 (discussion immediately after Theorem 1).\n\nWhen \\(\\tilde\\alpha = \\alpha\\), we conjecture that it is possible for learning to either be efficient or inefficient, depending on finer properties of the distributions; see footnote 5 for the technical details. We leave it for future work to identify these finer properties that determine efficient learning in this regime.",
+  "title": "Characterize efficient learning when perceived and true signal tail exponents coincide",
+  "background_latex": "Consider sequential social learning with a binary state \\(\\theta\\in\\{\\ell,h\\}\\) drawn at time 0 with prior \\(\\pi\\in(0,1)\\). Agents \\(n=1,2,\\dots\\) act in order. Agent \\(n\\) observes all past actions \\(I_n=(a_1,\\dots,a_{n-1})\\) and a private signal summarized by a private posterior \\(q_n\\in(0,1)\\), where \\(q_n=\\mathbb P(\\theta=h\\mid s_n)\\). Conditional on \\(\\theta\\), the \\(q_n\\) are i.i.d. with continuous conditional CDFs \\(F_\\ell\\) and \\(F_h\\) on \\((0,1)\\). Agents are misspecified about others\u2019 signal distributions: they believe predecessors\u2019 private posteriors have continuous conditional CDFs \\(\\tilde F_\\ell\\) and \\(\\tilde F_h\\) (common across agents), but each agent correctly interprets her own signal \\(q_n\\).\n\nGiven past actions \\(I_n\\), define the misspecified public belief \\(\\tilde\\pi_n=\\mathbb P^{\\sim}(\\theta=h\\mid I_n)\\), where \\(\\mathbb P^{\\sim}\\) denotes probabilities computed under the agents\u2019 (common) misspecified model about others\u2019 signals. In equilibrium, agent \\(n\\) chooses \\(a_n\\in\\{\\ell,h\\}\\) to maximize her subjective probability of matching the state, i.e., \\(a_n=h\\) iff \\(\\mathbb P^{\\sim}(\\theta=h\\mid I_n,q_n)\\ge 1/2\\). Under this model one can write the decision rule equivalently as a threshold rule \\(a_n=h\\) iff \\(\\tilde\\pi_n+q_n\\ge 1\\).\n\nLet \\(W:=\\#\\{n: a_n\\ne\\theta\\}\\) be the (random) number of incorrect actions. Efficient learning means \\(\\mathbb E[W]<\\infty\\).\n\nAssume symmetry: \\(F_\\ell(q)+F_h(1-q)=1\\) and \\(\\tilde F_\\ell(q)+\\tilde F_h(1-q)=1\\). Assume tail-regularity: letting \\(F=(F_\\ell+F_h)/2\\) and \\(\\tilde F=(\\tilde F_\\ell+\\tilde F_h)/2\\), there exist exponents \\(\\alpha>0\\) and \\(\\tilde\\alpha>0\\) such that \\(F(q)=\\Theta(q^\\alpha)\\) as \\(q\\downarrow 0\\) and \\(\\tilde F(q)=\\Theta(q^{\\tilde\\alpha})\\) as \\(q\\downarrow 0\\). (Thus the exponent encodes polynomial tail thickness near \\(0\\) and, by symmetry, near \\(1\\).)\n\nKnown results in this setting establish that when \\(\\tilde\\alpha\\ne\\alpha\\), efficient learning holds if and only if \\(\\tilde\\alpha-\\alpha\\in(0,1)\\). The remaining regime \\(\\tilde\\alpha=\\alpha\\) is not resolved by the tail exponent alone and may depend on finer properties of \\((F_\\ell,F_h)\\) and \\((\\tilde F_\\ell,\\tilde F_h)\\) beyond their common tail exponent.",
+  "problem_definition_latex": "Assume the sequential social learning model above with symmetry, continuity, and tail-regularity, and suppose the true and perceived tail exponents coincide, \\(\\tilde\\alpha=\\alpha\\). Determine necessary and sufficient conditions, stated in terms of the distributions \\((F_\\ell,F_h)\\) and \\((\\tilde F_\\ell,\\tilde F_h)\\) beyond the common tail exponent, for efficient learning:\n\\[\n\\mathbb E[W]<\\infty,\n\\]\nwhere \\(W=\\#\\{n: a_n\\ne\\theta\\}\\) under the equilibrium induced by the misspecified beliefs \\((\\tilde F_\\ell,\\tilde F_h)\\) and the true signal process \\((F_\\ell,F_h)\\).",
+  "latex": "Consider sequential social learning with a binary state \\(\\theta\\in\\{\\ell,h\\}\\) drawn at time 0 with prior \\(\\pi\\in(0,1)\\). Agents \\(n=1,2,\\dots\\) act in order. Agent \\(n\\) observes all past actions \\(I_n=(a_1,\\dots,a_{n-1})\\) and a private signal summarized by a private posterior \\(q_n\\in(0,1)\\), where \\(q_n=\\mathbb P(\\theta=h\\mid s_n)\\). Conditional on \\(\\theta\\), the \\(q_n\\) are i.i.d. with continuous conditional CDFs \\(F_\\ell\\) and \\(F_h\\) on \\((0,1)\\). Agents are misspecified about others\u2019 signal distributions: they believe predecessors\u2019 private posteriors have continuous conditional CDFs \\(\\tilde F_\\ell\\) and \\(\\tilde F_h\\) (common across agents), but each agent correctly interprets her own signal \\(q_n\\).\n\nGiven past actions \\(I_n\\), define the misspecified public belief \\(\\tilde\\pi_n=\\mathbb P^{\\sim}(\\theta=h\\mid I_n)\\), where \\(\\mathbb P^{\\sim}\\) denotes probabilities computed under the agents\u2019 (common) misspecified model about others\u2019 signals. In equilibrium, agent \\(n\\) chooses \\(a_n\\in\\{\\ell,h\\}\\) to maximize her subjective probability of matching the state, i.e., \\(a_n=h\\) iff \\(\\mathbb P^{\\sim}(\\theta=h\\mid I_n,q_n)\\ge 1/2\\). Under this model one can write the decision rule equivalently as a threshold rule \\(a_n=h\\) iff \\(\\tilde\\pi_n+q_n\\ge 1\\).\n\nLet \\(W:=\\#\\{n: a_n\\ne\\theta\\}\\) be the (random) number of incorrect actions. Efficient learning means \\(\\mathbb E[W]<\\infty\\).\n\nAssume symmetry: \\(F_\\ell(q)+F_h(1-q)=1\\) and \\(\\tilde F_\\ell(q)+\\tilde F_h(1-q)=1\\). Assume tail-regularity: letting \\(F=(F_\\ell+F_h)/2\\) and \\(\\tilde F=(\\tilde F_\\ell+\\tilde F_h)/2\\), there exist exponents \\(\\alpha>0\\) and \\(\\tilde\\alpha>0\\) such that \\(F(q)=\\Theta(q^\\alpha)\\) as \\(q\\downarrow 0\\) and \\(\\tilde F(q)=\\Theta(q^{\\tilde\\alpha})\\) as \\(q\\downarrow 0\\). (Thus the exponent encodes polynomial tail thickness near \\(0\\) and, by symmetry, near \\(1\\).)\n\nKnown results in this setting establish that when \\(\\tilde\\alpha\\ne\\alpha\\), efficient learning holds if and only if \\(\\tilde\\alpha-\\alpha\\in(0,1)\\). The remaining regime \\(\\tilde\\alpha=\\alpha\\) is not resolved by the tail exponent alone and may depend on finer properties of \\((F_\\ell,F_h)\\) and \\((\\tilde F_\\ell,\\tilde F_h)\\) beyond their common tail exponent.\n\nAssume the sequential social learning model above with symmetry, continuity, and tail-regularity, and suppose the true and perceived tail exponents coincide, \\(\\tilde\\alpha=\\alpha\\). Determine necessary and sufficient conditions, stated in terms of the distributions \\((F_\\ell,F_h)\\) and \\((\\tilde F_\\ell,\\tilde F_h)\\) beyond the common tail exponent, for efficient learning:\n\\[\n\\mathbb E[W]<\\infty,\n\\]\nwhere \\(W=\\#\\{n: a_n\\ne\\theta\\}\\) under the equilibrium induced by the misspecified beliefs \\((\\tilde F_\\ell,\\tilde F_h)\\) and the true signal process \\((F_\\ell,F_h)\\).",
+  "location_in_paper": "Section 3 Results, page 7 (discussion immediately after Theorem 1).",
+  "open_problem_quote": "When \\(\\tilde\\alpha = \\alpha\\), we conjecture that it is possible for learning to either be efficient or inefficient, depending on finer properties of the distributions; see footnote 5 for the technical details. We leave it for future work to identify these finer properties that determine efficient learning in this regime.",
+  "area": "social learning",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "sequential social learning",
+    "misspecification",
+    "informational cascades",
+    "efficient learning",
+    "tail regularity",
+    "rate of learning"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The conjecture is existential in nature (efficiency may hold or fail when \\(\\tilde\\alpha=\\alpha\\)), so searching for explicit distribution pairs providing efficient vs. inefficient learning is plausible. However, evaluating \\(\\mathbb E[W]\\) for a candidate pair may require delicate asymptotic analysis or expensive simulation with rare events, making brute-force automated search only moderately feasible.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate distributions can be parameterized (e.g., mixtures or deformations with fixed polynomial tails) and a program can simulate the induced equilibrium dynamics to estimate \\(\\mathbb E[W]\\) or its growth with horizon as a fitness signal. The main limitation is that simulation-based proxies for finiteness of \\(\\mathbb E[W]\\) can be noisy and may miss asymptotic phenomena, so the loop can guide conjecture/counterexample generation but not reliably certify the condition.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.06191325
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for a refinement of Theorem 1 in Arieli et al. (2024) in the knife-edge case \\(\\tilde\\alpha=\\alpha\\), where the paper\u2019s tail-exponent analysis no longer pins down whether efficient learning (equivalently, asymptotic learning in their misspecified environment) obtains. The paper\u2019s proofs show that when \\(\\tilde\\alpha\\neq\\alpha\\), the key objects reduce to summability of terms like \\(\\sum_n e^{-(\\alpha+1)\\tilde r_n}\\) along the deterministic high-action path, where \\(\\tilde r_n\\) evolves by increments \\(U^{\\sim}(\\tilde r_n)\\approx e^{-\\tilde\\alpha \\tilde r_n}\\). At \\(\\tilde\\alpha=\\alpha\\), these summability tests become borderline (Raabe\u2019s criterion becomes inconclusive), indicating that second-order asymptotics of \\(U^{\\sim}(r)\\) and of the true tail \\(F_h(q)\\) beyond the leading power \\(q^{\\alpha+1}\\) should matter.\n\nAmong the forward citations provided, only \"The topology of reputation effects\" is available and it does not address sequential social learning directly. Its main contribution is methodological: it identifies entropy-rate (per-period KL divergence) along long histories as the relevant notion of closeness under misspecification, and shows that agreement on every fixed finite horizon can still allow large long-run divergences. This suggests a plausible direction for the \\(\\tilde\\alpha=\\alpha\\) regime: efficient learning may depend on whether the misspecified likelihood ratios along extreme public-belief paths track the true likelihood ratios closely enough in an asymptotic (e.g., entropy-rate or second-order regular variation) sense, not merely on matching the leading tail exponent. However, no theorem currently translates these ideas into necessary and sufficient conditions in terms of \\((F_\\ell,F_h)\\) and \\((\\tilde F_\\ell,\\tilde F_h)\\).\n\nGiven the absence of direct forward-citation progress in the provided analysis set, the problem remains open. Promising approaches include (i) deriving sharp borderline criteria using second-order regular variation of \\(F\\) and \\(\\tilde F\\) near 0 (and 1), yielding refined asymptotics for \\(U(r)\\) and \\(U^{\\sim}(r)\\); and (ii) formulating conditions as convergence/divergence of explicit series/products for immediate herding probabilities and expected run lengths, where the leading \\(n^{-1}\\) behavior at \\(\\tilde\\alpha=\\alpha\\) is corrected by slowly varying factors.",
+    "total_cost_usd": 0.2949681,
+    "citations_analyzed": 7,
+    "sources": [
+      {
+        "title": "The topology of reputation effects",
+        "bibtex": "@article{TopologyReputationEffects,\n  title={The topology of reputation effects},\n  author={Unknown},\n  year={\\{\\}},\n  note={Metadata (authors/year/venue/doi) not provided in the citation analysis block}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Main results are robustness/fragility criteria for reputation effects under misspecification in the canonical long-lived/short-lived repeated-game model. The key theorem (Theorem 1) gives a lower bound on the patient normal type\u2019s worst equilibrium payoff under a subjective commitment-type signal process \\(F\\) in terms of the entropy-rate loss \\(D(\\hat P\\|F):=\\limsup_{T\\to\\infty}\\tfrac1T D(\\hat P_T\\|F_T)\\) along the commitment-action deviation and an \u201centropy margin\u201d \\(m_{\\hat\\alpha}(w)=\\inf_{q:\\varphi_{\\hat\\alpha}(q)<w} D(\\hat\\rho\\|q)\\): for every \\(w<R\\),\n\\[\n\\liminf_{\\delta\\to 1} W(\\delta;F)\\ge w-\\frac{D(\\hat P\\|F)}{m_{\\hat\\alpha}(w)}\\max\\{0,\\,w-\\min_{b\\in B}u(\\hat\\alpha,b)\\}.\n\\]\nConversely, Theorem 2 shows finite-horizon closeness \\(F_T=\\hat P_T\\) for all fixed \\(T\\) does not prevent collapse of reputation effects; there exist \\(F_n\\) with \\(F_{n,T}=\\hat P_T\\) for all \\(n>T\\) but \\(\\limsup_{\\delta\\to1} W(\\delta;F_n)\\le W^{CI}\\) for every \\(n\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem concerns efficient sequential social learning with misspecified beliefs when true and perceived signal tail exponents coincide \\(\\tilde\\alpha=\\alpha\\), asking for necessary and sufficient conditions (beyond tail exponents) for \\(\\mathbb E[W]<\\infty\\). This paper does not study that model, does not analyze \\(\\mathbb E[W]\\), and does not provide conditions in terms of \\((F_\\ell,F_h),(\\tilde F_\\ell,\\tilde F_h)\\) for efficient learning. However, it develops a general principle\u2014entropy-rate control of likelihoods along long histories under misspecification versus mere finite-horizon closeness\u2014that is conceptually related: in the \\(\\tilde\\alpha=\\alpha\\) regime, tail exponents alone are insufficient and finer likelihood comparisons along long action histories may matter. The paper\u2019s entropy-rate/likelihood-ratio techniques could potentially inspire analogous criteria for when misspecification is \u2018harmless\u2019 for learning efficiency, but no direct translation or theorem is provided."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.06191325,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.2949681,
+    "total_cost_usd": 0.35688135
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533356/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533356/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533356_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533356_p0",
+    "citations_analyzed": 7,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

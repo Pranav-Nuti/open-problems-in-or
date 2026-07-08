@@ -1,0 +1,108 @@
+{
+  "problem_id": "W4383533365_p0",
+  "paper_id": "W4383533365",
+  "source_paper": "W4383533365",
+  "source_paper_title": "Fine-Grained Buy-Many Mechanisms Are Not Much Better Than Bundling",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597662",
+  "source_paper_authors": [
+    "Sepehr Assadi",
+    "Vikram Kher",
+    "George Li",
+    "Ariel Schvartzman"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533365,\n  title = {Fine-Grained Buy-Many Mechanisms Are Not Much Better Than Bundling},\n  author = {Sepehr Assadi and Vikram Kher and George Li},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Conclusion), page 21; also implicit in Question 1 in Section 1 (Introduction), page 4, and reiterated after Lemma 8 in Section 3, page 10.\n\nIt would be interesting to understand the role of \\(k\\) in whether or not the revenue gap is finite. Concretely, we would like to answer the following question: for a given \\(n\\), what is the smallest \\(k\\) for which \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) is finite for all \\(D\\)? Ultimately, we would like to understand the exact trade off between \\(k, n\\) in the revenue gap, answering Open Question 1.",
+  "title": "Determine smallest k making buy-k revenue finitely approximable by bundling",
+  "background_latex": "Consider a single seller with \n\n1) a set of items \n\n\\[ [n]=\\{1,2,\\dots,n\\}, \\]\n\n2) a single, risk-neutral, quasi-linear buyer whose private valuation is drawn from a known (possibly correlated) distribution \\(D\\) over \\(n\\)-dimensional nonnegative valuations.\n\nAssume the buyer is additive: a type is a vector \\(x=(x_1,\\dots,x_n)\\in\\mathbb{R}_{\\ge 0}^n\\) and the value for a subset \\(S\\subseteq[n]\\) is \\(x(S)=\\sum_{i\\in S} x_i\\). A (possibly randomized) allocation is a vector \\(q\\in[0,1]^n\\), interpreted as independent item-wise allocation probabilities, and the buyer's expected value is \\(x(q)=\\sum_{i=1}^n x_i q_i\\).\n\nA direct-revelation menu mechanism is a set of options \\((q,p)\\) where \\(q\\in[0,1]^n\\) and \\(p\\ge 0\\). If the buyer may purchase a multiset \\(\\Lambda=\\{(q^{(1)},p^{(1)}),\\dots,(q^{(m)},p^{(m)})\\}\\) of options, the combined expected allocation is\n\\[\n\\mathrm{Lot}(\\Lambda)_j \\,=\\, 1-\\prod_{t=1}^m (1-q^{(t)}_j),\\qquad j\\in[n],\n\\]\nand the total payment is \\(\\sum_{t=1}^m p^{(t)}\\).\n\nFor an integer \\(k\\ge 1\\), a mechanism is \\(\\textit{buy-}k\\) incentive compatible if for every buyer type \\(x\\) the maximum utility \\(x(q)-p\\) over single options \\((q,p)\\) in the menu is at least the maximum utility achievable by purchasing any multiset of at most \\(k\\) options from the same menu.\n\nLet \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)\\) denote the supremum expected revenue over all buy-\\(k\\) incentive-compatible mechanisms when the buyer type is drawn from \\(D\\).\n\nLet \\(\\mathrm{BRev}(D)\\) denote the expected revenue of optimal grand-bundling: posting a single price \\(p\\ge 0\\) for the entire bundle \\([n]\\), i.e.\n\\[\n\\mathrm{BRev}(D)=\\max_{p\\ge 0}\\; p\\cdot \\Pr_{x\\sim D}\\Big(\\sum_{i=1}^n x_i\\ge p\\Big).\n\\]\n\nFor fixed \\((n,k)\\), define the worst-case revenue gap\n\\[\n\\Gamma(n,k)\\;:=\\;\\sup_D \\frac{\\mathrm{Buy}_k\\mathrm{Rev}(D)}{\\mathrm{BRev}(D)},\n\\]\nwhere the supremum ranges over all (possibly correlated) distributions \\(D\\) over additive valuations on \\(n\\) items for which \\(\\mathrm{BRev}(D)>0\\).",
+  "problem_definition_latex": "Determine, as a function of \\(n\\), the smallest integer \\(k\\) such that \\(\\Gamma(n,k)<\\infty\\), i.e., such that there exists a finite function \\(f(n,k)\\) satisfying\n\\[\n\\mathrm{Buy}_k\\mathrm{Rev}(D)\\le f(n,k)\\cdot \\mathrm{BRev}(D)\\qquad\\text{for all distributions }D\\text{ over additive valuations on }n\\text{ items}.\n\\]\nEquivalently, characterize the threshold on \\(k\\) (in terms of \\(n\\)) at which the worst-case ratio \\(\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) becomes finite, and more generally determine the tradeoff of this ratio as a function of \\((n,k)\\).",
+  "latex": "Consider a single seller with \n\n1) a set of items \n\n\\[ [n]=\\{1,2,\\dots,n\\}, \\]\n\n2) a single, risk-neutral, quasi-linear buyer whose private valuation is drawn from a known (possibly correlated) distribution \\(D\\) over \\(n\\)-dimensional nonnegative valuations.\n\nAssume the buyer is additive: a type is a vector \\(x=(x_1,\\dots,x_n)\\in\\mathbb{R}_{\\ge 0}^n\\) and the value for a subset \\(S\\subseteq[n]\\) is \\(x(S)=\\sum_{i\\in S} x_i\\). A (possibly randomized) allocation is a vector \\(q\\in[0,1]^n\\), interpreted as independent item-wise allocation probabilities, and the buyer's expected value is \\(x(q)=\\sum_{i=1}^n x_i q_i\\).\n\nA direct-revelation menu mechanism is a set of options \\((q,p)\\) where \\(q\\in[0,1]^n\\) and \\(p\\ge 0\\). If the buyer may purchase a multiset \\(\\Lambda=\\{(q^{(1)},p^{(1)}),\\dots,(q^{(m)},p^{(m)})\\}\\) of options, the combined expected allocation is\n\\[\n\\mathrm{Lot}(\\Lambda)_j \\,=\\, 1-\\prod_{t=1}^m (1-q^{(t)}_j),\\qquad j\\in[n],\n\\]\nand the total payment is \\(\\sum_{t=1}^m p^{(t)}\\).\n\nFor an integer \\(k\\ge 1\\), a mechanism is \\(\\textit{buy-}k\\) incentive compatible if for every buyer type \\(x\\) the maximum utility \\(x(q)-p\\) over single options \\((q,p)\\) in the menu is at least the maximum utility achievable by purchasing any multiset of at most \\(k\\) options from the same menu.\n\nLet \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)\\) denote the supremum expected revenue over all buy-\\(k\\) incentive-compatible mechanisms when the buyer type is drawn from \\(D\\).\n\nLet \\(\\mathrm{BRev}(D)\\) denote the expected revenue of optimal grand-bundling: posting a single price \\(p\\ge 0\\) for the entire bundle \\([n]\\), i.e.\n\\[\n\\mathrm{BRev}(D)=\\max_{p\\ge 0}\\; p\\cdot \\Pr_{x\\sim D}\\Big(\\sum_{i=1}^n x_i\\ge p\\Big).\n\\]\n\nFor fixed \\((n,k)\\), define the worst-case revenue gap\n\\[\n\\Gamma(n,k)\\;:=\\;\\sup_D \\frac{\\mathrm{Buy}_k\\mathrm{Rev}(D)}{\\mathrm{BRev}(D)},\n\\]\nwhere the supremum ranges over all (possibly correlated) distributions \\(D\\) over additive valuations on \\(n\\) items for which \\(\\mathrm{BRev}(D)>0\\).\n\nDetermine, as a function of \\(n\\), the smallest integer \\(k\\) such that \\(\\Gamma(n,k)<\\infty\\), i.e., such that there exists a finite function \\(f(n,k)\\) satisfying\n\\[\n\\mathrm{Buy}_k\\mathrm{Rev}(D)\\le f(n,k)\\cdot \\mathrm{BRev}(D)\\qquad\\text{for all distributions }D\\text{ over additive valuations on }n\\text{ items}.\n\\]\nEquivalently, characterize the threshold on \\(k\\) (in terms of \\(n\\)) at which the worst-case ratio \\(\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) becomes finite, and more generally determine the tradeoff of this ratio as a function of \\((n,k)\\).",
+  "location_in_paper": "Section 5 (Conclusion), page 21; also implicit in Question 1 in Section 1 (Introduction), page 4, and reiterated after Lemma 8 in Section 3, page 10.",
+  "open_problem_quote": "It would be interesting to understand the role of \\(k\\) in whether or not the revenue gap is finite. Concretely, we would like to answer the following question: for a given \\(n\\), what is the smallest \\(k\\) for which \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) is finite for all \\(D\\)? Ultimately, we would like to understand the exact trade off between \\(k, n\\) in the revenue gap, answering Open Question 1.",
+  "area": "multi-item mechanism design",
+  "category": "Mechanism Design & Auctions",
+  "keywords": [
+    "multi-item auctions",
+    "buy-k mechanisms",
+    "bundling",
+    "revenue approximation",
+    "menu complexity",
+    "correlated values"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The question is worst-case over distributions, and both lower bounds (showing divergence of the ratio) and candidate thresholds can be explored by searching over finite-support correlated distributions and computing (or approximating) \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)\\) and \\(\\mathrm{BRev}(D)\\). While exact optimization for \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)\\) is nonconvex, small n,k instances are tractable with global/heuristic solvers and can rapidly generate separating examples or suggest sharp thresholds.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate constructions are programmatically representable (finite-support distributions, or explicit menus), and a fitness signal can be the empirically computed ratio \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) via numerical optimization. However, scaling to larger n and certifying feasibility/optimality for \\(\\mathrm{Buy}_k\\) mechanisms is computationally heavy and nonconvex, so automated search is most reliable for discovering conjectures and small counterexamples rather than delivering a full proof.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.06426525
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem asks for the smallest \\(k\\) (as a function of \\(n\\)) such that the worst-case ratio \\(\\Gamma(n,k)=\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) is finite over all (possibly correlated) distributions \\(D\\) for a single additive buyer. The source paper by Assadi--Kher--Li--Schvartzman introduces buy-\\(k\\) incentive compatibility and provides the first general worst-case upper bound in this direction: for \\(k=n\\), bundling achieves a polynomial approximation, specifically \\(\\mathrm{Buy}_n\\mathrm{Rev}(D)\\le O(n^2)\\,\\mathrm{BRev}(D)\\) for all correlated additive \\(D\\). This establishes finiteness of \\(\\Gamma(n,k)\\) for all \\(k\\ge n\\) (by monotonicity of \\(\\mathrm{Buy}_k\\mathrm{Rev}\\) in \\(k\\)).\n\nOn the lower-bound side, the same work shows that small \\(k\\) can still permit very large separations: if \\(k\\le n^{1/2-\\varepsilon}\\), there exist correlated additive distributions with \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\ge \\exp(\\Omega(n^{\\varepsilon}))/(2n^2)\\). The construction uses large \\(k\\)-cover-free set systems to build sequences \\((X,Q)\\) with large generalized menu gap \\(\\mathrm{MenuGap}_k\\), and then converts these sequences into a distribution witnessing the revenue gap. Together, these results pin the threshold for finiteness to the intermediate regime \\(n^{1/2-o(1)} < k < n\\), which remains open.\n\nRelated works provide context and tools rather than resolving the threshold. Hart--Nisan develop the original menu-gap and menu-size frameworks explaining unbounded gaps in the buy-one model, and Psomas--Schvartzman--Weinberg give a converse characterization of infinite separations that Assadi et al. generalize to buy-\\(k\\). Earlier buy-many work (Briest--Chawla--Kleinberg--Weinberg; Chawla--Teng--Tzamos) shows that when \\(k\\) is unbounded, simple pricing schemes approximate buy-many revenue, reinforcing that restricting seller power removes pathological infinities. However, determining the smallest \\(k\\) yielding a finite worst-case \\(\\mathrm{Buy}_k\\) vs bundling ratio for correlated additive values remains an open quantitative problem.",
+    "total_cost_usd": 0.2726367,
+    "citations_analyzed": 3,
+    "sources": [
+      {
+        "title": "Competition Complexity in Multi-Item Auctions: Beyond VCG and Regularity",
+        "bibtex": "@article{CompetitionComplexityBeyondVCGRegularity,\\n  title  = {Competition Complexity in Multi-Item Auctions: Beyond VCG and Regularity},\\n  author = {},\\n  year   = {},\\n  note   = {Metadata (authors/year) not provided in citation analysis block}\\n}\\n",
+        "source_url": "",
+        "theorem_or_result": "The paper proves constant-factor approximation results for grand bundling and for a bundle-based second-price auction under independence and regularity/MHR assumptions. In particular:\n- For a single bidder with independent asymmetric regular item values, bundling at an optimal posted price achieves \n\\[18\\cdot \\mathrm{BRev}_1 \\ge \\mathrm{OPT}_1.\\]\n- For two bidders with independent asymmetric regular item values, the bundle-based second-price auction satisfies \n\\[48\\cdot \\mathrm{BSPA}_2 \\ge \\mathrm{OPT}_1.\\]\nIt also gives competition-complexity bounds for VCG under \\(\\alpha\\)-strong regularity and shows bundling-based competition complexity can be \\(\\Omega(\\exp(m))\\) for \\(n\\ge 2\\) bidders even for i.i.d. uniform items.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks for the smallest \\(k\\) (as a function of \\(n\\)) such that buy-\\(k\\) optimal revenue is finitely approximable by grand bundling for all (possibly correlated) additive distributions \\(D\\), i.e. finiteness of \\(\\Gamma(n,k)=\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\).\n\nThis citing paper does not analyze buy-\\(k\\) menus or the buy-many constraint, and it does not address worst-case over correlated \\(D\\). However, it is related in two ways:\n- It strengthens understanding of when bundling (\\(\\mathrm{BRev}\\)) is a constant-factor approximation to optimal revenue (\\(\\mathrm{OPT}\\)) under *regularity* and *independence* assumptions. Since \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)\\ge \\mathrm{OPT}(D)\\) (buy-many relaxes IC), any constant approximation of \\(\\mathrm{OPT}\\) by \\(\\mathrm{BRev}\\) is suggestive but does not imply a bound on \\(\\mathrm{Buy}_k\\mathrm{Rev}/\\mathrm{BRev}\\).\n- It provides techniques (core-tail decomposition, order-statistic bounds, quantile-matrix couplings) and highlights limitations of bundling-based simple mechanisms in multi-bidder settings (exponential competition complexity), which may inform constructions for large gaps.\n\nNet: the paper gives partial progress only in restricted models (independent regular/MHR) and offers tools, but it does not resolve the threshold \\(k\\) for finiteness of \\(\\Gamma(n,k)\\) in the general correlated buy-\\(k\\) setting."
+      },
+      {
+        "title": "On infinite separations between simple and optimal mechanisms",
+        "bibtex": "@misc{OnInfiniteSeparationsBetweenSimpleAndOptimalMechanisms,\\n  title  = {On infinite separations between simple and optimal mechanisms},\\n  author = {},\\n  year   = {},\\n  note   = {Manuscript; metadata (authors/year) not provided in citation analysis block}\\n}\\n",
+        "source_url": "",
+        "theorem_or_result": "The paper characterizes distributions with an infinite separation between optimal revenue and bundling revenue. In particular, it proves a converse to the Hart\u2013Nisan (2019) construction: for any distribution \\(D\\) over \\(k\\) items, there exists a sequence \\(X\\subseteq \\mathrm{supp}(D)\\) such that \\(\\mathrm{MenuGap}(X)\\ge \\mathrm{Rev}(D)/(9\\,\\mathrm{BRev}(D))\\) (Theorem 6). It also constructs sequences \\(X\\subseteq[0,1]^2\\) with \\(\\mathrm{AlignGap}(X)\\le 6\\) but \\(\\mathrm{MenuGap}(X)=\\infty\\) (stated as \\(=\\infty\\) via their normalization; Theorem 9), yielding distributions where \\(\\mathrm{Rev}(D)/\\mathrm{BRev}(D)=\\infty\\) but no \u2018aligned\u2019 mechanism witnesses the gap (Corollary 11).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks for the smallest \\(k\\) (number of purchases allowed) such that buy-\\(k\\) revenue is always within a finite factor of bundling revenue, i.e. finiteness of \\(\\Gamma(n,k)=\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\). This paper does not study buy-\\(k\\) (multi-purchase) incentive compatibility; it studies standard (buy-1) IC optimal revenue \\(\\mathrm{Rev}(D)\\) and its (in)approximability by bundling and bounded menu complexity under correlated \\(D\\). However, it provides structural understanding of when \\(\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) can be infinite and notes (in the conclusion/related work) that subsequent work [AS22] applies its framework to \u2018fine-grained buy-many\u2019 mechanisms, which is closer in spirit to the buy-\\(k\\) question. Thus it is indirect background/tooling rather than progress on the threshold \\(k\\) for finiteness of \\(\\Gamma(n,k)\\)."
+      },
+      {
+        "title": "A multi-dimensional online contention resolution scheme for revenue maximization",
+        "bibtex": "@inproceedings{MultiDimensionalOCRSRevenueMaximization,\\n  title     = {A multi-dimensional online contention resolution scheme for revenue maximization},\\n  author    = {},\\n  booktitle = {Proceedings of the Symposium on Discrete Algorithms / related SIAM proceedings},\\n  year      = {},\\n  doi       = {10.1137/1.9781611978322.54},\\n  note      = {Metadata (authors/year/venue) not provided in citation analysis block}\\n}\\n",
+        "source_url": "https://doi.org/10.1137/1.9781611978322.54",
+        "theorem_or_result": "The paper develops a multi-dimensional online contention resolution scheme (OCRS) for revenue and proves that for subadditive valuations, sequential item pricing achieves \n\\[\\mathrm{EARev}(D,\\mathrm{ItemPricing}) \\le O(\\log m)\\,\\mathrm{Rev}(D,\\mathrm{SeqItemPricing})\\]\nand hence \n\\[\\mathrm{EARev}(D,\\mathrm{BuyMany}) \\le O(\\log^2 m)\\,\\mathrm{Rev}(D,\\mathrm{SeqItemPricing}).\\]\nIt also gives lower bounds (e.g. an \\(\\Omega(\\sqrt{\\log m})\\) separation) for approximating \\(\\mathrm{EARev}(D,\\mathrm{ItemPricing})\\) by sequential item pricing under XOS valuations.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for the smallest \\(k\\) (as a function of \\(n\\)) such that \\(\\Gamma(n,k)=\\sup_D \\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) is finite, i.e. when buy-\\(k\\) revenue becomes finitely approximable by grand bundling for a single additive buyer (allowing correlations). This paper studies a different setting and benchmark: many buyers, subadditive valuations, and approximation of the ex-ante buy-many revenue by sequential item pricing via OCRSs. It does not analyze buy-\\(k\\) incentive compatibility, does not compare to bundling revenue \\(\\mathrm{BRev}(D)\\), and does not provide bounds on \\(\\mathrm{Buy}_k\\mathrm{Rev}(D)/\\mathrm{BRev}(D)\\) or thresholds in \\(k\\). At best, it is tangentially related through the broader \u2018buy-many\u2019 literature and techniques (revenue recovery, OCRS) that might inspire approaches, but it does not make progress on the bundling-vs-buy-\\(k\\) threshold question."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.06426525,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.2726367,
+    "total_cost_usd": 0.33690195
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533365/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533365/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533365_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533365_p0",
+    "citations_analyzed": 3,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

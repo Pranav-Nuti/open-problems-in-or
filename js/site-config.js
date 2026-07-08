@@ -3,4 +3,15 @@
  */
 window.SITE_CONFIG = Object.freeze({
   unverified_feedback_email: "pranav.nuti@chicagobooth.edu",
+  defaultJournal: "Mathematics of Operations Research",
+  journals: [
+    {
+      value: "Mathematics of Operations Research",
+      shortLabel: "Mathematics of Operations Research",
+    },
+    {
+      value: "Economics and Computation (EC)",
+      shortLabel: "Economics and Computation (EC)",
+    },
+  ],
 });

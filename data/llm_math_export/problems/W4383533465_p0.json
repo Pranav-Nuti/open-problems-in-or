@@ -1,0 +1,79 @@
+{
+  "problem_id": "W4383533465_p0",
+  "paper_id": "W4383533465",
+  "source_paper": "W4383533465",
+  "source_paper_title": "Distortion Under Public-Spirited Voting",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597722",
+  "source_paper_authors": [
+    "Bailey Flanigan",
+    "Ariel D. Procaccia",
+    "Sven Wang"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533465,\n  title = {Distortion Under Public-Spirited Voting},\n  author = {Bailey Flanigan and Ariel D. Procaccia and Sven Wang},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4.2 (Nonuniform PS-monotonicity), page 13 (around Proposition 4.5 discussion).\n\nThe construction used to show Proposition 4.5 is already considerably complicated when \\(m = 3\\); proving the claim for all (or a broad class of) voting rules when \\(m \\ge 4\\) remains an interesting problem.",
+  "title": "Extend nonuniform public-spirit distortion monotonicity to four or more alternatives",
+  "background_latex": "Consider an election with a finite set of voters \\([n]=\\{1,\\dots,n\\}\\) and a finite set of alternatives \\([m]=\\{1,\\dots,m\\}\\). Each voter \\(i\\) has a utility function \\(u_i:[m]\\to[0,1]\\); equivalently, utilities form a matrix \\(U\\in[0,1]^{n\\times m}\\) with entries \\(U(i,a)=u_i(a)\\). The utilitarian social welfare of an alternative \\(a\\in[m]\\) is\n\\[\\mathrm{sw}(a,U)=\\sum_{i=1}^n u_i(a).\\]\nEach voter has a \\emph{public spirit} level \\(\\gamma_i\\in[0,1]\\), collected in a vector \\(\\gamma\\in[0,1]^n\\). Given \\((U,\\gamma)\\), define voter \\(i\\)'s public-spirited value (PS-value) for alternative \\(a\\) by\n\\[v_i(a;U,\\gamma)=(1-\\gamma_i)u_i(a)+\\gamma_i\\,\\frac{\\mathrm{sw}(a,U)}{n}.\\]\nVoters submit strict rankings consistent with decreasing PS-values: for alternatives \\(a,b\\), if \\(v_i(a;U,\\gamma)>v_i(b;U,\\gamma)\\) then voter \\(i\\) ranks \\(a\\) above \\(b\\); if equal, either order is allowed. Let \\(\\Pi(U,\\gamma)\\) denote the set of all strict preference profiles (one ranking per voter) consistent with \\((U,\\gamma)\\) in this sense.\nA deterministic (resolute) voting rule is a function \\(f\\) mapping each strict preference profile \\(\\pi\\) to a winning alternative \\(f(\\pi)\\in[m]\\).\nFor a fixed instance \\((U,\\gamma)\\) and a profile \\(\\pi\\in\\Pi(U,\\gamma)\\), define the (utilitarian) distortion of \\(f\\) on \\((U,\\gamma,\\pi)\\) as\n\\[\\mathrm{dist}(f;U,\\gamma,\\pi)=\\frac{\\max_{a\\in[m]}\\mathrm{sw}(a,U)}{\\mathrm{sw}(f(\\pi),U)},\\]\nwith the convention that if \\(\\mathrm{sw}(f(\\pi),U)=0\\) and the numerator is positive then the ratio is \\(+\\infty\\).\nThe worst-case distortion of \\(f\\) under PS-vector \\(\\gamma\\) is\n\\[\\mathrm{dist}(f,\\gamma)=\\sup_{U\\in[0,1]^{n\\times m}}\\;\\sup_{\\pi\\in\\Pi(U,\\gamma)}\\mathrm{dist}(f;U,\\gamma,\\pi).\\]\nFor two PS-vectors \\(\\gamma,\\gamma'\\in[0,1]^n\\), write \\(\\gamma'\\ge \\gamma\\) if \\(\\gamma'_i\\ge \\gamma_i\\) for all voters \\(i\\).",
+  "problem_definition_latex": "Fix \\(m\\ge 4\\). Determine whether the following monotonicity inequality holds for \\emph{all} deterministic voting rules \\(f\\): for every number of voters \\(n\\) and every pair of PS-vectors \\(\\gamma,\\gamma'\\in[0,1]^n\\) with \\(\\gamma'\\ge \\gamma\\),\n\\[\\mathrm{dist}(f,\\gamma')\\le \\mathrm{dist}(f,\\gamma).\\]\nEquivalently, decide whether increasing voters' public spirit levels componentwise can ever increase the worst-case utilitarian distortion when \\(m\\ge 4\\).",
+  "latex": "Consider an election with a finite set of voters \\([n]=\\{1,\\dots,n\\}\\) and a finite set of alternatives \\([m]=\\{1,\\dots,m\\}\\). Each voter \\(i\\) has a utility function \\(u_i:[m]\\to[0,1]\\); equivalently, utilities form a matrix \\(U\\in[0,1]^{n\\times m}\\) with entries \\(U(i,a)=u_i(a)\\). The utilitarian social welfare of an alternative \\(a\\in[m]\\) is\n\\[\\mathrm{sw}(a,U)=\\sum_{i=1}^n u_i(a).\\]\nEach voter has a \\emph{public spirit} level \\(\\gamma_i\\in[0,1]\\), collected in a vector \\(\\gamma\\in[0,1]^n\\). Given \\((U,\\gamma)\\), define voter \\(i\\)'s public-spirited value (PS-value) for alternative \\(a\\) by\n\\[v_i(a;U,\\gamma)=(1-\\gamma_i)u_i(a)+\\gamma_i\\,\\frac{\\mathrm{sw}(a,U)}{n}.\\]\nVoters submit strict rankings consistent with decreasing PS-values: for alternatives \\(a,b\\), if \\(v_i(a;U,\\gamma)>v_i(b;U,\\gamma)\\) then voter \\(i\\) ranks \\(a\\) above \\(b\\); if equal, either order is allowed. Let \\(\\Pi(U,\\gamma)\\) denote the set of all strict preference profiles (one ranking per voter) consistent with \\((U,\\gamma)\\) in this sense.\nA deterministic (resolute) voting rule is a function \\(f\\) mapping each strict preference profile \\(\\pi\\) to a winning alternative \\(f(\\pi)\\in[m]\\).\nFor a fixed instance \\((U,\\gamma)\\) and a profile \\(\\pi\\in\\Pi(U,\\gamma)\\), define the (utilitarian) distortion of \\(f\\) on \\((U,\\gamma,\\pi)\\) as\n\\[\\mathrm{dist}(f;U,\\gamma,\\pi)=\\frac{\\max_{a\\in[m]}\\mathrm{sw}(a,U)}{\\mathrm{sw}(f(\\pi),U)},\\]\nwith the convention that if \\(\\mathrm{sw}(f(\\pi),U)=0\\) and the numerator is positive then the ratio is \\(+\\infty\\).\nThe worst-case distortion of \\(f\\) under PS-vector \\(\\gamma\\) is\n\\[\\mathrm{dist}(f,\\gamma)=\\sup_{U\\in[0,1]^{n\\times m}}\\;\\sup_{\\pi\\in\\Pi(U,\\gamma)}\\mathrm{dist}(f;U,\\gamma,\\pi).\\]\nFor two PS-vectors \\(\\gamma,\\gamma'\\in[0,1]^n\\), write \\(\\gamma'\\ge \\gamma\\) if \\(\\gamma'_i\\ge \\gamma_i\\) for all voters \\(i\\).\n\nFix \\(m\\ge 4\\). Determine whether the following monotonicity inequality holds for \\emph{all} deterministic voting rules \\(f\\): for every number of voters \\(n\\) and every pair of PS-vectors \\(\\gamma,\\gamma'\\in[0,1]^n\\) with \\(\\gamma'\\ge \\gamma\\),\n\\[\\mathrm{dist}(f,\\gamma')\\le \\mathrm{dist}(f,\\gamma).\\]\nEquivalently, decide whether increasing voters' public spirit levels componentwise can ever increase the worst-case utilitarian distortion when \\(m\\ge 4\\).",
+  "location_in_paper": "Section 4.2 (Nonuniform PS-monotonicity), page 13 (around Proposition 4.5 discussion).",
+  "open_problem_quote": "The construction used to show Proposition 4.5 is already considerably complicated when \\(m = 3\\); proving the claim for all (or a broad class of) voting rules when \\(m \\ge 4\\) remains an interesting problem.",
+  "area": "social choice distortion",
+  "category": "Fair Division & Social Choice",
+  "keywords": [
+    "distortion",
+    "social choice",
+    "voting rules",
+    "monotonicity",
+    "public-spirited voting",
+    "worst-case analysis"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "For a fixed number of voters and alternatives, one can search over utility matrices and PS-vectors and compute induced rankings and distortion, but quantifying worst-case distortion involves an outer supremum and tie-breaking over multiple compatible profiles, which complicates brute-force searches. Still, small-instance searches could plausibly find counterexamples to the monotonicity inequality for specific rules or suggest conjectures.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate objects include explicit voting rules (represented algorithmically) or specific counterexample instances \\((U,\\gamma,\\gamma')\\). A fitness signal can be based on computed distortion gaps \\(\\mathrm{dist}(f,\\gamma')-\\mathrm{dist}(f,\\gamma)\\) over sampled utilities/profiles, but accurately estimating worst-case distortion is computationally heavy and may require heuristic maximization over instances and tie-breakings.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.095676
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.38687530000000003,
+    "citations_analyzed": 9,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.095676,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.38687530000000003,
+    "total_cost_usd": 0.4825513
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533465/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533465/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533465_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533465_p0",
+    "citations_analyzed": 9,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

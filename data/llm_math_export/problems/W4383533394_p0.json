@@ -1,0 +1,77 @@
+{
+  "problem_id": "W4383533394_p0",
+  "paper_id": "W4383533394",
+  "source_paper": "W4383533394",
+  "source_paper_title": "A Reduction from Chores Allocation to Job Scheduling",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597676",
+  "source_paper_authors": [
+    "Xin Huang",
+    "Erel Segal-Halevi"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383533394,\n  title = {A Reduction from Chores Allocation to Job Scheduling},\n  author = {Xin Huang and Erel Segal-Halevi},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 8 (Monotonicity in special cases), page 24; reiterated in Section 9 (Future Work), page 25.\n\nTherefore, we make the following conjecture.\nConjecture 1. FFD is monotone with respect to any \\(n \\ge 2\\) and any \\(\\alpha \\ge \\frac{8}{7}\\).",
+  "title": "Prove monotonicity of First Fit Decreasing packing for large bin capacity scaling",
+  "background_latex": "Let \\(M\\) be a finite set of indivisible items (jobs/chores). Fix an integer \\(n\\ge 2\\) (number of bins/machines). A single additive size (cost) function is \\(v:M\\to \\mathbb{R}_{\\ge 0}\\), extended to subsets by \\(v(S)=\\sum_{c\\in S} v(c)\\).\n\nDefine the maximin share (equivalently, the optimal makespan on \\(n\\) identical machines for processing times \\(v(c)\\)) by\n\\[\n\\mathrm{MMS}(M,v,n):=\\min_{(A_1,\\dots,A_n)\\text{ a partition of }M}\\;\\max_{k\\in[n]} v(A_k).\n\\]\nLet \\(\\mu:=\\mathrm{MMS}(M,v,n)\\).\n\nFix a total order of items that is nonincreasing in \\(v(c)\\) (ties broken by a fixed rule). Consider the following equivalent description of the First Fit Decreasing algorithm \\(\\mathrm{FFD}(M,v,\\tau,n)\\) with bin capacity \\(\\tau\\) and exactly \\(n\\) bins: it fills one bin at a time. For bin \\(k=1,2,\\dots,n\\), it scans the currently unallocated items from largest to smallest; whenever the current item can be added to the current bin without making the bin's total size exceed \\(\\tau\\), it adds it; otherwise it skips it and continues scanning. When the scan ends, the bin is closed and the algorithm proceeds to the next bin, again scanning the remaining items from largest to smallest. After \\(n\\) bins are constructed, any items not packed remain unallocated.\n\nFor a bundle collection \\(A=(A_1,\\dots,A_n)\\) (not necessarily covering \\(M\\)), define for each \\(k\\in[n]\\) the set of remaining items before bundle \\(k\\) as \\(R_k:=M\\setminus \\bigcup_{j<k} A_j\\). The \\(k\\)-th benchmark bundle \\(B_k\\) of \\(A\\) (with respect to \\(v\\) and \\(\\tau\\)) is a lexicographically maximal subset of \\(R_k\\) among all subsets \\(B\\subseteq R_k\\) with \\(v(B)\\le \\tau\\), where lexicographic comparison is by the nonincreasing sequence \\(\\bigl(v(B[1]),v(B[2]),\\dots\\bigr)\\) of item sizes in the bundle (padding with zeros after the bundle ends).\n\nThe tuple \\((M,A,v,\\tau)\\) is called First Fit Valid (FFV) if for every \\(k\\in[n]\\), \\(A_k\\) is lexicographically at least \\(B_k\\) under \\(v\\). (Note that \\(A_k\\) itself is not required to satisfy \\(v(A_k)\\le \\tau\\).)\n\nDefine: \\(\\mathrm{FFD}\\) is monotone with respect to \\((\\alpha,n)\\), where \\(\\alpha\\ge 1\\), if for every \\((M,v)\\) with \\(\\mu=\\mathrm{MMS}(M,v,n)\\), the following implication holds:\nif \\(\\mathrm{FFD}(M,v,\\alpha\\mu,n)\\) allocates all items, then for every FFV tuple \\((M,A,v,\\alpha\\mu)\\) with \\(|A|=n\\) (i.e., \\(A\\) has \\(n\\) bundles), it holds that \\(\\bigcup_{k=1}^n A_k=M\\).",
+  "problem_definition_latex": "For every integer \\(n\\ge 2\\) and every real \\(\\alpha\\ge \\tfrac{8}{7}\\), determine whether \\(\\mathrm{FFD}\\) is monotone with respect to \\((\\alpha,n)\\) (as defined above). Equivalently, decide whether for all instances \\((M,v)\\) with \\(\\mu=\\mathrm{MMS}(M,v,n)\\),\n\\[\n\\mathrm{FFD}(M,v,\\alpha\\mu,n)\\text{ allocates all items }\\Longrightarrow \\Bigl(\\forall (M,A,v,\\alpha\\mu)\\text{ FFV with }|A|=n,\\ \\bigcup_{k=1}^n A_k=M\\Bigr).\n\\]",
+  "latex": "Let \\(M\\) be a finite set of indivisible items (jobs/chores). Fix an integer \\(n\\ge 2\\) (number of bins/machines). A single additive size (cost) function is \\(v:M\\to \\mathbb{R}_{\\ge 0}\\), extended to subsets by \\(v(S)=\\sum_{c\\in S} v(c)\\).\n\nDefine the maximin share (equivalently, the optimal makespan on \\(n\\) identical machines for processing times \\(v(c)\\)) by\n\\[\n\\mathrm{MMS}(M,v,n):=\\min_{(A_1,\\dots,A_n)\\text{ a partition of }M}\\;\\max_{k\\in[n]} v(A_k).\n\\]\nLet \\(\\mu:=\\mathrm{MMS}(M,v,n)\\).\n\nFix a total order of items that is nonincreasing in \\(v(c)\\) (ties broken by a fixed rule). Consider the following equivalent description of the First Fit Decreasing algorithm \\(\\mathrm{FFD}(M,v,\\tau,n)\\) with bin capacity \\(\\tau\\) and exactly \\(n\\) bins: it fills one bin at a time. For bin \\(k=1,2,\\dots,n\\), it scans the currently unallocated items from largest to smallest; whenever the current item can be added to the current bin without making the bin's total size exceed \\(\\tau\\), it adds it; otherwise it skips it and continues scanning. When the scan ends, the bin is closed and the algorithm proceeds to the next bin, again scanning the remaining items from largest to smallest. After \\(n\\) bins are constructed, any items not packed remain unallocated.\n\nFor a bundle collection \\(A=(A_1,\\dots,A_n)\\) (not necessarily covering \\(M\\)), define for each \\(k\\in[n]\\) the set of remaining items before bundle \\(k\\) as \\(R_k:=M\\setminus \\bigcup_{j<k} A_j\\). The \\(k\\)-th benchmark bundle \\(B_k\\) of \\(A\\) (with respect to \\(v\\) and \\(\\tau\\)) is a lexicographically maximal subset of \\(R_k\\) among all subsets \\(B\\subseteq R_k\\) with \\(v(B)\\le \\tau\\), where lexicographic comparison is by the nonincreasing sequence \\(\\bigl(v(B[1]),v(B[2]),\\dots\\bigr)\\) of item sizes in the bundle (padding with zeros after the bundle ends).\n\nThe tuple \\((M,A,v,\\tau)\\) is called First Fit Valid (FFV) if for every \\(k\\in[n]\\), \\(A_k\\) is lexicographically at least \\(B_k\\) under \\(v\\). (Note that \\(A_k\\) itself is not required to satisfy \\(v(A_k)\\le \\tau\\).)\n\nDefine: \\(\\mathrm{FFD}\\) is monotone with respect to \\((\\alpha,n)\\), where \\(\\alpha\\ge 1\\), if for every \\((M,v)\\) with \\(\\mu=\\mathrm{MMS}(M,v,n)\\), the following implication holds:\nif \\(\\mathrm{FFD}(M,v,\\alpha\\mu,n)\\) allocates all items, then for every FFV tuple \\((M,A,v,\\alpha\\mu)\\) with \\(|A|=n\\) (i.e., \\(A\\) has \\(n\\) bundles), it holds that \\(\\bigcup_{k=1}^n A_k=M\\).\n\nFor every integer \\(n\\ge 2\\) and every real \\(\\alpha\\ge \\tfrac{8}{7}\\), determine whether \\(\\mathrm{FFD}\\) is monotone with respect to \\((\\alpha,n)\\) (as defined above). Equivalently, decide whether for all instances \\((M,v)\\) with \\(\\mu=\\mathrm{MMS}(M,v,n)\\),\n\\[\n\\mathrm{FFD}(M,v,\\alpha\\mu,n)\\text{ allocates all items }\\Longrightarrow \\Bigl(\\forall (M,A,v,\\alpha\\mu)\\text{ FFV with }|A|=n,\\ \\bigcup_{k=1}^n A_k=M\\Bigr).\n\\]",
+  "location_in_paper": "Section 8 (Monotonicity in special cases), page 24; reiterated in Section 9 (Future Work), page 25.",
+  "open_problem_quote": "Therefore, we make the following conjecture.\nConjecture 1. FFD is monotone with respect to any \\(n \\ge 2\\) and any \\(\\alpha \\ge \\frac{8}{7}\\).",
+  "area": "bin packing monotonicity",
+  "category": "Integer, Combinatorial & Graph Optimization",
+  "keywords": [
+    "first fit decreasing",
+    "bin packing",
+    "makespan scheduling",
+    "monotonicity",
+    "maximin share"
+  ],
+  "counterexample_suitability": "high",
+  "counterexample_suitability_rationale": "The property concerns existence of finite counterexamples: an instance \\((M,v)\\) and an FFV bundle collection \\(A\\) violating monotonicity for given \\((n,\\alpha)\\). Both FFD execution and the FFV condition are efficiently checkable on generated finite instances, enabling large-scale automated search over bounded item multisets and rational sizes.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Candidate counterexamples can be represented as small rational item-size multisets (and optionally explicit FFV bundle collections), with a computable fitness signal measuring degree of violation (e.g., FFD succeeds at \\(\\alpha\\mu\\) while some FFV \\(A\\) leaves items uncovered). Evolutionary search can iteratively refine instances by minimizing item count and tuning sizes near suspected thresholds (around \\(8/7\\)).",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.031066700000000003
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.047211499999999997,
+    "citations_analyzed": 1,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.031066700000000003,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.047211499999999997,
+    "total_cost_usd": 0.07827819999999999
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533394/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383533394/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383533394_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383533394_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

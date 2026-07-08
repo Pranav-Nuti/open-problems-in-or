@@ -1,0 +1,126 @@
+{
+  "problem_id": "W4383557893_p0",
+  "paper_id": "W4383557893",
+  "source_paper": "W4383557893",
+  "source_paper_title": "Tightness without Counterexamples: A New Approach and New Results for Prophet Inequalities",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597734",
+  "source_paper_authors": [
+    "Jiashuo Jiang",
+    "Will Ma",
+    "Jiawei Zhang"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383557893,\n  title = {Tightness without Counterexamples: A New Approach and New Results for Prophet Inequalities},\n  author = {Jiashuo Jiang and Will Ma and Jiawei Zhang},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Page 6, Section 1.2 (New Results), item 2\n\nIt remains a challenging problem to analytically verify for all \\(k > 1\\) our numerical observation that \\(\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}\\), which would resolve the open question of \\(k\\)-unit IID prophet inequality.",
+  "title": "Prove equality of worst-case and asymptotic guarantees in k-unit IID prophet inequalities",
+  "background_latex": "Consider the multi-unit (uniform matroid) prophet inequality with a fixed number of selection slots \\(k\\ge 2\\) and \\(n\\) sequentially arriving agents. The agents' valuations \\(R_1,\\dots,R_n\\ge 0\\) are independent and identically distributed (IID) from a known distribution \\(F\\). An online policy observes \\(R_i\\) upon arrival and must irrevocably accept or reject agent \\(i\\); at most \\(k\\) agents can be accepted. Let \\(\\mathrm{ALG}(F,n,k)\\) denote the expected total value obtained by an optimal online policy (equivalently, the optimal dynamic program).\n\nThe prophet benchmark is the expected sum of the \\(k\\) largest realized valuations among \\(R_1,\\dots,R_n\\):\n\\[\\mathrm{Proph}(F,n,k):=\\mathbb{E}\\Big[\\sum_{t=1}^k R_{(t)}\\Big],\\]\nwhere \\(R_{(1)}\\ge \\cdots\\ge R_{(n)}\\) are the order statistics.\n\nDefine the tight competitive ratio for fixed \\((n,k)\\) in the IID setting by\n\\[\\gamma_{k,n}:=\\inf_F \\frac{\\mathrm{ALG}(F,n,k)}{\\mathrm{Proph}(F,n,k)},\\]\nwhere the infimum ranges over all (nonnegative) value distributions \\(F\\) (equivalently, over all IID instances).\n\nDefine two aggregate worst-case ratios for fixed \\(k\\):\n\\[\\gamma_k^{\\infty}:=\\lim_{n\\to\\infty} \\gamma_{k,n},\\qquad \\gamma_k^{\\inf}:=\\inf_{n\\ge 1} \\gamma_{k,n}.\\]\n(Here \\(n>k\\) is implicit so the problem is nontrivial.)",
+  "problem_definition_latex": "For every integer \\(k>1\\), determine whether\n\\[\\lim_{n\\to\\infty} \\gamma_{k,n} \\,=\\, \\inf_{n\\ge 1} \\gamma_{k,n},\\]\nwhere \\(\\gamma_{k,n}:=\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\) is the tight IID \\(k\\)-unit prophet-inequality ratio for \\(n\\) agents.\n\nEquivalently, decide whether for each \\(k>1\\) the worst-case IID competitive ratio is achieved (or approached) in the large-\\(n\\) limit, rather than at some finite \\(n\\).",
+  "latex": "Consider the multi-unit (uniform matroid) prophet inequality with a fixed number of selection slots \\(k\\ge 2\\) and \\(n\\) sequentially arriving agents. The agents' valuations \\(R_1,\\dots,R_n\\ge 0\\) are independent and identically distributed (IID) from a known distribution \\(F\\). An online policy observes \\(R_i\\) upon arrival and must irrevocably accept or reject agent \\(i\\); at most \\(k\\) agents can be accepted. Let \\(\\mathrm{ALG}(F,n,k)\\) denote the expected total value obtained by an optimal online policy (equivalently, the optimal dynamic program).\n\nThe prophet benchmark is the expected sum of the \\(k\\) largest realized valuations among \\(R_1,\\dots,R_n\\):\n\\[\\mathrm{Proph}(F,n,k):=\\mathbb{E}\\Big[\\sum_{t=1}^k R_{(t)}\\Big],\\]\nwhere \\(R_{(1)}\\ge \\cdots\\ge R_{(n)}\\) are the order statistics.\n\nDefine the tight competitive ratio for fixed \\((n,k)\\) in the IID setting by\n\\[\\gamma_{k,n}:=\\inf_F \\frac{\\mathrm{ALG}(F,n,k)}{\\mathrm{Proph}(F,n,k)},\\]\nwhere the infimum ranges over all (nonnegative) value distributions \\(F\\) (equivalently, over all IID instances).\n\nDefine two aggregate worst-case ratios for fixed \\(k\\):\n\\[\\gamma_k^{\\infty}:=\\lim_{n\\to\\infty} \\gamma_{k,n},\\qquad \\gamma_k^{\\inf}:=\\inf_{n\\ge 1} \\gamma_{k,n}.\\]\n(Here \\(n>k\\) is implicit so the problem is nontrivial.)\n\nFor every integer \\(k>1\\), determine whether\n\\[\\lim_{n\\to\\infty} \\gamma_{k,n} \\,=\\, \\inf_{n\\ge 1} \\gamma_{k,n},\\]\nwhere \\(\\gamma_{k,n}:=\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\) is the tight IID \\(k\\)-unit prophet-inequality ratio for \\(n\\) agents.\n\nEquivalently, decide whether for each \\(k>1\\) the worst-case IID competitive ratio is achieved (or approached) in the large-\\(n\\) limit, rather than at some finite \\(n\\).",
+  "location_in_paper": "Page 6, Section 1.2 (New Results), item 2",
+  "open_problem_quote": "It remains a challenging problem to analytically verify for all \\(k > 1\\) our numerical observation that \\(\\lim_{n\\to\\infty} \\gamma_{k,n} = \\inf_{n\\ge 1} \\gamma_{k,n}\\), which would resolve the open question of \\(k\\)-unit IID prophet inequality.",
+  "area": "prophet inequalities",
+  "category": "Prophet Inequalities",
+  "keywords": [
+    "iid prophet inequality",
+    "multi-unit prophet",
+    "k-unit selection",
+    "competitive ratio",
+    "worst-case instance",
+    "asymptotic limit",
+    "dynamic programming"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can numerically compute (or tightly approximate) \\(\\gamma_{k,n}\\) for given \\((k,n)\\) via the paper's semi-infinite LP discretization, enabling automated searches for finite \\(n\\) where \\(\\gamma_{k,n}\\) dips below large-\\(n\\) values. However, the true infimum over all distributions \\(F\\) is infinite-dimensional, so an exhaustive counterexample search is not finite and would rely on discretizations/parametric families.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate objects include parametrized families of value distributions (e.g., discrete with bounded support size) and/or dual feasible solutions to the LP characterizations that yield upper/lower bounds on \\(\\gamma_{k,n}\\). A coding-agent loop can optimize these parameters against a computable fitness signal (estimated ratio or LP bound) to generate strong evidence or conjectured extremal distributions, but converting this into a proof of equality for all \\(k\\) likely requires analytic arguments beyond search.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.10274075
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem from Jiang--Ma--Zhang asks whether, for each fixed capacity \\(k>1\\) in the IID \\(k\\)-unit prophet inequality, the worst-case competitive ratio over all horizons \\(n\\), \\(\\gamma_k^{\\inf}=\\inf_n \\gamma_{k,n}\\), coincides with the asymptotic limit \\(\\gamma_k^{\\infty}=\\lim_{n\\to\\infty}\\gamma_{k,n}\\). In the notation of the source paper, \\(\\gamma_{k,n}\\) is the tight value of \\(\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\), where \\(\\mathrm{ALG}\\) is the optimal dynamic program. The source paper develops a two-stage primal/dual LP framework and its dual \u201cType Coverage\u201d interpretation, and in the IID case reduces the adversary\u2019s optimization to a semi-infinite LP over quantiles \\(q\\in(0,1]\\), highlighting that the dependence of \\(\\gamma_{k,n}\\) on \\(n\\) is subtle and not yet analytically controlled for \\(k\\ge2\\).\n\nThe strongest forward-citation progress comes from the LP/duality-to-ODE program in \u201cSplitting guarantees for prophet inequalities via nonlinear systems,\u201d and closely related thesis work \u201cOptimisation for prophet inequalities.\u201d These works give an exact infinite-dimensional LP characterization of \\(\\gamma_{k,n}\\) for each finite \\((k,n)\\), and then analyze the large-\\(n\\) regime via a coupled nonlinear ODE system \\(\\mathrm{NLS}_k(\\theta)\\) (a multi-dimensional analogue of the Hill--Kertz equation). Via dual fitting, they obtain explicit asymptotic lower bounds of the form \\(\\gamma_{k,n}\\ge (1-O(k\\ln^2 n/n))\\sum_{j=1}^k\\theta_j^\\star\\) for all sufficiently large \\(n\\), with numerically computed \\(\\sum_j\\theta_j^\\star\\) (e.g. \\(\\approx0.829\\) for \\(k=2\\)). However, they do not prove that \\(\\gamma_{k,n}\\) converges, nor that the infimum over \\(n\\) is attained asymptotically; indeed they explicitly leave open whether \\(\\inf_n \\gamma_{k,n}=\\sum_j\\theta_j^\\star\\) (or equals the large-\\(n\\) limit).\n\nOther forward citations provide adjacent asymptotic and structural tools rather than directly attacking \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\). \u201cStationary Online Contention Resolution Schemes\u201d pins down optimal stationary selectability for the \\(k\\)-uniform matroid as \\(\\alpha_k\\approx 1-\\sqrt{2/(\\pi k)}\\), which is relevant to ex-ante-style prophet analyses and resonates with the Type Coverage dual viewpoint, but it does not address the prophet benchmark or finite-\\(n\\) attainment. \u201cCompetition Versus Complexity in Multiple-Selection Prophet Inequalities\u201d and \u201cPosted Pricing and Competition in Large Markets\u201d analyze restricted policy classes (single thresholds / posted prices) and large-market limits under distributional assumptions; these results help map what can happen asymptotically for simpler algorithms, but they do not control the worst-case over all IID distributions for the optimal dynamic program.\n\nOverall, the equality \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\) for each fixed \\(k>1\\) remains open. The state of the art provides (i) exact LP characterizations for each finite \\((k,n)\\), (ii) asymptotically sharp-looking lower bounds derived from limiting ODE systems, and (iii) numerical evidence (already in the source paper and strengthened in subsequent work) suggesting convergence and that the worst case may be approached as \\(n\\to\\infty\\). A promising direction is to leverage the finite-\\(n\\) LP to prove monotonicity or near-monotonicity of \\(\\gamma_{k,n}\\) in \\(n\\), or to show that any finite-\\(n\\) extremizer can be \u201cembedded\u201d into larger horizons without decreasing the ratio, thereby forcing \\(\\inf_n\\) to coincide with the asymptotic value characterized by the ODE limit.",
+    "total_cost_usd": 0.9173580499999999,
+    "citations_analyzed": 13,
+    "sources": [
+      {
+        "title": "Splitting guarantees for prophet inequalities via nonlinear systems",
+        "bibtex": "@article{BrustlePerezSalazarVerdugo2024Splitting,\n  title={Splitting guarantees for prophet inequalities via nonlinear systems},\n  author={Brustle, J. and Perez-Salazar, S. and Verdugo, V.},\n  journal={Mathematics of Operations Research},\n  year={2024},\n  doi={10.1287/moor.2024.0413}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2024.0413",
+        "theorem_or_result": "They derive an exact infinite-dimensional LP characterization of the worst-case IID \nk-selection prophet ratio \\(\\gamma_{k,n}\\) for every finite \\((k,n)\\) (Theorem 1), and from its asymptotic analysis introduce a coupled nonlinear ODE system \\(\\mathrm{NLS}_k(\\theta)\\) with parameters \\(\\theta_1,\\dots,\\theta_k\\) such that for some \\(\\theta^\\star\\) admitting a solution \\((Y_1,\\dots,Y_k)\\), there exists \\(n_0(k)\\) with\n\\[\\gamma_{k,n}\\ge \\Bigl(1-\\tfrac{24k\\ln^2 n}{n}\\Bigr)\\sum_{j=1}^k \\theta_j^\\star\\quad\\text{for all }n\\ge n_0(k).\\]\nIn particular they compute numerical values \\(\\sum_{j=1}^k\\theta_j^\\star\\) (e.g. \\(\\approx0.8293\\) for \\(k=2\\)) giving improved asymptotic lower bounds on \\(\\liminf_{n\\to\\infty}\\gamma_{k,n}\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks whether for each fixed \\(k>1\\) the worst-case IID ratio over all \\(n\\), \\(\\gamma_k^{\\inf}=\\inf_n\\gamma_{k,n}\\), equals the asymptotic limit \\(\\gamma_k^{\\infty}=\\lim_{n\\to\\infty}\\gamma_{k,n}\\). This paper focuses on asymptotic analysis for large \\(n\\): it provides (i) an exact LP for each finite \\(n\\) and (ii) provable lower bounds on \\(\\gamma_{k,n}\\) for sufficiently large \\(n\\) that converge to \\(\\sum_j\\theta_j^\\star\\) as \\(n\\to\\infty\\). However, it does not establish where the infimum over \\(n\\) is attained, does not prove monotonicity or convergence of \\(\\gamma_{k,n}\\) in \\(n\\), and explicitly leaves open whether \\(\\inf_n\\gamma_{k,n}=\\sum_j\\theta_j^\\star\\) (and more generally whether the asymptotic characterization is tight). Thus it provides partial progress/tools toward analyzing \\(\\gamma_k^{\\infty}\\) but does not resolve equality \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\)."
+      },
+      {
+        "title": "Optimisation for prophet inequalities",
+        "bibtex": "@phdthesis{UnknownYearOptimisationProphet,\n  title={Optimisation for prophet inequalities},\n  author={{Unknown}},\n  school={{Unknown}},\n  year={2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Chapter 4 (\"Splitting Guarantees for Prophet Inequalities via Nonlinear Systems\") gives: - An exact infinite-dimensional LP characterization of the IID k-selection prophet ratio \\(\\gamma_{n,k}\\) (Theorem 9: \\(\\gamma_{n,k}\\) equals the optimal value of LP [P]_{n,k}\\)). - A coupled nonlinear ODE system (4.1)\u2013(4.3) parameterized by \\(\\theta_1,\\dots,\\theta_k\\) and a dual-fitting argument yielding, for \\(n\\) large enough, the lower bound (Theorem 10): \\[\\gamma_{n,k} \\ge \\Big(1-\\tfrac{24k\\ln(n)^2}{n}\\Big)\\sum_{j=1}^k \\theta_j^*,\\] where \\(\\theta^*\\) are parameters for which the ODE system has a solution (numerically giving e.g. \\(\\sum_{j=1}^2\\theta_j^*\\approx 0.829\\), \\(\\sum_{j=1}^3\\theta_j^*\\approx 0.8648\\), etc.).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks whether for each fixed k>1 the worst-case IID competitive ratio over all n equals its large-n limit, i.e. whether \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\) where \\(\\gamma_{k,n}=\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\).\n\nThis thesis is directly about IID k-selection prophet inequalities and studies \\(\\gamma_{n,k}\\) via an LP/dual/ODE framework, producing provable asymptotic lower bounds and numerical evidence for small k\\). It explicitly notes uncertainty about convergence in n\\) (Table 1.1) and, in Chapter 5.3, leaves open whether a finite-n\\) worst case equals the asymptotic quantity derived from the ODE/dual construction (it asks whether \\(\\inf_{n\\ge 1}\\gamma_{n,k}=\\sum_{\\ell=1}^k\\theta^*_{\\ell}\\)). Thus it does not resolve the equality \\(\\lim_{n\\to\\infty}\\gamma_{k,n}=\\inf_n\\gamma_{k,n}\\), but provides relevant tools and partial progress toward understanding large-n\\) behavior and potential slow convergence."
+      },
+      {
+        "title": "Posted Pricing and Competition in Large Markets",
+        "bibtex": "@article{UnknownYearPostedPricingLargeMarkets,\n  title={Posted Pricing and Competition in Large Markets},\n  author={{Unknown}},\n  journal={{Unknown}},\n  year={2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies large-market (fixed distribution, \\(n\\to\\infty\\)) guarantees for posted/fixed prices in i.i.d. \\(k\\)-unit allocation. Defining \\(\\mathrm{apx}_k(F)=\\liminf_{n\\to\\infty}\\sup_T \\mathbb{E}(R^n_{k,T})/\\sum_{j=1}^k \\mathbb{E}(M_n^j)\\), it proves (Thm. 1) that if \\(F\\) satisfies an extreme-value condition then: (a) for Fr\\'echet type with parameter \\(\\alpha\\), \\(\\mathrm{apx}_k(F)\\ge \\varphi_k(\\alpha)\\) where \\(\\varphi_k\\) is an explicit maximization (Eq. (3)), implying \\(\\mathrm{apx}_1(F)\\ge 0.712\\) and \\(\\mathrm{apx}_k(F)\\ge 1-1/\\sqrt{2\\pi k}\\); (b) for Gumbel or reversed Weibull types, \\(\\mathrm{apx}_k(F)=1\\). It also shows tightness in \\(k\\) for Pareto(2): for any \\(\\varepsilon>0\\), for large \\(k\\), \\(\\mathrm{apx}_k(F)\\le 1-(1-\\varepsilon)/\\sqrt{2\\pi k}\\) (Thm. 2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether for each fixed \\(k>1\\) the worst-case i.i.d. \\(k\\)-unit prophet ratio \\(\\gamma_{k,n}=\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\) has its infimum over \\(n\\) attained asymptotically: \\(\\lim_{n\\to\\infty}\\gamma_{k,n}=\\inf_n \\gamma_{k,n}\\). This paper does not analyze \\(\\gamma_{k,n}\\) for the optimal online policy \\(\\mathrm{ALG}\\) nor compare finite-\\(n\\) vs asymptotic worst-case over all \\(F\\). Instead it studies a different performance measure: the large-\\(n\\) guarantee of fixed-price (single-threshold) policies for welfare/revenue, under a restriction that \\(F\\) satisfies an extreme-value condition. Thus it provides asymptotic large-market bounds and tightness examples for a restricted policy class and restricted \\(F\\), which are related in spirit but do not resolve whether the worst-case optimal-policy ratio is achieved as \\(n\\to\\infty\\)."
+      },
+      {
+        "title": "Stationary Online Contention Resolution Schemes",
+        "bibtex": "@article{UnknownYearStationaryOCRS,\n  title={Stationary Online Contention Resolution Schemes},\n  author={{Unknown}},\n  journal={{Unknown}},\n  year={2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For the k-uniform matroid (select at most k active elements), the paper constructs an optimal stationary online contention resolution scheme (S-OCRS) with selectability\n\\[\\alpha_k := \\Pr[Q<k\\mid Q\\le k]=\\frac{\\Pr[Q<k]}{\\Pr[Q\\le k]}\\approx 1-\\sqrt{\\tfrac{2}{\\pi k}}+O(1/k),\\quad Q\\sim \\mathrm{Poisson}(k).\\]\nEquivalently, for every activation vector \\(x\\in P=\\{x\\in[0,1]^E:\\sum_e x_e\\le k\\}\\), there exists a Gibbs distribution \\(\\mu^*\\) over feasible sets \\(|S|\\le k\\) such that the simulate-then-replace online algorithm implements \\(\\mu^*\\) for every arrival order and guarantees \\(\\Pr[e\\in S]\\ge \\alpha_k x_e\\) for all elements \\(e\\). The paper also proves \\(\\alpha_k\\) is the best possible selectability achievable by any stationary OCRS for k-uniform matroids.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 6,
+        "connection": "The open problem asks whether, in IID k-unit prophet inequalities, the worst-case competitive ratio over distributions \\(F\\) for fixed \\((n,k)\\), namely \\(\\gamma_{k,n}\\), has its infimum over \\(n\\) attained asymptotically as \\(n\\to\\infty\\) (i.e., whether \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\)). This paper does not analyze \\(\\gamma_{k,n}\\) or its dependence on \\(n\\) in the IID prophet model. Instead it studies (stationary) online contention resolution schemes (OCRSs) for ex-ante relaxations with independently active elements, and gives tight stationary selectability constants for the k-uniform matroid. These results are relevant because OCRSs are a standard tool to derive prophet inequalities (via ex-ante relaxations), and the k-uniform matroid corresponds to the k-unit selection constraint. However, the paper\u2019s guarantees are for OCRS selectability (and stationarity), not for the IID prophet benchmark \\(\\mathbb{E}[\\sum_{t=1}^k R_{(t)}]\\), and it does not address whether the worst-case IID prophet ratio occurs at finite \\(n\\) or only as \\(n\\to\\infty\\). Thus it provides related techniques/partial progress but does not resolve the equality \\(\\lim_{n\\to\\infty}\\gamma_{k,n}=\\inf_n\\gamma_{k,n}\\)."
+      },
+      {
+        "title": "Competition Versus Complexity in Multiple-Selection Prophet Inequalities",
+        "bibtex": "@article{UnknownYearCompetitionVersusComplexity,\n  title={Competition Versus Complexity in Multiple-Selection Prophet Inequalities},\n  author={{Unknown}},\n  journal={{Unknown}},\n  year={2024}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper exactly characterizes, for IID multi-unit selection with prophet benchmark, the worst-case competitive ratio of the best single-threshold algorithm when the online player sees a length-\nm sequence but is compared to a prophet on length-\nn: \n\\[\\gamma_{m,n,k}^{\\text{(single-threshold)}}=\\frac{1}{k}Q_{m,k}(k/n)=\\frac{1}{k}\\Big(k-\\sum_{\\ell=0}^{k-1}(k-\\ell)\\binom{m}{\\ell}(k/n)^\\ell(1-k/n)^{m-\\ell}\\Big),\\]\nwhere \\(Q_{m,k}(q)=\\mathbb{E}[\\min\\{k,Y\\}]\\) for \\(Y\\sim\\mathrm{Binomial}(m,q)\\). In particular, for \\(m=n\\) this yields \\(\\gamma_{n,n,1}=1-(1-1/n)^n\\to 1-1/e\\) and for fixed \\(k>1\\) gives the known \\(\\approx 1-1/\\sqrt{2\\pi k}\\) guarantee for single-threshold policies. It also derives bounds on the (1\n\n\n-\n\n\n\\(\\varepsilon\\))-competition complexity \\(\\beta_k(\\varepsilon)\\) for single-threshold algorithms, including \\(\\beta_1(\\varepsilon)=\\ln(1/\\varepsilon)\\) and for \\(k>1\\), \\(\\ln(1/\\varepsilon)/k\\le \\beta_k(\\varepsilon)\\le 1+\\frac{2\\ln(1/\\varepsilon)}{k-1}+\\sqrt{\\frac{2\\ln(1/\\varepsilon)}{k-1}}\\).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks whether, for the optimal online policy (dynamic program) in the IID k-unit prophet inequality, the worst-case ratio \\(\\gamma_{k,n}=\\inf_F \\mathrm{ALG}(F,n,k)/\\mathrm{Proph}(F,n,k)\\) has its infimum over \\(n\\) attained asymptotically as \\(n\\to\\infty\\), i.e., whether \\(\\gamma_k^{\\infty}=\\gamma_k^{\\inf}\\). This paper does not analyze \\(\\gamma_{k,n}\\) for the optimal online policy at fixed \\(n\\); instead it studies a different objective: the best single-threshold policy on \\(m\\) samples compared to a prophet on \\(n\\) samples (competition complexity). It provides an exact formula for \\(\\inf_F \\sup_q \\mathrm{ALG}_{\\text{1-thresh}}(F,m,k,q)/\\mathrm{Proph}(F,n,k)\\), and in particular recovers the known asymptotic \\(1-\\Theta(1/\\sqrt{k})\\) guarantee when \\(m=n\\). While the LP/duality techniques and quantile-space formulations may be relevant tools for studying worst-case distributions and asymptotics, the results do not resolve whether \\(\\inf_n \\gamma_{k,n}\\) equals \\(\\lim_{n\\to\\infty}\\gamma_{k,n}\\) for the optimal (multi-threshold) dynamic program."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.10274075,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.9173580499999999,
+    "total_cost_usd": 1.0200988
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383557893/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383557893/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383557893_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383557893_p0",
+    "citations_analyzed": 13,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

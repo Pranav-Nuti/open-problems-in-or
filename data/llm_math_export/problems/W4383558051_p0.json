@@ -1,0 +1,78 @@
+{
+  "problem_id": "W4383558051_p0",
+  "paper_id": "W4383558051",
+  "source_paper": "W4383558051",
+  "source_paper_title": "Regret Minimization with Noisy Observations",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597789",
+  "source_paper_authors": [
+    "Mohammad Mahdian",
+    "Jieming Mao",
+    "Kangning Wang"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383558051,\n  title = {Regret Minimization with Noisy Observations},\n  author = {Mohammad Mahdian and Jieming Mao and Kangning Wang},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 8 (Conclusions), page 17 (arXiv:2207.09435v1)\n\nCan we prove a better constant bound on the performance of the Offset\\(\\theta\\) algorithm? The worst example we know is a factor of 2 (which follows from the results in Section 7).",
+  "title": "Improve constant approximation bound for Offset\u03b8 regret minimization under additive noise",
+  "background_latex": "Let there be a set of items \\(N=\\{1,2,\\dots,n\\}\\). Each item \\(i\\) has an intrinsic value \\(v_i\\in\\mathbb{R}\\) (unknown to the algorithm) and an independent additive noise \\(a_i\\) drawn from a known distribution \\(A_i\\) with \\(\\mathbb{E}[a_i]=0\\). The algorithm observes \\(s_i := v_i + a_i\\) and knows the noise distributions \\(A:=(A_1,\\dots,A_n)\\).\n\nAn (possibly randomized) algorithm \\(\\mathrm{Alg}\\) selects one item based on \\((s,A)\\). Let \\(\\mathrm{Alg}(s,A;v)\\) denote the expected intrinsic value of the selected item when the intrinsic value vector is \\(v\\) and the observed vector is \\(s=v+a\\). The regret on a fixed value vector \\(v\\in\\mathbb{R}^n\\) is\n\\[\n\\mathrm{Reg}(\\mathrm{Alg},v):= \\max_{i\\in N} v_i\\; -\\; \\mathbb{E}_{a\\sim A}\\big[\\mathrm{Alg}(v+a,A;v)\\big].\n\\]\nThe worst-case regret is \\(\\mathrm{Reg}(\\mathrm{Alg}) := \\sup_{v\\in\\mathbb{R}^n} \\mathrm{Reg}(\\mathrm{Alg},v)\\). For fixed noise distributions \\(A\\), define\n\\[\n\\mathrm{OPT}(A):=\\inf_{\\mathrm{Alg}} \\mathrm{Reg}(\\mathrm{Alg}).\n\\]\n\nFix a mapping \\(\\theta\\) that assigns to each noise distribution \\(D\\) a real offset \\(\\theta(D)\\). Define \\(\\theta_i:=\\theta(A_i)\\). The offset algorithm \\(\\mathrm{Offset}_\\theta\\) selects an index in\n\\[\n\\arg\\max_{i\\in N}\\{s_i-\\theta_i\\}.\n\\]\nA particular choice of \\(\\theta\\) is defined by a minimax threshold rule in the binary case (two items) and then applied itemwise for general \\(n\\). For that specific \\(\\theta\\), a universal constant \\(C\\) is proved such that \\(\\mathrm{Reg}(\\mathrm{Offset}_\\theta)\\le C\\,\\mathrm{OPT}(A)\\) for all \\(n\\) and all collections of independent mean-zero noises satisfying the paper's standing regularity assumption that, for each \\(i\\), the function \\(\\varphi_i(x):=\\Pr_{a_i\\sim A_i}(|a_i|\\ge x)\\cdot x\\) is bounded over \\(x\\in[0,\\infty)\\).",
+  "problem_definition_latex": "For the specific offset mapping \\(\\theta\\) defined by the minimax threshold rule in the binary case and applied itemwise, prove an improved universal constant-factor guarantee\n\\[\n\\mathrm{Reg}(\\mathrm{Offset}_\\theta)\\le c\\,\\mathrm{OPT}(A)\n\\]\nwith some constant \\(c\\) strictly smaller than the currently proved value (\\(c=57000\\)), uniformly over all numbers of items \\(n\\) and all collections of independent mean-zero noise distributions \\(A=(A_1,\\dots,A_n)\\) satisfying that each \\(\\varphi_i(x)=\\Pr_{a_i\\sim A_i}(|a_i|\\ge x)\\cdot x\\) is bounded on \\([0,\\infty)\\).",
+  "latex": "Let there be a set of items \\(N=\\{1,2,\\dots,n\\}\\). Each item \\(i\\) has an intrinsic value \\(v_i\\in\\mathbb{R}\\) (unknown to the algorithm) and an independent additive noise \\(a_i\\) drawn from a known distribution \\(A_i\\) with \\(\\mathbb{E}[a_i]=0\\). The algorithm observes \\(s_i := v_i + a_i\\) and knows the noise distributions \\(A:=(A_1,\\dots,A_n)\\).\n\nAn (possibly randomized) algorithm \\(\\mathrm{Alg}\\) selects one item based on \\((s,A)\\). Let \\(\\mathrm{Alg}(s,A;v)\\) denote the expected intrinsic value of the selected item when the intrinsic value vector is \\(v\\) and the observed vector is \\(s=v+a\\). The regret on a fixed value vector \\(v\\in\\mathbb{R}^n\\) is\n\\[\n\\mathrm{Reg}(\\mathrm{Alg},v):= \\max_{i\\in N} v_i\\; -\\; \\mathbb{E}_{a\\sim A}\\big[\\mathrm{Alg}(v+a,A;v)\\big].\n\\]\nThe worst-case regret is \\(\\mathrm{Reg}(\\mathrm{Alg}) := \\sup_{v\\in\\mathbb{R}^n} \\mathrm{Reg}(\\mathrm{Alg},v)\\). For fixed noise distributions \\(A\\), define\n\\[\n\\mathrm{OPT}(A):=\\inf_{\\mathrm{Alg}} \\mathrm{Reg}(\\mathrm{Alg}).\n\\]\n\nFix a mapping \\(\\theta\\) that assigns to each noise distribution \\(D\\) a real offset \\(\\theta(D)\\). Define \\(\\theta_i:=\\theta(A_i)\\). The offset algorithm \\(\\mathrm{Offset}_\\theta\\) selects an index in\n\\[\n\\arg\\max_{i\\in N}\\{s_i-\\theta_i\\}.\n\\]\nA particular choice of \\(\\theta\\) is defined by a minimax threshold rule in the binary case (two items) and then applied itemwise for general \\(n\\). For that specific \\(\\theta\\), a universal constant \\(C\\) is proved such that \\(\\mathrm{Reg}(\\mathrm{Offset}_\\theta)\\le C\\,\\mathrm{OPT}(A)\\) for all \\(n\\) and all collections of independent mean-zero noises satisfying the paper's standing regularity assumption that, for each \\(i\\), the function \\(\\varphi_i(x):=\\Pr_{a_i\\sim A_i}(|a_i|\\ge x)\\cdot x\\) is bounded over \\(x\\in[0,\\infty)\\).\n\nFor the specific offset mapping \\(\\theta\\) defined by the minimax threshold rule in the binary case and applied itemwise, prove an improved universal constant-factor guarantee\n\\[\n\\mathrm{Reg}(\\mathrm{Offset}_\\theta)\\le c\\,\\mathrm{OPT}(A)\n\\]\nwith some constant \\(c\\) strictly smaller than the currently proved value (\\(c=57000\\)), uniformly over all numbers of items \\(n\\) and all collections of independent mean-zero noise distributions \\(A=(A_1,\\dots,A_n)\\) satisfying that each \\(\\varphi_i(x)=\\Pr_{a_i\\sim A_i}(|a_i|\\ge x)\\cdot x\\) is bounded on \\([0,\\infty)\\).",
+  "location_in_paper": "Section 8 (Conclusions), page 17 (arXiv:2207.09435v1)",
+  "open_problem_quote": "Can we prove a better constant bound on the performance of the Offset\\(\\theta\\) algorithm? The worst example we know is a factor of 2 (which follows from the results in Section 7).",
+  "area": "regret minimization",
+  "category": "Online Algorithms & Optimal Stopping",
+  "keywords": [
+    "worst-case regret",
+    "noisy observations",
+    "constant-factor approximation",
+    "offset algorithms",
+    "adversarial values"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Searching for tight lower-bound instances for the approximation factor can be cast as generating noise distributions (e.g., discrete mixtures) and adversarial value vectors and numerically estimating \\(\\mathrm{Reg}(\\mathrm{Offset}_\\theta)/\\mathrm{OPT}(A)\\). However, computing \\(\\mathrm{OPT}(A)\\) exactly is itself an infinite-dimensional optimization over policies, so automated searches would likely rely on restricted policy classes or relaxations, limiting conclusiveness.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop can explore families of noise distributions and value instances and attempt to (i) find larger empirical gaps (lower bounds) or (ii) experiment with proof-inspired inequalities to tighten constants in the existing analysis. The fitness signal can be an estimated gap using numerical optimization over a parameterized policy class, but faithfully capturing \\(\\mathrm{OPT}(A)\\) remains challenging, making progress suggestive rather than definitive.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.022755249999999998
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.0,
+    "citations_analyzed": 0,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.022755249999999998,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.0,
+    "total_cost_usd": 0.022755249999999998
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558051/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558051/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383558051_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383558051_p0",
+    "citations_analyzed": 0,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

@@ -26,6 +26,7 @@
 
   <main>
     <div class="wip-warning" role="alert">Work in Progress</div>
+    <nav class="journal-tabs" id="journal-tabs" aria-label="Source journal"></nav>
     <div id="unverified-banner" class="unverified-banner" role="alert" hidden>
       <strong>Unverified entries.</strong>
       <span class="unverified-notice"></span>
@@ -117,7 +118,30 @@
     let PROBLEM_SEARCH_INDEX = null;
     let FILTERED = [];
     let totalPages = 1;
-    const VIEW = { q: "", category: "", area: "", attempt: "", sort: "default", page: 1 };
+    const VIEW = { q: "", category: "", area: "", attempt: "", sort: "default", page: 1, journal: "" };
+
+    function journalOptions() {
+      return Array.isArray(window.SITE_CONFIG?.journals) ? window.SITE_CONFIG.journals : [];
+    }
+
+    function defaultJournal() {
+      const configured = String(window.SITE_CONFIG?.defaultJournal || "").trim();
+      if (configured) {
+        return configured;
+      }
+      const options = journalOptions();
+      return options.length ? String(options[0].value || "") : "";
+    }
+
+    function normalizeJournal(value) {
+      const needle = String(value || "").trim();
+      const options = journalOptions();
+      if (!needle) {
+        return defaultJournal();
+      }
+      const match = options.find((entry) => entry.value === needle);
+      return match ? match.value : defaultJournal();
+    }
 
     function readStateFromUrl() {
       const params = new URLSearchParams(window.location.search);
@@ -128,6 +152,7 @@
       VIEW.attempt = ATTEMPT_FILTERS.has(attempt) ? attempt : "";
       const sort = (params.get("sort") || "default").trim();
       VIEW.sort = SORT_OPTIONS.has(sort) ? sort : "default";
+      VIEW.journal = normalizeJournal(params.get("journal") || "");
       const page = Number.parseInt(params.get("page") || "1", 10);
       VIEW.page = Number.isFinite(page) && page > 0 ? page : 1;
     }
@@ -149,6 +174,9 @@
       }
       if (VIEW.sort && VIEW.sort !== "default") {
         params.set("sort", VIEW.sort);
+      }
+      if (VIEW.journal) {
+        params.set("journal", VIEW.journal);
       }
       if (VIEW.page > 1) {
         params.set("page", String(VIEW.page));
@@ -259,6 +287,9 @@
         : null;
       const areaNeedle = VIEW.area.toLowerCase();
       FILTERED = ALL_PROBLEMS.filter((p) => {
+        if (VIEW.journal && p.source_paper_journal !== VIEW.journal) {
+          return false;
+        }
         if (searchIds && !searchIds.has(p.problem_id)) {
           return false;
         }
@@ -313,6 +344,9 @@
       const params = new URLSearchParams();
       params.set("id", p.problem_id);
       params.set("n", String(p.__number));
+      if (VIEW.journal) {
+        params.set("journal", VIEW.journal);
+      }
       const q = VIEW.q.trim();
       if (q) {
         params.set("q", q);
@@ -365,7 +399,7 @@
       const countEl = document.getElementById('list-status-count');
       const filtersEl = document.getElementById('active-filters');
       const clearBtn = document.getElementById('list-clear-btn');
-      const total = ALL_PROBLEMS.length;
+      const total = ALL_PROBLEMS.filter((p) => p.source_paper_journal === VIEW.journal).length;
       const shown = FILTERED.length;
       const filtering = Boolean(VIEW.q.trim() || VIEW.category || VIEW.area || VIEW.attempt);
 
@@ -453,6 +487,8 @@
       applyFilters();
       writeStateToUrl();
       syncControls();
+      buildJournalTabs();
+      buildCategoryOptions();
       renderProblems();
     }
 
@@ -474,9 +510,28 @@
       attemptSelect.value = VIEW.attempt;
     }
 
+    function buildJournalTabs() {
+      const tabsEl = document.getElementById("journal-tabs");
+      const counts = new Map();
+      for (const problem of ALL_PROBLEMS) {
+        const journal = String(problem.source_paper_journal || "");
+        if (!journal) {
+          continue;
+        }
+        counts.set(journal, (counts.get(journal) || 0) + 1);
+      }
+      tabsEl.innerHTML = journalOptions().map((entry) => {
+        const value = String(entry.value || "");
+        const label = String(entry.shortLabel || entry.label || value);
+        const count = counts.get(value) || 0;
+        const active = VIEW.journal === value ? " journal-tab-active" : "";
+        return `<button type="button" class="journal-tab${active}" data-journal="${escapeHtml(value)}">${escapeHtml(label)} (${count})</button>`;
+      }).join("");
+    }
+
     function buildCategoryOptions() {
       const counts = new Map();
-      for (const p of ALL_PROBLEMS) {
+      for (const p of FILTERED) {
         counts.set(p.__category, (counts.get(p.__category) || 0) + 1);
       }
       const ordered = CATEGORY_ORDER.filter((c) => counts.has(c) || FEATURED_SET.has(c));
@@ -488,7 +543,7 @@
       if (counts.has(FALLBACK_CATEGORY)) {
         ordered.push(FALLBACK_CATEGORY);
       }
-      const options = [`<option value="">All topics (${ALL_PROBLEMS.length})</option>`];
+      const options = [`<option value="">All topics (${FILTERED.length})</option>`];
       for (const c of ordered) {
         options.push(`<option value="${escapeHtml(c)}">${escapeHtml(c)} (${counts.get(c) || 0})</option>`);
       }
@@ -504,6 +559,23 @@
       const filtersEl = document.getElementById("active-filters");
       const pagination = document.getElementById("pagination");
       const listEl = document.getElementById("problem-list");
+      const journalTabs = document.getElementById("journal-tabs");
+
+      journalTabs.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-journal]");
+        if (!tab) {
+          return;
+        }
+        const journal = tab.getAttribute("data-journal") || "";
+        if (!journal || journal === VIEW.journal) {
+          return;
+        }
+        VIEW.journal = journal;
+        VIEW.category = "";
+        VIEW.area = "";
+        refresh({ resetPage: true });
+        buildJournalTabs();
+      });
 
       searchInput.addEventListener("input", () => {
         VIEW.q = searchInput.value;
@@ -676,7 +748,10 @@
         readStateFromUrl();
         const solutionManifest = await loadSolutionAttemptManifest();
         await loadProblems(solutionManifest);
-        buildCategoryOptions();
+        if (!VIEW.journal) {
+          VIEW.journal = defaultJournal();
+        }
+        buildJournalTabs();
         wireControls();
         refresh();
       } catch (err) {

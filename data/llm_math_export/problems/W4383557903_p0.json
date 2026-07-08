@@ -1,0 +1,95 @@
+{
+  "problem_id": "W4383557903_p0",
+  "paper_id": "W4383557903",
+  "source_paper": "W4383557903",
+  "source_paper_title": "Adwords with Unknown Budgets and Beyond",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597724",
+  "source_paper_authors": [
+    "Rajan Udwani"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383557903,\n  title = {Adwords with Unknown Budgets and Beyond},\n  author = {Rajan Udwani},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 6 (Conclusion), page 31\n\nAn immediate open question from our work is to find out the best possible competitive ratio guarantee for the Adwords problem with unknown budgets.",
+  "title": "Determine best competitive ratio guarantee for Adwords with unknown budgets setting",
+  "background_latex": "Consider the online Adwords (online budgeted allocation) problem on a bipartite graph with offline vertices (advertisers/resources) indexed by a finite set \\(I\\) and online vertices (queries/arrivals) that arrive sequentially over time.\n\n1) Budgets/capacities: Each advertiser \\(i\\in I\\) has a budget \\(B_i>0\\). The algorithm does not know \\(B_i\\) in advance; it learns that \\(B_i\\) has been exhausted only when the algorithm\u2019s cumulative charge to advertiser \\(i\\) reaches \\(B_i\\).\n\n2) Bids and online decisions: When an arrival occurs, the algorithm observes nonnegative bids \\((b_{i,t})_{i\\in I}\\) for that arrival and must immediately and irrevocably choose at most one advertiser to serve it, subject to having positive remaining budget at that time.\n\n3) Revenue/feasibility: If the algorithm assigns arrival \\(t\\) to advertiser \\(i\\), it earns revenue equal to the payment collected from \\(i\\) for this arrival, with the total payment collected from \\(i\\) over all time capped by \\(B_i\\) (equivalently, payment for a single arrival is truncated by the advertiser\u2019s remaining budget).\n\n4) Offline benchmark: \\(\\mathrm{OPT}\\) denotes the total revenue of an optimal offline allocation that knows the entire instance in advance, including all budgets and bids.\n\n5) Competitive ratio guarantee: A (possibly randomized) online algorithm is said to have competitive ratio guarantee \\(c\\in[0,1]\\) if for every instance, its expected revenue is at least \\(c\\,\\mathrm{OPT}\\).",
+  "problem_definition_latex": "Find the best possible competitive ratio guarantee \\(c\\in[0,1]\\) that can be achieved (in the above setting) for the Adwords problem with unknown budgets, i.e., determine the largest constant \\(c\\) for which there exists an online algorithm whose expected revenue is at least \\(c\\,\\mathrm{OPT}\\) on every instance of the Adwords problem with unknown budgets (where budgets are revealed only upon exhaustion).",
+  "latex": "Consider the online Adwords (online budgeted allocation) problem on a bipartite graph with offline vertices (advertisers/resources) indexed by a finite set \\(I\\) and online vertices (queries/arrivals) that arrive sequentially over time.\n\n1) Budgets/capacities: Each advertiser \\(i\\in I\\) has a budget \\(B_i>0\\). The algorithm does not know \\(B_i\\) in advance; it learns that \\(B_i\\) has been exhausted only when the algorithm\u2019s cumulative charge to advertiser \\(i\\) reaches \\(B_i\\).\n\n2) Bids and online decisions: When an arrival occurs, the algorithm observes nonnegative bids \\((b_{i,t})_{i\\in I}\\) for that arrival and must immediately and irrevocably choose at most one advertiser to serve it, subject to having positive remaining budget at that time.\n\n3) Revenue/feasibility: If the algorithm assigns arrival \\(t\\) to advertiser \\(i\\), it earns revenue equal to the payment collected from \\(i\\) for this arrival, with the total payment collected from \\(i\\) over all time capped by \\(B_i\\) (equivalently, payment for a single arrival is truncated by the advertiser\u2019s remaining budget).\n\n4) Offline benchmark: \\(\\mathrm{OPT}\\) denotes the total revenue of an optimal offline allocation that knows the entire instance in advance, including all budgets and bids.\n\n5) Competitive ratio guarantee: A (possibly randomized) online algorithm is said to have competitive ratio guarantee \\(c\\in[0,1]\\) if for every instance, its expected revenue is at least \\(c\\,\\mathrm{OPT}\\).\n\nFind the best possible competitive ratio guarantee \\(c\\in[0,1]\\) that can be achieved (in the above setting) for the Adwords problem with unknown budgets, i.e., determine the largest constant \\(c\\) for which there exists an online algorithm whose expected revenue is at least \\(c\\,\\mathrm{OPT}\\) on every instance of the Adwords problem with unknown budgets (where budgets are revealed only upon exhaustion).",
+  "location_in_paper": "Section 6 (Conclusion), page 31",
+  "open_problem_quote": "An immediate open question from our work is to find out the best possible competitive ratio guarantee for the Adwords problem with unknown budgets.",
+  "area": "online budgeted allocation",
+  "category": "Online Matching",
+  "keywords": [
+    "Adwords",
+    "unknown budgets",
+    "budget oblivious",
+    "competitive ratio",
+    "online allocation"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The question asks for the best achievable competitive-ratio constant. Automated search can generate hard instances to improve upper bounds for specific algorithm families or to stress-test candidate algorithms, but ruling out all algorithms (or certifying tightness) is not directly decidable by finite search alone.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop can parameterize and evolve budget-oblivious randomized policies (e.g., priority/perturbation rules) and evaluate their worst-case performance on large adversarially generated instance families to discover improved lower-bound candidates or new upper-bound instances, but this would not by itself certify the true optimum across all algorithms.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.02220225
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The unknown-budgets (budget-oblivious) Adwords/OBA model\u2014where budgets \\(B_i\\) are not known and are only revealed upon exhaustion\u2014breaks the standard primal-dual and bid-pricing approaches that rely on knowing \\(B_i\\) (e.g., the \\((1-1/e)\\)-competitive algorithm of Mehta et al.). The core difficulty is informational: the algorithm cannot calibrate decisions to remaining-budget fractions, and even deterministic emulation of randomized behavior can fail because partial spending does not reveal whether a budget is small or large.\n\nThe main partial progress is due to Udwani\u2019s \"Adwords with Unknown Budgets and Beyond\". It proves a tight upper bound of \\(1/2\\) for deterministic algorithms (even for binary bids/large budgets), and gives the first randomized budget-oblivious algorithm beating \\(1/2\\): Generalized Perturbed Greedy (GPG), which perturbs each advertiser by a random seed and uses bid prices \\(b_{i,t}(1-e^{\\beta(y_i-1)})\\) independent of \\(B_i\\). Via an LP-free certificate analysis applied first to a fractional relaxation (f-GPG) and then transferred to the integral algorithm with a \\(1/(1+\\gamma)\\) loss, the paper obtains guarantees \\(0.522/(1+\\gamma)\\) (for \\(\\beta=1.15\\)) and \\(0.508/(1+\\gamma)\\) (for \\(\\beta=1\\)), hence \\(0.522\\) and \\(0.508\\) in the small-bids limit \\(\\gamma\\to 0\\). It also shows GPG cannot reach \\(1-1/e\\) in general, proving an explicit upper bound of 0.624 for all \\(\\beta\\ge 1\\), and identifies structural obstacles (failure of dominance/no-surpassing) that prevent direct extension of known Ranking/Perturbed-Greedy analyses.\n\nAt present, the best achievable competitive ratio for adversarial unknown-budget Adwords remains undetermined: we have a deterministic barrier at \\(1/2\\), a randomized lower bound of 0.522 (small bids), and no matching upper bound for the optimal randomized competitive ratio. Promising directions include (i) sharpening the LP-free analysis (the paper notes several individually tight steps but potentially loose composition), (ii) designing algorithms beyond multiplicative seed perturbations (since Liang et al.-type impossibility results for greedy-with-scaling suggest limits for broad classes), and (iii) proving information-theoretic upper bounds specific to budget revelation upon exhaustion (separating it from known-capacity Adwords), potentially via adversarial constructions that exploit delayed budget discovery.",
+    "total_cost_usd": 0.35313249999999996,
+    "citations_analyzed": 4,
+    "sources": [
+      {
+        "title": "Asymptotically optimal competitive ratio for online allocation of reusable resources",
+        "bibtex": "@article{GoyalIyengarUdwani2021ReusableResources,\n  title={Asymptotically optimal competitive ratio for online allocation of reusable resources},\n  author={Goyal, Vineet and Iyengar, Garud and Udwani, Rajan},\n  journal={Operations Research},\n  year={2021},\n  doi={10.1287/opre.2021.0695}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2021.0695",
+        "theorem_or_result": "The paper studies online allocation of reusable resources with stochastic usage durations. Main results include: - For online bipartite matching with reusable resources (OBMR), there exists a realization-independent online algorithm with competitive ratio \\((1-1/e-\\delta)\\) where \\(\\delta=O(\\sqrt{\\log c_{\\min}/c_{\\min}})\\), approaching \\((1-1/e)\\) as capacities \\(c_{\\min}\\to\\infty\\) (Theorem 2). - This asymptotic \\((1-1/e)\\) is optimal for OBMR in the large-capacity regime. - A simpler Rank Based Allocation (RBA) algorithm is \\((1-1/e)-\\delta\\)-competitive for several families of usage distributions (e.g., IFR) with explicit convergence rates (Theorem 13). - The framework extends to online assortments with multi-unit demand (a model that includes Adwords) in the large-inventory regime, giving a \\((1-1/e-\\delta)\\) guarantee with \\(\\delta=O(\\sqrt{\\log \\gamma/\\gamma})\\) (Theorem 15).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for the best competitive ratio for the Adwords problem when advertiser budgets \\(B_i\\) are unknown and only revealed upon exhaustion. This paper does not study unknown budgets; it assumes capacities/budgets are known (and focuses on reusability/stochastic return of capacity). While it treats a general model that includes budgeted allocation/Adwords as a special case (Section 5), its guarantees are for the large-inventory (small-bids) regime and with known capacities, not the unknown-budget revelation model. Thus it does not resolve the unknown-budgets competitive ratio question. Its relevance is mainly methodological/background: it develops LP-free primal-dual-like certificates and algorithms for online allocation, which might inspire approaches for unknown budgets but does not directly address that information constraint."
+      },
+      {
+        "title": "Stationary Online Contention Resolution Schemes",
+        "bibtex": "@article{StationaryOCRS,\n  title={Stationary Online Contention Resolution Schemes},\n  author={{{Unknown}}},\n  year={\\{\\}},\n  note={Metadata not provided in prompt (authors/year/venue/URL missing)}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces stationary online contention resolution schemes (S-OCRSs) and gives explicit, implementable S-OCRSs with improved selectability constants for several feasibility systems, notably an optimal stationary constant \\(\\alpha^*=(3-\\sqrt5)/2\\) for bipartite matchings and an optimal stationary constant \\(\\alpha_k=\\Pr[Q<k\\mid Q\\le k]\\) (\\(Q\\sim\\mathrm{Poisson}(k)\\)) for \\(k\\)-uniform matroids, via a maximum-entropy/Gibbs-distribution framework and a universal \u201csimulate-then-replace\u201d implementation.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks for the best competitive ratio for adversarial online Adwords with unknown budgets. This paper does not study unknown budgets or adversarial budgeted allocation; instead it develops OCRS/S-OCRS primitives for Bayesian/ex-ante rounding under downward-closed feasibility constraints (matchings, matroids). While such primitives can be used as building blocks in some Bayesian online allocation and prophet-inequality settings, they do not directly yield a competitive ratio for Adwords with unknown budgets, nor address the information structure where budgets are revealed only upon exhaustion. Any connection would be indirect (as a potential rounding/admission-control subroutine in stochastic models), not a resolution of the worst-case competitive ratio question."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.02220225,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.35313249999999996,
+    "total_cost_usd": 0.37533474999999994
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383557903/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383557903/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383557903_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383557903_p0",
+    "citations_analyzed": 4,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "problem_id": "W4383558145_p0",
+  "paper_id": "W4383558145",
+  "source_paper": "W4383558145",
+  "source_paper_title": "Improved Bounds for Single-Nomination Impartial Selection",
+  "source_paper_url": "https://doi.org/10.1145/3580507.3597693",
+  "source_paper_authors": [
+    "Javier Cembrano",
+    "Felix Fischer",
+    "Max Klimm"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2023,
+  "source_paper_bibtex": "@inproceedings{W4383558145,\n  title = {Improved Bounds for Single-Nomination Impartial Selection},\n  author = {Javier Cembrano and Felix Fischer and Max Klimm},\n  booktitle = {Economics and Computation (EC)},\n  year = {2023}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 Upper Bounds, page 14 (end of section introduction) and also Section 1.1 Our Contribution, page 3 (end)\n\nLike the bounds of Fischer and Klimm they tend to \\(3/4\\) as \\(n\\) goes to infinity, and one may conjecture that \\(3/4\\)-optimality is achievable in the limit.\n\nWhether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
+  "title": "Achieve asymptotically three-quarters optimal impartial selection in single-nomination graphs",
+  "background_latex": "Let \\(n\\in\\mathbb{N}\\) and let \\(G_n\\) denote the set of directed graphs \\(G=(V,E)\\) with vertex set \\(V=\\{1,2,\\dots,n\\}\\), no self-loops, and exactly one outgoing edge per vertex (the single-nomination model), i.e., for each \\(v\\in V\\) there exists a unique \\(u\\neq v\\) with \\((v,u)\\in E\\).\n\nFor a vertex \\(v\\in V\\), its indegree is \\(\\delta^-(v,G)=|\\{u\\in V:(u,v)\\in E\\}|\\). The maximum indegree is \\(\\Delta(G)=\\max_{v\\in V}\\delta^-(v,G)\\).\n\nA (possibly randomized) selection mechanism is a mapping \\(f\\) that assigns to each \\(G\\in G_n\\) a probability distribution \\(f(G)\\in[0,1]^n\\) over vertices with \\(\\sum_{v\\in V} f_v(G)=1\\). (Equivalently, \\(v\\sim f(G)\\) is the selected vertex.)\n\nImpartiality means that each vertex's own outgoing edge cannot affect its own selection probability: for any \\(G=(V,E),G'=(V,E')\\in G_n\\) and any \\(v\\in V\\), if removing \\(v\\)'s outgoing edge yields the same graph, \\(E\\setminus(\\{v\\}\\times V)=E'\\setminus(\\{v\\}\\times V)\\), then \\(f_v(G)=f_v(G')\\).\n\nFor \\(\\alpha\\le 1\\), the mechanism \\(f\\) is called \\(\\alpha\\)-optimal on \\(G_n\\) if\n\\[\n\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ \\ge \\ \\alpha.\n\\]\nThus \\(\\alpha\\) is a worst-case multiplicative approximation ratio between the expected indegree of the selected vertex and the maximum indegree in the graph.\n\nOne can ask for a sequence of impartial mechanisms \\((f_n)_{n\\ge 1}\\), where each \\(f_n\\) operates on \\(G_n\\), and study the best achievable limit inferior of the corresponding worst-case ratios as \\(n\\to\\infty\\).",
+  "problem_definition_latex": "Determine whether there exists a family of impartial selection mechanisms \\((f_n)_{n\\ge 1}\\), with \\(f_n\\) defined on \\(G_n\\), such that\n\\[\n\\liminf_{n\\to\\infty}\\ \\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f_n(G)}[\\delta^-(v,G)]}{\\Delta(G)} \\ \\ge\\ \\frac{3}{4}.\n\\]\nEquivalently, decide whether for every \\(\\varepsilon>0\\) there exists \\(n_0\\) and impartial mechanisms \\(f_n\\) (for all \\(n\\ge n_0\\)) satisfying\n\\[\n\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f_n(G)}[\\delta^-(v,G)]}{\\Delta(G)} \\ \\ge\\ \\frac{3}{4}-\\varepsilon.\n\\]",
+  "latex": "Let \\(n\\in\\mathbb{N}\\) and let \\(G_n\\) denote the set of directed graphs \\(G=(V,E)\\) with vertex set \\(V=\\{1,2,\\dots,n\\}\\), no self-loops, and exactly one outgoing edge per vertex (the single-nomination model), i.e., for each \\(v\\in V\\) there exists a unique \\(u\\neq v\\) with \\((v,u)\\in E\\).\n\nFor a vertex \\(v\\in V\\), its indegree is \\(\\delta^-(v,G)=|\\{u\\in V:(u,v)\\in E\\}|\\). The maximum indegree is \\(\\Delta(G)=\\max_{v\\in V}\\delta^-(v,G)\\).\n\nA (possibly randomized) selection mechanism is a mapping \\(f\\) that assigns to each \\(G\\in G_n\\) a probability distribution \\(f(G)\\in[0,1]^n\\) over vertices with \\(\\sum_{v\\in V} f_v(G)=1\\). (Equivalently, \\(v\\sim f(G)\\) is the selected vertex.)\n\nImpartiality means that each vertex's own outgoing edge cannot affect its own selection probability: for any \\(G=(V,E),G'=(V,E')\\in G_n\\) and any \\(v\\in V\\), if removing \\(v\\)'s outgoing edge yields the same graph, \\(E\\setminus(\\{v\\}\\times V)=E'\\setminus(\\{v\\}\\times V)\\), then \\(f_v(G)=f_v(G')\\).\n\nFor \\(\\alpha\\le 1\\), the mechanism \\(f\\) is called \\(\\alpha\\)-optimal on \\(G_n\\) if\n\\[\n\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f(G)}[\\delta^-(v,G)]}{\\Delta(G)}\\ \\ge \\ \\alpha.\n\\]\nThus \\(\\alpha\\) is a worst-case multiplicative approximation ratio between the expected indegree of the selected vertex and the maximum indegree in the graph.\n\nOne can ask for a sequence of impartial mechanisms \\((f_n)_{n\\ge 1}\\), where each \\(f_n\\) operates on \\(G_n\\), and study the best achievable limit inferior of the corresponding worst-case ratios as \\(n\\to\\infty\\).\n\nDetermine whether there exists a family of impartial selection mechanisms \\((f_n)_{n\\ge 1}\\), with \\(f_n\\) defined on \\(G_n\\), such that\n\\[\n\\liminf_{n\\to\\infty}\\ \\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f_n(G)}[\\delta^-(v,G)]}{\\Delta(G)} \\ \\ge\\ \\frac{3}{4}.\n\\]\nEquivalently, decide whether for every \\(\\varepsilon>0\\) there exists \\(n_0\\) and impartial mechanisms \\(f_n\\) (for all \\(n\\ge n_0\\)) satisfying\n\\[\n\\inf_{G\\in G_n:\\,\\Delta(G)>0}\\ \\frac{\\mathbb{E}_{v\\sim f_n(G)}[\\delta^-(v,G)]}{\\Delta(G)} \\ \\ge\\ \\frac{3}{4}-\\varepsilon.\n\\]",
+  "location_in_paper": "Section 5 Upper Bounds, page 14 (end of section introduction) and also Section 1.1 Our Contribution, page 3 (end)",
+  "open_problem_quote": "Like the bounds of Fischer and Klimm they tend to \\(3/4\\) as \\(n\\) goes to infinity, and one may conjecture that \\(3/4\\)-optimality is achievable in the limit.\n\nWhether such a mechanism exists is an intriguing open question, the resolution of which is likely to require new insights.",
+  "area": "impartial selection",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "impartial selection",
+    "single-nomination model",
+    "randomized mechanisms",
+    "approximation ratio",
+    "asymptotic optimality",
+    "directed graphs"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Upper-bounding the achievable ratio can be phrased as searching for hard finite graph instances and solving the induced linear constraints from impartiality, which is computationally feasible for moderate \\(n\\). However, conclusively refuting \\(3/4\\) in the limit likely requires either an infinite family or a structural argument, so finite searches may only give suggestive evidence.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate mechanisms can be represented as randomized algorithms whose behavior is computable on any given graph, giving a clear fitness signal via the worst-case (or sampled) ratio \\(\\mathbb{E}[\\delta^-(v)]/\\Delta\\). Evolutionary search could plausibly improve lower bounds by discovering new mixtures/recipes and testing them on adversarially generated graphs, but scaling to certify near-\\(3/4\\) worst-case guarantees remains challenging.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.0875595
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 8,
+    "synthesis": "The source paper (Cembrano\u2013Fischer\u2013Klimm, 2023) sharpens the baseline landscape for single-nomination impartial selection: it proves the permutation mechanism is exactly \\(2/3\\)-optimal on \\(G_n\\) for all \\(n\\), constructs an improved impartial mechanism with guarantee \\(2105/3147\\approx 0.6689\\) for all \\(n\\), and derives new finite-\\(n\\) upper bounds that converge to \\(3/4\\) as \\(n\\to\\infty\\) (with worst-case \\(\\le 76/105\\approx 0.7238\\) over all \\(n\\)). These results leave open whether one can asymptotically reach \\(3/4\\) in the original model without extra information.\n\nAmong the forward citations provided here, only \"Impartial Selection with Predictions\" bears directly on the \\(3/4\\) target, but in a prediction-augmented variant of the model. Its robustness parameter \\(\\beta\\) coincides with the worst-case approximation ratio when predictions may be adversarial, and the paper proves an upper bound \\(\\beta\\le 3/4\\) for plurality graphs even with predictions. While it does not yield a \\((3/4-\\varepsilon)\\)-optimal impartial mechanism without predictions, it reinforces \\(3/4\\) as a fundamental barrier and suggests that achieving \\(3/4\\) (or proving it impossible) will require new structural ideas beyond refinements of permutation-style arguments or simple mixtures.\n\nAt present, with the limited forward-citation set supplied, there is no evidence of a full resolution: the best known unconditional lower bound remains \\(2105/3147\\) (from the source paper), and the best known general upper bounds still approach \\(3/4\\) from below. Closing the gap likely demands either (i) a new mechanism exploiting the functional-graph structure (cycles with in-arborescences) in a way compatible with impartiality, or (ii) stronger impossibility constructions that push the asymptotic upper bound strictly below \\(3/4\\) for the no-prediction model.",
+    "total_cost_usd": 0.13776175,
+    "citations_analyzed": 2,
+    "sources": [
+      {
+        "title": "Impartial Selection with Predictions",
+        "bibtex": "@article{ImpartialSelectionWithPredictions,\n  title        = {Impartial Selection with Predictions},\n  author       = {},\n  year         = {\\{\\}},\n  note         = {Metadata (authors/year/venue/DOI) not provided in the forward-citation analysis block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In the single-nomination (plurality) setting with predictions, the paper proves: - The 1-permutation mechanism (placing the predicted vertex last in the permutation mechanism) is impartial, 1-consistent, and at least \\(1/2\\)-robust (Theorem 3.3), with a sharper bound \\(\\beta(\\Delta)\\) depending on maximum indegree \\(\\Delta\\). - By mixing this with the uniform permutation mechanism, for every \\(\\rho\\in[0,1]\\) there is an impartial randomized 1-selection mechanism with predictions that is \\(\\left(\\tfrac{2}{3}+\\tfrac{1}{3}\\rho\\right)\\)-consistent and \\(\\left(\\tfrac{2}{3}-\\tfrac{1}{6}\\rho\\right)\\)-robust on plurality graphs (Corollary 3.4). - Any impartial randomized 1-selection mechanism with predictions on plurality graphs satisfies \\(\\beta\\le \\tfrac{3}{4}\\) and \\(\\alpha+\\beta\\le \\tfrac{3}{2}\\) (Theorem 6.1(ii)).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks whether, in single-nomination graphs without any extra input, there exist impartial mechanisms \\(f_n\\) with worst-case approximation ratio approaching \\(3/4\\) as \\(n\\to\\infty\\). This paper studies a different model: impartial mechanisms that additionally receive a prediction \\(\\hat S\\) (here a predicted top vertex for \\(k=1\\)). Its robustness guarantee \\(\\beta\\) is exactly the worst-case approximation ratio when predictions may be arbitrary, so its results imply bounds for the prediction-augmented setting, not the original no-prediction setting.\n\nIn particular, it does not construct a no-prediction mechanism achieving \\(3/4\\) on single-nomination graphs; the best robust guarantee it discusses for plurality with predictions is \\(2/3\\) (via the uniform permutation mechanism) and it proves an upper bound \\(\\beta\\le 3/4\\) for any prediction-augmented mechanism. Thus it provides partial progress/context: it shows \\(3/4\\) is a hard ceiling even with predictions (for robustness), but does not achieve \\(3/4\\) robustness nor resolve whether \\(3/4\\) is achievable without predictions."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0875595,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.13776175,
+    "total_cost_usd": 0.22532124999999997
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558145/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2023/W4383558145/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2023_forward_citation_reviews/W4383558145_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4383558145_p0",
+    "citations_analyzed": 2,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}
