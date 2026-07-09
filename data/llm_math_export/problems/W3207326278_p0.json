@@ -1,0 +1,78 @@
+{
+  "problem_id": "W3207326278_p0",
+  "paper_id": "W3207326278",
+  "source_paper": "W3207326278",
+  "source_paper_title": "Motivating Effort with Information about Future Rewards",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538319",
+  "source_paper_authors": [
+    "Chang Liu"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W3207326278,\n  title = {Motivating Effort with Information about Future Rewards},\n  author = {Chang Liu},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Page 5 (Table 1) and page 30 (Conclusion, Section 6).\n\nThe general nonstationary case remains a problem for future research.\n\nBeyond time preferences, Table 1 points to another natural direction for future research: the general nonstationary case, where the quality is continuously distributed and the task completion rate varies with quality. This setting combines the challenges of continuous quality (requiring gradual disclosure) with time-varying beliefs (requiring dynamic obedience constraints). Characterizing closed-form solutions in such environments remains open.",
+  "title": "Characterize optimal dynamic disclosure with continuous quality and quality-dependent completion rates",
+  "background_latex": "Consider a continuous-time principal--agent relationship without transfers.\n\n1) Task quality. A task has an unknown quality parameter \\(q\\in[0,\\infty)\\) drawn from a prior distribution \\(F\\) on \\([0,\\infty)\\) with finite first moment \\(\\mathbb{E}[q]<\\infty\\). The principal privately observes \\(q\\); the agent does not.\n\n2) Effort and quitting. The agent exerts effort continuously while he remains in the relationship. Exerting effort incurs a constant flow cost \\(c>0\\). The agent can quit irreversibly at any time \\(\\tau\\in[0,\\infty]\\).\n\n3) Task completion. Conditional on quality \\(q\\), completion arrives at a Poisson rate \\(\\lambda_q>0\\) (so the completion time \\(x\\) is exponential with mean \\(1/\\lambda_q\\)). Both parties observe completion, and the relationship ends at completion.\n\n4) Payoffs and discounting. The agent discounts at rate \\(r>0\\) and receives a lump-sum reward \\(q\\) if the task completes before he quits. If he quits at time \\(\\tau\\), his (ex post) payoff is\n\\[ e^{-r\\tau} q\\,\\mathbf{1}(\\tau\\ge x)\\; -\\; \\int_0^{\\min\\{x,\\tau\\}} e^{-rt} c\\,dt. \\]\nThe principal discounts at rate \\(r_p>0\\) and receives a completion bonus \\(b(q)>0\\) (bounded and measurable) if the task completes before quitting; if the agent quits at \\(\\tau\\), her (ex post) payoff is\n\\[ e^{-r_p\\tau} b(q)\\,\\mathbf{1}(\\tau\\ge x). \\]\n\n5) Information policies. The principal can commit ex ante to a dynamic information policy \\(\\sigma=\\{\\sigma_t\\}_{t\\ge 0}\\), where \\(\\sigma_t\\in\\{0,1\\}\\) is a nondecreasing, right-continuous process whose law depends on \\(q\\). The interpretation is \\(\\sigma_t=0\\) recommends continuing and \\(\\sigma_t=1\\) recommends quitting by time \\(t\\). Let \\(\\tau\\) denote the (random) quitting time induced in equilibrium when the agent best responds to the policy after updating beliefs from observed disclosures and from the passage of time.\n\n6) Objective. The principal chooses \\(\\sigma\\) to maximize her expected payoff \\(\\mathbb{E}_\\sigma[w(\\tau,q)]\\), subject to the agent optimally following recommendations (dynamic obedience/incentive compatibility) and participation (the agent can always guarantee \\(0\\) by quitting immediately).\n\nThe setting of interest is the general nonstationary case in which the completion rate depends on quality, i.e., \\(q\\mapsto \\lambda_q\\) is not constant, so that the mere passage of time is informative about \\(q\\) (beliefs drift endogenously absent disclosure).",
+  "problem_definition_latex": "Determine (in closed form) an optimal dynamic information policy \\(\\sigma\\) for the principal in the above model when task quality \\(q\\) is continuously distributed (with prior \\(F\\)) and the completion rate depends on quality (\\(\\lambda_q\\) varies with \\(q\\)). Equivalently, characterize the principal-optimal disclosure rule over time---including when and how much information about \\(q\\) to reveal---that maximizes the principal's expected discounted completion payoff subject to the agent's optimal stopping (quitting) incentives given belief updating from both disclosures and endogenous time information.",
+  "latex": "Consider a continuous-time principal--agent relationship without transfers.\n\n1) Task quality. A task has an unknown quality parameter \\(q\\in[0,\\infty)\\) drawn from a prior distribution \\(F\\) on \\([0,\\infty)\\) with finite first moment \\(\\mathbb{E}[q]<\\infty\\). The principal privately observes \\(q\\); the agent does not.\n\n2) Effort and quitting. The agent exerts effort continuously while he remains in the relationship. Exerting effort incurs a constant flow cost \\(c>0\\). The agent can quit irreversibly at any time \\(\\tau\\in[0,\\infty]\\).\n\n3) Task completion. Conditional on quality \\(q\\), completion arrives at a Poisson rate \\(\\lambda_q>0\\) (so the completion time \\(x\\) is exponential with mean \\(1/\\lambda_q\\)). Both parties observe completion, and the relationship ends at completion.\n\n4) Payoffs and discounting. The agent discounts at rate \\(r>0\\) and receives a lump-sum reward \\(q\\) if the task completes before he quits. If he quits at time \\(\\tau\\), his (ex post) payoff is\n\\[ e^{-r\\tau} q\\,\\mathbf{1}(\\tau\\ge x)\\; -\\; \\int_0^{\\min\\{x,\\tau\\}} e^{-rt} c\\,dt. \\]\nThe principal discounts at rate \\(r_p>0\\) and receives a completion bonus \\(b(q)>0\\) (bounded and measurable) if the task completes before quitting; if the agent quits at \\(\\tau\\), her (ex post) payoff is\n\\[ e^{-r_p\\tau} b(q)\\,\\mathbf{1}(\\tau\\ge x). \\]\n\n5) Information policies. The principal can commit ex ante to a dynamic information policy \\(\\sigma=\\{\\sigma_t\\}_{t\\ge 0}\\), where \\(\\sigma_t\\in\\{0,1\\}\\) is a nondecreasing, right-continuous process whose law depends on \\(q\\). The interpretation is \\(\\sigma_t=0\\) recommends continuing and \\(\\sigma_t=1\\) recommends quitting by time \\(t\\). Let \\(\\tau\\) denote the (random) quitting time induced in equilibrium when the agent best responds to the policy after updating beliefs from observed disclosures and from the passage of time.\n\n6) Objective. The principal chooses \\(\\sigma\\) to maximize her expected payoff \\(\\mathbb{E}_\\sigma[w(\\tau,q)]\\), subject to the agent optimally following recommendations (dynamic obedience/incentive compatibility) and participation (the agent can always guarantee \\(0\\) by quitting immediately).\n\nThe setting of interest is the general nonstationary case in which the completion rate depends on quality, i.e., \\(q\\mapsto \\lambda_q\\) is not constant, so that the mere passage of time is informative about \\(q\\) (beliefs drift endogenously absent disclosure).\n\nDetermine (in closed form) an optimal dynamic information policy \\(\\sigma\\) for the principal in the above model when task quality \\(q\\) is continuously distributed (with prior \\(F\\)) and the completion rate depends on quality (\\(\\lambda_q\\) varies with \\(q\\)). Equivalently, characterize the principal-optimal disclosure rule over time---including when and how much information about \\(q\\) to reveal---that maximizes the principal's expected discounted completion payoff subject to the agent's optimal stopping (quitting) incentives given belief updating from both disclosures and endogenous time information.",
+  "location_in_paper": "Page 5 (Table 1) and page 30 (Conclusion, Section 6).",
+  "open_problem_quote": "The general nonstationary case remains a problem for future research.\n\nBeyond time preferences, Table 1 points to another natural direction for future research: the general nonstationary case, where the quality is continuously distributed and the task completion rate varies with quality. This setting combines the challenges of continuous quality (requiring gradual disclosure) with time-varying beliefs (requiring dynamic obedience constraints). Characterizing closed-form solutions in such environments remains open.",
+  "area": "dynamic information design",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "dynamic information design",
+    "principal-agent",
+    "optimal stopping",
+    "Bayesian persuasion",
+    "nonstationary environment",
+    "continuous types",
+    "optimal disclosure"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The open question asks for a closed-form characterization of an optimal policy in a continuous-time, continuous-type control/information-design problem with endogenous belief dynamics. It is not a finite conjecture where a single counterexample instance would refute a universal bound; progress is more about deriving structure and solving a functional optimization problem than searching discrete instances.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "One can parameterize candidate policy families (e.g., cutoff cascades, hazard-rate/Poisson-like disclosure rules) and compute the induced equilibrium quitting behavior and principal payoff by simulation or numerical solution of incentive constraints for specific choices of \\(F,\\lambda_q,b(q),r,r_p,c\\). An evolutionary loop could search for high-performing policy forms and suggest structural hypotheses, but translating numerical discoveries into a general closed-form characterization would still require substantial analytic proof work.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.07013825
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.9007900999999998,
+    "citations_analyzed": 54,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.07013825,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.9007900999999998,
+    "total_cost_usd": 0.9709283499999998
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W3207326278/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W3207326278/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W3207326278_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W3207326278_p0",
+    "citations_analyzed": 54,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

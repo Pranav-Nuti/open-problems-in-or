@@ -1,0 +1,126 @@
+{
+  "problem_id": "W4221157708_p0",
+  "paper_id": "W4221157708",
+  "source_paper": "W4221157708",
+  "source_paper_title": "Optimal Correlated Equilibria in General-Sum Extensive-Form Games: Fixed-Parameter Algorithms, Hardness, and Two-Sided Column-Generation",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538330",
+  "source_paper_authors": [
+    "Brian Zhang",
+    "Gabriele Farina",
+    "Andrea Celli",
+    "T\u00fcomas Sandholm"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4221157708,\n  title = {Optimal Correlated Equilibria in General-Sum Extensive-Form Games: Fixed-Parameter Algorithms, Hardness, and Two-Sided Column-Generation},\n  author = {Brian Zhang and Gabriele Farina and Andrea Celli},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4.4 (Discussion: Relationship to Triangle-Freeness), page 19; also listed as future research direction 1 in Section 7 (Conclusions and Future Research), page 29.\n\nWe leave to future research the question of whether it is possible to extend our algorithm so that it is also runs in polynomial time in all triangle-free games, achieving the best of both worlds.",
+  "title": "Extend correlation DAG algorithm to polynomial time on triangle-free extensive-form games",
+  "background_latex": "An extensive-form game is a finite rooted game tree with chance nodes and player decision nodes. Each player\u2019s decision nodes are partitioned into information sets (infosets) representing imperfect information, and players have perfect recall. A game is timeable if no infoset contains nodes at multiple depths (layers) of the tree.\n\nConsider a two-player extensive-form game and one of the correlated-equilibrium notions studied in extensive-form games:\n1) normal-form coarse correlated equilibrium (NFCCE),\n2) extensive-form coarse correlated equilibrium (EFCCE),\n3) extensive-form correlated equilibrium (EFCE).\n\nGiven a linear objective on terminal nodes (e.g., social welfare), an optimal correlated equilibrium (in one of the notions above) is a correlated equilibrium maximizing the expected value of that objective.\n\nThe correlation DAG approach (also called the correlation DAG algorithm) refers to constructing an auxiliary directed acyclic graph (DAG) and solving a resulting linear program to compute an optimal correlated equilibrium in a given game. In certain game classes (e.g., two-player games with public chance actions) this approach is polynomial-time, but there are triangle-free games where the existing construction can be exponentially large.\n\nA two-player game is triangle-free if it contains no \u201ctriangle\u201d among infosets, defined via the following connectivity relation. For infosets \\(I_1\\) of player 1 and \\(I_2\\) of player 2, write \\(I_1 \\triangleright\\!\\triangleleft I_2\\) if there exists a history (node) \\(h\\) in the game tree that is a descendant of some node in \\(I_1\\) and also a descendant of some node in \\(I_2\\). A triangle is a collection of four infosets \\(I_1, I_1'\\) of player 1 and \\(I_2, I_2'\\) of player 2 such that \\(I_1 \\triangleright\\!\\triangleleft I_2\\), \\(I_1' \\triangleright\\!\\triangleleft I_2\\), and \\(I_1 \\triangleright\\!\\triangleleft I_2'\\). The game is triangle-free if no such quadruple exists.",
+  "problem_definition_latex": "Determine whether the correlation DAG algorithm can be extended so that, on every triangle-free two-player extensive-form game, it runs in time polynomial in the size of the input game (equivalently, yields a correlation DAG/linear program formulation whose size is polynomial in the input game size) for computing an optimal correlated equilibrium (with respect to a given linear objective).",
+  "latex": "An extensive-form game is a finite rooted game tree with chance nodes and player decision nodes. Each player\u2019s decision nodes are partitioned into information sets (infosets) representing imperfect information, and players have perfect recall. A game is timeable if no infoset contains nodes at multiple depths (layers) of the tree.\n\nConsider a two-player extensive-form game and one of the correlated-equilibrium notions studied in extensive-form games:\n1) normal-form coarse correlated equilibrium (NFCCE),\n2) extensive-form coarse correlated equilibrium (EFCCE),\n3) extensive-form correlated equilibrium (EFCE).\n\nGiven a linear objective on terminal nodes (e.g., social welfare), an optimal correlated equilibrium (in one of the notions above) is a correlated equilibrium maximizing the expected value of that objective.\n\nThe correlation DAG approach (also called the correlation DAG algorithm) refers to constructing an auxiliary directed acyclic graph (DAG) and solving a resulting linear program to compute an optimal correlated equilibrium in a given game. In certain game classes (e.g., two-player games with public chance actions) this approach is polynomial-time, but there are triangle-free games where the existing construction can be exponentially large.\n\nA two-player game is triangle-free if it contains no \u201ctriangle\u201d among infosets, defined via the following connectivity relation. For infosets \\(I_1\\) of player 1 and \\(I_2\\) of player 2, write \\(I_1 \\triangleright\\!\\triangleleft I_2\\) if there exists a history (node) \\(h\\) in the game tree that is a descendant of some node in \\(I_1\\) and also a descendant of some node in \\(I_2\\). A triangle is a collection of four infosets \\(I_1, I_1'\\) of player 1 and \\(I_2, I_2'\\) of player 2 such that \\(I_1 \\triangleright\\!\\triangleleft I_2\\), \\(I_1' \\triangleright\\!\\triangleleft I_2\\), and \\(I_1 \\triangleright\\!\\triangleleft I_2'\\). The game is triangle-free if no such quadruple exists.\n\nDetermine whether the correlation DAG algorithm can be extended so that, on every triangle-free two-player extensive-form game, it runs in time polynomial in the size of the input game (equivalently, yields a correlation DAG/linear program formulation whose size is polynomial in the input game size) for computing an optimal correlated equilibrium (with respect to a given linear objective).",
+  "location_in_paper": "Section 4.4 (Discussion: Relationship to Triangle-Freeness), page 19; also listed as future research direction 1 in Section 7 (Conclusions and Future Research), page 29.",
+  "open_problem_quote": "We leave to future research the question of whether it is possible to extend our algorithm so that it is also runs in polynomial time in all triangle-free games, achieving the best of both worlds.",
+  "area": "extensive-form games",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "extensive-form games",
+    "correlated equilibrium",
+    "triangle-free games",
+    "column generation",
+    "imperfect recall",
+    "polynomial time"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The question is existential (whether a polynomial-time extension exists) rather than a universal claim, so counterexamples are not directly applicable. One can generate instances where the current construction is exponential, but that does not refute the existence of a different extension.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate algorithmic modifications to the correlation DAG approach can be represented as code, and a fitness signal could be based on empirical runtime/memory growth on generated triangle-free instances plus correctness checks via comparison to known polynomial-time solvers on subclasses. However, verifying true polynomial-time behavior and correctness on all triangle-free games cannot be conclusively established by automated search alone.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.0260141
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The open problem (Zhang--Farina--Celli--Sandholm, 2024) asks whether the correlation DAG algorithm\u2014built by forming a mediator-augmented game \\(\\Gamma^c\\) and then applying the team-belief-DAG extended formulation to the mediator\u2019s imperfect-recall strategy polytope \\(\\Xi^c\\)\u2014can be made polynomial-time on all triangle-free two-player extensive-form games. The paper shows polynomial time for two-player games with public chance actions (Theorem 4.11), but also exhibits timeable triangle-free games where the fixed time-layer ordering forces an exponentially large correlation DAG (Figure 7), suggesting that any extension would need to exploit the triangle-free \u201cre-ordering\u201d freedom used by Farina and Sandholm\u2019s dynamic expansion approach rather than the fixed timeability-based construction.\n\nNone of the analyzed forward citations resolves this exact formulation-size question. The closest connections are methodological: the regularization work on sequential decision spaces provides fast first-order methods over correlation-plan polytopes \\(\\Xi\\) when they admit scaled-extension representations (known in triangle-free/public-chance settings), yielding efficient *approximate* optimization but not a polynomial-size exact LP/DAG. Other citing works develop alternative DAG representations (team belief DAG variants) or polynomial-time algorithms in different restricted classes (turn-taking perfect-information stochastic games), which may inspire new compact representations or dynamic-programming approaches, but they do not establish a polynomial-size correlation DAG for general triangle-free imperfect-information games.\n\nAccordingly, based on the provided citation set, the problem remains open. Promising directions suggested by the source paper\u2019s discussion include combining the mediator-augmented-game viewpoint with a triangle-free-dependent branching order (as in the vSF-tightness approach) to build an extended formulation whose size is polynomial without relying on timeability\u2019s fixed layer order, or proving that such an extension is impossible by exhibiting triangle-free instances where any correlation-DAG-like extended formulation must be superpolynomial.",
+    "total_cost_usd": 0.7534113999999998,
+    "citations_analyzed": 18,
+    "sources": [
+      {
+        "title": "Better regularization for sequential decision spaces: Fast convergence rates for nash, correlated, and team equilibria",
+        "bibtex": "@article{BetterRegularizationSequentialDecisionSpaces,\n  title={Better regularization for sequential decision spaces: Fast convergence rates for nash, correlated, and team equilibria},\n  journal={Operations Research},\n  doi={10.1287/opre.2021.0633},\n  url={https://doi.org/10.1287/opre.2021.0633}\n}\n",
+        "source_url": "https://doi.org/10.1287/opre.2021.0633",
+        "theorem_or_result": "The paper develops new entropy-based distance-generating functions (DGFs) for sequential decision polytopes (sequence-form and more general scaled-extension polytopes). Key results include: - For the sequence-form polytope Q, the \u201cdilatable global entropy\u201d \\(\\tilde\\varphi\\) is a \u201cnice\u201d DGF (linear-time prox / smoothed support computation) and is 1-strongly convex w.r.t. \\(\\ell_2\\) (Theorem 4) and \\(1/M_Q\\)-strongly convex w.r.t. \\(\\ell_1\\) (Theorem 5), with diameter \\(\\Omega_{\\tilde\\varphi,Q}\\le M_Q^2\\max_j \\log|A_j|\\) (Theorem 6), avoiding exponential dependence on depth. - For polytopes built via chains of scaled extensions of simplexes (covering correlation-plan polytopes \\(\\Xi\\) in triangle-free games), a generalized dilatable global entropy (Eq. (23)) with recursively defined weights \\(\\alpha_k\\) is 1-strongly convex w.r.t. \\(\\ell_2\\) and \\(1/M_X\\)-strongly convex w.r.t. \\(\\ell_1\\) (Theorem 7), while remaining \u201cnice\u201d (linear-time prox). These DGFs enable first-order methods (Mirror Prox / EGT) with \\(O(1/T)\\) convergence for computing optimal correlated equilibria (NFCCE/EFCCE/EFCE) and team equilibria in classes where the correlation-plan polytope admits a scaled-extension representation (notably triangle-free/public-chance settings).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for a polynomial-time extension of the correlation DAG algorithm (an exact LP/DAG formulation approach) on all triangle-free two-player extensive-form games for computing an optimal correlated equilibrium. This paper does not address correlation DAG size or provide a new polynomial-size LP/DAG formulation. Instead, it develops improved regularizers and accelerated first-order iterative methods for solving the saddle-point/LP formulations associated with correlated equilibria when the correlation-plan polytope \\(\\Xi\\) is representable via scaled extension\u2014something known to hold for triangle-free games (citing Farina & Sandholm 2020). Thus it provides algorithmic tools for faster *approximate* computation (with \\(1/T\\) rate and linear-time iterations) on triangle-free games, but it does not prove that the correlation DAG construction can always be made polynomial-size, nor does it yield an exact polynomial-time correlation-DAG-based algorithm."
+      },
+      {
+        "title": "On the outcome equivalence of extensive-form and behavioral correlated equilibria",
+        "bibtex": "@article{OutcomeEquivalenceEFCEBCE,\n  title={On the outcome equivalence of extensive-form and behavioral correlated equilibria}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Main theorem (Theorem 3.2): Every -EFCE is outcome-equivalent to an -BCE (i.e., induces the same distribution over terminal nodes). Moreover (Theorem 5.3, Corollary 5.4), given an -EFCE represented as a mixture of small-support products, one can compute an outcome-equivalent -BCE in time poly(|H|,T,K); in particular there is a polynomial-time algorithm to compute an exact BCE by first computing an exact EFCE (Jiang\u2013Leyton-Brown 2011) and converting it.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks whether the correlation-DAG/LP approach for computing an optimal correlated equilibrium can be made polynomial-time on all triangle-free two-player extensive-form games (for NFCCE/EFCCE/EFCE objectives). This paper does not study triangle-free structure or correlation DAG size. It instead proves outcome-equivalence between EFCE and BCE and gives a polynomial-time conversion from EFCE to BCE, plus a corollary about optimizing linear objectives over BCE via optimal EFCE. Thus it provides conceptual/algorithmic tools about EFCE/BCE computation and optimization, but it neither extends the correlation DAG algorithm nor addresses polynomial-size formulations on triangle-free games, nor the NFCCE/EFCCE notions central to the open problem."
+      },
+      {
+        "title": "Team belief DAG: generalizing the sequence form to team games for fast computation of correlated team max-min equilibria via regret minimization",
+        "bibtex": "@article{TeamBeliefDAG,\n  title={Team belief DAG: generalizing the sequence form to team games for fast computation of correlated team max-min equilibria via regret minimization}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces the team belief DAG (TB-DAG): given a timeable team decision problem (equivalently, an imperfect-recall decision problem), it constructs a strategically equivalent perfect-information decision problem on a DAG (Theorem 4.2). This enables running a DAG-generalization of CFR with per-iteration time linear in the TB-DAG edges and regret bound O(N\\sqrt{T}) where N is the number of TB-DAG nodes (Theorem 4.3 / Corollary A.4).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether the correlation DAG algorithm for computing optimal correlated equilibria (NFCCE/EFCCE/EFCE) can be made polynomial-time on triangle-free two-player extensive-form games by ensuring the auxiliary correlation DAG/LP stays polynomial size.\n\nThis citing paper is about a different setting: representing and optimizing the convex set of correlation plans for a *team* (imperfect-recall controller) in zero-sum team games, via TB-DAG, and then solving via regret minimization (CFR) or LPs over that representation. It does not analyze triangle-free two-player games, does not address the correlation DAG construction for EFCE/EFCCE/NFCCE, and does not provide a polynomial-size formulation for optimal correlated equilibria in triangle-free games.\n\nAt most, it is tangentially related in that it develops a DAG-based perfect-information representation that can be exponentially smaller than prior public-state belief representations, and it mentions as future work \u201cgeneraliz[ing] the triangle-free interaction (Farina & Sandholm, 2020)\u201d (Conclusion, item 6). Thus it may offer conceptual tools (belief DAG constructions, DAG-CFR) that could inspire alternative compact DAG formulations, but it does not resolve the specific open problem."
+      },
+      {
+        "title": "Efficiently solving turn-taking stochastic games with extensive-form correlation",
+        "bibtex": "@inproceedings{EfficientlySolvingTurnTakingStochasticGamesEFCorrelation,\n  title={Efficiently solving turn-taking stochastic games with extensive-form correlation},\n  doi={10.1145/3580507.3597665},\n  url={https://doi.org/10.1145/3580507.3597665}\n}\n",
+        "source_url": "https://doi.org/10.1145/3580507.3597665",
+        "theorem_or_result": "For two-player finite-horizon turn-taking stochastic games (perfect-information extensive-form games in succinct graph form), the paper gives:\n- A polynomial-time algorithm (poly in number of states/actions and bit-length of input numbers) to compute a Stackelberg extensive-form correlated equilibrium (SEFCE).\n- An algorithm to compute an 5-EFCE whose objective value is within 5 of optimal, running in time poly in game size and log(1/5).\nThe approach is via recursively evaluating concave Pareto-frontier curves for state-action pairs and using binary search to find pivotal points satisfying incentive/feasibility constraints.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether the correlation-DAG/LP formulation for optimal correlated equilibria (NFCCE/EFCCE/EFCE) can be made polynomial-size/time on the class of triangle-free two-player extensive-form games (with imperfect information allowed) by extending the correlation DAG algorithm.\nThis paper does not address triangle-free games, correlation DAG size, or LP formulations. It studies a different structural restriction: turn-taking stochastic games (perfect information) in graph form, and develops a non-LP, Pareto-frontier dynamic-programming style algorithm for SEFCE and approximate optimal EFCE. Thus it does not resolve the open problem, but provides alternative algorithmic ideas for certain extensive-form correlation computations that might inspire approaches in restricted classes."
+      },
+      {
+        "title": "Efficient representations for team and imperfect-recall equilibrium computation",
+        "bibtex": "@article{EfficientRepresentationsTeamImperfectRecall,\n  title={Efficient representations for team and imperfect-recall equilibrium computation}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces the belief game and the team-belief DAG (TB-DAG) representations for timeable two-player zero-sum imperfect-recall extensive-form games (equivalently, adversarial team games), proving strategic equivalence between the original game and the belief game (Theorem 4.7) and giving a DAG-form representation of each player\u2019s strategy space with per-iteration regret-minimization complexity bounded by \n- constructing TB-DAGs and running DAG-CFR yields an \\\\(O(\\varepsilon)\\\\)-Nash equilibrium with per-iteration runtime \\\\(O(|H|(b+1)^{k+1})\\\\) (Theorems 6.1\u20136.3),\nwhere \\\\(|H|\\\\) is the number of histories, \\\\(b\\\\) the branching factor, and \\\\(k\\\\) an \u201cinformation complexity\u201d parameter. It also proves fixed-parameter hardness: under \\\\(\\mathrm{FPT}\\neq \\mathrm{W}[1]\\\\), no algorithm can compute the mixed Nash value of a one-player imperfect-recall game in time \\\\(f(k)\\,\\mathrm{poly}(|H|)\\\\) (Theorem 6.5).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether the correlation-DAG algorithm for computing optimal correlated equilibria (NFCCE/EFCCE/EFCE) can be made polynomial-time on triangle-free two-player extensive-form games, i.e., whether one can always obtain a polynomial-size correlation DAG/LP formulation for that class.\n\nThis paper does not study correlated equilibria in general-sum games, nor triangle-free structure, nor the correlation-DAG construction from Zhang et al. (EC\u201922). Instead it develops DAG representations (belief game/TB-DAG) for computing mixed-strategy Nash equilibria in timeable two-player zero-sum imperfect-recall (team) games via regret minimization. While it contains a general \u201cDAG-form decision problem\u201d framework that the authors note has been applied elsewhere to correlated-equilibrium computation, it does not provide a polynomial-time extension of correlation DAGs for triangle-free games, nor any result implying such an extension.\n\nAt most, the paper is tangentially relevant as it advances DAG-based compression/learning machinery and explicitly suggests (Conclusion) that \u201cgeneralizing the notion of triangle-free games to DAG games may extend the class of games that can be solvable in polynomial time,\u201d but it leaves that direction open."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.0260141,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.7534113999999998,
+    "total_cost_usd": 0.7794254999999999
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4221157708/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4221157708/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4221157708_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4221157708_p0",
+    "citations_analyzed": 18,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

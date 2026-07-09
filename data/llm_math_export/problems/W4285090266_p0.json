@@ -1,0 +1,78 @@
+{
+  "problem_id": "W4285090266_p0",
+  "paper_id": "W4285090266",
+  "source_paper": "W4285090266",
+  "source_paper_title": "Fair Shares: Feasibility, Domination and Incentives",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538286",
+  "source_paper_authors": [
+    "Moshe Babaioff",
+    "Uriel Feige"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4285090266,\n  title = {Fair Shares: Feasibility, Domination and Incentives},\n  author = {Moshe Babaioff and Uriel Feige},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Page 7, Section 1.2 (Our Results), last paragraph; reiterated Page 26, Section 7 (Discussion), last paragraph.\n\nWe leave open the problem of finding the largest value of \\(\\rho\\) for which there is a \\(\\rho\\)-dominating share that is feasible, self maximizing, and poly-time computable for additive valuations.\n\nFinally, we note that we leave open the problem of finding (for additive valuations, and also beyond this class), the largest value of \\(\\rho\\) for which there exists a feasible share that is \\(\\rho\\)-dominating, self maximizing and poly-time computable.",
+  "title": "Maximize rho for dominating feasible self-maximizing computable shares under additive valuations",
+  "background_latex": "Let there be a finite set of indivisible goods \\(M\\) with \\(|M|=m\\) and \\(n\\ge 2\\) agents. Each agent \\(i\\) has an additive valuation \\(v_i:2^M\\to \\mathbb{R}_{\\ge 0}\\) of the form \\(v_i(S)=\\sum_{j\\in S} v_i(\\{j\\})\\), normalized by \\(v_i(\\varnothing)=0\\) and monotone.\n\nAn allocation is a partition \\(A=(A_1,\\dots,A_n)\\) of \\(M\\) into \\(n\\) pairwise-disjoint bundles (some may be empty).\n\nA (fair) share function \\(s\\) maps a valuation \\(v\\) and the number of agents \\(n\\) to a nonnegative number \\(s(v,n)\\), intended as a guaranteed value threshold for an agent with valuation \\(v\\) in an \\(n\\)-agent instance. A share \\(s\\) is feasible (for additive valuations) if for every additive valuation profile \\((v_1,\\dots,v_n)\\) there exists an allocation \\(A\\) such that \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\in\\{1,\\dots,n\\}\\).\n\nFor a share \\(s\\) and a true valuation \\(v\\), define the implied guarantee when reporting \\(v'\\) as\n\\[\\hat s_v(v') := \\min\\{\\, v(S) : S\\subseteq M,\\ v'(S)\\ge s(v',n)\\,\\}.\\]\nThe share \\(s\\) is self-maximizing if truthful reporting maximizes the implied guarantee: for all additive \\(v\\) and all additive reports \\(v'\\), \\(\\hat s_v(v)\\ge \\hat s_v(v')\\).\n\nThe maximin share (MMS) for additive \\(v\\) with \\(n\\) agents is\n\\[\\mathrm{MMS}_n(v) := \\max_{(B_1,\\dots,B_n)\\text{ partition of }M}\\ \\min_{k\\in\\{1,\\dots,n\\}} v(B_k).\\]\n\nFor \\(\\rho\\in[0,1]\\), a share \\(s\\) is \\(\\rho\\)-dominating (for additive valuations) if for every additive valuation \\(v\\) it holds that\n\\[ s(v,n) \\ge \\rho\\, \\mathrm{MMS}_n(v). \\]\nA share is polynomial-time computable if, given additive item values and \\(n\\), the value \\(s(v,n)\\) can be computed in time polynomial in \\(m\\) (and the input encoding length), and one also seeks a polynomial-time algorithm that outputs an allocation meeting the share guarantees for every valuation profile.",
+  "problem_definition_latex": "For additive valuations over indivisible goods and a fixed number of agents \\(n\\ge 3\\), determine the supremum value \\(\\rho^*\\in[0,1]\\) such that there exists a share function \\(s\\) satisfying all three properties:\n\n1) Feasibility: for every additive valuation profile \\((v_1,\\dots,v_n)\\) there exists an allocation \\(A\\) with \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\).\n\n2) Self-maximizing: for every additive true valuation \\(v\\) and additive report \\(v'\\), \\(\\hat s_v(v)\\ge \\hat s_v(v')\\).\n\n3) Polynomial-time computability (and allocability): \\(s(v,n)\\) can be computed in polynomial time from additive item values, and there is a polynomial-time algorithm that, on every additive valuation profile, computes an allocation \\(A\\) with \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\).\n\nsubject to the quantitative domination requirement\n\\[ s(v,n) \\ge \\rho^*\\, \\mathrm{MMS}_n(v)\\quad\\text{for all additive }v. \\]\nEquivalently, find the largest achievable domination factor \\(\\rho\\) for which such a feasible, self-maximizing, polynomial-time computable share exists for additive valuations.",
+  "latex": "Let there be a finite set of indivisible goods \\(M\\) with \\(|M|=m\\) and \\(n\\ge 2\\) agents. Each agent \\(i\\) has an additive valuation \\(v_i:2^M\\to \\mathbb{R}_{\\ge 0}\\) of the form \\(v_i(S)=\\sum_{j\\in S} v_i(\\{j\\})\\), normalized by \\(v_i(\\varnothing)=0\\) and monotone.\n\nAn allocation is a partition \\(A=(A_1,\\dots,A_n)\\) of \\(M\\) into \\(n\\) pairwise-disjoint bundles (some may be empty).\n\nA (fair) share function \\(s\\) maps a valuation \\(v\\) and the number of agents \\(n\\) to a nonnegative number \\(s(v,n)\\), intended as a guaranteed value threshold for an agent with valuation \\(v\\) in an \\(n\\)-agent instance. A share \\(s\\) is feasible (for additive valuations) if for every additive valuation profile \\((v_1,\\dots,v_n)\\) there exists an allocation \\(A\\) such that \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\in\\{1,\\dots,n\\}\\).\n\nFor a share \\(s\\) and a true valuation \\(v\\), define the implied guarantee when reporting \\(v'\\) as\n\\[\\hat s_v(v') := \\min\\{\\, v(S) : S\\subseteq M,\\ v'(S)\\ge s(v',n)\\,\\}.\\]\nThe share \\(s\\) is self-maximizing if truthful reporting maximizes the implied guarantee: for all additive \\(v\\) and all additive reports \\(v'\\), \\(\\hat s_v(v)\\ge \\hat s_v(v')\\).\n\nThe maximin share (MMS) for additive \\(v\\) with \\(n\\) agents is\n\\[\\mathrm{MMS}_n(v) := \\max_{(B_1,\\dots,B_n)\\text{ partition of }M}\\ \\min_{k\\in\\{1,\\dots,n\\}} v(B_k).\\]\n\nFor \\(\\rho\\in[0,1]\\), a share \\(s\\) is \\(\\rho\\)-dominating (for additive valuations) if for every additive valuation \\(v\\) it holds that\n\\[ s(v,n) \\ge \\rho\\, \\mathrm{MMS}_n(v). \\]\nA share is polynomial-time computable if, given additive item values and \\(n\\), the value \\(s(v,n)\\) can be computed in time polynomial in \\(m\\) (and the input encoding length), and one also seeks a polynomial-time algorithm that outputs an allocation meeting the share guarantees for every valuation profile.\n\nFor additive valuations over indivisible goods and a fixed number of agents \\(n\\ge 3\\), determine the supremum value \\(\\rho^*\\in[0,1]\\) such that there exists a share function \\(s\\) satisfying all three properties:\n\n1) Feasibility: for every additive valuation profile \\((v_1,\\dots,v_n)\\) there exists an allocation \\(A\\) with \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\).\n\n2) Self-maximizing: for every additive true valuation \\(v\\) and additive report \\(v'\\), \\(\\hat s_v(v)\\ge \\hat s_v(v')\\).\n\n3) Polynomial-time computability (and allocability): \\(s(v,n)\\) can be computed in polynomial time from additive item values, and there is a polynomial-time algorithm that, on every additive valuation profile, computes an allocation \\(A\\) with \\(v_i(A_i)\\ge s(v_i,n)\\) for all \\(i\\).\n\nsubject to the quantitative domination requirement\n\\[ s(v,n) \\ge \\rho^*\\, \\mathrm{MMS}_n(v)\\quad\\text{for all additive }v. \\]\nEquivalently, find the largest achievable domination factor \\(\\rho\\) for which such a feasible, self-maximizing, polynomial-time computable share exists for additive valuations.",
+  "location_in_paper": "Page 7, Section 1.2 (Our Results), last paragraph; reiterated Page 26, Section 7 (Discussion), last paragraph.",
+  "open_problem_quote": "We leave open the problem of finding the largest value of \\(\\rho\\) for which there is a \\(\\rho\\)-dominating share that is feasible, self maximizing, and poly-time computable for additive valuations.\n\nFinally, we note that we leave open the problem of finding (for additive valuations, and also beyond this class), the largest value of \\(\\rho\\) for which there exists a feasible share that is \\(\\rho\\)-dominating, self maximizing and poly-time computable.",
+  "area": "fair division",
+  "category": "Fair Division & Social Choice",
+  "keywords": [
+    "additive valuations",
+    "maximin share",
+    "approximation factor",
+    "feasible shares",
+    "truthful reporting",
+    "polynomial-time algorithms"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can search over small additive instances to upper-bound achievable \\(\\rho\\) for specific candidate share families, but the open question is existential over all polynomial-time computable self-maximizing feasible shares, making the instance space for universal impossibility less directly enumerable.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate shares/algorithms can be represented programmatically (e.g., parameterized ordinal-maximin constructions and allocation routines) and evaluated by computing the worst-case ratio \\(\\min_v s(v,n)/\\mathrm{MMS}_n(v)\\) over sampled instances (with MMS computed exactly for small \\(m\\)). However, proving global optimality of \\(\\rho\\) is beyond search; automated discovery is more plausible for finding better constructions or strong empirical upper-bound instances.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.10600100000000001
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 1,
+    "difficulty": 1,
+    "synthesis": "No relevant Scholar-organic forward citations were available for this problem. The forward-citation review therefore cannot identify follow-up work that resolves or materially advances the problem.",
+    "total_cost_usd": 0.40558105,
+    "citations_analyzed": 20,
+    "sources": []
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.10600100000000001,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.40558105,
+    "total_cost_usd": 0.51158205
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285090266/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285090266/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4285090266_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4285090266_p0",
+    "citations_analyzed": 20,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

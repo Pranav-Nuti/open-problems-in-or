@@ -1,0 +1,124 @@
+{
+  "problem_id": "W4280639630_p0",
+  "paper_id": "W4280639630",
+  "source_paper": "W4280639630",
+  "source_paper_title": "Distributional Robustness: From Pricing to Auctions",
+  "source_paper_url": "https://doi.org/10.48550/arxiv.2205.09008",
+  "source_paper_authors": [
+    "Nir Bachrach",
+    "Inbal Talgam-Cohen"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4280639630,\n  title = {Distributional Robustness: From Pricing to Auctions},\n  author = {Nir Bachrach and Inbal Talgam-Cohen},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Section 5 (Discussion), page 29\n\nBeyond two bidders. First, while for n \\ge 3 bidders we establish the max-min optimal distribution of the reserve price when the seller is confined to second price auctions, the following is still open:\nOpen Question 1. What is the max-min optimal auction given parametric distributional knowledge for n \\ge 3 bidders?",
+  "title": "Characterize the max-min revenue-optimal auction for n at least three i.i.d. bidders",
+  "background_latex": "A seller has a single indivisible item and faces \\(n\\ge 3\\) bidders with private values \\(v_1,\\dots,v_n\\). Values are drawn i.i.d. from an unknown distribution \\(F\\) supported on \\([0,\\bar v]\\) with known mean \\(\\mu\\), i.e., \\(\\mathbb E_{v\\sim F}[v]=\\mu\\) and \\(\\Pr[v\\in[0,\\bar v]]=1\\). Let \\(\\mathcal F(\\mu,\\bar v)\\) denote the set of all such distributions.\n\nThe seller chooses a dominant-strategy incentive compatible and individually rational (truthful) single-item auction \\(M\\). Let \\(\\mathrm{Rev}_F(M)\\) denote the expected revenue of \\(M\\) when bidders\u2019 values are i.i.d. \\(\\sim F\\) (expectation over values and any internal randomization of \\(M\\)). The robust (max-min) design problem is the zero-sum game:\n1) seller chooses \\(M\\); 2) an adversary chooses \\(F\\in\\mathcal F(\\mu,\\bar v)\\); payoff is \\(\\mathrm{Rev}_F(M)\\).\n\nA (pure-strategy) equilibrium \\((M^*,F^*)\\) satisfies\n\\[\nM^*\\in \\arg\\max_{M}\\ \\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M),\\qquad\nF^*\\in \\arg\\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\ \\max_{M}\\mathrm{Rev}_F(M).\n\\]\nThe paper derives the equilibrium for \\(n=2\\), and for \\(n\\ge 3\\) solves only a reduced game where the seller is restricted to second-price auctions with a randomized reserve; it also exhibits that this restriction can be suboptimal for \\(n\\ge 3\\).",
+  "problem_definition_latex": "Determine (or provide a tight quantitative characterization of) an equilibrium \\((M^*,F^*)\\) of the general max-min revenue game for \\(n\\ge 3\\) i.i.d. bidders with \\(F\\in\\mathcal F(\\mu,\\bar v)\\), i.e., solve\n\\[\n\\max_{M\\ \\text{truthful}}\\ \\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M)\n\\]\nby identifying an optimal truthful mechanism \\(M^*\\) and the corresponding worst-case distribution \\(F^*\\) (and hence the max-min value \\(\\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M^*)\\)).",
+  "latex": "A seller has a single indivisible item and faces \\(n\\ge 3\\) bidders with private values \\(v_1,\\dots,v_n\\). Values are drawn i.i.d. from an unknown distribution \\(F\\) supported on \\([0,\\bar v]\\) with known mean \\(\\mu\\), i.e., \\(\\mathbb E_{v\\sim F}[v]=\\mu\\) and \\(\\Pr[v\\in[0,\\bar v]]=1\\). Let \\(\\mathcal F(\\mu,\\bar v)\\) denote the set of all such distributions.\n\nThe seller chooses a dominant-strategy incentive compatible and individually rational (truthful) single-item auction \\(M\\). Let \\(\\mathrm{Rev}_F(M)\\) denote the expected revenue of \\(M\\) when bidders\u2019 values are i.i.d. \\(\\sim F\\) (expectation over values and any internal randomization of \\(M\\)). The robust (max-min) design problem is the zero-sum game:\n1) seller chooses \\(M\\); 2) an adversary chooses \\(F\\in\\mathcal F(\\mu,\\bar v)\\); payoff is \\(\\mathrm{Rev}_F(M)\\).\n\nA (pure-strategy) equilibrium \\((M^*,F^*)\\) satisfies\n\\[\nM^*\\in \\arg\\max_{M}\\ \\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M),\\qquad\nF^*\\in \\arg\\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\ \\max_{M}\\mathrm{Rev}_F(M).\n\\]\nThe paper derives the equilibrium for \\(n=2\\), and for \\(n\\ge 3\\) solves only a reduced game where the seller is restricted to second-price auctions with a randomized reserve; it also exhibits that this restriction can be suboptimal for \\(n\\ge 3\\).\n\nDetermine (or provide a tight quantitative characterization of) an equilibrium \\((M^*,F^*)\\) of the general max-min revenue game for \\(n\\ge 3\\) i.i.d. bidders with \\(F\\in\\mathcal F(\\mu,\\bar v)\\), i.e., solve\n\\[\n\\max_{M\\ \\text{truthful}}\\ \\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M)\n\\]\nby identifying an optimal truthful mechanism \\(M^*\\) and the corresponding worst-case distribution \\(F^*\\) (and hence the max-min value \\(\\min_{F\\in\\mathcal F(\\mu,\\bar v)}\\mathrm{Rev}_F(M^*)\\)).",
+  "location_in_paper": "Section 5 (Discussion), page 29",
+  "open_problem_quote": "Beyond two bidders. First, while for n \\ge 3 bidders we establish the max-min optimal distribution of the reserve price when the seller is confined to second price auctions, the following is still open:\nOpen Question 1. What is the max-min optimal auction given parametric distributional knowledge for n \\ge 3 bidders?",
+  "area": "robust auction design",
+  "category": "Mechanism Design & Auctions",
+  "keywords": [
+    "robust mechanism design",
+    "max-min revenue",
+    "single-item auctions",
+    "moment constraints",
+    "distributional uncertainty",
+    "i.i.d. bidders"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "The objective is a worst-case expected revenue over an infinite-dimensional uncertainty set of distributions, so fully automated finite counterexample search is not immediate. However, one can discretize values and restrict to finite-support distributions and finite mechanism classes to search for candidate mechanisms beating second-price-with-reserve, which is feasible at moderate scale and can guide theory.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop can represent candidate truthful mechanisms (e.g., via allocation/payment rules over discretized type spaces) and evaluate robust revenue by solving inner minimization over finite-support distributions or via linear/convex programs on discretizations, providing a computable fitness signal. The gap to the continuous, full-mechanism solution remains, but computational exploration could plausibly discover structure and conjectures.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.1134525
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 8,
+    "difficulty": 9,
+    "synthesis": "Bachrach and Talgam-Cohen (2022) formulate the max\u2013min revenue problem over the moment-and-support ambiguity set \\(\\mathcal F(\\mu,\\bar v)\\) as a zero-sum game between a DSIC/IR seller and an adversary choosing an i.i.d. value distribution. They fully solve the general game for \\(n=2\\), showing the equilibrium mechanism is a second-price auction with a randomized reserve \\(R\\sim Q^*\\), while the worst-case distribution \\(F^*\\) is a truncated equal-revenue law on \\([\\underline v,\\bar v]\\) (with \\(\\underline v\\) pinned down by the mean constraint). For \\(n\\ge 3\\), they solve only the reduced game where the seller is restricted to second-price auctions with randomized reserves, obtaining an equilibrium \\((Q^*,F^*)\\) for that restricted strategy space. A key qualitative change is that the reduced-game worst case \\(F^*\\) is no longer purely equal-revenue: it has a discontinuity/atom at an interior point \\(v_0\\), which breaks the full indifference structure that underpinned optimality of second-price-with-random-reserve for \\(n=2\\). They further exhibit (Example 4.11) that for \\(n\\ge 3\\) this reduced-game equilibrium need not be an equilibrium of the full mechanism-design game, because a seller who knows \\(F^*\\) can exploit its irregularity via ironing/tie-breaking to extract strictly more revenue than any second-price-with-reserve.\n\nAmong the forward citations provided, the closest partial progress is the 2025 thesis \u201cIncentives in Market Design: Robust Auction Theory and Applications to Electricity Markets,\u201d which explicitly situates the \\(n\\ge 3\\) mean+support max\u2013min revenue characterization as open while developing saddle-point/first-order-condition techniques and identifying when optimal robust DSIC mechanisms must go beyond second-price-with-reserve (e.g., introducing pooling auctions for other robust objectives). \u201cRobust Mechanism Design with Anonymous Information\u201d studies a different ambiguity model (known order-statistic distribution) but contributes conceptually related tools for constructing worst-case distributions and proving robust optimality of simple auctions under partial information. The remaining citations are either methodological background (\u201cRobust robustness,\u201d on stability/fragility of max\u2013min guarantees over moment sets) or address different robustness criteria (scale-robust multiplicative objectives; moment-robust prophet inequalities), offering duality/extremal-distribution ideas but not resolving the \\(\\mathcal F(\\mu,\\bar v)\\), \\(n\\ge 3\\) DSIC max\u2013min revenue equilibrium.\n\nOverall, with the evidence in hand, the general \\(n\\ge 3\\) problem remains open: the reduced-game equilibrium suggests the adversary\u2019s optimizer may be irregular with interior atoms, and Example 4.11 shows that optimal DSIC responses can require non-standard allocation/payment rules beyond reserve-price second-price auctions. Promising directions include (i) extending the Lagrangian/discretization-to-ODE approach from the reduced game to the full DSIC space via a characterization of worst-case virtual value processes under only \\(\\mathbb E[v]=\\mu\\) and \\(v\\in[0,\\bar v]\\); (ii) identifying a minimal rich class of mechanisms (e.g., mixtures of reserve SPAs plus pooling/ironed rules) that is without loss for max\u2013min revenue; and (iii) proving whether the adversary\u2019s minimizer can be taken from a low-dimensional extremal family (e.g., distributions with a bounded number of support points/atoms) while maintaining robustness in the sense of stability to perturbations.",
+    "total_cost_usd": 0.58540545,
+    "citations_analyzed": 6,
+    "sources": [
+      {
+        "title": "Incentives in Market Design: Robust Auction Theory and Applications to Electricity Markets",
+        "bibtex": "@phdthesis{UnknownIncentivesMarketDesignRobustAuctionTheory,\n  title        = {Incentives in Market Design: Robust Auction Theory and Applications to Electricity Markets},\n  author       = {},\n  year         = {2025},\n  school       = {Unknown},\n  note         = {PhD thesis; year inferred from citation analysis; bibliographic metadata not provided in the forward-citation block.}\n}",
+        "source_url": "",
+        "theorem_or_result": "The thesis (esp. Chapter 1, based on Anunrojwong\u2013Balseiro\u2013Besbes 2024) proves that for the minimax-regret objective with only an upper bound on values (support \n[0,\\bar v]) and i.i.d. bidders, an optimal DSIC mechanism for any number of bidders \\(n\\ge 1\\) is a second-price auction with a carefully chosen random reserve distribution \\(\\Phi^*_n\\); the corresponding worst-case i.i.d. distribution is an isorevenue distribution \\(F^*_n(v)=0\\) for \\(v\\le v^*_n\\), \\(F^*_n(v)=1-v^*_n/v\\) for \\(v\\in[v^*_n,\\bar v)\\), with an atom at \\(\\bar v\\). Separately (Chapter 2, based on forthcoming work), for i.i.d. values with known support \\([\\underline v,\\bar v]\\) and a minimax \\(\\lambda\\)-regret / maximin-ratio objective, it characterizes an optimal DSIC mechanism as a randomization over second-price auctions with reserves and a new non-standard \u201cpooling auction\u201d class, with regime thresholds in \\(\\underline v/\\bar v\\).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the equilibrium \\((M^*,F^*)\\) of the max\u2013min revenue game with \\(n\\ge 3\\) i.i.d. bidders when \\(F\\) has known mean \\(\\mu\\) and bounded support \\([0,\\bar v]\\). This thesis does not solve that maximin-revenue-with-mean-constraint problem. It studies different robust objectives: (i) minimax regret relative to a benchmark (Chapter 1) with only an upper-bound constraint (no mean constraint), and (ii) minimax \\(\\lambda\\)-regret / maximin ratio with known support interval (Chapter 2). However, it is directly relevant because it (a) discusses the same concurrent work (Bachrach\u2013Talgam-Cohen 2022) and explicitly notes that characterizing the optimal DSIC mechanism for maximin revenue with known mean remains open for \\(n\\ge 3\\); and (b) develops saddle-point/FOC methodology and identifies when second-price with random reserve is optimal over all DSIC mechanisms versus when non-standard mechanisms are needed\u2014tools potentially adaptable to the mean-constrained maximin revenue game."
+      },
+      {
+        "title": "Robust Mechanism Design with Anonymous Information",
+        "bibtex": "@article{UnknownRobustMechanismDesignAnonymousInformation,\n  title        = {Robust Mechanism Design with Anonymous Information},\n  author       = {},\n  year         = {????},\n  note         = {Bibliographic metadata not provided in the forward-citation block.}\n}",
+        "source_url": "",
+        "theorem_or_result": "The paper studies a different robust-auction game where the ambiguity set is all product distributions consistent with a known distribution of a k-th order statistic \\(G=\\Phi_k(F)\\). Key results include: (i) if \\(\\Phi_1(F)=G\\), posted pricing at \\(p^*\\in\\arg\\max_p p(1-G(p))\\) is robustly optimal; (ii) if \\(\\Phi_n(F)=G\\), Myerson\u2019s auction for the unique i.i.d. \\(\\bar F_n(G)\\) with \\(\\Phi_n(\\bar F_n(G)^n)=G\\) is robustly optimal; (iii) for \\(k\\ge2\\), for any reserve \\(p\\), \\(\\min_{F\\in\\Pi_k(G)}\\mathrm{Rev}(\\mathrm{SPA}(p),F)=\\mathrm{Rev}(\\mathrm{SPA}(p),\\bar F_k(G)^n)\\), and if \\(\\bar F_k(G)\\) is regular above its monopoly reserve \\(p^*\\), then \\(\\mathrm{SPA}(p^*)\\) is robustly optimal for that order-statistic ambiguity set.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks for the max\u2013min revenue-optimal truthful auction when bidders are i.i.d. from an unknown \\(F\\) with known mean \\(\\mu\\) and bounded support \\([0,\\bar v]\\). This paper does not analyze the mean-and-support ambiguity set \\(\\mathcal F(\\mu,\\bar v)\\) nor characterize the equilibrium \\((M^*,F^*)\\) for \\(n\\ge3\\) in that game. Instead it considers a different information structure: the seller knows an order-statistic distribution \\(G\\) (e.g., of the second-highest value) and designs against all independent (not necessarily i.i.d.) distributions consistent with \\(G\\). Nevertheless, its techniques\u2014constructing worst-case distributions via stochastic minimality/order-statistic-wise dominance and identifying when second-price-with-reserve is robustly optimal\u2014are conceptually related to distributionally robust auction design and may inform approaches to the mean-constrained i.i.d. problem."
+      },
+      {
+        "title": "Robust robustness",
+        "bibtex": "@article{UnknownRobustRobustness,\n  title        = {Robust robustness},\n  author       = {},\n  year         = {????},\n  note         = {Bibliographic metadata not provided in the forward-citation block.}\n}",
+        "source_url": "",
+        "theorem_or_result": "The paper introduces a refinement of max\u2013min robustness: a payoff guarantee \\(\\inf_{\\pi\\in\\Pi}\\langle u\\circ f,\\pi\\rangle\\) is called robust if for every sequence \\((\\pi_n)\\) weakly converging to a prior in \\(\\overline\\Pi\\), one has \\(\\liminf_n \\langle u\\circ f,\\pi_n\\rangle\\ge \\inf_{\\pi\\in\\Pi}\\langle u\\circ f,\\pi\\rangle\\) (Definition 1). It proves structural sufficient conditions on ambiguity sets ensuring robustness of all guarantees: if \\(\\Pi\\) is rich (Definition 3), then \\(\\Pi\\) is uniformly robust (Proposition 5), and common ambiguity sets such as continuous moment sets and neighborhoods under weak convex metrics (e.g., Wasserstein balls) are rich (Proposition 6). It also shows a negative result: in a broad profit-maximization/screening class, any saddle point \\((\\hat f,\\hat\\pi)\\) with finite-support \\(\\hat\\pi\\) and positive value yields a non-robust guarantee (Proposition 4).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks to characterize the equilibrium \\((M^*,F^*)\\) in a distributionally robust auction revenue game with \\(n\\ge 3\\) i.i.d. bidders when \\(F\\) ranges over distributions on \\([0,\\bar v]\\) with fixed mean \\(\\mu\\). This paper does not solve that auction-design max\u2013min game or identify \\(M^*\\) or \\(F^*\\). However, it provides meta-results about robustness of max\u2013min solutions and about when worst-case priors with finite support lead to fragile (non-robust) guarantees. Since the ambiguity set \\(\\mathcal F(\\mu,\\bar v)\\) is a continuous moment set (mean constraint plus support constraint), Proposition 6 suggests that if one endows the state space of value distributions with an appropriate weak topology, then payoff guarantees over such moment sets are robust in their sense; conversely, any candidate equilibrium relying on a degenerate/finite-support worst-case distribution may be fragile. These insights may guide how to search for \\((M^*,F^*)\\) (e.g., expect worst-case \\(F^*\\) not to be purely finite-support if robustness is desired), but they do not characterize the equilibrium mechanism for \\(n\\ge 3\\)."
+      },
+      {
+        "title": "Scale-robust auctions",
+        "bibtex": "@article{UnknownScaleRobustAuctions,\n  title        = {Scale-robust auctions},\n  author       = {},\n  year         = {????},\n  note         = {Bibliographic metadata not provided in the forward-citation block.}\n}",
+        "source_url": "",
+        "theorem_or_result": "The paper characterizes the optimal scale-robust (worst-case multiplicative-approximation) DSIC mechanism for selling a single item to two i.i.d. regular bidders: it is a mixture between the second-price auction and an \\,\\(r^*\\)-markup of the second-highest bid, with parameters approximately \\(\\alpha^*\\approx 0.806\\) on second price and \\(r^*\\approx 2.447\\), and worst-case distribution a normalized triangle distribution \\(\\mathrm{Tri}_{\\bar q^*}\\) with \\(\\bar q^*\\approx 0.093\\), yielding approximation ratio \\(\\beta\\approx 1.907\\). It also proves a general reduction that scale-invariant mechanisms are w.l.o.g. optimal for this multiplicative objective.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem is a max\u2013min (absolute revenue) robust auction with \\(n\\ge 3\\) i.i.d. bidders when the distribution is only known to have support \\([0,\\bar v]\\) and mean \\(\\mu\\), i.e., \\(F\\in\\mathcal F(\\mu,\\bar v)\\). This paper studies a different robustness model (worst-case multiplicative approximation to Bayesian-optimal revenue) and focuses primarily on \\(n=2\\) bidders under regularity, not on mean-and-support ambiguity sets. It does not identify the equilibrium \\((M^*,F^*)\\) for the mean-constrained max\u2013min revenue game for \\(n\\ge 3\\). The only tangential link is methodological: it develops reduction/symmetrization ideas (e.g., w.l.o.g. scale invariance; worst-case distributions with simple revenue curves) that might inspire approaches to the mean-constrained max\u2013min problem, but it does not address that game."
+      },
+      {
+        "title": "On the Informativeness of Moments in Optimal Stopping",
+        "bibtex": "@inproceedings{UnknownInformativenessMomentsOptimalStopping,\n  title        = {On the Informativeness of Moments in Optimal Stopping},\n  author       = {},\n  year         = {????},\n  doi          = {10.1145/3798129.3800792},\n  url          = {https://doi.org/10.1145/3798129.3800792},\n  note         = {Bibliographic metadata not provided in the forward-citation block.}\n}",
+        "source_url": "https://doi.org/10.1145/3798129.3800792",
+        "theorem_or_result": "From the title/abstract only: the paper studies a \u201cprophet inequality with limited information\u201d where the decision maker observes only the first \\(k\\) moments of each random variable (rather than full distributions), and derives optimal/near-optimal stopping rules and worst-case guarantees under moment constraints.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem is a max\u2013min revenue-optimal truthful single-item auction with \\(n\\ge 3\\) i.i.d. bidders when the adversary chooses a value distribution \\(F\\) with support \\([0,\\bar v]\\) and fixed mean \\(\\mu\\). This citing paper appears to address a different max\u2013min problem (optimal stopping / prophet inequalities) under partial distributional information (moments). The methodological overlap is that both are robust optimization problems over ambiguity sets defined by moments; techniques for constructing worst-case distributions under moment constraints (e.g., extremal distributions, duality) could be adaptable. However, nothing in the title/abstract indicates results about auctions, DSIC mechanisms, or the specific \\(n\\ge 3\\) robust revenue game, so it does not resolve the open problem."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.1134525,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.58540545,
+    "total_cost_usd": 0.69885795
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4280639630/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4280639630/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4280639630_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4280639630_p0",
+    "citations_analyzed": 6,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

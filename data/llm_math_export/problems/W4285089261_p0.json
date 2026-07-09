@@ -1,0 +1,118 @@
+{
+  "problem_id": "W4285089261_p0",
+  "paper_id": "W4285089261",
+  "source_paper": "W4285089261",
+  "source_paper_title": "Impartial Selection with Additive Guarantees via Iterated Deletion",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538294",
+  "source_paper_authors": [
+    "Javier Cembrano",
+    "Felix Fischer",
+    "David W. Hannon",
+    "Max Klimm"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4285089261,\n  title = {Impartial Selection with Additive Guarantees via Iterated Deletion},\n  author = {Javier Cembrano and Felix Fischer and David W. Hannon},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Page 20, end of Section 3 (after the proof of Theorem 1).\n\nClosing the gap between the lower bound of Theorem 4 and the upper bound given by the optimal twin threshold mechanism is left as our main open question.",
+  "title": "Close additive-guarantee gap for deterministic impartial selection in plurality setting",
+  "background_latex": "Let \\(n\\in\\mathbb{N}\\) and let \\(G=(N,E)\\) be a directed graph with vertex set \\(N=[n]\\) and no self-loops. An edge \\((u,v)\\in E\\) means that vertex \\(u\\) nominates vertex \\(v\\). For \\(v\\in N\\), define its indegree \\(\\delta^-(v,G)=|\\{u\\in N:(u,v)\\in E\\}|\\), and let \\(\\Delta(G)=\\max_{v\\in N}\\delta^-(v,G)\\) be the maximum indegree.\n\nThe plurality setting is the class \\(\\mathcal{G}_n(1)\\) of such graphs in which every vertex has outdegree at most \\(1\\) (each individual casts at most one nomination).\n\nA deterministic selection mechanism is a function \\(f\\) that maps each \\(G\\in\\mathcal{G}_n(1)\\) to a set \\(f(G)\\subseteq N\\) with \\(|f(G)|\\le 1\\); \\(f(G)=\\emptyset\\) means no vertex is selected. The mechanism is impartial (on \\(\\mathcal{G}_n(1)\\)) if for every \\(v\\in N\\), changing only the outgoing edges of \\(v\\) does not change whether \\(v\\) is selected.\n\nFor any \\(S\\subseteq N\\), let \\(\\delta^-(S,G)=\\sum_{v\\in S}\\delta^-(v,G)\\) (so \\(\\delta^-(\\emptyset,G)=0\\)). For \\(\\alpha\\ge 0\\), the mechanism \\(f\\) is \\(\\alpha\\)-additive on \\(\\mathcal{G}_n(1)\\) if\n\\[\\sup_{G\\in\\mathcal{G}_n(1)}\\bigl(\\Delta(G)-\\delta^-(f(G),G)\\bigr)\\le \\alpha.\\]\n\nTwo quantitative bounds discussed for plurality are:\n1) A lower bound: for any deterministic impartial mechanism \\(f\\) on \\(\\mathcal{G}_n(1)\\), the worst-case additive loss is at least \\(\\alpha_n\\), where \\(\\alpha_n=1\\) for \\(n\\in\\{2,3\\}\\), \\(\\alpha_n=2\\) for \\(4\\le n\\le 9\\), and \\(\\alpha_n=3\\) for \\(n\\ge 10\\).\n2) An upper bound: there exist (twin-threshold) deterministic impartial mechanisms on \\(\\mathcal{G}_n(1)\\) with worst-case additive loss at most \\(\\sqrt{7.25\\,n}\\); moreover, optimizing thresholds within this mechanism family can yield smaller bounds for specific finite \\(n\\).",
+  "problem_definition_latex": "For the plurality class \\(\\mathcal{G}_n(1)\\), narrow the quantitative gap between:\n1) the lower bound \\(\\alpha_n\\) on the worst-case additive loss of any deterministic impartial selection mechanism, and\n2) the upper bound on worst-case additive loss achieved by the (optimal) twin threshold mechanism (in particular, the explicit \\(\\sqrt{7.25\\,n}\\) upper bound).\n\nConcretely, improve the known lower bound \\(\\alpha_n\\) and/or improve the known upper bound for deterministic impartial mechanisms in the plurality setting so that these bounds are closer (as functions of \\(n\\)) under the additive-loss metric \\(\\sup_{G\\in\\mathcal{G}_n(1)}(\\Delta(G)-\\delta^-(f(G),G))\\).",
+  "latex": "Let \\(n\\in\\mathbb{N}\\) and let \\(G=(N,E)\\) be a directed graph with vertex set \\(N=[n]\\) and no self-loops. An edge \\((u,v)\\in E\\) means that vertex \\(u\\) nominates vertex \\(v\\). For \\(v\\in N\\), define its indegree \\(\\delta^-(v,G)=|\\{u\\in N:(u,v)\\in E\\}|\\), and let \\(\\Delta(G)=\\max_{v\\in N}\\delta^-(v,G)\\) be the maximum indegree.\n\nThe plurality setting is the class \\(\\mathcal{G}_n(1)\\) of such graphs in which every vertex has outdegree at most \\(1\\) (each individual casts at most one nomination).\n\nA deterministic selection mechanism is a function \\(f\\) that maps each \\(G\\in\\mathcal{G}_n(1)\\) to a set \\(f(G)\\subseteq N\\) with \\(|f(G)|\\le 1\\); \\(f(G)=\\emptyset\\) means no vertex is selected. The mechanism is impartial (on \\(\\mathcal{G}_n(1)\\)) if for every \\(v\\in N\\), changing only the outgoing edges of \\(v\\) does not change whether \\(v\\) is selected.\n\nFor any \\(S\\subseteq N\\), let \\(\\delta^-(S,G)=\\sum_{v\\in S}\\delta^-(v,G)\\) (so \\(\\delta^-(\\emptyset,G)=0\\)). For \\(\\alpha\\ge 0\\), the mechanism \\(f\\) is \\(\\alpha\\)-additive on \\(\\mathcal{G}_n(1)\\) if\n\\[\\sup_{G\\in\\mathcal{G}_n(1)}\\bigl(\\Delta(G)-\\delta^-(f(G),G)\\bigr)\\le \\alpha.\\]\n\nTwo quantitative bounds discussed for plurality are:\n1) A lower bound: for any deterministic impartial mechanism \\(f\\) on \\(\\mathcal{G}_n(1)\\), the worst-case additive loss is at least \\(\\alpha_n\\), where \\(\\alpha_n=1\\) for \\(n\\in\\{2,3\\}\\), \\(\\alpha_n=2\\) for \\(4\\le n\\le 9\\), and \\(\\alpha_n=3\\) for \\(n\\ge 10\\).\n2) An upper bound: there exist (twin-threshold) deterministic impartial mechanisms on \\(\\mathcal{G}_n(1)\\) with worst-case additive loss at most \\(\\sqrt{7.25\\,n}\\); moreover, optimizing thresholds within this mechanism family can yield smaller bounds for specific finite \\(n\\).\n\nFor the plurality class \\(\\mathcal{G}_n(1)\\), narrow the quantitative gap between:\n1) the lower bound \\(\\alpha_n\\) on the worst-case additive loss of any deterministic impartial selection mechanism, and\n2) the upper bound on worst-case additive loss achieved by the (optimal) twin threshold mechanism (in particular, the explicit \\(\\sqrt{7.25\\,n}\\) upper bound).\n\nConcretely, improve the known lower bound \\(\\alpha_n\\) and/or improve the known upper bound for deterministic impartial mechanisms in the plurality setting so that these bounds are closer (as functions of \\(n\\)) under the additive-loss metric \\(\\sup_{G\\in\\mathcal{G}_n(1)}(\\Delta(G)-\\delta^-(f(G),G))\\).",
+  "location_in_paper": "Page 20, end of Section 3 (after the proof of Theorem 1).",
+  "open_problem_quote": "Closing the gap between the lower bound of Theorem 4 and the upper bound given by the optimal twin threshold mechanism is left as our main open question.",
+  "area": "impartial selection",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "impartial selection",
+    "plurality setting",
+    "additive guarantee",
+    "directed graphs",
+    "mechanism design",
+    "lower bounds",
+    "twin threshold mechanism"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Improving the lower bound can be approached by searching for worst-case nomination graphs for broad classes of deterministic impartial mechanisms, but the space of mechanisms is enormous and not finitely parameterized. Still, automated searches can help discover hard instances or tighten constant lower bounds for restricted mechanism families or for small \\(n\\).",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "Candidate mechanisms can be represented programmatically (e.g., parameterized rules like threshold-based deletions or other impartial constructions) and evaluated by brute-force enumeration for small \\(n\\) to estimate worst-case additive loss as a fitness signal. However, scaling beyond small \\(n\\) and ensuring global impartiality constraints makes the fitness evaluation and generalization nontrivial, so automated search is only moderately well aligned.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.03093545
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "In the plurality class \\(\\mathcal G_n(1)\\), the source paper introduces the twin-threshold (iterated deletion) mechanism and proves a deterministic worst-case additive loss bound \\(O(\\sqrt n)\\), with an explicit \\(\\sqrt{7.25\\,n}\\) guarantee for outdegree 1, while also establishing small constant lower bounds \\(\\alpha_n\\in\\{1,2,3\\}\\) (Theorem 4). The open problem asks to narrow this large quantitative gap between a constant lower bound and a \\(\\Theta(\\sqrt n)\\) upper bound.\n\nAmong the forward citations provided, none directly improves the deterministic worst-case additive bounds in \\(\\mathcal G_n(1)\\). The most relevant progress is indirect: \u201cImproved bounds for single-nomination impartial selection\u201d sharpens the understanding of the same outdegree-1 model but under multiplicative (ratio) objectives, giving tight analyses of permutation-type mechanisms and improved impossibility bounds. The other citing works study additive approximation under priors, or multiplicative trade-offs with predictions, or deterministic mechanisms in weighted/inexact settings; these contribute tools and perspectives but do not close the additive-loss gap.\n\nTherefore, based on the given forward-citation set, the problem remains open: the best known deterministic worst-case additive upper bound in plurality remains \\(O(\\sqrt n)\\) (explicitly \\(\\sqrt{7.25\\,n}\\) for twin thresholds), while the best known general lower bound remains constant (\\(\\alpha_n\\le 3\\) for all \\(n\\), with \\(\\alpha_n=3\\) for \\(n\\ge 10\\)). Promising directions suggested by the literature include translating tight multiplicative analyses (e.g., permutation optimality as a function of \\(\\Delta\\)) into additive lower bounds that scale with \\(n\\) or \\(\\Delta\\), and importing combinatorial constructions from deterministic weighted/inexact selection to design new deterministic impartial mechanisms with improved additive loss.",
+    "total_cost_usd": 0.3299226,
+    "citations_analyzed": 5,
+    "sources": [
+      {
+        "title": "Improved bounds for single-nomination impartial selection",
+        "bibtex": "@article{ImprovedBoundsSingleNominationImpartialSelection,\n  title        = {Improved bounds for single-nomination impartial selection},\n  doi          = {10.1287/moor.2024.0431},\n  url          = {https://doi.org/10.1287/moor.2024.0431}\n}\n",
+        "source_url": "https://doi.org/10.1287/moor.2024.0431",
+        "theorem_or_result": "The paper proves improved multiplicative approximation guarantees for impartial selection in the single-nomination (outdegree-1) model. In particular:\n- The permutation mechanism is exactly \n\\[\\alpha(\\Delta)=\\begin{cases}1,&\\Delta=1,\\\\ \\frac{3\\Delta+2}{4\\Delta+4},&\\Delta\\text{ even},\\\\ \\alpha(\\Delta-1),&\\Delta\\text{ odd},\\end{cases}\\]\noptimal on graphs with maximum indegree \\(\\Delta\\) (Theorem 3.1), implying it is \\(2/3\\)-optimal on \\(\\mathcal G_n(1)\\) for all \\(n\\) (Corollary 3.2).\n- There exists an impartial mechanism (a mixture of Perm and a modified plurality-with-runner-up variant) that is \\(2105/3147\\)-optimal on \\(\\mathcal G_n(1)\\) for all \\(n\\) (Theorem 4.1).\n- Any impartial \\(\\alpha\\)-optimal mechanism on \\(\\mathcal G_n(1)\\cap G_n\\) with \\(n\\ge 6\\) satisfies\n\\[\\alpha\\le \\frac{3n^3-19n^2+30n-4}{4n(n-2)(n-4)},\\]\nso in particular \\(\\alpha\\le 76/105\\) for all \\(n\\) (Theorem 5.1 and Corollary 5.2).",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 8,
+        "connection": "The open problem asks to narrow the additive-loss gap for deterministic impartial selection in the plurality (outdegree \\(\\le 1\\)) setting, i.e. improve lower/upper bounds on \\(\\sup_G(\\Delta(G)-\\delta^-(f(G),G))\\) for deterministic mechanisms.\n\nThis citing paper works in the same single-nomination/plurality graph class but studies a different performance metric: multiplicative (ratio) optimality \\(\\mathbb E[\\delta^-(\\text{selected})]/\\Delta\\) for randomized mechanisms, plus upper bounds on that ratio. It does not provide new deterministic additive-loss bounds, nor does it analyze the twin-threshold deterministic additive mechanism from the open problem.\n\nNevertheless, it is related: improved ratio guarantees and tight analysis of permutation-type mechanisms may inform additive analyses, and the paper explicitly references additive guarantees work (including Caragiannis et al. 2022 and Cembrano et al. 2022a) as context. But it does not directly close the deterministic additive gap posed in the open problem."
+      },
+      {
+        "title": "Impartial selection with prior information",
+        "bibtex": "@inproceedings{ImpartialSelectionWithPriorInformation,\n  title        = {Impartial selection with prior information},\n  doi          = {10.1145/3543507.3583553},\n  url          = {https://doi.org/10.1145/3543507.3583553}\n}\n",
+        "source_url": "https://doi.org/10.1145/3543507.3583553",
+        "theorem_or_result": "In a Bayesian setting with voter-independent priors, the paper analyzes deterministic impartial mechanisms that use prior information. Main results include: - For the constant mechanism (always select a fixed default node chosen by the prior), the expected additive approximation is \\(\\Theta(\\sqrt{n\\ln n})\\) on opinion-poll/uniform inputs (Theorems 5 and 6). - For approval voting with default (AVD) with default chosen as the node of highest expected indegree, the expected additive approximation is \\(O(\\ln^2 n)\\) on a priori popularity instances (Theorem 7), and \\(\\Omega(\\ln n)\\) on uniform instances with \\(p=1/2\\) (Theorem 13).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks to narrow the worst-case additive-loss gap for deterministic impartial selection in the plurality setting \\(\\mathcal{G}_n(1)\\) (each node has outdegree \\(\\le 1\\)), without priors, under the worst-case (sup over graphs) additive-loss metric. This paper instead studies expected additive approximation under known voter-independent priors (opinion poll / a priori popularity / uniform) and mechanisms (AVD) that may use that prior to choose a default. Its polylogarithmic \\(O(\\ln^2 n)\\) bound is for a different performance criterion (expectation over a distribution) and a different input model (general approval graphs, not restricted to outdegree \\(\\le 1\\)). Therefore it does not improve the worst-case deterministic bounds in \\(\\mathcal{G}_n(1)\\). However, it provides techniques (tie-at-maximum probability control via binomial hazard-function bounds) and lower-bound constructions that may inform attempts to analyze deterministic mechanisms (including default/tie-breaking schemes) in plurality-like regimes."
+      },
+      {
+        "title": "Impartial Selection with Predictions",
+        "bibtex": "@misc{ImpartialSelectionWithPredictions,\n  title        = {Impartial Selection with Predictions}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies impartial selection mechanisms augmented with an external prediction \\(\\hat S\\) of the optimal set. In the plurality \\(k=1\\) case (each vertex has outdegree 1), it proves that the 1-permutation mechanism (placing the predicted vertex last in a random permutation) is impartial, 1-consistent, and \\(1/2\\)-robust (Theorem 3.3), and gives upper bounds on achievable consistency\u2013robustness trade-offs (Theorem 6.1(ii): for any impartial mechanism on plurality graphs, \\(\\beta\\le 3/4\\) and \\(\\alpha+\\beta\\le 3/2\\)).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 4,
+        "connection": "The open problem asks to narrow the additive-guarantee gap for deterministic impartial selection in the plurality setting under worst-case additive loss \\(\\sup_G(\\Delta(G)-\\delta^-(f(G),G))\\). This paper does not address additive-loss guarantees for deterministic mechanisms without predictions; instead it studies multiplicative approximation (consistency/robustness) for mechanisms that take an additional prediction input, and mainly uses randomization. Thus it neither improves the deterministic additive upper bound (e.g., \\(O(\\sqrt n)\\) via twin thresholds) nor the deterministic additive lower bound \\(\\alpha_n\\). At best, it provides related techniques (permutation-based mechanisms, impossibility via linear inequalities) that might inspire additive analyses, but it does not directly tighten the additive bounds in the original no-prediction deterministic plurality model."
+      },
+      {
+        "title": "Deterministic impartial selection with weights",
+        "bibtex": "@misc{DeterministicImpartialSelectionWithWeights,\n  title        = {Deterministic impartial selection with weights}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper gives a deterministic impartial mechanism for the inexact weighted \n(n,k)-selection problem with a multiplicative approximation guarantee. In particular, if \\(k-k\\bmod 2\\ge 2\\sqrt n\\), there exists an impartial mechanism with \\[\\frac{\\sigma(f(A);A)}{\\sigma(\\mathrm{Opt}_k(A);A)}\\ge \\alpha:=\\frac{k-k\\bmod 2}{k\\,\\lceil 2n/(k-k\\bmod 2)\\rceil}.\\]\nIn the well-behaved case \\(b:=2n/k\\in\\mathbb N\\) and \\(b\\le k/2\\), their explicit mechanism \\(\\mathrm{Select}_k\\) is impartial and \\(1/b\\)-optimal, and this analysis is tight: for every \\(\\varepsilon>0\\), \\(\\mathrm{Select}_k\\) is not \\((1/b+\\varepsilon)\\)-optimal.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks to narrow the additive-loss gap for deterministic impartial selection in the plurality (single-nomination) setting \\(\\mathcal G_n(1)\\), i.e., bounds on \\(\\sup_G(\\Delta(G)-\\delta^-(f(G),G))\\). This citing paper studies a different performance metric (multiplicative approximation ratio) and a more general voting model (arbitrarily weighted votes, unrestricted outdegree), and it allows selecting up to \\(k\\) agents (inexact selection). It does not provide new additive guarantees nor improved lower/upper bounds for the plurality additive-loss objective.\nThat said, it is tangentially related: it develops deterministic impartial mechanisms based on robust partition systems (hypergraph/edge-coloring constructions) and analyzes them tightly. Such partition-system techniques might inspire new deterministic mechanisms for the plurality/additive-loss regime, but no translation or bound for \\(\\Delta-\\delta^-\\) in \\(\\mathcal G_n(1)\\) is established here."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.03093545,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.3299226,
+    "total_cost_usd": 0.36085805
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285089261/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285089261/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4285089261_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4285089261_p0",
+    "citations_analyzed": 5,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

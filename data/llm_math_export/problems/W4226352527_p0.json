@@ -1,0 +1,126 @@
+{
+  "problem_id": "W4226352527_p0",
+  "paper_id": "W4226352527",
+  "source_paper": "W4226352527",
+  "source_paper_title": "Is Selling Complete Information (Approximately) Optimal?",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538304",
+  "source_paper_authors": [
+    "Dirk Bergemann",
+    "Yang Cai",
+    "Grigoris Velegkas",
+    "Mingfei Zhao"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4226352527,\n  title = {Is Selling Complete Information (Approximately) Optimal?},\n  author = {Dirk Bergemann and Yang Cai and Grigoris Velegkas},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4.1, discussion immediately after Theorem 3 (page 10\u201311 in the provided text pagination).\n\nNote that we only show that the relaxed problem under which the optimal revenue can be obtained with \\(O(m)\\) experiments. It remains an open question whether the cardinality of the optimal menu in the original problem grows linearly in the number of available actions, or perhaps exceeds linear growth in the feasible actions.",
+  "title": "Determine linear versus superlinear optimal menu size in binary-state information-selling mechanisms",
+  "background_latex": "Consider a Bayesian decision problem with a binary payoff-relevant state \\(\\Omega=\\{\\omega_1,\\omega_2\\}\\) and a finite action set \\(A=[m]=\\{1,\\dots,m\\}\\) with \\(m\\ge 3\\). Payoffs are given by a matrix \\(U\\in\\mathbb{R}^{2\\times m}\\), where \\(u_{ij}\\) is the buyer\u2019s payoff from choosing action \\(j\\) when the realized state is \\(\\omega_i\\).\n\nThe buyer\u2019s private type is a belief \\(\\theta\\in[0,1]\\) with \\(\\Pr[\\omega_1]=\\theta\\) and \\(\\Pr[\\omega_2]=1-\\theta\\), drawn from a commonly known distribution \\(F\\) on \\([0,1]\\). The seller commits to a menu of options \\(\\{(E_s,p_s)\\}_{s\\in S}\\), where each option consists of a statistical experiment \\(E\\) (a signaling scheme) and a posted price \\(p\\). An experiment can be represented as a stochastic matrix \\(\\pi(E)\\in[0,1]^{2\\times m}\\) with \\(\\sum_{j=1}^m \\pi_{ij}(E)=1\\) for each state \\(i\\), where \\(\\pi_{ij}(E)\\) is the probability of sending signal \\(j\\) in state \\(\\omega_i\\). After observing the realized signal, the buyer chooses an action to maximize expected payoff.\n\nLet \\(V_\\theta(E)\\) denote the buyer\u2019s (ex ante) value of experiment \\(E\\) at type \\(\\theta\\), i.e., the maximum expected payoff the buyer can achieve when optimally responding to the signal induced by \\(E\\). With quasi-linear utility, the buyer chooses an option \\((E,p)\\) that maximizes \\(V_\\theta(E)-p\\), and can always refuse to buy.\n\nA menu (equivalently, a direct mechanism) is incentive compatible (IC) and individually rational (IR) if each type \\(\\theta\\) selects an option (possibly opting out) that maximizes utility and obtains utility at least the outside-option payoff from acting without buying any experiment. The seller\u2019s expected revenue is the expected payment under \\(\\theta\\sim F\\). Let \\(\\mathrm{OPT}\\) be the maximum achievable revenue over all IC and IR mechanisms.\n\nAny IC and IR mechanism can be represented as a menu with finitely or infinitely many options; the menu\u2019s \\emph{cardinality} (or \\emph{menu size}) is the number of distinct experiments/options offered. The paper establishes that in some binary-state environments any revenue-optimal menu must have size \\(\\Omega(m)\\), and that under a relaxation that drops certain incentive constraints (keeping only \u201cresponsive\u201d IC constraints) there is always an optimal mechanism with \\(O(m)\\) options. The open question concerns the original (full IC) problem without that relaxation.",
+  "problem_definition_latex": "In the binary-state information-selling model with \\(m\\) actions, determine whether the cardinality of a revenue-optimal IC and IR menu must always grow linearly in \\(m\\), or whether it can exceed linear growth in \\(m\\).\n\nEquivalently, resolve whether for the original (full IC) problem the menu size of an optimal mechanism is always \\(O(m)\\), or whether there exist environments for which every optimal menu has size \\(\\omega(m)\\).",
+  "latex": "Consider a Bayesian decision problem with a binary payoff-relevant state \\(\\Omega=\\{\\omega_1,\\omega_2\\}\\) and a finite action set \\(A=[m]=\\{1,\\dots,m\\}\\) with \\(m\\ge 3\\). Payoffs are given by a matrix \\(U\\in\\mathbb{R}^{2\\times m}\\), where \\(u_{ij}\\) is the buyer\u2019s payoff from choosing action \\(j\\) when the realized state is \\(\\omega_i\\).\n\nThe buyer\u2019s private type is a belief \\(\\theta\\in[0,1]\\) with \\(\\Pr[\\omega_1]=\\theta\\) and \\(\\Pr[\\omega_2]=1-\\theta\\), drawn from a commonly known distribution \\(F\\) on \\([0,1]\\). The seller commits to a menu of options \\(\\{(E_s,p_s)\\}_{s\\in S}\\), where each option consists of a statistical experiment \\(E\\) (a signaling scheme) and a posted price \\(p\\). An experiment can be represented as a stochastic matrix \\(\\pi(E)\\in[0,1]^{2\\times m}\\) with \\(\\sum_{j=1}^m \\pi_{ij}(E)=1\\) for each state \\(i\\), where \\(\\pi_{ij}(E)\\) is the probability of sending signal \\(j\\) in state \\(\\omega_i\\). After observing the realized signal, the buyer chooses an action to maximize expected payoff.\n\nLet \\(V_\\theta(E)\\) denote the buyer\u2019s (ex ante) value of experiment \\(E\\) at type \\(\\theta\\), i.e., the maximum expected payoff the buyer can achieve when optimally responding to the signal induced by \\(E\\). With quasi-linear utility, the buyer chooses an option \\((E,p)\\) that maximizes \\(V_\\theta(E)-p\\), and can always refuse to buy.\n\nA menu (equivalently, a direct mechanism) is incentive compatible (IC) and individually rational (IR) if each type \\(\\theta\\) selects an option (possibly opting out) that maximizes utility and obtains utility at least the outside-option payoff from acting without buying any experiment. The seller\u2019s expected revenue is the expected payment under \\(\\theta\\sim F\\). Let \\(\\mathrm{OPT}\\) be the maximum achievable revenue over all IC and IR mechanisms.\n\nAny IC and IR mechanism can be represented as a menu with finitely or infinitely many options; the menu\u2019s \\emph{cardinality} (or \\emph{menu size}) is the number of distinct experiments/options offered. The paper establishes that in some binary-state environments any revenue-optimal menu must have size \\(\\Omega(m)\\), and that under a relaxation that drops certain incentive constraints (keeping only \u201cresponsive\u201d IC constraints) there is always an optimal mechanism with \\(O(m)\\) options. The open question concerns the original (full IC) problem without that relaxation.\n\nIn the binary-state information-selling model with \\(m\\) actions, determine whether the cardinality of a revenue-optimal IC and IR menu must always grow linearly in \\(m\\), or whether it can exceed linear growth in \\(m\\).\n\nEquivalently, resolve whether for the original (full IC) problem the menu size of an optimal mechanism is always \\(O(m)\\), or whether there exist environments for which every optimal menu has size \\(\\omega(m)\\).",
+  "location_in_paper": "Section 4.1, discussion immediately after Theorem 3 (page 10\u201311 in the provided text pagination).",
+  "open_problem_quote": "Note that we only show that the relaxed problem under which the optimal revenue can be obtained with \\(O(m)\\) experiments. It remains an open question whether the cardinality of the optimal menu in the original problem grows linearly in the number of available actions, or perhaps exceeds linear growth in the feasible actions.",
+  "area": "information design mechanism design",
+  "category": "Mechanism Design & Auctions",
+  "keywords": [
+    "selling information",
+    "menu size complexity",
+    "optimal mechanism",
+    "binary state",
+    "incentive compatibility",
+    "responsive IC relaxation"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "One can search over small \\(m\\), discrete type distributions, and restricted experiment parametrizations to look for instances where optimizing revenue appears to require more than \\(cm\\) menu options, but certifying \\(\\omega(m)\\) growth requires asymptotic constructions and proofs beyond finite automated search.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A coding-agent loop could generate candidate environments (payoff matrices and type distributions) and numerically approximate optimal IC menus (e.g., via discretization and large LPs) to estimate minimal menu size and suggest superlinear patterns, but the full-IC constraints and asymptotic nature make the fitness signal indirect and computationally heavy.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.033177200000000004
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The source paper (Bergemann\u2013Cai\u2013Velegkas\u2013Zhao, 2022) frames the binary-state, \\(m\\)-action information-selling problem as a screening problem over buyer beliefs \\(\\theta\\in[0,1]\\), where each menu option is a Blackwell experiment (represented as a \\(2\\times m\\) stochastic matrix) sold at a posted price. The buyer\u2019s outside-option payoff \\(u(\\theta)=\\max_{j\\in[m]}\\{\\theta u_{1j}+(1-\\theta)u_{2j}\\}\\) is a convex, piecewise-linear \u201cIR curve\u201d with \\(m\\) pieces when no action is redundant. The paper proves that selling only the fully informative experiment (complete revelation of the state, hence recommending action 1 in \\(\\omega_1\\) and action \\(m\\) in \\(\\omega_2\\)) can be far from optimal: there exist environments with \\(\\mathrm{OPT}/\\mathrm{FREV}=\\Omega(m)\\), and conversely \\(\\mathrm{OPT}=O(m)\\cdot \\mathrm{FREV}\\) always holds. A key corollary is that some binary-state environments require menu size \\(\\Omega(m)\\) for exact optimality.\n\nTo obtain the upper bound, the paper introduces a relaxation that drops the non-identity (\\(\\sigma\\)-IC) constraints and keeps only \u201cresponsive-IC\u201d constraints. In that relaxed problem, the seller can w.l.o.g. restrict to semi-informative experiments that only recommend the two fully-informative actions, and the mechanism can be parameterized by a monotone scalar function \\(q(\\theta)\\) (a generalized \u201cquality\u201d index). The relaxed optimization admits an optimal solution with option size \\(O(m)\\), yielding the \\(O(m)\\) approximation guarantee for selling complete information via a general lemma that any IR mechanism with \\(\\ell\\) options can be matched within a factor \\(\\ell\\) by an appropriate price for full information.\n\nThe open question remains at the level of the original, full IC constraints: while \\(\\Omega(m)\\) lower bounds show linear growth is sometimes necessary, it is unknown whether full-IC optimal menu size is always \\(O(m)\\) or can be \\(\\omega(m)\\) as \\(m\\to\\infty\\). Background tools from Bayesian persuasion (concavification for a fixed prior) do not address screening across \\(\\theta\\), and related mechanism-design complexity results suggest that richer IC systems can force complex optimal mechanisms, but no cited forward work resolves the linear-versus-superlinear dichotomy in this binary-state setting.",
+    "total_cost_usd": 1.8517838499999997,
+    "citations_analyzed": 46,
+    "sources": [
+      {
+        "title": "Bayesian persuasion",
+        "bibtex": "@article{KamenicaGentzkow2011BayesianPersuasion,\n  title   = {Bayesian Persuasion},\n  author  = {Kamenica, Emir and Gentzkow, Matthew},\n  journal = {American Economic Review},\n  year    = {2011},\n  volume  = {101},\n  number  = {6},\n  pages   = {2590--2615},\n  doi     = {10.1257/aer.101.6.2590},\n  url     = {https://doi.org/10.1257/aer.101.6.2590}\n}\n",
+        "source_url": "https://doi.org/10.1257/aer.101.6.2590",
+        "theorem_or_result": "The paper (Kamenica\u2013Gentzkow, 2009) characterizes optimal persuasion/information design with commitment: the sender\u2019s optimal expected payoff equals the concave closure (concavification) of the sender\u2019s interim value function \\(\\hat v(\\mu)\\) over posteriors \\(\\mu\\), subject to Bayes-plausibility \\(\\int \\mu\\, d\\tau(\\mu)=\\mu_0\\). In particular, an optimal mechanism exists and can be implemented by an honest (commitment) signal; moreover there exists an optimal mechanism whose support size is at most \\(|\\Omega|\\) (number of states).",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem concerns the menu size (number of experiments/options) needed for an optimal IC/IR mechanism when selling information to a buyer with private belief \\(\\theta\\) in a binary-state, \\(m\\)-action decision problem. Kamenica\u2013Gentzkow study a different model: a sender designs a single information structure to influence a receiver\u2019s action, with no transfers and no screening over receiver types. Their support-size bound (at most \\(|\\Omega|\\) posteriors/actions in an optimal persuasion signal) applies to a fixed prior and does not address screening across a continuum of buyer beliefs \\(\\theta\\), nor the complexity/menu-size of optimal selling mechanisms. Thus it provides background convex-analytic tools (concavification, Bayes-plausibility) that underlie later information-selling work, but it does not resolve whether optimal menus in the selling model are always \\(O(m)\\) or can be \\(\\omega(m)\\)."
+      },
+      {
+        "title": "On the complexity of dynamic mechanism design",
+        "bibtex": "@incollection{CaiDaskalakisWeinberg2016ComplexityDynamicMD,\n  title     = {On the Complexity of Dynamic Mechanism Design},\n  author    = {Cai, Yang and Daskalakis, Constantinos and Weinberg, S. Matthew},\n  booktitle = {Proceedings of the Twenty-Seventh Annual ACM-SIAM Symposium on Discrete Algorithms},\n  year      = {2016},\n  publisher = {SIAM},\n  doi       = {10.1137/1.9781611974331.ch100},\n  url       = {https://doi.org/10.1137/1.9781611974331.ch100}\n}\n",
+        "source_url": "https://doi.org/10.1137/1.9781611974331.ch100",
+        "theorem_or_result": "The paper proves computational complexity and structural results for a different model: in a two-stage dynamic mechanism design problem (selling two items over time to one buyer), finding the revenue-optimal deterministic, truthful, ex-post IR mechanism is strongly NP-hard (Theorem 3), while the revenue-optimal randomized mechanism can be computed in polynomial time via a linear program for multiple stages and buyers (Theorem 7).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns the menu-size (number of experiments/options) needed for an optimal information-selling mechanism with a binary state and m actions. This paper does not study selling information via experiments, nor menu-size growth in m. Its closest conceptual connection is that it highlights how full incentive constraints can force complex optimal mechanisms (and even NP-hardness) and that optimal deterministic mechanisms may require many distinct \u201coptions\u201d (e.g., potentially one price pair per type), but it does not provide bounds (linear or superlinear) on optimal menu size in the binary-state information-selling setting."
+      },
+      {
+        "title": "Selling experiments: Menu pricing of information",
+        "bibtex": "@article{UnknownSellingExperimentsMenuPricing,\n  title  = {Selling experiments: Menu pricing of information},\n  author = {Unknown},\n  year   = {\\{\\} },\n  note   = {Metadata (authors/year/venue/doi) not provided in the citation analysis block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Cannot be determined from the provided title/abstract alone. The paper appears to study a monopolist selling statistical experiments (signals) via menu pricing to buyers with heterogeneous priors/information, i.e., a mechanism-design problem over experiments.",
+        "relevance_category": "BACKGROUND",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether, in binary-state information-selling with an action set of size \\,\\(m\\), an optimal IC/IR menu must have size \\(O(m)\\) or can be superlinear. From the title/abstract, this citing paper is broadly about selling experiments via menus to heterogeneous buyers, which is conceptually aligned with the same class of problems. However, the abstract provides no information about menu-size complexity, binary-state specialization, dependence on \\(m\\), or existence/structure theorems that would resolve linear vs superlinear optimal menu size. Thus, based on available information, it does not appear to solve or directly advance the specific menu-size growth question."
+      },
+      {
+        "title": "Selling information for bilateral trade",
+        "bibtex": "@article{UnknownSellingInformationBilateralTrade,\n  title  = {Selling information for bilateral trade},\n  author = {Unknown},\n  year   = {\\{\\} },\n  note   = {Metadata (authors/year/venue/doi) not provided in the citation analysis block.}\n}\n",
+        "source_url": "https://",
+        "theorem_or_result": "The paper characterizes equilibrium information-sale contracts in a bilateral-trade game with a third-party advisor who commits before the seller sets price. Main results: - In the single-contract game \\(\\Gamma_1\\), there is an equilibrium in which the advisor offers a binary threshold experiment \\(T_{\\hat\\theta}\\) (revealing whether \\(v\\ge \\hat\\theta\\)) with fee \\(\\hat t\\); the seller sets price \\(\\hat p\\); trade occurs iff \\(v\\ge \\hat\\theta\\); and any other equilibrium is outcome-equivalent (Proposition 1). - In the menu game \\(\\Gamma_M\\), an optimal menu consists (wlog) of threshold contracts and induces a unit-elastic demand schedule for the seller over an interval of prices; the seller chooses the highest price in that interval; the buyer\u2019s net surplus is 0; and the advisor\u2019s payoff equals the value of an explicit optimization problem (Propositions 2\u20133).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns optimal menu size (linear vs superlinear in \\(m\\)) for revenue-optimal IC/IR mechanisms selling information in a binary-state, \\(m\\)-action decision problem. Evans\u2013Park study a different model: a third-party sells information to a buyer who then trades with a seller; the buyer\u2019s decision is binary (buy/not buy) and the optimal menu in their model is a continuum of threshold contracts. This shows that in some information-selling environments optimal menus can be infinite/continuous, but it does not address the binary-state \\(m\\)-action menu-size growth question, nor provide bounds like \\(O(m)\\) vs \\(\\omega(m)\\) under full IC in that setting."
+      },
+      {
+        "title": "An instrumental value for data production and its application to data pricing",
+        "bibtex": "@article{UnknownInstrumentalValueDataProduction,\n  title  = {An instrumental value for data production and its application to data pricing},\n  author = {Unknown},\n  year   = {\\{\\} },\n  note   = {Metadata (authors/year/venue/doi) not provided in the citation analysis block.}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "In a Bayesian linear regression data-selling model with buyer type a context vector \\(x\\in\\mathbb{R}^d\\) and seller able to provide either (i) perfectly customized labeled data along any reported direction \\(\\hat x\\) or (ii) only linear statistics/derivatives of a fixed design matrix \\(X\\), the paper proves:\n- (Perfect customization) There exists an IC, IR mechanism (Mechanism 1) that achieves 0 additive regret relative to the first-best benchmark \\(V(g_n[x];q,x)\\), i.e., full surplus extraction, with payment \\(t(\\hat x)=\\tfrac12\\log\\big((\\sigma(\\hat x)^2+n)/\\sigma(\\hat x)^2\\big)\\) and allocation \\(g[\\hat x]=g_n[\\hat x]\\) (Theorem 3).\n- (Limited customization) No 0-regret mechanism exists when the type space is continuous (Theorem 4), but an IC, IR \u201cSVD mechanism\u201d achieves regret at most \\(\\log \\kappa\\big((\\sqrt{\\Sigma(X)})^{-1}X\\big)\\), where \\(\\kappa\\) is a condition number derived from singular values of \\(X^T\\Sigma(X)^{-1}X\\) (Theorem 5).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks about worst-case growth of optimal menu size in binary-state information-selling with \\(m\\) actions under full IC/IR: is an optimal menu always \\(O(m)\\) or can it be \\(\\omega(m)\\)? This paper studies a different model: selling data (signals) in Bayesian linear regression with a continuous, multi-dimensional type \\(x\\) and allocations being data production processes/linear statistics, not Blackwell experiments over a binary state with \\(m\\) actions. It does not analyze menu cardinality as a function of \\(m\\), nor provide constructions requiring superlinear menu size, nor prove linear upper bounds in the binary-state \\(m\\)-action setting. At most, it contributes related mechanism-design techniques for multi-dimensional types and information goods (e.g., using information-gain valuations and SVD-based discrimination), which could inspire approaches to menu-complexity questions but does not resolve them."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.033177200000000004,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 1.8517838499999997,
+    "total_cost_usd": 1.8849610499999996
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4226352527/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4226352527/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4226352527_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4226352527_p0",
+    "citations_analyzed": 46,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

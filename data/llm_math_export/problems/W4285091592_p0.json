@@ -1,0 +1,87 @@
+{
+  "problem_id": "W4285091592_p0",
+  "paper_id": "W4285091592",
+  "source_paper": "W4285091592",
+  "source_paper_title": "Payment Schemes from Limited Information with Applications in Distributed Computing",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538342",
+  "source_paper_authors": [
+    "Nikolaj I. Schwartzbach"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4285091592,\n  title = {Payment Schemes from Limited Information with Applications in Distributed Computing},\n  author = {Nikolaj I. Schwartzbach},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Section 4 (Computational Complexity), page 14 (arXiv:2107.08748v2), stated as Conjecture 1 immediately after Theorem 1.\n\nFor games of imperfect information, it is unlikely we can find an optimal payment scheme to change the equilibrium, as even computing the equilibrium for these games is known to be PPAD-complete. As a result, we conjecture the problem to be hard.\nConjecture 1. \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) is PPAD-hard for imperfect information games.",
+  "title": "Resolve PPAD-hardness conjecture for optimal payment schemes in imperfect-information games",
+  "background_latex": "Consider a finite extensive-form game with imperfect information. There are \\(n\\) players. The game has a finite set of terminal histories (leaves) \\(L=\\{\\ell_1,\\dots,\\ell_m\\}\\). Each leaf \\(\\ell_j\\) induces a utility vector \\(U_{\\cdot j}\\in\\mathbb{R}^n\\); equivalently the utilities are given by a matrix \\(U\\in\\mathbb{R}^{n\\times m}\\). Players have quasilinear utilities, so monetary transfers can be added to (or subtracted from) their utilities.\n\nFix a pure intended strategy profile \\(s^*\\) (pure so that deviations are well-defined from a single play).\n\nAn information structure is a pair \\(I=\\langle \\Sigma,\\Phi\\rangle\\) where \\(\\Sigma=\\{\\sigma_1,\\dots,\\sigma_s\\}\\) is a finite alphabet of observable outcome symbols, and \\(\\Phi\\in\\mathbb{R}^{s\\times m}\\) is an emission-probability matrix such that each column \\(\\Phi_{\\cdot j}\\) is a probability distribution over \\(\\Sigma\\). Interpretation: if play ends at leaf \\(\\ell_j\\), then symbol \\(\\sigma_k\\) is observed with probability \\(\\phi_{kj}\\).\n\nA payment scheme is a matrix \\(\\Lambda=(\\lambda_{ik})\\in\\mathbb{R}^{n\\times s}\\), where \\(\\lambda_{ik}\\) is the utility loss (possibly negative, meaning a reward) assessed to player \\(i\\) upon observing symbol \\(\\sigma_k\\). If play ends at \\(\\ell_j\\), the expected implemented utility for player \\(i\\) is\n\\[\nE_{ij} \\,=\\, U_{ij} - \\sum_{k=1}^s \\lambda_{ik}\\,\\phi_{kj},\n\\]\nso the implemented utility matrix is \\(E = U-\\Lambda\\Phi\\).\n\nFor parameters \\(\\delta\\ge 0\\) and \\(t\\in\\{1,\\dots,n\\}\\), the security requirement is \\(\\delta\\)-strong \\(t\\)-robust game-theoretic security (as defined for extensive-form games): in every subgame, for every coalition \\(C\\) with \\(|C|\\le t\\), for every terminal-utility vector \\(u\\in\\mathbb{R}^n\\) that can occur with nonzero probability when coalition \\(C\\) deviates while the complement plays \\(s^*\\), and for every deviator \\(i\\in C\\), the deviator\u2019s utility from following \\(s^*\\) is at least \\(u_i+\\delta\\).\n\nThe optimization problem \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) is: given \\(G\\) (with utilities \\(U\\)), intended \\(s^*\\), information structure \\(\\langle\\Sigma,\\Phi\\rangle\\), and a linear cost vector \\(c\\in (\\mathbb{R}\\cup\\{\\infty\\})^{ns}\\) defining objective \\(c^\\top\\mathrm{vec}(\\Lambda)\\), compute a self-contained payment scheme \\(\\Lambda\\) that achieves \\(\\delta\\)-strong \\(t\\)-robust game-theoretic security and minimizes \\(c^\\top\\mathrm{vec}(\\Lambda)\\), or report infeasibility. (Self-contained means the scheme does not require external subsidy; it is an additional feasibility constraint on \\(\\Lambda\\).)",
+  "problem_definition_latex": "Determine whether \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) for finite extensive-form games with imperfect information is PPAD-hard under polynomial-time reductions.",
+  "latex": "Consider a finite extensive-form game with imperfect information. There are \\(n\\) players. The game has a finite set of terminal histories (leaves) \\(L=\\{\\ell_1,\\dots,\\ell_m\\}\\). Each leaf \\(\\ell_j\\) induces a utility vector \\(U_{\\cdot j}\\in\\mathbb{R}^n\\); equivalently the utilities are given by a matrix \\(U\\in\\mathbb{R}^{n\\times m}\\). Players have quasilinear utilities, so monetary transfers can be added to (or subtracted from) their utilities.\n\nFix a pure intended strategy profile \\(s^*\\) (pure so that deviations are well-defined from a single play).\n\nAn information structure is a pair \\(I=\\langle \\Sigma,\\Phi\\rangle\\) where \\(\\Sigma=\\{\\sigma_1,\\dots,\\sigma_s\\}\\) is a finite alphabet of observable outcome symbols, and \\(\\Phi\\in\\mathbb{R}^{s\\times m}\\) is an emission-probability matrix such that each column \\(\\Phi_{\\cdot j}\\) is a probability distribution over \\(\\Sigma\\). Interpretation: if play ends at leaf \\(\\ell_j\\), then symbol \\(\\sigma_k\\) is observed with probability \\(\\phi_{kj}\\).\n\nA payment scheme is a matrix \\(\\Lambda=(\\lambda_{ik})\\in\\mathbb{R}^{n\\times s}\\), where \\(\\lambda_{ik}\\) is the utility loss (possibly negative, meaning a reward) assessed to player \\(i\\) upon observing symbol \\(\\sigma_k\\). If play ends at \\(\\ell_j\\), the expected implemented utility for player \\(i\\) is\n\\[\nE_{ij} \\,=\\, U_{ij} - \\sum_{k=1}^s \\lambda_{ik}\\,\\phi_{kj},\n\\]\nso the implemented utility matrix is \\(E = U-\\Lambda\\Phi\\).\n\nFor parameters \\(\\delta\\ge 0\\) and \\(t\\in\\{1,\\dots,n\\}\\), the security requirement is \\(\\delta\\)-strong \\(t\\)-robust game-theoretic security (as defined for extensive-form games): in every subgame, for every coalition \\(C\\) with \\(|C|\\le t\\), for every terminal-utility vector \\(u\\in\\mathbb{R}^n\\) that can occur with nonzero probability when coalition \\(C\\) deviates while the complement plays \\(s^*\\), and for every deviator \\(i\\in C\\), the deviator\u2019s utility from following \\(s^*\\) is at least \\(u_i+\\delta\\).\n\nThe optimization problem \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) is: given \\(G\\) (with utilities \\(U\\)), intended \\(s^*\\), information structure \\(\\langle\\Sigma,\\Phi\\rangle\\), and a linear cost vector \\(c\\in (\\mathbb{R}\\cup\\{\\infty\\})^{ns}\\) defining objective \\(c^\\top\\mathrm{vec}(\\Lambda)\\), compute a self-contained payment scheme \\(\\Lambda\\) that achieves \\(\\delta\\)-strong \\(t\\)-robust game-theoretic security and minimizes \\(c^\\top\\mathrm{vec}(\\Lambda)\\), or report infeasibility. (Self-contained means the scheme does not require external subsidy; it is an additional feasibility constraint on \\(\\Lambda\\).)\n\nDetermine whether \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) for finite extensive-form games with imperfect information is PPAD-hard under polynomial-time reductions.",
+  "location_in_paper": "Section 4 (Computational Complexity), page 14 (arXiv:2107.08748v2), stated as Conjecture 1 immediately after Theorem 1.",
+  "open_problem_quote": "For games of imperfect information, it is unlikely we can find an optimal payment scheme to change the equilibrium, as even computing the equilibrium for these games is known to be PPAD-complete. As a result, we conjecture the problem to be hard.\nConjecture 1. \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) is PPAD-hard for imperfect information games.",
+  "area": "computational game theory",
+  "category": "Game Theory & Equilibria",
+  "keywords": [
+    "PPAD-hardness",
+    "imperfect information",
+    "extensive-form games",
+    "equilibrium computation",
+    "payment schemes",
+    "computational complexity"
+  ],
+  "counterexample_suitability": "low",
+  "counterexample_suitability_rationale": "The conjecture is a complexity-theoretic hardness claim rather than a universal inequality where finite counterexamples can refute it. Automated instance search is not a meaningful way to falsify or confirm PPAD-hardness without constructing reductions.",
+  "alphaevolve_suitability": "medium",
+  "alphaevolve_suitability_rationale": "A code-evolution loop could help search for candidate polynomial-time algorithms on restricted families or assist in designing and testing gadgets for PPAD reductions, but the end goal still requires a correct complexity reduction proof, and there is no direct numeric fitness signal for PPAD-hardness.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "revision1",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.02394665
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "Schwartzbach (2022) formulates \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) for extensive-form games with an emission matrix \\(\\Phi\\) and payments \\(\\Lambda\\) implementing utilities \\(E=U-\\Lambda\\Phi\\), proves P-completeness for perfect-information games via logspace equivalence to linear programming, and conjectures PPAD-hardness for imperfect-information games, motivated by the PPAD-completeness of equilibrium computation in that setting. The forward-citation evidence provided here contains only one tangentially related paper, which develops a particular smart-contract deposit protocol for implementing Pareto-optimal outcomes in two-player normal-form games but does not study computational complexity or PPAD reductions.\n\nGiven the absence of forward-citing work directly addressing the conjecture, the PPAD-hardness status of \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) for imperfect-information extensive-form games remains open based on the supplied citation set. Promising directions suggested by the original paper\u2019s LP reduction framework include attempting reductions from PPAD-complete equilibrium problems in imperfect-information games to the payment-optimization problem, or isolating restricted classes of information structures \\(\\Phi\\) where the feasible region encodes fixed-point computations.",
+    "total_cost_usd": 0.10682525,
+    "citations_analyzed": 1,
+    "sources": [
+      {
+        "title": "On Cryptographic Cheap Talk with Smart Contracts",
+        "bibtex": "@misc{HubacekYeo_CryptographicCheapTalkSmartContracts,\n  title        = {On Cryptographic Cheap Talk with Smart Contracts},\n  author       = {Hub{\\'a}{\\v{c}}ek, Pavel and Yeo, Kevin (as cited in forward analysis)},\n  note         = {Metadata (venue/year/DOI) not provided in the forward-citation analysis block},\n}\n",
+        "source_url": "",
+        "theorem_or_result": "Theorem 1 (Hub\u00e1\u010dek\u2013Yeo): For any two-player normal-form game \\(\\Gamma\\) and any distribution \\(\\mu\\) supported on the set \\(\\bar A\\) of Pareto-optimal action profiles, their smart-contract deposit protocol \\(\\Pi^{\\mathrm{P.O.}}_2\\) induces a two-round extensive-form game \\(\\Gamma'\\) in which the strategy \\(\\nu\\) (play the publicly sampled advice \\(a\\sim\\mu\\) in round 1 and honestly confirm in round 2) is a renegotiation-safe subgame-perfect equilibrium. They also give a computational analogue (Theorem 2) replacing simultaneous broadcast by time-lock puzzles and CPA-secure symmetric encryption.",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem asks whether the optimization problem \\(\\mathrm{PaymentScheme}_t^{\\delta}\\) for finite extensive-form games with imperfect information is PPAD-hard. This paper does not study the computational complexity of computing optimal payment schemes under limited information, nor PPAD-hardness. Instead it proposes a specific deposit/slashing mechanism implemented via smart contracts to implement publicly sampled Pareto-optimal action profiles in two-player normal-form games, and analyzes equilibrium/renegotiation-safety and extortion attacks. While conceptually related (both use monetary transfers/deposits to enforce behavior under limited observability), the model differs substantially: (i) normal-form (not general extensive-form with imperfect information), (ii) no linear-cost optimization over payment matrices \\(\\Lambda\\), (iii) enforcement via mutual confirmation bits rather than an emission matrix \\(\\Phi\\), and (iv) no PPAD reductions. Thus it provides background/techniques and motivation around deposit schemes but no direct progress on PPAD-hardness of \\(\\mathrm{PaymentScheme}_t^{\\delta}\\)."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.02394665,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.10682525,
+    "total_cost_usd": 0.1307719
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285091592/problems.revision1.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285091592/extraction_audit.revision1.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4285091592_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4285091592_p0",
+    "citations_analyzed": 1,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}

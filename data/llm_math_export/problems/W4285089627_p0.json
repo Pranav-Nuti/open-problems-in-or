@@ -1,0 +1,96 @@
+{
+  "problem_id": "W4285089627_p0",
+  "paper_id": "W4285089627",
+  "source_paper": "W4285089627",
+  "source_paper_title": "Dynamic Spatial Matching",
+  "source_paper_url": "https://doi.org/10.1145/3490486.3538278",
+  "source_paper_authors": [
+    "Yash Kanoria"
+  ],
+  "source_paper_journal": "Economics and Computation (EC)",
+  "source_paper_publication_year": 2022,
+  "source_paper_bibtex": "@inproceedings{W4285089627,\n  title = {Dynamic Spatial Matching},\n  author = {Yash Kanoria},\n  booktitle = {Economics and Computation (EC)},\n  year = {2022}\n}",
+  "problem_index": 0,
+  "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+  "export_mode": "unverified",
+  "context": "Section 7.2 (Open directions), page 30 (arXiv v3, Oct 2023)\n\nWe leave it as a challenging problem to close the logarithmic factor gap between our upper and lower bounds for \\(d = 1\\) in the fully dynamic model. We expect that the resolution of this problem will lead to new algorithmic insights, specifically, on how to take advantage of \u201ccancellation\u201d between mismatches in the quantities of demand and supply at different length scales.",
+  "title": "Tight asymptotic matching cost for one-dimensional fully dynamic spatial matching",
+  "background_latex": "Consider the following fully dynamic spatial matching model in one dimension.\n\n1) State space and locations. Let the spatial domain be the unit interval \\(C=[0,1]\\). At any time there are exactly \\(m\\ge 2\\) supply units present in the system, each with a location in \\([0,1]\\).\n\n2) Dynamics (discrete time). For periods \\(t=1,2,\\dots\\):\n\n(a) A demand unit arrives at a location \\(D_t\\in[0,1]\\), where \\((D_t)\\) are i.i.d. \\(\\mathrm{Unif}([0,1])\\), independent of the past.\n\n(b) The controller (matching policy) must immediately match this demand to one of the currently present supply units. If the matched supply unit has location \\(S_t\\in[0,1]\\), the period cost is the Euclidean distance \\(|D_t-S_t|\\).\n\n(c) The matched demand and matched supply depart.\n\n(d) A new supply unit arrives at a location \\(A_t\\in[0,1]\\), where \\((A_t)\\) are i.i.d. \\(\\mathrm{Unif}([0,1])\\), independent of the past and of \\((D_t)\\). This restores the number of supply units present to \\(m\\).\n\n3) Policies and performance criterion. A (possibly randomized) policy may depend on the entire history and the current supply locations, and chooses which supply to match to the current demand. For a horizon \\(N\\), define the average cost\n\\[\n\\frac{1}{N}\\sum_{t=1}^N \\mathbb{E}\\big[|D_t-S_t|\\big].\n\\]\nOne can also consider the steady-state long-run average cost (when it exists).\n\n4) Known bounds in this model. There exist constants \\(c,C<\\infty\\) such that for large \\(m\\):\n\n(a) Any policy has average cost at least \\(c\\,\\frac{\\log m}{m}\\) over sufficiently long horizons.\n\n(b) There exists a policy with average cost at most \\(C\\,\\frac{(\\log m)^2}{m}\\) (over steady state and sufficiently long horizons, and also from certain well-spread initial supply configurations).\n\nThus there is a remaining multiplicative \\(\\log m\\) gap between the best known upper and lower bounds in dimension \\(d=1\\).",
+  "problem_definition_latex": "Determine the correct asymptotic scaling (up to constant factors) of the minimum achievable expected average matching cost in the one-dimensional fully dynamic spatial matching model described above as a function of \\(m\\).\n\nEquivalently, close the logarithmic-factor gap between the existing lower bound \\(\\Omega\\!\\left(\\frac{\\log m}{m}\\right)\\) and upper bound \\(O\\!\\left(\\frac{(\\log m)^2}{m}\\right)\\) on the optimal expected average cost per match (for sufficiently long horizons / in steady state).",
+  "latex": "Consider the following fully dynamic spatial matching model in one dimension.\n\n1) State space and locations. Let the spatial domain be the unit interval \\(C=[0,1]\\). At any time there are exactly \\(m\\ge 2\\) supply units present in the system, each with a location in \\([0,1]\\).\n\n2) Dynamics (discrete time). For periods \\(t=1,2,\\dots\\):\n\n(a) A demand unit arrives at a location \\(D_t\\in[0,1]\\), where \\((D_t)\\) are i.i.d. \\(\\mathrm{Unif}([0,1])\\), independent of the past.\n\n(b) The controller (matching policy) must immediately match this demand to one of the currently present supply units. If the matched supply unit has location \\(S_t\\in[0,1]\\), the period cost is the Euclidean distance \\(|D_t-S_t|\\).\n\n(c) The matched demand and matched supply depart.\n\n(d) A new supply unit arrives at a location \\(A_t\\in[0,1]\\), where \\((A_t)\\) are i.i.d. \\(\\mathrm{Unif}([0,1])\\), independent of the past and of \\((D_t)\\). This restores the number of supply units present to \\(m\\).\n\n3) Policies and performance criterion. A (possibly randomized) policy may depend on the entire history and the current supply locations, and chooses which supply to match to the current demand. For a horizon \\(N\\), define the average cost\n\\[\n\\frac{1}{N}\\sum_{t=1}^N \\mathbb{E}\\big[|D_t-S_t|\\big].\n\\]\nOne can also consider the steady-state long-run average cost (when it exists).\n\n4) Known bounds in this model. There exist constants \\(c,C<\\infty\\) such that for large \\(m\\):\n\n(a) Any policy has average cost at least \\(c\\,\\frac{\\log m}{m}\\) over sufficiently long horizons.\n\n(b) There exists a policy with average cost at most \\(C\\,\\frac{(\\log m)^2}{m}\\) (over steady state and sufficiently long horizons, and also from certain well-spread initial supply configurations).\n\nThus there is a remaining multiplicative \\(\\log m\\) gap between the best known upper and lower bounds in dimension \\(d=1\\).\n\nDetermine the correct asymptotic scaling (up to constant factors) of the minimum achievable expected average matching cost in the one-dimensional fully dynamic spatial matching model described above as a function of \\(m\\).\n\nEquivalently, close the logarithmic-factor gap between the existing lower bound \\(\\Omega\\!\\left(\\frac{\\log m}{m}\\right)\\) and upper bound \\(O\\!\\left(\\frac{(\\log m)^2}{m}\\right)\\) on the optimal expected average cost per match (for sufficiently long horizons / in steady state).",
+  "location_in_paper": "Section 7.2 (Open directions), page 30 (arXiv v3, Oct 2023)",
+  "open_problem_quote": "We leave it as a challenging problem to close the logarithmic factor gap between our upper and lower bounds for \\(d = 1\\) in the fully dynamic model. We expect that the resolution of this problem will lead to new algorithmic insights, specifically, on how to take advantage of \u201ccancellation\u201d between mismatches in the quantities of demand and supply at different length scales.",
+  "area": "dynamic spatial matching",
+  "category": "Online Matching",
+  "keywords": [
+    "dynamic matching",
+    "spatial matching",
+    "online control",
+    "scaling laws",
+    "one dimension",
+    "logarithmic gap"
+  ],
+  "counterexample_suitability": "medium",
+  "counterexample_suitability_rationale": "Instances are stochastic (i.i.d. uniform arrivals), so there is no finite adversarial instance space to exhaustively search. However, one can simulate policies and empirically estimate long-run average cost for various \\(m\\) to test candidate scalings and to falsify conjectured performance guarantees for specific algorithm classes.",
+  "alphaevolve_suitability": "high",
+  "alphaevolve_suitability_rationale": "Policies can be represented programmatically (e.g., hierarchical/binned rules, stochastic transports, learned value approximations) and evaluated via Monte Carlo simulation to estimate average cost for a range of \\(m\\), providing a computable fitness signal (estimated cost normalized by \\((\\log m)/m\\) or \\((\\log m)^2/m\\)). Evolutionary search could discover improved algorithms that empirically reduce the extra \\(\\log m\\) factor and suggest new analytical invariants.",
+  "extraction_model": "gpt-5.2",
+  "extraction_reasoning_effort": null,
+  "verification": {
+    "is_open": true,
+    "unverified": true,
+    "notice": "Extracted from the source paper and passed an automated fidelity audit; not independently verified as still open.",
+    "methods_used": [
+      "extraction_audit"
+    ],
+    "source": "initial",
+    "model": "gpt-5.2",
+    "total_cost_usd": 0.08032675
+  },
+  "literature_review": {
+    "method": "forward_citation_review",
+    "model": "gpt-5.2",
+    "importance": 7,
+    "difficulty": 8,
+    "synthesis": "The fully dynamic one-dimensional spatial matching model of Kanoria keeps a pool of exactly \\(m\\) supply points on \\([0,1]\\), matches each i.i.d. uniform demand immediately, removes the matched supply, and replaces it with a fresh i.i.d. uniform supply. Kanoria proves a lower bound \\(\\Omega((\\log m)/m)\\) (via a reduction to 2D static matching where time acts as an extra dimension) and an upper bound \\(O((\\log m)^2/m)\\) using a carefully tuned Hierarchical Greedy policy that enforces multiscale minimum-supply constraints. Closing the remaining multiplicative \\(\\log m\\) gap is explicitly posed as an open direction.\n\nAmong the limited forward-citing literature provided, \u201cThe increasing gap dynamics in a general spatial matching model\u201d makes partial progress by analyzing the induced gap process on a 1D circle and proving (i) positive drift of a quadratic gap functional under i.i.d.-random configurations (suggesting endogenous gap-widening) and (ii) a strong structural restriction in a discrete-circle variant: optimal average-cost policies match each request to one of its two neighboring servers. These results support the intuition that local (greedy-like) behavior is unavoidable and that controlling multiscale imbalance is central, but they do not yield a matching \\(\\Theta((\\log m)/m)\\) upper bound or a sharper lower bound.\n\n\u201cOnline Min-Cost Matching with General Arrivals\u201d is only tangentially related: it develops polylog-competitive online algorithms for a different online matching model measured against offline OPT. While its interval/quantile bucketing ideas may inspire multiscale policies, it does not address the Markovian fixed-pool replacement dynamics nor the asymptotic \\(m\\)-dependence of steady-state average distance.",
+    "total_cost_usd": 0.2193009,
+    "citations_analyzed": 6,
+    "sources": [
+      {
+        "title": "The increasing gap dynamics in a general spatial matching model",
+        "bibtex": "@article{IGDSpatialMatching,\n  title={The increasing gap dynamics in a general spatial matching model},\n  author={Unknown},\n  year={\\n},\n  note={Forward-citation metadata incomplete in provided analysis (authors/year/venue/URL not supplied).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "For the 1D circle model with i.i.d. uniform user arrivals and i.i.d. uniform replacement-server locations, the paper derives an exact expression for the one-step drift of the quadratic gap functional \\(V(\\ell)=\\sum_{k=1}^N \\ell_k^2\\) (Lemma 2) and proves that under a fully random (i.i.d. uniform) server configuration \\(S\\), the expected drift is positive: \\(\\mathbb{E}_{\\ell}[\\Delta V(\\ell(S))]>0\\) (Theorem 2). In the discrete-circle version, it proves a structural optimality property: any optimal average-cost policy assigns each request to one of its two neighboring servers \\(L(u,s)\\) or \\(R(u,s)\\) (Theorem 4), implying at least half of assignments are greedy.",
+        "relevance_category": "PARTIAL_PROGRESS",
+        "relevance_score": 7,
+        "connection": "The open problem asks for the tight asymptotic scaling (in \\(m\\)) of the optimal long-run average matching cost in the 1D fully dynamic spatial matching model, closing the \\(\\log m\\) gap between \\(\\Omega((\\log m)/m)\\) and \\(O((\\log m)^2/m)\\). This paper studies essentially the same fully dynamic replacement model on a 1D circle (and also a discrete discretization), but it does not prove a new asymptotic upper bound \\(O((\\log m)/m)\\) nor a matching lower bound \\(\\Omega((\\log m)^2/m)\\), nor does it identify the exact \\(\\Theta(\\cdot)\\) scaling of the optimal cost. Instead it provides: (i) drift analysis showing the system tends to increase gap heterogeneity (IGD), suggesting equilibrium costs can be worse than i.i.d.-random server placements; (ii) a policy-structure theorem (optimal matches to neighboring servers) that reduces the action space and supports the claim that even optimal control cannot avoid gap-widening. It also reports simulations suggesting equilibrium cost decays between \\((\\log m)/m\\) and \\((\\log^2 m)/m\\), but this is not a proof and does not close the gap."
+      },
+      {
+        "title": "Online Min-Cost Matching with General Arrivals",
+        "bibtex": "@article{OnlineMinCostGeneralArrivals,\n  title={Online Min-Cost Matching with General Arrivals},\n  author={Unknown},\n  year={\\n},\n  note={Forward-citation metadata incomplete in provided analysis (authors/year/venue/URL not supplied).}\n}\n",
+        "source_url": "",
+        "theorem_or_result": "The paper studies online min-cost perfect matching on the line when all points arrive online (\u201cgeneral arrivals\u201d). Main result: there exists an online algorithm for the non-bipartite general-arrivals model under unknown i.i.d. arrivals that is O(\\log^2 n)\\u0000-competitive with respect to the offline optimal matching cost (Theorem 1). It also proves that in the random-order model the competitive ratio of any algorithm is unbounded (Theorem 2), and gives constant-competitive algorithms for the bipartite case under known i.i.d. via a reduction to one-sided arrivals (Theorem 3).",
+        "relevance_category": "RELATED_TOOL",
+        "relevance_score": 3,
+        "connection": "The open problem concerns a *different* stochastic control model: a fully dynamic bipartite supply\u2013demand system with a fixed pool of size \\(m\\) supply points, where each period a demand arrives and must be matched immediately to one of the \\(m\\) current supplies, then the matched pair departs and a new supply arrives. The objective is the steady-state (or long-horizon) expected per-period matching distance, and the question is the correct asymptotic scaling in \\(m\\) in 1D (closing an \\(\\log m\\) factor gap between \\(\\Omega(\\log m/m)\\) and \\(O((\\log m)^2/m)\\)).\n\nThis citing paper does not analyze that Markovian fixed-supply-pool model, does not provide bounds in terms of \\(m\\), and does not address the \\(\\log m\\) vs \\((\\log m)^2\\) gap. Instead it analyzes competitive ratios for a finite-horizon problem with \\(n\\) total arrivals where *both* sides (or all vertices) arrive over time and can be held unmatched in a waiting pool, and performance is measured relative to offline OPT for the same instance.\n\nThat said, it is tangentially related: it develops bucket/interval-based online matching techniques on the line under i.i.d. arrivals (including unknown distributions) and proves structural lower bounds for OPT (e.g., Lemma 7: \\(\\mathbb E[\\mathrm{OPT}]\\ge \\tfrac12\\mathbb E[\\max r_t-\\min r_t]\\)). Such tools might inspire policies/analyses for dynamic spatial matching, but no direct translation is given and the models/objectives differ substantially."
+      }
+    ]
+  },
+  "costs": {
+    "extractor_total_cost_usd": 0.08032675,
+    "verifier_total_cost_usd": 0.0,
+    "literature_total_cost_usd": 0.2193009,
+    "total_cost_usd": 0.29962765
+  },
+  "provenance": {
+    "problem_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285089627/problems.json",
+    "verification_source": "/Users/peterwestbrook/AI Math/llm-math/data/ec_2022/W4285089627/extraction_audit.json",
+    "literature_source": "/Users/peterwestbrook/AI Math/llm-math/data_local/ec2022_forward_citation_reviews/W4285089627_p0_forward_citation_review.json"
+  },
+  "forward_citation_review": {
+    "run_id": "W4285089627_p0",
+    "citations_analyzed": 6,
+    "is_open": true,
+    "model": "gpt-5.2"
+  }
+}
