@@ -76,5 +76,7 @@
     "citations_analyzed": 0,
     "is_open": true,
     "model": "gpt-5.2"
-  }
+  },
+  "quantitative_bounds": true,
+  "quantitative_bounds_source": "ec_extraction_default"
 }

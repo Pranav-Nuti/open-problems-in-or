@@ -383,7 +383,7 @@
               <h2 class="problem-card-title math-content"><a class="problem-card-link" href="${problemHref(p)}">${formatTitleWithMath(p.title)}</a></h2>
               <div class="problem-card-meta">
                 <span>${formatSourcePaper(p)}</span>
-                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAttemptBadge(p)}${formatAreaBadge(p)}
+                ${p.pipeline_generated_at_utc ? `<span>${formatUploadDate(p.pipeline_generated_at_utc)}</span>` : ""}${formatAttemptBadge(p)}${formatQuantitativeBoundsBadge(p)}${formatAreaBadge(p)}
               </div>
             </div>
           </li>
@@ -445,6 +445,13 @@
         return `<span><span class="attempt-pill attempt-pill-partial">${p.__attemptCounts.partial} partial</span></span>`;
       }
       return "";
+    }
+
+    function formatQuantitativeBoundsBadge(p) {
+      if (!p.quantitative_bounds) {
+        return "";
+      }
+      return `<span><span class="label-pill label-pill-quantitative">quantitative bounds</span></span>`;
     }
 
     function renderPagination() {

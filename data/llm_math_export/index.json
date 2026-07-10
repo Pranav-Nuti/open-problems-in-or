@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-09T16:36:31.606235+00:00",
+  "generated_at_utc": "2026-07-10T03:49:48.762914+00:00",
   "counts": {
     "exported_problems": 159,
     "open_problems_exported": 159,
@@ -42,7 +42,8 @@
       "unverified": true,
       "path": "problems/W4399151428_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 1
+      "number": 1,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4404530034_p0",
@@ -76,7 +77,8 @@
       "unverified": true,
       "path": "problems/W4404530034_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 2
+      "number": 2,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4409528654_p0",
@@ -110,7 +112,9 @@
       "unverified": true,
       "path": "problems/W4409528654_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 3
+      "number": 3,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4409800077_p0",
@@ -142,7 +146,8 @@
       "unverified": true,
       "path": "problems/W4409800077_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 4
+      "number": 4,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4409922425_p0",
@@ -176,7 +181,9 @@
       "unverified": true,
       "path": "problems/W4409922425_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 5
+      "number": 5,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4410154284_p0",
@@ -209,7 +216,8 @@
       "unverified": true,
       "path": "problems/W4410154284_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 6
+      "number": 6,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4410155359_p0",
@@ -243,7 +251,8 @@
       "unverified": true,
       "path": "problems/W4410155359_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 7
+      "number": 7,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4410233669_p0",
@@ -276,7 +285,8 @@
       "unverified": true,
       "path": "problems/W4410233669_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 9
+      "number": 9,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4410395976_p0",
@@ -310,7 +320,8 @@
       "unverified": true,
       "path": "problems/W4410395976_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 10
+      "number": 10,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411023035_p0",
@@ -344,7 +355,9 @@
       "unverified": true,
       "path": "problems/W4411023035_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 13
+      "number": 13,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4411234993_p0",
@@ -378,7 +391,9 @@
       "unverified": true,
       "path": "problems/W4411234993_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 14
+      "number": 14,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4411449955_p0",
@@ -411,7 +426,8 @@
       "unverified": true,
       "path": "problems/W4411449955_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 15
+      "number": 15,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411674410_p0",
@@ -444,7 +460,8 @@
       "unverified": true,
       "path": "problems/W4411674410_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 16
+      "number": 16,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411787576_p0",
@@ -477,7 +494,8 @@
       "unverified": true,
       "path": "problems/W4411787576_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 17
+      "number": 17,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411801764_p0",
@@ -511,7 +529,8 @@
       "unverified": true,
       "path": "problems/W4411801764_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 18
+      "number": 18,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411879499_p0",
@@ -545,7 +564,9 @@
       "unverified": true,
       "path": "problems/W4411879499_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 19
+      "number": 19,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4411957271_p0",
@@ -578,7 +599,8 @@
       "unverified": true,
       "path": "problems/W4411957271_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 20
+      "number": 20,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4411959281_p0",
@@ -612,7 +634,8 @@
       "unverified": true,
       "path": "problems/W4411959281_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 21
+      "number": 21,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4412612512_p0",
@@ -645,7 +668,8 @@
       "unverified": true,
       "path": "problems/W4412612512_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 22
+      "number": 22,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4412630514_p0",
@@ -680,7 +704,8 @@
       "unverified": true,
       "path": "problems/W4412630514_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 23
+      "number": 23,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4413077228_p0",
@@ -713,7 +738,9 @@
       "unverified": true,
       "path": "problems/W4413077228_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 24
+      "number": 24,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4413635748_p0",
@@ -746,7 +773,9 @@
       "unverified": true,
       "path": "problems/W4413635748_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 25
+      "number": 25,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4413848299_p0",
@@ -780,7 +809,9 @@
       "unverified": true,
       "path": "problems/W4413848299_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 26
+      "number": 26,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4414091988_p0",
@@ -813,7 +844,9 @@
       "unverified": true,
       "path": "problems/W4414091988_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 27
+      "number": 27,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4414408152_p0",
@@ -847,7 +880,9 @@
       "unverified": true,
       "path": "problems/W4414408152_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 28
+      "number": 28,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4414427837_p0",
@@ -881,7 +916,8 @@
       "unverified": true,
       "path": "problems/W4414427837_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 29
+      "number": 29,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4414449781_p0",
@@ -915,7 +951,8 @@
       "unverified": true,
       "path": "problems/W4414449781_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 30
+      "number": 30,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4414541699_p0",
@@ -948,7 +985,9 @@
       "unverified": true,
       "path": "problems/W4414541699_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 31
+      "number": 31,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4414783466_p0",
@@ -980,7 +1019,9 @@
       "unverified": true,
       "path": "problems/W4414783466_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 32
+      "number": 32,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4415178980_p0",
@@ -1016,7 +1057,8 @@
       "unverified": true,
       "path": "problems/W4415178980_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 33
+      "number": 33,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4416295153_p0",
@@ -1049,7 +1091,8 @@
       "unverified": true,
       "path": "problems/W4416295153_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 34
+      "number": 34,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4416664990_p0",
@@ -1082,7 +1125,8 @@
       "unverified": true,
       "path": "problems/W4416664990_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 36
+      "number": 36,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4416665164_p0",
@@ -1114,7 +1158,8 @@
       "unverified": true,
       "path": "problems/W4416665164_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 37
+      "number": 37,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4417166251_p0",
@@ -1148,7 +1193,8 @@
       "unverified": true,
       "path": "problems/W4417166251_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 38
+      "number": 38,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4417331274_p0",
@@ -1182,7 +1228,8 @@
       "unverified": true,
       "path": "problems/W4417331274_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 39
+      "number": 39,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4417437095_p0",
@@ -1218,7 +1265,8 @@
       "unverified": true,
       "path": "problems/W4417437095_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 40
+      "number": 40,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W7114802374_p0",
@@ -1251,7 +1299,9 @@
       "unverified": true,
       "path": "problems/W7114802374_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 41
+      "number": 41,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7118180028_p0",
@@ -1286,7 +1336,9 @@
       "unverified": true,
       "path": "problems/W7118180028_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 42
+      "number": 42,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7119488906_p0",
@@ -1319,7 +1371,8 @@
       "unverified": true,
       "path": "problems/W7119488906_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 43
+      "number": 43,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W7125931785_p0",
@@ -1353,7 +1406,9 @@
       "unverified": true,
       "path": "problems/W7125931785_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 44
+      "number": 44,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7126221168_p0",
@@ -1387,7 +1442,9 @@
       "unverified": true,
       "path": "problems/W7126221168_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 45
+      "number": 45,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7127637708_p0",
@@ -1421,7 +1478,8 @@
       "unverified": true,
       "path": "problems/W7127637708_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 46
+      "number": 46,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W7128591806_p0",
@@ -1456,7 +1514,9 @@
       "unverified": true,
       "path": "problems/W7128591806_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 47
+      "number": 47,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7135205807_p0",
@@ -1491,7 +1551,9 @@
       "unverified": true,
       "path": "problems/W7135205807_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 48
+      "number": 48,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W7140189588_p0",
@@ -1524,7 +1586,8 @@
       "unverified": true,
       "path": "problems/W7140189588_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 49
+      "number": 49,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W7143448186_p0",
@@ -1556,7 +1619,8 @@
       "unverified": true,
       "path": "problems/W7143448186_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 50
+      "number": 50,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W7150839694_p0",
@@ -1588,7 +1652,8 @@
       "unverified": true,
       "path": "problems/W7150839694_p0.json",
       "pipeline_generated_at_utc": "2026-04-17T17:04:08.300058+00:00",
-      "number": 52
+      "number": 52,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W2800787305_p0",
@@ -1621,7 +1686,8 @@
       "unverified": true,
       "path": "problems/W2800787305_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 53
+      "number": 53,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W2922533999_p0",
@@ -1658,7 +1724,9 @@
       "unverified": true,
       "path": "problems/W2922533999_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 54
+      "number": 54,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W2947637889_p0",
@@ -1693,7 +1761,9 @@
       "unverified": true,
       "path": "problems/W2947637889_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 55
+      "number": 55,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W2953466159_p0",
@@ -1726,7 +1796,8 @@
       "unverified": true,
       "path": "problems/W2953466159_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 56
+      "number": 56,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W2965273013_p0",
@@ -1761,7 +1832,8 @@
       "unverified": true,
       "path": "problems/W2965273013_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 57
+      "number": 57,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3080982993_p0",
@@ -1795,7 +1867,9 @@
       "unverified": true,
       "path": "problems/W3080982993_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 58
+      "number": 58,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3105682563_p0",
@@ -1830,7 +1904,9 @@
       "unverified": true,
       "path": "problems/W3105682563_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 59
+      "number": 59,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3126339575_p0",
@@ -1865,7 +1941,8 @@
       "unverified": true,
       "path": "problems/W3126339575_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 60
+      "number": 60,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3133568468_p0",
@@ -1899,7 +1976,8 @@
       "unverified": true,
       "path": "problems/W3133568468_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 61
+      "number": 61,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3135365769_p0",
@@ -1933,7 +2011,9 @@
       "unverified": true,
       "path": "problems/W3135365769_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 62
+      "number": 62,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3170420696_p0",
@@ -1967,7 +2047,9 @@
       "unverified": true,
       "path": "problems/W3170420696_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 63
+      "number": 63,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3171990983_p0",
@@ -2002,7 +2084,9 @@
       "unverified": true,
       "path": "problems/W3171990983_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 64
+      "number": 64,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3176856692_p0",
@@ -2037,7 +2121,8 @@
       "unverified": true,
       "path": "problems/W3176856692_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 65
+      "number": 65,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3186360956_p0",
@@ -2069,7 +2154,8 @@
       "unverified": true,
       "path": "problems/W3186360956_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 67
+      "number": 67,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3214544052_p0",
@@ -2104,7 +2190,9 @@
       "unverified": true,
       "path": "problems/W3214544052_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 68
+      "number": 68,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W3216294154_p0",
@@ -2138,7 +2226,8 @@
       "unverified": true,
       "path": "problems/W3216294154_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 69
+      "number": 69,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3217525437_p0",
@@ -2173,7 +2262,8 @@
       "unverified": true,
       "path": "problems/W3217525437_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 70
+      "number": 70,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W3217714619_p0",
@@ -2208,7 +2298,9 @@
       "unverified": true,
       "path": "problems/W3217714619_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 71
+      "number": 71,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4221167288_p0",
@@ -2242,7 +2334,8 @@
       "unverified": true,
       "path": "problems/W4221167288_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 72
+      "number": 72,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4226226337_p0",
@@ -2275,7 +2368,8 @@
       "unverified": true,
       "path": "problems/W4226226337_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 73
+      "number": 73,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4226364838_p0",
@@ -2311,7 +2405,8 @@
       "unverified": true,
       "path": "problems/W4226364838_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 74
+      "number": 74,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4309864804_p0",
@@ -2345,7 +2440,8 @@
       "unverified": true,
       "path": "problems/W4309864804_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 75
+      "number": 75,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4376149422_p0",
@@ -2379,7 +2475,9 @@
       "unverified": true,
       "path": "problems/W4376149422_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 77
+      "number": 77,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4377821221_p0",
@@ -2412,7 +2510,9 @@
       "unverified": true,
       "path": "problems/W4377821221_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 78
+      "number": 78,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4379383737_p0",
@@ -2445,7 +2545,9 @@
       "unverified": true,
       "path": "problems/W4379383737_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 79
+      "number": 79,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4379646686_p0",
@@ -2480,7 +2582,9 @@
       "unverified": true,
       "path": "problems/W4379646686_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 80
+      "number": 80,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4384342505_p0",
@@ -2513,7 +2617,8 @@
       "unverified": true,
       "path": "problems/W4384342505_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 84
+      "number": 84,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4385350470_p0",
@@ -2547,7 +2652,9 @@
       "unverified": true,
       "path": "problems/W4385350470_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 85
+      "number": 85,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4385873460_p0",
@@ -2580,7 +2687,8 @@
       "unverified": true,
       "path": "problems/W4385873460_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 86
+      "number": 86,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4385878155_p0",
@@ -2613,7 +2721,9 @@
       "unverified": true,
       "path": "problems/W4385878155_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 87
+      "number": 87,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4385980778_p0",
@@ -2647,7 +2757,9 @@
       "unverified": true,
       "path": "problems/W4385980778_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 88
+      "number": 88,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4386289171_p0",
@@ -2680,7 +2792,8 @@
       "unverified": true,
       "path": "problems/W4386289171_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 90
+      "number": 90,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4386547517_p0",
@@ -2711,7 +2824,9 @@
       "unverified": true,
       "path": "problems/W4386547517_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 91
+      "number": 91,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4387578519_p0",
@@ -2744,7 +2859,8 @@
       "unverified": true,
       "path": "problems/W4387578519_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 92
+      "number": 92,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4387615605_p0",
@@ -2780,7 +2896,9 @@
       "unverified": true,
       "path": "problems/W4387615605_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 93
+      "number": 93,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4387617469_p0",
@@ -2813,7 +2931,9 @@
       "unverified": true,
       "path": "problems/W4387617469_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 94
+      "number": 94,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4387738269_p0",
@@ -2848,7 +2968,8 @@
       "unverified": true,
       "path": "problems/W4387738269_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 95
+      "number": 95,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4388047886_p0",
@@ -2881,7 +3002,8 @@
       "unverified": true,
       "path": "problems/W4388047886_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 97
+      "number": 97,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4388912937_p0",
@@ -2917,7 +3039,9 @@
       "unverified": true,
       "path": "problems/W4388912937_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 98
+      "number": 98,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4389193896_p0",
@@ -2954,7 +3078,9 @@
       "unverified": true,
       "path": "problems/W4389193896_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 99
+      "number": 99,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4389224571_p0",
@@ -2989,7 +3115,9 @@
       "unverified": true,
       "path": "problems/W4389224571_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 100
+      "number": 100,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4389224581_p0",
@@ -3023,7 +3151,9 @@
       "unverified": true,
       "path": "problems/W4389224581_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 101
+      "number": 101,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4389389242_p0",
@@ -3057,7 +3187,9 @@
       "unverified": true,
       "path": "problems/W4389389242_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 102
+      "number": 102,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4389673940_p0",
@@ -3091,7 +3223,8 @@
       "unverified": true,
       "path": "problems/W4389673940_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 103
+      "number": 103,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4390588799_p0",
@@ -3124,7 +3257,8 @@
       "unverified": true,
       "path": "problems/W4390588799_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 104
+      "number": 104,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4390763638_p0",
@@ -3160,7 +3294,8 @@
       "unverified": true,
       "path": "problems/W4390763638_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 106
+      "number": 106,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4391111008_p0",
@@ -3194,7 +3329,8 @@
       "unverified": true,
       "path": "problems/W4391111008_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 107
+      "number": 107,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4391315199_p0",
@@ -3228,7 +3364,8 @@
       "unverified": true,
       "path": "problems/W4391315199_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 108
+      "number": 108,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4391601457_p0",
@@ -3261,7 +3398,9 @@
       "unverified": true,
       "path": "problems/W4391601457_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 109
+      "number": 109,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4391954556_p0",
@@ -3293,7 +3432,8 @@
       "unverified": true,
       "path": "problems/W4391954556_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 110
+      "number": 110,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4391994328_p0",
@@ -3325,7 +3465,8 @@
       "unverified": true,
       "path": "problems/W4391994328_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 111
+      "number": 111,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4392646050_p0",
@@ -3360,7 +3501,9 @@
       "unverified": true,
       "path": "problems/W4392646050_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 112
+      "number": 112,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4392748341_p0",
@@ -3394,7 +3537,9 @@
       "unverified": true,
       "path": "problems/W4392748341_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 114
+      "number": 114,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4393233856_p0",
@@ -3427,7 +3572,8 @@
       "unverified": true,
       "path": "problems/W4393233856_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 115
+      "number": 115,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4393423947_p0",
@@ -3460,7 +3606,9 @@
       "unverified": true,
       "path": "problems/W4393423947_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 116
+      "number": 116,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4396581165_p0",
@@ -3492,7 +3640,9 @@
       "unverified": true,
       "path": "problems/W4396581165_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 117
+      "number": 117,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4396625954_p0",
@@ -3526,7 +3676,8 @@
       "unverified": true,
       "path": "problems/W4396625954_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 118
+      "number": 118,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4396690120_p0",
@@ -3558,7 +3709,9 @@
       "unverified": true,
       "path": "problems/W4396690120_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 119
+      "number": 119,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4396905249_p0",
@@ -3593,7 +3746,9 @@
       "unverified": true,
       "path": "problems/W4396905249_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 120
+      "number": 120,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4399497388_p0",
@@ -3627,7 +3782,8 @@
       "unverified": true,
       "path": "problems/W4399497388_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 121
+      "number": 121,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4400196985_p0",
@@ -3661,7 +3817,8 @@
       "unverified": true,
       "path": "problems/W4400196985_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 122
+      "number": 122,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4400454886_p0",
@@ -3694,7 +3851,9 @@
       "unverified": true,
       "path": "problems/W4400454886_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 123
+      "number": 123,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4400583084_p0",
@@ -3729,7 +3888,8 @@
       "unverified": true,
       "path": "problems/W4400583084_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 124
+      "number": 124,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4400583097_p0",
@@ -3761,7 +3921,9 @@
       "unverified": true,
       "path": "problems/W4400583097_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 125
+      "number": 125,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4400685310_p0",
@@ -3794,7 +3956,8 @@
       "unverified": true,
       "path": "problems/W4400685310_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 126
+      "number": 126,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4400732905_p0",
@@ -3826,7 +3989,8 @@
       "unverified": true,
       "path": "problems/W4400732905_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 127
+      "number": 127,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4401117667_p0",
@@ -3860,7 +4024,9 @@
       "unverified": true,
       "path": "problems/W4401117667_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 128
+      "number": 128,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4401514485_p0",
@@ -3892,7 +4058,8 @@
       "unverified": true,
       "path": "problems/W4401514485_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 130
+      "number": 130,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4401542271_p0",
@@ -3926,7 +4093,8 @@
       "unverified": true,
       "path": "problems/W4401542271_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 131
+      "number": 131,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4402128674_p0",
@@ -3959,7 +4127,8 @@
       "unverified": true,
       "path": "problems/W4402128674_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 133
+      "number": 133,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4403279582_p0",
@@ -3992,7 +4161,9 @@
       "unverified": true,
       "path": "problems/W4403279582_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 134
+      "number": 134,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4403453300_p0",
@@ -4026,7 +4197,9 @@
       "unverified": true,
       "path": "problems/W4403453300_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 135
+      "number": 135,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4403683873_p0",
@@ -4060,7 +4233,8 @@
       "unverified": true,
       "path": "problems/W4403683873_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 136
+      "number": 136,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4404109711_p0",
@@ -4095,7 +4269,8 @@
       "unverified": true,
       "path": "problems/W4404109711_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 137
+      "number": 137,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4404566852_p0",
@@ -4130,7 +4305,9 @@
       "unverified": true,
       "path": "problems/W4404566852_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 138
+      "number": 138,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4404717018_p0",
@@ -4165,7 +4342,9 @@
       "unverified": true,
       "path": "problems/W4404717018_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 139
+      "number": 139,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4405512051_p0",
@@ -4200,7 +4379,8 @@
       "unverified": true,
       "path": "problems/W4405512051_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 141
+      "number": 141,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4405624370_p0",
@@ -4234,7 +4414,9 @@
       "unverified": true,
       "path": "problems/W4405624370_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 142
+      "number": 142,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4405639491_p0",
@@ -4268,7 +4450,9 @@
       "unverified": true,
       "path": "problems/W4405639491_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 143
+      "number": 143,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4407408247_p0",
@@ -4302,7 +4486,9 @@
       "unverified": true,
       "path": "problems/W4407408247_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 144
+      "number": 144,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4408054337_p0",
@@ -4337,7 +4523,8 @@
       "unverified": true,
       "path": "problems/W4408054337_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 145
+      "number": 145,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4408446556_p0",
@@ -4370,7 +4557,8 @@
       "unverified": true,
       "path": "problems/W4408446556_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 146
+      "number": 146,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4408830023_p0",
@@ -4407,7 +4595,9 @@
       "unverified": true,
       "path": "problems/W4408830023_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 147
+      "number": 147,
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "strict_audit_v1"
     },
     {
       "problem_id": "W4408928070_p0",
@@ -4440,7 +4630,8 @@
       "unverified": true,
       "path": "problems/W4408928070_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 148
+      "number": 148,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4409316647_p0",
@@ -4475,7 +4666,8 @@
       "unverified": true,
       "path": "problems/W4409316647_p0.json",
       "pipeline_generated_at_utc": "2026-04-20T23:08:51.436215+00:00",
-      "number": 149
+      "number": 149,
+      "quantitative_bounds": false
     },
     {
       "problem_id": "W4377866503_p0",
@@ -4510,7 +4702,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4377866503_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533279_p0",
@@ -4544,7 +4738,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383533279_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533306_p0",
@@ -4579,7 +4775,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383533306_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533309_p0",
@@ -4615,7 +4813,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383533309_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533356_p0",
@@ -4652,7 +4852,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383533356_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533365_p0",
@@ -4688,7 +4890,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383533365_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533377_p0",
@@ -4723,7 +4927,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383533377_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533394_p0",
@@ -4756,7 +4962,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383533394_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533465_p0",
@@ -4791,7 +4999,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383533465_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383533535_p0",
@@ -4828,7 +5038,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383533535_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383557893_p0",
@@ -4864,7 +5076,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383557893_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383557903_p0",
@@ -4896,7 +5110,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383557903_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383558051_p0",
@@ -4930,7 +5146,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383558051_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383558054_p0",
@@ -4968,7 +5186,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4383558054_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383558145_p0",
@@ -5003,7 +5223,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383558145_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4383558673_p0",
@@ -5037,7 +5259,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4383558673_p0.json",
-      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00"
+      "pipeline_generated_at_utc": "2026-07-08T05:32:24.962001+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W3207326278_p0",
@@ -5071,7 +5295,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W3207326278_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4221157708_p0",
@@ -5107,7 +5333,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4221157708_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4226352527_p0",
@@ -5143,7 +5371,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4226352527_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4280639630_p0",
@@ -5177,7 +5407,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4280639630_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285089261_p0",
@@ -5214,7 +5446,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285089261_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285089627_p0",
@@ -5247,7 +5481,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285089627_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285090266_p0",
@@ -5281,7 +5517,9 @@
       "has_literature_review": false,
       "unverified": true,
       "path": "problems/W4285090266_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285091035_p0",
@@ -5316,7 +5554,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285091035_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285091592_p0",
@@ -5349,7 +5589,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285091592_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285092914_p0",
@@ -5384,7 +5626,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285092914_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     },
     {
       "problem_id": "W4285396203_p0",
@@ -5419,7 +5663,9 @@
       "has_literature_review": true,
       "unverified": true,
       "path": "problems/W4285396203_p0.json",
-      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00"
+      "pipeline_generated_at_utc": "2026-07-09T16:36:31.339015+00:00",
+      "quantitative_bounds": true,
+      "quantitative_bounds_source": "ec_extraction_default"
     }
   ],
   "unverified_disclaimer": {

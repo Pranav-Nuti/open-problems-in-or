@@ -135,5 +135,6 @@
     "citations_analyzed": 28,
     "is_open": true,
     "model": "gpt-5.2"
-  }
+  },
+  "quantitative_bounds": false
 }

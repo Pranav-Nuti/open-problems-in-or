@@ -137,5 +137,7 @@
     "citations_analyzed": 40,
     "is_open": false,
     "model": "gpt-5.2"
-  }
+  },
+  "quantitative_bounds": true,
+  "quantitative_bounds_source": "strict_audit_v1"
 }

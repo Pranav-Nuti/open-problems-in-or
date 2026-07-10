@@ -52,6 +52,10 @@
           <span class="problem-detail-label">Area</span>
           <span class="problem-detail-value" id="problem-area"></span>
         </div>
+        <div class="problem-detail-item" id="problem-type-item" hidden>
+          <span class="problem-detail-label">Type</span>
+          <span class="problem-detail-value" id="problem-type"></span>
+        </div>
         <div class="problem-detail-item">
           <span class="problem-detail-label">Status</span>
           <span class="problem-detail-value" id="verification-status"></span>
@@ -819,6 +823,15 @@
         `<a class="problem-area-link problem-category-link" href="${escapeHtml(categoryHref)}" title="Show all problems in ${escapeHtml(category)}">${escapeHtml(category)}</a>` +
         `<span class="problem-area-sep">›</span>` +
         `<a class="problem-area-link" href="${escapeHtml(areaHref)}" title="Show only problems in ${escapeHtml(areaRaw)}">${escapeHtml(areaRaw)}</a>`;
+      const typeItemEl = document.getElementById("problem-type-item");
+      const typeEl = document.getElementById("problem-type");
+      if (payload.quantitative_bounds) {
+        typeItemEl.hidden = false;
+        typeEl.innerHTML = `<span class="label-pill label-pill-quantitative">quantitative bounds</span>`;
+      } else {
+        typeItemEl.hidden = true;
+        typeEl.textContent = "";
+      }
       document.getElementById("verification-status").textContent = unverified
         ? "Not independently verified (extraction only)"
         : (payload.verification?.is_open ? "Open" : "Closed");
