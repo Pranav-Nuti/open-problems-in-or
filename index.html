@@ -439,7 +439,14 @@
 
     function formatAttemptBadge(p) {
       if (p.__attemptCounts.solutions > 0) {
-        return `<span><span class="attempt-pill attempt-pill-solution">${p.__attemptCounts.solutions} solution${p.__attemptCounts.solutions === 1 ? "" : "s"}</span></span>`;
+        const classification = p.__solutionClassification;
+        let classPill = "";
+        if (classification === "direct_proof") {
+          classPill = ` <span class="label-pill label-pill-direct-proof">direct proof</span>`;
+        } else if (classification === "counterexample") {
+          classPill = ` <span class="label-pill label-pill-counterexample">counterexample</span>`;
+        }
+        return `<span><span class="attempt-pill attempt-pill-solution">${p.__attemptCounts.solutions} solution${p.__attemptCounts.solutions === 1 ? "" : "s"}</span>${classPill}</span>`;
       }
       if (p.__attemptCounts.partial > 0) {
         return `<span><span class="attempt-pill attempt-pill-partial">${p.__attemptCounts.partial} partial</span></span>`;
@@ -712,6 +719,9 @@
       }
       ALL_PROBLEMS = payload.problems.map((p, idx) => {
         const attempts = attemptsForProblem(solutionManifest, p.problem_id);
+        const solutionClassification = attempts.solutions
+          .map((sol) => sol && sol.classification)
+          .find((value) => value === "direct_proof" || value === "counterexample") || "";
         const enriched = {
           ...p,
           __globalIndex: idx + 1,
@@ -723,6 +733,7 @@
             partial: attempts.partial.length,
             total: attempts.solutions.length + attempts.partial.length,
           },
+          __solutionClassification: solutionClassification,
           __attemptLabel: attemptLabel(attempts),
           __attemptSearch: attemptSearchText(attempts),
         };

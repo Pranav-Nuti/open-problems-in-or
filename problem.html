@@ -886,6 +886,16 @@
       section.hidden = false;
     }
 
+    function classificationPill(classification) {
+      if (classification === "direct_proof") {
+        return ` <span class="label-pill label-pill-direct-proof">direct proof</span>`;
+      }
+      if (classification === "counterexample") {
+        return ` <span class="label-pill label-pill-counterexample">counterexample</span>`;
+      }
+      return "";
+    }
+
     function renderAttemptGroup(title, attempts) {
       const items = attempts.map((attempt) => {
         const url = String(attempt.path || "");
@@ -894,7 +904,8 @@
         }
         const label = String(attempt.label || attempt.filename || "PDF");
         const file = attempt.filename ? ` <span class="solution-attempt-meta">${escapeHtml(attempt.filename)}</span>` : "";
-        return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>${file}</li>`;
+        const pill = classificationPill(attempt.classification);
+        return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>${pill}${file}</li>`;
       }).filter(Boolean);
       return `
         <div class="solution-attempt-group">

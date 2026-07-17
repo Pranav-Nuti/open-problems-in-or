@@ -68,7 +68,8 @@
           "kind": "solution",
           "label": "Solution #58 (PDF)",
           "path": "data/llm_math_export/solution_progress/W3080982993_p0/solutions/58.pdf",
-          "filename": "58.pdf"
+          "filename": "58.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -129,7 +130,8 @@
           "kind": "solution",
           "label": "Solution #63 (PDF)",
           "path": "data/llm_math_export/solution_progress/W3170420696_p0/solutions/63.pdf",
-          "filename": "63.pdf"
+          "filename": "63.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -140,7 +142,8 @@
           "kind": "solution",
           "label": "Solution #64 (PDF)",
           "path": "data/llm_math_export/solution_progress/W3171990983_p0/solutions/64.pdf",
-          "filename": "64.pdf"
+          "filename": "64.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -184,7 +187,8 @@
           "kind": "solution",
           "label": "Solution #69 (PDF)",
           "path": "data/llm_math_export/solution_progress/W3216294154_p0/solutions/69.pdf",
-          "filename": "69.pdf"
+          "filename": "69.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -217,7 +221,8 @@
           "kind": "solution",
           "label": "Solution #72 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4221167288_p0/solutions/72.pdf",
-          "filename": "72.pdf"
+          "filename": "72.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -228,7 +233,8 @@
           "kind": "solution",
           "label": "Solution #73 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4226226337_p0/solutions/73.pdf",
-          "filename": "73.pdf"
+          "filename": "73.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -261,7 +267,8 @@
           "kind": "solution",
           "label": "Solution #78 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4377821221_p0/solutions/78.pdf",
-          "filename": "78.pdf"
+          "filename": "78.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -300,7 +307,8 @@
           "kind": "solution",
           "label": "Solution #84 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4384342505_p0/solutions/84.pdf",
-          "filename": "84.pdf"
+          "filename": "84.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -410,7 +418,8 @@
           "kind": "solution",
           "label": "Solution #97 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4388047886_p0/solutions/97.pdf",
-          "filename": "97.pdf"
+          "filename": "97.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -515,7 +524,8 @@
           "kind": "solution",
           "label": "Solution #108 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4391315199_p0/solutions/108.pdf",
-          "filename": "108.pdf"
+          "filename": "108.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -526,7 +536,8 @@
           "kind": "solution",
           "label": "Solution #109 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4391601457_p0/solutions/109.pdf",
-          "filename": "109.pdf"
+          "filename": "109.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -559,7 +570,8 @@
           "kind": "solution",
           "label": "Solution #112 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4392646050_p0/solutions/112.pdf",
-          "filename": "112.pdf"
+          "filename": "112.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -587,7 +599,8 @@
           "kind": "solution",
           "label": "Solution #115 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4393233856_p0/solutions/115.pdf",
-          "filename": "115.pdf"
+          "filename": "115.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -664,7 +677,8 @@
           "kind": "solution",
           "label": "Solution #121 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4399497388_p0/solutions/121.pdf",
-          "filename": "121.pdf"
+          "filename": "121.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -708,7 +722,8 @@
           "kind": "solution",
           "label": "Solution #125 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4400583097_p0/solutions/125.pdf",
-          "filename": "125.pdf"
+          "filename": "125.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -840,7 +855,8 @@
           "kind": "solution",
           "label": "Solution #138 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4404566852_p0/solutions/138.pdf",
-          "filename": "138.pdf"
+          "filename": "138.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -884,7 +900,8 @@
           "kind": "solution",
           "label": "Solution #143 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4405639491_p0/solutions/143.pdf",
-          "filename": "143.pdf"
+          "filename": "143.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -917,7 +934,8 @@
           "kind": "solution",
           "label": "Solution #146 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4408446556_p0/solutions/146.pdf",
-          "filename": "146.pdf"
+          "filename": "146.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -1027,7 +1045,8 @@
           "kind": "solution",
           "label": "Solution #10 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4410395976_p0/solutions/10.pdf",
-          "filename": "10.pdf"
+          "filename": "10.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -1110,7 +1129,8 @@
           "kind": "solution",
           "label": "Solution #19 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4411879499_p0/solutions/19.pdf",
-          "filename": "19.pdf"
+          "filename": "19.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -1121,7 +1141,8 @@
           "kind": "solution",
           "label": "Solution #20 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4411957271_p0/solutions/20.pdf",
-          "filename": "20.pdf"
+          "filename": "20.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -1132,7 +1153,8 @@
           "kind": "solution",
           "label": "Solution #21 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4411959281_p0/solutions/21_W4411959281_p0.pdf",
-          "filename": "21_W4411959281_p0.pdf"
+          "filename": "21_W4411959281_p0.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -1165,7 +1187,8 @@
           "kind": "solution",
           "label": "Solution #24 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4413077228_p0/solutions/24.pdf",
-          "filename": "24.pdf"
+          "filename": "24.pdf",
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
@@ -1276,7 +1299,8 @@
           "kind": "solution",
           "label": "Solution #33 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4415178980_p0/solutions/33.pdf",
-          "filename": "33.pdf"
+          "filename": "33.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -1425,7 +1449,8 @@
           "kind": "solution",
           "label": "Solution #47 (PDF)",
           "path": "data/llm_math_export/solution_progress/W7128591806_p0/solutions/47.pdf",
-          "filename": "47.pdf"
+          "filename": "47.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []
@@ -1469,7 +1494,8 @@
           "kind": "solution",
           "label": "Solution #52 (PDF)",
           "path": "data/llm_math_export/solution_progress/W7150839694_p0/solutions/52.pdf",
-          "filename": "52.pdf"
+          "filename": "52.pdf",
+          "classification": "direct_proof"
         }
       ],
       "partial_progress": []

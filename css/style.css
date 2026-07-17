@@ -303,6 +303,18 @@ main {
   color: #2a4f8f;
 }
 
+.label-pill-direct-proof {
+  border: 1px solid #a9cfc4;
+  background: #eef7f4;
+  color: #1f5f52;
+}
+
+.label-pill-counterexample {
+  border: 1px solid #d9b0a4;
+  background: #faf0ec;
+  color: #7a3f30;
+}
+
 /* List controls: search + topic + sort */
 .journal-tabs {
   display: flex;

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "description": "Proof-style classification for verified website solution PDFs. Values: direct_proof | counterexample.",
+  "classifications": {
+    "W4410395976_p0": "direct_proof",
+    "W4411879499_p0": "direct_proof",
+    "W4411957271_p0": "direct_proof",
+    "W4415178980_p0": "direct_proof",
+    "W7128591806_p0": "direct_proof",
+    "W7150839694_p0": "direct_proof",
+    "W3170420696_p0": "direct_proof",
+    "W4226226337_p0": "direct_proof",
+    "W4377821221_p0": "direct_proof",
+    "W4388047886_p0": "direct_proof",
+    "W4391601457_p0": "direct_proof",
+    "W4392646050_p0": "direct_proof",
+    "W4400583097_p0": "direct_proof",
+    "W4404566852_p0": "direct_proof",
+    "W4405639491_p0": "direct_proof",
+    "W4411959281_p0": "counterexample",
+    "W4413077228_p0": "counterexample",
+    "W3080982993_p0": "counterexample",
+    "W3171990983_p0": "counterexample",
+    "W3216294154_p0": "counterexample",
+    "W4221167288_p0": "counterexample",
+    "W4384342505_p0": "counterexample",
+    "W4391315199_p0": "counterexample",
+    "W4393233856_p0": "counterexample",
+    "W4399497388_p0": "counterexample",
+    "W4408446556_p0": "counterexample"
+  }
+}
