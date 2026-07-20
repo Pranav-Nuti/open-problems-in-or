@@ -2,7 +2,7 @@
   "schema_version": 1,
   "description": "Proof-style classification for verified website solution PDFs. Values: direct_proof | counterexample.",
   "classifications": {
-    "W4410395976_p0": "direct_proof",
+    "W4410395976_p0": "counterexample",
     "W4411879499_p0": "direct_proof",
     "W4411957271_p0": "direct_proof",
     "W4415178980_p0": "direct_proof",

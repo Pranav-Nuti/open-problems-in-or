@@ -1046,7 +1046,7 @@
           "label": "Solution #10 (PDF)",
           "path": "data/llm_math_export/solution_progress/W4410395976_p0/solutions/10.pdf",
           "filename": "10.pdf",
-          "classification": "direct_proof"
+          "classification": "counterexample"
         }
       ],
       "partial_progress": []
