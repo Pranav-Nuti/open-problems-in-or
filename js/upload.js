@@ -47,7 +47,10 @@
   function kindLabel(kind) {
     if (kind === "extraction" || kind === "extracted") return "extraction";
     if (kind === "literature_review") return "literature review";
-    if (kind === "solver_attempt" || kind === "solve_report") return "solver attempt";
+    if (kind === "solver_verified") return "verified solution";
+    if (kind === "solver_partial" || kind === "solver_attempt" || kind === "solve_report") {
+      return "unsuccessful attempt";
+    }
     return kind || "output";
   }
 
@@ -145,8 +148,16 @@
     const pill = document.createElement("span");
     pill.className = "upload-status-pill";
     const key = String(status || "").toLowerCase();
-    if (key === "extracted" || key === "done" || key === "solved" || key.startsWith("review")) {
+    if (
+      key === "extracted" ||
+      key === "done" ||
+      key === "verified" ||
+      key === "solved" ||
+      key.startsWith("review")
+    ) {
       pill.classList.add("is-reviewed");
+    } else if (key === "partial") {
+      pill.classList.add("is-partial");
     } else if (key === "failed" || key === "error") {
       pill.classList.add("is-failed");
     } else if (
@@ -175,7 +186,8 @@
 
   function stageStateLabel(state) {
     const key = String(state || "pending").toLowerCase();
-    if (key === "done") return "Done";
+    if (key === "done" || key === "verified") return key === "verified" ? "Verified" : "Done";
+    if (key === "partial") return "Partial";
     if (key === "running") return "Running";
     if (key === "failed") return "Failed";
     if (key === "skipped") return "Skipped";
@@ -187,7 +199,8 @@
     const pill = document.createElement("span");
     const key = String(state || "pending").toLowerCase();
     pill.className = "upload-stage-pill";
-    if (key === "done") pill.classList.add("is-done");
+    if (key === "done" || key === "verified") pill.classList.add("is-done");
+    else if (key === "partial") pill.classList.add("is-partial");
     else if (key === "running") pill.classList.add("is-running");
     else if (key === "failed") pill.classList.add("is-failed");
     else if (key === "skipped") pill.classList.add("is-skipped");
@@ -276,7 +289,8 @@
       "Run the full pipeline on this paper?\n\n" +
         "1) Extract open problem\n" +
         "2) Literature review (web search)\n" +
-        "3) One-pass solve-base (OpenAI API, abridged)\n\n" +
+        "3) One-pass solve-base only if review says still open\n\n" +
+        "Verified solutions and unsuccessful attempts are stored separately.\n" +
         "This can take a long time and incurs model cost."
     );
     if (!ok) return;

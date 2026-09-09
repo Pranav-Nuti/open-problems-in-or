@@ -110,7 +110,7 @@ Open the live Upload tab → log in → upload a small PDF → it should appear 
 | Field | Default | Meaning |
 |-------|---------|---------|
 | `file` | required | PDF bytes |
-| `artifact_kind` | `extraction` | `extraction` \| `literature_review` \| `solver_attempt` |
+| `artifact_kind` | `extraction` | `extraction` \| `literature_review` \| `solver_verified` \| `solver_partial` \| `solver_attempt` |
 | `finalize` | `true` | Mark job `done` after this artifact. Pipeline workers post intermediate results with `finalize=false`, then finalize on the last PDF. |
 
 Each result is stored as an upload (`kind` matching the artifact) linked via `parent_upload_id` and listed on the job under `artifacts`.

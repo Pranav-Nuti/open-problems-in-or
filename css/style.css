@@ -2260,6 +2260,11 @@ main.is-failed :is(#kpi-grid, .bar-chart, #outcome-bar, #solution-type-bar):empt
   background: var(--tone-positive-bg);
   color: var(--tone-positive);
 }
+.upload-stage-pill.is-partial {
+  border-color: var(--tone-caution-border);
+  background: var(--tone-caution-bg);
+  color: var(--tone-caution);
+}
 .upload-stage-pill.is-failed {
   border-color: var(--tone-clay-border);
   background: var(--tone-clay-bg);
@@ -2277,6 +2282,8 @@ main.is-failed :is(#kpi-grid, .bar-chart, #outcome-bar, #solution-type-bar):empt
 }
 .upload-status-pill.is-reviewed { border-color: var(--tone-positive-border);
   background: var(--tone-positive-bg); color: var(--tone-positive); }
+.upload-status-pill.is-partial { border-color: var(--tone-caution-border);
+  background: var(--tone-caution-bg); color: var(--tone-caution); }
 .upload-status-pill.is-pending  { border-color: var(--tone-caution-border);
   background: var(--tone-caution-bg); color: var(--tone-caution); }
 .upload-status-pill.is-failed {

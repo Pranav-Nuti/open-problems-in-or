@@ -125,7 +125,7 @@ class JobArtifactsTests(unittest.TestCase):
             self.main.upload_job_result(
                 job_id=job_id,
                 file=_pdf_upload("solver.pdf"),
-                artifact_kind="solver_attempt",
+                artifact_kind="solver_verified",
                 finalize=True,
                 worker=self.worker,
             )
@@ -133,7 +133,7 @@ class JobArtifactsTests(unittest.TestCase):
         self.assertTrue(third["finalized"])
         self.assertEqual(third["job"]["status"], "done")
         kinds = [a["artifact_kind"] for a in third["job"]["artifacts"]]
-        self.assertEqual(kinds, ["extraction", "literature_review", "solver_attempt"])
+        self.assertEqual(kinds, ["extraction", "literature_review", "solver_verified"])
 
         user = self.db_mod.get_user_by_username("pete")
         items = self.db_mod.list_uploads_for_user(int(user["id"]), limit=50)
@@ -144,7 +144,35 @@ class JobArtifactsTests(unittest.TestCase):
         self.assertIn("source", by_kind)
         self.assertIn("extraction", by_kind)
         self.assertIn("literature_review", by_kind)
-        self.assertIn("solver_attempt", by_kind)
+        self.assertIn("solver_verified", by_kind)
+        self.assertEqual(by_kind["solver_verified"]["status"], "verified")
+
+    def test_solver_partial_and_legacy_attempt_kinds(self) -> None:
+        _src_id, job_id = self._source_and_running_job()
+        body = asyncio.run(
+            self.main.upload_job_result(
+                job_id=job_id,
+                file=_pdf_upload("attempt.pdf"),
+                artifact_kind="solver_partial",
+                finalize=True,
+                worker=self.worker,
+            )
+        )
+        self.assertEqual(body["upload"]["kind"], "solver_partial")
+        self.assertEqual(body["upload"]["status"], "partial")
+
+        _src2, job2 = self._source_and_running_job()
+        legacy = asyncio.run(
+            self.main.upload_job_result(
+                job_id=job2,
+                file=_pdf_upload("legacy.pdf"),
+                artifact_kind="solver_attempt",
+                finalize=True,
+                worker=self.worker,
+            )
+        )
+        self.assertEqual(legacy["upload"]["kind"], "solver_attempt")
+        self.assertEqual(legacy["upload"]["status"], "partial")
 
     def test_invalid_artifact_kind_rejected(self) -> None:
         from fastapi import HTTPException

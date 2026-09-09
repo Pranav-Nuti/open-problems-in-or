@@ -43,10 +43,23 @@ ARTIFACT_KINDS = {
         "status": "reviewed",
         "prefix": "lit_review_",
     },
+    # Verified by the pipeline verifier (solution/solution.pdf).
+    "solver_verified": {
+        "upload_kind": "solver_verified",
+        "status": "verified",
+        "prefix": "verified_",
+    },
+    # Unsuccessful / partial progress (partial_progress/partial_progress.pdf).
+    # Kept as solver_attempt for backward compatibility with older workers.
     "solver_attempt": {
         "upload_kind": "solver_attempt",
-        "status": "solved",
-        "prefix": "solver_",
+        "status": "partial",
+        "prefix": "attempt_",
+    },
+    "solver_partial": {
+        "upload_kind": "solver_partial",
+        "status": "partial",
+        "prefix": "attempt_",
     },
 }
 
