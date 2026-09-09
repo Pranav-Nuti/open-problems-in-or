@@ -1,11 +1,13 @@
 /**
- * Upload page: login + PDF intake + extract jobs.
+ * Upload page: login/register + PDF intake + extract jobs + admin approvals.
  *
  * Talks to SITE_CONFIG.uploadApiBaseUrl:
- *   POST {base}/auth/login
+ *   POST {base}/auth/login | /auth/register
+ *   GET  {base}/auth/pending  (admin)
+ *   POST {base}/auth/pending/{id}/approve|reject  (admin)
  *   POST/GET {base}/api/uploads
  *   GET  {base}/api/uploads/{id}/file
- *   POST {base}/api/uploads/{id}/jobs  {kind:"extract"}
+ *   POST {base}/api/uploads/{id}/jobs  {kind:"extract"|"pipeline"}
  */
 (function () {
   "use strict";
@@ -17,13 +19,28 @@
 
   const els = {
     banner: document.getElementById("upload-status-banner"),
+    authPanel: document.getElementById("auth-panel"),
     loginPanel: document.getElementById("login-panel"),
+    registerPanel: document.getElementById("register-panel"),
+    registerPendingPanel: document.getElementById("register-pending-panel"),
+    registerPendingMessage: document.getElementById("register-pending-message"),
+    authTabLogin: document.getElementById("auth-tab-login"),
+    authTabRegister: document.getElementById("auth-tab-register"),
     uploadPanel: document.getElementById("upload-panel"),
     loginForm: document.getElementById("login-form"),
     loginError: document.getElementById("login-error"),
     loginSubmit: document.getElementById("login-submit"),
+    registerForm: document.getElementById("register-form"),
+    registerError: document.getElementById("register-error"),
+    registerSubmit: document.getElementById("register-submit"),
+    registerBackToLogin: document.getElementById("register-back-to-login"),
     sessionLabel: document.getElementById("session-label"),
     logoutBtn: document.getElementById("logout-btn"),
+    adminPendingPanel: document.getElementById("admin-pending-panel"),
+    pendingList: document.getElementById("pending-list"),
+    pendingEmpty: document.getElementById("pending-empty"),
+    pendingError: document.getElementById("pending-error"),
+    pendingRefreshBtn: document.getElementById("pending-refresh-btn"),
     dropzone: document.getElementById("upload-dropzone"),
     fileInput: document.getElementById("upload-file-input"),
     uploadError: document.getElementById("upload-error"),
@@ -113,11 +130,19 @@
       body = await res.text();
     }
     if (!res.ok) {
-      const detail =
+      let detail =
         (body && body.detail) ||
         (body && body.message) ||
         (typeof body === "string" ? body : "") ||
         res.statusText;
+      if (Array.isArray(detail)) {
+        detail = detail
+          .map((item) => (item && item.msg) || JSON.stringify(item))
+          .filter(Boolean)
+          .join("; ");
+      } else if (detail && typeof detail === "object") {
+        detail = detail.msg || JSON.stringify(detail);
+      }
       const err = new Error(detail || `Request failed (${res.status})`);
       err.status = res.status;
       throw err;
@@ -125,15 +150,42 @@
     return body;
   }
 
+  function isAdminSession(session) {
+    return Boolean(session && String(session.role || "").toLowerCase() === "admin");
+  }
+
+  function showAuthMode(mode) {
+    const login = mode === "login";
+    const register = mode === "register";
+    const pending = mode === "pending";
+    if (els.loginPanel) els.loginPanel.hidden = !login;
+    if (els.registerPanel) els.registerPanel.hidden = !register;
+    if (els.registerPendingPanel) els.registerPendingPanel.hidden = !pending;
+    if (els.authTabLogin) {
+      els.authTabLogin.classList.toggle("is-active", login || pending);
+      els.authTabLogin.setAttribute("aria-selected", login || pending ? "true" : "false");
+    }
+    if (els.authTabRegister) {
+      els.authTabRegister.classList.toggle("is-active", register);
+      els.authTabRegister.setAttribute("aria-selected", register ? "true" : "false");
+    }
+  }
+
   function renderSession(session) {
-    const signedIn = Boolean(session && session.username);
-    els.loginPanel.hidden = signedIn;
+    const signedIn = Boolean(session && session.username && session.token);
+    if (els.authPanel) els.authPanel.hidden = signedIn;
     els.uploadPanel.hidden = !signedIn;
     if (signedIn) {
-      els.sessionLabel.textContent = `Signed in as ${session.username}`;
+      const role = session.role ? ` (${session.role})` : "";
+      els.sessionLabel.textContent = `Signed in as ${session.username}${role}`;
+      if (els.adminPendingPanel) els.adminPendingPanel.hidden = !isAdminSession(session);
+    } else if (els.adminPendingPanel) {
+      els.adminPendingPanel.hidden = true;
     }
     setError(els.loginError, "");
     setError(els.uploadError, "");
+    setError(els.registerError, "");
+    setError(els.pendingError, "");
   }
 
   function formatUploadDate(value) {
@@ -549,18 +601,138 @@
         },
         null
       );
+      const user = data.user || {};
       const session = {
-        username: (data.user && data.user.username) || data.username || username,
+        username: user.username || data.username || username,
+        role: user.role || null,
         token: data.token || data.access_token || null,
       };
       saveSession(session);
       renderSession(session);
       els.loginForm.reset();
       await refreshUploads(session);
+      if (isAdminSession(session)) await refreshPending(session);
     } catch (err) {
       setError(els.loginError, err.message);
     } finally {
       els.loginSubmit.disabled = false;
+    }
+  }
+
+  async function handleRegister(event) {
+    event.preventDefault();
+    setError(els.registerError, "");
+    if (!els.registerForm) return;
+    const username = String(els.registerForm.username.value || "").trim();
+    const email = String(els.registerForm.email.value || "").trim();
+    const password = String(els.registerForm.password.value || "");
+    if (!username || !email || !password) {
+      setError(els.registerError, "Enter a username, email, and password.");
+      return;
+    }
+    if (els.registerSubmit) els.registerSubmit.disabled = true;
+    try {
+      const data = await apiFetch(
+        "/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        },
+        null
+      );
+      els.registerForm.reset();
+      if (els.registerPendingMessage) {
+        els.registerPendingMessage.textContent =
+          (data && data.message) ||
+          `Account “${username}” was created and is pending approval. An admin must approve it before you can sign in.`;
+      }
+      showAuthMode("pending");
+    } catch (err) {
+      setError(els.registerError, err.message);
+    } finally {
+      if (els.registerSubmit) els.registerSubmit.disabled = false;
+    }
+  }
+
+  async function refreshPending(session, quiet) {
+    if (!els.adminPendingPanel || !isAdminSession(session)) return;
+    try {
+      const data = await apiFetch("/auth/pending", { method: "GET" }, session);
+      renderPending(data.items || [], session);
+      if (!quiet) setError(els.pendingError, "");
+    } catch (err) {
+      if (err.status === 401 || err.status === 403) {
+        if (els.adminPendingPanel) els.adminPendingPanel.hidden = true;
+      }
+      if (!quiet) setError(els.pendingError, err.message);
+    }
+  }
+
+  function renderPending(items, session) {
+    if (!els.pendingList || !els.pendingEmpty) return;
+    const list = Array.isArray(items) ? items : [];
+    els.pendingList.innerHTML = "";
+    if (!list.length) {
+      els.pendingEmpty.hidden = false;
+      els.pendingList.hidden = true;
+      return;
+    }
+    els.pendingEmpty.hidden = true;
+    els.pendingList.hidden = false;
+    for (const item of list) {
+      const li = document.createElement("li");
+      li.className = "upload-list-item";
+
+      const main = document.createElement("div");
+      main.className = "upload-list-main";
+      const name = document.createElement("span");
+      name.className = "upload-list-name";
+      name.textContent = item.username || `user #${item.id}`;
+      const meta = document.createElement("span");
+      meta.className = "upload-list-meta";
+      const bits = [item.email || "", formatUploadDate(item.created_at || "")].filter(Boolean);
+      meta.textContent = bits.join(" · ");
+      main.appendChild(name);
+      main.appendChild(meta);
+
+      const actions = document.createElement("div");
+      actions.className = "upload-list-actions";
+
+      const approveBtn = document.createElement("button");
+      approveBtn.type = "button";
+      approveBtn.className = "upload-btn";
+      approveBtn.textContent = "Approve";
+      approveBtn.addEventListener("click", () =>
+        decidePending(item.id, "approve", session, approveBtn)
+      );
+
+      const rejectBtn = document.createElement("button");
+      rejectBtn.type = "button";
+      rejectBtn.className = "upload-btn upload-btn-secondary";
+      rejectBtn.textContent = "Reject";
+      rejectBtn.addEventListener("click", () =>
+        decidePending(item.id, "reject", session, rejectBtn)
+      );
+
+      actions.appendChild(approveBtn);
+      actions.appendChild(rejectBtn);
+      li.appendChild(main);
+      li.appendChild(statusPill("pending"));
+      li.appendChild(actions);
+      els.pendingList.appendChild(li);
+    }
+  }
+
+  async function decidePending(userId, action, session, button) {
+    setError(els.pendingError, "");
+    if (button) button.disabled = true;
+    try {
+      await apiFetch(`/auth/pending/${userId}/${action}`, { method: "POST" }, session);
+      await refreshPending(session);
+    } catch (err) {
+      setError(els.pendingError, err.message);
+      if (button) button.disabled = false;
     }
   }
 
@@ -577,7 +749,9 @@
     }
     saveSession(null);
     renderSession(null);
+    showAuthMode("login");
     renderUploads([]);
+    renderPending([]);
   }
 
   async function handleFile(file) {
@@ -661,10 +835,32 @@
 
     const session = loadSession();
     renderSession(session);
+    showAuthMode("login");
     renderUploads([]);
 
     els.loginForm.addEventListener("submit", handleLogin);
+    if (els.registerForm) els.registerForm.addEventListener("submit", handleRegister);
     els.logoutBtn.addEventListener("click", handleLogout);
+    if (els.authTabLogin) {
+      els.authTabLogin.addEventListener("click", () => {
+        setError(els.loginError, "");
+        showAuthMode("login");
+      });
+    }
+    if (els.authTabRegister) {
+      els.authTabRegister.addEventListener("click", () => {
+        setError(els.registerError, "");
+        showAuthMode("register");
+      });
+    }
+    if (els.registerBackToLogin) {
+      els.registerBackToLogin.addEventListener("click", () => showAuthMode("login"));
+    }
+    if (els.pendingRefreshBtn) {
+      els.pendingRefreshBtn.addEventListener("click", () =>
+        refreshPending(loadSession(), false)
+      );
+    }
     if (els.clearUploadsBtn) {
       els.clearUploadsBtn.addEventListener("click", () =>
         clearList("sources", loadSession(), els.clearUploadsBtn)
@@ -680,14 +876,18 @@
     if (session && apiConfigured()) {
       try {
         const me = await apiFetch("/auth/me", { method: "GET" }, session);
-        const username = (me.user && me.user.username) || me.username || session.username;
-        saveSession({ ...session, username });
+        const user = me.user || {};
+        const username = user.username || me.username || session.username;
+        const role = user.role || session.role || null;
+        saveSession({ ...session, username, role });
         renderSession(loadSession());
         await refreshUploads(loadSession());
+        if (isAdminSession(loadSession())) await refreshPending(loadSession());
       } catch (err) {
-        if (err.status === 401) {
+        if (err.status === 401 || err.status === 403) {
           saveSession(null);
           renderSession(null);
+          showAuthMode("login");
         }
       }
     }

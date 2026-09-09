@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=upload-outcomes-1">
+  <link rel="stylesheet" href="css/style.css?v=upload-accounts-1">
 </head>
 <body class="page-upload">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,35 +35,83 @@
       <h1 class="page-title">Upload</h1>
       <p class="page-lede">
         Sign in to upload the statement of an open problem or a paper of yours
-        that has an open problem. Files are stored on the upload backend; they
-        are not published to the public problem pages until reviewed.
+        that has an open problem. New accounts need admin approval before upload
+        access is granted. Files are stored on the upload backend; they are not
+        published to the public problem pages until reviewed.
       </p>
     </div>
 
     <div id="upload-status-banner" class="upload-status-banner" role="status"></div>
 
-    <section id="login-panel" class="upload-panel" aria-labelledby="login-panel-title">
-      <h3 id="login-panel-title" class="upload-panel-title">Sign in</h3>
-      <form id="login-form" class="upload-form" novalidate>
-        <div class="upload-field">
-          <label for="login-username">Username</label>
-          <input id="login-username" name="username" type="text" autocomplete="username" required>
-        </div>
-        <div class="upload-field">
-          <label for="login-password">Password</label>
-          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
-        </div>
-        <p id="login-error" class="upload-form-error" role="alert" aria-live="polite"></p>
+    <section id="auth-panel" class="upload-panel" aria-labelledby="auth-panel-title">
+      <h3 id="auth-panel-title" class="upload-panel-title">Account</h3>
+      <div class="upload-auth-tabs" role="tablist" aria-label="Account actions">
+        <button type="button" class="upload-auth-tab is-active" id="auth-tab-login" role="tab" aria-selected="true">Sign in</button>
+        <button type="button" class="upload-auth-tab" id="auth-tab-register" role="tab" aria-selected="false">Create account</button>
+      </div>
+
+      <div id="login-panel" role="tabpanel">
+        <form id="login-form" class="upload-form" novalidate>
+          <div class="upload-field">
+            <label for="login-username">Username</label>
+            <input id="login-username" name="username" type="text" autocomplete="username" required>
+          </div>
+          <div class="upload-field">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <p id="login-error" class="upload-form-error" role="alert" aria-live="polite"></p>
+          <div class="upload-actions">
+            <button type="submit" class="upload-btn" id="login-submit">Sign in</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="register-panel" role="tabpanel" hidden>
+        <form id="register-form" class="upload-form" novalidate>
+          <div class="upload-field">
+            <label for="register-username">Username</label>
+            <input id="register-username" name="username" type="text" autocomplete="username" required minlength="3" maxlength="64">
+          </div>
+          <div class="upload-field">
+            <label for="register-email">Email</label>
+            <input id="register-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="upload-field">
+            <label for="register-password">Password</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="8">
+          </div>
+          <p class="upload-section-lede">After you create an account, an admin must approve it before you can sign in.</p>
+          <p id="register-error" class="upload-form-error" role="alert" aria-live="polite"></p>
+          <div class="upload-actions">
+            <button type="submit" class="upload-btn" id="register-submit">Create account</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="register-pending-panel" hidden>
+        <p id="register-pending-message" class="upload-section-lede"></p>
         <div class="upload-actions">
-          <button type="submit" class="upload-btn" id="login-submit">Sign in</button>
+          <button type="button" class="upload-btn upload-btn-secondary" id="register-back-to-login">Back to sign in</button>
         </div>
-      </form>
+      </div>
     </section>
 
     <section id="upload-panel" class="upload-panel" hidden aria-labelledby="upload-panel-title">
       <div class="upload-session-bar">
         <span id="session-label">Signed in</span>
         <button type="button" class="upload-btn upload-btn-secondary" id="logout-btn">Sign out</button>
+      </div>
+
+      <div id="admin-pending-panel" class="upload-admin-panel" hidden>
+        <div class="upload-list-header">
+          <h3 id="pending-accounts-title" class="upload-panel-title">Pending accounts</h3>
+          <button type="button" class="upload-btn upload-btn-secondary" id="pending-refresh-btn">Refresh</button>
+        </div>
+        <p class="upload-section-lede">Approve or reject new signup requests. Approved users can sign in and upload.</p>
+        <p id="pending-error" class="upload-form-error" role="alert" aria-live="polite"></p>
+        <p id="pending-empty" class="upload-empty">No pending accounts.</p>
+        <ul id="pending-list" class="upload-list upload-pending-list" hidden aria-labelledby="pending-accounts-title"></ul>
       </div>
 
       <h3 id="upload-panel-title" class="upload-panel-title">Upload PDF</h3>
@@ -107,7 +155,7 @@
     </div>
   </footer>
 
-  <script src="js/site-config.js?v=upload-outcomes-1"></script>
-  <script src="js/upload.js?v=upload-outcomes-1"></script>
+  <script src="js/site-config.js?v=upload-accounts-1"></script>
+  <script src="js/upload.js?v=upload-accounts-1"></script>
 </body>
 </html>

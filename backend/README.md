@@ -46,7 +46,7 @@ Existing and seeded users are **approved**. Login and authenticated routes requi
 | POST | `/auth/pending/{id}/approve` | admin | Approve pending user |
 | POST | `/auth/pending/{id}/reject` | admin | Reject pending user |
 
-Email notify + signup UI are later phases.
+Email notify is not used: admins approve or reject from the Upload page in the browser.
 
 ## Shared production (Railway)
 
