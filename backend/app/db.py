@@ -15,6 +15,10 @@ from typing import Optional
 from . import config
 
 
+USER_STATUSES = frozenset({"pending", "approved", "rejected"})
+DEFAULT_USER_STATUS = "approved"
+
+
 def _connect() -> sqlite3.Connection:
     config.DATA_DIR.mkdir(parents=True, exist_ok=True)
     config.UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -99,6 +103,26 @@ def init_db() -> None:
         _ensure_column(conn, "uploads", "kind", "TEXT NOT NULL DEFAULT 'source'")
         _ensure_column(conn, "jobs", "stages_json", "TEXT")
         _ensure_column(conn, "uploads", "archived_at", "TEXT")
+        # Account approval (Phase A): existing rows become approved so logins keep working.
+        _ensure_column(conn, "users", "email", "TEXT")
+        _ensure_column(conn, "users", "status", "TEXT NOT NULL DEFAULT 'approved'")
+        _ensure_column(conn, "users", "approved_at", "TEXT")
+        _ensure_column(conn, "users", "approved_by", "INTEGER")
+        conn.execute(
+            """
+            UPDATE users
+            SET status = 'approved',
+                approved_at = COALESCE(approved_at, created_at)
+            WHERE status IS NULL OR TRIM(status) = '' OR status NOT IN ('pending', 'approved', 'rejected')
+            """
+        )
+        conn.execute(
+            """
+            CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email_unique
+            ON users(email)
+            WHERE email IS NOT NULL AND TRIM(email) != ''
+            """
+        )
 
 
 def get_user_by_username(username: str) -> Optional[Dict[str, Any]]:
@@ -116,15 +140,110 @@ def get_user_by_id(user_id: int) -> Optional[Dict[str, Any]]:
     return dict(row) if row else None
 
 
-def create_user(*, username: str, password_hash: str, role: str = "admin") -> Dict[str, Any]:
+def get_user_by_email(email: str) -> Optional[Dict[str, Any]]:
+    cleaned = (email or "").strip()
+    if not cleaned:
+        return None
     with db() as conn:
-        cur = conn.execute(
-            "INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)",
-            (username, password_hash, role),
-        )
+        row = conn.execute(
+            "SELECT * FROM users WHERE email = ? COLLATE NOCASE",
+            (cleaned,),
+        ).fetchone()
+    return dict(row) if row else None
+
+
+def create_user(
+    *,
+    username: str,
+    password_hash: str,
+    role: str = "admin",
+    email: Optional[str] = None,
+    status: str = DEFAULT_USER_STATUS,
+    approved_by: Optional[int] = None,
+) -> Dict[str, Any]:
+    status_key = (status or DEFAULT_USER_STATUS).strip().lower()
+    if status_key not in USER_STATUSES:
+        raise ValueError(f"Invalid user status: {status}")
+    email_value = (email or "").strip() or None
+    approved_at = None
+    if status_key == "approved":
+        # Use DB clock via SQL below.
+        approved_at = True
+    with db() as conn:
+        if approved_at:
+            cur = conn.execute(
+                """
+                INSERT INTO users (
+                  username, password_hash, role, email, status, approved_at, approved_by
+                ) VALUES (?, ?, ?, ?, ?, strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), ?)
+                """,
+                (username, password_hash, role, email_value, status_key, approved_by),
+            )
+        else:
+            cur = conn.execute(
+                """
+                INSERT INTO users (
+                  username, password_hash, role, email, status, approved_at, approved_by
+                ) VALUES (?, ?, ?, ?, ?, NULL, ?)
+                """,
+                (username, password_hash, role, email_value, status_key, approved_by),
+            )
         user_id = int(cur.lastrowid)
         row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
     return dict(row)
+
+
+def set_user_status(
+    *,
+    user_id: int,
+    status: str,
+    approved_by: Optional[int] = None,
+) -> Optional[Dict[str, Any]]:
+    status_key = (status or "").strip().lower()
+    if status_key not in USER_STATUSES:
+        raise ValueError(f"Invalid user status: {status}")
+    with db() as conn:
+        if status_key == "approved":
+            conn.execute(
+                """
+                UPDATE users
+                SET status = ?,
+                    approved_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now'),
+                    approved_by = ?
+                WHERE id = ?
+                """,
+                (status_key, approved_by, user_id),
+            )
+        else:
+            conn.execute(
+                """
+                UPDATE users
+                SET status = ?,
+                    approved_at = NULL,
+                    approved_by = NULL
+                WHERE id = ?
+                """,
+                (status_key, user_id),
+            )
+        row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    return dict(row) if row else None
+
+
+def list_users_by_status(status: str, *, limit: int = 100) -> List[Dict[str, Any]]:
+    status_key = (status or "").strip().lower()
+    if status_key not in USER_STATUSES:
+        raise ValueError(f"Invalid user status: {status}")
+    with db() as conn:
+        rows = conn.execute(
+            """
+            SELECT * FROM users
+            WHERE status = ?
+            ORDER BY created_at ASC, id ASC
+            LIMIT ?
+            """,
+            (status_key, limit),
+        ).fetchall()
+    return [dict(row) for row in rows]
 
 
 def count_users() -> int:

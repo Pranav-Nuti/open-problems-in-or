@@ -100,6 +100,7 @@ def login(body: LoginRequest) -> Dict[str, Any]:
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid username or password.",
         )
+    auth.assert_user_approved(user)
     token = auth.create_access_token(
         user_id=int(user["id"]),
         username=user["username"],

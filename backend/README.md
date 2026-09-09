@@ -25,13 +25,19 @@ Then open http://127.0.0.1:8000/upload.html
 
 ## Tests
 
-Multi-artifact job result coverage (temp SQLite, no Railway):
+Temp SQLite coverage (no Railway):
 
 ```bash
 cd backend
 source .venv/bin/activate
-python -m unittest tests.test_job_artifacts -v
+python -m unittest tests.test_job_artifacts tests.test_user_status -v
 ```
+
+## Users / approval (Phase A)
+
+`users` rows have `email`, `status` (`pending` | `approved` | `rejected`), and optional `approved_at` / `approved_by`.
+Existing and seeded users are **approved**. Login and authenticated routes require `status=approved`.
+Signup + email notification land in a later phase; helpers already exist: `create_user(..., status="pending")`, `set_user_status`, `list_users_by_status`.
 
 ## Shared production (Railway)
 

@@ -59,7 +59,33 @@ def public_user(row: Dict[str, Any]) -> Dict[str, Any]:
         "id": row["id"],
         "username": row["username"],
         "role": row["role"],
+        "email": row.get("email"),
+        "status": (row.get("status") or db_mod.DEFAULT_USER_STATUS),
     }
+
+
+def user_is_approved(row: Dict[str, Any]) -> bool:
+    return str(row.get("status") or "").strip().lower() == "approved"
+
+
+def assert_user_approved(row: Dict[str, Any]) -> None:
+    status_key = str(row.get("status") or "").strip().lower()
+    if status_key == "approved":
+        return
+    if status_key == "pending":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Account is pending approval.",
+        )
+    if status_key == "rejected":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Account was rejected.",
+        )
+    raise HTTPException(
+        status_code=status.HTTP_403_FORBIDDEN,
+        detail="Account is not approved.",
+    )
 
 
 def seed_admin_user_if_needed() -> None:
@@ -74,6 +100,7 @@ def seed_admin_user_if_needed() -> None:
         username=config.SEED_USERNAME,
         password_hash=hash_password(config.SEED_PASSWORD),
         role="admin",
+        status="approved",
     )
 
 
@@ -99,6 +126,7 @@ async def require_user(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User no longer exists.",
         )
+    assert_user_approved(user)
     return user
 
 
