@@ -61,6 +61,8 @@ def public_user(row: Dict[str, Any]) -> Dict[str, Any]:
         "role": row["role"],
         "email": row.get("email"),
         "status": (row.get("status") or db_mod.DEFAULT_USER_STATUS),
+        "created_at": row.get("created_at"),
+        "approved_at": row.get("approved_at"),
     }
 
 
@@ -127,6 +129,15 @@ async def require_user(
             detail="User no longer exists.",
         )
     assert_user_approved(user)
+    return user
+
+
+async def require_admin(user: Dict[str, Any] = Depends(require_user)) -> Dict[str, Any]:
+    if str(user.get("role") or "").strip().lower() != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin access required.",
+        )
     return user
 
 

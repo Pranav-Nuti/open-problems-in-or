@@ -69,6 +69,12 @@ class LoginRequest(BaseModel):
     password: str = Field(min_length=1, max_length=256)
 
 
+class RegisterRequest(BaseModel):
+    username: str = Field(min_length=3, max_length=64)
+    email: str = Field(min_length=3, max_length=254)
+    password: str = Field(min_length=8, max_length=256)
+
+
 class CreateJobRequest(BaseModel):
     kind: str = Field(default="extract", min_length=1, max_length=64)
 
@@ -81,6 +87,39 @@ class ArchiveUploadsRequest(BaseModel):
     scope: str = Field(default="sources", min_length=1, max_length=32)
 
 
+_USERNAME_RE = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]{2,63}$")
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+
+
+def _normalize_username(raw: str) -> str:
+    return (raw or "").strip()
+
+
+def _normalize_email(raw: str) -> str:
+    return (raw or "").strip().lower()
+
+
+def _validate_register_fields(*, username: str, email: str, password: str) -> tuple[str, str]:
+    user = _normalize_username(username)
+    mail = _normalize_email(email)
+    if not _USERNAME_RE.match(user):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Username must be 3–64 chars: letters, digits, . _ - (start with letter/digit).",
+        )
+    if not _EMAIL_RE.match(mail):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="A valid email address is required.",
+        )
+    if len(password) < 8:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Password must be at least 8 characters.",
+        )
+    return user, mail
+
+
 @app.on_event("startup")
 def on_startup() -> None:
     db_mod.init_db()
@@ -90,6 +129,43 @@ def on_startup() -> None:
 @app.get("/health")
 def health() -> Dict[str, str]:
     return {"status": "ok"}
+
+
+@app.post("/auth/register")
+def register(body: RegisterRequest) -> Dict[str, Any]:
+    """Create a pending uploader account (no session token until approved)."""
+    username, email = _validate_register_fields(
+        username=body.username,
+        email=body.email,
+        password=body.password,
+    )
+    if db_mod.get_user_by_username(username):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Username is already taken.",
+        )
+    if db_mod.get_user_by_email(email):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Email is already registered.",
+        )
+    try:
+        user = db_mod.create_user(
+            username=username,
+            password_hash=auth.hash_password(body.password),
+            role="uploader",
+            email=email,
+            status="pending",
+        )
+    except Exception as exc:  # noqa: BLE001 — surface unique constraint races
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Username or email is already registered.",
+        ) from exc
+    return {
+        "user": auth.public_user(user),
+        "message": "Account created and pending approval. You cannot log in until an admin approves you.",
+    }
 
 
 @app.post("/auth/login")
@@ -117,6 +193,54 @@ def logout(_user: Dict[str, Any] = Depends(auth.require_user)) -> Dict[str, bool
 @app.get("/auth/me")
 def me(user: Dict[str, Any] = Depends(auth.require_user)) -> Dict[str, Any]:
     return {"user": auth.public_user(user)}
+
+
+@app.get("/auth/pending")
+def list_pending_users(
+    admin: Dict[str, Any] = Depends(auth.require_admin),
+) -> Dict[str, Any]:
+    items = [auth.public_user(row) for row in db_mod.list_users_by_status("pending")]
+    return {"items": items, "count": len(items)}
+
+
+def _pending_user_or_409(user_id: int) -> Dict[str, Any]:
+    user = db_mod.get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found.")
+    if str(user.get("status") or "").strip().lower() != "pending":
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"User is not pending (status={user.get('status')}).",
+        )
+    return user
+
+
+@app.post("/auth/pending/{user_id}/approve")
+def approve_pending_user(
+    user_id: int,
+    admin: Dict[str, Any] = Depends(auth.require_admin),
+) -> Dict[str, Any]:
+    _pending_user_or_409(user_id)
+    updated = db_mod.set_user_status(
+        user_id=user_id,
+        status="approved",
+        approved_by=int(admin["id"]),
+    )
+    if not updated:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found.")
+    return {"user": auth.public_user(updated)}
+
+
+@app.post("/auth/pending/{user_id}/reject")
+def reject_pending_user(
+    user_id: int,
+    admin: Dict[str, Any] = Depends(auth.require_admin),
+) -> Dict[str, Any]:
+    _pending_user_or_409(user_id)
+    updated = db_mod.set_user_status(user_id=user_id, status="rejected")
+    if not updated:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found.")
+    return {"user": auth.public_user(updated)}
 
 
 def _safe_filename(name: str) -> str:

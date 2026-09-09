@@ -30,14 +30,23 @@ Temp SQLite coverage (no Railway):
 ```bash
 cd backend
 source .venv/bin/activate
-python -m unittest tests.test_job_artifacts tests.test_user_status -v
+python -m unittest tests.test_job_artifacts tests.test_user_status tests.test_auth_register -v
 ```
 
-## Users / approval (Phase A)
+## Users / approval (Phase A–B)
 
 `users` rows have `email`, `status` (`pending` | `approved` | `rejected`), and optional `approved_at` / `approved_by`.
 Existing and seeded users are **approved**. Login and authenticated routes require `status=approved`.
-Signup + email notification land in a later phase; helpers already exist: `create_user(..., status="pending")`, `set_user_status`, `list_users_by_status`.
+
+| Method | Path | Auth | Meaning |
+|--------|------|------|---------|
+| POST | `/auth/register` | public | Create pending uploader (`username`, `email`, `password`) |
+| POST | `/auth/login` | public | Issue JWT (approved users only) |
+| GET | `/auth/pending` | admin | List pending accounts |
+| POST | `/auth/pending/{id}/approve` | admin | Approve pending user |
+| POST | `/auth/pending/{id}/reject` | admin | Reject pending user |
+
+Email notify + signup UI are later phases.
 
 ## Shared production (Railway)
 
